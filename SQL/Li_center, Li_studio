@@ -1,0 +1,68 @@
+-- 센터 테이블
+create table ﻿li_center(
+    ﻿ct_bizno varchar2(30) not null, -﻿-﻿사업자등록번호
+    ﻿ct_name varchar2(50) not null, --﻿센터명
+    ﻿ct_opbiz_ym ﻿number(10) not null, --﻿센터개업년월
+    ﻿ct_intro varchar2(500) not null, --﻿센터 소개
+    ﻿ct_mainart varchar2(30) not null, --﻿센터 주요작품
+    ﻿ct_zipno ﻿number(10) not null, --﻿센터 우편번호
+    ﻿ct_addr varchar2(500) not null, --﻿센터 주소
+    ﻿ct_detail_addr varchar2(100) not null, --﻿센터 상세주소
+    ﻿ct_tel varchar2(30), -- ﻿센터 대표전화
+    ﻿ct_hmpg_addr varchar2(100) not null, -- ﻿센터 홈페이지주소
+    ﻿ct_date date default sysdate not null, -- ﻿센터 등록일
+
+    constraint li_center_pk primary key(ct_bizno)
+);
+
+select * from li_center;
+
+
+comment on table li_center is '﻿센터 테이블';
+comment on column li_center.﻿ct_bizno is '﻿사업자등록번호';
+comment on column li_center.ct_name is '﻿센터명';
+comment on column li_center.ct_opbiz_ym is '﻿센터개업년월';
+comment on column li_center.ct_intro is '﻿센터 소개';
+comment on column li_center.ct_mainart is '﻿센터 주요작품';
+comment on column li_center.﻿ct_zipno is '﻿센터 우편번호';
+comment on column li_center.﻿ct_addr is '﻿센터 주소';
+comment on column li_center.﻿ct_detail_addr is '﻿센터 상세주소';
+comment on column li_center.﻿ct_tel is '﻿﻿센터 대표전화';
+comment on column li_center.﻿ct_hmpg_addr is '﻿﻿센터 홈페이지주소';
+comment on column li_center.﻿ct_date is '﻿﻿센터 등록일';
+
+
+-- 스튜디오 테이블
+create table ﻿li_studio(
+    ﻿s_no varchar2(15) not null, --스튜디오게시판 ﻿글번호
+    ﻿ct_bizno varchar2(15) not null, --﻿사업자등록번호
+    ﻿s_title varchar2(18) not null, -﻿-스튜디오게시판 제목
+    ﻿s_content varchar2(100) not null, --스튜디오게시판 내용
+    ﻿s_date date default sysdate, --스튜디오게시판 작성일
+    ﻿s_thumb varchar2(500) not null, --스튜디오게시판 썸네일
+    ﻿s_file varchar2(500)  not null, --스튜디오게시판 파일명
+
+    constraint ﻿li_studio_pk primary key(s_no)
+    constraint li_studio_fk foreign key(ct_bizno)
+                               references ﻿li_center(ct_bizno)
+
+);
+
+--스튜디오 테이블 시퀀스
+create sequence li_studio_seq
+start with 1
+increment by 1
+minvalue 1
+nocycle
+cache 2;
+
+select * from ﻿li_studio;
+
+comment on table ﻿li_studio is '스튜디오 테이블';
+comment on column ﻿li_studio.﻿s_no is '스튜디오게시판 ﻿글번호';
+comment on column ﻿li_studio.ct_bizno is '사업자등록번호';
+comment on column ﻿li_studio.s_title is '스튜디오게시판 제목';
+comment on column ﻿li_studio.﻿s_content is '스튜디오게시판 내용';
+comment on column ﻿li_studio.s_date is '스튜디오게시판 작성일';
+comment on column ﻿li_studio.s_thumb is '스튜디오게시판 썸네일';
+comment on column ﻿li_studio.s_file is '스튜디오게시판 파일명';
