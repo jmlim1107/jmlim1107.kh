@@ -4,20 +4,22 @@
 
 CREATE TABLE Li_Review(
     review_no NUMBER(4),
+    review_name varchar2(30),
     review_content CLOB,
     review_date DATE,
     review_update DATE,
     review_status NUMBER(2),
     review_img VARCHAR2(50),
     review_thumb_file VARCHAR2(50),
-    c_no NUMBER NOT NULL,   -- 클래스 번호(클래스 테이블 외래키)
-    user_no varchar2(50)    -- 회원 번호  (회원 테이블 외래키)
+    CONSTRAINT review_c_no FOREIGN KEY(review_c_no) REFERENCES li_class (c_no),   -- 클래스 번호(클래스 테이블 외래키)
+    CONSTRAINT review_user_no FOREIGN KEY(review_user_no) REFERENCES li_user (user_no)   -- 회원 번호  (회원 테이블 외래키)
 );
 
 
 
 COMMENT ON TABLE Li_Review is  '후기 게시판 테이블';
 COMMENT ON COLUMN Li_Review.review_no is '후기 게시글 번호';
+COMMENT ON COLUMN Li_Review.review_name is '후기 작성자명';
 COMMENT ON COLUMN Li_Review.review_content is '후기 내용';
 COMMENT ON COLUMN Li_Review.review_date is '후기 작성일';
 COMMENT ON COLUMN Li_Review.review_update is '후기 수정일';
