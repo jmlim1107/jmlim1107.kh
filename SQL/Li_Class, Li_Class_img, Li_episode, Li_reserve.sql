@@ -1,35 +1,35 @@
--- Å¬·¡½º(Li_Class)      (update 23.03.14)                                                     
+-- í´ë˜ìŠ¤(Li_Class)      (update 23.03.14)                                                     
 create table li_class (
-	c_no number not null,                   --Å¬·¡½º ¹øÈ£
-    ct_bizno number not null,               --»ç¾÷ÀÚ µî·Ï¹øÈ£
-    c_title varchar2(20) not null,          --Å¬·¡½º Á¦¸ñ
-    c_content clob not null,                --Å¬·¡½º ¼Ò°³±Û
-    c_category varchar2(10) not null,       --Å¬·¡½º Ä«Å×°í¸® ( 0.°ø¿¹, 1.¿ä¸®, 2.¹Ì¼ú, 3.ÇÃ¶ó¿ö, 4.ºäÆ¼, 5.Ã¼Çè¹×±âÅ¸ )
-    c_level varchar2(1) not null,           --Å¬·¡½º ³­ÀÌµµ
-    c_area varchar2(10) not null,           --Å¬·¡½º Áö¿ª
-    c_luv number not null,                  --Å¬·¡½º °ü½É¼ö
-    c_leadtime number not null,             --Å¬·¡½º ¼Ò¿ä½Ã°£
-    c_maxcnt number not null,               --Å¬·¡½º ÃÖ´ëÀÎ¿ø
-    c_mincnt number default 1 not null,     --Å¬·¡½º ÃÖ¼ÒÀÎ¿ø
-    c_date date default sysdate not null,   --Å¬·¡½º µî·ÏÀÏÀÚ
-    c_state number default 0 not null,      --Å¬·¡½º »óÅÂ ( 0:µî·Ï¿Ï·á/¿¹¾à°¡´É, 1:»èÁ¦/¿¹¾àºÒ°¡ )
+	c_no number not null,                   --í´ë˜ìŠ¤ ë²ˆí˜¸
+    ct_bizno varchar2(30) not null,               --ì‚¬ì—…ì ë“±ë¡ë²ˆí˜¸
+    c_title varchar2(20) not null,          --í´ë˜ìŠ¤ ì œëª©
+    c_content clob not null,                --í´ë˜ìŠ¤ ì†Œê°œê¸€
+    c_category varchar2(10) not null,       --í´ë˜ìŠ¤ ì¹´í…Œê³ ë¦¬ ( 0.ê³µì˜ˆ, 1.ìš”ë¦¬, 2.ë¯¸ìˆ , 3.í”Œë¼ì›Œ, 4.ë·°í‹°, 5.ì²´í—˜ë°ê¸°íƒ€ )
+    c_level varchar2(1) not null,           --í´ë˜ìŠ¤ ë‚œì´ë„
+    c_area varchar2(10) not null,           --í´ë˜ìŠ¤ ì§€ì—­
+    c_luv number not null,                  --í´ë˜ìŠ¤ ê´€ì‹¬ìˆ˜
+    c_leadtime number not null,             --í´ë˜ìŠ¤ ì†Œìš”ì‹œê°„
+    c_maxcnt number not null,               --í´ë˜ìŠ¤ ìµœëŒ€ì¸ì›
+    c_mincnt number default 1 not null,     --í´ë˜ìŠ¤ ìµœì†Œì¸ì›
+    c_date date default sysdate not null,   --í´ë˜ìŠ¤ ë“±ë¡ì¼ì
+    c_state number default 0 not null,      --í´ë˜ìŠ¤ ìƒíƒœ ( 0:ë“±ë¡ì™„ë£Œ/ì˜ˆì•½ê°€ëŠ¥, 1:ì‚­ì œ/ì˜ˆì•½ë¶ˆê°€ )
    	constraint li_class_pk primary key(c_no),
    	constraint li_class_fk foreign key(ct_bizno) references li_center(ct_bizno)
 );
-comment on table li_class is 'Å¬·¡½º Å×ÀÌºí';
-comment on column li_class.c_no is 'Å¬·¡½º ¹øÈ£';
-comment on column li_class.c_title is 'Å¬·¡½º Á¦¸ñ';
-comment on column li_class.c_content is 'Å¬·¡½º ¼Ò°³±Û';
-comment on column li_class.c_category is 'Å¬·¡½º Ä«Å×°í¸®';
-comment on column li_class.c_level is 'Å¬·¡½º ³­ÀÌµµ';
-comment on column li_class.c_area is 'Å¬·¡½º Áö¿ª';
-comment on column li_class.c_luv is 'Å¬·¡½º °ü½É¼ö';
-comment on column li_class.c_leadtime is 'Å¬·¡½º ¼Ò¿ä½Ã°£';
-comment on column li_class.c_maxcnt is 'Å¬·¡½º ÃÖ´ëÀÎ¿ø';
-comment on column li_class.c_mincnt is 'Å¬·¡½º ÃÖ¼ÒÀÎ¿ø';
-comment on column li_class.c_date is 'Å¬·¡½º µî·ÏÀÏÀÚ';
-comment on column li_class.c_state is 'Å¬·¡½º »óÅÂ';
---Å¬·¡½º ¹øÈ£
+comment on table li_class is 'í´ë˜ìŠ¤ í…Œì´ë¸”';
+comment on column li_class.c_no is 'í´ë˜ìŠ¤ ë²ˆí˜¸';
+comment on column li_class.c_title is 'í´ë˜ìŠ¤ ì œëª©';
+comment on column li_class.c_content is 'í´ë˜ìŠ¤ ì†Œê°œê¸€';
+comment on column li_class.c_category is 'í´ë˜ìŠ¤ ì¹´í…Œê³ ë¦¬';
+comment on column li_class.c_level is 'í´ë˜ìŠ¤ ë‚œì´ë„';
+comment on column li_class.c_area is 'í´ë˜ìŠ¤ ì§€ì—­';
+comment on column li_class.c_luv is 'í´ë˜ìŠ¤ ê´€ì‹¬ìˆ˜';
+comment on column li_class.c_leadtime is 'í´ë˜ìŠ¤ ì†Œìš”ì‹œê°„';
+comment on column li_class.c_maxcnt is 'í´ë˜ìŠ¤ ìµœëŒ€ì¸ì›';
+comment on column li_class.c_mincnt is 'í´ë˜ìŠ¤ ìµœì†Œì¸ì›';
+comment on column li_class.c_date is 'í´ë˜ìŠ¤ ë“±ë¡ì¼ì';
+comment on column li_class.c_state is 'í´ë˜ìŠ¤ ìƒíƒœ';
+--í´ë˜ìŠ¤ ë²ˆí˜¸
 create sequence li_class_seq
 increment by 1
 start with 1
@@ -39,23 +39,23 @@ nocache;
 
 
 
---Å¬·¡½º ÀÌ¹ÌÁö(Li_Class_img)      (update 23.03.14)
+--í´ë˜ìŠ¤ ì´ë¯¸ì§€(Li_Class_img)      (update 23.03.14)
 create table li_class_img (
-    c_img_no number not null,                           --»çÁø¹øÈ£
-    c_no number not null,                               --Å¬·¡½º ¹øÈ£
-    c_img_file varchar2(20) not null,                   --ÀÌ¹ÌÁö ÀÌ¸§
-    thumb_file varchar2(20) not null,                   --½æ³×ÀÏ ÀÌ¸§
-    c_img_date date default sysdate not null,           --ÀÌ¹ÌÁö µî·ÏÀÏ
+    c_img_no number not null,                           --ì‚¬ì§„ë²ˆí˜¸
+    c_no number not null,                               --í´ë˜ìŠ¤ ë²ˆí˜¸
+    c_img_file varchar2(20) not null,                   --ì´ë¯¸ì§€ ì´ë¦„
+    thumb_file varchar2(20) not null,                   --ì¸ë„¤ì¼ ì´ë¦„
+    c_img_date date default sysdate not null,           --ì´ë¯¸ì§€ ë“±ë¡ì¼
     constraint li_class_img_pk primary key(img_no),
     constraint li_class_img_uk unique(c_img_file),
     constraint li_class_img_uk unique(thumb_file),
     constraint li_class_img_fk foreign key(c_no) references li_class(c_no)
 );
-comment on table li_class_img is 'Å¬·¡½º ÀÌ¹ÌÁö Å×ÀÌºí';
-comment on column li_class_img.c_img_file is 'ÀÌ¹ÌÁö ÀÌ¸§';
-comment on column li_class_img.thumb_file is '½æ³×ÀÏ ÀÌ¸§';
-comment on column li_class_img.c_img_date is 'ÀÌ¹ÌÁö µî·ÏÀÏ';
---»çÁø ¹øÈ£
+comment on table li_class_img is 'í´ë˜ìŠ¤ ì´ë¯¸ì§€ í…Œì´ë¸”';
+comment on column li_class_img.c_img_file is 'ì´ë¯¸ì§€ ì´ë¦„';
+comment on column li_class_img.thumb_file is 'ì¸ë„¤ì¼ ì´ë¦„';
+comment on column li_class_img.c_img_date is 'ì´ë¯¸ì§€ ë“±ë¡ì¼';
+--ì‚¬ì§„ ë²ˆí˜¸
 create sequence li_class_img_seq
 increment by 1
 start with 1
@@ -65,24 +65,24 @@ nocache;
 
 
 
---Å¬·¡½º È¸Â÷(Li_episode)      (update 23.03.14)
+--í´ë˜ìŠ¤ íšŒì°¨(Li_episode)      (update 23.03.14)
 create table li_episode (
-    ep_no number not null,                  --È¸Â÷ ¹øÈ£
-    c_no number not null,                   --Å¬·¡½º ¹øÈ£
-    ep_price number not null,               --È¸Â÷ ¼ö°­·á
-    ep_date date not null,                  --È¸Â÷ ³¯Â¥ ¹× ½Ã°£ (³¯Â¥ + ½Ã°£)
-    ep_state number not null,               --È¸Â÷ »óÅÂ (0:¿¹¾à°¡´É / 1:ÀÎ¿ø¸¸¼®À¸·Î ¿¹¾àºÒ°¡ / 2:È¸Â÷»èÁ¦·Î ¿¹¾àºÒ°¡)
-    ep_cnt number default 0 not null,       --ÇöÀç ¿¹¾àÀÎ¿ø
+    ep_no number not null,                  --íšŒì°¨ ë²ˆí˜¸
+    c_no number not null,                   --í´ë˜ìŠ¤ ë²ˆí˜¸
+    ep_price number not null,               --íšŒì°¨ ìˆ˜ê°•ë£Œ
+    ep_date date not null,                  --íšŒì°¨ ë‚ ì§œ ë° ì‹œê°„ (ë‚ ì§œ + ì‹œê°„)
+    ep_state number not null,               --íšŒì°¨ ìƒíƒœ (0:ì˜ˆì•½ê°€ëŠ¥ / 1:ì¸ì›ë§Œì„ìœ¼ë¡œ ì˜ˆì•½ë¶ˆê°€ / 2:íšŒì°¨ì‚­ì œë¡œ ì˜ˆì•½ë¶ˆê°€)
+    ep_cnt number default 0 not null,       --í˜„ì¬ ì˜ˆì•½ì¸ì›
     constraint li_episode_pk primary key(ep_no),
     constraint li_episode_uk unique(ep_date),
     constraint li_episode_fk foreign key(c_no) references li_class(c_no)
 );
-comment on table li_episode is 'Å¬·¡½º È¸Â÷ Å×ÀÌºí';
-comment on column li_episode.ep_no is 'È¸Â÷ ¹øÈ£';
-comment on column li_episode.ep_price is 'È¸Â÷ °¡°İ';
-comment on column li_episode.ep_date is 'È¸Â÷ ³¯Â¥¹×½Ã°£';
-comment on column li_episode.ep_cnt is 'È¸Â÷ ¿¹¾àÀÎ¿ø';
---È¸Â÷¹øÈ£
+comment on table li_episode is 'í´ë˜ìŠ¤ íšŒì°¨ í…Œì´ë¸”';
+comment on column li_episode.ep_no is 'íšŒì°¨ ë²ˆí˜¸';
+comment on column li_episode.ep_price is 'íšŒì°¨ ê°€ê²©';
+comment on column li_episode.ep_date is 'íšŒì°¨ ë‚ ì§œë°ì‹œê°„';
+comment on column li_episode.ep_cnt is 'íšŒì°¨ ì˜ˆì•½ì¸ì›';
+--íšŒì°¨ë²ˆí˜¸
 create sequence li_episode_seq
 start with 1
 minvalue 1
@@ -91,26 +91,26 @@ nocache;
 
 
 
---¿¹¾à(Li_reserve)      (update 23.03.14)
+--ì˜ˆì•½(Li_reserve)      (update 23.03.14)
 create table li_reserve (
-    r_no number not null,                       --¿¹¾à¹øÈ£
-    user_no varchar2 not null,                  --È¸¿ø¹øÈ£
-    ep_no number not null,                      --È¸Â÷¹øÈ£
-    r_date date default sysdate not null,       --¿¹¾àÀÏÀÚ
-    r_state number default 1 not null,          --¿¹¾à»óÅÂ ( 1:¿¹¾àÁß(°áÁ¦¿¹Á¤) / 2:¿¹¾à¿Ï·á(°áÁ¦¿Ï·á) / 3: ¿¹¾àÃë¼Ò(È¯ºÒ) )
-    r_price number not null,                    --¿¹¾à±İ¾×
-    r_cnt number not null,                      --¿¹¾àÀÎ¿ø
+    r_no number not null,                       --ì˜ˆì•½ë²ˆí˜¸
+    user_no varchar2 not null,                  --íšŒì›ë²ˆí˜¸
+    ep_no number not null,                      --íšŒì°¨ë²ˆí˜¸
+    r_date date default sysdate not null,       --ì˜ˆì•½ì¼ì
+    r_state number default 1 not null,          --ì˜ˆì•½ìƒíƒœ ( 1:ì˜ˆì•½ì¤‘(ê²°ì œì˜ˆì •) / 2:ì˜ˆì•½ì™„ë£Œ(ê²°ì œì™„ë£Œ) / 3: ì˜ˆì•½ì·¨ì†Œ(í™˜ë¶ˆ) )
+    r_price number not null,                    --ì˜ˆì•½ê¸ˆì•¡
+    r_cnt number not null,                      --ì˜ˆì•½ì¸ì›
     constraint li_reserve primary key(r_no),
     constraint li_episode_fk foreign key(user_no) references li_user(user_no),
     constraint li_episode_fk foreign key(ep_no) references li_episode(ep_no)
 );
-comment on table li_reserve is 'Å¬·¡½º ¿¹¾à Å×ÀÌºí';
-comment on column li_reserve.r_no is '¿¹¾à ¹øÈ£';
-comment on column li_reserve.r_date is '¿¹¾à ÀÏÀÚ';
-comment on column li_reserve.r_state is '¿¹¾à »óÅÂ';
-comment on column li_reserve.r_price is '¿¹¾à ±İ¾×';
-comment on column li_reserve.r_cnt is '¿¹¾à ÀÎ¿ø';
---¿¹¾à¹øÈ£
+comment on table li_reserve is 'í´ë˜ìŠ¤ ì˜ˆì•½ í…Œì´ë¸”';
+comment on column li_reserve.r_no is 'ì˜ˆì•½ ë²ˆí˜¸';
+comment on column li_reserve.r_date is 'ì˜ˆì•½ ì¼ì';
+comment on column li_reserve.r_state is 'ì˜ˆì•½ ìƒíƒœ';
+comment on column li_reserve.r_price is 'ì˜ˆì•½ ê¸ˆì•¡';
+comment on column li_reserve.r_cnt is 'ì˜ˆì•½ ì¸ì›';
+--ì˜ˆì•½ë²ˆí˜¸
 create sequence li_reserve_seq
 start with 1
 minvalue 1
