@@ -1,4 +1,4 @@
--- 사용자(li_user)      (update 23.03.16 - 회원번호 타입변경,랜덤생성함수 추가)  
+-- 사용자(li_user)      (update 23.03.16 - 회원번호 랜덤생성함수 추가)  
 create table li_user (
 	user_no	varchar2(10) NOT NULL,
 	user_email varchar2(100) NOT NULL,
@@ -38,8 +38,8 @@ comment on column li_user.user_type is '회원계정종류';
 
 --회원번호 생성 함수
 CREATE OR REPLACE EDITIONABLE FUNCTION "LICLASS"."USER_NO_FUNC" (sysdate IN date)
-RETURN varchar2 IS
-user_no varchar2(10);
+RETURN number IS
+user_no number;
 BEGIN 
   IF sysdate IS NULL OR sysdate = NULL THEN
     user_no := '0000000000';
@@ -58,4 +58,4 @@ END user_no_func;
 
 --테스트용 데이터
 insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_img,user_type)
-values( user_no_func(sysdate),'test4567@gmail.com','1234','test','01012341234','2.jpg','1');
+values( user_no_func(sysdate),'test1234@gmail.com','1234','test','01012341234','2.jpg','0');
