@@ -1,22 +1,23 @@
 create table li_qna(
-qna_no number not null,                    --°øÁö,¹®ÀÇ°Ô½ÃÆÇ ±Û¹øÈ£
-admin_no number not null,                  --°ü¸®ÀÚ ¹øÈ£
-qna_title varchar2(100) not null,          --°øÁö,¹®ÀÇ°Ô½ÃÆÇ Á¦¸ñ
-qna_content varchar2(1000) not null,       --°øÁö,¹®ÀÇ°Ô½ÃÆÇ ³»¿ë
-qna_date date default sysdate,             --°øÁö,¹®ÀÇ°Ô½ÃÆÇ µî·ÏÀÏ
-qna_category varchar2(10) not null,        --°øÁö,¹®ÀÇ°Ô½ÃÆÇ Ä«Å×°í¸®
-qna_top_state number default 0 not null,   --°øÁö»çÇ×,¹®ÀÇ»çÇ× ±¸ºĞ ¹× °øÁö»çÇ× »ó´Ü °íÁ¤ »óÅÂ°ª
+qna_no number not null,                    --ê³µì§€,ë¬¸ì˜ê²Œì‹œíŒ ê¸€ë²ˆí˜¸
+admin_no number,                           --ê´€ë¦¬ì ë²ˆí˜¸
+qna_title varchar2(100) not null,          --ê³µì§€,ë¬¸ì˜ê²Œì‹œíŒ ì œëª©
+qna_content varchar2(1000) not null,       --ê³µì§€,ë¬¸ì˜ê²Œì‹œíŒ ë‚´ìš©
+qna_date date default sysdate,             --ê³µì§€,ë¬¸ì˜ê²Œì‹œíŒ ë“±ë¡ì¼
+qna_date_fix date default sysdate,         --ê³µì§€,ë¬¸ì˜ê²Œì‹œíŒ ìˆ˜ì •ì¼
+qna_category varchar2(10) not null,        --ê³µì§€,ë¬¸ì˜ê²Œì‹œíŒ ì¹´í…Œê³ ë¦¬
+qna_top_state number default 0 not null,   --ê³µì§€ì‚¬í•­,ë¬¸ì˜ì‚¬í•­ êµ¬ë¶„ ë° ê³µì§€ì‚¬í•­ ìƒë‹¨ ê³ ì • ìƒíƒœê°’
     constraint li_qna_pk primary key(qna_no),
     constraint li_admin_fk foreign key(admin_no) references li_admin(admin_no)
 );  
 select * from li_qna;
 
 
-comment on table li_qna is '°øÁö, ¹®ÀÇ°Ô½ÃÆÇ';
-comment on column li_qna.qna_title is '°øÁö, ¹®ÀÇ°Ô½ÃÆÇ Á¦¸ñ';
-comment on column li_qna.qna_content is '°øÁö, ¹®ÀÇ°Ô½ÃÆÇ ³»¿ë';
-comment on column li_qna.qna_date is '°øÁö, ¹®ÀÇ°Ô½ÃÆÇ µî·ÏÀÏ';
-comment on column li_qna.qna_category is '°øÁö»çÇ×,¹®ÀÇ»çÇ× ±¸ºĞ ¹× °øÁö»çÇ× »ó´Ü °íÁ¤ »óÅÂ°ª';
+comment on table li_qna is 'ê³µì§€, ë¬¸ì˜ê²Œì‹œíŒ';
+comment on column li_qna.qna_title is 'ê³µì§€, ë¬¸ì˜ê²Œì‹œíŒ ì œëª©';
+comment on column li_qna.qna_content is 'ê³µì§€, ë¬¸ì˜ê²Œì‹œíŒ ë‚´ìš©';
+comment on column li_qna.qna_date is 'ê³µì§€, ë¬¸ì˜ê²Œì‹œíŒ ë“±ë¡ì¼';
+comment on column li_qna.qna_category is 'ê³µì§€ì‚¬í•­,ë¬¸ì˜ì‚¬í•­ êµ¬ë¶„ ë° ê³µì§€ì‚¬í•­ ìƒë‹¨ ê³ ì • ìƒíƒœê°’';
 
 create sequence li_qna_seq
 start with 1
@@ -25,17 +26,17 @@ minvalue 1
 nocycle
 cache 2;
 
-create table li_admin(              --°ü¸®ÀÚ °èÁ¤
- admin_no number not null,          --°ü¸®ÀÚ ¹øÈ£
- admin_id varchar2(50) not null,    --°ü¸®ÀÚ ¾ÆÀÌµğ
- admin_pw varchar2(40) not null,    --°ü¸®ÀÚ ºñ¹Ğ¹øÈ£
- admin_name varchar2(30) not null,  --°ü¸®ÀÚ ÀÌ¸§
- admin_email varchar2(40) not null,  --°ü¸®ÀÚ ÀÌ¸ŞÀÏ
+create table li_admin(              --ê´€ë¦¬ì ê³„ì •
+ admin_no number not null,          --ê´€ë¦¬ì ë²ˆí˜¸
+ admin_id varchar2(50) not null,    --ê´€ë¦¬ì ì•„ì´ë””
+ admin_pw varchar2(40) not null,    --ê´€ë¦¬ì ë¹„ë°€ë²ˆí˜¸
+ admin_name varchar2(30) not null,  --ê´€ë¦¬ì ì´ë¦„
+ admin_email varchar2(40) not null,  --ê´€ë¦¬ì ì´ë©”ì¼
  
  constraint li_admin_pk primary key(admin_no)
 );
 
---(°ü¸®ÀÚ ÀÌ¸§ Å©±â º¯°æ(03-15ÀÏ ÀÌÀü¿¡ Å×ÀÌºí »ı¼ºÇÏ½ÅºĞµé¸¸ ½ÇÇàÇØÁÖ¼¼¿ä.)
+--(ê´€ë¦¬ì ì´ë¦„ í¬ê¸° ë³€ê²½(03-15ì¼ ì´ì „ì— í…Œì´ë¸” ìƒì„±í•˜ì‹ ë¶„ë“¤ë§Œ ì‹¤í–‰í•´ì£¼ì„¸ìš”.)
 alter table li_admin modify (admin_name varchar2(30));
 
 
@@ -46,14 +47,14 @@ minvalue 1
 nocycle
 cache 2;
 
-comment on table li_admin is '°ü¸®ÀÚ °èÁ¤ Å×ÀÌºí';
-comment on column li_admin.admin_no is '°ü¸®ÀÚ ¹øÈ£' ;
-comment on column li_admin.admin_id is '°ü¸®ÀÚ ¾ÆÀÌµğ';
-comment on column li_admin.admin_pw is '°ü¸®ÀÚ ºñ¹Ğ¹øÈ£';
-comment on column li_admin.admin_name is '°ü¸®ÀÚ ÀÌ¸§';
-comment on column li_admin.admin_email is '°ü¸®ÀÚ ÀÌ¸ŞÀÏ';
+comment on table li_admin is 'ê´€ë¦¬ì ê³„ì • í…Œì´ë¸”';
+comment on column li_admin.admin_no is 'ê´€ë¦¬ì ë²ˆí˜¸' ;
+comment on column li_admin.admin_id is 'ê´€ë¦¬ì ì•„ì´ë””';
+comment on column li_admin.admin_pw is 'ê´€ë¦¬ì ë¹„ë°€ë²ˆí˜¸';
+comment on column li_admin.admin_name is 'ê´€ë¦¬ì ì´ë¦„';
+comment on column li_admin.admin_email is 'ê´€ë¦¬ì ì´ë©”ì¼';
 
 insert into li_admin(admin_no, admin_id, admin_pw, admin_name, admin_email)
-values(li_admin_seq.nextval, 'li_admin', 'admin1234', 'ÃÖ°í°ü¸®ÀÚ', 'Liclass_Admin@liclass.co.kr');
+values(li_admin_seq.nextval, 'li_admin', 'admin1234', 'ìµœê³ ê´€ë¦¬ì', 'Liclass_Admin@liclass.co.kr');
 select * from li_admin;
 commit;
