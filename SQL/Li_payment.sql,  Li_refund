@@ -12,7 +12,9 @@ create table li_payment(            -- 결제 테이블
     pay_date        date default  sysdate,  -- 결제일자
     pay_status      number        not null,  -- 결제상태
     
-    constraint li_payment_pk primary key(merchant_uid)
+    constraint li_payment_pk primary key(merchant_uid),
+    constraint li_refund_fk foreign key(r_no) references(class_reserve)
+    
 );
 
 comment on table li_payment is '결제 테이블';
