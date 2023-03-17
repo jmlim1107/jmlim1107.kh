@@ -1,4 +1,4 @@
-create table li_payment(            -- 결제 테이블
+create table li_payment (            -- 결제 테이블
     merchant_uid    varchar2(50)  not null, -- 주문번호
     r_no            number        not null, -- 예약번호
     user_no         varchar2(50)  not null, -- 회원번호
@@ -13,7 +13,7 @@ create table li_payment(            -- 결제 테이블
     pay_status      number        not null,  -- 결제상태
     
     constraint li_payment_pk primary key(merchant_uid),
-    constraint li_refund_fk foreign key(r_no) references(class_reserve)
+    constraint li_refund_fk foreign key(r_no) references li_reserve(r_no)
     
 );
 
@@ -41,8 +41,8 @@ create table li_refund(
     refund_status number       not null,  -- 환불상태
     
     constraint li_refund_pk primary key(refund_no),
-    constraint li_refund_fk foreign key(merchant_uid) references(li_payment),
-    constraint li_refund_fk foreign key(user_no) references(li_user)
+    constraint li_refund_fk2 foreign key(merchant_uid) references li_payment(merchant_uid),
+    constraint li_refund_fk3 foreign key(user_no) references li_user(user_no)
 );
 
 comment on table li_refund is '환불 테이블';
