@@ -37,7 +37,7 @@ comment on column li_user.user_status is '회원계정상태';
 comment on column li_user.user_type is '회원계정종류';
 
 --회원번호 생성 함수
-CREATE OR REPLACE EDITIONABLE FUNCTION "LICLASS"."USER_NO_FUNC" (sysdate IN date)
+CREATE OR REPLACE EDITIONABLE FUNCTION USER_NO_FUNC (sysdate IN date)
 RETURN number IS
 user_no number;
 BEGIN 
