@@ -1,4 +1,4 @@
--- 관심클래스(li_likes)      (update 23.03.16)  
+-- 관심클래스(li_likes)      (update 23.03.19 -sequence 추가)  
 create table li_likes (
 	like_no	number NOT NULL,
     like_date date DEFAULT sysdate NOT NULL,
@@ -18,3 +18,10 @@ comment on column li_likes.like_date is '관심클래스등록일자';
 comment on column li_likes.user_no is '회원번호';
 comment on column li_likes.class_no is '클래스이름';
 
+create sequence li_likes_seq
+start with 1
+increment by 1
+minvalue 1
+nocycle
+cache 2;
+-- drop sequence li_likes_seq;
