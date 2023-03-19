@@ -28,3 +28,6 @@ nocycle
 cache 2;
 -- drop sequence li_likes_seq;
 
+--샘플 데이터 (user_no,c_no 바꿔서입력해주세요.)
+insert into li_likes(like_no,like_date,user_no,c_no)
+values(li_likes_seq.NEXTVAL,sysdate,'li_user의 user_no 번호','li_class의 c_no');
