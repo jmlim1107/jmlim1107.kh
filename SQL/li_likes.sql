@@ -1,13 +1,15 @@
--- 관심클래스(li_likes)      (update 23.03.19 -sequence 추가)  
+-- 관심클래스(li_likes)      
+--(update 23.03.19 -sequence 추가)  
+-- li_user,li_class 생성 시 외래키 코드 주석해제, 콤마 추가해주세요.
 create table li_likes (
 	like_no	number NOT NULL,
     like_date date DEFAULT sysdate NOT NULL,
 	user_no number(10) NOT NULL,
 	class_no number NOT NULL,
     
-   	constraint like_no_pk primary key(like_no),
-   	constraint user_no_fk foreign key(user_no) references li_user(user_no)
-    constraint class_no_fk foreign key(class_no) references li_class(class_no)
+   	constraint like_no_pk primary key(like_no)
+   	--constraint user_no_fk foreign key(user_no) references li_user(user_no),
+    --constraint class_no_fk foreign key(class_no) references li_class(class_no)
 );
 
 --drop table li_likes;
@@ -25,3 +27,4 @@ minvalue 1
 nocycle
 cache 2;
 -- drop sequence li_likes_seq;
+
