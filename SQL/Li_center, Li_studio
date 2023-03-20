@@ -1,52 +1,65 @@
 -- 센터 테이블
-create table ﻿li_center(
-    ﻿ct_bizno varchar2(30) not null, -﻿-﻿사업자등록번호
-    ﻿ct_name varchar2(50) not null, --﻿센터명
-    ﻿ct_opbiz_ym ﻿number(10) not null, --﻿센터개업년월
-    ﻿ct_intro varchar2(500) not null, --﻿센터 소개
-    ﻿ct_mainart varchar2(30) not null, --﻿센터 주요작품
-    ﻿ct_zipno ﻿number(10) not null, --﻿센터 우편번호
-    ﻿ct_addr varchar2(500) not null, --﻿센터 주소
-    ﻿ct_detail_addr varchar2(100) not null, --﻿센터 상세주소
-    ﻿ct_tel varchar2(30), -- ﻿센터 대표전화
-    ﻿ct_hmpg_addr varchar2(100) not null, -- ﻿센터 홈페이지주소
-    ﻿ct_date date default sysdate not null, -- ﻿센터 등록일
+create table li_center(
+    ct_bizno varchar2(30) not null, --사업자등록번호
+    ct_name varchar2(50) not null, --센터명
+    ct_opbiz_ym varchar2(20) not null, --센터개업년월
+    ct_intro varchar2(500) not null, --센터 소개
+    ct_mainart varchar2(30) not null, --센터 주요작품
+    ct_zipno number(10) not null, --센터 우편번호
+    ct_addr varchar2(500) not null, --센터 주소
+    ct_detail_addr varchar2(100) not null, --센터 상세주소
+    ct_tel varchar2(30), -- 센터 대표전화
+    ct_hmpg_addr varchar2(100) not null, -- 센터 홈페이지주소
+    ct_date date default sysdate not null, -- 센터 등록일
 
     constraint li_center_pk primary key(ct_bizno)
 );
 
 select * from li_center;
 
+--drop table li_center;
 
-comment on table li_center is '﻿센터 테이블';
-comment on column li_center.﻿ct_bizno is '﻿사업자등록번호';
-comment on column li_center.ct_name is '﻿센터명';
-comment on column li_center.ct_opbiz_ym is '﻿센터개업년월';
-comment on column li_center.ct_intro is '﻿센터 소개';
-comment on column li_center.ct_mainart is '﻿센터 주요작품';
-comment on column li_center.﻿ct_zipno is '﻿센터 우편번호';
-comment on column li_center.﻿ct_addr is '﻿센터 주소';
-comment on column li_center.﻿ct_detail_addr is '﻿센터 상세주소';
-comment on column li_center.﻿ct_tel is '﻿﻿센터 대표전화';
-comment on column li_center.﻿ct_hmpg_addr is '﻿﻿센터 홈페이지주소';
-comment on column li_center.﻿ct_date is '﻿﻿센터 등록일';
+comment on table li_center is '센터 테이블';
+comment on column li_center.ct_bizno is '사업자등록번호';
+comment on column li_center.ct_name is '센터명';
+comment on column li_center.ct_opbiz_ym is '센터개업년월';
+comment on column li_center.ct_intro is '센터 소개';
+comment on column li_center.ct_mainart is '센터 주요작품';
+comment on column li_center.ct_zipno is '센터 우편번호';
+comment on column li_center.ct_addr is '센터 주소';
+comment on column li_center.ct_detail_addr is '센터 상세주소';
+comment on column li_center.ct_tel is '센터 대표전화';
+comment on column li_center.ct_hmpg_addr is '센터 홈페이지주소';
+comment on column li_center.ct_date is '센터 등록일';
+
+INSERT INTO li_center(ct_bizno, ct_name, ct_opbiz_ym, ct_intro, ct_mainart, ct_zipno, ct_addr, ct_detail_addr, ct_tel, ct_hmpg_addr)
+    VALUES('6670500768', '수수케이크', '2017-07-18', 'customized topper cake 수수케이크', '케이크', '14245', '경기도 광명시 안현로 35 하안2단지고층주공아파트', '204-1106', '02-6671-0815', 'https://smartstore.naver.com/soosoocake');
+
+INSERT INTO li_center(ct_bizno, ct_name, ct_opbiz_ym, ct_intro, ct_mainart, ct_zipno, ct_addr, ct_detail_addr, ct_tel, ct_hmpg_addr)
+    VALUES('6538102174', '해윰', '2017-02-02', '정성가득 수제 과일청 해윰', '수제 과일청', '18271', '경기도 화성시 송산면 화성로583번길 6-5 1층', '해윰', '031-357-0366', 'http://www.haeyum.co.kr/');
+
+select * from li_center;
+
 
 
 -- 스튜디오 테이블
-create table ﻿li_studio(
-    ﻿s_no varchar2(15) not null, --스튜디오게시판 ﻿글번호
-    ﻿ct_bizno varchar2(15) not null, --﻿사업자등록번호
-    ﻿s_title varchar2(18) not null, -﻿-스튜디오게시판 제목
-    ﻿s_content varchar2(100) not null, --스튜디오게시판 내용
-    ﻿s_date date default sysdate, --스튜디오게시판 작성일
-    ﻿s_thumb varchar2(500) not null, --스튜디오게시판 썸네일
-    ﻿s_file varchar2(500)  not null, --스튜디오게시판 파일명
+create table li_studio(
+    s_no varchar2(15) not null, --스튜디오게시판 글번호
+    ct_bizno varchar2(15) not null, --사업자등록번호
+    s_title varchar2(100) not null, --스튜디오게시판 제목
+    s_content varchar2(500) not null, --스튜디오게시판 내용
+    s_date date default sysdate, --스튜디오게시판 작성일
+    s_thumb varchar2(500) not null, --스튜디오게시판 썸네일
+    s_file varchar2(500)  not null, --스튜디오게시판 파일명
 
-    constraint ﻿li_studio_pk primary key(s_no)
+    constraint li_studio_pk primary key(s_no),
     constraint li_studio_fk foreign key(ct_bizno)
-                               references ﻿li_center(ct_bizno)
+                               references li_center(ct_bizno)
 
 );
+
+--drop table li_studio;
+--drop sequence li_studio_seq;
 
 --스튜디오 테이블 시퀀스
 create sequence li_studio_seq
@@ -56,13 +69,20 @@ minvalue 1
 nocycle
 cache 2;
 
-select * from ﻿li_studio;
+select * from li_studio;
 
-comment on table ﻿li_studio is '스튜디오 테이블';
-comment on column ﻿li_studio.﻿s_no is '스튜디오게시판 ﻿글번호';
-comment on column ﻿li_studio.ct_bizno is '사업자등록번호';
-comment on column ﻿li_studio.s_title is '스튜디오게시판 제목';
-comment on column ﻿li_studio.﻿s_content is '스튜디오게시판 내용';
-comment on column ﻿li_studio.s_date is '스튜디오게시판 작성일';
-comment on column ﻿li_studio.s_thumb is '스튜디오게시판 썸네일';
-comment on column ﻿li_studio.s_file is '스튜디오게시판 파일명';
+comment on table li_studio is '스튜디오 테이블';
+comment on column li_studio.s_no is '스튜디오게시판 글번호';
+comment on column li_studio.ct_bizno is '사업자등록번호';
+comment on column li_studio.s_title is '스튜디오게시판 제목';
+comment on column li_studio.s_content is '스튜디오게시판 내용';
+comment on column li_studio.s_date is '스튜디오게시판 작성일';
+comment on column li_studio.s_thumb is '스튜디오게시판 썸네일';
+comment on column li_studio.s_file is '스튜디오게시판 파일명';
+
+INSERT INTO li_studio(s_no, ct_bizno, s_title, s_content, s_thumb, s_file)
+    VALUES(li_studio_seq.nextval, '6538102174', '수제 과일청 해윰', '정성가득 수제 과일청 해윰입니다', '사진 파일 썸네일', '사진 파일명');
+    
+
+
+select * from li_studio;
