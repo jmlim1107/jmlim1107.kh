@@ -1,12 +1,14 @@
--- 사용자(li_user)      (update 23.03.16 - 회원번호 랜덤생성함수 추가)  
+-- 사용자(li_user) 
+-- (update 23.03.16 - 회원번호 랜덤생성함수 추가)  
+-- (update 23.03.22 - 회원프로필사진 default img)  
 create table li_user (
-	user_no	varchar2(10) NOT NULL,
+	user_no	number NOT NULL,
 	user_email varchar2(100) NOT NULL,
 	user_pw	varchar2(255) NOT NULL,
 	user_name varchar2(30) NOT NULL,
     
 	user_tel varchar2(30),
-    user_img	clob,
+    user_img	clob DEFAULT 'default-profile.png' NOT NULL,
     user_point number DEFAULT 0,
 	user_regdate date DEFAULT sysdate NOT NULL,
     user_update date DEFAULT sysdate NOT NULL,
