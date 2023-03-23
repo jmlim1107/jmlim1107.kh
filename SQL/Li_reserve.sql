@@ -1,23 +1,27 @@
---ì˜ˆì•½(Li_reserve)      (update 23.03.14)
+--¿¹¾à(Li_reserve)      (update 23.03.23)
 create table li_reserve (
-    r_no number not null,                       --ì˜ˆì•½ë²ˆí˜¸
-    user_no varchar2 not null,                  --íšŒì›ë²ˆí˜¸
-    ep_no number not null,                      --íšŒì°¨ë²ˆí˜¸
-    r_date date default sysdate not null,       --ì˜ˆì•½ì¼ì
-    r_state number default 1 not null,          --ì˜ˆì•½ìƒíƒœ ( 1:ì˜ˆì•½ì¤‘(ê²°ì œì˜ˆì •) / 2:ì˜ˆì•½ì™„ë£Œ(ê²°ì œì™„ë£Œ) / 3: ì˜ˆì•½ì·¨ì†Œ(í™˜ë¶ˆ) )
-    r_price number not null,                    --ì˜ˆì•½ê¸ˆì•¡
-    r_cnt number not null,                      --ì˜ˆì•½ì¸ì›
+    r_no number not null,                       --¿¹¾à¹øÈ£
+    user_no varchar2(20) not null,              --È¸¿ø¹øÈ£
+    ep_no number not null,                      --È¸Â÷¹øÈ£
+    c_title varchar2(1000) not null,            --Å¬·¡½º Á¦¸ñ
+    r_date date default sysdate not null,       --¿¹¾àÀÏÀÚ
+    r_state number default 1 not null,          --¿¹¾à»óÅÂ 1:¿¹¾àÁß(°áÁ¦¿¹Á¤) / 2:¿¹¾à¿Ï·á(°áÁ¦¿Ï·á) / 3: ¿¹¾àÃë¼Ò(È¯ºÒ) 
+    r_price number not null,                    --¿¹¾à±İ¾×
+    r_cnt number not null,                      --¿¹¾àÀÎ¿ø
+    
     constraint li_reserve primary key(r_no),
-    constraint li_episode_fk foreign key(user_no) references li_user(user_no),
-    constraint li_episode_fk foreign key(ep_no) references li_episode(ep_no)
+    constraint li_episode_fk foreign key(ep_no) references li_episode(ep_no),
+    constraint li_episode_fk foreign key(user_no) references li_user(user_no) 
 );
-comment on table li_reserve is 'í´ë˜ìŠ¤ ì˜ˆì•½ í…Œì´ë¸”';
-comment on column li_reserve.r_no is 'ì˜ˆì•½ ë²ˆí˜¸';
-comment on column li_reserve.r_date is 'ì˜ˆì•½ ì¼ì';
-comment on column li_reserve.r_state is 'ì˜ˆì•½ ìƒíƒœ';
-comment on column li_reserve.r_price is 'ì˜ˆì•½ ê¸ˆì•¡';
-comment on column li_reserve.r_cnt is 'ì˜ˆì•½ ì¸ì›';
---ì˜ˆì•½ë²ˆí˜¸
+
+comment on table li_reserve is 'Å¬·¡½º ¿¹¾à Å×ÀÌºí';
+comment on column li_reserve.r_no is '¿¹¾à ¹øÈ£';
+comment on column li_reserve.r_date is '¿¹¾à ÀÏÀÚ';
+comment on column li_reserve.r_state is '¿¹¾à »óÅÂ';
+comment on column li_reserve.r_price is '¿¹¾à ±İ¾×';
+comment on column li_reserve.r_cnt is '¿¹¾à ÀÎ¿ø';
+
+--¿¹¾à¹øÈ£ »ı¼º ½ÃÄö½º
 create sequence li_reserve_seq
 start with 1
 minvalue 1
