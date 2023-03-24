@@ -23,7 +23,7 @@ CREATE TABLE Li_Review(
     review_c_no NUMBER(8) null,
     user_no NUMBER(8) NULL,
     c_name varchar2(50) null,
-    c_no number(10) null,
+    c_no number(10) null
     
     -- CONSTRAINT review_c_no FOREIGN KEY(review_c_no) REFERENCES Li_class (c_no)  -- 클래스 번호(클래스 테이블 외래키)
     -- CONSTRAINT fk_user_no FOREIGN KEY(review_user_no) REFERENCES li_user (user_no)   -- 회원 번호  (회원 테이블 외래키)
