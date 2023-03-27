@@ -15,11 +15,6 @@
 
 .card { padding: 20px; background: #FFF none repeat scroll 0% 0%; margin-bottom: 30px; }
 
-#sticky-nav{
-	width:30%;
-	height: 70%;
-	z-index: 3;
-}
 .class-booking-form{
 	background: white;
 }

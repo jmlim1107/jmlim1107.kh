@@ -1,6 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
+	#sticky-nav{
+	width:30%;
+	height: 70%;
+	z-index: 3;
+}
+</style>
+<script>
+var quick_menu = $('#sticky-nav');
+var quick_top = 200;
 
+quick_menu.css('top', $(window).height() );
+$(document).ready(function(){
+quick_menu.animate( { "top": $(document).scrollTop() + quick_top +"px" }, 200 ); 
+$(window).scroll(function(){
+quick_menu.stop();
+quick_menu.animate( { "top": $(document).scrollTop() + quick_top + "px" }, 500 );
+});
+});
+</script>
 			
 				<div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
@@ -122,4 +141,3 @@
                       			  </div>
 							</div>
 							</div>
-						
