@@ -74,9 +74,5 @@ comment on column li_studio.s_date is '스튜디오게시판 작성일';
 comment on column li_studio.s_thumb is '스튜디오게시판 썸네일';
 comment on column li_studio.s_file is '스튜디오게시판 파일명';
 
-INSERT INTO li_studio(s_no, ct_bizno, s_title, s_content, s_thumb, s_file)
-    VALUES(li_studio_seq.nextval, '6538102174', '수제 과일청 해윰', '정성가득 수제 과일청 해윰입니다', '사진 파일 썸네일', '사진 파일명');
-    
-
 
 select * from li_studio;
