@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.liclass.admin.management.center.dao.CenterDAO;
 import com.liclass.admin.management.center.vo.CenterVO;
-import com.liclass.client.classes.vo.ClassVO;
 
 import lombok.Setter;
 @Service
@@ -15,12 +14,6 @@ public class CenterServiceImpl implements CenterService {
 	@Setter(onMethod_ = @Autowired)
 	private CenterDAO centerDao;
 
-	@Override
-	public CenterVO centerDetail(ClassVO vo) {
-		CenterVO cvo = centerDao.centerDetail(vo);
-		return cvo;
-	}
-	
 	// 센터글 목록 구현
 		@Override
 		public List<CenterVO> centerList(CenterVO cvo) {

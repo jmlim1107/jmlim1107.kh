@@ -4,20 +4,24 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<script src="/resources/client/classDetail/classDetail.js"></script>
+<script src="/resources/client/classDetail/js/classDetail.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-<link rel="stylesheet" href="/resources/client/classDetail/classDetail.css" />
+<link rel="stylesheet" href="/resources/client/classDetail/css/classDetail.css" />
+<link href="/resources/client/classDetail/css/style.css" rel="stylesheet">
+<link href="/resources/client/classDetail/css/themify-icons.css" rel="stylesheet">
+<link href='/resources/client/classDetail/css/dosis-font.css' rel='stylesheet' type='text/css'>
+
 	<!-- header slider section start -->
 	<section id="header-slider" class="section">
 	<div class="class-content" data-num="${classDetail.c_no}">
       <h6><i class="fa-solid fa-hashtag"></i> ${classDetail.c_category}</h6>
+      <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${classDetail.c_area}</h6>
       <h3>${classDetail.c_title}</h3>
       
       <div style="display: flex;" class="login-info" data-num="${loginUser.user_no}">
       	<h5>
-      	<i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${classDetail.c_area}
       	
-      	<c:if test="${loginUser == null}">
+      	<%-- <c:if test="${loginUser == null}">
 	      	<a class="like"><i class="fa-regular fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
          </c:if>
           <c:if test="${loginUser != null}">
@@ -27,13 +31,13 @@
 	      	<c:if test="${checkResult eq 1}">
 	      		<a class="like"><i class="fa-solid fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
 	      	</c:if>
-         </c:if>
+         </c:if> --%>
       	</h5>
       </div>
       
-      	<a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i></a>
+      <!-- 	<a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i></a>
       	
-      	<!-- sns share modal start  --> 
+      	sns share modal start  
       	<div class="modal" id="sns-share" style="z-index: 2; position: initial; text-align: center;">
 			   <a id="kakao-link-btn" href="javascript:kakaoShare()"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
 			   <a id="twitter-link-btn" href="javascript:shareTwitter()"><i class="fa-brands fa-twitter"></i></a>
@@ -41,7 +45,7 @@
 			   <a id="naver-link-btn" href="javascript:shareNaver()" ><i class="fa-solid fa-n" style="color:#5ECC69;"></i></a>
 			   <a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555;"></i></a>
 		 </div>
-		 <!-- sns share modal end  --> 
+		 sns share modal end   -->
 	   
 	</div>
 	
@@ -103,12 +107,23 @@
 						  
 						  <!-- 3. center info start -->
 				          <div role="tabpanel" class="tab-pane" id="center-info">
+				            	<div class="row me-row content-ct speaker" id="speakers">
+						          <h2 class="row-title">${centerDetail.ct_name}</h2>
+						          <div class="col-md-4 col-sm-6 feature" style="width: 100%;">
+						            <p>${centerDetail.ct_intro}</p>
+						            <ul class="speaker-social">
+						              <c:if test="${centerDetail.ct_hmpg_addr != null}">
+						              	<li><a href="${centerDetail.ct_hmpg_addr}"><i class="fa-solid fa-house"></i></a></li>
+							         </c:if>
+						            </ul>
+						          </div>
+						        </div>
 				        	 <div class="main-white-button" id="map-click" style="margin:5px;"><a href="#"><i class="fa-solid fa-map-pin"></i>${centerDetail.ct_addr}</a>
-							 <span><i class="fa-regular fa-circle-check"></i>자세한 주소는 예약내역에서 확인해주세요.</span>
+							 <p style="padding: 12px 25px;"><i class="fa-regular fa-circle-check"></i>자세한 주소는 예약내역에서 확인해주세요.</p>
 				        	 </div>
-							 <div id="map" style="width:100%;height:350px;">
-							 </div>
+							 <div id="map" style="width:100%;height:350px;"></div>
 				          </div>
+				          
 				          <!--  kakao map start  -->
 				          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93dabf793b8403bbf540b6d314c75a8f&libraries=services"></script>
 						  <script type="text/javascript" >
@@ -177,26 +192,25 @@
 						  
 				          <!-- 5. attention start -->
 				          <div role="tabpanel" class="tab-pane" id="attention">
-				          		<!-- Service Section -->
-								<section id="services" class="section services" style="margin:0px; width:100%;">
-								  <div class="container-fluid">
-								    <div class="row">
-								      <div class="col-md-12 col-sm-6">
-								        <div class="services-content">
-								          <h5>클래스 예약 안내사항</h5>
-								          <p>공통 환불정책</p>
-								          <ul>
-								          	<li> 결제 후 1시간 이내 취소 시 100% 환불 (결제 후 1시간 이내 취소 시, 밤 12시 이전 취소시 100% 환불. 단, 당일 클래스는 1시간 이내 취소 시에도 환불 불가)</li>
-								          	<li>클래스 6일 이전 취소 시 100% 환불</li>
-								          </ul>
-								        </div>
-								      </div>
-								    </div>
-								  </div>
-								</section>
-								<!-- Service Section --> 
-								
-						  </div>
+							<section id="services" class="section services" style="margin:0px; width:100%;">
+							  <div class="container-fluid">
+							    <div class="row">
+							      <div class="col-md-12 col-sm-6">
+							        <div class="services-content">
+							          <h5>클래스 안내사항</h5>
+							         	 <p>LiClass는 오프라인 클래스 플랫폼입니다.</p>
+							          	<p>다양한 분야의 아티스트들이 본인의 철학과 노하우, 지식을 클래스 형태로 풀어냅니다.</p>
+							          	<p>직접 체험하실 수업은 해당 분야에 대한 아티스트의 노하우와 지식 위주로 제작되었으며 아티스트의 일상과 생각도 함께 엿볼 수 있습니다. </p>
+							          	<p>라이크래스에서 나만의 예술을 시작해보세요. </p>
+							        	<p>라이클래스는 평소에 쉽게 접할 수 없는 아티스트들 본인만의 철학과 노하우를 풀어낸 형식의 클래스로 난이도에 상관없이 모든 분들이 수강하실 수 있습니다.</p>
+							          	<p>어디서도 경험할 수 없는 각 분야에서 성공한 아티스트들의 철학과 노하우를 통해 많은 것은 얻어가실 수 있을 것으로 생각되며 </p>
+							          	<p>직접 체험을 통해 느끼고 배우시면서 저희 라이클래스를 수강하신다면 더 큰 시너지 효과를 보실 수 있습니다. </p>
+							     	 </div>
+							   	  </div>
+							    </div>
+							  </div>
+							</section>
+						 </div>
 						  <!-- 5. attention end -->
 				
 					</div><!-- Tab panes end -->

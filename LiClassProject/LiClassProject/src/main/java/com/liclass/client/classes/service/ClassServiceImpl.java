@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.liclass.admin.management.center.vo.CenterVO;
 import com.liclass.client.classes.dao.ClassDAO;
 import com.liclass.client.classes.vo.ClassVO;
 
@@ -27,7 +28,11 @@ public class ClassServiceImpl implements ClassService{
 		ClassVO cvo = classDao.classDetail(vo);
 		return cvo;
 	}
-	
+	@Override
+	public CenterVO centerDetail(ClassVO vo) {
+		CenterVO cvo = classDao.centerDetail(vo);
+		return cvo;
+	}
 	
 
 }

@@ -47,6 +47,17 @@ public class ClassController {
 		
 		return "class/classList";
 	}*/
+	/************************************************
+	 * 센터 상세정보
+	 * 요청 url : http://localhost:8080/user/signupForm
+	***********************************************
+	@GetMapping("/admin/centerDetail")
+	public String centerDetail(ClassVO vo,Model model) {
+		log.info("centerDetail() 호출");
+		CenterVO centerDetail = classService.centerDetail(vo);
+		model.addAttribute("centerDetail", centerDetail);
+		return "mypage/updateForm";
+	}*/
 	
 	/************************************************
 	 * 클래스 상세조회
@@ -78,8 +89,8 @@ public class ClassController {
 		log.info("classDetail.toString() : "+classDetail.toString());
 		model.addAttribute("classDetail",classDetail);
 		
-		//센터 상세정보
-		CenterVO centerDetail = centerService.centerDetail(classDetail);
+		//해당 클래스의 센터 상세정보
+		CenterVO centerDetail = classService.centerDetail(classDetail);
 		log.info("centerDetail.toString() : "+centerDetail.toString());
 		model.addAttribute("centerDetail", centerDetail);
 		

@@ -25,19 +25,6 @@ public class CenterController {
 	@Setter(onMethod_ = @Autowired)
 	private CenterService centerService;
 	
-	/************************************************
-	 * 센터 상세정보
-	 * 요청 url : http://localhost:8080/user/signupForm
-	************************************************/
-	@GetMapping("/admin/centerDetail")
-	public String centerDetail(ClassVO vo,Model model) {
-		log.info("centerDetail() 호출");
-		CenterVO centerDetail = centerService.centerDetail(vo);
-		model.addAttribute("centerDetail", centerDetail);
-		return "mypage/updateForm";
-	}
-	
-	
 	//	글목록 구현하기(페이징 처리부분 제외 목록 조회)
 	// 요청URL : http://localhost:8080/center/centerList
 	@RequestMapping(value="/centerList", method = RequestMethod.GET)

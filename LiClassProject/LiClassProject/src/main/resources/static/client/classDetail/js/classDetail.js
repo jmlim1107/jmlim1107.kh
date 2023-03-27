@@ -11,32 +11,6 @@ $(function(){
 		$("#map-click").click(function(e){
 			e.preventDefault();
 		});
-		
-		//하트 클릭
-		$(".like").click(function(){
-			let user_no = $(".login-info").data("num");
-			if(user_no == 0){
-				alert("로그인 후 이용해주세요.");
-			}else{
-				$.ajax({
-					type : "POST",
-					url : "/like",
-					data : {
-						"c_no" : $(".class-content").data("num"),
-						"user_no" : $(".login-info").data("num")
-					},success : function(result){
-						/* if(result == "추가"){
-						 	alert("관심클래스에 추가되었습니다.");
-						}else if(result == "삭제"){
-							alert("관심클래스에서 삭제되었습니다.");
-						}else{
-							alert("잠시후에 다시 시도해주세요.");
-						} */
-						document.location.reload();
-					}
-					 });
-			}
-			});
 	});
 	
 	function shareTwitter() {

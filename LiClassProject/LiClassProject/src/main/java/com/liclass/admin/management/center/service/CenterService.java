@@ -3,11 +3,8 @@ package com.liclass.admin.management.center.service;
 import java.util.List;
 
 import com.liclass.admin.management.center.vo.CenterVO;
-import com.liclass.client.classes.vo.ClassVO;
 
 public interface CenterService {
-	//센터 상세조회
-	public CenterVO centerDetail(ClassVO vo);
 	
 	
 	public List<CenterVO> centerList(CenterVO cvo);/* 검색 포함 리스트 */

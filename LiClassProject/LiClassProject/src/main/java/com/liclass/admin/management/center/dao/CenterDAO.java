@@ -5,14 +5,10 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.liclass.admin.management.center.vo.CenterVO;
-import com.liclass.client.classes.vo.ClassVO;
 
 @Mapper
 public interface CenterDAO {
-	
-	//센터 상세조회
-	public CenterVO centerDetail(ClassVO vo);
-	
+
 	public List<CenterVO> centerList(CenterVO cvo);
 	public int centerListCnt(CenterVO cvo);
 	public int centerInsert(CenterVO cvo);
