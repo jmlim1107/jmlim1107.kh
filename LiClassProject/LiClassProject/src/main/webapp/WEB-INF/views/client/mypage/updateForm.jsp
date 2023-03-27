@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/updateForm.css" />
 <script>
 	/*회원정보수정 완료 후 성공/실패 alert 후 redirect*/
-	if('${message}' != ""){
+	if('${message}' != "" && '${url}' !=""){
 		var message = "${message}" ;
 		var url = '${url}';
 		console.log("message : "+message ,"url" +url);

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <script>
 	/*임시비밀번호 발급 성공/실패 alert 후 redirect*/
-	if('${message}' != ""){
+	if('${message}' != "" && '${url}' !=""){
 		var message = "${message}";
 		var url = '${url}';
 		console.log("message : "+message ,"url" +url);

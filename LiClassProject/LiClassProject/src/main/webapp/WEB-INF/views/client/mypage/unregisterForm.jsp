@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  <script>
 	/*회원탈퇴 완료 후 성공/실패 alert 후 redirect*/
-	if('${message}' != ""){
+	if('${message}' != "" && '${url}' !=""){
 		var message = "${message}" ;
 		var url = '${url}';
 		console.log("message : "+message ,"url" +url);
