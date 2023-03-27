@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+  
+<tiles-definitions>
+	
+	<definition name="home" template="/WEB-INF/views/template/clientLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/client/homeBody.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
+	</definition>
+	
+	<definition name="userContent" template="/WEB-INF/views/template/clientLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
+	</definition>
+	
+	<definition name="liuser/login/*" extends="userContent">
+		<put-attribute name="body" value="/WEB-INF/views/client/login/{1}.jsp" />
+	</definition>
+	
+	<definition name="liuser/mypage/*" extends="userContent">
+		<put-attribute name="body" value="/WEB-INF/views/client/mypage/{1}.jsp" />
+	</definition>
+	
+	<definition name="class/*" extends="userContent">
+		<put-attribute name="body" value="/WEB-INF/views/client/class/{1}.jsp" />
+	</definition>
+	
+	<definition name="common/*/*" extends="userContent">
+		<put-attribute name="body" value="/WEB-INF/views/common/{1}/{2}.jsp" />
+	</definition>
+
+	
+</tiles-definitions>

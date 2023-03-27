@@ -1,0 +1,57 @@
+@charset "UTF-8";
+.section{
+	padding: 20px;
+    width: 70%;
+}
+.nav-tabs { border-bottom: 2px solid #DDD; }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+.nav-tabs > li > a { border: none; color: #666; }
+.nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #555 !important; background: transparent; }
+.nav-tabs > li > a::after { content: ""; background: #555; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+.nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
+.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
+
+.card { padding: 20px; background: #FFF none repeat scroll 0% 0%; margin-bottom: 30px; }
+
+#sticky-nav{
+	width:30%;
+	height: 70%;
+	z-index: 3;
+}
+.class-booking-form{
+	background: white;
+}
+.card{
+	width:80%;
+}
+.class-content{
+	margin:30px;
+}
+.class-content h5{
+	font-size: 15px;
+}
+.class-content h5 *{
+	margin:0px 5px;
+}
+.class-content h6{
+	font-size: 12px;
+	margin:15px 0px;
+}
+.class-content span{
+	margin:0px 15px;
+	padding: 0px 10px;
+}
+.class-content span a{
+	margin:0px 3px;
+}
+.info{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+#sns-share a{
+	margin:10px;
+}

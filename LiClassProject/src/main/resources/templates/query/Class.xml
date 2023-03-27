@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liclass.client.classes.dao.ClassDAO">
+
+	<!--1. 클래스 리스트  -->
+	<select id="classList" resultType="Class">
+		select a.c_no, a.c_title,a.c_content,a.c_category,a.c_area,b.c_img_file as c_img_file,
+				(select count(*) 
+				from li_likes where c_no = a.c_no) as c_luv
+        from li_class a left join li_class_img b on a.c_no = b.c_no
+	</select>
+
+	<!--2. 클래스 상세조회 -->
+	<select id="classDetail" resultType="Class">
+		select a.c_no,a.ct_bizno, a.c_title,a.c_content,a.c_category,a.c_area,b.c_img_file as c_img_file,
+				(select count(*) 
+				from li_likes where c_no = #{c_no}) as c_luv
+        from li_class a left join li_class_img b on a.c_no = b.c_no
+        where a.c_no= #{c_no}
+	</select>
+	
+</mapper>
