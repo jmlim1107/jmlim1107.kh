@@ -31,6 +31,6 @@ public class ReviewVO extends CommonVO{
 	
 	// private MultipartFile file;					// 파일 업로드를 위한 필드
 	/*private String review_img 		= "";		// 실제 서버에 저장할 리뷰 이미지 파일명
-	private String review_thumb_file = "";		// 실제 서버에 저장할 리뷰 썸네일 파일명
+	private String review_thumb_file = "";		// 실제 서버에 저장할 리뷰 썸네일 파일명1111
 	*/
 }
