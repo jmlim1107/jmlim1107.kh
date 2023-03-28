@@ -51,7 +51,7 @@
 							
 					<h1>${detail.s_title}</h1>
 							
-					<h2>센터명 111: ${detail.ct_name}</h2>
+					<h2>센터명dd: ${detail.ct_name}</h2>
 					<span style="float:right">작성일 : ${detail.s_date}</span>
 					<br/>
 					<br/>
