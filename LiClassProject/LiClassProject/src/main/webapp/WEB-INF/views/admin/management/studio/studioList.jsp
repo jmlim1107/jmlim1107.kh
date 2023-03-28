@@ -69,7 +69,7 @@
 				$("#detailForm").submit(); 
 			});
 			
-			$(".paginate_button a").click(function(e) {
+			$(".page-item a").click(function(e) {
 				 e.preventDefault();
 				 $("#f_search").find("input[name='pageNum']").val($(this).attr("href"));
 				 goPage();
