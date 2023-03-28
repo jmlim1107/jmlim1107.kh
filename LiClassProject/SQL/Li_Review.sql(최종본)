@@ -27,7 +27,11 @@ COMMENT ON COLUMN Li_Review.review_content is '후기 내용';
 COMMENT ON COLUMN Li_Review.review_date is '후기 작성일';
 COMMENT ON COLUMN Li_Review.review_update is '후기 수정일';
 COMMENT ON COLUMN Li_Review.review_status is ' 후기 상태(0,1)';
+<<<<<<< HEAD
 COMMENT ON COLUMN Li_Review.review_rating is '후기 별점(1~5)';
+=======
+COMMENT ON COLUMN Li_Review.review_rating is '후기 별점';
+>>>>>>> 4ee3f54646293bed34ec3190b9070b2b055544ed
 COMMENT ON COLUMN Li_Review.review_recommend is '후기 추천';
 
 
@@ -50,7 +54,11 @@ is
 begin
     for cnt in 1..5 loop
         insert into Li_review (review_no, review_title, review_content, review_date,review_update,review_status, review_rating, review_recommend, r_no, c_no, user_no)
+<<<<<<< HEAD
         values(li_review_seq.nextval, '리뷰 제목', '리뷰 내용', sysdate,null, 0 , 5, 'yes' , 2 ,126 ,2303289503);
+=======
+        values(li_review_seq.nextval, '리뷰 제목', '리뷰 내용', sysdate,null, 1 , 5, 'yes' , 2 ,126 ,2303289503);
+>>>>>>> 4ee3f54646293bed34ec3190b9070b2b055544ed
     end loop;
     commit;
 end;

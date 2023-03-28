@@ -5,14 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.liclass.admin.management.center.service.CenterService;
 import com.liclass.admin.management.center.vo.CenterVO;
+<<<<<<< HEAD
 import com.liclass.client.classes.vo.ClientClassVO;
+=======
+>>>>>>> 4ee3f54646293bed34ec3190b9070b2b055544ed
 import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;

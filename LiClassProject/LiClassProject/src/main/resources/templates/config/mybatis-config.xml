@@ -25,11 +25,17 @@
 		<!-- <typeAlias type="com.spring.client.reply.vo.ReplyVO" alias="reply"/>
 		<typeAlias type="com.spring.admin.login.vo.AdminLoginVO" alias="adminLogin" /> -->
 		
+<<<<<<< HEAD
 		<typeAlias type="com.liclass.admin.classes.vo.AdminClassVO" alias="Adminclass"/>
 		<!-- <typeAlias type="com.liclass.admin.center.vo.CenterVO" alias="center"/> -->
 		<!-- <typeAlias type="com.liclass.admin.episode.vo.EpisodeVO" alias="episode"/> -->
 		<typeAlias type="com.liclass.admin.img.vo.AdminClassImgVO" alias="img"/>
 		
+=======
+		<!--지민-->
+		<typeAlias type = "com.liclass.client.review.vo.ReviewVO" alias = "review" />
+		<typeAlias type="com.liclass.client.classes.vo.ClassVO" alias="c_class"/>
+>>>>>>> 4ee3f54646293bed34ec3190b9070b2b055544ed
 		
 	</typeAliases>
 </configuration>
