@@ -55,5 +55,9 @@
  	<script src="/resources/client/mypage/assets/js/animation.js"></script>
  	<script src="/resources/client/mypage/assets/js/imagesloaded.js"></script>
  	<script src="/resources/client/mypage/assets/js/custom.js"></script>
+
+	<%-- qna board --%>
+	<link rel="stylesheet" href="/resources/client/qnaBoard/css/css.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	
 </html>

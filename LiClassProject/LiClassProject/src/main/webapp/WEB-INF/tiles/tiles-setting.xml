@@ -27,6 +27,11 @@
 	<definition name="class/*" extends="userContent">
 		<put-attribute name="body" value="/WEB-INF/views/client/class/{1}.jsp" />
 	</definition>
+
+	<definition name="client/qnaboard/*" extends="userContent">
+		<put-attribute name="title" value="고객센터" />
+		<put-attribute name="body" value="/WEB-INF/views/client/qnaboard/{1}.jsp" />
+	</definition>
 	
 	<definition name="common/*/*" extends="userContent">
 		<put-attribute name="body" value="/WEB-INF/views/common/{1}/{2}.jsp" />

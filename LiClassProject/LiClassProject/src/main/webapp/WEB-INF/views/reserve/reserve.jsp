@@ -6,8 +6,8 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-		<link rel="shortcut icon" href="/resources/images/common/icon.png" />
-		<link rel="apple-touch-icon" href="/resources/images/common/icon.png" />
+		<link rel="shortcut icon" href="/resources/client/mainTheme/images/icons/favicon.ico" />
+		<link rel="apple-touch-icon" href="/resources/client/mainTheme/images/icons/favicon.ico" />
 		
 		<!-- calendar07.. -->
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">

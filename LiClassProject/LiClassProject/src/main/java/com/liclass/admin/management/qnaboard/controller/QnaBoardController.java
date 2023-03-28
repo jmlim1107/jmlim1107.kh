@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@Controller
 @RequestMapping("/management/qnaboard/*")
+@Controller
 @Slf4j
 public class QnaBoardController {
     @Setter(onMethod_ = @Autowired)
