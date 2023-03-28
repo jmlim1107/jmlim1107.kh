@@ -42,7 +42,7 @@ public class EpisodeController {
 	@GetMapping("/episode/writeForm")
 	public String wirteForm( @ModelAttribute EpisodeVO vo  ) {
 		log.info("회차등록폼 호출");
-		return "/episode/episodeForm";
+		return "admin/episode/episodeForm";
 	}
 	
 	@PostMapping("/episode/insertEpisode")

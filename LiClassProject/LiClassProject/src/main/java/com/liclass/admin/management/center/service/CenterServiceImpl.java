@@ -80,5 +80,12 @@ public class CenterServiceImpl implements CenterService {
 			return result;
 		}
 		
+		//센터 전체 리스트(클래스등록에서 이용)
+		@Override
+		public List<CenterVO> centerlist2() {
+			List<CenterVO> clist = null;
+			clist = centerDao.centerlist2();
+			return clist;
+		}
 
 }

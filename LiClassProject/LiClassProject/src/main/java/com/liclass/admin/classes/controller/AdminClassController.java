@@ -39,7 +39,7 @@ public class AdminClassController {
 		
 		int total = classService.classListCnt(liclass);
 		model.addAttribute("pageMaker", new PageDTO(liclass, total));
-		return "class/classList";
+		return "admin/class/classList";
 	}
 	
 	/* 하나의 클래스 상세조회 ( 클래스 + 센터 ) */
@@ -51,13 +51,13 @@ public class AdminClassController {
 		//해당클래스의 사진정보도 함께 넘긴다..
 		List<AdminClassImgVO> list = classService.imgList(number);
 		model.addAttribute("imgList", list);
-		return "class/classDetail";
+		return "admin/class/classDetail";
 	}
 	
 	/*클래스 등록화면 */
 	@GetMapping("/class/writeForm")
 	public String writeForm() {
-		return "class/classForm";
+		return "admin/class/classForm";
 	}
 	
 	/*클래스 등록처리( 클래스 + 이미지 등록(fileList필드로 받아옴) )*/
@@ -81,7 +81,7 @@ public class AdminClassController {
 		//해당클래스의 사진정보묶음들 함께 넘긴다..
 		List<AdminClassImgVO> list = classService.imgList(vo.getC_no());
 		model.addAttribute("imgList", list);
-		return "class/classUpdate";
+		return "admin/class/classUpdate";
 	}
 	
 	/* 클래스 수정처리( 클래스만 수정 )  */
@@ -114,7 +114,7 @@ public class AdminClassController {
 	public String imageUpdate( @RequestParam("c_no") int number, Model model ) {
 		List<AdminClassImgVO> list = classService.imgList(number);
 		model.addAttribute("imgList", list);
-		return "class/classImgUpdate";
+		return "admin/class/classImgUpdate";
 	}
 
 	/*이미지 삭제처리*/

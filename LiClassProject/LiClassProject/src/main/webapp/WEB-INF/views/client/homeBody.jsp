@@ -14,8 +14,10 @@
 </script>
  <body id="page-top" data-spy="scroll" data-target=".side-menu">
  
+ 	
+ 	<div id="home"></div>
  	<!-- 은아 테스트용  -->
- 	<!-- <div id="home"></div>
+ 	<!-- 
 	homeBody start
 	<section role="tophead"id="header-slider" class="section tophead">
 	  <div id="myCarousel" class="carousel slide" data-ride="carousel"> 

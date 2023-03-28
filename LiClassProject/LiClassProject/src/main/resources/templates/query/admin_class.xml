@@ -22,13 +22,13 @@
 	</select>	
 	
 	<sql id="classSearch">
-		<if test="category=='c_title'">
+		<if test="search=='c_title'">
 			c_title like '%'||#{keyword}||'%'
 		</if>
-		<if test="category=='c_area'">
+		<if test="search=='c_area'">
 			c_area like '%'||#{keyword}||'%'
 		</if>
-		<if test="category=='c_category'">
+		<if test="search=='c_category'">
 			c_category like '%'||#{keyword}||'%'
 		</if>
 	</sql>
