@@ -189,7 +189,7 @@
         </tbody>
     </table>
     <%-- ====================페이징 출력 시작==================== --%>
-    <nav aria-label="Page navigation example" class="text-center">
+    <nav aria-label="Page navigation example" style="text-align:center;">
         <ul class="pagination">
             <%--이전 바로가기 10개 존재 여부를 prev 필드의 값으로 확인.--%>
             <c:if test="${pageMaker.prev}">

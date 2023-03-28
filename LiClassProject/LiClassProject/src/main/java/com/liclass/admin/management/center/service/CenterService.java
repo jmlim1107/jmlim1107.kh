@@ -15,4 +15,5 @@ public interface CenterService {
 	public CenterVO updateForm(CenterVO cvo);
 	public int centerUpdate(CenterVO cvo) throws Exception ;
 	public int centerDelete(CenterVO cvo) throws Exception ;
+	public List<CenterVO> centerlist2();
 }

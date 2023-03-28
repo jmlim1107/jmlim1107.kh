@@ -73,7 +73,7 @@ public class PaymentController {
       String pay_method = (String)model.get("pay_method");
       String merchant_uid = (String)model.get("merchant_uid");
       String pay_pg = (String)model.get("pay_pg");
-      Long user_no = (Long)model.get("user_no");
+      long user_no = (Long) model.get("user_no"); 
       String pay_name = (String)model.get("pay_name");
       String pay_buyer_name = (String)model.get("pay_buyer_name");
       String pay_buyer_tel = (String)model.get("pay_buyer_tel");
