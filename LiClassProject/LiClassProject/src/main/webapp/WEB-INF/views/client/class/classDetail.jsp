@@ -205,7 +205,7 @@
 	<!-- information section end -->
 	
 	<!-- reservation section start -->
-	<div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px;">
+	<div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px; z-index: 0;">
 		<%@ include file="/WEB-INF/views/client/class/classReservation.jsp" %>
 	</div>
 	

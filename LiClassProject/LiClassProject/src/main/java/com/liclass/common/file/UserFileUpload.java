@@ -99,7 +99,7 @@ public class UserFileUpload {
 		
 		String dirName = fileName.substring(0,fileName.indexOf("_")); //board 만 추출
 		
-		String imgPath = "C://10.webDeveloper//uploadStorage//"+dirName;
+		String imgPath = "C://uploadStorage//"+dirName;
 		
 		File fileAdd = new File(imgPath, fileName);
 		log.info("fileAdd(원본파일) : "+fileAdd);

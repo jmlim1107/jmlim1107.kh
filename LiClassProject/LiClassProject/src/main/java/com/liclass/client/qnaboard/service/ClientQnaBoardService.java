@@ -8,6 +8,9 @@ public interface ClientQnaBoardService {
 
     public List<QnaBoardVo> qnaBoardList(QnaBoardVo qnaBoard);
 
+    public List<QnaBoardVo> noticeBoardList(QnaBoardVo qnaBoard);
+    public int noticeBoardCnt(QnaBoardVo qnaBoard);
+
     //문의게시판 게시물 작성 메서드
     public int qnaBoardInsert(QnaBoardVo qnaBoard);
 
@@ -17,10 +20,7 @@ public interface ClientQnaBoardService {
     //문의게시판 문의글 삭제 메서드
     public int qnaBoardDelete(QnaBoardVo qnaBoard);
 
-    //문의게시판 문의글 입력폼
-    public QnaBoardVo qnaAnswerForm(QnaBoardVo qnaBoard);
+    public QnaBoardVo updateForm(QnaBoardVo qnaBoard);
 
-    //문의게시판 문의글 답변 메서드
-    public int qnaAnswerInsert(QnaBoardVo qnaBoard);
-
+    public int qnaBoardUpdate(QnaBoardVo qnaBoard);
 }

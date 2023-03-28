@@ -45,10 +45,10 @@ public class CenterServiceImpl implements CenterService {
 
 		// 센터글 상세 구현
 		@Override
-		public CenterVO centerDetail(CenterVO cvo) {
+		public CenterVO centerDetail2(CenterVO cvo) { /* 0328은아 admin-center.xml과 겹쳐서 수정합니다. */
 			CenterVO detail = null;
 			
-			detail = centerDao.centerDetail(cvo);
+			detail = centerDao.centerDetail2(cvo);
 		
 			return detail;
 		}
@@ -57,7 +57,7 @@ public class CenterServiceImpl implements CenterService {
 		public CenterVO updateForm(CenterVO cvo) {
 			CenterVO updateData = null;
 			
-			updateData = centerDao.centerDetail(cvo);
+			updateData = centerDao.centerDetail2(cvo); /* 0328은아 admin-center.xml과 겹쳐서 수정합니다. */
 			
 			return updateData;
 		}

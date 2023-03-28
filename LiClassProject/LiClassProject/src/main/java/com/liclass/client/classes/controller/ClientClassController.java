@@ -95,8 +95,10 @@ public class ClientClassController {
 		
 		//해당 클래스의 센터 상세정보
 		CenterVO centerDetail = classService.clientCenterDetail(classDetail);
-		log.info("centerDetail.toString() : "+centerDetail.toString());
-		model.addAttribute("centerDetail", centerDetail);
+		if(centerDetail != null) {
+			log.info("centerDetail.toString() : "+centerDetail.toString());
+			model.addAttribute("centerDetail", centerDetail);
+		}
 		
 		return "class/classDetail";
 	}
