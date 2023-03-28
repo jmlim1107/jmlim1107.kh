@@ -29,7 +29,6 @@ import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.qnaboard.vo.QnaVO;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.file.FileUploadUtil;
-import com.liclass.common.vo.CommonVO;
 import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;

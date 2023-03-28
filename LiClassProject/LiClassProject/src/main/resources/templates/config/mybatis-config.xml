@@ -24,6 +24,11 @@
 		<typeAlias type="com.liclass.admin.management.qnaboard.vo.QnaBoardVo" alias="qnaBoard"/>
 		<!-- <typeAlias type="com.spring.client.reply.vo.ReplyVO" alias="reply"/>
 		<typeAlias type="com.spring.admin.login.vo.AdminLoginVO" alias="adminLogin" /> -->
+		
+		<!--지민-->
+		<typeAlias type = "com.liclass.client.review.vo.ReviewVO" alias = "review" />
+		<typeAlias type="com.liclass.client.classes.vo.ClassVO" alias="c_class"/>
+		
 	</typeAliases>
 </configuration>
 
