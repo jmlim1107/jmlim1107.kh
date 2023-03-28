@@ -20,33 +20,9 @@
       
       <div style="display: flex;" class="login-info" data-num="${loginUser.user_no}">
       	<h5>
-      	
-      	<%-- <c:if test="${loginUser == null}">
-	      	<a class="like"><i class="fa-regular fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
-         </c:if>
-          <c:if test="${loginUser != null}">
-          	<c:if test="${checkResult eq 0}">
-	      		<a class="like"><i class="fa-regular fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
-	      	</c:if>
-	      	<c:if test="${checkResult eq 1}">
-	      		<a class="like"><i class="fa-solid fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
-	      	</c:if>
-         </c:if> --%>
       	</h5>
       </div>
       
-      <!-- 	<a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i></a>
-      	
-      	sns share modal start  
-      	<div class="modal" id="sns-share" style="z-index: 2; position: initial; text-align: center;">
-			   <a id="kakao-link-btn" href="javascript:kakaoShare()"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
-			   <a id="twitter-link-btn" href="javascript:shareTwitter()"><i class="fa-brands fa-twitter"></i></a>
-			   <a id="facebook-link-btn" href="javascript:shareFacebook()"><i class="fa-brands fa-facebook-f" style="color:#415893;"></i></a>
-			   <a id="naver-link-btn" href="javascript:shareNaver()" ><i class="fa-solid fa-n" style="color:#5ECC69;"></i></a>
-			   <a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555;"></i></a>
-		 </div>
-		 sns share modal end   -->
-	   
 	</div>
 	
 	  <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
