@@ -1,0 +1,59 @@
+CREATE TABLE Li_Review(
+    review_no NUMBER(4) primary key,        -- 리뷰 번호
+    review_title varchar2(100) not null,    -- 리뷰 제목
+    review_content CLOB not null,           -- 리뷰 콘텐츠
+    review_date DATE not null,              -- 리뷰 업로드일
+    review_update DATE NULL,                -- 리뷰 업데이트일
+    review_status NUMBER(2) not null,       -- 리뷰 상태
+    review_rating number(2) null,           -- 리뷰 별점
+    review_recommend varchar2(40) null,     -- 리뷰 추천(yes/no)
+    
+    -- 추후 변경예정(외래키)
+    r_no number not null,                   -- 예약 번호
+    c_no NUMBER(8) not null,                    -- 클래스 번호
+    user_no NUMBER not null,                    -- 유저 번호
+
+     
+    CONSTRAINT li_review_fk1 FOREIGN KEY(r_no) REFERENCES Li_reserve (r_no),        -- 예약 번호
+    CONSTRAINT li_review_fk3 FOREIGN KEY(user_no) REFERENCES Li_user (user_no),     -- 클래스 번호
+    CONSTRAINT li_review_fk4 FOREIGN KEY(c_no) REFERENCES Li_class (c_no)          -- 유저 번호
+
+);
+
+COMMENT ON TABLE Li_Review is  '후기 게시판 테이블';
+COMMENT ON COLUMN Li_Review.review_no is '후기 게시글 번호';
+COMMENT ON COLUMN Li_Review.review_title is '후기 제목';
+COMMENT ON COLUMN Li_Review.review_content is '후기 내용';
+COMMENT ON COLUMN Li_Review.review_date is '후기 작성일';
+COMMENT ON COLUMN Li_Review.review_update is '후기 수정일';
+COMMENT ON COLUMN Li_Review.review_status is ' 후기 상태(0,1)';
+COMMENT ON COLUMN Li_Review.review_rating is '후기 별점';
+COMMENT ON COLUMN Li_Review.review_recommend is '후기 추천';
+
+
+
+
+ DROP SEQUENCE Li_review_seq;
+-- Review 테이블 시퀀스
+CREATE SEQUENCE Li_review_seq
+    INCREMENT BY 1
+    START WITH 1
+    MINVALUE 1
+    MAXVALUE 9999
+    NOCYCLE
+    NOCACHE
+    NOORDER;
+    
+-- Test Insert(더미 데이터)
+create or replace procedure reviewProcedure
+is
+begin
+    for cnt in 1..5 loop
+        insert into Li_review (review_no, review_title, review_content, review_date,review_update,review_status, review_rating, review_recommend, r_no, c_no, user_no)
+        values(li_review_seq.nextval, '리뷰 제목', '리뷰 내용', sysdate,null, 1 , 5, 'yes' , 2 ,126 ,2303289503);
+    end loop;
+    commit;
+end;
+/
+show error;
+EXECUTE reviewProcedure;
