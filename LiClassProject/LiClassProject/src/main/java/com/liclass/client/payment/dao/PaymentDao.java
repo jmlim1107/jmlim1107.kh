@@ -4,11 +4,11 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.liclass.admin.episode.vo.EpisodeVO;
-import com.liclass.client.classes.vo.ClassVO;
+import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.payment.vo.RefundVO;
-import com.liclass.client.reserve.ReserveVO;
+import com.liclass.client.reserve.vo.ReserveVO;
 
 @Mapper
 public interface PaymentDao {
@@ -16,7 +16,7 @@ public interface PaymentDao {
    // 회원아이디를 통해 회원 정보 가져오기
    public UserVO getUserInfo(long user_no);
    // 클래스번호를 이용하여 클래스 정보 가져오기
-   public ClassVO getClassInfo(int c_no);
+   public ClientClassVO getClassInfo(int c_no);
    // 예약정보 가져오기
    public ReserveVO getReserveInfo(int r_no);
 

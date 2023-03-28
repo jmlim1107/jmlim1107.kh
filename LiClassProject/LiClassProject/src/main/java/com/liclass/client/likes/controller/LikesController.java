@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.liclass.client.classes.service.ClassService;
+import com.liclass.client.classes.service.ClientClassService;
 import com.liclass.client.likes.service.LikesService;
 import com.liclass.client.likes.vo.LikesVO;
 
@@ -22,7 +22,7 @@ public class LikesController {
 	private LikesService likesService;
 	
 	@Setter(onMethod_ = @Autowired)
-	private ClassService classService;
+	private ClientClassService classService;
 	
 	/************************************************
 	 * 관심클래스 추가

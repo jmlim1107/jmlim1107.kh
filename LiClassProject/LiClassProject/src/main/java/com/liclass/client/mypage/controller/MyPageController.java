@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.liclass.client.classes.vo.ClassVO;
+import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.likes.service.LikesService;
 import com.liclass.client.likes.vo.LikesVO;
 import com.liclass.client.login.service.UserService;
@@ -28,8 +28,9 @@ import com.liclass.client.mypage.service.MypageService;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.qnaboard.vo.QnaVO;
 import com.liclass.client.review.vo.ReviewVO;
-import com.liclass.common.file.FileUploadUtil;
+import com.liclass.common.file.UserFileUpload;
 import com.liclass.common.vo.CommonVO;
+//import com.liclass.common.file.FileUploadUtil;
 import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;
@@ -46,7 +47,7 @@ public class MyPageController {
 	@Setter(onMethod_ = @Autowired)
 	private LikesService likesService;
 	@Setter(onMethod_ = @Autowired)
-	private FileUploadUtil fileUploadUtil;
+	private UserFileUpload fileUploadUtil;
 	
 	/************************************************
 	 * 회원정보 화면
@@ -66,7 +67,7 @@ public class MyPageController {
 		
 		//관심클래스 조회
 		log.info("loginUser : " +loginUser.toString());
-		List<ClassVO> myLikesList = mypageService.myLikesList(loginUser);
+		List<ClientClassVO> myLikesList = mypageService.myLikesList(loginUser);
 		model.addAttribute("myLikesList",myLikesList);
 		
 		//후기 조회
@@ -190,14 +191,14 @@ public class MyPageController {
 			
 			//1. 기존 프로필 사진을 서버에서 지운다.
 			if(originImg != "default-profile.png") {
-				FileUploadUtil.fileDelete(originImg);
+				UserFileUpload.fileDelete(originImg);
 			}
 			
 			//2. 새로 등록한 파일
 			loginUser.setFile(file);
 			
 			if(loginUser.getFile().getSize() > 0) {
-				String user_img = FileUploadUtil.fileUpload(loginUser.getFile(),String.valueOf(loginUser.getUser_no()));
+				String user_img = UserFileUpload.fileUpload(loginUser.getFile(),String.valueOf(loginUser.getUser_no()));
 				loginUser.setUser_img(user_img);
 			}
 			
@@ -226,7 +227,7 @@ public class MyPageController {
 		log.info("loginUser : "+loginUser.toString());
 		
 		//1. 기존 프로필 사진을 서버에서 지운다.
-		FileUploadUtil.fileDelete(loginUser.getUser_img());
+		UserFileUpload.fileDelete(loginUser.getUser_img());
 		loginUser.setUser_img("default-profile.png");
 		
 		return "redirect:/mypage";

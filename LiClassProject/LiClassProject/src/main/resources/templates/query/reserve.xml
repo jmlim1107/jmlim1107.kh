@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liclass.client.reserve.dao.ReserveDAO">
+	
+	<insert id="reservInsert" parameterType="reserve">
+		insert into li_reserve( r_no, user_no, ep_no, c_title, r_price, r_cnt, r_date  ) 
+		values( #{r_no}, #{user_no}, #{ep_no}, #{c_title}, #{r_price}, #{r_cnt}, to_date(#{r_date}, 'yy/mm/dd hh24:mi') )
+	</insert>
+	
+	<select id="reservSelect" parameterType="int" resultType="reserve">
+		select * from li_reserve where r_no = #{r_no}
+	</select>
+	
+</mapper>

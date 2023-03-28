@@ -7,12 +7,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
 import com.liclass.admin.episode.vo.EpisodeVO;
-import com.liclass.client.classes.vo.ClassVO;
+import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.dao.PaymentDao;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.payment.vo.RefundVO;
-import com.liclass.client.reserve.ReserveVO;
+import com.liclass.client.reserve.vo.ReserveVO;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.request.CancelData;
 import com.siot.IamportRestClient.response.IamportResponse;
@@ -182,8 +182,8 @@ public class PaymentServiceImpl implements PaymentService{
       return uvo;
    }
    @Override
-   public ClassVO getClassInfo(int c_no) {
-      ClassVO cvo = paymentDao.getClassInfo(c_no);
+   public ClientClassVO getClassInfo(int c_no) {
+      ClientClassVO cvo = paymentDao.getClassInfo(c_no);
       return cvo;
    }
    @Override
