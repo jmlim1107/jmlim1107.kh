@@ -89,7 +89,7 @@
 						<tr>
 							<td class="col-md-1">이미지</td>
 							<td colspan="3" class="col-md-8 text-left">
-							<img src="/uploadStorage/studio/${detail.s_file}" style="width: 100%; height: auto;"/></td>
+							<img src="/uploadLiClass/studio/${detail.s_file}" style="width: 100%; height: auto;"/></td>
 						</tr>
 						</c:if>
 					</tbody>
