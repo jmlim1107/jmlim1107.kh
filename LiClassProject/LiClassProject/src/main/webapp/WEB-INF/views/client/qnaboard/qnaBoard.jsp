@@ -18,52 +18,32 @@
                     <div class="date">작성일</div>
                 </div>
                 <%--내용--%>
-<%--<c:choose>
-    <c:when test="${not empty qnaBoardList}">
-        <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
-                <div>
-                    <div class="num" >${count + status.index + 1}&lt;%&ndash;<i class="bi bi-bell"></i>&ndash;%&gt;</div>
-            <c:if test="${qnaBoard.qna_step>0}">
-                <c:forEach begin="1" end="${qnaBoard.qna_indent}">
-                    &nbsp;&nbsp;&nbsp;
-                </c:forEach>
-                <i class="bi bi-arrow-return-right"></i> [RE] :
-            </c:if>
-            <span class="goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</span>
-                    <div class="title goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">${qnaBoard.qna_date}</div>--%>
+                <c:choose>
+                    <c:when test="${not empty qnaBoardList}">
+                        <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
+                            <div>
+                             <div class="num" >${count + status.index + 1}<%--<i class="bi bi-bell"></i>--%></div>
+                            <div class="title goDetail">
+                            <c:if test="${qnaBoard.qna_step>0}">
+                                <c:forEach begin="1" end="${qnaBoard.qna_indent}">
 
-                </div>
-<%--                <div>
-                    <div class="num">4</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">3</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">2021.1.15</div>
-
-                </div>
-                <div>
-                    <div class="num">2</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">1</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
-                </div>--%>
+                                </c:forEach>
+                                &nbsp;&nbsp;&nbsp;<i class="bi bi-arrow-return-right"></i>
+                            </c:if>
+                                <span>${qnaBoard.qna_category} ${qnaBoard.qna_title}</span>
+                            </div>
+                                <%--<div class="title goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</a></div>--%>
+                                <div class="writer">김이름</div>
+                                <div class="date">${qnaBoard.qna_date}</div>
+                            </div>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="text-center">등록된 게시글이 존재하지 않습니다.</div>
+                    </c:otherwise>
+                </c:choose>
             </div>
+
             <div class="board_page">
                 <a href="#" class="bt first"><<</a>
                 <a href="#" class="bt prev"><</a>
