@@ -27,7 +27,7 @@ public class ClientQnaBoardController {
         List<QnaBoardVo> qnaBoardList = clientQnaBoardService.qnaBoardList(qnaBoard);
         model.addAttribute("qnaBoardList", qnaBoardList);
 
-        return "admin/management/qnaboard/qnaBoard";
+        return "client/qnaboard/qnaBoard";
     }
 
     //문의게시판 상세페이지
@@ -38,7 +38,7 @@ public class ClientQnaBoardController {
         QnaBoardVo detail = clientQnaBoardService.qnaBoardDetail(qnaBoard);
         model.addAttribute("detail", detail);
 
-        return "admin/management/qnaboard/qnaBoardDetail";
+        return "client/qnaboard/qnaBoardDetail";
     }
 
     //문의 답변글 작성 메서드
@@ -49,14 +49,14 @@ public class ClientQnaBoardController {
         QnaBoardVo answerData = clientQnaBoardService.qnaAnswerForm(qnaBoard);
         model.addAttribute("answerData", answerData);
 
-        return "admin/management/qnaboard/qnaAnswerForm";
+        return "client/qnaboard/qnaAnswerForm";
     }
 
     @RequestMapping(value = "/qnaInsertForm")
     public String qnaInsertForm(@ModelAttribute QnaBoardVo qnaBoard, Model model){
         log.info("qnaInsertForm 호출");
 
-        return "admin/management/qnaboard/qnaInsertForm";
+        return "client/qnaboard/qnaInsertForm";
     }
 
     @RequestMapping(value = "qnaBoardInsert")
@@ -69,9 +69,9 @@ public class ClientQnaBoardController {
 
         result = clientQnaBoardService.qnaBoardInsert(qnaBoard);
         if(result == 1){
-            url = "/management/qnaboard/qnaBoard";
+            url = "/client/qnaboard/qnaBoard";
         } else{
-            url = "/management/qnaboard/qnaInsertForm";
+            url = "/client/qnaboard/qnaInsertForm";
         }
         return "redirect:"+url;
     }
@@ -87,9 +87,9 @@ public class ClientQnaBoardController {
 
         result = clientQnaBoardService.qnaAnswerInsert(qnaBoard);
         if(result == 1){
-            url = "/management/qnaboard/qnaBoard";
+            url = "/client/qnaboard/qnaBoard";
         } else{
-            url = "/management/qnaboard/qnaAnswerForm";
+            url = "/client/qnaboard/qnaAnswerForm";
         }
         return "redirect:"+url;
     }
@@ -102,10 +102,10 @@ public class ClientQnaBoardController {
 
         result = clientQnaBoardService.qnaBoardDelete(qnaBoard);
         if(result == 1){
-            url = "/management/qnaboard/qnaBoard";
+            url = "/client/qnaboard/qnaBoard";
 
         } else{
-            url = "/management/qnaboard/qnaBoardDetail?qna_no="+qnaBoard.getQna_no();
+            url = "/client/qnaboard/qnaBoardDetail?qna_no="+qnaBoard.getQna_no();
         }
         return "redirect:"+url;
 

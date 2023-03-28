@@ -35,7 +35,7 @@
 		          	<li><a href="/user/logout">로그아웃</a></li>
 		          </c:if>
 		          
-		          <li><a href="#customer-service">고객센터</a></li>
+		          <li><a href="/client/qnaboard/qnaBoard">고객센터</a></li>
 		          <li><a href="/liadmin/login">관리자</a></li>
 		        </ul>
 		      </nav>

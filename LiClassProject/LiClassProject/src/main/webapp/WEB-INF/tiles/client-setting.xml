@@ -20,6 +20,8 @@
 		<put-attribute name="title" value="스튜디오" />
  		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
 	</definition>
+
+
 	
 	<definition name="error/*" extends="content">
 		<put-attribute name="title" value="" />
