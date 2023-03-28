@@ -1,6 +1,5 @@
 package com.liclass.client.qnaboard.controller;
 
-import com.liclass.admin.management.qnaboard.service.QnaBoardService;
 import com.liclass.admin.management.qnaboard.vo.QnaBoardVo;
 import com.liclass.client.qnaboard.service.ClientQnaBoardService;
 import lombok.Setter;

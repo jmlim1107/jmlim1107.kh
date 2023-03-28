@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class ClientQnaBoardServiceImpl implements QnaBoardService {
+public class ClientQnaBoardServiceImpl implements ClientQnaBoardService {
 
     @Setter (onMethod_ = @Autowired)
     private QnaBoardDao qnaBoardDao;
