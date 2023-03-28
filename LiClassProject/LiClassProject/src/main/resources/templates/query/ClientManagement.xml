@@ -3,26 +3,23 @@
 <mapper namespace="com.liclass.admin.management.clientmanagement.dao.ClientManagementDao">
 
 	<!-- 검색 기능 -->
-	<!-- <sql id="clientSearch">
+	<sql id="clientSearch">
 		<if test="search == 'user_name'">
 			<![CDATA[ user_name LIKE '%' || #{keyword} || '%' ]]>
 		</if>
-		<if test="search == 'b_content'">
+		<!-- <if test="search == 'b_content'">
 			<![CDATA[ b_content LIKE '%' || #{keyword} || '%' ]]>
 		</if>
 		<if test="search == 'b_name'">
 			<![CDATA[ b_name LIKE '%' || #[keyword} || '%' ]]>
-		</if>
-		<if test="search=='user_regdate'">
-			<![CDATA[ TO_CHAR(user_regdate, 'YYYY-MM-DD') BETWEEN #{start_date} AND #{end_date} ]]>
-		</if>
+		</if> -->
 	</sql>
 	
-	게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기
+	<!-- 게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기
 	힌트(hint): 개발자가 데이터베이스에 어떤 방식으로 실행해 줘야 하는지를 명시하기 때문에 강제성을 부여한다. 
 		 구문: /*+ 로 시작하고 */ 로 종료된다. /*+ INDEX_DESC(테이블명 인덱스명[기본기 설정시 제약조건명으로 인덱스 자동 생성]) */
 	ROWNUM: SQL이 실행된 결과에 넘버링해준다.
-	게시판 리스트 조회(페이징 처리와 검색 처리)
+	게시판 리스트 조회(페이징 처리와 검색 처리) -->
 	<select id="clientList" parameterType="User" resultType="User">
 		<![CDATA[
 		SELECT
@@ -41,7 +38,7 @@
 			)li_user
 		WHERE rnum > (#{pageNum} - 1) * #{amount}
 		]]>
-	</select> -->
+	</select>
 	
 	<!-- <select id="clientList" parameterType="User" resultType="User">
 		<![CDATA[
@@ -61,9 +58,9 @@
 	</select> -->
 	
 	
-	<select id="clientList" resultType="User">
+	<!-- <select id="clientList" resultType="User">
 		select * from li_user
-	</select>
+	</select> -->
 	
 	<select id="clientListCnt" resultType="int">
 		select count(*) from li_user
