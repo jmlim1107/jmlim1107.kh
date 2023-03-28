@@ -49,7 +49,7 @@
 								<c:forEach var="studio" items="${studioList}" varStatus="status">
 								<article class="style1">
 									<span class="image">
-										<img src="/uploadStorage/studio/thumbnail/${studio.s_thumb}" style="width: 100%; height: 300px;"/>
+										<img src="/uploadLiClass/studio/thumbnail/${studio.s_thumb}" style="width: 100%; height: 300px;"/>
 									</span>
 									<a href="/client/studio/studioDetail?s_no=${studio.s_no}">
 										<span class="goDetail">${studio.s_title}</span>

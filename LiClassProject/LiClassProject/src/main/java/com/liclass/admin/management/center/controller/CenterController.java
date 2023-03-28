@@ -5,13 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.liclass.admin.management.center.service.CenterService;
 import com.liclass.admin.management.center.vo.CenterVO;
-import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;
@@ -76,7 +77,7 @@ public class CenterController {
 		log.info("centerDetail 호출 성공");
 		//log.info("cvo = " + cvo);
 			
-		CenterVO detail = centerService.centerDetail(cvo);
+		CenterVO detail = centerService.centerDetail2(cvo);/* 0328은아 admin-center.xml과 겹쳐서 수정합니다. */
 		model.addAttribute("detail", detail);
 			
 		return "admin/management/center/centerDetail";
@@ -147,6 +148,16 @@ public class CenterController {
 			
 		return "redirect:"+url;
 			
+	}
+	
+	//클래스 관리에서 이용하는 센터리스트(이경민 추가)
+	@ResponseBody
+	@GetMapping( value="/centerlist2", produces = "application/json;charset=utf-8" )
+	public List<CenterVO> centerlist2(){
+		log.info("단순 센터 나열");
+		List<CenterVO> list = null;
+		list = centerService.centerlist2();
+		return list;
 	}
 	
 	

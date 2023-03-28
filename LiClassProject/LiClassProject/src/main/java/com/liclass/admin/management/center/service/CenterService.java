@@ -10,9 +10,10 @@ public interface CenterService {
 	public List<CenterVO> centerList(CenterVO cvo);/* 검색 포함 리스트 */
 	public int centerListCnt(CenterVO cvo);
 	public int centerInsert(CenterVO cvo) throws Exception;
-	public CenterVO centerDetail(CenterVO cvo);
+	public CenterVO centerDetail2(CenterVO cvo); /* 0328은아 admin-center.xml과 겹쳐서 수정합니다. */
 	
 	public CenterVO updateForm(CenterVO cvo);
 	public int centerUpdate(CenterVO cvo) throws Exception ;
 	public int centerDelete(CenterVO cvo) throws Exception ;
+	public List<CenterVO> centerlist2();
 }

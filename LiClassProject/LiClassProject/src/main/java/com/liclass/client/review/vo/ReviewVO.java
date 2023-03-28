@@ -27,7 +27,8 @@ public class ReviewVO extends CommonVO{
 	private String c_name = "";					// 클래스 명
 	private int c_no = 0;						// 클래스 번호
 	private long user_no = 0;					// 회원 번호
-	private String user_img = "";				// 회원 프로필 사진
+	private String user_img = "";	// 회원 프로필 사진
+	private String user_name = "";
 
 	
 	private MultipartFile file;					// 파일 업로드를 위한 필드

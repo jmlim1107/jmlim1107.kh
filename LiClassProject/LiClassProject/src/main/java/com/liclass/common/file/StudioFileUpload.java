@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Repository
-public class UserFileUpload {
+public class StudioFileUpload {
 
 	/********************************************************************************
 	 * 파일 업로드할 폴더 생성
@@ -53,7 +53,7 @@ public class UserFileUpload {
 			real_name = fileName +"_"+System.currentTimeMillis()+"_"+org_name; //System.currentTimeMillis() = 가공하기위해 추가할 문구
 						// board_202302231111_클라이언트가올린파일명
 			
-			String docRoot = "C://uploadLiClass//user//"; //C://10.webDeveloper//uploadStorage//board
+			String docRoot = "C://uploadLiClass//studio//"; //C://10.webDeveloper//uploadStorage//board
 			makeDir(docRoot); //이 폴더 없으면 생성해라
 			
 			File fileAdd = new File(docRoot+"/"+real_name);
@@ -77,7 +77,7 @@ public class UserFileUpload {
 		
 		boolean result = false;
 		String docRoot ="";
-		docRoot = "C://uploadLiClass//user//";
+		docRoot = "C://uploadLiClass//studio//";
 		log.info("삭제할 기존 프로필사진 : "+docRoot+"/"+fileName);
 		
 		File fileDelete = new File(docRoot+"/"+fileName);

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.liclass.admin.management.clientmanagement.service.ClientManagementService;
@@ -25,17 +26,16 @@ public class ClientManagementController {
 	private ClientManagementService clientManagementService;
 	
 	@RequestMapping("/clientList") 
-	public String clientList(Model model, UserVO uservo) {
+	public String clientList(Model model, @ModelAttribute("data") UserVO uservo) {
 		log.info("clientList() 메소드 호출 성공");
 		
 		List<UserVO> userVO = clientManagementService.clientList(uservo);
 		model.addAttribute("userVO", userVO);
 		
-		//uservo.setAmount(15);
 		// 전체 레코드수 구현
-		//int total = clientManagementService.clientListCnt(uservo);
+		int total = clientManagementService.clientListCnt(uservo);
 		// 페이징 처리
-		//model.addAttribute("pageMaker", new PageDTO(uservo, total));
+		model.addAttribute("pageMaker", new PageDTO(uservo, total));
 		
 		return "admin/management/clientManagement/clientList"; 
 	}

@@ -34,88 +34,105 @@
 		* Author: BootstrapMade.com
 		* License: https://bootstrapmade.com/license/
 		======================================================== -->
-		<script type="text/javascript">
-			$(function() {
-				/**************************상세화면******************************** 
-				$(".goDetail").click(function(){
-	    			let num = $(this).parents("tr").attr("data-num");
-	    			console.log(num);
-	    			location.href="/admin/class/classDetail?c_no="+num;
-				});*/
-				
-				/*$("#insertBtn").click(function(){
-					location.href="/admin/class/writeForm";
-				});*/
-				/*****************************검색*********************************/ 
-				
-				//1) 검색후처리
-				let word = "<c:out value='${data.keyword}'/>"; 
-	    		if(word!=""){ 	//검색작업을 한 경우
-	    			console.log(word);
-	    			$("#keyword").val("<c:out value='${data.keyword}'/>"); 	//내가 선택한 단어
-	    			$("#search").val("<c:out value='${data.search}'/>"); //내가 선택한 카테고리 
-	    		}
-	    		
-	    		// 2) 검색전처리
-				$("#keyword").bind("keydown", function(event){
-					if(event.keyCode == 13){
-						event.preventDefault();
-					}
-				});
-				// 3) 검색변경시 처리
-				$("#search").change(function(){
-					if($("#search").val()=="all"){
-						$("#keyword").val("전체데이터 조회합니다.");
-					} else if ( $("#search").val() != "all" ){
-						$("#keyword").val(""); 
-						$("#keyword").focus(); //입력커서
-					}
-				});
-				// 4) 검색처리
-				$("#searchBtn").click(function(){
-					// 유효성 검사 : 검색키워드가 all이 아니라면 검색단어가 반드시 입력되어야함
-					if( $("#search").val()!="all" ) {
-						if(!chkData("#keyword", "검색단어를")) return;
-					}
-					$("#pageNum").val(1); //페이징 초기화
-					goPage();
-				});
-				
-				/*********************************페이징*************************************/
-				$(".page-item a").click(function(e){
-					e.preventDefault(); //a태그가 href의 주소로 이동하는 이벤트를 해제
-					$("#f_search").find("#pageNum").val( $(this).attr("href") );
-					//클릭한 a태그의 href속성값을 폼의 pageNum값에 대입
-					goPage();
-				});
-				
-			}); //최상위$
-				
-			//페이지 전환 함수 :: 검색, 페이징 
-			function goPage(){
-				//전체조회의 경우 제어
-				if($("#search").val()=="all"){
-					$("#keyword").val("");
+	<script type="text/javascript">
+		$(function() {
+			/**************************상세화면*********************************/ 
+			$(".goDetail").click(function(){
+    			let num = $(this).parents("tr").attr("data-num");
+    			console.log(num);
+    			location.href="/admin/class/classDetail?c_no="+num;
+			});
+			$("#insertBtn").click(function(){
+				location.href="/admin/class/writeForm";
+			});
+			/*****************************검색*********************************/ 
+			//1) 검색후처리
+			let word = "<c:out value='${classVO.keyword}'/>"; 
+    		if(word!=""){ 	//검색작업을 한 경우
+    			console.log(word);
+    			$("#keyword").val("<c:out value='${classVO.keyword}'/>"); 	//내가 선택한 단어
+    			$("#search").val("<c:out value='${classVO.search}'/>"); //내가 선택한 카테고리 
+    			if($("#category").val()=="c_category"){ //카테고리 이름바꿔주는 작업	
+    				switch( word ){
+    					case "0" : $("#keyword").val("공예"); break
+    					case "1" : $("#keyword").val("요리"); break
+    					case "2" : $("#keyword").val("미술"); break
+    					case "3" : $("#keyword").val("플라워"); break
+    					case "4" : $("#keyword").val("뷰티"); break
+    					case "5" : $("#keyword").val("기타"); break
+    				}
+    			}
+    			
+    		}
+			// 2) 검색전처리
+			$("#keyword").bind("keydown", function(event){
+				if(event.keyCode == 13){
+					event.preventDefault();
 				}
-				
-				
-				// 값 전달 및 처리
-				$("#f_search").attr({
-					"method":"get",
-					"action":"/clientmanagement/clientList"
-				});
-				$("#f_search").submit();
+			});
+			// 3) 검색변경시 처리
+			$("#search").change(function(){
+				if($("#search").val()=="all"){
+					$("#keyword").val("전체데이터 조회합니다.");
+				} else if ( $("#search").val() != "all" ){
+					$("#keyword").val(""); 
+					$("#keyword").focus(); //입력커서
+				}
+			});
+			// 4) 검색처리
+			$("#searchBtn").click(function(){
+				// 유효성 검사 : 검색키워드가 all이 아니라면 검색단어가 반드시 입력되어야함
+				if( $("#search").val()!="all" ) {
+					if(!chkData("#keyword", "검색단어를")) return;
+				}
+				$("#pageNum").val(1); //페이징 초기화
+				goPage();
+			});
+			
+			/*********************************페이징*************************************/
+			$(".page-item a").click(function(e){
+				e.preventDefault(); //a태그가 href의 주소로 이동하는 이벤트를 해제
+				$("#f_search").find("#pageNum").val( $(this).attr("href") );
+				//클릭한 a태그의 href속성값을 폼의 pageNum값에 대입
+				goPage();
+			});
+			
+		}); //최상위$
+			
+		//페이지 전환 함수 :: 검색, 페이징 
+		function goPage(){
+			//전체조회의 경우 제어
+			if($("#search").val()=="all"){
+				$("#keyword").val("");
 			}
-				
-			</script>
-		</head>
+			//카테고리검색의 경우 제어
+			if($("#search").val()=="c_category"){
+				switch( $("#keyword").val() ){
+					case "공예" : $("#keyword").val("0"); break
+					case "요리" : $("#keyword").val("1"); break
+					case "미술" : $("#keyword").val("2"); break
+					case "플라워" : $("#keyword").val("3"); break
+					case "뷰티" : $("#keyword").val("4"); break
+					case "기타" : $("#keyword").val("5"); break
+				}
+			}
+			
+			// 값 전달 및 처리
+			$("#f_search").attr({
+				"method":"get",
+				"action":"/admin/class/classList"
+			});
+			$("#f_search").submit();
+		}
+	</script>
+</head>
 	<body>
 
     <div class="pagetitle">
-      <h1>회원 관리</h1>
+      <h1>클래스 관리</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Tables</li>
           <li class="breadcrumb-item active">General</li>
         </ol>
@@ -140,7 +157,9 @@
 				<div class="form-group" > 
 					<select id="search" name="search"  class="form-control">
 						<option value="all">전체</option>
-						<option value="user_name">이름</option>
+						<option value="c_title">클래스명</option>
+						<option value="c_area">클래스 지역</option>
+						<option value="c_category">카테고리</option>
 					</select>
 				</div>
 				<input type="text"  name="keyword"  id="keyword" class="form-control" placeholder="검색내용을 입력해주세요.."/>
@@ -159,28 +178,37 @@
                   	</td>
                   </tr>
                   <tr>
-                    <th data-value="b_num" class="order text-center col-md-3">회원번호</th>
-			        <th class="text-center col-md-2">회원이름</th>
-                    <th class="text-center col-md-2">회원연락처</th>
-                    <th class="text-center col-md-1">회원이메일</th>
-                    <th class="text-center col-md-1">회원계정상태</th>
+                    <th scope="col"  class="text-center">번호</th>
+                    <th scope="col"  class="text-center">카테고리</th>
+                    <th scope="col" class="text-center">제목</th>
+                    <th scope="col" class="text-center">지역</th>
+                    <th scope="col" class="text-center">센터번호</th>
                   </tr>
                 </thead>
                 <tbody>
                 	<c:choose>
-                		<c:when test="${ not empty userVO }">
-                			<c:forEach var="uvo"  items="${userVO}"  varStatus="status">
-                				<tr class="text-center" data-num="${uvo.user_no  }">
-	                           	  <td>${uvo.user_no }</td>
-	                              <td>${uvo.user_name }</td>                     
-	                              <td>${uvo.user_tel }</td>
-	                              <td>${uvo.user_email }</td>
-	                              <td>${uvo.user_status }</td>                           
-			                    </tr>
+                		<c:when test="${ not empty classList }">
+                			<c:forEach var="liclass"  items="${classList}"  varStatus="status">
+                				<tr data-num="${liclass.c_no}">
+				                    <th scope="row" class="text-center">${ liclass.c_no}</th>
+				                    <td class="text-center">
+				                    	<c:choose>
+				                    	<c:when test="${ liclass.c_category eq 0}">공예</c:when>
+				                    	<c:when test="${ liclass.c_category eq 1}">요리</c:when>
+				                    	<c:when test="${ liclass.c_category eq 2}">미술</c:when>
+				                    	<c:when test="${ liclass.c_category eq 3}">플라워</c:when>
+				                    	<c:when test="${ liclass.c_category eq 4}">뷰티</c:when>
+				                    	<c:when test="${ liclass.c_category eq 5}">체험 및 기타</c:when>
+				                    	</c:choose>
+				                    </td>
+				                    <td class="goDetail">${liclass.c_title}</td>
+				                    <td class="text-center">${liclass.c_area}</td>
+				                    <td class="text-center">${liclass.ct_bizno }</td>
+				              </tr>
                 			</c:forEach>
                 		</c:when>
                 		<c:otherwise>
-                			<td colspan="5">회원내역이 없습니다.</td>
+                			<td colspan="5"> 조회내용이 없습니다. </td>
                 		</c:otherwise>
                 	</c:choose>
                 </tbody>
@@ -231,6 +259,7 @@
   <script src="/resources/admin/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="/resources/admin/vendor/tinymce/tinymce.min.js"></script>
   <script src="/resources/admin/vendor/php-email-form/validate.js"></script>
+
   <!-- Template Main JS File -->
   <script src="/resources/admin/js/main.js"></script>
   

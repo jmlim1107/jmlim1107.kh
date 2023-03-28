@@ -63,7 +63,7 @@
 	                               <i class="fa-solid fa-envelope"></i><p>${loginUser.user_email}</p>
 	                               <i class="fa-solid fa-phone"></i><p>${loginUser.user_tel}</p>
 	                               <div class="main-white-button"><a href="/mypage/updateForm" id="edit-btn"><i class="fa-regular fa-user"></i>수정하기</a></div>
-	                               <div class="main-white-button"><a href="#sns-share2" rel="modal:open">수강내역</a></div>
+	                               <div class="main-white-button"><a href="#sns-share2" rel="modal:open"><i class="fa-solid fa-money-check"></i>수강내역</a></div>
 	                               
 	                             </div>
 	                           </div>

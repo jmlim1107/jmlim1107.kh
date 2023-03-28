@@ -75,7 +75,7 @@
             </a>
             <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="charts-chartjs.html">
+                    <a href="/admin/class/classList">
                         <i class="bi bi-circle"></i><span>클래스 관리</span>
                     </a>
                 </li>

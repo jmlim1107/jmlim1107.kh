@@ -96,8 +96,8 @@
 		values(#{ct_bizno}, #{ct_name}, #{ct_opbiz_ym}, #{ct_intro}, #{ct_mainart}, #{ct_zipno}, #{ct_addr}, #{ct_detail_addr}, #{ct_tel}, #{ct_hmpg_addr})
 	</insert>
 	
-	<!-- 상세 페이지를 위한 게시물 조회 -->
-	<select id="centerDetail" parameterType="center" resultType="center">
+	<!-- 상세 페이지를 위한 게시물 조회 --> <!-- 0328은아 admin-center.xml과 겹쳐서 수정합니다. -->
+	<select id="centerDetail2" parameterType="center" resultType="center">
 		/* Center - boardDetail */
 		select
 				ct_bizno, ct_name, ct_opbiz_ym, ct_intro, ct_mainart, ct_zipno, ct_addr, ct_detail_addr, ct_tel, ct_hmpg_addr,
@@ -135,6 +135,11 @@
 	<select id="centerNameList" resultType="center">
 	select ct_name, ct_bizno
 	from li_center
+	</select>
+	
+	<!-- 페이징처리되지 않은 list -->
+	<select id="centerlist2" parameterType="Center" resultType="Center">
+		select * from li_center
 	</select>
 	
 </mapper>

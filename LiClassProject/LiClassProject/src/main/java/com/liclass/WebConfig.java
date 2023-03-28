@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 리소스의 위치와 리소스와 매칭 될 url을 설정한다 */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-	private String connectPath = "/uploadStorage/**";
+	private String connectPath = "/uploadLiClass/**";
 	
 	/*******************************************************
 	 * 경로 설정시 
@@ -16,7 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
 	 * - 로컬 디스크 경로일 경우 file:/// 접두어를 명시해 두어야 한다.
 	 */ 
 	
-	private String resourcePath = " file:///C:\\uploadStorage\\";
+	private String resourcePath = " file:///C:\\uploadLiClass\\";
 	
 	 /*******************************************************
 		 * addResourceHandler : 리소스와 연결될 URL path를 지정. 
