@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="tiles" uri = "http://tiles.apache.org/tags-tiles" %>
-<%@ include file="/WEB-INF/views/client/common.jspf" %>
+<%@ include file="/WEB-INF/views/client/client_common.jspf" %>
+
+<!-- 은아) 상의 후 client 폴더 내 contentLayout과 합치겠습니다. -->
 	<title>LiClass</title>
   </head>
   

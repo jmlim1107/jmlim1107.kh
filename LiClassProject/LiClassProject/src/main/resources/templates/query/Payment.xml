@@ -8,7 +8,7 @@
       where user_no = #{user_no}
    </select>
    
-   <select id="getClassInfo" parameterType="int" resultType="class">
+   <select id="getClassInfo" parameterType="int" resultType="c_class">
       select * from li_class
       where c_no = #{c_no}
    </select>

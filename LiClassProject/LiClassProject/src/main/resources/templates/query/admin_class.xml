@@ -3,7 +3,8 @@
 <mapper namespace="com.liclass.admin.classes.dao.AdminClassDAO">
 	
 	<!-- 전체 리스트 조회 -->
-	<select id="classList" resultType="class" parameterType="class">
+	<!-- 은아)민섭님 이거 오류나서일단 com.liclass.client.classes.vo.ClientClassVO로 바꿔놔봐요ㅜㅜ -->
+	<select id="classList" resultType="c_class" parameterType="c_class">
 		<![CDATA[
 		select c_no, ct_bizno,  c_title, c_content, c_category, c_level, c_area, c_luv, c_maxcnt, c_mincnt, c_date
 		from (
@@ -34,7 +35,7 @@
 	</sql>
 	
 	<!-- 전체 레코드 수 조회 -->
-	<select id="classListCnt" parameterType="class" resultType="int">
+	<select id="classListCnt" parameterType="c_class" resultType="int">
 		select count(*) from li_class
 		<trim prefix="where (" suffix=")" >
 				<include refid="classSearch"></include>
@@ -42,12 +43,12 @@
 	</select>
 	
 	<!-- 하나레코드 상세조회 -->
-	<select id="classDetail" parameterType="int" resultType="class">
+	<select id="classDetail" parameterType="int" resultType="c_class">
 		select * from li_class where c_no = #{num}
 	</select> 
 	
 	<!-- 레코드 입력 -->
-	<insert id="classInsert" parameterType="class">
+	<insert id="classInsert" parameterType="c_class">
 		<selectKey keyProperty="c_no" resultType="int" order="BEFORE">
 			select li_class_seq.nextval from dual
 		</selectKey>
@@ -56,7 +57,7 @@
 	</insert>
 	
 	<!-- 클래스 수정 -->
-	<update id="classUpdate" parameterType="class">
+	<update id="classUpdate" parameterType="c_class">
 		update li_class set 
 			c_area=#{c_area}, c_maxcnt=#{c_maxcnt}, c_leadtime=#{c_leadtime}, c_content=#{c_content}
 		<if test="c_category !='' "> <!-- VO필드에서 c_category의 기본값을 ""로 설정해 두었다... -->

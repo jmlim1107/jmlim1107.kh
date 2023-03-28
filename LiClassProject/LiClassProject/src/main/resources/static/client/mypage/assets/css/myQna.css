@@ -199,3 +199,24 @@ ul.labels-info li a i {
 .inbox-small-cells{
 text-align: center;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius:50%;
+
+}
+.pagination a.active {
+  background-color: #3938387a;
+  color: white;
+  width: 39.94px;
+  height: 39.8px;
+}
+.pagination a:hover:not(.active) {background-color: #39383838;}

@@ -26,7 +26,7 @@ import com.liclass.client.login.service.UserService;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.mypage.service.MypageService;
 import com.liclass.client.payment.vo.PaymentVO;
-import com.liclass.client.qnaboard.vo.QnaVO;
+import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.file.UserFileUpload;
 import com.liclass.common.vo.CommonVO;
@@ -54,7 +54,7 @@ public class MyPageController {
 	 * 요청 url : http://localhost:8080/mypage
 	************************************************/
 	@RequestMapping("/mypage")
-	public String mypage(UserVO vo,Model model,HttpSession session,PaymentVO pvo,QnaVO qvo) {
+	public String mypage(UserVO vo,Model model,HttpSession session,PaymentVO pvo,ClientQnaBoardVO qvo) {
 		log.info("mypage() 호출");
 		
 		/* 은아 */
@@ -89,7 +89,7 @@ public class MyPageController {
 		model.addAttribute("qnaPageMaker",qnaPageDto);
 		log.info("qnaPageDto.getCvo().getPageNum() : "+qnaPageDto.getCvo().getPageNum());
 
-		List<QnaVO> myQnaList = mypageService.myQnaList(qvo);
+		List<ClientQnaBoardVO> myQnaList = mypageService.myQnaList(qvo);
 		model.addAttribute("myQnaList",myQnaList);
 		
 		//비밀번호 만료 알림

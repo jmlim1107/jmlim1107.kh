@@ -3,6 +3,8 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+	<!-- 은아) 임시 헤더  -->
 	<!-- header start-->
 	<section class="tophead" role="tophead"> 
 	  <header id="header">
@@ -36,7 +38,7 @@
 		          </c:if>
 					<li><a href="/client/qnaboard/noticeBoard">공지사항</a></li>
 					<li><a href="/client/qnaboard/qnaBoard">고객센터</a></li>
-		        	<li><a href="/liadmin/login">관리자</a></li>
+		        	<li><a href="/liadmin/login">관리자(추후이동예정)</a></li>
 		        </ul>
 		      </nav>
 	     </div>

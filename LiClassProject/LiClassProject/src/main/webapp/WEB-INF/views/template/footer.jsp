@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 
+	<!-- 은아) 임시 푸터  -->
 	<!-- footer start end-->
 	  <div class="col-md-2 left">
 	    <h4>LiClass Project</h4>
@@ -10,7 +11,7 @@
 	  <div class="col-md-2 left">
 	    <h4>Contact</h4>
 	    <p> Call: 010.2458.8661 <br>
-	      Email : kimeunazip@naver.com </p>
+	      Email : liclass@gmail.com </p>
 	  </div>
 	  <div class="col-md-2 left">
 	    <h4>Social presense</h4>

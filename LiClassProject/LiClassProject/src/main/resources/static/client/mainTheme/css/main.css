@@ -468,8 +468,8 @@ ul li {
 	letter-spacing: 2px;
 	text-transform: uppercase;
 }
-#portfolio * {
-	z-index: 2;
+#portfolio * {/*은아) 로그인모달과 겹쳐서 작성함. 문제시 말해주세요~  */
+	z-index: 0;
 }
 
 /* ------------------------------------------------------------------------------

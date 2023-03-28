@@ -1,32 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>		
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>	
+<!-- 은아) 문의내역 -->	
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/myQna.css" />
-<style>
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-radius:50%;
-
-}
-
-.pagination a.active {
-  background-color: #3938387a;
-  color: white;
-  width: 39.94px;
-  height: 39.8px;
-}
-.pagination a:hover:not(.active) {background-color: #39383838;}
-</style>
 <script>
 	$(function(){
 		//문의글 제목 클릭 시 상세내용
@@ -58,13 +35,6 @@
 			});
 			$("#page-form").submit(); 
 			
-
-		/* 	$("#page-form").attr({
-				"method":"get",
-				"action":"/mypage"
-			});
-			$("#page-form").submit();  */
-			
       	});
 	});
 	
@@ -84,7 +54,7 @@
 			                              <tr class="unread">
 			                                  <td class="view-message  inbox-small-cells"><i class="fa-solid fa-q"></i></td>
 			                                  <td class="inbox-small-cells" >
-			                                  <c:if test="${qnaVO.qna_status == 0 }">
+			                                 <c:if test="${qnaVO.qna_status == 0 }">
 				                                  <span class="label label-notyet">답변대기</span>
 			                                  </c:if>
 			                                   <c:if test="${qnaVO.qna_status == 1 }">

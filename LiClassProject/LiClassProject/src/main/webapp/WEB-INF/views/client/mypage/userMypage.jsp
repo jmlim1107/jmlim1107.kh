@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--은아) 비밀번호 만료 알림 js,css  -->
 <script src="/resources/client/mypage/assets/js/pwExp.js"></script>
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/pwExp.css" />
 <style type="text/css">
@@ -12,20 +13,18 @@
 </style> 
 <script>
 	$(function(){
-		// alert message
+		/* 은아)마이페이지 redirect 시 전달메시지 있을 때 */
 		if('${message}' != ""){
 			var message = "${message}" ;
 			console.log(message);
+			
+			/* 은아) 비밀번호 만료시 알림 */	
 			if(message == "pwOverExp"){
-					var popup1 = getCookie('popup1');
-
-		            // 변수가 없을경우 팝업 출력 
-		            if (!popup1) {
-		                popUpAction('popup1');
-		            }
-			}else{
+					var pwOverExp = getCookie('pwOverExp');
+		            if (!pwOverExp) 
+		                popUpAction('pwOverExp');
+			}else
 				alert(message);
-			}
 		}
 	});
 </script>
@@ -37,7 +36,7 @@
 	   <a id="naver-link-btn" href="javascript:shareNaver()" ><i class="fa-solid fa-n" style="color:#5ECC69;"></i></a>
 	   <a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555;"></i></a>
 	</div>
-	<div class="main_notice_pop" name="popup1" style="position:fixed; left:60%; top:10%; display:none; z-index:999;">
+	<div class="main_notice_pop" name="pwOverExp" style="position:fixed; left:60%; top:10%; display:none; z-index:999;">
 	    <div id="alert-popup" style="">
 	    	<h3><i class="fa-solid fa-bell" style="font-size: 16px;"></i> ${loginUser.user_name}님, </h3>
 	    	<p>비밀번호 변경일로부터 90일이 경과되었습니다.</p> 

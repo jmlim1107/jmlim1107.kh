@@ -51,7 +51,7 @@
 .side-menu {
 	position: fixed;
 	right: 30px;
-	top: 50%;
+	top: 40%;
     transform: translateY(-73px);
     z-index: 99;
 }
@@ -101,4 +101,13 @@
 .recent-img{
 	width:100px;
 	height: 100px;
+}
+
+#recent span{
+	color:#5555559e;
+}
+
+#recent-del{
+	margin:5px;
+	color:#5555559e;
 }
