@@ -5,7 +5,7 @@
     <script>
     	$(function(){
     		$(".classDetail").click(function(){
-    			let c_no = $(this).parent("div").data('num');
+    			let c_no = $(this).data('num');
     			location.href="/class/classDetail?c_no="+c_no;
     		});
     	});

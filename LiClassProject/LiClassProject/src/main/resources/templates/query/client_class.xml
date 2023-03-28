@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liclass.client.classes.dao.ClassDAO">
+<mapper namespace="com.liclass.client.classes.dao.ClientClassDAO">
 	<!-- 은아  -->
 	<!--1. 클래스 리스트  -->
 	<!-- <select id="classList" resultType="Class">
@@ -51,15 +51,15 @@
 	</select>
 	-->
 	<resultMap type="c_class" id="c_class">
-		<result column="THUMB_FILE" property="thumb_file" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result column="c_img_file" property="c_img_file" jdbcType="VARCHAR" javaType="java.lang.String"/>
 	</resultMap>
 	<select id="classList" resultMap="c_class">
-		SELECT A.c_no, A.c_title, A.c_content, A.c_category , A.c_area , A.c_luv, A.c_state, to_char(A.c_date, 'YYYY-MM-DD') as c_date, B.thumb_file 
+		SELECT A.c_no, A.c_title, A.c_content, A.c_category , A.c_area , A.c_luv, A.c_state, to_char(A.c_date, 'YYYY-MM-DD') as c_date, B.c_img_file 
 			FROM li_class A left outer join
 	    		(select c_no, 
-	        	MAX(DECODE(RID, 1, thumb_file)) thumb_file
+	        	MAX(DECODE(RID, 1, c_img_file)) c_img_file
 	    		from (
-            		SELECT c_no, thumb_file,
+            		SELECT c_no, c_img_file,
                 	ROW_NUMBER() OVER (PARTITION BY c_no ORDER BY c_img_no) RID, 
                 	c_img_no
                 	
@@ -68,7 +68,7 @@
 	    		GROUP BY c_no
 	   			) B
 				on A.c_no = B.c_no 
-				ORDER BY c_no desc
+				ORDER BY c_no asc
 	</select>
 	
 	

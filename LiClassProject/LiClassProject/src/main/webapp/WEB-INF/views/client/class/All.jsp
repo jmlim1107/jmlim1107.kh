@@ -7,7 +7,7 @@
 			<!-- 클래스 이미지 -->
 	        <div>
 	         		<c:if test="${not empty classes.c_img_file}">
-	         			<img class="card-img-top" src="/uploadLiClass/class/thumbnail/${classes.c_img_file}"/>
+	         			<img class="card-img-top" src="/uploadStorage/class/thumbnail/${classes.c_img_file}"/>
 	         		</c:if>
 	         		<c:if test="${empty classes.c_img_file}">
 	         			<img src="/resources/images/notfound.png" style="width: 250px; height: 200px;">
@@ -17,7 +17,7 @@
             <div class="card-body p-4">
             	<div class="text-center">
                   <!-- 클래스 명 -->
-                  <h5 class="fw-bolder">${classes.c_title}</h5>
+                  <h5 class="fw-bolder classDetail" data-num="${classes.c_no }">${classes.c_title}</h5>
                   <!-- Product reviews-->
                   <div class="d-flex justify-content-center small text-warning mb-2">
                       <div class="bi-star-fill">평균별점 추후에 작업 예정</div>
