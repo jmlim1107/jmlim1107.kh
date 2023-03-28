@@ -25,7 +25,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		log.info("home() 호출");
 		
-		List<ClientClassVO> classList = classService.classList();
+		List<ClientClassVO> classList = classService.clientClassList();
 		for(ClientClassVO vo : classList) {
 			log.info(vo.toString());
 		}
