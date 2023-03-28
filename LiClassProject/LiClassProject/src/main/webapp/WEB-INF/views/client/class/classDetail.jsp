@@ -11,6 +11,15 @@
 <link href="/resources/client/classDetail/css/themify-icons.css" rel="stylesheet">
 <link href='/resources/client/classDetail/css/dosis-font.css' rel='stylesheet' type='text/css'>
 
+
+	<script type="text/javascript">
+		$(function(){
+			var errorMsg = ${errorMsg};
+			if(errorMsg != null){
+				alert(errorMsg);
+			}
+		});
+	</script>
 	<!-- header slider section start -->
 	<section id="header-slider" class="section">
 	<div class="class-content" data-num="${classDetail.c_no}">
@@ -25,7 +34,7 @@
 	      	<a class="like"><i class="fa-regular fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
          </c:if>
           <c:if test="${loginUser != null}">
-          	<c:if test="${checkResult eq 0}">
+          	<c:if test="${checkResult eq 0}"
 	      		<a class="like"><i class="fa-regular fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
 	      	</c:if>
 	      	<c:if test="${checkResult eq 1}">

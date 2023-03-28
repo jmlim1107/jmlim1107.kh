@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.liclass.admin.management.center.service.CenterService;
 import com.liclass.admin.management.center.vo.CenterVO;
-import com.liclass.client.classes.vo.ClassVO;
+import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;

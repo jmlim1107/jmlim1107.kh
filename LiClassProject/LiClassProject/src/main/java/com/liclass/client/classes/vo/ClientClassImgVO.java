@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassImgVO extends ClassVO {
+public class ClientClassImgVO extends ClientClassVO {
 	private int cImgNo;
 	private String cImgFile;
 	private String thumbFile;

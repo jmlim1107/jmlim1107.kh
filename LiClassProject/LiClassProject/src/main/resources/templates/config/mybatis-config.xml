@@ -4,14 +4,14 @@
 	<typeAliases>
 		<!--은아-->
 		<typeAlias type="com.liclass.client.login.vo.UserVO" alias="User"/>
-		<typeAlias type="com.liclass.client.classes.vo.ClassVO" alias="Class"/>
+		<typeAlias type="com.liclass.client.classes.vo.ClientClassVO" alias="Class"/>
 		<typeAlias type="com.liclass.client.likes.vo.LikesVO" alias="Likes"/>
 		<typeAlias type="com.liclass.client.review.vo.ReviewVO" alias="Review"/>
 		<typeAlias type="com.liclass.client.qnaboard.vo.QnaVO" alias="Qna"/>
       	<typeAlias type="com.liclass.admin.management.center.vo.CenterVO" alias="Center"/>
 		
 		<!--웅배-->
-        <typeAlias type="com.liclass.client.reserve.ReserveVO" alias="reserve"/>
+		<typeAlias type="com.liclass.client.reserve.vo.ReserveVO" alias="reserve"/>
          <typeAlias type="com.liclass.client.payment.vo.PaymentVO" alias="payment"/>
          <typeAlias type="com.liclass.client.payment.vo.RefundVO" alias="refund"/>
          <typeAlias type="com.liclass.admin.episode.vo.EpisodeVO" alias="episode"/>
@@ -24,6 +24,13 @@
 		<typeAlias type="com.liclass.admin.management.qnaboard.vo.QnaBoardVo" alias="qnaBoard"/>
 		<!-- <typeAlias type="com.spring.client.reply.vo.ReplyVO" alias="reply"/>
 		<typeAlias type="com.spring.admin.login.vo.AdminLoginVO" alias="adminLogin" /> -->
+		
+		<typeAlias type="com.liclass.admin.classes.vo.AdminClassVO" alias="Adminclass"/>
+		<!-- <typeAlias type="com.liclass.admin.center.vo.CenterVO" alias="center"/> -->
+		<!-- <typeAlias type="com.liclass.admin.episode.vo.EpisodeVO" alias="episode"/> -->
+		<typeAlias type="com.liclass.admin.img.vo.AdminClassImgVO" alias="img"/>
+		
+		
 	</typeAliases>
 </configuration>
 

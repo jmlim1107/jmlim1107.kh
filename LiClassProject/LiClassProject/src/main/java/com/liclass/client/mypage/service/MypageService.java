@@ -3,7 +3,7 @@ package com.liclass.client.mypage.service;
 import java.util.List;
 import java.util.Map;
 
-import com.liclass.client.classes.vo.ClassVO;
+import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.qnaboard.vo.QnaVO;
@@ -13,7 +13,7 @@ public interface MypageService {
 	
 		/* 은아 */
 		//1. 나의 관심클래스 조회
-		public List<ClassVO> myLikesList(UserVO vo);
+		public List<ClientClassVO> myLikesList(UserVO vo);
 		
 		//2. 나의 관심클래스 삭제
 		public int delLikes(UserVO vo);

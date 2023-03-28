@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.liclass.admin.management.center.vo.CenterVO;
-import com.liclass.client.classes.vo.ClassVO;
+import com.liclass.client.classes.vo.ClientClassVO;
 @Service
-public interface ClassService {
+public interface ClientClassService {
 	
 	//클래스 리스트
-	public List<ClassVO> classList();
+	public List<ClientClassVO> classList();
 	
 	//클래스 상세
-	public ClassVO classDetail(ClassVO vo);
+	public ClientClassVO classDetail(ClientClassVO vo);
 	
 	//센터 상세조회
-	public CenterVO centerDetail(ClassVO vo);
+	public CenterVO centerDetail(ClientClassVO vo);
 		
 }

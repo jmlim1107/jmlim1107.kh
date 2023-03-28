@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.liclass.client.classes.vo.ClassVO;
+import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.mypage.dao.MypageDAO;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -26,9 +26,9 @@ public class MypageServiceImpl implements MypageService{
 		/* 은아 */
 		//1. 나의 관심클래스 조회
 		@Override
-		public List<ClassVO> myLikesList(UserVO vo) {
+		public List<ClientClassVO> myLikesList(UserVO vo) {
 			log.info("myLikesList() 호출");
-			List<ClassVO> list = mypageDao.myLikesList(vo);
+			List<ClientClassVO> list = mypageDao.myLikesList(vo);
 			return list;
 		}
 	

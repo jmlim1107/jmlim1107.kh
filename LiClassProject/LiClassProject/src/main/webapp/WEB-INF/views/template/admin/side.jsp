@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="components-accordion.html">
+                    <a href="/clientmanagement/clientList">
                         <i class="bi bi-circle"></i><span>회원관리</span>
                     </a>
                 </li>

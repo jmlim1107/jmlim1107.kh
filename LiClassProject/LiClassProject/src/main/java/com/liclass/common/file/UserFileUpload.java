@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Repository
-public class FileUploadUtil {
+public class UserFileUpload {
 
 	/********************************************************************************
 	 * 파일 업로드할 폴더 생성

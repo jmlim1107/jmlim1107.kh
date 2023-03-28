@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClassVO {
+public class ClientClassVO {
 	private int c_no;
 	private String ct_bizno; //추후 강사테이블 상속으로 대체?
 	private String c_title;

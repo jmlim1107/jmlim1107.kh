@@ -48,8 +48,8 @@
 					pg: 'html5_inicis.INIpayTest',
 					pay_method : 'card', // 무조건 카드
 					merchant_uid : "KH-LICLASS-" + makeMerchantUid, // 중복되면 결제 안됨
-					name : '${cvo.c_title }',
-					amount : 100,
+					name : '${rvo.c_title }',
+					amount : ${rvo.r_price},
 					buyer_email : '${uvo.user_email}',
 					buyer_name : '${uvo.user_name }',
 					buyer_tel : '${uvo.user_tel }'
@@ -67,7 +67,7 @@
 								"pay_pg" : rsp.pg_provider,
 								"pay_method" : rsp.pay_method,
 								"r_no" :${rvo.r_no },
-								"user_no" : ${uvo.user_no},
+								"user_no" : ${rvo.user_no},
 								"pay_name" : rsp.name,
 								"pay_buyer_name" : rsp.buyer_name,
 								"pay_buyer_tel" : rsp.buyer_tel,
@@ -75,7 +75,14 @@
 								"pay_price" : ${rvo.r_price}
 							}),
 							success : function(data){
-								location.href = data;
+								var merchant_uid = data.merchant_uid;
+								$("input[name=merchant_uid]").attr("value",merchant_uid);
+								
+								$("#rnoDataForm").attr({
+									method : "POST",
+									action : data.goUrl
+								});
+								$("#rnoDataForm").submit();
 							},
 							error : function(data){
 								console.log("실패");
@@ -119,6 +126,7 @@
 	<body onload="payment()">
 		<form id="rnoDataForm">
 			<input type="hidden" name="r_no" value="${rvo.r_no }">
+			<input type="hidden" name="merchant_uid" value="">
 		</form>
 	</body>
 </html>
