@@ -9,7 +9,7 @@
         <put-attribute name="header" value="/WEB-INF/views/template/admin/header.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/views/template/admin/footer.jsp"/>
     </definition>
-
+    
     <definition name="admin/management/*" extends="admin-tiles">
         <put-attribute name="title" value="관리자"/>
         <put-attribute name="main" value="/WEB-INF/views/admin/management/{1}.jsp"/>
@@ -20,8 +20,6 @@
         <put-attribute name="main" value="/WEB-INF/views/admin/management/clientManagement/{1}.jsp"/>
     </definition>
     
-    
-    
     <definition name="admin/class/*" extends="admin-tiles">
         <put-attribute name="title" value="클래스관리"/>
         <put-attribute name="main" value="/WEB-INF/views/class/{1}.jsp"/>
@@ -31,8 +29,6 @@
         <put-attribute name="title" value="회차등록화면"/>
         <put-attribute name="main" value="/WEB-INF/views/episode/{1}.jsp"/>
     </definition>
-
-
 
     <definition name="admin/management/noticeboard/*" extends="admin-tiles">
         <put-attribute name="title" value="공지사항 관리"/>
