@@ -61,7 +61,7 @@
 							<tr>
 								<td class="col-md-1"></td>
 								<td colspan="3" class="col-md-8 text-left">
-								<img src="/uploadStorage/studio/${detail.s_file}" style="width: 70%; height: auto;"/></td>
+								<img src="/uploadLiClass/studio/${detail.s_file}" style="width: 70%; height: auto;"/></td>
 							</tr>
 						</c:if>
 					</span>
