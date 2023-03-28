@@ -7,10 +7,11 @@
 <script type = "text/javascript" src = "/resources/class/js/classList.js" /></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
-    <script>
+	<script>
     	$(function(){
-    		$(".classDetail").click(function(){
-    			let c_no = $(this).parent("div").data('num');
+    		$(".goClassDetail").click(function(){
+    			let c_no = $(this).data('num');
+    			console.log("클래스번호 : " +c_no+" 로 이동");
     			location.href="/class/classDetail?c_no="+c_no;
     		});
     	});
