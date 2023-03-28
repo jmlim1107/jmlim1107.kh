@@ -11,7 +11,7 @@
 	</select> -->
 
 	<!--2. 클래스 상세조회 -->
-	<select id="classDetail" resultType="Class">
+	<select id="clientClassDetail" resultType="Class">
 		select a.c_no,a.ct_bizno, a.c_title,a.c_content,a.c_leadtime,a.c_level,a.c_maxcnt,a.c_mincnt,a.c_category,a.c_area,b.c_img_file as c_img_file,
 				(select count(*) 
 				from li_likes where c_no = #{c_no}) as c_luv
@@ -20,7 +20,7 @@
 	</select>
 	
 	<!--3. 해당클래스의 센터 상세조회-->
-	<select id="centerDetail" resultType="Center" parameterType="Class">
+	<select id="clientCenterDetail" resultType="Center" parameterType="Class">
 		select a.ct_bizno, a.ct_name,a.ct_opbiz_ym,a.ct_intro,a.ct_mainart,a.ct_zipno,a.ct_addr,
 				a.ct_detail_addr,a.ct_tel,a.ct_hmpg_addr
         from li_center a left join li_class b on a.ct_bizno = b.ct_bizno
