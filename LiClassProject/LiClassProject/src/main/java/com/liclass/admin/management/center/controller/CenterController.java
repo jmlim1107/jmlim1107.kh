@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.liclass.admin.management.center.service.CenterService;
 import com.liclass.admin.management.center.vo.CenterVO;
-<<<<<<< HEAD
 import com.liclass.client.classes.vo.ClientClassVO;
-=======
->>>>>>> 4ee3f54646293bed34ec3190b9070b2b055544ed
 import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;
@@ -24,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping("/management/center/*")
 public class CenterController {
+	
 	@Setter(onMethod_ = @Autowired)
 	private CenterService centerService;
 	

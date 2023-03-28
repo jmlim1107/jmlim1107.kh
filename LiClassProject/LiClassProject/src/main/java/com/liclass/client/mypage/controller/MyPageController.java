@@ -28,12 +28,9 @@ import com.liclass.client.mypage.service.MypageService;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.qnaboard.vo.QnaVO;
 import com.liclass.client.review.vo.ReviewVO;
-<<<<<<< HEAD
 import com.liclass.common.file.UserFileUpload;
 import com.liclass.common.vo.CommonVO;
-=======
-import com.liclass.common.file.FileUploadUtil;
->>>>>>> 4ee3f54646293bed34ec3190b9070b2b055544ed
+//import com.liclass.common.file.FileUploadUtil;
 import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;

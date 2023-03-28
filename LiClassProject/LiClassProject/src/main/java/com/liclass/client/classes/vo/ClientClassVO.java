@@ -22,4 +22,7 @@ public class ClientClassVO {
 	private int c_mincnt;
 	private String c_date;
 	private int c_state;
+	
+	private String thumb_file       ="";      // 썸네일 
+	
 }
