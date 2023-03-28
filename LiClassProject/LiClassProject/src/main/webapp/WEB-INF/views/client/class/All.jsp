@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
    	<div class="col mb-5">
    		<div class="card h-100"> 
 			<!-- 클래스 이미지 -->
 	        <div>
-	         		<c:if test="${not empty classes.thumb_file}">
-	         			<img class="card-img-top" src="/uploadLiClass/class/thumbnail/${classes.thumb_file}"/>
+	         		<c:if test="${not empty classes.c_img_file}">
+	         			<img class="card-img-top" src="/uploadLiClass/class/thumbnail/${classes.c_img_file}"/>
 	         		</c:if>
-	         		<c:if test="${empty classes.thumb_file}">
+	         		<c:if test="${empty classes.c_img_file}">
 	         			<img src="/resources/images/notfound.png" style="width: 250px; height: 200px;">
 	         		</c:if>
 	        </div> 

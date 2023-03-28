@@ -80,14 +80,6 @@ $(function(){
 				 });
 		}
 		});
-	
-	$("#reserveBtn").click(function(){
-		$("#dataForm").attr({
-			method:"post",
-			action:"/admin/episode/goReserve"
-		});
-		$("#dataForm").submit();
-	});
 });
 
 </script>
@@ -95,10 +87,7 @@ $(function(){
 				<div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
                         <div class="class-booking-form">
-                            <form id="dataForm">
-                            	<%-- <input type="hidden" name="user_no" value="${loginUser.user_no }"> --%>
-                            	<input type="hidden" name="c_no" value="${lvo.c_no }">
-                            	
+                            <form>
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                         <h3 class="tour-form-title"> </h3>
@@ -156,7 +145,7 @@ $(function(){
 								      	</c:if>
 							         </c:if>
                                         <button type="button" class="main-white-button"><a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i>공유하기</a></button>
-                                        <button type="button" id="reserveBtn" class="main-white-button"><a><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
+                                        <button type="button" class="main-white-button"><a><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
                                   		
       	
 								      	<!-- sns share modal start  --> 

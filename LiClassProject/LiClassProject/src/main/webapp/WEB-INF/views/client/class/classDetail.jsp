@@ -11,15 +11,6 @@
 <link href="/resources/client/classDetail/css/themify-icons.css" rel="stylesheet">
 <link href='/resources/client/classDetail/css/dosis-font.css' rel='stylesheet' type='text/css'>
 
-
-	<script type="text/javascript">
-		$(function(){
-			var errorMsg = ${errorMsg};
-			if(errorMsg != null){
-				alert(errorMsg);
-			}
-		});
-	</script>
 	<!-- header slider section start -->
 	<section id="header-slider" class="section">
 	<div class="class-content" data-num="${classDetail.c_no}">
@@ -29,18 +20,6 @@
       
       <div style="display: flex;" class="login-info" data-num="${loginUser.user_no}">
       	<h5>
-      	
-      	<%-- <c:if test="${loginUser == null}">
-	      	<a class="like"><i class="fa-regular fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
-         </c:if>
-          <c:if test="${loginUser != null}">
-          	<c:if test="${checkResult eq 0}"
-	      		<a class="like"><i class="fa-regular fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
-	      	</c:if>
-	      	<c:if test="${checkResult eq 1}">
-	      		<a class="like"><i class="fa-solid fa-heart" style="color : #ff00007d;"></i>  ${classDetail.c_luv}</a>
-	      	</c:if>
-         </c:if> --%>
       	</h5>
       </div>
       
@@ -194,15 +173,14 @@
 							    <div class="row">
 							      <div class="col-md-12 col-sm-6">
 							        <div class="services-content">
-							          <h5>클래스 안내사항11111</h5>
-							         	 <p>LiClass는 오프라인 클래스 플랫폼입니다.</p>
+							          <h5><i class="fa-solid fa-bullhorn"></i>  클래스 안내사항</h5>
+							         	<p>LiClass는 오프라인 클래스 플랫폼입니다.</p>
 							          	<p>다양한 분야의 아티스트들이 본인의 철학과 노하우, 지식을 클래스 형태로 풀어냅니다.</p>
 							          	<p>직접 체험하실 수업은 해당 분야에 대한 아티스트의 노하우와 지식 위주로 제작되었으며 아티스트의 일상과 생각도 함께 엿볼 수 있습니다. </p>
 							          	<p>라이크래스에서 나만의 예술을 시작해보세요. </p>
 							        	<p>라이클래스는 평소에 쉽게 접할 수 없는 아티스트들 본인만의 철학과 노하우를 풀어낸 형식의 클래스로 난이도에 상관없이 모든 분들이 수강하실 수 있습니다.</p>
 							          	<p>어디서도 경험할 수 없는 각 분야에서 성공한 아티스트들의 철학과 노하우를 통해 많은 것은 얻어가실 수 있을 것으로 생각되며 </p>
 							          	<p>직접 체험을 통해 느끼고 배우시면서 저희 라이클래스를 수강하신다면 더 큰 시너지 효과를 보실 수 있습니다. </p>
-
 							          </div>
 							          <div class="services-content">	
 						          	  	<h5><i class="fa-solid fa-money-check-dollar"></i>  클래스 환불규정</h5>
