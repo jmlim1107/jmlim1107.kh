@@ -51,6 +51,9 @@
 	margin:10px;
 }
 
-p{
-	margin-top:2%;
+.services p {
+    color: #6c7279;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 3px;
 }
