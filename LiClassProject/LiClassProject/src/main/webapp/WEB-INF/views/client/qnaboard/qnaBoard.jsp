@@ -3,10 +3,33 @@
 <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="/resources/include/js/common.js"></script>
 
+<script type="text/javascript">
+    $(function (){
+
+        $("#insertForm").click(function(){
+            location.href="/client/qnaboard/qnaInsertForm";
+        });
+        /* 제목 클릭 시 상세페이지 이동을 위한 처리 이벤트 */
+        $(".goDetail").click(function(){
+            let qna_no = $(this).parents("div").attr("data-num");
+            $("#qna_no").val(qna_no);
+            console.log(qna_no);
+            //상세페이지로 이동하기 위해 form 추가 (id : detailForm)
+            $("#detailForm").attr({
+                "method" : "get",
+                "action" : "/client/qnaboard/qnaBoardDetail"
+            });
+            $("#detailForm").submit();
+        });
+    });
+</script>
+    <form id="detailForm">
+        <input type="hidden" id="qna_no" name="qna_no"/>
+    </form>
+
     <div class="board_wrap">
         <div class="board_title">
-            <strong>공지사항</strong>
-            <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
+            <strong>문의사항</strong>
         </div>
         <div class="board_list_wrap">
             <div class="board_list">
@@ -21,7 +44,7 @@
                 <c:choose>
                     <c:when test="${not empty qnaBoardList}">
                         <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
-                            <div>
+                            <div data-num="${qnaBoard.qna_no}">
                              <div class="num" >${count + status.index + 1}<%--<i class="bi bi-bell"></i>--%></div>
                             <div class="title goDetail">
                             <c:if test="${qnaBoard.qna_step>0}">
@@ -56,7 +79,7 @@
                 <a href="#" class="bt last">>></a>
             </div>
             <div class="bt_wrap">
-                <a href="write.html" class="on">등록</a>
+                <button type="button" class="on" id="insertForm">등록</button>
                 <!--<a href="#">수정</a>-->
             </div>
         </div>

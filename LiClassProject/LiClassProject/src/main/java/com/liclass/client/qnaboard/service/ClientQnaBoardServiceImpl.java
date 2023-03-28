@@ -1,5 +1,6 @@
 package com.liclass.client.qnaboard.service;
 
+import com.liclass.admin.management.noticeboard.dao.NoticeBoardDao;
 import com.liclass.admin.management.qnaboard.dao.QnaBoardDao;
 import com.liclass.admin.management.qnaboard.vo.QnaBoardVo;
 import lombok.Setter;
@@ -16,6 +17,9 @@ public class ClientQnaBoardServiceImpl implements ClientQnaBoardService {
     @Setter (onMethod_ = @Autowired)
     private QnaBoardDao qnaBoardDao;
 
+    @Setter (onMethod_ = @Autowired)
+    private NoticeBoardDao noticeBoardDao;
+
     @Override
     public List<QnaBoardVo> qnaBoardList(QnaBoardVo qnaBoard) {
         List<QnaBoardVo> list = null;
@@ -23,6 +27,18 @@ public class ClientQnaBoardServiceImpl implements ClientQnaBoardService {
 
         return list;
     }
+    @Override
+    public List<QnaBoardVo> noticeBoardList(QnaBoardVo qnaBoard) {
+        List<QnaBoardVo> list = null;
+        list = noticeBoardDao.noticeBoardList(qnaBoard);
+
+        return list;
+    }
+    @Override
+    public int noticeBoardCnt(QnaBoardVo qnaBoard){
+        return noticeBoardDao.noticeBoardCnt(qnaBoard);
+    }
+
 
     @Override
     public int qnaBoardInsert(QnaBoardVo qnaBoard) {
@@ -52,19 +68,18 @@ public class ClientQnaBoardServiceImpl implements ClientQnaBoardService {
     }
 
     @Override
-    public QnaBoardVo qnaAnswerForm(QnaBoardVo qnaBoard){
-        QnaBoardVo answerData = null;
-        answerData = qnaBoardDao.qnaBoardDetail(qnaBoard);
-
-        return answerData;
+    public QnaBoardVo updateForm(QnaBoardVo qnaBoard) {
+        QnaBoardVo updateData = null;
+        updateData = qnaBoardDao.qnaBoardDetail(qnaBoard);
+        return updateData;
     }
+
     @Override
-    public int qnaAnswerInsert(QnaBoardVo qnaBoard) {
+    public int qnaBoardUpdate(QnaBoardVo qnaBoard) {
         int result = 0;
-            qnaBoardDao.qnaAnswerStepUpdate(qnaBoard);
 
-            result = qnaBoardDao.qnaAnswerInsert(qnaBoard);
-
+        result = qnaBoardDao.qnaBoardUpdate(qnaBoard);
         return result;
     }
+
 }
