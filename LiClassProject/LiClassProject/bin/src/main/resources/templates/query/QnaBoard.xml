@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liclass.admin.management.qnaboard.dao.QnaBoardDao">
+
+
+    <!--문의게시판 리스트 조회 쿼리문-->
+    <select id="qnaBoardList" parameterType="qnaBoard" resultType="qnaBoard">
+        select qna_no, qna_title, qna_content, qna_category, to_char(qna_date, 'YYYY-MM-DD') as qna_date, qna_top_state, qna_group, qna_indent, qna_step, admin_no
+        from li_qna where qna_category = '[문의]' or qna_category = '[답변]'
+        order by qna_group desc, qna_indent asc, qna_step desc
+    </select>
+
+    <!--문의게시판 상세페이지 조회 쿼리문-->
+    <select id="qnaBoardDetail" parameterType="qnaBoard" resultType="qnaBoard">
+        select qna_no, qna_title, qna_content, to_char(qna_date, 'YYYY-MM-DD HH24:MI:SS') as qna_date, qna_category, qna_group, qna_indent, qna_step, admin_no
+        from li_qna
+        where qna_no = #{qna_no}
+    </select>
+
+    <!--문의게시판 글 작성쿼리문 -->
+    <insert id="qnaBoardInsert" parameterType="qnaBoard">
+        insert into li_qna(qna_no, qna_title, qna_content, qna_category, qna_group)
+        values(li_qna_seq.nextval, #{qna_title}, #{qna_content}, '[문의]', li_qna_seq.currval)
+    </insert>
+
+    <!--문의게시판 답변 작성쿼리문 -->
+    <!--<insert id="qnaAnswerInsert" parameterType="qnaBoard">
+        insert into li_qna(qna_no, qna_title, qna_content, qna_category, qna_group, qna_indent, qna_step)
+        values(li_qna_seq.nextval, #{qna_title}, #{qna_content}, '[답변]', li_qna_seq.currval, qna_indent, qna_step)
+    </insert>-->
+    <!--문의게시판 답변 작성쿼리문 -->
+    <insert id="qnaAnswerInsert" parameterType="qnaBoard">
+
+        <!--원글의 step보다 더 큰 step을 가진 글이 있다면 그 글들의 step을 먼저 +1 해준다.-->
+
+            insert into li_qna(qna_no, qna_title, qna_content, qna_category, qna_group, qna_indent, qna_step, admin_no)
+            values(li_qna_seq.nextval, #{qna_title}, #{qna_content}, '[답변]', #{qna_group}, #{qna_indent} +1, #{qna_step} +1, 1)
+    </insert>
+
+    <update id="qnaAnswerStepUpdate" parameterType="qnaBoard">
+        update li_qna set qna_step = qna_step + 1
+        where qna_group = #{qna_group} and qna_step > #{qna_step}
+    </update>
+    <!--문의게시판 글 삭제 쿼리문-->
+    <delete id="qnaBoardDelete" parameterType="qnaBoard">
+        delete from li_qna where qna_no = #{qna_no}
+    </delete>
+
+</mapper>

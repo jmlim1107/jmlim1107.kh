@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liclass.admin.management.dashboard.dao.DashBoardDao">
+
+    <select id="noticeList" parameterType="qnaBoard" resultType="qnaBoard">
+    <![CDATA[
+        select qna_no, qna_title, qna_content, qna_category, to_char(qna_date, 'YYYY-MM-DD')as qna_date
+        from li_qna
+        where qna_category = '[공지]' and rownum <=5
+        order by qna_date desc
+    ]]>
+    </select>
+    <select id="qnaList" parameterType="qnaBoard" resultType="qnaBoard">
+    <![CDATA[
+        select qna_no, qna_title, qna_content, qna_category, to_char(qna_date, 'YYYY-MM-DD')as qna_date
+        from li_qna
+        where qna_category = '[문의]' and rownum <=5
+        order by qna_date desc
+        ]]>
+    </select>
+
+    <select id="userState" parameterType="dashBoard" resultType="map">
+        select
+                (select count(*) from li_user where user_type = 0)activeUser,
+                (select count(*) from li_user where user_type = 1)inactiveUser
+        from dual
+    </select>
+
+    <select id="userReserve" parameterType="dashBoard" resultType="map">
+        select
+                (select count(*) from li_reserve)reserve,
+                (select count(*) from li_reserve where r_state = 1)reserveCheck,
+                (select count(*) from li_reserve where r_state = 3)reserveCancel
+        from dual
+    </select>
+
+
+<!--    <resultMap id="userTest" type="dashBoard">
+        <result property="user_no" column="user_no"/>
+        <result property="user_email" column="user_email"/>
+        <result property="user_pw" column="user_pw"/>
+        <result property="user_name" column="user_name"/>
+        <result property="user_tel" column="user_tel"/>
+        <result property="user_img" column="user_img"/>
+        <result property="user_point" column="user_point"/>
+        <result property="user_regdate" column="user_regdate"/>
+        <result property="user_update" column="user_update"/>
+        <result property="user_unregdate" column="user_unregdate"/>
+        <result property="user_status" column="user_status"/>
+        <result property="user_type" column="user_type"/>
+    </resultMap>-->
+
+<!--    <select id="selectUser" resultMap="userTest" parameterType="map">
+        select
+                (select count(*) from li_user where user_type = 0),
+                (select count(*) from li_user where user_type = 1)
+        from dual
+    </select>-->
+
+</mapper>
