@@ -18,19 +18,19 @@ public class ClassServiceImpl implements ClientClassService{
 	private ClientClassDAO classDao;
 	
 	@Override
-	public List<ClientClassVO> classList() {
-		List<ClientClassVO> list = classDao.classList();
+	public List<ClientClassVO> clientClassList() {
+		List<ClientClassVO> list = classDao.clientClassList();
 		return list;
 	}
 
 	@Override
-	public ClientClassVO classDetail(ClientClassVO vo) {
-		ClientClassVO cvo = classDao.classDetail(vo);
+	public ClientClassVO clientClassDetail(ClientClassVO vo) {
+		ClientClassVO cvo = classDao.clientClassDetail(vo);
 		return cvo;
 	}
 	@Override
-	public CenterVO centerDetail(ClientClassVO vo) {
-		CenterVO cvo = classDao.centerDetail(vo);
+	public CenterVO clientCenterDetail(ClientClassVO vo) {
+		CenterVO cvo = classDao.clientCenterDetail(vo);
 		return cvo;
 	}
 	

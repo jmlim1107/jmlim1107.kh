@@ -11,11 +11,11 @@ import com.liclass.client.classes.vo.ClientClassVO;
 public interface ClientClassDAO {
 	
 	//클래스 리스트
-	public List<ClientClassVO> classList();
+	public List<ClientClassVO> clientClassList();
 	
 	//클래스 상세
-	public ClientClassVO classDetail(ClientClassVO vo);
+	public ClientClassVO clientClassDetail(ClientClassVO vo);
 	
 	//클래스의 센터 조회
-	public CenterVO centerDetail(ClientClassVO vo);
+	public CenterVO clientCenterDetail(ClientClassVO vo);
 }

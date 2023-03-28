@@ -89,12 +89,12 @@ public class ClientClassController {
 		}
 		
 		//클래스 상세정보
-		ClientClassVO classDetail =classService.classDetail(cvo);
+		ClientClassVO classDetail =classService.clientClassDetail(cvo);
 		log.info("classDetail.toString() : "+classDetail.toString());
 		model.addAttribute("classDetail",classDetail);
 		
 		//해당 클래스의 센터 상세정보
-		CenterVO centerDetail = classService.centerDetail(classDetail);
+		CenterVO centerDetail = classService.clientCenterDetail(classDetail);
 		log.info("centerDetail.toString() : "+centerDetail.toString());
 		model.addAttribute("centerDetail", centerDetail);
 		
@@ -113,7 +113,7 @@ public class ClientClassController {
 		cvo.setC_no(c_no);
 		
 		//클래스 상세정보
-		ClientClassVO recentClass =classService.classDetail(cvo);
+		ClientClassVO recentClass =classService.clientClassDetail(cvo);
 		String c_img_file = recentClass.getC_img_file();
 		log.info("recentClass.toString() : "+recentClass.toString());
 		

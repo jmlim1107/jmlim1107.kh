@@ -3,7 +3,7 @@
 <mapper namespace="com.liclass.client.classes.dao.ClientClassDAO">
 	<!-- 은아  -->
 	<!--1. 클래스 리스트  -->
-	<!-- <select id="classList" resultType="Class">
+	<!-- <select id="clientClassList" resultType="Class">
 		select a.c_no, a.c_title,a.c_content,a.c_category,a.c_area,b.c_img_file as c_img_file,
 				(select count(*) 
 				from li_likes where c_no = a.c_no) as c_luv
@@ -53,7 +53,7 @@
 	<resultMap type="c_class" id="c_class">
 		<result column="c_img_file" property="c_img_file" jdbcType="VARCHAR" javaType="java.lang.String"/>
 	</resultMap>
-	<select id="classList" resultMap="c_class">
+	<select id="clientClassList" resultMap="c_class">
 		SELECT A.c_no, A.c_title, A.c_content, A.c_category , A.c_area , A.c_luv, A.c_state, to_char(A.c_date, 'YYYY-MM-DD') as c_date, B.c_img_file 
 			FROM li_class A left outer join
 	    		(select c_no, 
