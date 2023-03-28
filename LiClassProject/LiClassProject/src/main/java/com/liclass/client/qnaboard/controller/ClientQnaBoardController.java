@@ -2,7 +2,9 @@ package com.liclass.client.qnaboard.controller;
 
 import com.liclass.admin.management.qnaboard.vo.QnaBoardVo;
 import com.liclass.client.qnaboard.service.ClientQnaBoardService;
+import com.liclass.common.vo.PageDTO;
 import lombok.Setter;
+import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,20 @@ public class ClientQnaBoardController {
         return "client/qnaboard/qnaBoard";
     }
 
+    @RequestMapping(value = "/noticeBoard", method = RequestMethod.GET)
+    public String noticeBoardList(@ModelAttribute QnaBoardVo qnaBoard, Model model){
+        log.info("noticeBoardList() 메소드 호출");
+
+        //전체 레코드 조회
+        List<QnaBoardVo> qnaBoardList = clientQnaBoardService.noticeBoardList(qnaBoard);
+        model.addAttribute("qnaBoardList", qnaBoardList);
+        //전체 레코드 수 구현
+        int total = clientQnaBoardService.noticeBoardCnt(qnaBoard);
+        model.addAttribute("pageMaker", new PageDTO(qnaBoard, total));
+
+        return "client/qnaboard/noticeBoard";
+    }
+
     //문의게시판 상세페이지
     @RequestMapping(value = "/qnaBoardDetail", method = RequestMethod.GET)
     public String qnaBoardDetail(@ModelAttribute QnaBoardVo qnaBoard, Model model){
@@ -38,17 +54,6 @@ public class ClientQnaBoardController {
         model.addAttribute("detail", detail);
 
         return "client/qnaboard/qnaBoardDetail";
-    }
-
-    //문의 답변글 작성 메서드
-    @RequestMapping(value = "/qnaAnswerForm")
-    public String qnaAnswerForm(@ModelAttribute QnaBoardVo qnaBoard, Model model){
-        log.info("qnaAnswerForm 호출");
-
-        QnaBoardVo answerData = clientQnaBoardService.qnaAnswerForm(qnaBoard);
-        model.addAttribute("answerData", answerData);
-
-        return "client/qnaboard/qnaAnswerForm";
     }
 
     @RequestMapping(value = "/qnaInsertForm")
@@ -65,7 +70,6 @@ public class ClientQnaBoardController {
         int result = 0;
         String url = "";
 
-
         result = clientQnaBoardService.qnaBoardInsert(qnaBoard);
         if(result == 1){
             url = "/client/qnaboard/qnaBoard";
@@ -75,20 +79,29 @@ public class ClientQnaBoardController {
         return "redirect:"+url;
     }
 
+    @RequestMapping(value = "/qnaUpdateForm")
+    public String updateForm(@ModelAttribute QnaBoardVo qnaBoard, Model model){
+        log.info("문의글 수정 폼 호출");
 
-    @RequestMapping(value = "qnaAnswerInsert")
-    public String qnaAnswerInsert(@ModelAttribute QnaBoardVo qnaBoard, Model model){
-        log.info("문의글 작성 메서드 호출");
+        QnaBoardVo updateData = clientQnaBoardService.updateForm(qnaBoard);
+        model.addAttribute("updateData", updateData);
+
+        return "client/qnaboard/qnaUpdateForm";
+    }
+
+    @RequestMapping(value="/qnaBoardUpdate")
+    public String qnaBoardUpdate(@ModelAttribute QnaBoardVo qnaBoard, Model model){
+        log.info("문의글 수정 메서드 호출");
 
         int result = 0;
         String url = "";
 
+        result = clientQnaBoardService.qnaBoardUpdate(qnaBoard);
 
-        result = clientQnaBoardService.qnaAnswerInsert(qnaBoard);
         if(result == 1){
             url = "/client/qnaboard/qnaBoard";
         } else{
-            url = "/client/qnaboard/qnaAnswerForm";
+            url = "/client/qnaboard/qnaUpdateForm";
         }
         return "redirect:"+url;
     }
