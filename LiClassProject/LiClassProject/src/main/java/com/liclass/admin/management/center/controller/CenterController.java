@@ -76,7 +76,7 @@ public class CenterController {
 		log.info("centerDetail 호출 성공");
 		//log.info("cvo = " + cvo);
 			
-		CenterVO detail = centerService.centerDetail(cvo);
+		CenterVO detail = centerService.centerDetail2(cvo);/* 0328은아 admin-center.xml과 겹쳐서 수정합니다. */
 		model.addAttribute("detail", detail);
 			
 		return "admin/management/center/centerDetail";
