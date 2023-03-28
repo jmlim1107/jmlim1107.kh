@@ -83,7 +83,7 @@
 									</tr>	
 									<tr>
 										<td>클래스 가격</td>
-										<td>${rvo.ep_price}원</td>
+										<td>${rvo.r_price}원</td>
 									</tr>			
 								</tbody>
 							</table>

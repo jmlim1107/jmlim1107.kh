@@ -184,11 +184,11 @@ public class PaymentController {
    
    // 성공했을 때 페이지
    @RequestMapping(value="/paySuccess")
-   public String paySuccess(UserVO userVO, ReserveVO reserveVO, Model model, PaymentVO paymentVO) {
+   public String paySuccess( ReserveVO reserveVO, Model model, PaymentVO paymentVO) {
       log.info("paySuccess() 호출 성공");
       
       // 유저정보 가져오기
-      UserVO uvo = paymentSerivce.getUserInfo(userVO.getUser_no());
+      UserVO uvo = paymentSerivce.getUserInfo(reserveVO.getUser_no());
       model.addAttribute("uvo", uvo);
       
       // 클래스 정보 가져오기
@@ -206,7 +206,7 @@ public class PaymentController {
       PaymentVO pvo = paymentSerivce.getPaymentInfo(paymentVO.getMerchant_uid());
       model.addAttribute("pvo", pvo);
       
-      return "mypage/paySuccess";
+      return "client/mypage/paySuccess";
    }
    
    @ResponseBody
