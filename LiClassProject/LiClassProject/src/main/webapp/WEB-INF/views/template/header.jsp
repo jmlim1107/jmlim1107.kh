@@ -12,7 +12,7 @@
 		          <li><a href="/">Home</a></li>
 		          
 		          <c:if test="${loginUser == null}">
-		          	<li><a id="login-modal" rel="modal:open">로그인</a></li>
+		          	<li><a id="login-modal" >로그인</a></li>
 		          </c:if>
 		          
 	              <c:if test="${loginUser != null}">
@@ -46,7 +46,7 @@
 	<!-- header end-->
 
 	<!-- login modal start -->
-	<div id="modal">
+	<div id="login-pop-modal">
 	   <div class="modal_content">
 		<div class="wrap-login100">
 			<button type="button" id="modal_close_btn">X</button>

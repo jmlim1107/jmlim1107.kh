@@ -59,12 +59,12 @@
 		 
 			/* floating login */
 			$("#floating-login").click(function(){
-			       $("#modal").attr("style", "display:block");
-			       $("#modal").attr("style", "display:block");
+			       $("#login-pop-modal").attr("style", "display:block");
+			       $("#login-pop-modal").attr("style", "display:block");
 			   });
 			  
 			    $("#modal_close_btn").click(function(){
-			       $("#modal").attr("style", "display:none");
+			       $("login-pop-modal").attr("style", "display:none");
 			 });
 			    
 		    /* floating recent */

@@ -70,11 +70,11 @@
 				
 				/* login modal */
 				$("#login-modal").click(function(){
-				       $("#modal").attr("style", "display:block");
+				       $("#login-pop-modal").attr("style", "display:block");
 				   });
 				  
 				    $("#modal_close_btn").click(function(){
-				       $("#modal").attr("style", "display:none");
+				       $("#login-pop-modal").attr("style", "display:none");
 				 });
 			     
 			    /* login */
