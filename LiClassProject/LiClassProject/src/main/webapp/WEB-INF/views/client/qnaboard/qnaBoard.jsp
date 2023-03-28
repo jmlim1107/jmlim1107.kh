@@ -22,8 +22,14 @@
     <c:when test="${not empty qnaBoardList}">
         <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
                 <div>
-                    <div class="num" ><i class="bi bi-bell"></i></div>
-
+                    <div class="num" >${count + status.index + 1}<%--<i class="bi bi-bell"></i>--%></div>
+            <c:if test="${qnaBoard.qna_step>0}">
+                <c:forEach begin="1" end="${qnaBoard.qna_indent}">
+                    &nbsp;&nbsp;&nbsp;
+                </c:forEach>
+                <i class="bi bi-arrow-return-right"></i> [RE] :
+            </c:if>
+            <span class="goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</span>
                     <div class="title goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</a></div>
                     <div class="writer">김이름</div>
                     <div class="date">${qnaBoard.qna_date}</div>
