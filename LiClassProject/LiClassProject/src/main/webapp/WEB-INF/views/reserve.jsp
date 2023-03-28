@@ -41,7 +41,7 @@
 			<input type="hidden" name="user_no" value='${loginUser.user_no }'>
 			<input type="hidden" name="c_no" value='4'> <!-- 클래스 테이블에서 가져와야함 -->
 			<input type="hidden" name="r_no" value='6201255'> <!-- 예약 테이블에서 가져와야함 -->
-			<button type="button" id="reserveBtn">예약하기</button>
+			<button type="button" id="reserveBtn">예약하기확인</button>
 		</form>
 	</body>
 	
