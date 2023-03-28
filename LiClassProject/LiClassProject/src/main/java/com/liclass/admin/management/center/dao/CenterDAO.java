@@ -17,4 +17,5 @@ public interface CenterDAO {
 	public int centerUpdate(CenterVO cvo);
 	public int centerDelete(String ct_bizno); //수정,삭제는 1건식 처리되므로 int형이다 받아올때는 (괄호안에 타입 데이터명)
 	public List<CenterVO> centerNameList();
+	public List<CenterVO> centerlist2();
 }
