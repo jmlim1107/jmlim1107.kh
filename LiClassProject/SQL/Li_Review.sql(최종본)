@@ -27,7 +27,7 @@ COMMENT ON COLUMN Li_Review.review_content is '후기 내용';
 COMMENT ON COLUMN Li_Review.review_date is '후기 작성일';
 COMMENT ON COLUMN Li_Review.review_update is '후기 수정일';
 COMMENT ON COLUMN Li_Review.review_status is ' 후기 상태(0,1)';
-COMMENT ON COLUMN Li_Review.review_rating is '후기 별점';
+COMMENT ON COLUMN Li_Review.review_rating is '후기 별점(1~5)';
 COMMENT ON COLUMN Li_Review.review_recommend is '후기 추천';
 
 
