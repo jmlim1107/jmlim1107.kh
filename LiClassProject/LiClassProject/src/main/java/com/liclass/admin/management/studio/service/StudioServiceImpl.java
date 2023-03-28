@@ -9,7 +9,7 @@ import com.liclass.admin.management.center.dao.CenterDAO;
 import com.liclass.admin.management.center.vo.CenterVO;
 import com.liclass.admin.management.studio.dao.StudioDao;
 import com.liclass.admin.management.studio.vo.StudioVO;
-import com.liclass.common.file.UserFileUpload;
+import com.liclass.common.file.StudioFileUpload;
 
 import lombok.Setter;
 
@@ -48,10 +48,10 @@ public class StudioServiceImpl implements StudioService {
 		} */
 		
 		if(svo.getFile().getSize()>0) { // 업로드할 파일이 존재하면(파일의 크기로)
-			String fileName = UserFileUpload.fileUpload(svo.getFile(), "studio"); //studio_1658205347977_cat.jpg
+			String fileName = StudioFileUpload.fileUpload(svo.getFile(), "studio"); //studio_1658205347977_cat.jpg
 			svo.setS_file(fileName); // 업로드 파일명 설정
 			
-			String thumbName = UserFileUpload.makeThumbnail(fileName); //thumbnail_studio_1658205347977_cat.jpg
+			String thumbName = StudioFileUpload.makeThumbnail(fileName); //thumbnail_studio_1658205347977_cat.jpg
 			svo.setS_thumb(thumbName); //thumbnail 파일명 설정
 		}
 		
@@ -83,14 +83,14 @@ public class StudioServiceImpl implements StudioService {
 		int result = 0;
 		if(!svo.getFile().isEmpty()) {		// 새롭게 업로드할 파일이 존재하면
 			if(!svo.getFile().isEmpty()) {	// 기존 파일이 존재하면
-				UserFileUpload.fileDelete(svo.getS_file());
-				UserFileUpload.fileDelete(svo.getS_thumb());
+				StudioFileUpload.fileDelete(svo.getS_file());
+				StudioFileUpload.fileDelete(svo.getS_thumb());
 			}
 			
-			String fileName = UserFileUpload.fileUpload(svo.getFile(), "studio");
+			String fileName = StudioFileUpload.fileUpload(svo.getFile(), "studio");
 			svo.setS_file(fileName);
 			
-			String thumbName = UserFileUpload.makeThumbnail(fileName);
+			String thumbName = StudioFileUpload.makeThumbnail(fileName);
 			svo.setS_thumb(thumbName);
 		}
 		
@@ -102,8 +102,8 @@ public class StudioServiceImpl implements StudioService {
 	public int studioDelete(StudioVO svo) throws Exception {
 		int result = 0;
 		if(!svo.getS_file().isEmpty()) { //s_file 필드의 값이 null이거나 "" 아니면(이미지 파일이 존재하면)
-			UserFileUpload.fileDelete(svo.getS_file());
-			UserFileUpload.fileDelete(svo.getS_thumb());
+			StudioFileUpload.fileDelete(svo.getS_file());
+			StudioFileUpload.fileDelete(svo.getS_thumb());
 		}
 		
 		result = studioDao.studioDelete(svo.getS_no());
