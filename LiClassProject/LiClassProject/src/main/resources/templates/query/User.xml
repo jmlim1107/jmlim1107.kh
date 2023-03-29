@@ -42,7 +42,7 @@
 	<select id="checkPwExp" parameterType="User" resultType="int" >
 		SELECT trunc(sysdate-user_update ) + 1
 		FROM li_user
-		WHERE user_no = #{user_no} 
+		WHERE user_email = #{user_email} 
 	</select>
 	
 	<!--6. 로그인처리  -->
