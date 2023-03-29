@@ -18,7 +18,7 @@
     </form>
 
     <div class="board_title">
-        <strong>문의사항</strong>
+        <strong>공지사항</strong>
         <p></p>
     </div>
     <div class="board_view_wrap">

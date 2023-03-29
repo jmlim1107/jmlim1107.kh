@@ -17,10 +17,32 @@
             });
             $("#detailForm").submit();
         });
+        $(".page-item a").click(function(e){
+            e.preventDefault();
+            $("#f_search").find("input[name='pageNum']").val($(this).attr("href"));
+            goPage();
+        });
     });
+    function goPage(){
+        if($("#search").val()=="all"){
+            $("#keyword").val("");
+        }
+        $("#f_search").attr({
+            "method" : "get",
+            "action" : "/client/qnaboard/noticeBoard"
+        });
+        $("#f_search").submit();
+    }
 </script>
 <form id="detailForm">
     <input type="hidden" id="qna_no" name="qna_no"/>
+</form>
+<form id="f_search">
+    <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}">
+    <input type="hidden" name="amount" id="amount" value="${pageMaker.cvo.amount}">
+
+    <input class="form-control me-2"  id="keyword" name="keyword" type="search" placeholder="검색...." aria-label="Search">
+    <button class="btn btn-outline-secondary" id="searchData" type="submit"><i class="bi bi-search"></i></button>
 </form>
 
 <div class="board_wrap">
@@ -41,7 +63,7 @@
                 <c:when test="${not empty qnaBoardList}">
                     <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
                         <div data-num="${qnaBoard.qna_no}">
-                            <div class="num" >${count + status.index + 1}<%--<i class="bi bi-bell"></i>--%></div>
+                            <div class="num" >${qnaBoard.qna_no}<%--${count + status.index + 1}--%><%--<i class="bi bi-bell"></i>--%></div>
                             <div class="title goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</div>
                                 <%--<div class="title goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</a></div>--%>
                             <div class="writer">김이름</div>
@@ -56,15 +78,30 @@
         </div>
 
         <div class="board_page">
-            <a href="#" class="bt first"><<</a>
-            <a href="#" class="bt prev"><</a>
-            <a href="#" class="num on">1</a>
-            <a href="#" class="num">2</a>
-            <a href="#" class="num">3</a>
-            <a href="#" class="num">4</a>
-            <a href="#" class="num">5</a>
-            <a href="#" class="bt next">></a>
-            <a href="#" class="bt last">>></a>
+            <nav aria-label="Page navigation example" style="text-align:center;">
+                <ul class="pagination">
+                    <%--이전 바로가기 10개 존재 여부를 prev 필드의 값으로 확인.--%>
+                    <c:if test="${pageMaker.prev}">
+                        <li class="page-item">
+                            <a class="page-link" href="${pageMaker.startPage - 1}">Previous</a>
+                        </li>
+                    </c:if>
+
+                    <%--바로가기 번호 출력--%>
+                    <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                        <li class="page-item ${pageMaker.cvo.pageNum == num ?'active':''}">
+                            <a class="page-link" href="${num}">${num}</a>
+                        </li>
+                    </c:forEach>
+
+                    <%--다음 바로가기 10개 존재 여부를 next 필드의 값으로 확인. --%>
+                    <c:if test="${pageMaker.next}">
+                        <li class="page-item next">
+                            <a class="page-link" href="${pageMaker.endPage + 1}">Next</a>
+                        </li>
+                    </c:if>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>

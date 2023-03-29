@@ -30,6 +30,7 @@
     <div class="board_wrap">
         <div class="board_title">
             <strong>문의사항</strong>
+            ${loginUser.user_name}
         </div>
         <div class="board_list_wrap">
             <div class="board_list">

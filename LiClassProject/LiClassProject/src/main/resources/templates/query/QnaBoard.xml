@@ -34,7 +34,7 @@
         <!--원글의 step보다 더 큰 step을 가진 글이 있다면 그 글들의 step을 먼저 +1 해준다.-->
 
             insert into li_qna(qna_no, qna_title, qna_content, qna_category, qna_group, qna_indent, qna_step, admin_no)
-            values(li_qna_seq.nextval, #{qna_title}, #{qna_content}, '[답변]', #{qna_group}, #{qna_indent} +1, #{qna_step} +1, 1)
+            values(li_qna_seq.nextval, #{qna_title}, #{qna_content}, '[답변]', #{qna_group}, #{qna_indent} +1, #{qna_step} +1, #{admin_no})
     </insert>
 
     <update id="qnaAnswerStepUpdate" parameterType="qnaBoard">
