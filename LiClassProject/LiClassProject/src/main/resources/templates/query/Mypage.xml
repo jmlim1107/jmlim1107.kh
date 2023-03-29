@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liclass.client.mypage.dao.MypageDAO">
 	<!--1. 나의 관심클래스 조회 -->
-	<select id="myLikesList" parameterType="User" resultType="Class">
+	<select id="myLikesList" parameterType="User" resultType="c_class">
         select a.c_no,a.c_title,a.c_content,a.c_category,a.c_area,a.c_luv,c.c_img_file as c_img_file
         from li_class a left join li_likes b on a.c_no = b.c_no
                         left join li_class_img c on a.c_no = c.c_no
@@ -22,18 +22,19 @@
 	</select>
 	
 	<!--3. 나의 문의 조회 -->
-	<select id="myQnaList" parameterType="Qna" resultType="Qna">
+	<select id="myQnaList" parameterType="ClientQnaBoard" resultType="ClientQnaBoard">
       <![CDATA[
-            select qna_no, USER_NO, qna_title, qna_content, qna_status,  
+            select qna_no, USER_NO, qna_title, qna_content, 
+            (select count(*) from li_qna where QNA_GROUP = '1' and user_no =#{user_no} ) as qna_status,  
             to_char(qna_date,'YYYY-MM-DD') as qna_date, to_char(qna_date_fix,'YYYY-MM-DD') as qna_date_fix
              from(
                 select 
                      rownum rnum, USER_NO, qna_no, qna_title, qna_content,
-					qna_status, qna_date, qna_date_fix
+					qna_group, qna_date, qna_date_fix
                 from (
                     select 
                         rownum rnum, USER_NO, qna_no, qna_title, qna_content,
-						qna_status, qna_date, qna_date_fix
+						qna_group, qna_date, qna_date_fix
                     from li_qna 
                     where user_no = #{user_no}
                     order by qna_date desc

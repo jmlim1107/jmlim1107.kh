@@ -1,6 +1,10 @@
+-- 3. li_user
+
 -- 사용자(li_user) 
 -- (update 23.03.16 - 회원번호 랜덤생성함수 추가)  
--- (update 23.03.22 - 회원프로필사진 default img)  
+-- (update 23.03.22 - 회원프로필사진 default img) 
+-- (update 23.03.29 - 코멘트) 
+
 create table li_user (
 	user_no	number NOT NULL,
 	user_email varchar2(100) NOT NULL,
@@ -36,7 +40,7 @@ comment on column li_user.user_regdate is '회원가입일자';
 comment on column li_user.user_update is '회원수정일자';
 comment on column li_user.user_regdate is '회원탈퇴일자';
 comment on column li_user.user_status is '회원계정상태';
-comment on column li_user.user_type is '회원계정종류';
+comment on column li_user.user_type is '회원계정종류'; -- 0:이메일 1:카카오 2:네이버
 
 --회원번호 생성 함수
 CREATE OR REPLACE EDITIONABLE FUNCTION USER_NO_FUNC (sysdate IN date)
@@ -58,6 +62,9 @@ END user_no_func;
 
 /
 
---테스트용 데이터
+--샘플 데이터
 insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_img,user_type)
-values( user_no_func(sysdate),'test1234@gmail.com','1234','test','01012341234','2.jpg','0');
+values( user_no_func(sysdate),'test1234@gmail.com','1234','test','01012341234','1.jpg','0');
+
+insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_type)
+values( user_no_func(sysdate),'test0000@gmail.com','1234','test','01012341234','0');

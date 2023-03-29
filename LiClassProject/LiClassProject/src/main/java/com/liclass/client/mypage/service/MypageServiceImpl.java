@@ -10,7 +10,7 @@ import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.mypage.dao.MypageDAO;
 import com.liclass.client.payment.vo.PaymentVO;
-import com.liclass.client.qnaboard.vo.QnaVO;
+import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
 import com.liclass.client.review.vo.ReviewVO;
 
 import lombok.Setter;
@@ -49,9 +49,9 @@ public class MypageServiceImpl implements MypageService{
 		
 		//4. 나의 문의 조회
 		@Override
-		public List<QnaVO> myQnaList(QnaVO vo) {
+		public List<ClientQnaBoardVO> myQnaList(ClientQnaBoardVO vo) {
 			log.info("myQnaList() 호출");
-			List<QnaVO> list = mypageDao.myQnaList(vo);
+			List<ClientQnaBoardVO> list = mypageDao.myQnaList(vo);
 			return list;
 		}
 		//5. 나의 문의 갯수

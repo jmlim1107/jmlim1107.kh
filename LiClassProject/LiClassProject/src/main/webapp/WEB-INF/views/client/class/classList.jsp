@@ -27,47 +27,51 @@
 
 	//heart 좋아요 클릭시! 하트 애니메이션
 	  $(function(){
-	      var $likeBtn =$('.icon.heart');
-	          $likeBtn.click(function(){
-	          $likeBtn.toggleClass('active');
-		          if($likeBtn.hasClass('active')){          
-		             $(this).find('img').attr({
-		                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
-		                 alt:'찜하기 완료'
-		                  });
-		           }else{
-		              $(this).find('i').removeClass('fas').addClass('far')
-		             $(this).find('img').attr({
-		                'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
-		                alt:"찜하기"
-		             });
-		           }
-	  		  });   
+		  
+		  /*0328 은아추가  */
+		  let user_no = $(".login-info").data("num");
+		  let c_no = $(".goClassDetail").data("num");
+		  console.log("loginUser.user_no : "+user_no);
+		  console.log("classes.c_no : "+c_no);
+		 
+		  /*0329 은아수정  */
+		  $('.icon.heart').click(function(){
+	        	  var $likeBtn = $(this);
+	        	  if(user_no == "" || user_no == null){
+	    			  alert("로그인 후 이용해주세요.");
+	    		  }else{
+	    			  $.ajax({
+	    					type : "POST",
+	    					url : "/like",
+	    					data : {
+	    						"c_no" : $(".goClassDetail").data("num"),
+	    						"user_no" : $(".login-info").data("num")
+	    					},success : function(result){
+	    						console.log(" check like result : "+result);
+	    						 if(result == "추가"){
+	    							 $likeBtn.find('img').attr({
+	    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+	    					                 alt:'찜하기 완료'
+   					                  });
+	    						}else if(result == "삭제"){
+	    							$likeBtn.find('i').removeClass('fas').addClass('far')
+   					             	$likeBtn.find('img').attr({
+   					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+   					                	alt:"찜하기"
+   					            	 });
+	    						}else{
+	    							alert("잠시후에 다시 시도해주세요.");
+	    						} 
+	    					}
+   					 });
+	    		  }
+	  		  });
 	  });
 	</script>
+	<!-- 은아) 로그인 유저 확인용 -->
+    <input type="hidden" class="login-info" data-num="${loginUser.user_no }" />
     
-    	<!-- 은아 테스트용  -->
-		  <%-- <div class="container-fluid">
-		    <div class="row">
-    			<c:forEach var="classVO" items="${classList}">
-				      <div class="col-sm-6 portfolio-item" data-num="${classVO.c_no }"> 
-				      	<a class="portfolio-link classDetail" style="cursor: pointer;">
-					        <div class="caption">
-					          <div class="caption-content">
-					            <h3>${classVO.c_title}</h3>
-					            <h4><i class="fa-solid fa-location-dot"></i>${classVO.c_area}</h4>
-					            <h4>#${classVO.c_category}</h4>
-					            <h5><i class="fa-solid fa-heart"></i>  ${classVO.c_luv}</h5>
-					          </div>
-					        </div>
-					        <img src="/uploadStorage/class/${classVO.c_img_file}" class="img-responsive" alt="class-img"> 
-				        </a> 
-			         </div>
-				</c:forEach>
-	         </div>
-		  </div> --%>
-    
-    
+    <!-- 지민) 클래스 리스트 시작 -->
     <div class="container pt-5">
     	<div class="row">
         	<div class="col-md-8 order-md-2 col-lg-9">

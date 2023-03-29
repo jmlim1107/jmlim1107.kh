@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
-  
+  <!-- 은아) 상의 후 client-setting.xml로 이동하겠습니다. -->
 <tiles-definitions>
-	
 	<definition name="home" template="/WEB-INF/views/template/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/client/homeBody.jsp" />
