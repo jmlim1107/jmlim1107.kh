@@ -26,7 +26,7 @@
 	                               	  	<c:if test="${loginUser.user_img != ''}">
 						         			<c:choose>
 								         		<c:when test="${loginUser.user_type eq 0}">
-									         		<div class="profile-img"><img class="icon2" src="/uploadStorage/user/${loginUser.user_img}" alt="profile"></div>
+									         		<div class="profile-img"><img class="icon2" src="/uploadLiClass/user/${loginUser.user_img}" alt="profile"></div>
 							         			</c:when>
 							         			<c:otherwise>
 									         		<div class="profile-img"><img class="icon2" src="${loginUser.user_img}" alt="profile"></div>
@@ -34,7 +34,7 @@
 						         			</c:choose>
 					         			</c:if>
 					         			<c:if test="${loginUser.user_img == ''}">
-							         			<div class="profile-img"><img class="icon2" src="/uploadStorage/user/default-profile.png" alt="profile"/></div>
+							         			<div class="profile-img"><img class="icon2" src="/uploadLiClass/user/default-profile.png" alt="profile"/></div>
 					         			</c:if>
 					         			<div class="hover-content2">
                                        		<a href="#img-edit" rel="modal:open"><i class="fa-solid fa-pen-to-square" id="profile-edit"></i></a>

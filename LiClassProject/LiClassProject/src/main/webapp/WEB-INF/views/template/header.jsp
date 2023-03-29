@@ -22,7 +22,7 @@
 		         		<c:if test="${loginUser.user_img != ''}">
 		         			<c:choose>
 				         		<c:when test="${loginUser.user_type eq 0}">
-					         		<a href="/mypage"><img id="profile-thumbnail" src="/uploadStorage/user/${loginUser.user_img}" />${loginUser.user_name}님</a>
+					         		<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/${loginUser.user_img}" />${loginUser.user_name}님</a>
 			         			</c:when>
 			         			<c:otherwise>
 					         		<a href="/mypage"><img id="profile-thumbnail" src="${loginUser.user_img}"/>${loginUser.user_name}님</a>
@@ -31,7 +31,7 @@
 	         			</c:if>
 	         			
 	         			<c:if test="${loginUser.user_img == ''}">
-			         			<a href="/mypage"><img id="profile-thumbnail" src="/uploadStorage/user/default-profile.png" alt="profile"/>${loginUser.user_name}님</a>
+			         			<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/default-profile.png" alt="profile"/>${loginUser.user_name}님</a>
 	         			</c:if>
 	         		</li>
 		          	<li><a href="/user/logout">로그아웃</a></li>

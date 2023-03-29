@@ -106,7 +106,7 @@
 										<td class="text-left">${studio.s_date}</td>
 										<td>
 											<c:if test="${not empty studio.s_thumb}">
-												<img src="/uploadStorage/studio/thumbnail/${studio.s_thumb}" />
+												<img src="/uploadLiClass/studio/thumbnail/${studio.s_thumb}" />
 											</c:if>
 											<c:if test="${empty studio.s_thumb}">
 												<img src="/resources/images/common/noimage.jpg" />

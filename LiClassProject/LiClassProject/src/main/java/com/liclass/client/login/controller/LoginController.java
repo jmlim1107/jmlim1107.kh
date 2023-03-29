@@ -243,7 +243,7 @@ public class LoginController {
             //접속토큰 get
             String snsToken = kakaoService.getReturnAccessToken(code);
             
-            // 접속자 정보 get
+            //접속자 정보 get
             Map<String, Object> result = kakaoService.getUserInfo(snsToken);
             log.info("result:: " + result);
             String user_email = (String) result.get("user_email");
