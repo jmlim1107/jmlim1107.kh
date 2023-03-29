@@ -12,9 +12,9 @@
 	<section id="header-slider" class="section">
 	<div class="class-content" data-num="${classDetail.c_no}">
       <h6><i class="fa-solid fa-hashtag"></i> 
-      
+      <%-- 
       	${classDetail}
-      
+       --%>
       </h6>
       <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${classDetail.c_area}</h6>
       <h3>${classDetail.c_title}</h3>
