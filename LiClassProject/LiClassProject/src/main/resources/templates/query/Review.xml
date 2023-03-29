@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liclass.client.review.dao.ReviewDAO">
+	
 	<!-- 재활용을 위한 소스 -->
 	<sql id = "reviewSearch">
 		<if test="search=='review_title'">
@@ -50,12 +51,12 @@
 	
 	<select id="reviewList" parameterType="review" resultType = "review" >
 		<![CDATA[
-			SELECT review_no, review_name, review_title, review_content, to_char(review_date, 'YYYY-MM-DD') as review_date, review_recommend, review_rating
+			SELECT review_no, review_title, review_content, to_char(review_date, 'YYYY-MM-DD') as review_date, review_recommend, review_rating, user_no, user_name
 			FROM (
 				SELECT /*+ INDEX_DESC(Li_review Li_review_pk) */ 
-				 rownum as rnum, review_no, review_name, review_title, review_content, review_date, review_recommend, review_rating
-				 FROM Li_review
-				 where
+				 rownum as rnum, lr.review_no, lr.review_title, lr.review_content, lr.review_date, lr.review_recommend, lr.review_rating, lu.user_no, lu.user_name
+				 FROM Li_review lr , Li_user lu
+				 where lr.user_no = lu.user_no and
 		]]>
 		<trim prefix="(" suffix=") AND " prefixOverrides="AND">
 			<include refid="reviewSearch"></include>
@@ -81,8 +82,8 @@
 		<selectKey keyProperty="review_no" resultType="int" order="BEFORE">
 			select Li_review_seq.nextval from dual
 		</selectKey>
-		INSERT INTO Li_review(REVIEW_NO, REVIEW_NAME, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_DATE, REVIEW_STATUS, Review_rating, REVIEW_RECOMMEND, C_NO, USER_NO, C_NAME)
-		VALUES(#{review_no} , #{review_name}  , #{review_title}, #{review_content}, TO_CHAR(SYSDATE ,'YYYY-MM-DD'), 0, #{review_rating}, #{review_recommend} ,12345678, 12345678, '클래스명')
+		INSERT INTO Li_review(review_no, review_title, review_content, review_date, review_status, review_rating, review_recommend, r_no, c_no, user_no)
+		VALUES(#{review_no} , #{review_name}  , #{review_title}, #{review_content}, TO_CHAR(SYSDATE ,'YYYY-MM-DD'), 0, #{review_rating}, #{review_recommend} ,#{r_no}, #{c_no}, #{user_no})
 	</insert>
 	
 	<!-- 게시물 상세조회  -->
@@ -126,13 +127,20 @@
 		where c_no = #{c_no}
 	</update>
 	
-	<select id="totalRating">
-		select review_rating, count(review_rating) from Li_review
-		group by review_rating;
+	<!-- 별점 통계(각자의 개수) -->
+	<select id="tongRating" parameterType="review" resultType="map">
+		select
+		    (select count(*) from li_review where review_rating = 1) rating1,
+		    (select count(*) from li_review where review_rating = 2) rating2,
+		    (select count(*) from li_review where review_rating = 3) rating3,
+		    (select count(*) from li_review where review_rating = 4) rating4,
+		    (select count(*) from li_review where review_rating = 5) rating5
+		from dual
 	</select>
 	
-
 	
 	
-
+	
+	
+	 
 </mapper>
