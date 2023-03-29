@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.liclass.admin.episode.service.EpisodeService;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.service.PaymentService;
 import com.liclass.client.reserve.service.ReserveService;
@@ -28,6 +29,9 @@ public class ReserveController {
 	@Setter(onMethod_=@Autowired)
 	private PaymentService paymentService;
 	
+	@Setter(onMethod_=@Autowired )
+	private EpisodeService episodeService;
+	
 	@PostMapping("/reserve/makeReserve")
 	public String makeReserve( @ModelAttribute ReserveVO rvo, RedirectAttributes ras, Model model ) {
 		log.info("예약시작합니다...");
@@ -35,6 +39,7 @@ public class ReserveController {
 		log.info(result+"라네..");
 		if(result==1) {
 			log.info("예약성공");
+			episodeService.EpcntUpdat(rvo.getEp_no());
 			ReserveVO reserve = reserveService.reservSelect(rvo.getR_no());
 			UserVO uvo = paymentService.getUserInfo(reserve.getUser_no());
 			model.addAttribute("uvo", uvo);

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.liclass.admin.episode.service.EpisodeService;
 import com.liclass.client.review.service.ReviewService;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.vo.PageDTO;
@@ -26,8 +27,7 @@ public class ReviewController {
 	
 	@Setter(onMethod_ = @Autowired)
 	private ReviewService reviewService;
-	
-	
+
 	/*******************************************
 	 * 후기 목록 구현하기(페이징 처리 부분과 검색 제외 목록 조회)
 	 * 요청 URL : http://localhost:8080/review/reviewList

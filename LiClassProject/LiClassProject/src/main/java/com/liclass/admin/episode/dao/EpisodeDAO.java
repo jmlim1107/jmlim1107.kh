@@ -18,6 +18,6 @@ public interface EpisodeDAO {
 	public String[] epDateList(int c_no);
 	public List<EpisodeVO> epInfo(EpisodeVO ep);
 	public EpisodeVO reservInfo(int ep_no);
-	
+	public int EpcntUpdat(int ep_no);
 	
 }
