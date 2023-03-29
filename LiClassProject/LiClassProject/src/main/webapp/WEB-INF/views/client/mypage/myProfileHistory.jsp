@@ -36,9 +36,12 @@
 					         			<c:if test="${loginUser.user_img == ''}">
 							         			<div class="profile-img"><img class="icon2" src="/uploadLiClass/user/default-profile.png" alt="profile"/></div>
 					         			</c:if>
-					         			<div class="hover-content2">
-                                       		<a href="#img-edit" rel="modal:open"><i class="fa-solid fa-pen-to-square" id="profile-edit"></i></a>
-                                        </div>
+					         			<c:if test="${loginUser.user_type eq 0}">
+					         				<div class="hover-content2">
+                                       			<a href="#img-edit" rel="modal:open"><i class="fa-solid fa-pen-to-square" id="profile-edit"></i></a>
+                                       		</div>
+							         	</c:if>
+					         			
 				         			</div>
 				         			
 				         			<!-- profile img edit modal start -->

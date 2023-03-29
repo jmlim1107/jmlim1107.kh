@@ -48,12 +48,12 @@
 	    						"user_no" : $(".login-info").data("num")
 	    					},success : function(result){
 	    						console.log(" check like result : "+result);
-	    						 if(result == "추가"){
+	    						 if(result == 0){ //추가
 	    							 $likeBtn.find('img').attr({
 	    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
 	    					                 alt:'찜하기 완료'
    					                  });
-	    						}else if(result == "삭제"){
+	    						}else if(result == 1){//삭제
 	    							$likeBtn.find('i').removeClass('fas').addClass('far')
    					             	$likeBtn.find('img').attr({
    					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',

@@ -25,15 +25,14 @@ public class LikesController {
 	private ClientClassService classService;
 	
 	/************************************************
-	 * 관심클래스 추가
+	 * 관심클래스 추가,삭제
 	 * 요청 url : http://localhost:8080/like
 	************************************************/
 	@ResponseBody
 	@PostMapping("/like")
-	public String like(long user_no,int c_no) {
+	public int like(long user_no,int c_no) {
 		log.info("like() 호출");
-		String result = "";
-		
+		int checkResult = 0;
 		if(user_no != 0) {
 			log.info("loginUser.user_no: "+user_no);
 			log.info("classList.c_no: "+c_no);
@@ -42,24 +41,19 @@ public class LikesController {
 			vo.setUser_no(user_no);
 			vo.setC_no(c_no);
 			log.info("LikesVO vo : "+vo.toString());
-			int checkResult = likesService.checkLikes(vo);
+			   checkResult = likesService.checkLikes(vo);
 			log.info("checkResult : "+checkResult);
 			
 			if(checkResult == 1) {
 				likesService.delLikes(vo);
 				//classService.delLikes(c_no);
-				result = "삭제";
-				log.info("result : "+result);
+				log.info("checkResult : "+checkResult);
 			}else if(checkResult == 0){
 				likesService.addLikes(vo);
 				//classService.addLikes(c_no);
-				result = "추가";
-				log.info("result : "+result);
+				log.info("checkResult : "+checkResult);
 			}
-		}else {
-			result = "error";
-			log.info("result : "+result);
 		}
-		return result;
+		return checkResult;
 	}
 }
