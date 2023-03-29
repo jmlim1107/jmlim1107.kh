@@ -26,6 +26,7 @@
     </div>
     <form class="form-horizontal" id="updateForm">
         <input type="hidden" id="qna_no" name="qna_no" value="${updateData.qna_no}">
+        <input type="hidden" id="user_no" name="user_no" value="${updateData.user_no}">
             <div class="board_write_wrap">
                 <div class="board_write">
                     <div class="title">

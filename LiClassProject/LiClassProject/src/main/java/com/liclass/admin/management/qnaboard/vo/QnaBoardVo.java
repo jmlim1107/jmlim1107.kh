@@ -9,8 +9,9 @@ import lombok.EqualsAndHashCode;
 public class QnaBoardVo  extends CommonVO {
     private int qna_no = 0; //공지, 문의게시판 글번호
     private int admin_no = 0; //관리자 번호
-
-    private String admin_name="";
+    private long user_no = 0; //유저 번호
+    private String user_name=""; //유저 이름
+    private String admin_name=""; //관리자 이름
     private String qna_title = ""; //공지, 문의게시판 제목
     private String qna_content = ""; //공지, 문의게시판 내용
     private String qna_date = ""; //공지, 문의게시판 등록일

@@ -29,6 +29,7 @@
 
     <form id="insertForm">
         <input type="hidden" id="qna_category" name="qna_category" value="[문의]">
+        <input type="hidden" id="user_no" name="user_no" value="${loginUser.user_no}">
         <%--<input type="hidden" id="user_no" name="user_no" value="${}">--%>
         <%--<input type="hidden" id="qna_category" name="qna_category" value="[문의]">--%>
         <div class="board_write_wrap">
