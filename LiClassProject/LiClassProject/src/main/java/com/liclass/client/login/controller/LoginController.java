@@ -286,7 +286,7 @@ public class LoginController {
             
             log.info("snsToken(kakao) : "+session.getAttribute("snsToken"));
             
-        return "home";
+        return "redirect:/";
     }
 	
 	
