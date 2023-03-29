@@ -7,7 +7,7 @@
 			<!-- 클래스 이미지 -->
 	        <div>
 	         		<c:if test="${not empty classes.c_img_file}">
-	         			<img class="card-img-top" src="/uploadLiClass/class/thumbnail/${classes.c_img_file}"/>
+	         			<img class="card-img-top" src="/uploadLiClass/class/${classes.c_img_file}"/>
 	         		</c:if>
 	         		<c:if test="${empty classes.c_img_file}">
 	         			<img src="/resources/images/notfound.png" style="width: 250px; height: 200px;">
