@@ -2,29 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liclass.client.classes.dao.ClientClassDAO">
 	<!-- 은아  -->
-	<!--1. 클래스 리스트  -->
+	<!-- 1. 클래스 리스트  
 	 <select id="clientClassList" resultType="c_class">
 		select a.c_no, a.c_title,a.c_content,a.c_category,a.c_area,b.c_img_file as c_img_file,
 				(select count(*) 
 				from li_likes where c_no = a.c_no) as c_luv
         from li_class a left join li_class_img b on a.c_no = b.c_no
-	</select>
+	</select> -->
 
-	<!--2. 클래스 상세조회 -->
+	<!--2. 클래스 상세조회 --><!-- 은아)0329 이미지 여러장 가져오는거 때문에 잠시 이미지관련 상세정보는 안가져옴  -->
 	<select id="clientClassDetail" resultType="c_class">
-		select a.c_no,a.ct_bizno, a.c_title,a.c_content,a.c_leadtime,a.c_level,a.c_maxcnt,a.c_mincnt,a.c_category,a.c_area,b.c_img_file as c_img_file,
+		select c_no,ct_bizno, c_title,c_content,c_leadtime,c_level,c_maxcnt,c_mincnt,c_category,c_area,
 				(select count(*) 
 				from li_likes where c_no = #{c_no}) as c_luv
-        from li_class a left join li_class_img b on a.c_no = b.c_no
-        where a.c_no= #{c_no}
+        from li_class
+        where c_no= #{c_no}
 	</select>
 	
-	<!--3. 해당클래스의 센터 상세조회-->
+	<!--3. 해당클래스의 센터 상세조회--><!-- 은아)03.29 수정완료  -->
 	<select id="clientCenterDetail" resultType="center" parameterType="c_class">
-		select a.ct_bizno, a.ct_name,a.ct_opbiz_ym,a.ct_intro,a.ct_mainart,a.ct_zipno,a.ct_addr,
-				a.ct_detail_addr,a.ct_tel,a.ct_hmpg_addr
-        from li_center a left join li_class b on a.ct_bizno = b.ct_bizno
-        where b.ct_bizno= #{ct_bizno}
+		select ct_bizno,ct_name,ct_opbiz_ym,ct_intro,ct_mainart,ct_zipno,ct_addr,
+				ct_detail_addr,ct_tel,ct_hmpg_addr
+        from li_center 
+        where ct_bizno= #{ct_bizno}
 	</select> 
 	
 	
@@ -50,7 +50,7 @@
 		ORDER BY c_no desc
 	</select>
 	-->
-	<!-- 0328 은아 c_no가 1번일때 자꾸 여러값이 반환되서 임시..주석
+	
 	<resultMap type="c_class" id="c_class">
 		<result column="c_img_file" property="c_img_file" jdbcType="VARCHAR" javaType="java.lang.String"/>
 	 </resultMap>
@@ -70,7 +70,7 @@
 	   			) B
 				on A.c_no = B.c_no 
 				ORDER BY c_no asc
-	</select> -->
+	</select>
 	
 	
 	
