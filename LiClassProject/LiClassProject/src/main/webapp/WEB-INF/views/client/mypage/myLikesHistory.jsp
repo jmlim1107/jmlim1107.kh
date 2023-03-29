@@ -36,7 +36,7 @@
 											            <h6><i class="fa-solid fa-location-dot"></i>${likedClass.c_area}</h6>
 											          </div>
 											        </div>
-											       	 <img src="/uploadStorage/class/${likedClass.c_img_file}" class="img-responsive" alt="class-img"> 
+											       	 <img src="/uploadLiClass/class/${likedClass.c_img_file}" class="img-responsive" alt="class-img"> 
 										        </a>
 	   									        <a class="delete-likes"><i class="fa-solid fa-trash-can"></i></a>
 									         </div>

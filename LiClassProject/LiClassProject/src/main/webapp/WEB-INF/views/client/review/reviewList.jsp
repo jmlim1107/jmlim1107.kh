@@ -271,7 +271,7 @@
 		                
 		                <%-- <div>
 		                	<c:if test="${not empty board.b_thumb}">
-								<img src="/uploadStorage/review/thumbnail/${review.review_thumb_file}" style="width: 100px;"/>
+								<img src="/uploadLiClass/review/thumbnail/${review.review_thumb_file}" style="width: 100px;"/>
 							</c:if>
 							<c:if test="${empty board.b_thumb}">
 								<img src="/resources/images/notfound.png"  style="width: 100px;" />

@@ -46,7 +46,7 @@
 				                imgArr.push(c_img_file);
 				                for(i=0;i<imgArr.length; i++){
 			                	  $(".recent-img:eq("+i+")").css("display","visible");
-			                	  $(".recent-img:eq("+i+")").attr("src","/uploadStorage/class/"+imgArr[i]);
+			                	  $(".recent-img:eq("+i+")").attr("src","/uploadLiClass/class/"+imgArr[i]);
 				                }
 				            },error: function () {
 				                console.log('ajax error');

@@ -19,7 +19,7 @@ public class UserFileUpload {
 	/********************************************************************************
 	 * 파일 업로드할 폴더 생성
 	 * static 메서드
-	 *  C://uploadStorage 안에 xx라는 폴더가 존재하니?
+	 *  C://uploadLiClass 안에 xx라는 폴더가 존재하니?
 	 *
 	 ********************************************************************************/
 	public static void makeDir(String docRoot) {
@@ -53,7 +53,7 @@ public class UserFileUpload {
 			real_name = fileName +"_"+System.currentTimeMillis()+"_"+org_name; //System.currentTimeMillis() = 가공하기위해 추가할 문구
 						// board_202302231111_클라이언트가올린파일명
 			
-			String docRoot = "C://uploadLiClass//user//"; //C://10.webDeveloper//uploadStorage//board
+			String docRoot = "C://uploadLiClass//user//"; 
 			makeDir(docRoot); //이 폴더 없으면 생성해라
 			
 			File fileAdd = new File(docRoot+"/"+real_name);

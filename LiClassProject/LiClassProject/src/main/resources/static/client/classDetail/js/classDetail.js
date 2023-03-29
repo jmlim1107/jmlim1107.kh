@@ -50,7 +50,7 @@ $(function(){
 	      content: {
 	        title: 'LiClass',
 	        description: '$(".class-info").data("title")',
-	        imageUrl: '/uploadStorage/LiClass.jpg',
+	        imageUrl: '/uploadLiClass/LiClass.jpg',
 	        link: {
 	          mobileWebUrl: encodeURIComponent(document.URL),
 	          webUrl: encodeURIComponent(document.URL),

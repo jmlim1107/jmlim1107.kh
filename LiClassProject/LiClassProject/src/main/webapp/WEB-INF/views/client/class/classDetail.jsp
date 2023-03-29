@@ -33,10 +33,10 @@
 	    </ol>
 	    <!-- Wrapper for slides -->
 	    <div class="carousel-inner" role="listbox">
-	      <div class="item active"> <img src="/uploadStorage/class/${classDetail.c_img_file}" alt="c_img_file">
+	      <div class="item active"> <img src="/uploadLiClass/class/${classDetail.c_img_file}" alt="c_img_file">
 	      </div>
 	      <div class="item">
-	       <img src="/uploadStorage/class/${classDetail.c_img_file}" alt="c_img_file">
+	       <img src="/uploadLiClass/class/${classDetail.c_img_file}" alt="c_img_file">
 	      </div>
 	    </div>
 	    <!-- Controls --> 
