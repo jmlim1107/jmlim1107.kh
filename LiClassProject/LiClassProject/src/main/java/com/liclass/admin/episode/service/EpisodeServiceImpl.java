@@ -26,6 +26,7 @@ public class EpisodeServiceImpl implements EpisodeService {
 	@Override
 	public int epInsert(EpisodeVO ep) {
 		int result = episodeDAO.epInsert(ep);
+		
 		return result;
 	}
 
