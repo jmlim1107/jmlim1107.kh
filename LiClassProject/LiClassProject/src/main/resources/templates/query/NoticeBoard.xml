@@ -16,7 +16,7 @@
         </if>
     </sql>
     <!--공지게시판 리스트 조회 쿼리문-->
-    <select id="noticeBoardList" parameterType="qnaBoard" resultType="qnaBoard">
+<!--    <select id="noticeBoardList" parameterType="qnaBoard" resultType="qnaBoard">
         <![CDATA[
         select qna_no, qna_title, qna_content, qna_category, to_char(qna_date, 'YYYY-MM-DD') as qna_date, qna_top_state, admin_no
         from(
@@ -24,6 +24,23 @@
                     rownum as rnum, qna_no, qna_title, qna_content, qna_category, qna_date,qna_top_state, admin_no
                     from li_qna
                     where qna_category = '[공지]' and]]>
+        <trim prefix="(" suffix=") and " prefixOverrides="and">
+            <include refid="noticeSearch"></include>
+        </trim>
+        <![CDATA[ rownum <= #{pageNum} * #{amount}
+            ) noticeBoardList
+            where rnum > (#{pageNum} -1) * #{amount}
+            order by qna_top_state desc, qna_no desc
+        ]]>
+    </select>-->
+    <select id="noticeBoardList" parameterType="qnaBoard" resultType="qnaBoard">
+        <![CDATA[
+        select qna_no, qna_title, qna_content, qna_category, to_char(qna_date, 'YYYY-MM-DD')as qna_date, qna_top_state, admin_name
+        from(
+                select /*+ INDEX_DESC(li_qna li_qna_pk) */
+                    rownum as rnum, qna_no, qna_title, qna_content, qna_category, qna_date, qna_top_state, a.admin_no, b.admin_no, b.admin_name
+                    from li_qna a LEFT OUTER JOIN li_admin b
+                    on a.admin_no = b.admin_no and a.qna_category = '[공지]' and]]>
         <trim prefix="(" suffix=") and " prefixOverrides="and">
             <include refid="noticeSearch"></include>
         </trim>

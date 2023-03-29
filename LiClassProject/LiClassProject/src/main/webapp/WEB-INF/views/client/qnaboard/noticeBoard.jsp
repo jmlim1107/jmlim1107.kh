@@ -5,10 +5,6 @@
 
 <script type="text/javascript">
     $(function (){
-
-        $("#insertForm").click(function(){
-            location.href="/client/qnaboard/qnaInsertForm";
-        });
         /* 제목 클릭 시 상세페이지 이동을 위한 처리 이벤트 */
         $(".goDetail").click(function(){
             let qna_no = $(this).parents("div").attr("data-num");
@@ -17,7 +13,7 @@
             //상세페이지로 이동하기 위해 form 추가 (id : detailForm)
             $("#detailForm").attr({
                 "method" : "get",
-                "action" : "/client/qnaboard/qnaBoardDetail"
+                "action" : "/client/qnaboard/noticeBoardDetail"
             });
             $("#detailForm").submit();
         });
@@ -69,10 +65,6 @@
             <a href="#" class="num">5</a>
             <a href="#" class="bt next">></a>
             <a href="#" class="bt last">>></a>
-        </div>
-        <div class="bt_wrap">
-            <button type="button" class="on" id="insertForm">등록</button>
-            <!--<a href="#">수정</a>-->
         </div>
     </div>
 </div>
