@@ -24,6 +24,7 @@
 			 $("#recent").append('<span>최근 본 클래스가 없습니다.</span>');
 			 $("#recentDiv").css("display","none");
 		 }else{
+			
 			 var recentClasses3 = recetClasses.slice(-3);
 			 //중복제거
 				let uniqueArr = [];
@@ -58,7 +59,8 @@
 				        })
 		 			}
 		 		}
-		 		
+		 	}
+		
 		 
 			/* 로그인 */
 			$("#floating-login").click(function(){

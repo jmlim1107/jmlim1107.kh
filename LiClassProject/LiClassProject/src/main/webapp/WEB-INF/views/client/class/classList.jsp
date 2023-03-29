@@ -16,13 +16,14 @@
 		        -webkit-line-clamp: 2;
 		        -webkit-box-orient: vertical;
 		}
-			
+		.goClassDetail{
+			cursor: pointer;
+		}
 	
 	</style>
-
-
 	<script>
     	$(function(){
+    		//클래스 리스트에서 제목클릭시 이동
     		$(".goClassDetail").click(function(){
     			let c_no = $(this).data('num');
     			location.href="/class/classDetail?c_no="+c_no;
@@ -41,48 +42,44 @@
 	//heart 좋아요 클릭시! 하트 애니메이션
 	  $(function(){
 		  
-		  /*0328 은아추가  */
 		  let user_no = $(".login-info").data("num");
 		  let c_no = $(".goClassDetail").data("num");
 		  console.log("loginUser.user_no : "+user_no);
 		  console.log("classes.c_no : "+c_no);
-		 
-		  /*0329 은아수정  */
+		  
 		  $('.icon.heart').click(function(){
+		  		if(user_no != ""){
 	        	  var $likeBtn = $(this);
-	        	  if(user_no == "" || user_no == null){
-	    			  alert("로그인 후 이용해주세요.");
-	    		  }else{
-	    			  $.ajax({
-	    					type : "POST",
-	    					url : "/like",
-	    					data : {
-	    						"c_no" : $(".goClassDetail").data("num"),
-	    						"user_no" : $(".login-info").data("num")
-	    					},success : function(result){
-	    						console.log(" check like result : "+result);
-	    						 if(result == 0){ //추가
-	    							 $likeBtn.find('img').attr({
-	    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
-	    					                 alt:'찜하기 완료'
-   					                  });
-	    						}else if(result == 1){//삭제
-	    							$likeBtn.find('i').removeClass('fas').addClass('far')
-   					             	$likeBtn.find('img').attr({
-   					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
-   					                	alt:"찜하기"
-   					            	 });
-	    						}else{
-	    							alert("잠시후에 다시 시도해주세요.");
-	    						} 
-	    					}
-   					 });
-	    		  }
-	  		  });
+    			  $.ajax({
+    					type : "POST",
+    					url : "/like",
+    					data : {
+    						"c_no" : c_no,
+    						"user_no" : user_no
+    					},success : function(checkResult){
+    						console.log(" checkResult : "+checkResult);
+    						 if(checkResult == 0){ //추가
+    							 $likeBtn.find('img').attr({
+    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+    					                 alt:'찜하기 완료'
+  					                  });
+    						}else if(checkResult == 1){//삭제
+    							$likeBtn.find('i').removeClass('fas').addClass('far')
+  					             	$likeBtn.find('img').attr({
+  					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+  					                	alt:"찜하기"
+  					            	 });
+    						}else{
+    							alert("잠시후에 다시 시도해주세요.");
+    						} 
+    					}
+  					 });
+    		  }else{
+    			  alert("로그인 후 이용해주세요.");
+    		  }
+		  });
+		 
 	  });
-	
-	
-	
 	</script>
 	<style>
 	
