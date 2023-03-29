@@ -4,12 +4,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="/resources/client/mainTheme/js/bootstrap.affix.js"></script>
 
-<!--은아)플로팅메뉴 js,css  -->
-
+<!--은아)2. 플로팅 메뉴 js,css  -->
 <script src="/resources/client/mainTheme/js/floatingNav.js"></script>
 <link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
 
 <script>
+
 	/* 은아)메인화면 redirect 시 전달메시지 있을 때 */
 	if('${message}' != ""){
 		var message = "${message}" ;
@@ -18,9 +18,6 @@
 </script>
  <body id="page-top" data-spy="scroll" data-target=".side-menu">
  
- 	<!-- 은아)우측 플로팅메뉴 맨위로가기 버튼 기준점  -->
- 	<div id="home"></div>
- 	
 	<!-- 지민)클래스 리스트 -->
 	<!-- 1. class list start  -->
 	<section id="portfolio" class="section portfolio">
@@ -30,7 +27,7 @@
 	
 	
 	<!-- 은아)플로팅메뉴  -->
-	<!-- floating nav start -->
+	<!-- 2. floating nav start -->
 	<div id="floatMenu">
 		<div class="section-block">
 			<nav class="side-menu">
@@ -39,7 +36,7 @@
 		            <a class="page-scroll" href="#page-top"></a>
 		          </li>
 		          <li>
-		            <a href="#home" class="page-scroll">
+		            <a href="#page-top" class="page-scroll">
 		              <span class="menu-title">맨 위로</span>
 		              <span class="dot"></span>
 		            </a>

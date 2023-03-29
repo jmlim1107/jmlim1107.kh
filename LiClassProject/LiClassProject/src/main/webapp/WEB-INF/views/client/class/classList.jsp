@@ -25,7 +25,6 @@
     	$(function(){
     		$(".goClassDetail").click(function(){
     			let c_no = $(this).data('num');
-    			console.log("클래스번호 : " +c_no+" 로 이동");
     			location.href="/class/classDetail?c_no="+c_no;
     		});
     	});
@@ -86,7 +85,6 @@
 	
 	</script>
 	<style>
-	
 	
 	
 	</style>

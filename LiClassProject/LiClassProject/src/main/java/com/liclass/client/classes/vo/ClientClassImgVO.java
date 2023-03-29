@@ -10,8 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClientClassImgVO extends ClientClassVO {
-	private int cImgNo;
-	private String cImgFile;
-	private String thumbFile;
-	private String cImgDate;
+	
+	private int c_img_no=0;
+	private int c_no=0;
+	private String c_img_file="";
+	private String thumbFile="";
+	private String c_img_date="";
 }

@@ -5,8 +5,7 @@
 <script src="/resources/client/mypage/assets/js/myProfileImg.js"></script>
 <!-- 마이페이지 - 1-1.나의 회원정보 -->
 <script>
-		/*웅배)  */
-	    //수강내역 모달창
+	    //웅배) 수강내역 모달창
 	      $("#modal_opne_btn").click(function(){
 	         $("#modal").attr("style", "display:block");
 	      });
