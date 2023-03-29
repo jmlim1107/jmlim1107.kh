@@ -15,7 +15,7 @@
 		<![endif]-->
 	</head>
 	<body>
-		<h1>예약정보들 출력!!!</h1>
+		<h1>예약정보들 출력 test!!!</h1>
 		<h1>r_no : ${rvo.r_no}</h1>
 		<h1>user_no : ${rvo.user_no}</h1> 
 		<h1> ep_no : ${rvo.ep_no} </h1>

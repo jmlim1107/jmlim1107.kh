@@ -85,10 +85,10 @@ public class EpisodeController {
 	
 	/***************************예약화면에서 불러올 회차정보들**************************/
 	@GetMapping("/episode/goReserve")
-	public String goReserve( @RequestParam int c_no, @RequestParam Long user_no /*HttpSession session, Model model*/ ) {
+	public String goReserve( @RequestParam int c_no, HttpSession session, Model model ) {
 		log.info("예약페이지로 넘어갑니다...");
-		//UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-	    //model.addAttribute("loginUser",loginUser);
+		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+	    model.addAttribute("loginUser",loginUser);
 		return "reserve/reserve";
 	}
 	//클래스 디테일 controller에서 만들것임..
