@@ -56,6 +56,7 @@
             <input type="hidden" id="qna_indent" name="qna_indent" value="${answerData.qna_indent}">
             <input type="hidden" id="qna_step" name="qna_step" value="${answerData.qna_step}">
             <input type="hidden" id="admin_no" name="admin_no" value="${adminLogin.admin_no}">
+            <input type="hidden" id="admin_name" name="admin_name" value="${adminLogin.admin_name}">
             <div class="input-group mb-3 " >
                 <span class="input-group-text" id="inputGroup-sizing-default">제목</span>
                 <input type="text" id="qna_title" name="qna_title" class="form-control" aria-label="Recipient's username" aria-describedby="inputGroup-sizing-default" aria-describedby="button-addon2">

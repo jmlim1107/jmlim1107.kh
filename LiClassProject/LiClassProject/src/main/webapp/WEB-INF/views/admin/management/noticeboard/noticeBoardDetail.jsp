@@ -46,7 +46,7 @@
             <tbody>
             <tr>
                 <td class="col-md-4">작성자</td>
-                <td class="col-md-3 text-left">관리자</td>
+                <td class="col-md-3 text-left">${adminLogin.admin_name}</td>
             </tr>
             <tr>
                 <td class="col-md-3 text-left">최초 등록일(${detail.qna_date})</td>

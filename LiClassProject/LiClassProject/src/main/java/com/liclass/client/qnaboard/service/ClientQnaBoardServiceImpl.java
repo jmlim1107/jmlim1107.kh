@@ -25,18 +25,6 @@ public class ClientQnaBoardServiceImpl implements ClientQnaBoardService {
 
         return list;
     }
-    @Override
-    public List<QnaBoardVo> noticeBoardList(QnaBoardVo qnaBoard) {
-        List<QnaBoardVo> list = null;
-        list = noticeBoardDao.noticeBoardList(qnaBoard);
-
-        return list;
-    }
-    @Override
-    public int noticeBoardCnt(QnaBoardVo qnaBoard){
-        return noticeBoardDao.noticeBoardCnt(qnaBoard);
-    }
-
 
     @Override
     public int qnaBoardInsert(QnaBoardVo qnaBoard) {
@@ -80,4 +68,26 @@ public class ClientQnaBoardServiceImpl implements ClientQnaBoardService {
         return result;
     }
 
+    @Override
+    public List<QnaBoardVo> noticeBoardList(QnaBoardVo qnaBoard) {
+        List<QnaBoardVo> list = null;
+        list = noticeBoardDao.noticeBoardList(qnaBoard);
+
+        return list;
+    }
+    @Override
+    public int noticeBoardCnt(QnaBoardVo qnaBoard){
+        return noticeBoardDao.noticeBoardCnt(qnaBoard);
+    }
+
+    @Override
+    public QnaBoardVo noticeBoardDetail(QnaBoardVo qnaBoard){
+        QnaBoardVo detail = null;
+
+        detail = noticeBoardDao.noticeBoardDetail(qnaBoard);
+        if(detail != null){
+            detail.setQna_content(detail.getQna_content().toString().replaceAll("\n", "<br />"));
+        }
+        return detail;
+    }
 }
