@@ -50,7 +50,7 @@
                 </trim>
                 <![CDATA[ rownum <= #{pageNum} * #{amount}
                     ) noticeBoardList
-                    where rnum > (#{pageNum} -1) * #{amount} and qna_category = '[공지]'
+                    where rnum > (#{pageNum} -1) * #{amount} and qna_category = '공지'
                     order by qna_top_state desc, qna_no desc
                 ]]>
     </select>
@@ -66,7 +66,7 @@
     <!--공지게시판 글 작성쿼리문 -->
     <insert id="noticeBoardInsert" parameterType="qnaBoard">
         insert into li_qna(qna_no, qna_title, qna_content, qna_category, qna_top_state, admin_no)
-        values(li_admin_seq.nextval, #{qna_title}, #{qna_content}, '[공지]' , #{qna_top_state}, #{admin_no})
+        values(li_admin_seq.nextval, #{qna_title}, #{qna_content}, '공지' , #{qna_top_state}, #{admin_no})
     </insert>
 
     <!--공지게시판 상세페이지 조회 쿼리문-->
