@@ -1,12 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!-- 마이페이지 - 4. 나의 관심클래스 -->
+<style>
+	.mylikes-img{
+		width:400px;
+		height:250px;
+	}
+</style>
 <script>
 	$(function(){
-		//휴지통 클릭
+		
+		//은아)휴지통 클릭 시 관심클래스 삭제
 		$(".delete-likes").click(function(){
-			//현재페이지 localStorage에 activePosition저장
+			
+			//은아)삭제 후 새로고침 하고 현재 탭메뉴로 돌아오기위해 localStorage에 activePosition저장
 			var activePosition = 3;
 			localStorage.setItem("activePosition",activePosition);
 			console.log("set activePosition : "+activePosition);
@@ -24,7 +32,6 @@
                                <h4>나의 관심클래스</h4>
                                  <div class="container">
 									<div class="row row-bottom-padded-md">
-									
 										<c:choose>
 							              <c:when test="${ not empty myLikesList }">
 											<c:forEach var="likedClass" items="${myLikesList}">
@@ -36,7 +43,7 @@
 											            <h6><i class="fa-solid fa-location-dot"></i>${likedClass.c_area}</h6>
 											          </div>
 											        </div>
-											       	 <img src="/uploadLiClass/class/${likedClass.c_img_file}" class="img-responsive" alt="class-img"> 
+											       	 <img src="/uploadLiClass/class/${likedClass.c_img_file}" class="img-responsive mylikes-img" alt="class-img"> 
 										        </a>
 	   									        <a class="delete-likes"><i class="fa-solid fa-trash-can"></i></a>
 									         </div>

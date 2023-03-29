@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="/resources/client/mypage/assets/js/updateForm.js"></script>
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/updateForm.css" />
+<!-- 마이페이지 - 1-2. 내 회원정보 수정 -->
 <script>
 	/*회원정보수정 완료 후 성공/실패 alert 후 redirect*/
 	if('${message}' != "" || '${url}' !=""){

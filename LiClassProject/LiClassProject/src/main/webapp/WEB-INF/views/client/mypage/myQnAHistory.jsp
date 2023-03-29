@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>	
-<!-- 은아) 문의내역 -->	
+<!-- 마이페이지 - 5. 나의 문의내역 -->	
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/myQna.css" />
 <script>
 	$(function(){
-		//문의글 제목 클릭 시 상세내용
+		
+		//은아)문의글 제목 클릭 시 상세내용
 		$(".qna_title").click(function(){
 			let contentTr = $(this).parent("tr").next(".qna_content");
 			let css = contentTr.css("display");
@@ -17,7 +17,7 @@
 			} 
 		});
 		
-		//페이지 번호 클릭 시
+		//은아)페이지 번호 클릭 시
 		$(".paginate_button2").click(function(){
 			
 			//현재페이지 localStorage에 activePosition저장
@@ -69,7 +69,10 @@
 			                                  <td colspan="4" class ="view-message  inbox-small-cells" style="background-color: #fdfdfdba;">
 			                                  	${qnaVO.qna_content}
 			                                  </td>
-			                                  <td class ="view-message  inbox-small-cells" style="background-color: #fdfdfdba;"><button type="button" class="btn" style="margin: 0px auto;">수정/삭제</button></td>
+			                                  <td class ="view-message  inbox-small-cells" style="background-color: #fdfdfdba;">
+			                                  	<!--은아) 추후 문의게시판 해당글 상세페이지로 이동예정  -->
+			                                  	<button type="button" class="btn" style="margin: 0px auto;">수정/삭제</button>
+			                                  </td>
 			                              </tr>
 		                              </c:forEach>
 					                </c:when>
@@ -84,6 +87,8 @@
                       </div>
                   </aside>
               </div> 
+              <!--은아)나의 문의내역 페이징 처리  -->
+              <!-- myqna pagination start  -->
               	<div class="pagination">
 					<c:if test="${qnaPageMaker.prev}">
 					  <a href="${qnaPageMaker.startPage - 1}">&laquo;</a>
@@ -100,4 +105,5 @@
               	<input type="hidden" id="select-page" name="pageNum" value="">
               	<input type="hidden" name="amount" value="${qnaPageMaker.cvo.amount }">
               </form>
+              <!-- myqna pagination end  -->
 			</div>

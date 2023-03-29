@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script src="/resources/client/classDetail/js/classDetail.js"></script>
@@ -13,7 +11,27 @@
 	<!-- header slider section start -->
 	<section id="header-slider" class="section">
 	<div class="class-content" data-num="${classDetail.c_no}">
-      <h6><i class="fa-solid fa-hashtag"></i> ${classDetail.c_category}</h6>
+      <h6><i class="fa-solid fa-hashtag"></i> 
+      	<c:if test="${classDetail.c_category} eq 0">
+      		공예
+      	</c:if>
+      	<c:if test="${classDetail.c_category} eq 1">
+      		요리
+      	</c:if>
+      	<c:if test="${classDetail.c_category} eq 2">
+      		미술
+      	</c:if>
+      	<c:if test="${classDetail.c_category} eq 3">
+      		플라워
+      	</c:if>
+      	<c:if test="${classDetail.c_category} eq 4">
+      		뷰티
+      	</c:if>
+      	<c:if test="${classDetail.c_category} eq 5">
+      		체험 및 기타
+      	</c:if>
+      
+      </h6>
       <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${classDetail.c_area}</h6>
       <h3>${classDetail.c_title}</h3>
       

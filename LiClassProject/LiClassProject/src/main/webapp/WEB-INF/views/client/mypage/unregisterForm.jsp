@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- 마이페이지 - 1-3. 회원탈퇴 -->
  <script>
-	/*회원탈퇴 완료 후 성공/실패 alert 후 redirect*/
+	/*은아)회원탈퇴 완료 후 성공/실패 alert 후 redirect*/
 	if('${message}' != "" || '${url}' !=""){
 		var message = "${message}" ;
 		var url = '${url}';
@@ -15,12 +16,10 @@
 			margin:10px auto;
 			font-size: 16px;
 		}
-		
 		#final-check-label{
 			font-size: 16px;
 			color: salmon;
 		}
-		
 		#bottom{
 			margin: 60px;
     		display: grid;
@@ -30,6 +29,7 @@
 	</style>
 	<script>
 		$(function(){
+			/*은아)회원탈퇴 클릭 시 동의체크 유효성검사   */
 			$("#unregister-ok").click(function(){
 				if(!$("#final-check").is(":checked")){
 					alert("안내사항 동의를 확인해 주세요.");

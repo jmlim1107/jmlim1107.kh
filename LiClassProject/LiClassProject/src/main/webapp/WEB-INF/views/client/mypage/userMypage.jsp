@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- 마이페이지 - 1. 첫화면 -->
 <!--은아) 비밀번호 만료 알림 js,css  -->
 <script src="/resources/client/mypage/assets/js/pwExp.js"></script>
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/pwExp.css" />
@@ -28,6 +28,7 @@
 		}
 	});
 </script>
+	<!--은아) 비밀번호 만료알림창  -->
 	<!--password expiration alert modal start  -->
 	<div class="modal" id="pwOverExp-modal" >
 	   <a id="kakao-link-btn" href="javascript:kakaoShare()"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
@@ -46,7 +47,8 @@
 	    <input type="checkbox" name="today_close1" /> 오늘만 이 창을 열지 않음
 	</div> 
 	<!--password expiration alert modal end  -->  
-		 
+	
+	<!--은아)마이페이지 좌측 메뉴 nav  -->
 	<div class="popular-categories">
 	    <div class="container">
 	      <div class="row">
