@@ -7,6 +7,20 @@
 <script type = "text/javascript" src = "/resources/class/js/classList.js" /></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+	<style>
+		.classContent{
+			margin-top: 10px;
+			text-overflow: ellipsis;  
+			overflow : hidden;
+			display: -webkit-box;
+		        -webkit-line-clamp: 2;
+		        -webkit-box-orient: vertical;
+		}
+			
+	
+	</style>
+
+
 	<script>
     	$(function(){
     		$(".goClassDetail").click(function(){
@@ -67,7 +81,16 @@
 	    		  }
 	  		  });
 	  });
+	
+	
+	
 	</script>
+	<style>
+	
+	
+	
+	</style>
+	
 	<!-- 은아) 로그인 유저 확인용 -->
     <input type="hidden" class="login-info" data-num="${loginUser.user_no }" />
     
