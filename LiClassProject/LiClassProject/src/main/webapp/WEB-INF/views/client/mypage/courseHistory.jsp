@@ -25,45 +25,11 @@
 
 <style>
 	.table>tbody>tr>td{padding:12px;vertical-align: middle;}
-</style>
-<script type="text/javascript">
-	$(function(){
-	// 글쓰기모달창 -> 저장버튼 클릭 시
-	$("#reviewInsertBtn").click(function(e){
-		
-		 // 입력값 체크
-		 if(!$('input[name=review_rating]').is(":checked")){
-			 alert("별점을 남겨주세요!");
-			 e.preventDefault();
-		 } 
-		 else if (!chkData("#review_title2","제목을")){ 
-			 e.preventDefault(); 
-			 return;
-		 }	
-		 else if (!chkData("#contentTextarea2","내용을")){ 
-			 e.preventDefault(); 
-			 return;
-		 }	
-		 else if (!$('input[name=agreements_reviews_termsAndConditions]').is(":checked")){
-			 e.preventDefault(); 
-			 alert("약관동의는 필수사항입니다.");
-		 } 
-		 else{
-			 console.log("입력 성공");
-		 	// reviewInsert 로 보내주기
-			$("#r_writeForm").attr({
-				"method" : "post",
-				"action" : "/review/reviewInsert"
-			});
-			 $("r_writeForm").submit();
-		 }
-	});
-});
-</script>  
-
+</style> 
 <div class="thumb">
 	<div class="row">
 		<div class="left-text">
+		
 		<hr>
 			<h4 class="center">수강 내역</h4>
 			<%-- ==================== 리스트 시작 ==================== --%>
@@ -94,10 +60,10 @@
 									<td>${ courseList.level }</td>
 									<td>${ courseList.area }</td>
 									<c:if test="${courseList.count>0 }">
-										<td>
+										<td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
 											<%-- ================== 글쓰기 버튼 출력 시작 ============= --%>
 											<div class="contentBtn  text-right">
-												<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
+												<input type="button" value="글쓰기" class="insertFormBtn" class="btn btn-dark">
 											</div>
 											<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
 										</td>
@@ -130,7 +96,6 @@
 <div id = "test2" style="display: none;">
 	<%@ include file = "/WEB-INF/views/client/review/r_updateForm.jsp" %>
 </div>
-
 
 
 
