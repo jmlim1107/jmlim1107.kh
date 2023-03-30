@@ -14,7 +14,7 @@
         select a.review_no,b.user_name as review_name,a.review_title,a.review_content,
         to_char(a.review_date,'YYYY-MM-DD') as review_date,
         a.review_date,a.review_update,
-        a.review_status,a.review_img,a.c_no,a.user_no,b.user_img,c.c_title
+        a.review_status,a.c_no,a.user_no,b.user_img,c.c_title
 		from li_review a left join li_user b on a.user_no = b.user_no
 		                left join li_class c on a.c_no = c.c_no
 		where b.user_no = #{user_no}
