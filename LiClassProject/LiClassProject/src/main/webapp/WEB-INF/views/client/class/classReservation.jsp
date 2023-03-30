@@ -2,6 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!-- 부트스트랩 
+<link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />-->
+<!-- script 
+<script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
+<script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+
 <style>
 	#sticky-nav{
 	width:30%;
@@ -153,11 +165,11 @@ $(function(){
 								      	</c:if>
 							         </c:if>
                                         <button type="button" class="main-white-button"><a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i>공유하기</a></button>
-                                        <button type="button" class="main-white-button goReserve"><a><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
+                                        <button type="button" class="main-white-button goReserve"><a href="#reserveModal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
                                   		
       	
-								      	<!-- sns share modal start  --> 
-								      	<div class="modal" id="sns-share" style="z-index: 2; position: initial; text-align: center;">
+								      	<!-- sns share modal start -->  
+								      	<div class="modal" id="sns-share" style="z-index: 2; position: initial; text-align: center; height:50px">
 											   <a id="kakao-link-btn" href="javascript:kakaoShare()"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
 											   <a id="twitter-link-btn" href="javascript:shareTwitter()"><i class="fa-brands fa-twitter"></i></a>
 											   <a id="facebook-link-btn" href="javascript:shareFacebook()"><i class="fa-brands fa-facebook-f" style="color:#415893;"></i></a>
@@ -165,9 +177,17 @@ $(function(){
 											   <a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555;"></i></a>
 										 </div>
 										 <!-- sns share modal end  --> 
+										  
+										 <div class="modal" id="reserveModal" style="z-index: 3; position: initial; text-align: center; height:50px">
+											모달 test
+										</div>
+										 
+										 
                                     </div>
                                 </div>
                            </form>
                  		</div>
 					</div>
 				</div>
+				 
+				
