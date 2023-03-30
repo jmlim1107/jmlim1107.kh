@@ -8,29 +8,39 @@
 <link href="/resources/client/classDetail/css/style.css" rel="stylesheet">
 <link href="/resources/client/classDetail/css/themify-icons.css" rel="stylesheet">
 <link href='/resources/client/classDetail/css/dosis-font.css' rel='stylesheet' type='text/css'>
+<script>
+	$(function(){
+		if("${1 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 공예");
+		}else if("${2 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 요리");
+		}else if("${3 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 미술");
+		}else if("${4 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 플라워");
+		}else if("${5 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 뷰티");
+		}else if("${6 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 체험 및 기타");
+		}
+	});
+</script>
 	<!-- header slider section start -->
 	<section id="header-slider" class="section">
 	<div class="class-content" data-num="${classDetail.c_no}">
-      <h6><i class="fa-solid fa-hashtag"></i> 
-      <%-- 
-      	${classDetail}
-       --%>
-      </h6>
-      <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${classDetail.c_area}</h6>
-      <h3>${classDetail.c_title}</h3>
-     
-      <div style="display: flex;" class="login-info" data-num="${loginUser.user_no}">
-      	<h5>
-     		<c:if test="${classDetail.c_category eq 0} ">
-     		<span>공예</span>
+      <h6 id="category"><i class="fa-solid fa-hashtag"></i> 
+      ${3 eq classDetail.c_category}
+    <%--  왜안되는거야!!!!!!!!!!!!!!
+    		<c:if test="${0 eq classDetail.c_category} ">
+     			공예
 	      	</c:if>
 	      	<c:if test="${classDetail.c_category eq 1} ">
-	      		<span>요리</span>
+	      		요리
 	      	</c:if>
 	      	<c:if test="${classDetail.c_category eq 2} ">
 	      		미술
 	      	</c:if>
-	      	<c:if test="${classDetail.c_category eq 3} ">
+	      	<c:if test="${3 eq classDetail.c_category} ">
 	      		플라워
 	      	</c:if>
 	      	<c:if test="${classDetail.c_category eq 4} ">
@@ -38,8 +48,13 @@
 	      	</c:if>
 	      	<c:if test="${classDetail.c_category eq 5} ">
 	      		체험 및 기타
-	      	</c:if>
-      	</h5>
+	      	</c:if> --%>
+      </h6>
+      <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${classDetail.c_area}</h6>
+      <h3>${classDetail.c_title}</h3>
+     
+      <div style="display: flex;" class="login-info" data-num="${loginUser.user_no}">
+      	
       </div>
       
 	</div>
@@ -93,7 +108,6 @@
 				           커리큘럼정보
 					           <section id="info" class="section services info">
 								  <div class="container-fluid">
-								  	Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things.
 								  </div>
 							  </section>
 						  
