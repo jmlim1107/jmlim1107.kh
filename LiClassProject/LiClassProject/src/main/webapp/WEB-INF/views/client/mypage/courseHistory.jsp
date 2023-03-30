@@ -9,7 +9,8 @@
 <div class="thumb">
 	<div class="row">
 		<div class="left-text">
-			<h4>수강내역</h4>
+		<hr>
+			<h4 class="center">수강 내역</h4>
 			<%-- ==================== 리스트 시작 ==================== --%>
 			<div id="paymentList" class="table-height">
 				<table summary="결제내역 리스트" class="table table-hover">

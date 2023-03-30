@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liclass.client.payment.dao.PaymentDao">
 
-<!--  웅배 파트  -->
+   <!--  웅배 파트  -->
    <select id="getUserInfo" parameterType="long" resultType="User">
       select * from li_user
       where user_no = #{user_no}
