@@ -61,11 +61,11 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #6a7dfe;
-  color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+  color: white;
+ /*  color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
   color: -o-linear-gradient(left, #21d4fd, #b721ff);
   color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-  color: linear-gradient(left, #21d4fd, #b721ff);
+  color: linear-gradient(left, #21d4fd, #b721ff); */
 }
 
 /*---------------------------------------------*/
@@ -141,12 +141,12 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt0 {
+	
   font-family: Poppins-Regular;
   font-size: 11px;
   color: #666666;
   line-height: 1.5;
 }
-
 .txt1 {
   font-family: Poppins-Regular;
   font-size: 13px;
@@ -409,6 +409,14 @@ iframe {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+}
+
+a.login100-form-btn:hover{
+	color: #bbb !important;
+}
+
+#text2:hover{
+	color: #bbb !important;
 }
 .login100-form-bgbtn-naver{
   position: absolute;
