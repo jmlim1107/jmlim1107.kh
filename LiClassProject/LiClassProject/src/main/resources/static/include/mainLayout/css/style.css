@@ -9,6 +9,34 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+@media (min-aspect-ratio: 16/9) {
+  .video-container iframe {
+    /* height = 100 * (9 / 16) = 56.25 */
+    height: 56.25vw;
+  }
+}
+    
+@media (max-aspect-ratio: 16/9) {
+  .video-container iframe {
+    /* width = 100 / (9 / 16) = 177.777777 */
+    width: 177.78vh;
+  }
+}
+.video-container{
+  width: 100%;
+  height: 100%;
+}
+    
+iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
@@ -269,7 +297,7 @@ h6 {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(45, 37, 38, 0.9);
+  background: rgba(231, 16, 41, 0.9);
   transition: 0.3s;
   z-index: 999;
 }
@@ -361,7 +389,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
+
   background-size: cover;
   position: relative;
 }
