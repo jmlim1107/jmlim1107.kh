@@ -180,6 +180,9 @@
   /**
    * Initiate portfolio lightbox 
    */
+/*   (global = global || self, global.GLightbox = factory());
+  GLightbox = factory();
+*/
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
