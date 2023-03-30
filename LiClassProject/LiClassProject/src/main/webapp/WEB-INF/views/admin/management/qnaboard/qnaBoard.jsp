@@ -86,7 +86,7 @@
                         </c:if>
                                 <span class="goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</span>
                         <%--<td class="goDetail text-left">${qnaBoard.qna_title}</td>--%>
-                        <td class="text-center">관리자</td>
+                        <td class="text-center">${qnaBoard.user_name}</td>
                         <td class="text-center">${qnaBoard.qna_date}</td>
                         <td class="text-center">
                             <button class="btn btn-success listUpdateBtn">수정</button>
