@@ -29,7 +29,6 @@
 			border:none;
 			display: block; 
 		}
-		
 		.row>*{
 			width: 80%;
 		}

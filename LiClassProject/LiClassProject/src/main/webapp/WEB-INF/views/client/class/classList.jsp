@@ -23,7 +23,7 @@
 	</style>
 	<script>
     	$(function(){
-    		//클래스 리스트에서 제목클릭시 이동
+    		//클래스 리스트에서 제목 클릭 시 이동
     		$(".goClassDetail").click(function(){
     			let c_no = $(this).data('num');
     			location.href="/class/classDetail?c_no="+c_no;

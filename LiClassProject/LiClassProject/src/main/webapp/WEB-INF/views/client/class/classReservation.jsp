@@ -104,7 +104,9 @@ $(function(){
                                     </div>
                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="form-group">
-                                            <label class="control-label required" for="booking_by">난이도 ${classDetail.c_level}</label>
+                                            <label class="control-label required" for="booking_by">난이도 ${classDetail.c_level}
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
