@@ -39,7 +39,6 @@ public class ReserveController {
 		log.info(result+"라네..");
 		if(result==1) {
 			log.info("예약성공");
-			episodeService.EpcntUpdat(rvo.getEp_no());
 			ReserveVO reserve = reserveService.reservSelect(rvo.getR_no());
 			UserVO uvo = paymentService.getUserInfo(reserve.getUser_no());
 			model.addAttribute("uvo", uvo);
@@ -50,6 +49,6 @@ public class ReserveController {
 			ras.addFlashAttribute("errorMsg", "예약실패");
 			return "redirect:/class/classDetail";
 		}
-		
 	}
+	
 }

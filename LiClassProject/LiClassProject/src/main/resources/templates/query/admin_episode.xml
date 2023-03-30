@@ -76,16 +76,15 @@
 	</select>
 	
 	<!-- 예약완료후 회차의 인원수가 증가한다. -->
-	<update id="EpcntUpdate" parameterType="int">
-		update li_episode set ep_cnt = ep_cnt+1 
+	<update id="EpcntUpdate" parameterType="reserve">
+		update li_episode set ep_cnt = ep_cnt + #{r_cnt}
 		where ep_no = #{ep_no}
 	</update>
 	
 	<!-- 환불후 회차의 인원수가 환불한 만큼 감소한다. -->
-	<!-- 웅배님과 상의필요!!~!~!~!!! -->
 	<update id="EpcntDel" parameterType="reserve">
 		update li_episode set ep_cnt = ep_cnt - #{r_cnt} 
-		where ep_no = #{ep_no} and r_no = #{r_no}
+		where ep_no = #{ep_no}
 	</update>
 	
 </mapper>
