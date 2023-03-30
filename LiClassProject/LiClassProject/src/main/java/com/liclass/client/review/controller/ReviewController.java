@@ -81,9 +81,9 @@ public class ReviewController {
 		
 		result = reviewService.reviewInsert(vo);
 		if(result == 1) {
-			url = "/review/reviewList";
+			url = "/client/classDetail";
 		} else {
-			url = "/review/reviewList";
+			url = "/client/classDetail";
 		}
 		return "redirect:" + url;
 		
