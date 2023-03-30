@@ -20,7 +20,7 @@
 	</definition>
 	
 	<definition name="userContent" template="/WEB-INF/views/template/client/clientLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>

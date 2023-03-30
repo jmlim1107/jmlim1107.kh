@@ -666,12 +666,12 @@ header {
   z-index: 2;
 }
 
-.box-video .video-container{
+/* .box-video .video-container{
   position: relative;
   margin: 0;
   z-index: 1;
 }
-
+ */
 .box-video .bt-play {
   position: absolute;
   top:50%;
@@ -712,12 +712,12 @@ header {
   -webkit-transition: all .6s .8s;
   transition: all .6s .8s;  
 }
-.box-video.open .video-container{
+/* .box-video.open .video-container{
   opacity: 1;
   -webkit-transition: all .6s .8s;
   transition: all .6s .8s;
 }
-
+ */
 
 
 
