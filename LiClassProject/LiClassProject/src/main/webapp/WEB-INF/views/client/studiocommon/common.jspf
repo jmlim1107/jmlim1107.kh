@@ -22,8 +22,13 @@
 		
 		<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
       <script type="text/javascript" src="/resources/include/js/common.js"></script>
-      <script src="https://kit.fontawesome.com/44647c18a5.js" crossorigin="anonymous"></script>
+      <!-- <script src="https://kit.fontawesome.com/44647c18a5.js" crossorigin="anonymous"></script>
       
 	<link rel="stylesheet" href="/resources/include/dist/studio/assets/css/main.css" />
-	<link rel="stylesheet" href="/resources/include/dist/studio/assets/css/noscript.css" />
+	<link rel="stylesheet" href="/resources/include/dist/studio/assets/css/noscript.css" /> -->
+	
+		<!-- manin stylesheet -->
+	<link rel="stylesheet" href="/resources/include/dist/studio/style.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/resources/include/dist/studio/bootstrap.min.css">
 	
