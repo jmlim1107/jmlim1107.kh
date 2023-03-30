@@ -11,26 +11,38 @@
         });
         /* 제목 클릭 시 상세페이지 이동을 위한 처리 이벤트 */
         $(".goDetail").click(function(){
+
             let qna_no = $(this).parents("div").attr("data-num");
             $("#qna_no").val(qna_no);
-            console.log(qna_no);
-            //상세페이지로 이동하기 위해 form 추가 (id : detailForm)
-            $("#detailForm").attr({
-                "method" : "get",
-                "action" : "/client/qnaboard/qnaBoardDetail"
-            });
-            $("#detailForm").submit();
+            let user_no = $("#user_no").val();
+            let login_user_no = $("#login_user_no").val();
+
+            if(user_no == login_user_no){
+                //상세페이지로 이동하기 위해 form 추가 (id : detailForm)
+                $("#detailForm").attr({
+                    "method" : "get",
+                    "action" : "/client/qnaboard/qnaBoardDetail"
+                });
+                $("#detailForm").submit();
+            } else {
+                alert("본인의 글만 확인 할 수 있습니다.");
+            }
+
+
+
+
         });
     });
 </script>
     <form id="detailForm">
         <input type="hidden" id="qna_no" name="qna_no"/>
+        <input type="hidden" id="login_user_no" name="login_user_no" value="${loginUser.user_no}"/>
     </form>
 
     <div class="board_wrap">
         <div class="board_title">
             <strong>문의사항</strong>
-            ${loginUser.user_name}
+            ${loginUser.user_no}
         </div>
         <div class="board_list_wrap">
             <div class="board_list">
@@ -54,11 +66,19 @@
                                 </c:forEach>
                                 &nbsp;&nbsp;&nbsp;<i class="bi bi-arrow-return-right"></i>
                             </c:if>
-                                <span>${qnaBoard.qna_category} ${qnaBoard.qna_title}</span>
+                                <i class="bi bi-lock"></i>&nbsp;<span>[${qnaBoard.qna_category}] &nbsp;&nbsp;${qnaBoard.qna_title}</span>
                             </div>
                                 <%--<div class="title goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</a></div>--%>
-                                <div class="writer">${qnaBoard.user_name}</div>
+                            <c:choose>
+                                <c:when test="${qnaBoard.admin_no > 0}">
+                                    <div class="writer">${qnaBoard.admin_name}</div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="writer">${qnaBoard.user_name}</div>
+                                </c:otherwise>
+                            </c:choose>
                                 <div class="date">${qnaBoard.qna_date}</div>
+                                <input type="hidden" id="user_no" name="user_no" value="${qnaBoard.user_no}"/>
                             </div>
                         </c:forEach>
                     </c:when>
