@@ -80,6 +80,12 @@ $(function(){
 				 });
 		}
 		});
+	
+	//예약페이지로 넘어가기
+	$(".goReserve").click(function(){
+		location.href="/admin/episode/goReserve?c_no="+${classDetail.c_no};
+	});
+	
 });
 
 </script>
@@ -145,7 +151,7 @@ $(function(){
 								      	</c:if>
 							         </c:if>
                                         <button type="button" class="main-white-button"><a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i>공유하기</a></button>
-                                        <button type="button" class="main-white-button"><a><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
+                                        <button type="button" class="main-white-button goReserve"><a><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
                                   		
       	
 								      	<!-- sns share modal start  --> 

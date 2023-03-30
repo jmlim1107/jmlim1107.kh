@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script src="/resources/client/classDetail/js/classDetail.js"></script>
@@ -10,16 +8,37 @@
 <link href="/resources/client/classDetail/css/style.css" rel="stylesheet">
 <link href="/resources/client/classDetail/css/themify-icons.css" rel="stylesheet">
 <link href='/resources/client/classDetail/css/dosis-font.css' rel='stylesheet' type='text/css'>
-
 	<!-- header slider section start -->
 	<section id="header-slider" class="section">
 	<div class="class-content" data-num="${classDetail.c_no}">
-      <h6><i class="fa-solid fa-hashtag"></i> ${classDetail.c_category}</h6>
+      <h6><i class="fa-solid fa-hashtag"></i> 
+      <%-- 
+      	${classDetail}
+       --%>
+      </h6>
       <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${classDetail.c_area}</h6>
       <h3>${classDetail.c_title}</h3>
-      
+     
       <div style="display: flex;" class="login-info" data-num="${loginUser.user_no}">
       	<h5>
+     		<c:if test="${classDetail.c_category eq 0} ">
+     		<span>공예</span>
+	      	</c:if>
+	      	<c:if test="${classDetail.c_category eq 1} ">
+	      		<span>요리</span>
+	      	</c:if>
+	      	<c:if test="${classDetail.c_category eq 2} ">
+	      		미술
+	      	</c:if>
+	      	<c:if test="${classDetail.c_category eq 3} ">
+	      		플라워
+	      	</c:if>
+	      	<c:if test="${classDetail.c_category eq 4} ">
+	      		뷰티
+	      	</c:if>
+	      	<c:if test="${classDetail.c_category eq 5} ">
+	      		체험 및 기타
+	      	</c:if>
       	</h5>
       </div>
       
@@ -94,7 +113,7 @@
 						            </ul>
 						          </div>
 						        </div>
-				        	 <div class="main-white-button" id="map-click" style="margin:5px;"><a href="#"><i class="fa-solid fa-map-pin"></i>${centerDetail.ct_addr}</a>
+				        	 <div class="main-white-button" id="map-click" style="margin:5px;"><a href="#"><i class="fa-solid fa-map-pin"></i>${classDetail.c_area}</a>
 							 <p style="padding: 12px 25px;"><i class="fa-regular fa-circle-check"></i>자세한 주소는 예약내역에서 확인해주세요.</p>
 				        	 </div>
 							 <div id="map" style="width:100%;height:350px;"></div>
@@ -115,7 +134,7 @@
 									map.relayout();
 									map.setCenter(new kakao.maps.LatLng(33.450701, 126.570667));
 									
-									var addr = "${centerDetail.ct_addr}";
+									var addr = "${classDetail.c_area}";
 									var detailAddr =  "${centerDetail.ct_detail_addr}";
 									var centerAddr = addr+" "+detailAddr;
 									console.log("센터 주소 : "+centerAddr);

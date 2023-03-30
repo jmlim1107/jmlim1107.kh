@@ -66,7 +66,7 @@
                             <div class="num" >${qnaBoard.qna_no}<%--${count + status.index + 1}--%><%--<i class="bi bi-bell"></i>--%></div>
                             <div class="title goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</div>
                                 <%--<div class="title goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</a></div>--%>
-                            <div class="writer">김이름</div>
+                            <div class="writer">${qnaBoard.admin_name}</div>
                             <div class="date">${qnaBoard.qna_date}</div>
                         </div>
                     </c:forEach>

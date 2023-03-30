@@ -176,7 +176,7 @@ public class LoginController {
 		
 		UserVO pwUpdateVo= new UserVO();
 		pwUpdateVo.setUser_email(user_email);
-		pwUpdateVo.setUser_pw(user_email);
+		pwUpdateVo.setUser_pw(user_pw);
 		
 		int result = userService.updatePw(pwUpdateVo);
 		log.info("임시비밀번호로 수정결과 result : "+result);

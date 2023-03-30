@@ -109,15 +109,12 @@ public class ClientClassController {
 	*************************************************/
 	@ResponseBody
 	@GetMapping("/class/classDetail2")
-	public String classDetail2(int c_no) {
+	public String classDetail2(ClientClassVO cvo) {
 		log.info("classDetail2() 호출");
-		ClientClassVO cvo = new ClientClassVO();
-		cvo.setC_no(c_no);
-		
+
 		//클래스 상세정보
 		ClientClassVO recentClass =classService.clientClassDetail(cvo);
 		String c_img_file = recentClass.getC_img_file();
-		log.info("recentClass.toString() : "+recentClass.toString());
 		
 		return c_img_file;
 	}

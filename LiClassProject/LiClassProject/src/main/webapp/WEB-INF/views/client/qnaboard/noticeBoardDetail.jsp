@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
 
     $(function (){
@@ -28,11 +28,16 @@
                 <div class="info">
                     <dl>
                         <dt>작성자</dt>
-                        <dd>김이름</dd>
+                        <dd>${detail.admin_name}</dd>
                     </dl>
                     <dl>
-                        <dt>작성일</dt>
-                        <dd>${detail.qna_date}</dd>
+                        <dt>작성날짜 : </dt>
+                        <dd>${detail.qna_date}&nbsp;&nbsp;</dd>
+                        <c:if test="${not empty detail.qna_date_fix}">
+                            <dd>(</dd>
+                            <dt>수정날짜 : </dt>
+                            <dd>${detail.qna_date_fix})</dd>
+                        </c:if>
                     </dl>
                 </div>
             </div>

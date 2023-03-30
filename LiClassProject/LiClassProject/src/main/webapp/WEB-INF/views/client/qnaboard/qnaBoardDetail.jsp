@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
 
     $(function (){
@@ -10,7 +10,7 @@
             });
             $("#f_data").submit();
         });
-        $("#noticeDeleteBtn").click(function(){
+/*        $("#noticeDeleteBtn").click(function(){
             if(confirm("정말 삭제하시겠습니까?")){
                 $("#f_data").attr({
                     "method" : "post",
@@ -18,7 +18,7 @@
                 });
                 $("#f_data").submit();
             }
-        });
+        });*/
         $("#listBtn").click(function (){
             location.href="/client/qnaboard/qnaBoard";
         });
@@ -31,6 +31,7 @@
 
     <form name="f_data" id="f_data" method="post">
         <input type="hidden" name="qna_no" id="qna_no" value="${detail.qna_no}"/>
+        <input type="hidden" name="user_no" id="user_no" value="${detail.user_no}"/>
     </form>
 
     <div class="board_title">
@@ -44,11 +45,16 @@
                 <div class="info">
                     <dl>
                         <dt>작성자</dt>
-                        <dd>김이름</dd>
+                        <dd>${detail.user_name}</dd>
                     </dl>
                     <dl>
-                        <dt>작성일</dt>
-                        <dd>${detail.qna_date}</dd>
+                        <dt>작성날짜 : </dt>
+                        <dd>${detail.qna_date}&nbsp;&nbsp;</dd>
+                        <c:if test="${not empty detail.qna_date_fix}">
+                        <dd>(</dd>
+                        <dt>수정날짜 : </dt>
+                        <dd>${detail.qna_date_fix})</dd>
+                        </c:if>
                     </dl>
                 </div>
             </div>

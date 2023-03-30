@@ -2,13 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<script>
-	//현재페이지 localStorage에 activePosition저장
-	/* var activePosition = 3;
-	localStorage.setItem("activePosition",activePosition);
-	console.log("set activePosition : "+activePosition); */
-</script>				
-						
+<!-- 마이페이지 - 3. 나의 후기 -->
 					<div id="portfolio2">
                        <div class="thumb">
                          <div class="row">
@@ -17,9 +11,8 @@
                                <h4>나의 후기</h4>
                                  <div class="container">
 									<div class="row row-bottom-padded-md">
-									
-										<c:choose>
-							              <c:when test="${ not empty myReviewList }">
+									  <c:choose>
+							            <c:when test="${ not empty myReviewList }">
 											<c:forEach var="reviewVO" items="${myReviewList}">
 										      <div class="col-lg-4 col-md-4 portfolio-item" data-num="${reviewVO.review_no }"> 
 										      	<a class="portfolio-link">

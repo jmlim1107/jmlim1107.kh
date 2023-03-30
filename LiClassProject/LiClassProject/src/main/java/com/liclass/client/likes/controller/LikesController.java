@@ -41,7 +41,7 @@ public class LikesController {
 			vo.setUser_no(user_no);
 			vo.setC_no(c_no);
 			log.info("LikesVO vo : "+vo.toString());
-			   checkResult = likesService.checkLikes(vo);
+			checkResult = likesService.checkLikes(vo);
 			log.info("checkResult : "+checkResult);
 			
 			if(checkResult == 1) {

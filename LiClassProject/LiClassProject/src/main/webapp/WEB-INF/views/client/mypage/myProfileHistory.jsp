@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/myProfileImg.css" />
 <script src="/resources/client/mypage/assets/js/myProfileImg.js"></script>
+<!-- 마이페이지 - 1-1.나의 회원정보 -->
 <script>
-	
-	    //수강내역 모달창
+	    //웅배) 수강내역 모달창
 	      $("#modal_opne_btn").click(function(){
 	         $("#modal").attr("style", "display:block");
 	      });
@@ -65,19 +64,21 @@
 	                               <p>${loginUser.user_regdate} ~</p>
 	                               <i class="fa-solid fa-envelope"></i><p>${loginUser.user_email}</p>
 	                               <i class="fa-solid fa-phone"></i><p>${loginUser.user_tel}</p>
-	                               <div class="main-white-button"><a href="/mypage/updateForm" id="edit-btn"><i class="fa-regular fa-user"></i>수정하기</a></div>
-	                               <div class="main-white-button"><a href="#sns-share2" rel="modal:open"><i class="fa-solid fa-money-check"></i>수강내역</a></div>
-	                               
+	                               <div class="main-white-button">
+	                               		<a href="/mypage/updateForm" id="edit-btn"><i class="fa-regular fa-user"></i>수정하기</a>
+	                               	</div>
+	                               <div class="main-white-button">
+	                               		<a href="#sns-share2" rel="modal:open"><i class="fa-solid fa-money-check"></i>수강내역</a>
+	                               </div>
 	                             </div>
 	                           </div>
 	                           <div class="col-lg-7 align-self-center" id="pw-check-div" style="display: none" >
-	                             <div class="right-text">
-	                             </div>
-	                           </div>
-	                         </div>
-	                       </div>
-	                     </div>
-	                     
+	                             <div class="right-text"></div>
+                           	   </div>
+                         </div>
+                       </div>
+                     </div>
+                     
 	                     
 	                     
 	                     

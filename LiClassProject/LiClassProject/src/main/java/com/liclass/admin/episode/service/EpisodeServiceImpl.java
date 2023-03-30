@@ -26,6 +26,7 @@ public class EpisodeServiceImpl implements EpisodeService {
 	@Override
 	public int epInsert(EpisodeVO ep) {
 		int result = episodeDAO.epInsert(ep);
+		
 		return result;
 	}
 
@@ -72,5 +73,13 @@ public class EpisodeServiceImpl implements EpisodeService {
 		EpisodeVO ep = episodeDAO.reservInfo(ep_no);
 		return ep;
 	}
+
+	@Override
+	public int EpcntUpdat(int ep_no) {
+		int result = episodeDAO.EpcntUpdat(ep_no);
+		return result;
+	}
+	
+	
 	
 }
