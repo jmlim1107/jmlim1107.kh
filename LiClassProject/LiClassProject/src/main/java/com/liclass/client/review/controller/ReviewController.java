@@ -77,20 +77,24 @@ public class ReviewController {
 	//@PostMapping("/boardInsert")
 	public String reviewInsert(@ModelAttribute ReviewVO vo,@RequestParam int cno,
 			@RequestParam int rno, @RequestParam long userno,
-			Model model) throws Exception {
+			Model model, RedirectAttributes ras) throws Exception {
 		log.info("reviewInsert 호출 성공................................");
-		log.info("vo : " + vo.toString());
 		System.out.println("cno="+cno);
 		vo.setC_no(cno);
 		vo.setR_no(rno);
 		vo.setUser_no(userno);
 		
+		log.info("vo : " + vo.toString());
 		int result = 0;
 		String url = "";
 		
 		result = reviewService.reviewInsert(vo);
 		if(result == 1) {
 			log.info("성공");
+			url = "/courseHistory";
+			log.info(vo.getReview_status());
+			//model.addAttribute("review_status", vo.getReview_status());
+			ras.addFlashAttribute("review_status",vo.getReview_status());
 		} else {
 			log.info("실패");
 		}

@@ -146,6 +146,7 @@
       <id column="count" property="count" />
       <id column="c_no" property="c_no" />
       <id column="user_no" property="user_no" />
+      
    </resultMap>
    
    <!-- 수강내역 -->
@@ -154,7 +155,9 @@
              lr.r_no r_no, to_char((select trunc((select ep_date from li_episode where ep_no = le.ep_no) - sysdate) from dual)) as count
          from li_class lc inner join li_episode le on lc.c_no = le.c_no 
                        inner join li_reserve lr on le.ep_no = lr.ep_no
+                   
                           inner join li_payment lp on lr.r_no = lp.r_no
+                          
           where lp.user_no = #{user_no} and lp.pay_status = 0
           order by ep_date desc
    </select>
