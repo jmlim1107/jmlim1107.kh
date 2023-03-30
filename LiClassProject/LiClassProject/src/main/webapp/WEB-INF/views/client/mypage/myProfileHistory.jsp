@@ -14,26 +14,25 @@
 	                               	  	<c:if test="${loginUser.user_img != ''}">
 						         			<c:choose>
 								         		<c:when test="${loginUser.user_type eq 0}">
-									         		<div class="profile-img"><img class="icon2" src="/uploadLiClass/user/${loginUser.user_img}" alt="profile"></div>
+									         		<div class="profile-img" style="height:100px;"><img class="icon2" src="/uploadLiClass/user/${loginUser.user_img}" alt="profile"></div>
 							         			</c:when>
 							         			<c:otherwise>
-									         		<div class="profile-img"><img class="icon2" src="${loginUser.user_img}" alt="profile"></div>
+									         		<div class="profile-img" style="height:100px;"><img class="icon2" src="${loginUser.user_img}" alt="profile"></div>
 							         			</c:otherwise>
 						         			</c:choose>
 					         			</c:if>
 					         			<c:if test="${loginUser.user_img == ''}">
-							         			<div class="profile-img"><img class="icon2" src="/uploadLiClass/user/default-profile.png" alt="profile"/></div>
+							         			<div class="profile-img" style="height:100px;"><img class="icon2" src="/uploadLiClass/user/default-profile.png" alt="profile"/></div>
 					         			</c:if>
 					         			<c:if test="${loginUser.user_type eq 0}">
 					         				<div class="hover-content2">
-                                       			<a href="#img-edit" rel="modal:open"><i class="fa-solid fa-pen-to-square" id="profile-edit"></i></a>
+                                       			<a href="#img-edit" rel="modal:open" "><i class="fa-solid fa-pen-to-square" id="profile-edit"></i></a>
                                        		</div>
 							         	</c:if>
 					         			
 				         			</div>
-				         			
 				         			<!-- profile img edit modal start -->
-									<div id="img-edit" class="filebox preview-image modal" style="z-index: 2; position: initial; text-align: center;">
+									<div id="img-edit" class="filebox preview-image modal" style="height: 130px; z-index: 2; position: initial; text-align: center;">
 										
 										<form id="img-update-form">
 											<label for="input-file" >

@@ -99,7 +99,7 @@
 	
 				<div class="wrap-input100 validate-input" data-validate = "Enter ID">
 					<input class="input100" type="text" id="user_email" name="user_email">
-					<span class="focus-input100" data-placeholder="Email"></span>
+					<span data-placeholder="Email"></span>
 				</div>
 	
 				<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -107,13 +107,13 @@
 						<i class="zmdi zmdi-eye" id="title"></i>
 					</span>
 					<input class="input100" type="password" id="user_pw" name="user_pw">
-					<span class="focus-input100" data-placeholder="Password"></span>
+					<span data-placeholder="Password"></span>
 				</div>
 				<div class="container-login100-form-btn">
 					<div class="col-lg-12 text-center mt-3">
 					    <div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<a href="#login" class="login100-form-btn" id="login">
+							<a href="#login" class="login100-form-btn" id="login" style="background-color: #555; a:hover:#dbcfd14d;">
 								Login
 							</a>
 						</div>

@@ -8,7 +8,7 @@
 		
 		//은아)문의글 제목 클릭 시 상세내용
 		$(".qna_title").click(function(){
-			let contentTr = $(this).parent("tr").next(".qna_content");
+			let contentTr = $(this).parent(".qna-tr").next(".qna-tr");
 			let css = contentTr.css("display");
 			if(css == 'none'){
 				contentTr.css("display","table-row");
@@ -39,54 +39,72 @@
 	});
 	
 </script>	
-		<div class="container">
- 			<div class="mail-box">
-                  <aside class="lg-side">
-                      <div class="inbox-head">
-                          <h4>나의 문의</h4>
-                      </div>
-                      <div class="inbox-body">
-                          <table class="table table-inbox table-hover">
-                            <tbody>
-                            	<c:choose>
-				              		 <c:when test="${ not empty myQnaList }">
-		                              <c:forEach var="qnaVO" items="${myQnaList}">
-			                              <tr class="unread">
-			                                  <td class="view-message  inbox-small-cells"><i class="fa-solid fa-q"></i></td>
-			                                  <td class="inbox-small-cells" >
-			                                 <c:if test="${qnaVO.qna_status == 0 }">
-				                                  <span class="label label-notyet">답변대기</span>
-			                                  </c:if>
-			                                   <c:if test="${qnaVO.qna_status == 1 }">
-				                                  <span class="label label-finish">답변완료</span>
-			                                  </c:if>
-			                                  </td>
-			                                  <td class="view-message qna_title">${qnaVO.qna_title}</td>
-			                                  <td class="view-message  inbox-small-cells"></td>
-			                                  <td class="view-message  text-right">${qnaVO.qna_date}</td>
-			                              </tr>
-			                               <tr class="unread qna_content" style="display:none;">
-			                                  <td colspan="4" class ="view-message  inbox-small-cells" style="background-color: #fdfdfdba;">
-			                                  	${qnaVO.qna_content}
-			                                  </td>
-			                                  <td class ="view-message  inbox-small-cells" style="background-color: #fdfdfdba;">
-			                                  	<!--은아) 추후 문의게시판 해당글 상세페이지로 이동예정  -->
-			                                  	<button type="button" class="btn" style="margin: 0px auto;">수정/삭제</button>
-			                                  </td>
-			                              </tr>
-		                              </c:forEach>
-					                </c:when>
-					             	<c:otherwise>
-							         <div class="services-content" style="margin:20px 40px;">
-								          <h5> <i class="fa-solid fa-magnifying-glass"></i>  문의 내역이 없습니다.</h5>
-								     </div>
-					              	</c:otherwise>
-					           </c:choose>
-	                         </tbody>
-                          </table>
-                      </div>
-                  </aside>
-              </div> 
+	
+    <div id="portfolio2">
+<div class="thumb">
+   <div class="row" ><!-- 은아)0330 수정 style="height: 632px;" -->
+      <div class="left-text">
+         <h4>나의 문의</h4>
+        	 <%-- ==================== 리스트 시작 ==================== --%>
+         <div id="paymentList" class="table-height">
+            <form id="dataForm">
+               <input type="hidden" name="user_no" value='${loginUser.user_no }'>
+                 
+               <table summary="결제내역 리스트" class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th data-value="b_num" class="order text-center col-md-3">제목</th>
+                        <th class="text-center col-md-2">문의일자</th>
+                        <th class="text-center col-md-1">답변상태</th>
+                     </tr>
+                  </thead>
+                    <tbody id="paymentList" class="table-striped">
+                    <!-- 데이터 출력 --><!--   -->
+                  <c:choose>
+                     <c:when test="${ not empty myQnaList }">
+                        <c:forEach var="qnaVO" items="${myQnaList }" >
+                           <tr class="text-center qna-tr" data-num="${ qnaVO.qna_no }">
+                              <td style="text-align:left;padding-left:15px; cursor: pointer;" class="qna_title">
+                                 <span style="padding-left:30px; " >${qnaVO.qna_title}</span>
+                              </td>                     
+                              <td class="name">${qnaVO.qna_date}</td>
+	                              <c:choose>
+	                                 <c:when test="${qnaVO.qna_status == 0 }">
+	                                    <td>답변대기</td>
+	                                 </c:when>
+	                                 <c:when test="${qnaVO.qna_status == 1 }">
+	                                    <td>답변완료</td>
+	                                 </c:when>
+	                              </c:choose>                       
+                           </tr>
+                           <tr style="text-align: center; display: none;" class="qna-tr">
+                           		<td colspan="2">
+	                               <span style="padding-left:30px;" class="qna_content">${qnaVO.qna_content}</span>
+	                               <!--은아) 추후 문의게시판 해당글 상세페이지로 이동예정  -->
+                           		</td>
+                           		<td>
+                                	<button type="button" style="margin: 0px auto;">
+                                		<i class="fa-regular fa-pen-to-square"></i>수정/삭제
+                                	</button>
+                                </td>
+                           </tr>
+                        </c:forEach>
+                     </c:when>
+                     <c:otherwise>
+                        <tr>
+                           <td colspan="6" class="tac text-center">문의내역이 존재하지 않습니다.</td>
+                        </tr>
+                     </c:otherwise>
+                  </c:choose>
+                  </tbody>
+               </table>
+            </form>
+         </div>
+         <%-- ==================== 리스트 종료 ==================== --%>
+      </div>
+   </div>
+</div>
+              
               <!--은아)나의 문의내역 페이징 처리  -->
               <!-- myqna pagination start  -->
               	<div class="pagination">
