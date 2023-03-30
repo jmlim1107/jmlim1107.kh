@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.http.MediaType;
 
+import com.liclass.admin.episode.service.EpisodeService;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.service.PaymentService;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -29,6 +30,7 @@ public class PaymentController {
 
    @Setter(onMethod_ = @Autowired)
    private PaymentService paymentSerivce;
+   private EpisodeService episodeService;
    
    // 결제 서버(db에 저장된 결제금액과 api에서 실제로 빠져나간 결제금액을 비교하여 검증 후 처리)
    @ResponseBody
@@ -82,6 +84,8 @@ public class PaymentController {
          paymentVO.setPay_status(pay_status);
          paymentSerivce.inserPayment(paymentVO);
          paymentSerivce.changeRerserveStatus(r_no, r_state);
+         ReserveVO reserveVO = paymentSerivce.getPriceInfo(r_no);
+         episodeService.EpcntUpdat(reserveVO);
          goUrl = "/payment/paySuccess"; // 결제 완료 페이지로 이동
          paymentData.put("goUrl", goUrl);
       }else if(result == 1){   // 결제 실패 1. db와 실페지불금액의 가격이 다름 2. 프로그램 상에 이유로 결제 실패(결제가 아마 안될거임)
@@ -138,6 +142,8 @@ public class PaymentController {
          paymentSerivce.changeRerserveStatus(paymentInfo.getR_no(), r_state);
          paymentSerivce.changePaymentStatus(merchant_uid);
          paymentSerivce.insertRefund(refundVO);
+         ReserveVO reserveVO = paymentSerivce.getPriceInfo(paymentInfo.getR_no());
+         episodeService.EpcntDel(reserveVO);
          goUrl = "mypage/userMypage"; // 환불 완료 페이지
       }else {
          refund_status = 1;

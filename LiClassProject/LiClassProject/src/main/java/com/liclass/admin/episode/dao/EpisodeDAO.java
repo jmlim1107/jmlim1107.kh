@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.liclass.admin.episode.vo.EpisodeVO;
+import com.liclass.client.reserve.vo.ReserveVO;
 
 @Mapper
 public interface EpisodeDAO {
@@ -18,7 +19,7 @@ public interface EpisodeDAO {
 	public String[] epDateList(int c_no);
 	public List<EpisodeVO> epInfo(EpisodeVO ep);
 	public EpisodeVO reservInfo(int ep_no);
-	public int EpcntUpdat(int ep_no);
-	public int EpcntDel(int ep_no);
+	public int EpcntUpdat(ReserveVO rvo);
+	public int EpcntDel(ReserveVO rvo);
 	
 }
