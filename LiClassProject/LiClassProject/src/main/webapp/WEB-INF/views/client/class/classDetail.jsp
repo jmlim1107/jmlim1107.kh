@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script src="/resources/client/classDetail/js/classDetail.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <link rel="stylesheet" href="/resources/client/classDetail/css/classDetail.css" />
 <link href="/resources/client/classDetail/css/themify-icons.css" rel="stylesheet">
 <link href='/resources/client/classDetail/css/dosis-font.css' rel='stylesheet' type='text/css'>
@@ -13,6 +10,7 @@
 			unicode-bidi: bidi-override;
     		color: #555; 
     	}
+    	
     	#login-pop-modal{
     		top: 250px;
     	}
@@ -34,6 +32,7 @@
 		}
 		
 </style>
+
 
 <script type="text/javascript">
 	$(function(){
@@ -247,7 +246,8 @@
 	
 	<!-- reservation section start -->
 	<div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px; z-index: 0;">
-		<%@ include file="/WEB-INF/views/client/class/classReservation.jsp" %>
+		<jsp:include page="/WEB-INF/views/client/class/classReservation.jsp"/>
+		<%-- <%@ include file="/WEB-INF/views/client/class/classReservation.jsp" %> --%>
 	</div>
 	
 	<!-- reservation section start -->
