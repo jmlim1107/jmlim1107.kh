@@ -7,21 +7,21 @@
 	
 	<title>LiClass</title>
 	<!-- 부트스트랩 -->
-    <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+<!--     <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
-	<!-- script -->
+	script
 	<script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>
 	<script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
     
-  	<!-- 모바일 웹 페이지 설정 -->
+  	모바일 웹 페이지 설정
     <link rel="shortcut icon" href="/resources/static/image/icon.png" />
     <link rel="apple-touch-icon" href="/resources/static/image/icon.png" />
-    <!-- 모바일 웹 페이지 설정 끝 -->
+    모바일 웹 페이지 설정 끝
 
-    <!-- Google Fonts -->
+    Google Fonts
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
+    Vendor CSS Files
     <link href="/resources/include/mainLayout/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/include/mainLayout/vendor/bootstrap-icons/bootstrap-icons.scss" rel="stylesheet">
     <link href="/resources/include/mainLayout/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -32,8 +32,8 @@
     <script src="/resources/include/mainLayout/js/main.js"></script>
     <script src="/resources/include/mainLayout/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Template Main CSS File -->
-    <link href="/resources/include/mainLayout/css/style.css" rel="stylesheet">
+    Template Main CSS File
+    <link href="/resources/include/mainLayout/css/style.css" rel="stylesheet"> -->
 		
   </head>
   
