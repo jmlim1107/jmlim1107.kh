@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.http.MediaType;
 
-import com.liclass.admin.episode.vo.EpisodeVO;
-import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.service.PaymentService;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -32,35 +29,6 @@ public class PaymentController {
 
    @Setter(onMethod_ = @Autowired)
    private PaymentService paymentSerivce;
-   
-   // 예약 페이지 가기
-   /*@GetMapping(value="/reserve")
-   public String reservePage() {
-      log.info("reservePage() 호출 성공");
-      
-      return "reserve";
-   }*/
-   
-   
-   // 결제 페이지 가기(클래스 정보와 회원정보를 가져가야함)
-   /*@RequestMapping(value="/paymentPage")
-   public String paymentPage(UserVO userVO, ClientClassVO classVO, ReserveVO reserveVO, Model model){
-      log.info("paymentPage() 호출 성공");
-      
-      // 유저정보 가져오기
-      UserVO uvo = paymentSerivce.getUserInfo(userVO.getUser_no());
-      model.addAttribute("uvo", uvo);
-      
-      // 클래스 정보 가져오기
-      ClientClassVO cvo = paymentSerivce.getClassInfo(classVO.getC_no());
-      model.addAttribute("cvo", cvo);
-      
-      // 예약정보 가져오기
-      ReserveVO rvo = paymentSerivce.getPriceInfo(reserveVO.getR_no());
-      model.addAttribute("rvo", rvo);
-      
-      return "payment";
-   }*/
    
    // 결제 서버(db에 저장된 결제금액과 api에서 실제로 빠져나간 결제금액을 비교하여 검증 후 처리)
    @ResponseBody
