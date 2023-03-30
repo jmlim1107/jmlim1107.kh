@@ -121,7 +121,7 @@
 
 <div id="portfolio2">
 <div class="thumb">
-   <div class="row" style="height: 632px;">
+   <div class="row" ><!-- 은아)0330 수정 style="height: 632px;" -->
       <div class="left-text">
          <h4>결제내역</h4>
 

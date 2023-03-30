@@ -27,7 +27,7 @@
 					<div id="portfolio2">
                        <div class="thumb">
                          <div class="row">
-                           <div class="col-lg-5 align-self-center">
+                           <div class="col-lg-12 align-self-center">
                              <div class="left-text">
                                <h4>나의 관심클래스</h4>
                                  <div class="container">
