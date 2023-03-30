@@ -42,7 +42,7 @@
 	                $("#recentDiv").children("a:eq("+i+")").attr("href",url);
 		 				$.ajax({
 				            type: 'get',
-				            url: '/class/classDetail2',
+				            url: '/class/getClassImg',
 				            data: {
 				                'c_no': c_no
 				            }

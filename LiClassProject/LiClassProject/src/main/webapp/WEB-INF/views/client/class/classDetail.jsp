@@ -69,7 +69,6 @@
 	<section id="header-slider" class="section">
 	<div class="class-content" data-num="${classDetail.c_no}">
       <h6 id="category"><i class="fa-solid fa-hashtag"></i> 
-      ${3 eq classDetail.c_category}
     <%--  왜안되는거야!!!!!!!!!!!!!!
     		<c:if test="${0 eq classDetail.c_category} ">
      			공예

@@ -42,7 +42,7 @@
 	                             		</form>
 	                             		
 		                             	<a class="btn" id="update-img" ><i class="fa-solid fa-repeat"></i>변경</a>
-	                             		<a class="btn" id="delete-img" ><i class="fa-solid fa-trash"></i>삭제</a>
+	                             		<a class="btn" id="delete-img" ><i class="fa-regular fa-user"></i>기본이미지로 변경</a>
 	                             		<a class="btn" id="cancel" rel="modal:close"><i class="fa-solid fa-xmark"></i>취소</a>
 									</div>
 									<!-- profile img edit modal end -->

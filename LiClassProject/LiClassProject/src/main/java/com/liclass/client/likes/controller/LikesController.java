@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.liclass.client.classes.service.ClientClassService;
 import com.liclass.client.likes.service.LikesService;
@@ -15,17 +14,15 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@SessionAttributes("loginUser")
 public class LikesController {
 	
 	@Setter(onMethod_ = @Autowired)
 	private LikesService likesService;
-	
 	@Setter(onMethod_ = @Autowired)
 	private ClientClassService classService;
 	
 	/************************************************
-	 * 관심클래스 추가,삭제
+	 * 관심클래스 유무 확인
 	 * 요청 url : http://localhost:8080/like
 	************************************************/
 	@ResponseBody
