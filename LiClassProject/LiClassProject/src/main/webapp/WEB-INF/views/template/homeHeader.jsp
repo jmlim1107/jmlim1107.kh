@@ -104,7 +104,7 @@
 	<div id="login-pop-modal">
 	   <div class="modal_content">
 		<div class="wrap-login100">
-			<button type="button" id="modal_close_btn">X</button>
+			<button type="button" id="modal_close_btn" >X</button>
 			<form class="login100-form validate-form" id="login-form">
 				<span class="login100-form-title p-b-26">
 				</span>
@@ -113,7 +113,7 @@
 				</span>
 	
 				<div class="wrap-input100 validate-input" data-validate = "Enter ID">
-					<input class="input100" type="text" id="user_email" name="user_email">
+					<input class="input100" type="text" id="user_email" name="user_email" placeholder="Enter ID">
 					<span data-placeholder="Email"></span>
 				</div>
 	
@@ -121,7 +121,7 @@
 					<span class="btn-show-pass">
 						<i class="zmdi zmdi-eye" id="title"></i>
 					</span>
-					<input class="input100" type="password" id="user_pw" name="user_pw">
+					<input class="input100" type="password" id="user_pw" name="user_pw" placeholder="Enter password">
 					<span data-placeholder="Password"></span>
 				</div>
 				<div class="container-login100-form-btn">

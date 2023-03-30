@@ -42,7 +42,18 @@
 			unicode-bidi: bidi-override;
     		color: #555; 
     	}
-    
+    	#login-pop-modal{
+    		top: 250px;
+    	}
+    	
+    	#login-pop-modal .modal_content {
+		  width:390px;
+		  margin:0px auto;
+		  background:#fff;
+		  border:2px solid #666; 
+		  top: 60%;
+		}
+
     </style>
 
 <script type="text/javascript">

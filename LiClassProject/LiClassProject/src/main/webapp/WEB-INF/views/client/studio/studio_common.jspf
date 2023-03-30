@@ -152,3 +152,8 @@
 	    <link rel="stylesheet" href="/resources/client/mypage/assets/css/animated.css">
 	    <link rel="stylesheet" href="/resources/client/mypage/assets/css/owl.css">
 	    
+	    <!-- 스튜디오 설정 -->
+	    <!-- <script src="https://kit.fontawesome.com/44647c18a5.js" crossorigin="anonymous"></script> 
+	    <link rel="stylesheet" href="/resources/include/dist/studio/assets/css/main.css" />
+	    <link rel="stylesheet" href="/resources/include/dist/studio/assets/css/noscript.css" /> -->
+	    
