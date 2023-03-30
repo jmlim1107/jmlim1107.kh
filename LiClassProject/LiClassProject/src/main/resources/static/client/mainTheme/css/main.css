@@ -650,6 +650,7 @@ ul li {
 }
 
 #login-pop-modal {
+	top: 100px;
 display:none;
   position:relative;
   width:100%;
@@ -668,10 +669,11 @@ display:none;
 }
 
 #login-pop-modal .modal_content {
+  height:0px;	
   width:390px;
   margin:0px auto;
   background:#fff;
-  border:2px solid #666;
+  /* border:2px solid #666; */
 }
 
 #login-pop-modal .modal_layer {
