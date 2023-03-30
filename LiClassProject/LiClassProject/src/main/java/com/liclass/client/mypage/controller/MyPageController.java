@@ -112,10 +112,21 @@ public class MyPageController {
         
         // 수강내역
         List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
-	        model.addAttribute("pvo_courseList", pvo_courseList);
+	    model.addAttribute("pvo_courseList", pvo_courseList);
 	        
 	        
 		return "liuser/mypage/userMypage";
+	}
+	
+	@RequestMapping("/courseHistory")
+	public String courseHistory(Model model, PaymentVO pvo,HttpSession session) {
+		// 수강내역
+		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+		pvo.setUser_no(loginUser.getUser_no());
+        List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
+	    model.addAttribute("pvo_courseList", pvo_courseList);
+	    
+	    return "liuser/mypage/courseHistory";
 	}
 	
 	/************************************************
