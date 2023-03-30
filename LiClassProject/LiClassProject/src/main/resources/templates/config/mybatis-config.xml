@@ -29,6 +29,7 @@
 		<typeAlias type="com.liclass.admin.classes.vo.AdminClassVO" alias="Adminclass"/>
 		<!-- <typeAlias type="com.liclass.admin.center.vo.CenterVO" alias="center"/> -->
 		<!-- <typeAlias type="com.liclass.admin.episode.vo.EpisodeVO" alias="episode"/> -->
+		<!-- <typeAlias type="com.liclass.client.reserve.vo.ReserveVO" alias="reserve"/> -->
 		<typeAlias type="com.liclass.admin.img.vo.AdminClassImgVO" alias="img"/>
 		
 		<!--지민-->
