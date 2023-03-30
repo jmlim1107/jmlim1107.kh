@@ -39,8 +39,8 @@
         	
 		    <!-- ======= Hero Section ======= -->
 		    <section id="hero">
-			    <div class="video-container">
-			        <iframe style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			    <div class="video-container" style="height: 56.25vw;">
+			        <iframe style="width: 100%; height: 100%; " src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			    </div>      
 		  	</section><!-- End Hero -->
 			
