@@ -12,13 +12,13 @@
 	<definition name="classmain" template="/WEB-INF/views/template/client/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/client/homeBody.jsp" /> 
-		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
 	<definition name="userContent" template="/WEB-INF/views/template/client/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
 	<definition name="liuser/login/*" extends="userContent">
