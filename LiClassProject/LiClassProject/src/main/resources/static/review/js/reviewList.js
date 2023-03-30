@@ -6,7 +6,14 @@ $(function(){
 	 	 *****************************************/
 	 	 
 	 	// 글쓰기 버튼 클릭시
-		$("#insertFormBtn").click(function(){
+		$(".insertFormBtn").click(function(){
+			console.log($(this).parents("td").attr("data-cno"));
+			var cno = $(this).parents("td").attr("data-cno");
+			var rno = $(this).parents("td").attr("data-rno");
+			var userno = $(this).parents("td").attr("data-userno");
+			$('input[name=cno]').attr('value',cno);
+			$('input[name=rno]').attr('value',rno);
+			$('input[name=userno]').attr('value',userno);
    			$("#test1").fadeIn();
   		});
   
