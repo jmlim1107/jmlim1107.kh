@@ -74,4 +74,11 @@ public class DashBoardServiceImpl implements DashBoardService{
         return reserve;
     }
 
+    @Override
+    public HashMap<String, Integer> allSales(DashBoardVo dashBoard) {
+        HashMap<String, Integer> sales = null;
+        sales = dashBoardDao.allSales(dashBoard);
+        return sales;
+    }
+
 }
