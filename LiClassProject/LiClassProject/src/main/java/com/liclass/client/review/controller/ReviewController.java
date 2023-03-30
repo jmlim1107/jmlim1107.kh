@@ -21,7 +21,6 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 
 @Controller
-@RequestMapping("/review/*")
 @Log4j2
 public class ReviewController {
 	

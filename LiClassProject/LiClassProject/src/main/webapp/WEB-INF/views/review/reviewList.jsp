@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <!-- 부트스트랩 -->
+    <!-- 부트스트랩 -->
     <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
 	<!-- script -->

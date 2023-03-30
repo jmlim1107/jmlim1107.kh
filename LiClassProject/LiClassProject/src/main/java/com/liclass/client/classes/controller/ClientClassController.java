@@ -19,6 +19,9 @@ import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.likes.service.LikesService;
 import com.liclass.client.likes.vo.LikesVO;
 import com.liclass.client.login.vo.UserVO;
+import com.liclass.client.review.service.ReviewService;
+import com.liclass.client.review.vo.ReviewVO;
+import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +36,8 @@ public class ClientClassController {
 	private CenterService centerService;
 	@Setter(onMethod_ = @Autowired)
 	private LikesService likesService;
+	@Setter(onMethod_ = @Autowired)
+	private ReviewService reviewService;
 	
 	/************************************************
 	 * 게시판 전체조회 ->homecontroller에 포함시킴 ->03.30 별도분리
@@ -66,9 +71,10 @@ public class ClientClassController {
 	/************************************************
 	 * 클래스 상세조회
 	 * 요청 url : http://localhost:8080/class/classList
+	 * @throws Exception 
 	*************************************************/
 	@GetMapping("/class/classDetail")
-	public String classDetail(int c_no,Model model,HttpSession session) {
+	public String classDetail(int c_no,Model model,HttpSession session, ReviewVO vo) throws Exception {
 		log.info("classDetail() 호출");
 		ClientClassVO cvo = new ClientClassVO();
 		cvo.setC_no(c_no);
@@ -101,6 +107,22 @@ public class ClientClassController {
 			model.addAttribute("centerDetail", centerDetail);
 		}
 		
+		/** 후기 관련 코드 */
+		// 전체 레코드 조회
+		List<ReviewVO> reviewList = reviewService.reviewList(vo);
+		model.addAttribute("reviewList" , reviewList);
+		
+		// 전체 레코드 수 구현
+		int total = reviewService.reviewListCnt(vo);
+		// 페이징 처리
+		model.addAttribute("pageMaker" , new PageDTO(vo, total));
+		
+		// vo.c_no 로 변경해주기
+		double ratingAvg = reviewService.setRating(vo.getC_no());
+		
+		model.addAttribute("ratingAvg", ratingAvg);
+		
+
 		return "class/classDetail";
 	}
 	
