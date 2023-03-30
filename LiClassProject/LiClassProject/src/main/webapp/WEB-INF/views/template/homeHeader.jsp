@@ -58,7 +58,7 @@
 			                <ul>
 			                <li><a class="nav-link scrollto active" href="/">Home</a></li>
 			                <li><a class="nav-link scrollto" href="/class/classList">Class</a></li>
-			                <li><a class="nav-link scrollto" href="#services">Studio</a></li>
+			                <li><a class="nav-link scrollto" href="/client/studio/studioList">Studio</a></li>
 			                <li><a class="nav-link scrollto" href="#team">Team</a></li>
 			                <li><a class="nav-link scrollto " href="/client/qnaboard/qnaBoard">FAQ</a></li>
 			                <c:if test="${loginUser == null}">

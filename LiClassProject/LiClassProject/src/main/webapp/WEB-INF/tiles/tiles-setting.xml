@@ -38,6 +38,11 @@
 		<put-attribute name="body" value="/WEB-INF/views/client/qnaboard/{1}.jsp" />
 	</definition>
 	
+	<definition name="client/studio/*" extends="userContent">
+		<put-attribute name="title" value="스튜디오" />
+ 		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
+	</definition>
+	
 	<definition name="common/*/*" extends="userContent">
 		<put-attribute name="body" value="/WEB-INF/views/common/{1}/{2}.jsp" />
 	</definition>
