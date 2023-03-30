@@ -81,6 +81,11 @@
 </head>
 	<body>
 		 <div class="video-background">
+       		<div class="video-foreground">
+     
+       <!--  <iframe class="ww"  src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0?rel=0&autoplay=1&version=3&loop=1""  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          -->
+
        <div class="video-foreground">
        <!--  <iframe class="ww"  src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0?rel=0&autoplay=1&version=3&loop=1""  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
          -->
@@ -91,7 +96,7 @@
 		    <!-- ======= Hero Section ======= -->
 		    <section id="hero">
 			    <div class="video-container">
-			        <iframe width="560" height="315" src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			        <iframe style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			    </div>      
 		  	</section><!-- End Hero -->
 			
