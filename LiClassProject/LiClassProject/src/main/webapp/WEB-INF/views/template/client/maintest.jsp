@@ -85,27 +85,14 @@
      
        <!--  <iframe class="ww"  src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0?rel=0&autoplay=1&version=3&loop=1""  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           -->
+
+       <div class="video-foreground">
+       <!--  <iframe class="ww"  src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0?rel=0&autoplay=1&version=3&loop=1""  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         -->
         </div>
       </div>
     	<div id="vidtop-content">
-        	<!-- ======= Header ======= -->
-        	<header id="header" class="fixed-top header-scrolled">
-       	 		<div class="container d-flex align-items-center justify-content-between">
-            		<h1 class="logo"><a href="index.html">LiClass</a></h1>
-			            <!-- Uncomment below if you prefer to use an image logo -->
-			            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-			            <nav id="navbar" class="navbar">
-			                <ul>
-			                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-			                <li><a class="nav-link scrollto" href="#about">Class</a></li>
-			                <li><a class="nav-link scrollto" href="#services">Studio</a></li>
-			                <li><a class="nav-link scrollto" href="#team">Team</a></li>
-			                <li><a class="nav-link scrollto " href="#faq">FAQ</a></li>
-			                <li><a class="nav-link scrollto ">Login</a></li>
-			                <i class="bi bi-list mobile-nav-toggle"></i>
-			            </nav><!-- .navbar -->
-        		</div>
-  			</header><!-- End Header -->
+        	
 		    <!-- ======= Hero Section ======= -->
 		    <section id="hero">
 			    <div class="video-container">
@@ -219,7 +206,7 @@
 			        <div class="col-lg-2 col-md-6 d-flex align-items-stretch">
 			          <div class="member">
 			            <div class="member-img">
-			              <img src="/assets/img/ea.png" class="img-fluid" alt="">
+			              <img src="/resources/images/Team/ea.png" class="img-fluid" alt="">
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
@@ -238,7 +225,7 @@
 			        <div class="col-lg-2 col-md-6 d-flex align-items-stretch">
 			          <div class="member">
 			            <div class="member-img">
-			              <img src="/assets/img/sy.png" class="img-fluid" alt="">
+			              <img src="/resources/images/Team/sy.png" class="img-fluid" alt="">
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
@@ -257,7 +244,7 @@
 			        <div class="col-lg-2 col-md-6 d-flex align-items-stretch">
 			          <div class="member">
 			            <div class="member-img">
-			              <img src="/assets/img/ms.png" class="img-fluid" alt="">
+			              <img src="/resources/images/Team/ms.png" class="img-fluid" alt="">
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
@@ -276,7 +263,7 @@
 			        <div class="col-lg-2 col-md-6 d-flex align-items-stretch">
 			          <div class="member">
 			            <div class="member-img">
-			              <img src="/assets/img/ob.png" class="img-fluid" alt="">
+			              <img src="/resources/images/Team/ob.png" class="img-fluid" alt="">
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
@@ -294,7 +281,7 @@
 			        <div class="col-lg-2 col-md-6 d-flex align-items-stretch">
 			          <div class="member">
 			            <div class="member-img">
-			              <img src="/assets/img/km.png" class="img-fluid" alt="">
+			              <img src="/resources/images/Team/km.png" class="img-fluid" alt="">
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
@@ -312,7 +299,7 @@
 			        <div class="col-lg-2 col-md-6 d-flex align-items-stretch">
 			          <div class="member">
 			            <div class="member-img">
-			              <img src="/assets/img/jm.png" class="img-fluid" alt="">
+			              <img src="/resources/images/Team/jm.png" class="img-fluid" alt="">
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
@@ -329,20 +316,6 @@
 			      </div>
 			    </div>
 			  </section><!-- End Team Section -->
-			  
-			  <!-- ======= Footer ======= -->
-			  <div class="container">
-			    <footer class="py-3 my-4">
-			      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Classes</a></li>
-			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Service</a></li>
-			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-			      </ul>
-			      <p class="text-center text-muted">© 2022 Company, Kh정보교육원</p>
-			    </footer>
-			  </div>
     	</div>
 	</body>
 </html>

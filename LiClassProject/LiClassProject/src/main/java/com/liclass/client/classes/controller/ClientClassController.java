@@ -1,5 +1,7 @@
 package com.liclass.client.classes.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,6 @@ import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.likes.service.LikesService;
 import com.liclass.client.likes.vo.LikesVO;
 import com.liclass.client.login.vo.UserVO;
-import com.liclass.client.reserve.vo.ReserveVO;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -34,22 +35,22 @@ public class ClientClassController {
 	private LikesService likesService;
 	
 	/************************************************
-	 * 게시판 전체조회 ->homecontroller에 포함시킴
+	 * 게시판 전체조회 ->homecontroller에 포함시킴 ->03.30 별도분리
 	 * 요청 url : http://localhost:8080/class/classList
-	************************************************
+	*************************************************/
 	@GetMapping("/class/classList")
 	public String classList(Model model) {
 		log.info("classList() 호출");
 		
-		List<ClassVO> classList =classService.classList();
-		for(ClassVO vo : classList ) {
+		List<ClientClassVO> classList =classService.clientClassList();
+		for(ClientClassVO vo : classList ) {
 			log.info("classList : "+vo.toString());
 		}
 		
 		model.addAttribute("classList",classList);
 		
-		return "class/classList";
-	}*/
+		return "classmain";
+	}
 	/************************************************
 	 * 센터 상세정보
 	 * 요청 url : http://localhost:8080/user/signupForm

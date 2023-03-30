@@ -4,8 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-	<!-- 은아) 임시 헤더  -->
-	<!-- header start-->
+	<!-- 은아) 임시 헤더 
+	<!-- header start
 	<section class="tophead" role="tophead"> 
 	  <header id="header">
 	    <div class="header-content clearfix"> <a class="logo" href="/">LiClass</a>
@@ -45,7 +45,45 @@
 			<a id="menu-nav-toggle">Menu<span></span></a> 
 	  </header>
 	</section>
-	<!-- header end-->
+	 header end-->
+	
+	
+	<!-- ======= Header ======= -->
+        	<header id="header" class="fixed-top header-scrolled">
+       	 		<div class="container d-flex align-items-center justify-content-between">
+            		<h1 class="logo"><a href="index.html">LiClass</a></h1>
+			            <!-- Uncomment below if you prefer to use an image logo -->
+			            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+			            <nav id="navbar" class="navbar">
+			                <ul>
+			                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+			                <li><a class="nav-link scrollto" href="/class/classList">Class</a></li>
+			                <li><a class="nav-link scrollto" href="#services">Studio</a></li>
+			                <li><a class="nav-link scrollto" href="#team">Team</a></li>
+			                <li><a class="nav-link scrollto " href="/client/qnaboard/qnaBoard">FAQ</a></li>
+			                <c:if test="${loginUser == null}">
+			                	<li><a class="nav-link scrollto" id="login-modal">Login</a></li>
+			                </c:if>
+			                <c:if test="${loginUser != null}">
+				                <c:if test="${loginUser.user_img != ''}">
+				         			<c:choose>
+						         		<c:when test="${loginUser.user_type eq 0}">
+							         		<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/${loginUser.user_img}" />${loginUser.user_name}님</a>
+					         			</c:when>
+					         			<c:otherwise>
+							         		<a href="/mypage"><img id="profile-thumbnail" src="${loginUser.user_img}"/>${loginUser.user_name}님</a>
+					         			</c:otherwise>
+				         			</c:choose>
+			         			</c:if>
+			         			
+			         			<c:if test="${loginUser.user_img == ''}">
+					         			<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/default-profile.png" alt="profile"/>${loginUser.user_name}님</a>
+			         			</c:if>
+				                <li><a class="nav-link scrollto" href="/user/logout">Logout</a></li>
+			                </c:if>
+			            </nav><!-- .navbar -->
+        		</div>
+  			</header><!-- End Header -->
 
 	<!-- login modal start -->
 	<div id="login-pop-modal">

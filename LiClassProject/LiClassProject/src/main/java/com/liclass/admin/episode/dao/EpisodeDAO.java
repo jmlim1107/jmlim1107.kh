@@ -19,5 +19,6 @@ public interface EpisodeDAO {
 	public List<EpisodeVO> epInfo(EpisodeVO ep);
 	public EpisodeVO reservInfo(int ep_no);
 	public int EpcntUpdat(int ep_no);
+	public int EpcntDel(int ep_no);
 	
 }

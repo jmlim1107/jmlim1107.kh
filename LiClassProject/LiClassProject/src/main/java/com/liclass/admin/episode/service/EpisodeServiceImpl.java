@@ -79,7 +79,12 @@ public class EpisodeServiceImpl implements EpisodeService {
 		int result = episodeDAO.EpcntUpdat(ep_no);
 		return result;
 	}
-	
+
+	@Override
+	public int EpcntDel(int ep_no) {
+		int result = episodeDAO.EpcntDel(ep_no);
+		return result;
+	}
 	
 	
 }
