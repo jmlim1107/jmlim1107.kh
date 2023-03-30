@@ -36,12 +36,14 @@ public class DashBoardController {
         List<QnaBoardVo> qnaList = dashBoardService.qnaList(qnaBoard);
         HashMap<String, Integer> userState = dashBoardService.userState(dashBoard);
         HashMap<String, Integer> userReserve = dashBoardService.userReserve(dashBoard);
+        HashMap<String, Integer> allSales = dashBoardService.allSales(dashBoard);
 
         model.addAttribute("qnaList", qnaList);
         model.addAttribute("noticeList", noticeList);
 
         model.addAttribute("userState", userState);
         model.addAttribute("userReserve", userReserve);
+        model.addAttribute("allSales", allSales);
 
 /*        log.info("userState" + userState.values());
         for(String i : userState.keySet()){
