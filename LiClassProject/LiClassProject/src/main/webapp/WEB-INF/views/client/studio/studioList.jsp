@@ -37,7 +37,7 @@
 	</head>
 	<body>
 		<!-- Main -->
-					<div id="main">
+					<%-- <div id="main">
 						<div class="inner">
 							<!-- <header>
 								<h1>스튜디오 홍보</h1>
@@ -71,10 +71,45 @@
 								</c:choose>
 							</section>
 						</div>
-					</div>
+					</div> --%>
 					
 
-					
+
+
+			<section class="section-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+				<c:choose>
+				<c:when test="${not empty studioList}" >
+				<c:forEach var="studio" items="${studioList}" varStatus="status">
+				<div class="col-lg-3 col-md-6">
+							<article class="post-grid mb-5">
+								<a class="post-thumb mb-4 d-block" href="/client/studio/studioDetail?s_no=${studio.s_no}">
+									<img src="/uploadLiClass/studio/thumbnail/${studio.s_thumb}" style="height: 200px; alt="" class="img-fluid w-100" >
+								</a>
+								<h3 class="post-title mt-1"><a href="/client/studio/studioDetail?s_no=${studio.s_no}">${studio.s_title}</a></h3>
+
+								<span class="text-muted letter-spacing text-uppercase font-sm">${studio.s_date}</span>
+
+							</article>
+				</div>
+				</c:forEach>
+				</c:when>
+								
+							<c:otherwise>
+							<tr>
+								<td colspan="4" class="tac text-center">등록된 게시글이 존재하지 않습니다.</td>
+							</tr>
+							</c:otherwise>
+							
+				</c:choose>
+						</div>
+				</div>
+			</div>
+		</div>
+	</section>
 					
 		<%-- <div class="contentContainer container">
          <!-- <div class="contentTit page-header"><h3 class="text-center">명언테이블</h3></div> -->
@@ -133,10 +168,10 @@
 					
 			<!-- Scripts -->
 			<!-- <script src="/resources/include/dist/studio/assets/js/jquery.min.js"></script> -->
-			<script src="/resources/include/dist/studio/assets/js/browser.min.js"></script>
+			<!-- <script src="/resources/include/dist/studio/assets/js/browser.min.js"></script>
 			<script src="/resources/include/dist/studio/assets/js/breakpoints.min.js"></script>
 			<script src="/resources/include/dist/studio/assets/js/util.js"></script>
-			<script src="/resources/include/dist/studio/assets/js/main.js"></script>
+			<script src="/resources/include/dist/studio/assets/js/main.js"></script> -->
 					
 	</body>
 </html>

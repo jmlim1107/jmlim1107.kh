@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class DashBoardVo {
 
-    //12개의 필드(컬럼)
+    //유저 통계 12개의 필드(컬럼)
     private long user_no = 0;
     private String user_email = "";
     private String user_pw = "";
@@ -35,6 +35,9 @@ public class DashBoardVo {
 
     private int r_cnt = 0;
 
+    //결제 통계
+    private int pay_price =0;
+    private String pay_date = "";
 
     private List<DashBoardVo> dashBoardVoList;
     private HashMap<String, Integer> userState;

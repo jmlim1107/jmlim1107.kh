@@ -19,4 +19,6 @@ public interface DashBoardDao {
 
     public HashMap<String, Integer> userReserve(DashBoardVo dashBoard);
 
+    public HashMap<String, Integer> allSales(DashBoardVo dashBoard);
+
 }
