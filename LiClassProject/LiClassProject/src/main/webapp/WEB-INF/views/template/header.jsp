@@ -4,8 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-	<!-- 은아) 임시 헤더  -->
-	<!-- header start-->
+	<!-- 은아) 임시 헤더 
+	<!-- header start
 	<section class="tophead" role="tophead"> 
 	  <header id="header">
 	    <div class="header-content clearfix"> <a class="logo" href="/">LiClass</a>
@@ -45,7 +45,27 @@
 			<a id="menu-nav-toggle">Menu<span></span></a> 
 	  </header>
 	</section>
-	<!-- header end-->
+	 header end-->
+	
+	
+	<!-- ======= Header ======= -->
+        	<header id="header" class="fixed-top header-scrolled">
+       	 		<div class="container d-flex align-items-center justify-content-between">
+            		<h1 class="logo"><a href="index.html">LiClass</a></h1>
+			            <!-- Uncomment below if you prefer to use an image logo -->
+			            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+			            <nav id="navbar" class="navbar">
+			                <ul>
+			                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+			                <li><a class="nav-link scrollto" href="/class/classList">Class</a></li>
+			                <li><a class="nav-link scrollto" href="#services">Studio</a></li>
+			                <li><a class="nav-link scrollto" href="#team">Team</a></li>
+			                <li><a class="nav-link scrollto " href="#faq">FAQ</a></li>
+			                <li><a class="nav-link scrollto ">Login</a></li>
+			                <i class="bi bi-list mobile-nav-toggle"></i>
+			            </nav><!-- .navbar -->
+        		</div>
+  			</header><!-- End Header -->
 
 	<!-- login modal start -->
 	<div id="login-pop-modal">
