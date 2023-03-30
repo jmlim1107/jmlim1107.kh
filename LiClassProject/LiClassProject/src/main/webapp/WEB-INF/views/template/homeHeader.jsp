@@ -145,7 +145,7 @@
 						</div>
 					</div>
 					
-					<div class="text-center p-t-115">
+					<div class="text-center p-t-60">
 						<span class="txt1">
 							아직 가입하지 않았나요?
 						</span>

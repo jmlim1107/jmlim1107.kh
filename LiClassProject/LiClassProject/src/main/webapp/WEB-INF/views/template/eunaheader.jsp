@@ -6,8 +6,7 @@
 
 	<!-- 은아) 임시 헤더 -->
 	<!-- header start -->
-	<section class="tophead" role="tophead"> 
-	  <header id="header">
+	  <header id="header" class="tophead" role="tophead">
 	    <div class="header-content clearfix"> <a class="logo" href="/">LiClass</a>
 		      <nav class="navigation" role="navigation">
 		        <ul class="primary-nav">
@@ -44,7 +43,6 @@
 	     </div>
 			<a id="menu-nav-toggle">Menu<span></span></a> 
 	  </header>
-	</section>
 	<!-- header end-->
 	
 	

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.liclass.admin.episode.dao.EpisodeDAO;
 import com.liclass.admin.episode.vo.EpisodeVO;
+import com.liclass.client.reserve.vo.ReserveVO;
 
 import lombok.Setter;
 
@@ -75,14 +76,14 @@ public class EpisodeServiceImpl implements EpisodeService {
 	}
 
 	@Override
-	public int EpcntUpdat(int ep_no) {
-		int result = episodeDAO.EpcntUpdat(ep_no);
+	public int EpcntUpdat(ReserveVO rvo) {
+		int result = episodeDAO.EpcntUpdat(rvo);
 		return result;
 	}
 
 	@Override
-	public int EpcntDel(int ep_no) {
-		int result = episodeDAO.EpcntDel(ep_no);
+	public int EpcntDel(ReserveVO rvo) {
+		int result = episodeDAO.EpcntDel(rvo);
 		return result;
 	}
 	
