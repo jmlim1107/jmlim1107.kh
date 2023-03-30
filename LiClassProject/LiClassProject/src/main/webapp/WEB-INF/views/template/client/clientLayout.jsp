@@ -37,7 +37,7 @@
 		
   </head>
   
-	<div id="header" class="header">
+	<div class="header">
 		<tiles:insertAttribute name="header" />
 	</div>
 	

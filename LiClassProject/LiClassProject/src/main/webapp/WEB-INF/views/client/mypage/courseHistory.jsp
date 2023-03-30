@@ -53,7 +53,7 @@
 		 	// reviewInsert 로 보내주기
 			$("#r_writeForm").attr({
 				"method" : "post",
-				"action" : "/review/reviewInsert"
+				"action" : "/reviewInsert"
 			});
 			 $("r_writeForm").submit();
 		 }
@@ -94,9 +94,10 @@
 									<td>${ courseList.level }</td>
 									<td>${ courseList.area }</td>
 									<c:if test="${courseList.count>0 }">
-										<td>
+										
+										<td>		
 											<%-- ================== 글쓰기 버튼 출력 시작 ============= --%>
-											<div class="contentBtn  text-right">
+											<div class="contentBtn  text-right" data-cno="${ courseList.c_no }">
 												<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
 											</div>
 											<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>

@@ -29,7 +29,7 @@
 		 	// reviewInsert 로 보내주기
 			$("#r_writeForm").attr({
 				"method" : "post",
-				"action" : "/review/reviewInsert"
+				"action" : "/reviewInsert"
 			});
 			 $("r_writeForm").submit();
 		 }
@@ -37,7 +37,15 @@
 });
 </script>
 <%-- ************************** r_writeForm start *************************************  --%>
+	<form id = "hiddenWrite">
+		<div>
+			<input type = "hidden" value = "" id= "c_no">
+		</div>
+	</form>
+	
+	
 	<form id = "r_writeForm">
+			<input type = "hidden" id= "c_no2">
 			<div class="modal" id = "writeModal">
 			  	<div class="modal_content" id = "writeContent">
 			  	

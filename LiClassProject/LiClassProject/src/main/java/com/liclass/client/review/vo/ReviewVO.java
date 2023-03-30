@@ -1,7 +1,5 @@
 package com.liclass.client.review.vo;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.liclass.common.vo.CommonVO;
 
 import lombok.AllArgsConstructor;
@@ -29,10 +27,6 @@ public class ReviewVO extends CommonVO{
 	private long user_no = 0;					// 회원 번호
 	private String user_img = "";	// 회원 프로필 사진
 	private String user_name = "";
-
-	
-	private MultipartFile file;					// 파일 업로드를 위한 필드
-	private String review_img 		= "";		// 실제 서버에 저장할 리뷰 이미지 파일명
 	//private String review_c_img_file = "";		// 실제 서버에 저장할 리뷰 썸네일 파일명
 	
 }

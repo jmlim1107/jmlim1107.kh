@@ -3,6 +3,19 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<style>
+		#header{width: 100%;
+		    margin: 0px;
+		    padding : 29px 0;
+		    }
+		#navbar.navbar{ 
+		    margin: 0px 0px 0px 400px;
+		
+		}
+		#header.header-scrolled{padding : 20px 0;}
+
+	</style>
+
 
 	<!-- 은아) 임시 헤더 
 	<!-- header start
