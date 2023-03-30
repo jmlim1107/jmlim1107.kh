@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<!--은아) 헤더 로그인 및 메인템플릿 관련  -->
+<!--은아) 메인 템플릿 및 로그인관련  -->
 <!DOCTYPE html>
 <html lang="ko">
 	<head>

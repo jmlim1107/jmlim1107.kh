@@ -1,86 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-     <!-- 부트스트랩 -->
-    <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
-	<!-- script -->
-	<script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>
-	<script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
-    
-  	<!-- 모바일 웹 페이지 설정 -->
-    <link rel="shortcut icon" href="/resources/static/image/icon.png" />
-    <link rel="apple-touch-icon" href="/resources/static/image/icon.png" />
-    <!-- 모바일 웹 페이지 설정 끝 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<script src="/resources/client/mainTheme/js/bootstrap.affix.js"></script>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+<!--은아)2. 플로팅 메뉴 js,css  -->
+<script src="/resources/client/mainTheme/js/floatingNav.js"></script>
+<link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
 
-    <!-- Vendor CSS Files -->
-    <link href="/resources/include/mainLayout/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/bootstrap-icons/bootstrap-icons.scss" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/glightbox/css/glightbox.css" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<script>
 
-    <script src="/resources/include/mainLayout/js/main.js"></script>
-    <script src="/resources/include/mainLayout/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Template Main CSS File -->
-    <link href="/resources/include/mainLayout/css/style.css" rel="stylesheet">
-
-	<title>Insert title here</title>
-	
-	<style>
-        * { box-sizing: border-box; }
-        .video-background {
-         
-          position: fixed;
-          top: 0; right: 0; bottom: 0; left: 0;
-          z-index: -99;
-        }
-        .video-foreground,
-        .video-background iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-        }
-        #vidtop-content {
-            top: 0;
-            color: black;
-        }
-        .vid-info { position: absolute; top: 0; right: 0; width: 33%; background: rgba(0,0,0,0.3); color: #fff; padding: 1rem; font-family: Avenir, Helvetica, sans-serif; }
-        .vid-info h1 { font-size: 2rem; font-weight: 700; margin-top: 0; line-height: 1.2; }
-        .vid-info a { display: block; color: #fff; text-decoration: none; background: rgba(0,0,0,0.5); border-bottom: none; margin: 1rem auto; text-align: center; }
-        @media (min-aspect-ratio: 16/9) {
-          .video-foreground { height: 300%; top: -100%; }
-        }
-        @media (max-aspect-ratio: 16/9) {
-          .video-foreground { width: 300%; left: -100%; }
-        }
-        @media all and (max-width: 600px) {
-        .vid-info { width: 50%; padding: .5rem; }
-        .vid-info h1 { margin-bottom: .2rem; }
-        }
-        @media all and (max-width: 500px) {
-        .vid-info .acronym { display: none; }
-        }
-        </style>
-</head>
-	<body>
-		 <div class="video-background">
+	/* 은아)메인화면 redirect 시 전달메시지 있을 때 */
+	if('${message}' != ""){
+		var message = "${message}" ;
+		alert(message);
+	}
+</script>
+ <body id="page-top" data-spy="scroll" data-target=".side-menu">
+ 
+	<%-- <!-- 지민)클래스 리스트 -->
+	<!-- 1. class list start  -->
+	<section id="portfolio" class="section portfolio">
+		<%@ include file="/WEB-INF/views/client/class/classList.jsp" %>
+	</section>
+	<!-- 1. class list end  --> --%>
+	<div class="video-background">
        		<div class="video-foreground">
      
        <!--  <iframe class="ww"  src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0?rel=0&autoplay=1&version=3&loop=1""  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -317,5 +261,63 @@
 			    </div>
 			  </section><!-- End Team Section -->
     	</div>
-	</body>
-</html>
+	
+	<!-- 은아)플로팅메뉴  -->
+	<!-- 2. floating nav start -->
+	<div id="floatMenu">
+		<div class="section-block">
+			<nav class="side-menu">
+		        <ul>
+		          <li class="hidden active">
+		            <a class="page-scroll" href="#page-top"></a>
+		          </li>
+		          <li>
+		            <a href="#page-top" class="page-scroll">
+		              <span class="menu-title">맨 위로</span>
+		              <span class="dot"></span>
+		            </a>
+		          </li>
+		          
+		          <li>
+		          	   <c:if test="${loginUser == null}">
+		          			  <a href="#page-top" id="floating-login" class="page-scroll">
+				              <span class="menu-title">로그인</span>
+				              <span class="dot"></span>
+				            </a>
+			           </c:if>
+					          
+			           <c:if test="${loginUser != null}">
+				           	<a href="/mypage" class="page-scroll">
+				              <span class="menu-title">마이페이지</span>
+				              <span class="dot"></span>
+				            </a>
+			           </c:if>
+		          </li>
+		          <c:if test="${loginUser != null}">
+		          <li>
+		            <a href="/user/logout" class="page-scroll">
+		              <span class="menu-title">로그아웃</span>
+		              <span class="dot"></span>
+		            </a>
+		          </li>
+		          </c:if>
+		          <li>
+		            <a id="floating-recent" class="page-scroll" >
+		              <span class="menu-title">최근 본 클래스</span>
+		              <span class="dot"></span>
+		            </a>
+		          </li>
+		          <li id="recent" style="visibility: hidden; display: grid" >
+			         <div id="recentDiv" style="display: grid">
+				 		<a class="recent-a" id="first-a"><img class="recent-img" id="first-img" style="visiblity:hidden"></a>
+				 		<a class="recent-a"  id="second-a" ><img class="recent-img" id="second-img" style="visiblity:hidden"></a>
+				 		<a class="recent-a" id="third-a"><img class="recent-img" id="third-img" style="visiblity:hidden"></a>
+				 		<a id="recent-del"><i class="fa-solid fa-trash"></i></a>
+				 	</div>
+		          </li>
+		            
+		        </ul>
+		      </nav>
+		</div>
+	</div>
+	<!-- floating nav end -->
