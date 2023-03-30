@@ -5,44 +5,54 @@
 
 <script type="text/javascript">
     $(function (){
-
         $("#insertForm").click(function(){
             location.href="/client/qnaboard/qnaInsertForm";
         });
         /* 제목 클릭 시 상세페이지 이동을 위한 처리 이벤트 */
         $(".goDetail").click(function(){
-
             let qna_no = $(this).parents("div").attr("data-num");
-            $("#qna_no").val(qna_no);
-            let user_no = $("#user_no").val();
+            let qna_top_state = $(this).parents("div").attr("state-num");
+            let user_no = $(this).parents("div").attr("data-user_no");
             let login_user_no = $("#login_user_no").val();
 
-            if(user_no == login_user_no){
-                //상세페이지로 이동하기 위해 form 추가 (id : detailForm)
+            console.log(login_user_no);
+            console.log(user_no);
+            $("#qna_no").val(qna_no);
+            $("#qna_top_state").val(qna_top_state);
+            $("#user_no").val(user_no);
+
+            if(qna_top_state == 1){
+                // 로그인한 사용자이거나 qna_top_state 값이 1인 경우 상세페이지로 이동
                 $("#detailForm").attr({
                     "method" : "get",
                     "action" : "/client/qnaboard/qnaBoardDetail"
                 });
                 $("#detailForm").submit();
-            } else {
-                alert("본인의 글만 확인 할 수 있습니다.");
+            } else if(qna_top_state == 0) {
+                if (login_user_no == user_no) {
+                    $("#detailForm").attr({
+                        "method": "get",
+                        "action": "/client/qnaboard/qnaBoardDetail"
+                    });
+                    $("#detailForm").submit();
+                } else {
+                    alert("로그인 후 이용해주세요.");
+                }
             }
-
-
-
-
         });
     });
 </script>
     <form id="detailForm">
         <input type="hidden" id="qna_no" name="qna_no"/>
-        <input type="hidden" id="login_user_no" name="login_user_no" value="${loginUser.user_no}"/>
+        <input type="hidden" id="user_no" name="user_no"/>
+        <input type="hidden" id="qna_top_state" name="qna_top_state"/>
+        <input type="hidden" id="login_user_no" name="login_user_no" value="${loginUser.user_no}">
     </form>
 
     <div class="board_wrap">
         <div class="board_title">
-            <strong>문의사항</strong>
-            ${loginUser.user_no}
+            <strong>FAQ</strong>
+            <p>공지사항을 확인하거나 문의사항을 작성할 수 있습니다.</p>
         </div>
         <div class="board_list_wrap">
             <div class="board_list">
@@ -57,16 +67,31 @@
                 <c:choose>
                     <c:when test="${not empty qnaBoardList}">
                         <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
-                            <div data-num="${qnaBoard.qna_no}">
-                             <div class="num" >${count + status.index + 1}<%--<i class="bi bi-bell"></i>--%></div>
-                            <div class="title goDetail">
-                            <c:if test="${qnaBoard.qna_step>0}">
-                                <c:forEach begin="1" end="${qnaBoard.qna_indent}">
+                            <div data-num="${qnaBoard.qna_no}" state-num="${qnaBoard.qna_top_state}" data-user_no="${qnaBoard.user_no}">
+                                <c:choose>
+                                    <c:when test="${qnaBoard.qna_top_state > 0}">
+                                        <div class="num" ><i class="bi bi-megaphone"></i></div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="num" >${count + status.index + 1}<%--<i class="bi bi-bell"></i>--%></div>
+                                    </c:otherwise>
+                                </c:choose>
 
-                                </c:forEach>
-                                &nbsp;&nbsp;&nbsp;<i class="bi bi-arrow-return-right"></i>
-                            </c:if>
-                                <i class="bi bi-lock"></i>&nbsp;<span>[${qnaBoard.qna_category}] &nbsp;&nbsp;${qnaBoard.qna_title}</span>
+                                <c:choose>
+                                    <c:when test="${qnaBoard.qna_top_state > 0}">
+                                        <div class="title goDetail"><span>[${qnaBoard.qna_category}] &nbsp;&nbsp;${qnaBoard.qna_title}</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                            <div class="title goDetail">
+                                                <c:if test="${qnaBoard.qna_step>0}">
+                                                    <c:forEach begin="1" end="${qnaBoard.qna_indent}">
+
+                                                    </c:forEach>
+                                                    &nbsp;&nbsp;&nbsp;<i class="bi bi-arrow-return-right"></i>
+                                                </c:if>
+                                                <i class="bi bi-lock"></i>&nbsp;<span>[${qnaBoard.qna_category}] &nbsp;&nbsp;${qnaBoard.qna_title}</span>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                                 <%--<div class="title goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</a></div>--%>
                             <c:choose>
@@ -74,11 +99,10 @@
                                     <div class="writer">${qnaBoard.admin_name}</div>
                                 </c:when>
                                 <c:otherwise>
-                                    <div class="writer">${qnaBoard.user_name}</div>
+                                    <div class="writer">${qnaBoard.user_name} </div>
                                 </c:otherwise>
                             </c:choose>
                                 <div class="date">${qnaBoard.qna_date}</div>
-                                <input type="hidden" id="user_no" name="user_no" value="${qnaBoard.user_no}"/>
                             </div>
                         </c:forEach>
                     </c:when>
@@ -105,3 +129,4 @@
             </div>
         </div>
     </div>
+</div>
