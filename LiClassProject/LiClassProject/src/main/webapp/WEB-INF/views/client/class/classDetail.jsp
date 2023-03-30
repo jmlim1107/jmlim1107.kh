@@ -36,7 +36,16 @@
 <script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>
 <script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
 
-<script>
+<style type="text/css">
+    	#colorStar{
+    		direction: rtl;
+			unicode-bidi: bidi-override;
+    		color: #555; 
+    	}
+    
+    </style>
+
+<script type="text/javascript">
 	$(function(){
 		if("${1 eq classDetail.c_category}"){
 			$("#category").html("<i class='fa-solid fa-hashtag'></i> 공예");
@@ -51,24 +60,10 @@
 		}else if("${6 eq classDetail.c_category}"){
 			$("#category").html("<i class='fa-solid fa-hashtag'></i> 체험 및 기타");
 		}
-		
-		// 별점 통계
-    	var ratingTotal = ${tongRating.RATING1} + ${tongRating.RATING2} + ${tongRating.RATING3} + ${tongRating.RATING4} + ${tongRating.RATING5}
-    	$("#ratingTotal").text(ratingTotal);
-    	
-    	var ratingAvg1 = Math.ceil(${tongRating.RATING1} / ratingTotal *1000);
-    	var ratingAvg2 = Math.ceil(${tongRating.RATING2} / ratingTotal *1000);
-    	var ratingAvg3 = Math.ceil(${tongRating.RATING3} / ratingTotal *1000);
-    	var ratingAvg4 = Math.ceil(${tongRating.RATING4} / ratingTotal *1000);
-    	var ratingAvg5 = Math.ceil(${tongRating.RATING5} / ratingTotal *1000);
-    	
-    	$("#bar1").width(ratingAvg1);
-    	$("#bar2").width(ratingAvg2);
-    	$("#bar3").width(ratingAvg3);
-    	$("#bar4").width(ratingAvg4);
-    	$("#bar5").width(ratingAvg5);
-	    	
 	    });
+	
+	
+	
 </script>
 	<!-- header slider section start -->
 	<section id="header-slider" class="section">
@@ -240,10 +235,34 @@
 				          <!-- 3. center info end -->
 				          
 			              <!-- 4. class-review start -->
+			              
+			              
 				          <div role="tabpanel" class="tab-pane" id="class-review" data-num="${classDetail.c_no}">
 				          	<form id = "detailForm">
 								<input type = "hidden" name ="review_no" id = "review_no" value = "review_no" />
 							</form>
+							<script type="text/javascript">
+    
+							    $(function(){
+							    	var ratingTotal = ${tongRating.RATING1} + ${tongRating.RATING2} + ${tongRating.RATING3} + ${tongRating.RATING4} + ${tongRating.RATING5}
+							    	$("#ratingTotal").text("(" + ratingTotal + ")");
+							    	
+							    	var ratingAvg1 = Math.ceil(${tongRating.RATING1} / ratingTotal *1000);
+							    	var ratingAvg2 = Math.ceil(${tongRating.RATING2} / ratingTotal *1000);
+							    	var ratingAvg3 = Math.ceil(${tongRating.RATING3} / ratingTotal *1000);
+							    	var ratingAvg4 = Math.ceil(${tongRating.RATING4} / ratingTotal *1000);
+							    	var ratingAvg5 = Math.ceil(${tongRating.RATING5} / ratingTotal *1000);
+							    	
+							    	$("#bar1").width(ratingAvg1);
+							    	$("#bar2").width(ratingAvg2);
+							    	$("#bar3").width(ratingAvg3);
+							    	$("#bar4").width(ratingAvg4);
+							    	$("#bar5").width(ratingAvg5);
+							    	
+							    });
+							    
+							    
+							    </script>
 		
 							<!-- 리뷰 작성 폼 -->
 							<div id = "test1" style="display: none;">
@@ -274,7 +293,7 @@
 							                <div class="rating-box">
 							                  <div class="rating-number">${ratingAvg}</div>
 							                  <div class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> </div>
-							                  <span id = "ratingTotal" value = "아아">전체 후기 개수</span></div>
+							                  <span id = "ratingTotal">전체 후기 개수</span></div>
 							              </div>
 							              <div class="col-lg-8">
 							                <div class="review-wrapper">
@@ -360,12 +379,9 @@
 						<input type = "hidden" id = "review_no" value = "${review.review_no}" />
 						</form>
 		              	
-		              	<%-- ================== 상세버튼 시작 ============= --%>
-		              	<button class = "test3" type = "button">상세보기 버튼</button>
+		              	<%-- ================== 상세버튼 시작 =============
+		              	<button class = "test3" type = "button">상세보기 버튼</button> --%>
 		              	<%-- ================== 상세버튼 종료 ============= --%>
-		              	
-		              	
-		              	
 		                <div class="thumbnail"><img src="/uploadLiClass/user/${review.user_img}"></div>
 		                <div class="comment-content">
 		                  <div class="comment-top">

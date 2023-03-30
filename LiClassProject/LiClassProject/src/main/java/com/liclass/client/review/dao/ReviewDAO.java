@@ -1,6 +1,7 @@
 package com.liclass.client.review.dao;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -27,5 +28,7 @@ public interface ReviewDAO {
 			
 			// 별점 평균 구하기
 			public Double getRatingAverage(int c_no);
+
+			public HashMap<String, Integer> tongRating(ReviewVO vo);
 	
 }
