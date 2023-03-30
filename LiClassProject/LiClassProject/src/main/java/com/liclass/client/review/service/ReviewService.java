@@ -1,5 +1,6 @@
 package com.liclass.client.review.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.liclass.client.review.vo.ReviewVO;
@@ -30,7 +31,7 @@ public interface ReviewService {
 		public double setRating(int c_no);
 		
 		// 별점 개수별 점수
-		// public int totalRating(int c_no);
+		HashMap<String, Integer> tongRating(ReviewVO vo);
 		
 		
 }

@@ -1,5 +1,6 @@
 package com.liclass.client.classes.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -74,7 +76,7 @@ public class ClientClassController {
 	 * @throws Exception 
 	*************************************************/
 	@GetMapping("/class/classDetail")
-	public String classDetail(int c_no,Model model,HttpSession session, ReviewVO vo) throws Exception {
+	public String classDetail(int c_no,Model model,HttpSession session, @ModelAttribute ReviewVO vo) throws Exception {
 		log.info("classDetail() 호출");
 		ClientClassVO cvo = new ClientClassVO();
 		cvo.setC_no(c_no);
@@ -119,9 +121,17 @@ public class ClientClassController {
 		
 		// vo.c_no 로 변경해주기
 		double ratingAvg = reviewService.setRating(vo.getC_no());
+		HashMap<String,Integer> tongRating = reviewService.tongRating(vo);
 		
+		model.addAttribute("tongRating", tongRating);
 		model.addAttribute("ratingAvg", ratingAvg);
 		
+		
+		for(String i : tongRating.keySet()) {
+			log.info("Key ::::::::::::::::::::::::::::: "+ i);
+			log.info("Value ::::::::::::::::::::::::::::: "+ tongRating.get(i));
+		}
+				
 
 		return "class/classDetail";
 	}
