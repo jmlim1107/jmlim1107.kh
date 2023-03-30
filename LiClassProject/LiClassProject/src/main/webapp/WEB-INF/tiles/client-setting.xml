@@ -2,30 +2,30 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
   
-<tiles-definitions>
+<!-- <tiles-definitions>
 	<definition name="intro" template="/WEB-INF/views/template/client/mainLayout.jsp">
 		<put-attribute name="title" value="나의 첫 스프링 사이트" />
-		<put-attribute name="header" value="/WEB-INF/views/template/client/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/template/client/eunaheader.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/client/footer.jsp" />		
 	</definition>
 
 	<definition name="content" template="/WEB-INF/views/template/client/contentLayout.jsp">
 		<put-attribute name="title" value="나의 첫 스프링 사이트" />
-		<put-attribute name="header" value="/WEB-INF/views/template/client/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/template/client/eunaheader.jsp" />
  		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/client/footer.jsp" />		
-	</definition>
+	</definition> -->
 
-	<definition name="client/studio/*" extends="content">
+<!-- 	<definition name="client/studio/*" extends="content">
 		<put-attribute name="title" value="스튜디오" />
  		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
 	</definition>
-
+ -->
 
 	
-	<definition name="error/*" extends="content">
+	<!-- <definition name="error/*" extends="content">
 		<put-attribute name="title" value="" />
  		<put-attribute name="body" value="/WEB-INF/views/error/{1}.jsp" />
-	</definition>
+	</definition> -->
 	
-</tiles-definitions>
+<!-- </tiles-definitions> -->

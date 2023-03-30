@@ -4,19 +4,19 @@
   <!-- 은아) 상의 후 client-setting.xml로 이동하겠습니다. -->
 <tiles-definitions>
 	<definition name="home" template="/WEB-INF/views/template/clientLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/template/mainheader.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/template/client/maintest.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
 	</definition>
 	
 	<definition name="classmain" template="/WEB-INF/views/template/clientLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/client/homeBody.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
 	</definition>
 	
 	<definition name="userContent" template="/WEB-INF/views/template/clientLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
 	</definition>
@@ -36,6 +36,11 @@
 	<definition name="client/qnaboard/*" extends="userContent">
 		<put-attribute name="title" value="고객센터" />
 		<put-attribute name="body" value="/WEB-INF/views/client/qnaboard/{1}.jsp" />
+	</definition>
+	
+	<definition name="client/studio/*" extends="userContent">
+		<put-attribute name="title" value="스튜디오" />
+ 		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
 	</definition>
 	
 	<definition name="common/*/*" extends="userContent">
