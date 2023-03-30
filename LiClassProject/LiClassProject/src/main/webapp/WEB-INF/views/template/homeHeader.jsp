@@ -51,7 +51,7 @@
 	<!-- ======= Header ======= -->
         	<header id="header" class="fixed-top header-scrolled">
        	 		<div class="container d-flex align-items-center justify-content-between">
-            		<h1 class="logo"><a href="index.html">LiClass</a></h1>
+            		<h1 class="logo"><a href="/">LiClass</a></h1>
 			            <!-- Uncomment below if you prefer to use an image logo -->
 			            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 			            <nav id="navbar" class="navbar">
@@ -145,7 +145,7 @@
 						</div>
 					</div>
 					
-					<div class="text-center p-t-115">
+					<div class="text-center p-t-60">
 						<span class="txt1">
 							아직 가입하지 않았나요?
 						</span>

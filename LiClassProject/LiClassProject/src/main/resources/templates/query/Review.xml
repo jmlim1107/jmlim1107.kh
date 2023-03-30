@@ -130,11 +130,11 @@
 	<!-- 별점 통계(각자의 개수) -->
 	<select id="tongRating" parameterType="review" resultType="map">
 		select
-		    (select count(*) from li_review where review_rating = 1) rating1,
-		    (select count(*) from li_review where review_rating = 2) rating2,
-		    (select count(*) from li_review where review_rating = 3) rating3,
-		    (select count(*) from li_review where review_rating = 4) rating4,
-		    (select count(*) from li_review where review_rating = 5) rating5
+		    (select count(*) from li_review where review_rating = 1 and c_no = #{c_no}) rating1,
+		    (select count(*) from li_review where review_rating = 2 and c_no = #{c_no}) rating2,
+		    (select count(*) from li_review where review_rating = 3 and c_no = #{c_no}) rating3,
+		    (select count(*) from li_review where review_rating = 4 and c_no = #{c_no}) rating4,
+		    (select count(*) from li_review where review_rating = 5 and c_no = #{c_no}) rating5
 		from dual
 	</select>
 	
