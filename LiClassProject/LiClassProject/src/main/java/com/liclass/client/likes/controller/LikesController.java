@@ -41,6 +41,7 @@ public class LikesController {
 			checkResult = likesService.checkLikes(vo);
 			log.info("checkResult : "+checkResult);
 			
+			/* 은아)0330 주석처리
 			if(checkResult == 1) {
 				likesService.delLikes(vo);
 				//classService.delLikes(c_no);
@@ -49,7 +50,7 @@ public class LikesController {
 				likesService.addLikes(vo);
 				//classService.addLikes(c_no);
 				log.info("checkResult : "+checkResult);
-			}
+			}*/
 		}
 		return checkResult;
 	}
