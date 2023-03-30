@@ -19,7 +19,6 @@
 		.goClassDetail{
 			cursor: pointer;
 		}
-	
 	</style>
 	<script>
     	$(function(){
@@ -34,45 +33,65 @@
     			  ChannelIO('boot', {
     			    "pluginKey": "4674cd17-2f5e-4a53-bbd2-53cd1c600040"
     		  });
-    			//heart 좋아요 클릭시! 하트 애니메이션
-       			  $(function(){
-       				  let user_no = $(".login-info").data("num");
-       				  $('.atag-heart').click(function(){
-       					  let c_no = $(this).data("num");
-       					  console.log("c_no : "+c_no);
-       				  		if(user_no != ""){
-       			        	  var $likeBtn = $(this);
-       		    			  $.ajax({
-       		    					type : "POST",
-       		    					url : "/like",
-       		    					data : {
-       		    						"c_no" : c_no,
-       		    						"user_no" : user_no
-       		    					},success : function(checkResult){
-       		    						console.log(" checkResult : "+checkResult);
-       		    						 if(checkResult == 0){
-       		    							 $likeBtn.find('img').attr({
-       		    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
-       		    					                 alt:'찜하기 완료'
-       		  					                  });
-       		    						}else if(checkResult == 1){
-       		    							$likeBtn.find('i').removeClass('fas').addClass('far')
-       		  					             	$likeBtn.find('img').attr({
-       		  					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
-       		  					                	alt:"찜하기"
-       		  					            	 });
-       		    						}else{
-       		    							alert("잠시후에 다시 시도해주세요.");
-       		    						} 
-       		    					}
-       		  					 });
-       		    		  }else{
-       		    			  alert("로그인 후 이용해주세요.");
-       		    		  }
-       				  });
-       				 
-       			  });
-    	});
+    			  
+    		//은아)관심클래스 추가 삭제
+			 let user_no = $(".login-info").data("num");
+ 			 $('.atag-heart').click(function(){
+  				let c_no = $(this).data("num");
+  				console.log("c_no : "+c_no);
+   				  	if(user_no != ""){
+   				  		var $likeBtn = $(this);
+			        	var alt = $likeBtn.find('img').attr("alt");
+			        	  $.ajax({
+			        		  type : "POST",
+		    					url : "/addLikes",
+		    					data : {
+		    						"c_no" : c_no,
+		    						"user_no" : user_no
+		    					},success : function(checkResult){
+		    						console.log(" addLikes checkResult : "+checkResult);
+		    						 if(checkResult == 1){
+		    							 $likeBtn.find('img').attr({
+		    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+		    					                 alt:'찜하기 완료'
+		  					                  });
+		    							alert("관심클래스에 추가되었습니다.");
+		    						}else if(checkResult == 0 && (alt == "찜하기")){
+		    							$likeBtn.find('img').attr({
+		    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+		    					                 alt:'찜하기 완료'
+		  					                  });
+		    							alert("앗,이미 관심클래스에 있었어요!");
+		    						}else if(checkResult == 0 && (alt == "찜하기 완료")){
+		    							if(confirm("관심클래스에서 삭제할까요?")){
+			    							  $.ajax({
+			       		    					type : "POST",
+			       		    					url : "/delLikes",
+			       		    					data : {
+			       		    						"c_no" : c_no,
+			       		    						"user_no" : user_no
+			       		    					},success : function(checkResult2){
+			       		    						console.log(" delLikes checkResult2 : "+checkResult2);
+			       		    						if(checkResult2 == 1){
+		       		       		    						$likeBtn.find('i').removeClass('fas').addClass('far')
+			       		 					             	$likeBtn.find('img').attr({
+			       		 					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+			       		 					                	alt:"찜하기"
+			       		 					            	 });
+			       		    								alert("삭제되었습니다.");
+			       		    						}else
+			       		    							alert("죄송합니다. 잠시후 다시 시도해주세요.");
+			    							  		}
+			    								});
+			    							}
+		    						}
+		    					}
+		  					 });
+   		    		  }else{
+   		    			  alert("로그인 후 이용해주세요.");
+   		    		  }
+   			  	});	 
+    		});
     </script>
 	
 	<!-- 은아) 로그인 유저 확인용 -->

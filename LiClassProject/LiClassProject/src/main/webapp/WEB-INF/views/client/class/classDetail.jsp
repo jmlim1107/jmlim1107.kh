@@ -42,11 +42,15 @@
 			unicode-bidi: bidi-override;
     		color: #555; 
     	}
-    
+    	.card{
+    		border:none;
+    	}
     </style>
 
 <script type="text/javascript">
 	$(function(){
+		
+		//은아)
 		if("${1 eq classDetail.c_category}"){
 			$("#category").html("<i class='fa-solid fa-hashtag'></i> 공예");
 		}else if("${2 eq classDetail.c_category}"){
@@ -60,37 +64,29 @@
 		}else if("${6 eq classDetail.c_category}"){
 			$("#category").html("<i class='fa-solid fa-hashtag'></i> 체험 및 기타");
 		}
-	    });
-	
-	
-	
+		
+		
+		
+		//클래스 이미지 사진
+		var img1 = '/uploadLiClass/class/'+$('.class-img:eq(0)').val();
+		var img2 = '/uploadLiClass/class/'+$('.class-img:eq(1)').val();
+		var img3 = '/uploadLiClass/class/'+$('.class-img:eq(2)').val();
+		console.log("img : "+ img1);
+		console.log("img : "+ img2);
+		console.log("img : "+ img3);
+	    /* find('.img-item:eq(1)').attr('src','/uploadLiClass/class/'+img1); */
+	    $("#img1").attr("src",img1);
+	    $("#img2").attr("src",img2);
+	    $("#img3").attr("src",img3);
+	});
+	    
 </script>
 	<!-- header slider section start -->
 	<section id="header-slider" class="section">
-	<div class="class-content" data-num="${classDetail.c_no}">
-      <h6 id="category"><i class="fa-solid fa-hashtag"></i> 
-    <%--  왜안되는거야!!!!!!!!!!!!!!
-    		<c:if test="${0 eq classDetail.c_category} ">
-     			공예
-	      	</c:if>
-	      	<c:if test="${classDetail.c_category eq 1} ">
-	      		요리
-	      	</c:if>
-	      	<c:if test="${classDetail.c_category eq 2} ">
-	      		미술
-	      	</c:if>
-	      	<c:if test="${3 eq classDetail.c_category} ">
-	      		플라워
-	      	</c:if>
-	      	<c:if test="${classDetail.c_category eq 4} ">
-	      		뷰티
-	      	</c:if>
-	      	<c:if test="${classDetail.c_category eq 5} ">
-	      		체험 및 기타
-	      	</c:if> --%>
-      </h6>
-      <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${classDetail.c_area}</h6>
-      <h3>${classDetail.c_title}</h3>
+	<div class="class-content" data-num="${clientClassDetail.c_no}">
+      <h6 id="category"><i class="fa-solid fa-hashtag"></i></h6>
+      <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${clientClassDetail.c_area}</h6>
+      <h3>${clientClassDetail.c_title}</h3>
      
       <div style="display: flex;" class="login-info" data-num="${loginUser.user_no}">
       	
@@ -106,10 +102,14 @@
 	    </ol>
 	    <!-- Wrapper for slides -->
 	    <div class="carousel-inner" role="listbox">
-	      <div class="item active"> <img src="/uploadLiClass/class/${classDetail.c_img_file}" alt="c_img_file">
+	      <div class="item active"> 
+	      	<img class="img-item" id="img1">
 	      </div>
 	      <div class="item">
-	       <img src="/uploadLiClass/class/${classDetail.c_img_file}" alt="c_img_file">
+	       <img class="img-item" id="img2">
+	      </div>
+	      <div class="item" id="img3">
+	       <img class="img-item">
 	      </div>
 	    </div>
 	    <!-- Controls --> 
@@ -119,14 +119,13 @@
 	<!-- header slider section end -->
 	
 	<!-- information section start -->
-	<div class="container-fluid class-info" data-title = "${classDetail.c_title}">
-		<div class="row">
+	<div class="container-fluid class-info" data-title = "${clientClassDetail.c_title}">
+		<div class="row" style="display:block;">
 		    <div class="col-md-10">
 			      <div class="card">
 				      <!-- Nav tabs start -->
 				      <ul class="nav nav-tabs" role="tablist">
 				          <li role="presentation" class="active"><a href="#class-info" aria-controls="class-info" role="tab" data-toggle="tab">클래스정보</a></li>
-				          <li role="presentation"><a href="#class-curriculum" aria-controls="profile" role="tab" data-toggle="tab">커리큘럼</a></li>
 				          <li role="presentation"><a href="#center-info" aria-controls="messages" role="tab" data-toggle="tab">센터</a></li>
 				          <li role="presentation"><a href="#class-review" aria-controls="messages" role="tab" data-toggle="tab">후기</a></li>
 				          <li role="presentation"><a href="#attention" aria-controls="settings" role="tab" data-toggle="tab">안내사항</a></li>
@@ -135,26 +134,21 @@
 					 
 	     			 <!-- Tab panes start -->
 				      <div class="tab-content">
-				      
+				      <c:choose>
+                		<c:when test="${ not empty clientClassDetailList }">
+                			<c:forEach var="classDetail"  items="${clientClassDetailList}"  varStatus="status">
+                				<input type="hidden" class="class-img" value = "${classDetail.c_img_file}" />
+                			</c:forEach>
+                		</c:when>
+                	</c:choose>
 				      	  <!-- 1. class info start-->
 				          <div role="tabpanel" class="tab-pane active" id="class-info" >
-				          	${classDetail.c_content}
+				          	${clientClassDetail.c_content}
 				          </div>
 						  <!-- 1. class info end-->
-							
-				          <!-- 2. class curriculum start -->
-				          <div role="tabpanel" class="tab-pane" id="class-curriculum">
-				           커리큘럼정보
-					           <section id="info" class="section services info">
-								  <div class="container-fluid">
-								  </div>
-							  </section>
-						  
-						  </div>
-						  <!-- 2. class curriculum end -->
-						  
-						  <!-- 3. center info start -->
+						  <!-- 2. center info start -->
 				          <div role="tabpanel" class="tab-pane" id="center-info">
+				          	<c:if test="${centerDetail != null} ">
 				            	<div class="row me-row content-ct speaker" id="speakers">
 						          <h2 class="row-title">${centerDetail.ct_name}</h2>
 						          <div class="col-md-4 col-sm-6 feature" style="width: 100%;">
@@ -166,7 +160,8 @@
 						            </ul>
 						          </div>
 						        </div>
-				        	 <div class="main-white-button" id="map-click" style="margin:5px;"><a href="#"><i class="fa-solid fa-map-pin"></i>${classDetail.c_area}</a>
+						      </c:if>
+				        	 <div class="main-white-button" id="map-click" style="margin:5px;"><a href="#"><i class="fa-solid fa-map-pin"></i>${clientClassDetail.c_area}</a>
 							 <p style="padding: 12px 25px;"><i class="fa-regular fa-circle-check"></i>자세한 주소는 예약내역에서 확인해주세요.</p>
 				        	 </div>
 							 <div id="map" style="width:100%;height:350px;"></div>
@@ -236,7 +231,7 @@
 			              <!-- 4. class-review start -->
 			              
 			              
-				          <div role="tabpanel" class="tab-pane" id="class-review" data-num="${classDetail.c_no}">
+				          <div role="tabpanel" class="tab-pane" id="class-review" data-num="${clientClassDetail.c_no}">
 				          	<form id = "detailForm">
 								<input type = "hidden" name ="review_no" id = "review_no" value = "review_no" />
 							</form>

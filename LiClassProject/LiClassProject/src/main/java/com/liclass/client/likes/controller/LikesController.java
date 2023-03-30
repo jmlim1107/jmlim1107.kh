@@ -1,5 +1,7 @@
 package com.liclass.client.likes.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,10 +21,10 @@ public class LikesController {
 	@Setter(onMethod_ = @Autowired)
 	private LikesService likesService;
 	@Setter(onMethod_ = @Autowired)
-	private ClientClassService classService;
+	private ClientClassService clientClassService;
 	
 	/************************************************
-	 * 관심클래스 유무 확인
+	 * 1.관심클래스 유무 확인
 	 * 요청 url : http://localhost:8080/like
 	************************************************/
 	@ResponseBody
@@ -40,18 +42,35 @@ public class LikesController {
 			log.info("LikesVO vo : "+vo.toString());
 			checkResult = likesService.checkLikes(vo);
 			log.info("checkResult : "+checkResult);
-			
-			/* 은아)0330 주석처리
-			if(checkResult == 1) {
-				likesService.delLikes(vo);
-				//classService.delLikes(c_no);
-				log.info("checkResult : "+checkResult);
-			}else if(checkResult == 0){
-				likesService.addLikes(vo);
-				//classService.addLikes(c_no);
-				log.info("checkResult : "+checkResult);
-			}*/
 		}
 		return checkResult;
+	}
+	
+	/************************************************
+	 * 2.관심클래스 추가 처리
+	 * 요청 url : http://localhost:8080/addLikes
+	************************************************/
+	@ResponseBody
+	@PostMapping("/addLikes")
+	public int addLikes(LikesVO lvo,HttpSession session) {
+		log.info("addLikes() 호출");
+		int result;
+		result = likesService.addLikes(lvo);
+		// 0: 입력실패 1 : 입력성공
+		return result;
+	}
+	
+	/************************************************
+	 * 3.관심클래스 추가 처리
+	 * 요청 url : http://localhost:8080/addLikes
+	************************************************/
+	@ResponseBody
+	@PostMapping("/delLikes")
+	public int delLikes(LikesVO lvo,HttpSession session) {
+		log.info("addLikes() 호출");
+		int result;
+		result = likesService.delLikes(lvo);
+		// 0: 삭제실패 1 : 삭제성공
+		return result;
 	}
 }

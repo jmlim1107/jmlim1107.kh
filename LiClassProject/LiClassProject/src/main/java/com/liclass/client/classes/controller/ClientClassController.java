@@ -33,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ClientClassController {
 	
 	@Setter(onMethod_ = @Autowired)
-	private ClientClassService classService;
+	private ClientClassService clientClassService;
 	@Setter(onMethod_ = @Autowired)
 	private CenterService centerService;
 	@Setter(onMethod_ = @Autowired)
@@ -49,10 +49,7 @@ public class ClientClassController {
 	public String classList(Model model) {
 		log.info("classList() 호출");
 		
-		List<ClientClassVO> classList =classService.clientClassList();
-		for(ClientClassVO vo : classList ) {
-			log.info("classList : "+vo.toString());
-		}
+		List<ClientClassVO> classList =clientClassService.clientClassList();
 		
 		model.addAttribute("classList",classList);
 		
@@ -70,6 +67,9 @@ public class ClientClassController {
 		log.info("classDetail() 호출");
 		ClientClassVO cvo = new ClientClassVO();
 		cvo.setC_no(c_no);
+		ClientClassVO clientClassDetail =  clientClassService.clientClassDetail(cvo);
+		model.addAttribute("clientClassDetail",clientClassDetail);
+
 		
 		//로그인 계정
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
@@ -88,12 +88,12 @@ public class ClientClassController {
 		}
 		
 		//클래스 상세정보
-		ClientClassVO classDetail =classService.clientClassDetail(cvo);
-		log.info("classDetail.toString() : "+classDetail.toString());
-		model.addAttribute("classDetail",classDetail);
+		List<ClientClassVO> clientClassDetailList = clientClassService.clientClassDetailList(clientClassDetail);
+		log.info("clientClassDetailList.toString() : "+clientClassDetailList.toString());
+		model.addAttribute("clientClassDetailList",clientClassDetailList);
 		
 		//해당 클래스의 센터 상세정보
-		CenterVO centerDetail = classService.clientCenterDetail(classDetail);
+		CenterVO centerDetail = clientClassService.clientCenterDetail(clientClassDetail.getCt_bizno());
 		if(centerDetail != null) {
 			log.info("centerDetail.toString() : "+centerDetail.toString());
 			model.addAttribute("centerDetail", centerDetail);
@@ -136,7 +136,7 @@ public class ClientClassController {
 		log.info("getClassImg() 호출");
 
 		//클래스 상세정보
-		ClientClassVO recentClass =classService.clientClassDetail(cvo);
+		ClientClassVO recentClass = clientClassService.clientClassDetail(cvo);
 		String c_img_file = recentClass.getC_img_file();
 		
 		return c_img_file;

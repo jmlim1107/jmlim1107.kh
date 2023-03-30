@@ -9,10 +9,12 @@
 		from dual
 	</select>
 	
-	<!--2. 관심클래스 추가   -->
+	<!--2. 관심클래스 중복 제어 추가 -->
 	<insert id="addLikes" parameterType="Likes">
 		insert into li_likes(like_no,user_no,c_no)
-		values( li_likes_seq.NEXTVAL,#{user_no}, #{c_no})
+		select li_likes_seq.NEXTVAL,#{user_no},#{c_no} from dual
+        where not exists 
+        (select like_no from li_likes where user_no = #{user_no} AND c_no =#{c_no})
 	</insert>
 	
 	<!--3. 관심클래스 삭제   -->
