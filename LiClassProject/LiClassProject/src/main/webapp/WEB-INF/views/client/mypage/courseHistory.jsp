@@ -22,7 +22,20 @@
     <link rel="stylesheet" type="text/css" href="/resources/review/css/reviewSearch.css">
     <script type = "type/javascript" src="/resources/include/js/jquery-3.6.2.min.js"></script>
     <script type="text/javascript" src="/resources/review/js/reviewList.js"></script>
-
+	<script type="text/javascript">
+		$(function(){
+			var review_status = ${review_status}
+			console.log(review_status);
+			if(review_status == 0){
+				console.log("성공");
+				$('input[name=reviewStatus]').attr('value',"리뷰보기");
+			}else{
+				console.log("실패");
+			}
+			
+			
+		});
+	</script>
 <style>
 	.table>tbody>tr>td{padding:12px;vertical-align: middle;}
 </style> 
@@ -59,15 +72,16 @@
 									<td>${ courseList.category }</td>
 									<td>${ courseList.level }</td>
 									<td>${ courseList.area }</td>
-									<c:if test="${courseList.count>0 }">
+									
 										<td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
-											<%-- ================== 글쓰기 버튼 출력 시작 ============= --%>
+											<!-- ================== 글쓰기 버튼 출력 시작 ============= -->
 											<div class="contentBtn  text-right">
-												<input type="button" value="글쓰기" class="insertFormBtn" class="btn btn-dark">
-											</div>
-											<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
+												<input type="button" value="글쓰기" name="reviewStatus" class="insertFormBtn" class="btn btn-dark">
+											</div>	
+											<!-- ================== 글쓰기 버튼 출력 종료 ============= -->
 										</td>
-									</c:if>
+							
+									
 									<%-- <c:if test="${courseList.count>0 }">
 										<td>수강 전</td>
 									</c:if> --%>  	
