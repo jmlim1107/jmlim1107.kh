@@ -39,9 +39,9 @@
 		<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<header>
+							<!-- <header>
 								<h1>스튜디오 홍보</h1>
-							</header>
+							</header> -->
 							<section class="tiles">
 							
 							<c:choose>
