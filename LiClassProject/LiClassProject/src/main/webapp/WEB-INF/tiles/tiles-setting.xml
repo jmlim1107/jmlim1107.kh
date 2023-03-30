@@ -40,11 +40,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/client/qnaboard/{1}.jsp" />
 	</definition>
 	
-	<definition name="client/studio/*" template="/WEB-INF/views/template/client/clientLayout.jsp">
-		<put-attribute name="header" value="" />
-		<put-attribute name="title" value="스튜디오" />
+	<definition name="client/studio/*" template="/WEB-INF/views/template/client/studioLayout.jsp">
+		<!-- <put-attribute name="header" value="/WEB-INF/views/template/studioHeader.jsp" /> -->
  		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
-		<put-attribute name="footer" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/studioFooter.jsp" />
 	</definition>
 	
 	<definition name="common/*/*" extends="userContent">
