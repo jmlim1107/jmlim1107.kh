@@ -35,8 +35,8 @@
 				});
  				console.log("uniqueArr : "+uniqueArr);
 			 
-			 for(i=0;i<recentClasses3.length;i++){
-			 	var c_no = recentClasses3[i];
+			 for(i=0;i<uniqueArr.length;i++){
+			 	var c_no = uniqueArr[i];
 	 			if(typeof c_no != "undefined" && c_no != null && c_no != ""){
 					var url = "http://localhost:8080/class/classDetail?c_no="+c_no;
 	                $("#recentDiv").children("a:eq("+i+")").attr("href",url);
