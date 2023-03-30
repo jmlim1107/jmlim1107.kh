@@ -9,14 +9,18 @@
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
-	<definition name="classmain" template="/WEB-INF/views/template/client/clientLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/client/homeBody.jsp" /> 
+	<definition name="basicTemplate" template="/WEB-INF/views/template/client/clientLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
+		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
+	<definition name="class/*" extends="basicTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/client/class/{1}.jsp" />
+	</definition>
+	
 	<definition name="userContent" template="/WEB-INF/views/template/client/clientLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
@@ -29,9 +33,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/client/mypage/{1}.jsp" />
 	</definition>
 	
-	<definition name="class/*" extends="userContent">
-		<put-attribute name="body" value="/WEB-INF/views/client/class/{1}.jsp" />
-	</definition>
+	
 
 	<definition name="client/qnaboard/*" extends="userContent">
 		<put-attribute name="title" value="고객센터" />

@@ -54,7 +54,7 @@ public class ClientClassController {
 		
 		model.addAttribute("classList",classList);
 		
-		return "classmain";
+		return "class/classList";
 	}
 	/************************************************
 	 * 센터 상세정보
