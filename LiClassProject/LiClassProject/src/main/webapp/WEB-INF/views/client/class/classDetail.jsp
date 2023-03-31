@@ -522,8 +522,14 @@
 	
 	<!-- reservation section start -->
 	<div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px; z-index: 0;">
+<<<<<<< Updated upstream
 		<jsp:include page="/WEB-INF/views/client/class/classReservation.jsp"/>
 		<%-- <%@ include file="/WEB-INF/views/client/class/classReservation.jsp" %> --%>
+=======
+		<jsp:include page="/WEB-INF/views/client/class/classReservation.jsp">
+			<jsp:param value="${classDetail.c_no}" name="c_no"/>
+		</jsp:include>
+>>>>>>> Stashed changes
 	</div>
 	
 	<!-- reservation section start -->
