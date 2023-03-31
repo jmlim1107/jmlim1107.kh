@@ -60,22 +60,23 @@
 			      <div class="row content">
 			        <div class="col-lg-6">
 			          <p>
-			            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-			            magna aliqua.
+			            누구나 원하는 취미 여가를 쉽고 당연하게 즐길 수 있도록, 
+						사람과 사람을 연결하고 공예, 요리, 미술, 플라워, 뷰티, 여행 등
+						세상을 더 경험할 수 있도록 도와주는 서비스 플랫폼 LiClass.
 			          </p>
 			          <ul>
-			            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-			            <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-			            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+			            <li><i class="ri-check-double-line"></i> LiClass에서 당신의 취미를 찾아보세요.</li>
+			            <li><i class="ri-check-double-line"></i> 이제부터 낭만 가득한 추억을 만들어볼까요?</li>
+			            <li><i class="ri-check-double-line"></i> LiClass를 통해 지친 일상 속에서 활력을 찾고 일상을 바꾸는 경험을 하시기를 응원합니다.</li>
 			          </ul>
 			        </div>
 			        <div class="col-lg-6 pt-4 pt-lg-0">
 			          <p>
-			            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-			            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-			            culpa qui officia deserunt mollit anim id est laborum.
+						다양한 카테고리의 재밌고 색다른 클래스
+			            LiClass의 다양한 수업들을 단체클래스로 편하게 즐겨보실 수 있어요.
+			            LiClass로 색다른 행사를 시작해요.
 			          </p>
-			          <a href="#" class="btn-learn-more">Learn More</a>
+			          <a href="/class/classList" class="btn-learn-more">클래스 구경하러가기</a>
 			        </div>
 			      </div>
 			    </div>
