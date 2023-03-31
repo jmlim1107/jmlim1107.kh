@@ -40,7 +40,7 @@
 			                <li><a class="nav-link scrollto active" href="/">Home</a></li>
 			                <li><a class="nav-link scrollto menu" href="/class/classList">Class</a></li>
 			                <li><a class="nav-link scrollto menu" href="/studio/studioList">Studio</a></li>
-			                <li><a class="nav-link scrollto menu" href="#team">Team</a></li>
+			                <li><a class="nav-link scrollto menu" href="/team">Team</a></li>
 			                <li><a class="nav-link scrollto menu" href="/client/qnaboard/qnaBoard">FAQ</a></li>
 			                <c:if test="${loginUser == null}">
 			                	<li><a class="nav-link scrollto" id="login-modal" style="color:white;">Login</a></li>

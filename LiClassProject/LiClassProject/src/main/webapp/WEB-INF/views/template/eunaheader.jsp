@@ -11,8 +11,8 @@
 		      <nav class="navigation" role="navigation">
 		        <ul class="primary-nav">
 		            <li><a href="/">Home</a></li>
-		            <li><a href="/client/qnaboard/noticeBoard">Class</a></li>
-					<li><a href="/client/qnaboard/noticeBoard">Studio</a></li>
+		            <li><a href="/class/classList">Class</a></li>
+					<li><a href="/studio/studioList">Studio</a></li>
 					<li><a href="/client/qnaboard/qnaBoard">Service</a></li>
 		          <c:if test="${loginUser == null}">
 		          	<li><a id="login-modal" >Login</a></li>

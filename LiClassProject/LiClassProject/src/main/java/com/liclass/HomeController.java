@@ -30,4 +30,14 @@ public class HomeController {
 		return "home";
 	}
 	
+	/************************************************
+	 * 2. 팀 소개 화면
+	 * 요청 url : http://localhost:8080/team
+	************************************************/
+	@GetMapping("/team")
+	public String team() {
+		log.info("team() 호출");
+
+		return "team";
+	}
 }
