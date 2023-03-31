@@ -21,7 +21,49 @@
 	
 	</script>
 	
+	<style>
+		/* body{
+		  font-family: 'Montserrat', sans-serif;
+		  margin:0;
+		}
 		
+		.container {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  align-content: center;
+		  flex-wrap: wrap;
+		  width: 80vw;
+		  margin: 0 auto;
+		  min-height: 100vh;
+		} */
+		.btn {
+		  flex: 1 1 auto;
+		  margin: 10px;
+		  padding: 15px;
+		  text-align: center;
+		  text-transform: uppercase;
+		  transition: 0.5s;
+		  background-size: 200% auto;
+		  color: white;
+		 /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+		  box-shadow: 0 0 20px #eee;
+		  border-radius: 10px;
+		 }
+		
+		/* Demo Stuff End -> */
+		
+		/* <- Magic Stuff Start */
+		
+		.btn:hover {
+		  background-position: right center; /* change the direction of the change here */
+		}
+		
+		.btn-1 {
+		  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+		}
+			
+	</style>
 		
 	</head>
 	<body>
@@ -38,9 +80,9 @@
 				</form> 
 			
 				<%-- ========= 버튼 추가 시작 ====== --%>
-				<div id="boardPwdBut" class="row text-center" style="float:right">
+				<div id="boardPwdBut" class="text-right" style="margin-right: 100px;">
 					
-						<input type="button" value="목록" id="boardListBtn" class="btn btn-primary btn-lg" />
+						<input type="button" value="목록" id="boardListBtn" class="btn btn-1" />
 				
 				</div> 
 				<%--========= 버튼 추가 종료 ========= --%>
