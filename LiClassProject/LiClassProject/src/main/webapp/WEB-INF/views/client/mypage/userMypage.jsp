@@ -28,6 +28,7 @@
 		}
 	});
 </script>
+
 	<!--은아) 비밀번호 만료알림창  -->
 	<!--password expiration alert modal start  -->
 	<div class="modal" id="pwOverExp-modal" >
@@ -48,8 +49,11 @@
 	</div> 
 	<!--password expiration alert modal end  -->  
 	
+	
+	
+	
 	<!--은아)마이페이지 좌측 메뉴 nav  -->
-	<div class="popular-categories">
+	<div id="page-top" class="popular-categories">
 	    <div class="container">
 	      <div class="row">
 		  <div class="popular-categories">
