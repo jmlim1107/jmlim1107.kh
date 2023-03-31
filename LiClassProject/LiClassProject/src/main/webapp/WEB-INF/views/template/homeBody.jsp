@@ -232,7 +232,7 @@
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
-			                <a href=""><i class="bi bi-instagram"></i></a>
+			                <a href="https://instagram.com/lerudals__?igshid=YmMyMTA2M2Y="><i class="bi bi-instagram"></i></a>
 			                <a href=""><i class="bi bi-linkedin"></i></a>
 			              </div>
 			            </div>
