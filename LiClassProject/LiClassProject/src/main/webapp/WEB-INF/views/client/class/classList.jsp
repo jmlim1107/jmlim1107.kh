@@ -99,18 +99,18 @@
     
     <!-- 지민) 클래스 리스트 시작 -->
     <div class="container pt-5">
-    	<div class="row">
+    	<div class="row" style = "margin-top: 150px;">
         	<div class="col-md-8 order-md-2 col-lg-9">
             	<div class="container-fluid">
 	           	<!-- 드롭다운 메뉴 시작 -->
 	             <div class="row   mb-5">
 	               <div class="col-12">
 	                   
-	                   <div id = "prodeuct_order_list">
+	                 <!--   <div id = "prodeuct_order_list">
 	                   <label class="mr-2">Sort by:</label>
 		                   <a href="javascript:recentlist();">최신순 | </a>
 		                   <a href="javascript:likelist();">인기순</a>
-	                   </div>
+	                   </div> -->
 	               </div>
 	             </div>
 	             <!-- 드롭다운 메뉴 끝 -->
