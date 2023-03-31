@@ -32,6 +32,10 @@ public interface ReviewService {
 		
 		// 별점 개수별 점수
 		HashMap<String, Integer> tongRating(ReviewVO vo);
+
+		public void changeReviewStatus(int rno);
+
+		public ReviewVO updateFormToRno(ReviewVO detail);
 		
 		
 }

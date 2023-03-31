@@ -69,22 +69,24 @@
 										<span style="padding-left:30px;">${ courseList.title }</span>
 									</td>                     
 									<td>${courseList.date }</td>
-									<td>${ courseList.category }</td>
-									<td>${ courseList.level }</td>
-									<td>${ courseList.area }</td>
+									<td>${courseList.category }</td>
+									<td>${courseList.level }</td>
+									<td>${courseList.area }</td>
 									
+									<c:if test="${courseList.review_status == 0}">
 										<td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
 											<!-- ================== 글쓰기 버튼 출력 시작 ============= -->
-											<div class="contentBtn  text-right">
-												<input type="button" value="글쓰기" name="reviewStatus" class="insertFormBtn" class="btn btn-dark">
-											</div>	
+											<input type="button" value="글쓰기" name="reviewStatus" class="insertFormBtn" class="btn btn-dark">
 											<!-- ================== 글쓰기 버튼 출력 종료 ============= -->
 										</td>
-							
+									</c:if>
 									
-									<%-- <c:if test="${courseList.count>0 }">
-										<td>수강 전</td>
-									</c:if> --%>  	
+									<c:if test="${courseList.review_status == 1 }">
+										<td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
+											<input type="button" value="리뷰보기" class="reviewDetail">
+										</td>
+									</c:if>	
+									
 								</tr>
 							</c:forEach>
 						</c:when>
@@ -102,6 +104,10 @@
 	</div>
 </div>
 
+<!-- <form id = "detailForm"  target="iframe1">
+	<input type = "hidden" id = "review_no" name="review_no" value = "" />
+</form> -->
+
 <!-- 리뷰 작성 폼 -->
 <div id = "test1" style="display: none;">
 	<%@ include file = "/WEB-INF/views/client/review/r_writeForm.jsp" %>
@@ -110,7 +116,8 @@
 <div id = "test2" style="display: none;">
 	<%@ include file = "/WEB-INF/views/client/review/r_updateForm.jsp" %>
 </div>
-
-
-
+<!-- 리뷰 상세보기 폼 -->
+<div id = "test3" style="display: none;">
+	<%@ include file = "/WEB-INF/views/client/review/reviewDetail.jsp" %>
+</div>
 

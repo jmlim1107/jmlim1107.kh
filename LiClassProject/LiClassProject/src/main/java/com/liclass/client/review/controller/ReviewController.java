@@ -77,7 +77,7 @@ public class ReviewController {
 	//@PostMapping("/boardInsert")
 	public String reviewInsert(@ModelAttribute ReviewVO vo,@RequestParam int cno,
 			@RequestParam int rno, @RequestParam long userno,
-			Model model, RedirectAttributes ras) throws Exception {
+			Model model) throws Exception {
 		log.info("reviewInsert 호출 성공................................");
 		System.out.println("cno="+cno);
 		vo.setC_no(cno);
@@ -90,11 +90,10 @@ public class ReviewController {
 		
 		result = reviewService.reviewInsert(vo);
 		if(result == 1) {
+			reviewService.changeReviewStatus(rno);
 			log.info("성공");
 			url = "/courseHistory";
 			log.info(vo.getReview_status());
-			//model.addAttribute("review_status", vo.getReview_status());
-			ras.addFlashAttribute("review_status",vo.getReview_status());
 		} else {
 			log.info("실패");
 		}
@@ -110,7 +109,7 @@ public class ReviewController {
 	@PostMapping(value = "/reviewDetail" , produces=MediaType.APPLICATION_JSON_VALUE)
 	public ReviewVO reviewDetail(@ModelAttribute ReviewVO vo , Model model) throws Exception {
 		log.info("reviewDetail 호출 성공.................................................");
-		
+		System.out.println("datailvo="+vo);
 		ReviewVO detail = reviewService.reviewDetail(vo);
 		model.addAttribute("detail" , detail);
 		log.info("detail : " + detail);
@@ -127,9 +126,10 @@ public class ReviewController {
 	@PostMapping(value = "/r_updateForm" , produces=MediaType.APPLICATION_JSON_VALUE)
 	public ReviewVO r_updateForm(@ModelAttribute ReviewVO vo, Model model) throws Exception {
 		log.info("r_updateForm 호출 성공......................................");
-		log.info("review_no = "  + vo.getReview_no());
+		log.info("rvo = "  + vo);
+
 		
-		ReviewVO updateData = reviewService.r_updateForm(vo);
+		ReviewVO updateData = reviewService.updateFormToRno(vo);
 		model.addAttribute("updateData",updateData);
 		return updateData;	// /WEB-INF/views/review/r_updateForm.jsp 를 의미
 	}

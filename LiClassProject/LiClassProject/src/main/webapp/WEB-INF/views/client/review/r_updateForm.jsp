@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%-- ************************** r_updateForm start *************************************  --%>
-	<form id = "detailForm"  target="iframe1">
-		<input type = "hidden" id = "review_no" value = "${detail.review_no}" />
-	</form>
+
 	
  
 	<form id = "r_updateForm"><!-- 수정 : 폼태그 jquery로 관리 -->

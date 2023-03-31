@@ -66,17 +66,10 @@
     
 </head>
 <body>
-	<form id = "detailForm">
+	<!-- <form id = "detailForm">
 		<input type = "hidden" name ="review_no" id = "review_no" value = "review_no" />
-	</form>
+	</form> -->
 <!-- 	<iframe id="iframe1" name="iframe1" style="display:none"></iframe> -->
-	
-	<!-- 리뷰 상세보기 폼 -->
-	<div id = "test3" style="display: none;">
-		<%-- <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp">
-		</jsp:include> --%>
-		<%@ include file = "/WEB-INF/views/client/review/reviewDetail.jsp" %>
-	</div>
 	
 <!-- 별점 통계 start -->
 

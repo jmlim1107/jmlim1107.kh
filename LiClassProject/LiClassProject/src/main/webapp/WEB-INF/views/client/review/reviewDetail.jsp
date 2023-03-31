@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <%-- ************************** reviewDetail start *************************************  --%>
 
-	<form>
-		<input type="hidden" name="review_no" id="review_number" />
+	<form id="dataForm">
+		<input type="hidden" name="r_no" id="r_number" value="" />
+		
 			<div class="modal" id = "writeModal">
 			  	<div class="modal_content" id = "writeContent">
 			  	
@@ -54,7 +55,7 @@
 								<legend>
 									<span class="bv-fieldset-label-text custom-cursor-default-hover blocktitle"> Review Title* </span>  
 									<div class = "blockcontent">
-										<input type = "text" id = "r_detailTitle" disabled="disabled">
+										<input type = "text" id = "r_detailTitle" name="r_detailTitle" disabled="disabled" value="">
 									</div>
 								</legend>
 							</fieldset>
@@ -92,7 +93,7 @@
 				  				</legend> 
 				  			</fieldset>
 				  			
-				  			<div>
+				  			<div data-rnum=>
 				  				<button type = "button" aria-label="Update Review"  class="btn btn-dark" name="bv-submit-button" id = "updateFormBtn2">수정하기</button>
 				  				<button type = "button" aria-label="Update Review"  class="btn btn-dark" name="bv-submit-button" id = "deleteFormBtn222">삭제하기</button>
 				  				

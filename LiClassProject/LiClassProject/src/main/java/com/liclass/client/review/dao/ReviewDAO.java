@@ -30,5 +30,9 @@ public interface ReviewDAO {
 			public Double getRatingAverage(int c_no);
 
 			public HashMap<String, Integer> tongRating(ReviewVO vo);
+
+			public void changeReviewStatus(int rno);
+
+			public ReviewVO updateFormToRno(ReviewVO vo);
 	
 }

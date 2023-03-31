@@ -113,7 +113,8 @@ public class MyPageController {
         // 수강내역
         List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
 	    model.addAttribute("pvo_courseList", pvo_courseList);
-	        
+	       
+	    System.out.println("pvo="+pvo_courseList);
 	        
 		return "liuser/mypage/userMypage";
 	}
