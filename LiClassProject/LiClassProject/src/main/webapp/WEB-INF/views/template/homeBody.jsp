@@ -145,7 +145,7 @@
 			    <div class="container">
 			      <div class="section-title">
 			        <h2>Team</h2>
-			        <h3>LiCLass <span>Team</span></h3>
+			        <h3>LiClass <span>Team</span></h3>
 			        <p>LiClass member introduction</p>
 			      </div>
 			
@@ -176,8 +176,8 @@
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
-			                <a href=""><i class="bi bi-instagram"></i></a>
-			                <a href=""><i class="bi bi-linkedin"></i></a>
+			                <a href="https://www.instagram.com/sy07222/"><i class="bi bi-instagram"></i></a>
+			                <a href="https://github.com/wjdthdud13"><i class="fa-brands fa-github"></i></a>
 			              </div>
 			            </div>
 			            <div class="member-info">
