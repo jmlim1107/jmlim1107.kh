@@ -123,9 +123,6 @@
 <div id = "test2" style="display: none;">
    <%@ include file = "/WEB-INF/views/client/review/r_updateForm.jsp" %>
 </div>
-
-
-
 <!-- 리뷰 상세보기 폼 -->
 <div id = "test3" style="display: none;">
    <%@ include file = "/WEB-INF/views/client/review/reviewDetail.jsp" %>

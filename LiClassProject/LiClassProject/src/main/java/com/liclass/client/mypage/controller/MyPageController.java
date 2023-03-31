@@ -297,7 +297,7 @@ public class MyPageController {
         List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
 	    model.addAttribute("pvo_courseList", pvo_courseList);
 	    
-	    return "client/mypage/courseHistory";
+	    return "courseHistory";
 	}
 	
 	/************************************************
