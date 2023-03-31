@@ -76,7 +76,6 @@
 	 </select>
 
 	 
-	
 	<!-- 게시물 등록 -->
 	<insert id ="reviewInsert" parameterType="review">
 		<selectKey keyProperty="review_no" resultType="int" order="BEFORE">
@@ -89,18 +88,17 @@
 	<!-- 게시물 상세조회  -->
 	<select id = "reviewDetail" resultType="review" parameterType="review">
 		SELECT
-			review_no, review_title, review_content, Review_rating, review_recommend,
 			review_no, review_title, review_content, Review_rating, review_recommend, r_no,
 			TO_CHAR(review_date, 'YYYY-MM-DD') AS review_date
 		FROM Li_review
-		WHERE review_no = #{review_no}
+		WHERE r_no = #{r_no}
 	
 	</select>
 	
 	<!-- 게시글 수정조회 -->
 	<select id = "updateFormToRno" resultType="review" parameterType="review">
 		SELECT
-			review_no, review_title, review_content, Review_rating, review_recommend, r_no,
+			review_no , review_title, review_content, Review_rating, review_recommend, r_no,
 			TO_CHAR(review_date, 'YYYY-MM-DD') AS review_date
 		FROM Li_review
 		WHERE r_no = #{r_no}
@@ -113,8 +111,8 @@
 		SET review_title = #{review_title},
 			review_content = #{review_content},
 			review_update = TO_CHAR(SYSDATE ,'YYYY-MM-DD'),
-			review_rating = #{review_rating}
-		where review_no = #{review_no}
+			review_rating = #{review_rating},
+			review_recommend = #{review_recommend}
 		where r_no = #{r_no}
 	</update>
 
@@ -122,7 +120,7 @@
 	<!-- 게시글 삭제 -->
 	<delete id = "reviewDelete" parameterType="review">
 		DELETE FROM Li_review 
-		where review_no = #{review_no}
+		where r_no = #{r_no}
 	</delete>
 
 
