@@ -15,52 +15,6 @@
 		#header.header-scrolled{padding : 20px 0;}
 
 	</style>
-
-
-	<!-- 은아) 임시 헤더 
-	<!-- header start
-	<section class="tophead" role="tophead"> 
-	  <header id="header">
-	    <div class="header-content clearfix"> <a class="logo" href="/">LiClass</a>
-		      <nav class="navigation" role="navigation">
-		        <ul class="primary-nav">
-		          <li><a href="/">Home</a></li>
-		          
-		          <c:if test="${loginUser == null}">
-		          	<li><a id="login-modal" >로그인</a></li>
-		          </c:if>
-		          
-	              <c:if test="${loginUser != null}">
-		         	<li>
-		         		<c:if test="${loginUser.user_img != ''}">
-		         			<c:choose>
-				         		<c:when test="${loginUser.user_type eq 0}">
-					         		<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/${loginUser.user_img}" />${loginUser.user_name}님</a>
-			         			</c:when>
-			         			<c:otherwise>
-					         		<a href="/mypage"><img id="profile-thumbnail" src="${loginUser.user_img}"/>${loginUser.user_name}님</a>
-			         			</c:otherwise>
-		         			</c:choose>
-	         			</c:if>
-	         			
-	         			<c:if test="${loginUser.user_img == ''}">
-			         			<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/default-profile.png" alt="profile"/>${loginUser.user_name}님</a>
-	         			</c:if>
-	         		</li>
-		          	<li><a href="/user/logout">로그아웃</a></li>
-		          </c:if>
-					<li><a href="/client/qnaboard/noticeBoard">공지사항</a></li>
-					<li><a href="/client/qnaboard/qnaBoard">고객센터</a></li>
-		        	<li><a href="/liadmin/login">관리자(추후이동예정)</a></li>
-		        </ul>
-		      </nav>
-	     </div>
-			<a id="menu-nav-toggle">Menu<span></span></a> 
-	  </header>
-	</section>
-	 header end-->
-	
-	
 	<!-- ======= Header ======= -->
 			<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
 			<script type="text/javascript">
@@ -89,7 +43,7 @@
 			                <li><a class="nav-link scrollto menu" href="#team">Team</a></li>
 			                <li><a class="nav-link scrollto menu" href="/client/qnaboard/qnaBoard">FAQ</a></li>
 			                <c:if test="${loginUser == null}">
-			                	<li><a class="nav-link scrollto" id="login-modal">Login</a></li>
+			                	<li><a class="nav-link scrollto" id="login-modal" style="color:white;">Login</a></li>
 			                </c:if>
 			                <c:if test="${loginUser != null}">
 				                <c:if test="${loginUser.user_img != ''}">
