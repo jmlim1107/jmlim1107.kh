@@ -17,8 +17,8 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@RequestMapping("/client/qnaboard/*") 
-public class ClientQnaBoardController {  /*은아)0331 민섭님 타일즈가 겹쳐서 리턴값에서 client를 제거했어요ㅜㅜㅜ*/
+@RequestMapping("/client/qnaboard/*")
+public class ClientQnaBoardController {
     @Setter(onMethod_ = @Autowired)
     private ClientQnaBoardService clientQnaBoardService;
 
@@ -28,7 +28,7 @@ public class ClientQnaBoardController {  /*은아)0331 민섭님 타일즈가 �
         List<QnaBoardVo> qnaBoardList = clientQnaBoardService.qnaBoardList(qnaBoard);
         model.addAttribute("qnaBoardList", qnaBoardList);
 
-        return "qnaboard/qnaBoard";
+        return "client/qnaboard/qnaBoard";
     }
 
     //문의게시판 상세페이지
@@ -39,14 +39,14 @@ public class ClientQnaBoardController {  /*은아)0331 민섭님 타일즈가 �
         QnaBoardVo detail = clientQnaBoardService.qnaBoardDetail(qnaBoard);
         model.addAttribute("detail", detail);
 
-        return "qnaboard/qnaBoardDetail";
+        return "client/qnaboard/qnaBoardDetail";
     }
 
     @RequestMapping(value = "/qnaInsertForm")
     public String qnaInsertForm(@ModelAttribute QnaBoardVo qnaBoard, Model model){
         log.info("qnaInsertForm 호출");
 
-        return "qnaboard/qnaInsertForm";
+        return "client/qnaboard/qnaInsertForm";
     }
 
     @RequestMapping(value = "qnaBoardInsert")
@@ -72,7 +72,7 @@ public class ClientQnaBoardController {  /*은아)0331 민섭님 타일즈가 �
         QnaBoardVo updateData = clientQnaBoardService.updateForm(qnaBoard);
         model.addAttribute("updateData", updateData);
 
-        return "qnaboard/qnaUpdateForm";
+        return "client/qnaboard/qnaUpdateForm";
     }
 
     @RequestMapping(value="/qnaBoardUpdate")
@@ -120,7 +120,7 @@ public class ClientQnaBoardController {  /*은아)0331 민섭님 타일즈가 �
         int total = clientQnaBoardService.noticeBoardCnt(qnaBoard);
         model.addAttribute("pageMaker", new PageDTO(qnaBoard, total));
 
-        return "qnaboard/noticeBoard";
+        return "client/qnaboard/noticeBoard";
     }
 
     @RequestMapping(value = "/noticeBoardDetail", method = RequestMethod.GET)
@@ -130,7 +130,7 @@ public class ClientQnaBoardController {  /*은아)0331 민섭님 타일즈가 �
         QnaBoardVo detail = clientQnaBoardService.noticeBoardDetail(qnaBoard);
         model.addAttribute("detail", detail);
 
-        return "qnaboard/noticeBoardDetail";
+        return "client/qnaboard/noticeBoardDetail";
 
     }
 

@@ -7566,7 +7566,7 @@ textarea.form-control-lg {
 }
 
 .pt-5 {
-  padding-top: 13rem !important;  /* 은아)클래스 리스트 화면 상단 겹쳐서 3->13으로 변경 */
+  padding-top: 3rem !important;
 }
 
 .pe-0 {

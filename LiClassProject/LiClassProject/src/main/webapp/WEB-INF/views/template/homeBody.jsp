@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="/resources/client/mainTheme/js/bootstrap.affix.js"></script>
 
-<!--은아) 플로팅 메뉴 js,css  -->
+<!--은아)2. 플로팅 메뉴 js,css  -->
 <script src="/resources/client/mainTheme/js/floatingNav.js"></script>
 <link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
 
@@ -157,8 +157,8 @@
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
-			                <a href="https://instagram.com/euuuuunaaaaa?igshid=YmMyMTA2M2Y="><i class="bi bi-instagram"></i></a>
-			                <a href="https://github.com/kimeunazip"><i class="fa-brands fa-github"></i></a>
+			                <a href=""><i class="bi bi-instagram"></i></a>
+			                <a href=""><i class="bi bi-linkedin"></i></a>
 			              </div>
 			            </div>
 			            <div class="member-info">
@@ -266,7 +266,7 @@
     	</div>
 	
 	<!-- 은아)플로팅메뉴  -->
-	<!-- floating nav start -->
+	<!-- 2. floating nav start -->
 	<div id="floatMenu">
 		<div class="section-block">
 			<nav class="side-menu">

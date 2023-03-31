@@ -121,9 +121,13 @@ $(function(){
                                     </div>
                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="form-group">
+<<<<<<< HEAD
                                             <label class="control-label required" for="booking_by">난이도 ${classDetail.c_level}
                                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                             </label>
+=======
+                                            <label class="control-label required" for="booking_by">난이도 ${clientClassDetail.c_level}</label>
+>>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -169,11 +173,21 @@ $(function(){
 								      		<button type="button" class="main-white-button"><a class="like"><i class="fa-solid fa-heart"></i>찜하기</a></button>
 								      	</c:if>
 							         </c:if>
+<<<<<<< HEAD
                                         <button type="button" class="main-white-button"><a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i>공유하기</a></button>
                                         <button type="button" class="main-white-button goReserve"><a href="#reserveModal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
                                   		
+      	
+								      	<!-- sns share modal start -->  
+								      	<div class="modal" id="sns-share" style="z-index: 2; position: initial; text-align: center; height:50px">
+=======
+                                        <a href="#sns-share2" rel="modal:open"><i class="fa-solid fa-share-nodes"></i>공유하기</a>
+                                        <button type="button" class="main-white-button goReserve"><a><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
+                                  		
+      	
 								      	<!-- sns share modal start  --> 
 								      	<div class="modal" id="sns-share2" style="z-index: 2; position: initial; text-align: center;">
+>>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
 											   <a id="kakao-link-btn" href="javascript:kakaoShare()"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
 											   <a id="twitter-link-btn" href="javascript:shareTwitter()"><i class="fa-brands fa-twitter"></i></a>
 											   <a id="facebook-link-btn" href="javascript:shareFacebook()"><i class="fa-brands fa-facebook-f" style="color:#415893;"></i></a>

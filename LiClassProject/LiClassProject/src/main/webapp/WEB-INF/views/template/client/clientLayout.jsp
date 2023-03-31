@@ -36,8 +36,8 @@
     <link href="/resources/include/mainLayout/css/style.css" rel="stylesheet">
 		
   </head>
-  	<!-- 은아) 0331 로그인모달창 회색배경때문에 0으로 변경해봄 -->
-	<div class="header" style="height: 0;">
+  
+	<div class="header">
 		<tiles:insertAttribute name="header" />
 	</div>
 	

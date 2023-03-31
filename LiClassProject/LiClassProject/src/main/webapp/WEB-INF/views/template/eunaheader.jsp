@@ -10,12 +10,10 @@
 	    <div class="header-content clearfix"> <a class="logo" href="/">LiClass</a>
 		      <nav class="navigation" role="navigation">
 		        <ul class="primary-nav">
-		            <li><a href="/">Home</a></li>
-		            <li><a href="/class/classList">Class</a></li>
-					<li><a href="/studio/studioList">Studio</a></li>
-					<li><a href="/client/qnaboard/qnaBoard">Service</a></li>
+		          <li><a href="/">Home</a></li>
+		          
 		          <c:if test="${loginUser == null}">
-		          	<li><a id="login-modal" >Login</a></li>
+		          	<li><a id="login-modal" >로그인</a></li>
 		          </c:if>
 		          
 	              <c:if test="${loginUser != null}">
@@ -35,8 +33,11 @@
 			         			<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/default-profile.png" alt="profile"/>${loginUser.user_name}님</a>
 	         			</c:if>
 	         		</li>
-		          	<li><a href="/user/logout">Logout</a></li>
+		          	<li><a href="/user/logout">로그아웃</a></li>
 		          </c:if>
+					<li><a href="/client/qnaboard/noticeBoard">공지사항</a></li>
+					<li><a href="/client/qnaboard/qnaBoard">고객센터</a></li>
+		        	<li><a href="/liadmin/login">관리자(추후이동예정)</a></li>
 		        </ul>
 		      </nav>
 	     </div>

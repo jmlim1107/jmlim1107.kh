@@ -10,6 +10,8 @@
 			unicode-bidi: bidi-override;
     		color: #555; 
     	}
+<<<<<<< HEAD
+    	
     	#login-pop-modal{
     		top: 250px;
     	}
@@ -30,10 +32,14 @@
 			width: 80%;
 		}
 		
+</style>
+
+=======
     	.card{
     		border:none;
     	}
     </style>
+>>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
 
 <script type="text/javascript">
 	$(function(){
@@ -52,6 +58,11 @@
 		}else if("${6 eq classDetail.c_category}"){
 			$("#category").html("<i class='fa-solid fa-hashtag'></i> 체험 및 기타");
 		}
+<<<<<<< HEAD
+	    });
+=======
+		
+		
 		
 		//클래스 이미지 사진
 		var img1 = '/uploadLiClass/class/'+$('.class-img:eq(0)').val();
@@ -66,14 +77,21 @@
 	    $("#img3").attr("src",img3);
 	});
 	    
+>>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
 </script>
 
 	<!-- header slider section start -->
 	<section id="header-slider" class="section">
+<<<<<<< HEAD
+	<div class="class-content" data-num="${classDetail.c_no}">
+      <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${classDetail.c_area}</h6>
+      <h3>${classDetail.c_title}</h3>
+=======
 	<div class="class-content" data-num="${clientClassDetail.c_no}">
       <h6 id="category"><i class="fa-solid fa-hashtag"></i></h6>
       <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${clientClassDetail.c_area}</h6>
       <h3>${clientClassDetail.c_title}</h3>
+>>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
      
       <div style="display: flex;" class="login-info" data-num="${loginUser.user_no}">
       	
@@ -106,8 +124,13 @@
 	<!-- header slider section end -->
 	
 	<!-- information section start -->
+<<<<<<< HEAD
+	<div class="container-fluid class-info" data-title = "${classDetail.c_title}">
+		<div class="row" style="justify-content: left;">
+=======
 	<div class="container-fluid class-info" data-title = "${clientClassDetail.c_title}">
 		<div class="row" style="display:block;">
+>>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
 		    <div class="col-md-10">
 			      <div class="card" style="display: block;">
 				      <!-- Nav tabs start -->
@@ -216,6 +239,11 @@
 				          <!-- 3. center info end -->
 				          
 			              <!-- 4. class-review start -->
+			              
+<<<<<<< HEAD
+				          <div role="tabpanel" class="tab-pane" id="class-review" data-num="${classDetail.c_no}">
+				          		<%@ include file="/WEB-INF/views/client/class/classReview.jsp" %>
+=======
 			              
 				          <div role="tabpanel" class="tab-pane" id="class-review" data-num="${clientClassDetail.c_no}">
 				          	<form id = "detailForm">

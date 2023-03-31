@@ -14,67 +14,21 @@
 			
 			/* 목록 버튼 클릭 시 처리 이벤트 */
 			$("#boardListBtn").click(function(){
-				location.href="/studio/studioList"; 
+				location.href="/client/studio/studioList"; 
 			});
 			
 		});
 	
 	</script>
 	
-	<style>
-		/* body{
-		  font-family: 'Montserrat', sans-serif;
-		  margin:0;
-		}
 		
-		.container {
-		  display: flex;
-		  justify-content: center;
-		  align-items: center;
-		  align-content: center;
-		  flex-wrap: wrap;
-		  width: 80vw;
-		  margin: 0 auto;
-		  min-height: 100vh;
-		} */
-		.btn {
-		  flex: 1 1 auto;
-		  margin: 10px;
-		  padding: 13px;
-		  text-align: center;
-		  text-transform: uppercase;
-		  transition: 0.5s;
-		  background-size: 200% auto;
-		  color: white;
-		 /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
-		  box-shadow: 0 0 20px #eee;
-		  border-radius: 10px;
-		  font-size: 13px;
-		 }
-		
-		/* Demo Stuff End -> */
-		
-		/* <- Magic Stuff Start */
-		
-		.btn:hover {
-		  background-position: right center; /* change the direction of the change here */
-		}
-		
-		.btn-1 {
-		  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
-		}
-		.btn-2 {
-		  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
-		}
-			
-	</style>
 		
 	</head>
 	<body>
 
 
 	<!-- Main -->
-		<div id="main" style="padding-top: 150px">
+		<div id="main">
 			<div class="inner">
 						
 				<form name="f_data" id="f_data" method="post">
@@ -84,9 +38,9 @@
 				</form> 
 			
 				<%-- ========= 버튼 추가 시작 ====== --%>
-				<div id="boardPwdBut" class="text-right" style="margin-right: 100px;">
+				<div id="boardPwdBut" class="row text-center" style="float:right">
 					
-						<input type="button" value="목록" id="boardListBtn" class="btn btn-1" />
+						<input type="button" value="목록" id="boardListBtn" class="btn btn-primary btn-lg" />
 				
 				</div> 
 				<%--========= 버튼 추가 종료 ========= --%>
@@ -115,10 +69,6 @@
 					<br/>
 					<br/>
 					<div style="white-space:pre-wrap; font-size:1.5em;" >${detail.s_content}</div>
-					
-					<br/>
-					<br/>
-					<a class="btn btn-2" href="/class/classList">클래스 구경하러가기</a>
 				</div>			
 			</div>
 		</div>

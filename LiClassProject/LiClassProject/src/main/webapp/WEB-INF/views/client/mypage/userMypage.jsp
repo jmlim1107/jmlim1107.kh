@@ -99,7 +99,7 @@
 		                   </div>
 		                 </div>
 		               </div> 
-		               <div class="col-lg-9 align-self-center">
+		               <div class="col-lg-9 align-self-center" style="top: -320px;">
 		                 <ul class="nacc">
 		                 
 	                 	   <!-- 1. my profile start -->
