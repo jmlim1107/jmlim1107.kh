@@ -30,8 +30,15 @@
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
+	<!--은아) 은아 테스트중  -->
+	<definition name="mypageContent" template="/WEB-INF/views/template/client/eunaLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/template/eunanav.jsp" />
+		<put-attribute name="body" value="" />
+	</definition>
+	
 	<!--은아) 0330 liuser-> client로 수정 -->
-	<definition name="client/*/*" extends="userContent">
+	<definition name="client/*/*" extends="mypageContent">
 		<put-attribute name="body" value="/WEB-INF/views/client/{1}/{2}.jsp" />
 	</definition>
 	
@@ -40,8 +47,8 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/error/{1}.jsp" />
 	</definition>
 	
-
-	<definition name="client/qnaboard/*" extends="userContent">
+	<!--은아)0331 민섭님 타일즈가 겹쳐서 client를 빼봤어요.  -->
+	<definition name="qnaboard/*" extends="userContent">
 		<put-attribute name="title" value="고객센터" />
 		<put-attribute name="body" value="/WEB-INF/views/client/qnaboard/{1}.jsp" />
 	</definition>
