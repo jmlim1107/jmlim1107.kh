@@ -62,6 +62,9 @@
 		.btn-1 {
 		  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
 		}
+		.btn-2 {
+		  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+		}
 			
 	</style>
 		
@@ -111,6 +114,10 @@
 					<br/>
 					<br/>
 					<div style="white-space:pre-wrap; font-size:1.5em;" >${detail.s_content}</div>
+					
+					<br/>
+					<br/>
+					<a class="btn btn-2" href="/class/classList">클래스 구경하러가기</a>
 				</div>			
 			</div>
 		</div>
