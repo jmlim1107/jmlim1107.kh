@@ -11,6 +11,7 @@
  
 	<form id = "r_updateForm"><!-- 수정 : 폼태그 jquery로 관리 -->
 	<input type = "hidden" name = "review_no" id="reviewupdate_no" />
+	<input type = "hidden" name = "r_no" id="r_no"  />
 		<div class="modal" id = "updateModal">
 		  	<div class="modal_content" id = "update_content">
 		  		
@@ -100,7 +101,7 @@
 			  			</fieldset>
 			  			
 			  			<div>
-			  				<button aria-label="Post Review"  class="btn-dark" name="bv-submit-button" id = "reviewUpdateBtn">Update Review</button>
+			  				<button aria-label="Post Review"  class="btn-dark" name="bv-submit-button reviewUpdateBtn" class = "reviewUpdateBtn" type="button">Update Review</button>
 			  			</div>
 			  		</div>
 			  	</div>
