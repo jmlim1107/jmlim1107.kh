@@ -14,7 +14,7 @@
 			
 			/* 목록 버튼 클릭 시 처리 이벤트 */
 			$("#boardListBtn").click(function(){
-				location.href="/client/studio/studioList"; 
+				location.href="/studio/studioList"; 
 			});
 			
 		});
@@ -28,7 +28,7 @@
 
 
 	<!-- Main -->
-		<div id="main">
+		<div id="main" style="padding-top: 150px">
 			<div class="inner">
 						
 				<form name="f_data" id="f_data" method="post">
