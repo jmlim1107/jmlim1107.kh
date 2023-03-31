@@ -114,23 +114,18 @@ public class MyPageController {
 	        
 		return "client/mypage/userMypage";
 	}
-<<<<<<< HEAD
 	
-	@RequestMapping("/courseHistory")
-	public String courseHistory(Model model, PaymentVO pvo,HttpSession session) {
-		// 수강내역
-		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		pvo.setUser_no(loginUser.getUser_no());
-        List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
-        //System.out.println("pvo"+pvo_courseList.toString());
-	    model.addAttribute("pvo_courseList", pvo_courseList);
-	    
-	    return "liuser/mypage/courseHistory";
-	}
-	
-=======
-
->>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
+	/*
+	 * @RequestMapping("/courseHistory") public String courseHistory(Model model,
+	 * PaymentVO pvo,HttpSession session) { // 수강내역 UserVO loginUser =
+	 * (UserVO)session.getAttribute("loginUser");
+	 * pvo.setUser_no(loginUser.getUser_no()); List<Map<String, String>>
+	 * pvo_courseList = mypageService.courseList(pvo);
+	 * //System.out.println("pvo"+pvo_courseList.toString());
+	 * model.addAttribute("pvo_courseList", pvo_courseList);
+	 * 
+	 * return "liuser/mypage/courseHistory"; }
+	 */
 	/************************************************
 	 * 2.회원정보 수정화면
 	 * 요청 url : http://localhost:8080/mypage/updateForm

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.liclass.admin.episode.service.EpisodeService;
+
 import com.liclass.client.review.service.ReviewService;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.vo.PageDTO;
@@ -91,13 +90,10 @@ public class ReviewController {
 		result = reviewService.reviewInsert(vo);
 		if(result == 1) {
 			log.info("성공");
-<<<<<<< HEAD
-=======
 			url = "/courseHistory";
 			log.info(vo.getReview_status());
 			//model.addAttribute("review_status", vo.getReview_status());
 			ras.addFlashAttribute("review_status",vo.getReview_status());
->>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 		} else {
 			log.info("실패");
 		}
