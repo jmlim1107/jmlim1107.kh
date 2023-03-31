@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 import com.liclass.client.review.service.ReviewService;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.vo.PageDTO;
@@ -89,6 +88,7 @@ public class ReviewController {
 		
 		result = reviewService.reviewInsert(vo);
 		if(result == 1) {
+			reviewService.changeReviewStatus(rno);
 			log.info("성공");
 			url = "/courseHistory";
 			log.info(vo.getReview_status());
@@ -110,6 +110,7 @@ public class ReviewController {
 	public ReviewVO reviewDetail(@ModelAttribute ReviewVO vo , Model model) throws Exception {
 		log.info("reviewDetail 호출 성공.................................................");
 		
+		System.out.println("datailvo="+vo);
 		ReviewVO detail = reviewService.reviewDetail(vo);
 		model.addAttribute("detail" , detail);
 		log.info("detail : " + detail);
@@ -127,8 +128,11 @@ public class ReviewController {
 	public ReviewVO r_updateForm(@ModelAttribute ReviewVO vo, Model model) throws Exception {
 		log.info("r_updateForm 호출 성공......................................");
 		log.info("review_no = "  + vo.getReview_no());
+		log.info("rvo = "  + vo);
+
 		
-		ReviewVO updateData = reviewService.r_updateForm(vo);
+		// ReviewVO updateData = reviewService.r_updateForm(vo);
+		ReviewVO updateData = reviewService.updateFormToRno(vo);
 		model.addAttribute("updateData",updateData);
 		return updateData;	// /WEB-INF/views/review/r_updateForm.jsp 를 의미
 	}

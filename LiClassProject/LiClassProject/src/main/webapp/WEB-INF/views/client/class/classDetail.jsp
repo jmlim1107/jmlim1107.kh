@@ -478,7 +478,6 @@
 	</div>
  </div>
 								
->>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
 						  </div>
 						  <!--4. class-review end -->
 						  
@@ -522,8 +521,10 @@
 	
 	<!-- reservation section start -->
 	<div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px; z-index: 0;">
-		<jsp:include page="/WEB-INF/views/client/class/classReservation.jsp"/>
-		<%-- <%@ include file="/WEB-INF/views/client/class/classReservation.jsp" %> --%>
+		<jsp:include page="/WEB-INF/views/client/class/classReservation.jsp">
+			<jsp:param value="${clientClassDetail.c_no}" name="c_no"/>
+		</jsp:include> 
+		 <%--<%@ include file="/WEB-INF/views/client/class/classReservation.jsp" %>--%>
 	</div>
 	
 	<!-- reservation section start -->

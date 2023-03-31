@@ -23,7 +23,7 @@
 											        	<h6><i class="fa-regular fa-calendar-check"></i> ${reviewVO.review_date}</h6>
 											          </div>
 											        </div>
-											        <img src="/uploadLiClass/review/${reviewVO.review_img}"  alt="review_img"  width="360px" height="230px"> 
+											        <%-- <img src="/uploadLiClass/review/${reviewVO.review_img}"  alt="review_img"  width="360px" height="230px">--%> 
 										        </a>
 	   									        <a class="edit-review"><i class="fa-regular fa-pen-to-square"></i></a>
 									         </div>

@@ -108,10 +108,11 @@ public class MyPageController {
         model.addAttribute("pageMaker", new PageDTO(pvo, total_payment));
         
         // 수강내역
+        /* 테이블 수정중이여서 주석처리
         List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
 	    model.addAttribute("pvo_courseList", pvo_courseList);
-	        
-	        
+	      */  
+	      
 		return "client/mypage/userMypage";
 	}
 	
@@ -296,7 +297,7 @@ public class MyPageController {
         List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
 	    model.addAttribute("pvo_courseList", pvo_courseList);
 	    
-	    return "client/mypage/courseHistory";
+	    return "courseHistory";
 	}
 	
 	/************************************************

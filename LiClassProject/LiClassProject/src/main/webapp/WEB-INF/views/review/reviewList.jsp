@@ -1,3 +1,4 @@
+@@ -1,301 +1,294 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!-- 부트스트랩 -->
@@ -67,18 +68,11 @@
 </head>
 <body>
 	<form id = "detailForm">
+	<!-- <form id = "detailForm">
 		<input type = "hidden" name ="review_no" id = "review_no" value = "review_no" />
 	</form>
+	</form> -->
 <!-- 	<iframe id="iframe1" name="iframe1" style="display:none"></iframe> -->
-	
-	<!-- 리뷰 작성 폼 -->
-	<div id = "test1" style="display: none;">
-		<%@ include file = "/WEB-INF/views/client/review/r_writeForm.jsp" %>
-	</div>
-	<!-- 리뷰 업데이트 폼 -->
-	<div id = "test2" style="display: none;">
-		<%@ include file = "/WEB-INF/views/client/review/r_updateForm.jsp" %>
-	</div>
 	
 	<!-- 리뷰 상세보기 폼 -->
 	<div id = "test3" style="display: none;">
@@ -165,18 +159,7 @@
 
 			    </form>
 			  </div>
-			  
-			
-			
-            <%-- ================== 글쓰기 버튼 출력 시작 ============= --%>
-			<div class="contentBtn  text-right">
-				<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
-			</div>
-			<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
 		
-
-			
-
 	         <!--  댓글창 -->
 	         <div class="comment-wrapper pt--40">
 	         <c:choose>
@@ -271,7 +254,7 @@
 		                
 		                <%-- <div>
 		                	<c:if test="${not empty board.b_thumb}">
-								<img src="/uploadStorage/review/thumbnail/${review.review_thumb_file}" style="width: 100px;"/>
+								<img src="/uploadLiClass/review/thumbnail/${review.review_thumb_file}" style="width: 100px;"/>
 							</c:if>
 							<c:if test="${empty board.b_thumb}">
 								<img src="/resources/images/notfound.png"  style="width: 100px;" />
@@ -315,6 +298,6 @@
 	  </div>
 	</div>
  </div>
- 
+ </form>
 </body>
 </html>
