@@ -18,7 +18,7 @@
 				// 상세 페이지로 이동하기 위해 form 추가 (id : detailForm) 
 				$("#detailForm").attr({
 					"method":"get",
-					"action":"/client/studio/studioDetail"
+					"action":"/studio/studioDetail"
 				});
 				$("#detailForm").submit(); 
 			});
@@ -33,6 +33,11 @@
 	
 	</script>
 	
+	<style>
+		#title-font{
+			font-weight: bold;
+		}
+	</style>
 	
 	</head>
 	<body>
@@ -86,10 +91,10 @@
 				<c:forEach var="studio" items="${studioList}" varStatus="status">
 				<div class="col-lg-3 col-md-6">
 							<article class="post-grid mb-5">
-								<a class="post-thumb mb-4 d-block" href="/client/studio/studioDetail?s_no=${studio.s_no}">
+								<a class="post-thumb mb-4 d-block" href="/studio/studioDetail?s_no=${studio.s_no}">
 									<img src="/uploadLiClass/studio/thumbnail/${studio.s_thumb}" style="height: 200px; alt="" class="img-fluid w-100" >
 								</a>
-								<h3 class="post-title mt-1"><a href="/client/studio/studioDetail?s_no=${studio.s_no}">${studio.s_title}</a></h3>
+								<h3 class="post-title mt-1"><a id="title-font" href="/studio/studioDetail?s_no=${studio.s_no}">${studio.s_title}</a></h3>
 
 								<span class="text-muted letter-spacing text-uppercase font-sm">${studio.s_date}</span>
 

@@ -17,13 +17,13 @@ public class CommonExceptionAdvice {
 	public String exceptionMethod(Exception ex, Model model) {
 		log.error("exceptionMethod()" + ex.getMessage());
 		model.addAttribute("exception",ex);
-		return "common/error/error_page";
+		return "common/error/error_500";
 	}
 	
 	@ExceptionHandler(NoHandlerFoundException.class) //400번대 에러
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public String handle404(NoHandlerFoundException ex) {
 		log.error("handle404()" + ex.getMessage());
-		return "common/error/custom404";
+		return "common/error/error_404";
 	}
 }

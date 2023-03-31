@@ -4,6 +4,7 @@
 	<!--1. 나의 관심클래스 조회 -->
 	<select id="myLikesList" parameterType="User" resultType="c_class">
         select a.c_no,a.c_title,a.c_content,a.c_category,a.c_area,a.c_luv,c.c_img_file as c_img_file
+     	select a.c_no,a.c_title,a.c_content,a.c_category,a.c_area,a.c_luv,c.c_img_file as c_img_file
         from li_class a left join li_likes b on a.c_no = b.c_no
                         left join li_class_img c on a.c_no = c.c_no
         where b.user_no = #{user_no}
