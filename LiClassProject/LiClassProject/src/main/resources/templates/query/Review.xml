@@ -76,13 +76,13 @@
 	 </select>
 
 	 
+	
 	<!-- 게시물 등록 -->
 	<insert id ="reviewInsert" parameterType="review">
 		<selectKey keyProperty="review_no" resultType="int" order="BEFORE">
 			select Li_review_seq.nextval from dual
 		</selectKey>
 		INSERT INTO Li_review(review_no, review_title, review_content, review_date, review_status, review_rating, review_recommend, r_no, c_no, user_no)
-		VALUES(#{review_no}, #{review_title}, #{review_content}, TO_CHAR(SYSDATE ,'YYYY-MM-DD'), 0, #{review_rating}, #{review_recommend} ,#{r_no}, #{c_no}, #{user_no})
 		VALUES(#{review_no}  , #{review_title}, #{review_content}, TO_CHAR(SYSDATE ,'YYYY-MM-DD'), 0, #{review_rating}, #{review_recommend} ,#{r_no}, #{c_no}, #{user_no})
 	</insert>
 	
@@ -90,11 +90,22 @@
 	<select id = "reviewDetail" resultType="review" parameterType="review">
 		SELECT
 			review_no, review_title, review_content, Review_rating, review_recommend,
+			review_no, review_title, review_content, Review_rating, review_recommend, r_no,
 			TO_CHAR(review_date, 'YYYY-MM-DD') AS review_date
 		FROM Li_review
 		WHERE review_no = #{review_no}
 	
 	</select>
+	
+	<!-- 게시글 수정조회 -->
+	<select id = "updateFormToRno" resultType="review" parameterType="review">
+		SELECT
+			review_no, review_title, review_content, Review_rating, review_recommend, r_no,
+			TO_CHAR(review_date, 'YYYY-MM-DD') AS review_date
+		FROM Li_review
+		WHERE r_no = #{r_no}
+	</select>
+	
 	
 	<!-- 게시글 수정	 -->
 	<update id = "reviewUpdate" parameterType = "review">
@@ -104,6 +115,7 @@
 			review_update = TO_CHAR(SYSDATE ,'YYYY-MM-DD'),
 			review_rating = #{review_rating}
 		where review_no = #{review_no}
+		where r_no = #{r_no}
 	</update>
 
 
@@ -139,6 +151,10 @@
 	</select>
 	
 	
+	<update id="changeReviewStatus" parameterType="int">
+		update li_reserve set REVIEW_STATUS = 1 
+		where R_NO = #{r_no}
+	</update>
 	
 	
 	

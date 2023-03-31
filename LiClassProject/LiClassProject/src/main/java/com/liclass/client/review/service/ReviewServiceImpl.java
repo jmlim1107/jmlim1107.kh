@@ -115,6 +115,17 @@ public class ReviewServiceImpl implements ReviewService {
 		return ratingTotal;
 	}
 
+	@Override
+	public void changeReviewStatus(int rno) {
+		reviewDao.changeReviewStatus(rno);
+	}
+
+	@Override
+	public ReviewVO updateFormToRno(ReviewVO detail) {
+		ReviewVO result = reviewDao.updateFormToRno(detail);
+		return result;
+	}
+
 	
 	 
 
