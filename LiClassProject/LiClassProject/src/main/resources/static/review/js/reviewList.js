@@ -27,30 +27,21 @@ $(function(){
 	 	 * 후기 상세보기
 	 	 *****************************************/
 	 	 // 상세보기 버튼 클릭 시
-	  	$(".test3").click(function(e){
-			let review_no =  $(this).parents("div").attr("data-num");	
 	  	$(".reviewDetail").click(function(e){
-			let r_no =  $(this).parents("div").attr("data-num");	//= r_no
-			
 			// 원하는 요소에 값 집어넣기
-			$("#review_no").val(review_no);
+			//$("#review_no").val(r_no);
 			//$('input[name=]').val(r_no); // = review_no
 			// updateForm 에 보내주기 위한 글번호
-			$("#review_number").val(review_no);
-			console.log("글번호 : "+review_no); 
+			//$("#review_number").val(review_no);
+			//console.log("글번호 : "+review_no); 
 			//$("#review_number").val(r_no); 
 			//console.log("글번호 : "+review_no); 
 			
 			// 상세페이지 이동
 			$.ajax({
 				type : "post",
-				url : "/review/reviewDetail",
-				/*data : JSON.stringify({ "review_no" : $("#review_no").val() }),*/
-				data : "review_no="+$("#review_no").val(),
-				/*,contentType : "application/json",*/
 				url : "/reviewDetail",
-				data : /*"review_no="+$("#review_no").val()*/ "review_no="+$(this).parents("td").attr("data-rno"),
-				
+				data : "review_no="+$(this).parents("td").attr("data-rno"),
 				dataType : "json",
 				success : function(data){
 					//alert(data.review_content);
@@ -212,7 +203,6 @@ $(function(){
 
 		
 	}); // $ 함수 종료문
-	
 	
 	/****************************************
  	 * 검색을 위한 실질적인 처리 함수

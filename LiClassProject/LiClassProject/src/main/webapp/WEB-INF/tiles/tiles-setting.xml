@@ -23,6 +23,7 @@
 	</definition>
 	
 	
+	
 	<!--은아) 은아헤더 (마이페이지에서 사용) -->
 	<definition name="userContent" template="/WEB-INF/views/template/client/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
@@ -40,6 +41,12 @@
 	<!--은아) 0330 liuser-> client로 수정 -->
 	<definition name="client/*/*" extends="mypageContent">
 		<put-attribute name="body" value="/WEB-INF/views/client/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="courseHistory" template="/WEB-INF/views/template/client/eunaLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
+		<put-attribute name="nav" value="" />
+		<put-attribute name="body" value="/WEB-INF/views/client/mypage/courseHistory.jsp" />
 	</definition>
 	
 	<!--은아) 에러페이지 -->
