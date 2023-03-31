@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="/resources/client/mainTheme/js/bootstrap.affix.js"></script>
 
-<!--은아)2. 플로팅 메뉴 js,css  -->
+<!--은아) 플로팅 메뉴 js,css  -->
 <script src="/resources/client/mainTheme/js/floatingNav.js"></script>
 <link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
 
@@ -266,7 +266,7 @@
     	</div>
 	
 	<!-- 은아)플로팅메뉴  -->
-	<!-- 2. floating nav start -->
+	<!-- floating nav start -->
 	<div id="floatMenu">
 		<div class="section-block">
 			<nav class="side-menu">
