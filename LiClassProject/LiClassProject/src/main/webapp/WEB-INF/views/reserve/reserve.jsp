@@ -341,7 +341,6 @@
 		</script>
 	</head>
 	<body> 
-	
 		<%-- 클래스의 해당일자 회차정보들을 얻어오기 위한 폼 --%>
 		<form id="epListOfDay">
 			<input type="hidden" name="c_no" value="${param.c_no }">
@@ -362,13 +361,13 @@
 		
 		<section class="ftco-section">
 			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-md-6 text-center mb-5">
+				<!--<div class="row justify-content-center">
+					 <div class="col-md-6 text-center mb-5">
 						<h5 class="heading-section">예약일정을 선택하세요</h5>
-					</div>
-				</div>
+					</div> 
+				</div>-->
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12" style="width:800px;">
 					<div class="elegant-calencar d-md-flex">
 					
 				      <div class="calendar-wrap" style="background:#FDF5E6"><!-- 캘린더 부분 -->
@@ -541,9 +540,9 @@
 				</div>
 			</div>
 		</section>
-	<script src="/resources/reserve/js/jquery.min.js"></script>
-  	<script src="/resources/reserve/js/popper.js"></script>
-  	<script src="/resources/reserve/js/bootstrap.min.js"></script>
-  	<script src="/resources/reserve/js/main.js"></script>
+		<script src="/resources/reserve/js/jquery.min.js"></script>
+	  	<script src="/resources/reserve/js/popper.js"></script>
+	  	<script src="/resources/reserve/js/bootstrap.min.js"></script>
+	  	<script src="/resources/reserve/js/main.js"></script>
 	</body>
 </html>

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,6 +26,7 @@ import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import retrofit2.http.GET;
 
 @Controller
 @Slf4j
@@ -42,7 +42,7 @@ public class ClientClassController {
 	private ReviewService reviewService;
 	
 	/************************************************
-	 * 클래스 전체 조회 
+	 * 게시판 전체조회 ->homecontroller에 포함시킴 ->03.30 별도분리
 	 * 요청 url : http://localhost:8080/class/classList
 	*************************************************/
 	@GetMapping("/class/classList")
@@ -55,8 +55,18 @@ public class ClientClassController {
 		
 		return "class/classList";
 	}
+	/************************************************
+	 * 센터 상세정보
+	 * 요청 url : http://localhost:8080/user/signupForm
+	***********************************************
+	@GetMapping("/admin/centerDetail")
+	public String centerDetail(ClassVO vo,Model model) {
+		log.info("centerDetail() 호출");
+		CenterVO centerDetail = classService.centerDetail(vo);
+		model.addAttribute("centerDetail", centerDetail);
+		return "mypage/updateForm";
+	}*/
 	
-
 	/************************************************
 	 * 클래스 상세조회
 	 * 요청 url : http://localhost:8080/class/classList
@@ -75,7 +85,7 @@ public class ClientClassController {
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 		model.addAttribute("loginUser",loginUser);
 		
-		//클래스 관심클래스 유무 확인
+		//클래스 관심클래스 유무
 		if(loginUser != null) {
 			LikesVO lvo = new LikesVO();
 			lvo.setUser_no(loginUser.getUser_no());
@@ -127,13 +137,13 @@ public class ClientClassController {
 	}
 	
 	/************************************************
-	 * 클래스 대표 이미지 조회
-	 * 요청 url : http://localhost:8080/class/getClassImg
+	 * 클래스 상세조회 (최근 본 클래스)
+	 * 요청 url : http://localhost:8080/class/classList2
 	*************************************************/
 	@ResponseBody
-	@GetMapping("/class/getClassImg")
-	public String getClassImg(ClientClassVO cvo) {
-		log.info("getClassImg() 호출");
+	@GetMapping("/class/classDetail2")
+	public String classDetail2(ClientClassVO cvo) {
+		log.info("classDetail2() 호출");
 
 		//클래스 상세정보
 		ClientClassVO recentClass = clientClassService.clientClassDetail(cvo);
@@ -143,14 +153,14 @@ public class ClientClassController {
 	}
 	
 	
-	/* 예약하기 */
-	@RequestMapping("/admin/episode/goReserve")
+	/* 예약하기 
+	@GetMapping("/admin/episode/goReserve")
 	public String goReserve(@RequestParam int c_no, HttpSession session, Model model) {
 		log.info("예약페이지로 넘어갑니다...");
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 	    model.addAttribute("loginUser",loginUser);
 		return "reserve/reserve";
-	}
+	}*/
 	
 	
 	
