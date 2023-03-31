@@ -227,5 +227,4 @@ $(function(){
 			"action":"/review/reviewList"
 		});
 		$("#review_search").submit();
-	}
-	
+		}
