@@ -52,16 +52,17 @@
       <tiles:insertAttribute name="body" />
     </div>
 
-      <div class="container">
+   <!-- ======= Footer ======= -->
+	<div class="container">
 	    <footer class="py-3 my-4">
-	      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+	      <ul class="nav justify-content-center border-bottom pb-3 mb-3" style="display: flex;justify-content: center;">
 	        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
 	        <li class="nav-item"><a href="/class/classList" class="nav-link px-2 text-muted">Classes</a></li>
 	        <li class="nav-item"><a href="/studio/studioList" class="nav-link px-2 text-muted">Center</a></li>
 	        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
 	        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
 	      </ul>
-	      <p class="text-center text-muted">© 2022 Company, Kh정보교육원</p>
+	      <p class="text-center text-muted" style="display: flex;justify-content: center;padding: 50px;">© 2022 Company, Kh정보교육원</p>
 	    </footer>
 	  </div>
 
