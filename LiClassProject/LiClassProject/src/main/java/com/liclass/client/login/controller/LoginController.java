@@ -48,7 +48,10 @@ public class LoginController {
 	@Setter(onMethod_ = @Autowired)
     private MailService mailService;
 	
-	
+	@GetMapping("/use")
+	public String use() {
+		return "common/error/error_500";
+	}
 	/************************************************
 	 * 1.회원가입 화면
 	 * 요청 url : http://localhost:8080/user/signupForm
