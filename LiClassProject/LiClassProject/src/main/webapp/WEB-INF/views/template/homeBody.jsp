@@ -4,9 +4,22 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="/resources/client/mainTheme/js/bootstrap.affix.js"></script>
 
-<!--은아)2. 플로팅 메뉴 js,css  -->
+<!--은아) 플로팅 메뉴 js,css  -->
 <script src="/resources/client/mainTheme/js/floatingNav.js"></script>
 <link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
+
+<style>
+#header{width: 100%;
+    margin: 0px;
+    padding : 29px 0;
+    }
+#navbar.navbar{ 
+    margin: 0px 0px 0px 400px;
+
+}
+#header.header-scrolled{padding : 20px 0;}
+
+</style>
 
 <script>
 
@@ -17,30 +30,20 @@
 	}
 </script>
  <body id="page-top" data-spy="scroll" data-target=".side-menu">
- 
 	<%-- <!-- 지민)클래스 리스트 -->
 	<!-- 1. class list start  -->
 	<section id="portfolio" class="section portfolio">
 		<%@ include file="/WEB-INF/views/client/class/classList.jsp" %>
 	</section>
 	<!-- 1. class list end  --> --%>
-	<div class="video-background">
-       		<div class="video-foreground">
-     
-       <!--  <iframe class="ww"  src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0?rel=0&autoplay=1&version=3&loop=1""  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          -->
-
-       <div class="video-foreground">
-       <!--  <iframe class="ww"  src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0?rel=0&autoplay=1&version=3&loop=1""  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-         -->
-        </div>
-      </div>
+	<div class="video-background"></div>
+       		
     	<div id="vidtop-content">
         	
 		    <!-- ======= Hero Section ======= -->
 		    <section id="hero">
-			    <div class="video-container" style="height: 56.25vw;">
-			        <iframe style="width: 100%; height: 100%; " src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			    <div class="video-container">
+			        <iframe width="560" height="315" src="https://www.youtube.com/embed/DNf6mIZz6Zo?controls=0&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			    </div>      
 		  	</section><!-- End Hero -->
 			
@@ -154,8 +157,8 @@
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
-			                <a href=""><i class="bi bi-instagram"></i></a>
-			                <a href=""><i class="bi bi-linkedin"></i></a>
+			                <a href="https://instagram.com/euuuuunaaaaa?igshid=YmMyMTA2M2Y="><i class="bi bi-instagram"></i></a>
+			                <a href="https://github.com/kimeunazip"><i class="fa-brands fa-github"></i></a>
 			              </div>
 			            </div>
 			            <div class="member-info">
@@ -263,7 +266,7 @@
     	</div>
 	
 	<!-- 은아)플로팅메뉴  -->
-	<!-- 2. floating nav start -->
+	<!-- floating nav start -->
 	<div id="floatMenu">
 		<div class="section-block">
 			<nav class="side-menu">

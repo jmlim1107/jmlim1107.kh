@@ -6,6 +6,47 @@ $(function(){
 	 	 *****************************************/
 	 	 
 	 	// 글쓰기 버튼 클릭시
+<<<<<<< HEAD
+		$("#insertFormBtn").click(function(){
+			let c_no =  $(this).parents("div").attr("data-cno");	
+			
+			// 원하는 요소에 값 집어넣기
+			$("#c_no").val(c_no);
+			// updateForm 에 보내주기 위한 글번호
+			// $("#review_number").val(review_no);
+			console.log("클래스 번호 : "+c_no); 
+			
+			// 상세페이지 이동
+			$.ajax({
+				type : "post",
+				url : "/reviewInsert",
+				/*data : JSON.stringify({ "review_no" : $("#review_no").val() }),*/
+				data : "c_no="+$("#c_no").val(),
+				/*,contentType : "application/json",*/
+				dataType : "json",
+				success : function(data){
+					alert(data);
+					// json 값을 모달에 설정
+					$("#c_no2").val(data.c_no2);
+					// $("#r_detailTitle").val(data.review_title);
+					// $('input[name="review_rating"]').val([data.review_rating]);
+					// $('input[name="review_recommend"]').val([data.review_recommend]);
+			
+					// 모달창 띄우기
+					$("#test1").fadeIn();
+				},
+				error : function(data){
+					alert("실패");
+				
+					return false;
+				}
+				
+			});
+			
+			
+			
+   			
+=======
 		$(".insertFormBtn").click(function(){
 			console.log($(this).parents("td").attr("data-cno"));
 			var cno = $(this).parents("td").attr("data-cno");
@@ -15,6 +56,7 @@ $(function(){
 			$('input[name=rno]').attr('value',rno);
 			$('input[name=userno]').attr('value',userno);
    			$("#test1").fadeIn();
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
   		});
   
 		// 글쓰기 닫기 버튼 클릭시

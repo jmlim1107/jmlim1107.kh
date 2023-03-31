@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="ps-3">
                                         <%--매출 통계 데이터 삽입--%>
-                                        <h6>&nbsp&nbsp$3,264</h6><canvas id="SalesChart" height="40"></canvas>
+                                        <h6>&nbsp&nbsp &#8361; ${allSales.ALLSALES}</h6><canvas id="SalesChart" height="40"></canvas>
                                     </div>
                                 </div>
                             </div>

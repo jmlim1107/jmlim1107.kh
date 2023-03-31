@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.liclass.client.classes.vo.ClientClassVO;
@@ -29,7 +28,6 @@ import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.file.UserFileUpload;
-import com.liclass.common.vo.CommonVO;
 //import com.liclass.common.file.FileUploadUtil;
 import com.liclass.common.vo.PageDTO;
 
@@ -38,7 +36,6 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@SessionAttributes("loginUser")
 public class MyPageController {
 	@Setter(onMethod_ = @Autowired)
 	private UserService userService;
@@ -50,7 +47,7 @@ public class MyPageController {
 	private UserFileUpload fileUploadUtil;
 	
 	/************************************************
-	 * 회원정보 화면
+	 * 1. 마이페이지 첫 화면(회원정보 화면)
 	 * 요청 url : http://localhost:8080/mypage
 	************************************************/
 	@RequestMapping("/mypage")
@@ -116,34 +113,33 @@ public class MyPageController {
 	       
 	    System.out.println("pvo="+pvo_courseList);
 	        
-		return "liuser/mypage/userMypage";
+		return "client/mypage/userMypage";
 	}
 	
-	@RequestMapping("/courseHistory")
-	public String courseHistory(Model model, PaymentVO pvo,HttpSession session) {
-		// 수강내역
-		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		pvo.setUser_no(loginUser.getUser_no());
-        List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
-        //System.out.println("pvo"+pvo_courseList.toString());
-	    model.addAttribute("pvo_courseList", pvo_courseList);
-	    
-	    return "liuser/mypage/courseHistory";
-	}
-	
+	/*
+	 * @RequestMapping("/courseHistory") public String courseHistory(Model model,
+	 * PaymentVO pvo,HttpSession session) { // 수강내역 UserVO loginUser =
+	 * (UserVO)session.getAttribute("loginUser");
+	 * pvo.setUser_no(loginUser.getUser_no()); List<Map<String, String>>
+	 * pvo_courseList = mypageService.courseList(pvo);
+	 * //System.out.println("pvo"+pvo_courseList.toString());
+	 * model.addAttribute("pvo_courseList", pvo_courseList);
+	 * 
+	 * return "liuser/mypage/courseHistory"; }
+	 */
 	/************************************************
-	 * 회원정보 수정화면
-	 * 요청 url : http://localhost:8080/user/signupForm
+	 * 2.회원정보 수정화면
+	 * 요청 url : http://localhost:8080/mypage/updateForm
 	************************************************/
 	@GetMapping("/mypage/updateForm")
 	public String updateForm() {
 		log.info("updateForm() 호출");
-		return "liuser/mypage/updateForm";
+		return "client/mypage/updateForm";
 	}
 	
 	/************************************************
-	 * 기존비밀번호 확인
-	 * 요청 url : http://localhost:8080/user/signupForm
+	 * 3.기존비밀번호 확인
+	 * 요청 url : http://localhost:8080/checkPw
 	************************************************/
 	@ResponseBody
 	@PostMapping("/checkPw")
@@ -157,8 +153,8 @@ public class MyPageController {
 	}
 	
 	/************************************************
-	 * 회원정보 수정
-	 * 요청 url : http://localhost:8080/mypage/userUpdate
+	 * 4.회원정보 수정 처리
+	 * 요청 url : http://localhost:8080/mypage/update
 	 * @throws MessagingException 
 	 * @throws UnsupportedEncodingException 
 	************************************************/
@@ -183,11 +179,11 @@ public class MyPageController {
 			}
 		}
 		
-		return "liuser/mypage/updateForm";
+		return "client/mypage/updateForm";
 	}
 	
 	/************************************************
-	 * 프로필사진 수정
+	 * 5.프로필사진 수정
 	 * 요청 url : http://localhost:8080/mypage/imgUpdate
 	 * @throws MessagingException 
 	 * @throws UnsupportedEncodingException 
@@ -227,7 +223,7 @@ public class MyPageController {
 	}
 	
 	/************************************************
-	 * 프로필사진 수정 (기본이미지로 변경)
+	 * 6.프로필사진 수정 (기본이미지로 변경)
 	 * 요청 url : http://localhost:8080/mypage/delImg
 	 * @throws MessagingException 
 	 * @throws UnsupportedEncodingException 
@@ -239,8 +235,11 @@ public class MyPageController {
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 		log.info("loginUser : "+loginUser.toString());
 		
+		String profile = loginUser.getUser_img();
 		//1. 기존 프로필 사진을 서버에서 지운다.
-		UserFileUpload.fileDelete(loginUser.getUser_img());
+		if(profile != "default-profile.png") {
+			UserFileUpload.fileDelete(profile);
+		}
 		loginUser.setUser_img("default-profile.png");
 		
 		return "redirect:/mypage";
@@ -248,17 +247,17 @@ public class MyPageController {
 	
 	
 	/************************************************
-	 * 회원정보 탈퇴 화면
+	 * 7.회원정보 탈퇴 화면
 	 * 요청 url : http://localhost:8080/mypage/unregisterForm
 	************************************************/
 	@GetMapping("/mypage/unregisterForm")
 	public String unregisterForm() {
 		log.info("unregisterForm() 호출");
-		return "liuser/mypage/unregisterForm";
+		return "client/mypage/unregisterForm";
 	}
 	
 	/************************************************
-	 * 회원정보 탈퇴 처리
+	 * 8.회원정보 탈퇴 처리
 	 * 요청 url : http://localhost:8080/unregister
 	************************************************/
 	@PostMapping("/unregister")
@@ -281,27 +280,28 @@ public class MyPageController {
 			model.addAttribute("message", message);
 			model.addAttribute("url", "/mypage/unregisterForm");
 		}
-		return "liuser/mypage/unregisterForm";
+		return "client/mypage/unregisterForm";
 	}
 	
+
 	/************************************************
-	 * 나의 관심클래스 조회
-	 * 요청 url : http://localhost:8080/myLikesList
-	***********************************************
-	@GetMapping("/myLikesList")
-	public String myLikesList(Model model,HttpSession session) {
-		log.info("myLikesList() 호출 ");
+	 * 9.나의 수강내역 조회
+	 * 요청 url : http://localhost:8080/courseHistory
+	************************************************/
+	
+	@RequestMapping("/courseHistory")
+	public String courseHistory(Model model, PaymentVO pvo,HttpSession session) {
+		// 수강내역
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		
-		List<ClassVO> myLikesList = mypageService.myLikesList(loginUser);
-		model.addAttribute("myLikesList",myLikesList);
-		model.addAttribute("activePosition","4");
-	
-		return "mypage/userMypage";
+		pvo.setUser_no(loginUser.getUser_no());
+        List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
+	    model.addAttribute("pvo_courseList", pvo_courseList);
+	    
+	    return "client/mypage/courseHistory";
 	}
-	*/
+	
 	/************************************************
-	 * 나의 관심클래스 삭제
+	 * 10.나의 관심클래스 삭제
 	 * 요청 url : http://localhost:8080/mypage/delLikes
 	************************************************/
 	@GetMapping("/mypage/delLikes")
@@ -317,61 +317,4 @@ public class MyPageController {
 		
 		return "redirect:/mypage";
 	}
-	
-
-	/************************************************
-	 * 나의 후기 조회
-	 * 요청 url : http://localhost:8080/myLikesList
-	***********************************************
-	@GetMapping("/myReviewList")
-	public String myReviewList(Model model,HttpSession session) {
-		log.info("myReviewList() 호출 ");
-		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		
-		List<ReviewVO> myReviewList = mypageService.myReviewList(loginUser);
-		model.addAttribute("myReviewList",myReviewList);
-	
-		return "mypage/userMypage";
-	}*/
-	
-	/************************************************
-	 * 나의 문의 조회
-	 * 요청 url : http://localhost:8080/myQnaList
-	***********************************************
-	@GetMapping("/myQnaList")
-	public String myQnaList(@RequestParam("pageNum") int pageNum,Model model,HttpSession session) {
-		log.info("myQnaList() 호출 ");
-		/* 은아
-		//로그인 세션
-		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		model.addAttribute("loginUser",loginUser);
-		if(loginUser == null) {
-			return "redirect:/";
-		}
-		
-		//관심클래스 조회
-		log.info("loginUser : " +loginUser.toString());
-		List<ClassVO> myLikesList = mypageService.myLikesList(loginUser);
-		model.addAttribute("myLikesList",myLikesList);
-		
-		//후기 조회
-		List<ReviewVO> myReviewList = mypageService.myReviewList(loginUser);
-		model.addAttribute("myReviewList",myReviewList);
-		
-		loginUser.setAmount(10);
-		loginUser.setPageNum(pageNum);
-		log.info("pageNum : "+pageNum);
-		
-		int qnaCnt = mypageService.myQnaCnt(loginUser);
-		List<QnaVO> myQnaList = mypageService.myQnaList(loginUser);
-		model.addAttribute("myQnaList",myQnaList);
-		PageDTO qnaPageDto = new PageDTO(loginUser,qnaCnt);
-		model.addAttribute("qnaPageMaker",qnaPageDto);
-		
-		
-		return "mypage/userMypage";
-	}*/
-	
-	
-	
 }

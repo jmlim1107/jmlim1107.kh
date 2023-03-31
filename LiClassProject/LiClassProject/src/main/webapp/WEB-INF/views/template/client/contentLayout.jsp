@@ -14,6 +14,8 @@
 
     <title><tiles:getAsString name="title" /></title>
 
+	
+		
     <!-- Bootstrap core CSS -->
     <link href="/resources/include/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -34,7 +36,7 @@
   </head>
 
   <body>
-
+	
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
     	<tiles:insertAttribute name="header" />

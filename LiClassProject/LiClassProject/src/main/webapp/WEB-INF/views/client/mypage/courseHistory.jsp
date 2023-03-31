@@ -38,7 +38,46 @@
 	</script>
 <style>
 	.table>tbody>tr>td{padding:12px;vertical-align: middle;}
+<<<<<<< HEAD
+</style>
+<script type="text/javascript">
+	$(function(){
+	// 글쓰기모달창 -> 저장버튼 클릭 시
+	$("#reviewInsertBtn").click(function(e){
+		
+		 // 입력값 체크
+		 if(!$('input[name=review_rating]').is(":checked")){
+			 alert("별점을 남겨주세요!");
+			 e.preventDefault();
+		 } 
+		 else if (!chkData("#review_title2","제목을")){ 
+			 e.preventDefault(); 
+			 return;
+		 }	
+		 else if (!chkData("#contentTextarea2","내용을")){ 
+			 e.preventDefault(); 
+			 return;
+		 }	
+		 else if (!$('input[name=agreements_reviews_termsAndConditions]').is(":checked")){
+			 e.preventDefault(); 
+			 alert("약관동의는 필수사항입니다.");
+		 } 
+		 else{
+			 console.log("입력 성공");
+		 	// reviewInsert 로 보내주기
+			$("#r_writeForm").attr({
+				"method" : "post",
+				"action" : "/reviewInsert"
+			});
+			 $("r_writeForm").submit();
+		 }
+	});
+});
+</script>  
+
+=======
 </style> 
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 <div class="thumb">
 	<div class="row">
 		<div class="left-text">
@@ -69,15 +108,32 @@
 										<span style="padding-left:30px;">${ courseList.title }</span>
 									</td>                     
 									<td>${courseList.date }</td>
+<<<<<<< HEAD
 									<td>${courseList.category }</td>
 									<td>${courseList.level }</td>
 									<td>${courseList.area }</td>
+=======
+									<td>${ courseList.category }</td>
+									<td>${ courseList.level }</td>
+									<td>${ courseList.area }</td>
+<<<<<<< HEAD
+									<c:if test="${courseList.count>0 }">
+										
+										<td>		
+											<%-- ================== 글쓰기 버튼 출력 시작 ============= --%>
+											<div class="contentBtn  text-right" data-cno="${ courseList.c_no }">
+												<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
+											</div>
+											<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
+=======
+>>>>>>> d2c75cd69fdd5c587d4659c241a09d49db730c3d
 									
 									<c:if test="${courseList.review_status == 0}">
 										<td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
 											<!-- ================== 글쓰기 버튼 출력 시작 ============= -->
 											<input type="button" value="글쓰기" name="reviewStatus" class="insertFormBtn" class="btn btn-dark">
 											<!-- ================== 글쓰기 버튼 출력 종료 ============= -->
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 										</td>
 									</c:if>
 									

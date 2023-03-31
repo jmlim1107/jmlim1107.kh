@@ -76,13 +76,13 @@
 	 </select>
 
 	 
-	
 	<!-- 게시물 등록 -->
 	<insert id ="reviewInsert" parameterType="review">
 		<selectKey keyProperty="review_no" resultType="int" order="BEFORE">
 			select Li_review_seq.nextval from dual
 		</selectKey>
 		INSERT INTO Li_review(review_no, review_title, review_content, review_date, review_status, review_rating, review_recommend, r_no, c_no, user_no)
+		VALUES(#{review_no}, #{review_title}, #{review_content}, TO_CHAR(SYSDATE ,'YYYY-MM-DD'), 0, #{review_rating}, #{review_recommend} ,#{r_no}, #{c_no}, #{user_no})
 		VALUES(#{review_no}  , #{review_title}, #{review_content}, TO_CHAR(SYSDATE ,'YYYY-MM-DD'), 0, #{review_rating}, #{review_recommend} ,#{r_no}, #{c_no}, #{user_no})
 	</insert>
 	

@@ -2,6 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!-- 부트스트랩 
+<link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />-->
+<!-- script 
+<script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
+<script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+
 <style>
 	#sticky-nav{
 	width:30%;
@@ -38,6 +50,11 @@
 .main-white-button a:hover {
   background-color: #555;
   color: #fff;
+}
+
+#sns-share2{
+	display: inline;
+    background: #ffffffbd;
 }
 </style>
 <script>
@@ -104,24 +121,26 @@ $(function(){
                                     </div>
                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="form-group">
-                                            <label class="control-label required" for="booking_by">난이도 ${classDetail.c_level}</label>
+                                            <label class="control-label required" for="booking_by">난이도 ${classDetail.c_level}
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="form-group">
-                                            <label class="control-label required" for="booking_by">수업시간 ${classDetail.c_leadtime}</label>
+                                            <label class="control-label required" for="booking_by">수업시간 ${clientClassDetail.c_leadtime}</label>
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="form-group">
-                                            <label class="control-label required" for="type">최대인원 ${classDetail.c_maxcnt}</label>
-                                            <label class="control-label required" for="type">최소인원 ${classDetail.c_mincnt}</label>
+                                            <label class="control-label required" for="type">최대인원 ${clientClassDetail.c_maxcnt}</label>
+                                            <label class="control-label required" for="type">최소인원 ${clientClassDetail.c_mincnt}</label>
                                         </div>
                                     </div>
 
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                                         <div class="form-group">
-                                            <label class="control-label required" for="address">지역 ${classDetail.c_area}</label>
+                                            <label class="control-label required" for="address">지역 ${clientClassDetail.c_area}</label>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
@@ -151,11 +170,10 @@ $(function(){
 								      	</c:if>
 							         </c:if>
                                         <button type="button" class="main-white-button"><a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i>공유하기</a></button>
-                                        <button type="button" class="main-white-button goReserve"><a><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
+                                        <button type="button" class="main-white-button goReserve"><a href="#reserveModal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
                                   		
-      	
 								      	<!-- sns share modal start  --> 
-								      	<div class="modal" id="sns-share" style="z-index: 2; position: initial; text-align: center;">
+								      	<div class="modal" id="sns-share2" style="z-index: 2; position: initial; text-align: center;">
 											   <a id="kakao-link-btn" href="javascript:kakaoShare()"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
 											   <a id="twitter-link-btn" href="javascript:shareTwitter()"><i class="fa-brands fa-twitter"></i></a>
 											   <a id="facebook-link-btn" href="javascript:shareFacebook()"><i class="fa-brands fa-facebook-f" style="color:#415893;"></i></a>
@@ -163,9 +181,17 @@ $(function(){
 											   <a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555;"></i></a>
 										 </div>
 										 <!-- sns share modal end  --> 
+										  
+										 <div class="modal" id="reserveModal" style="z-index: 3; position: initial; text-align: center; height:50px">
+											모달 test
+										</div>
+										 
+										 
                                     </div>
                                 </div>
                            </form>
                  		</div>
 					</div>
 				</div>
+				 
+				

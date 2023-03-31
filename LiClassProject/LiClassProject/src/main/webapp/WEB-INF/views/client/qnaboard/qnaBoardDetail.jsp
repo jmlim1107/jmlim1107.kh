@@ -35,8 +35,17 @@
     </form>
 
     <div class="board_title">
-        <strong>문의사항</strong>
-        <p></p>
+        <c:choose>
+            <c:when test="${detail.qna_category == '공지'}">
+                <strong>공지사항</strong>
+                <p>공지사항을 잘 확인하시기 바랍니다.</p>
+            </c:when>
+            <c:otherwise>
+                <strong>문의사항</strong>
+                <p>문의사항을 잘 작성하시고 답변을 잘 확인 바랍니다.</p>
+            </c:otherwise>
+        </c:choose>
+
     </div>
     <div class="board_view_wrap">
         <div class="board_view">
@@ -45,7 +54,14 @@
                 <div class="info">
                     <dl>
                         <dt>작성자</dt>
-                        <dd>${detail.user_name}</dd>
+                        <c:choose>
+                            <c:when test="${detail.admin_no > 0}">
+                                <dd>${detail.admin_name}</dd>
+                            </c:when>
+                            <c:otherwise>
+                                <dd>${detail.user_name}</dd>
+                            </c:otherwise>
+                        </c:choose>
                     </dl>
                     <dl>
                         <dt>작성날짜 : </dt>
@@ -62,7 +78,10 @@
             <div class="cont">
                 ${detail.qna_content}
             </div>
+            <div>
+            </div>
         </div>
+
         <div class="bt_wrap">
             <button type="button" class="on" id="listBtn">목록</button>
             <button type="button" class="on" id="updateBtn">수정</button>

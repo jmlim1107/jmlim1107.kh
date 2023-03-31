@@ -17,7 +17,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequestMapping("/client/studio/*")
+@RequestMapping("/studio/*")
 @Slf4j
 public class ClientStudioController {
 	@Setter(onMethod_ = @Autowired)
@@ -38,7 +38,7 @@ public class ClientStudioController {
 		// 페이징 처리
 		model.addAttribute("pageMaker", new PageDTO(svo, total));
 		
-		return "client/studio/studioList"; // /WEB-INF/views/client/studio/studioList.jsp
+		return "studio/studioList"; // /WEB-INF/views/client/studio/studioList.jsp
 	}
 	
 	
@@ -53,7 +53,7 @@ public class ClientStudioController {
 		StudioVO detail = studioService.studioDetail(svo);
 		model.addAttribute("detail", detail);
 		
-		return "client/studio/studioDetail";
+		return "studio/studioDetail";
 	}
 	
 

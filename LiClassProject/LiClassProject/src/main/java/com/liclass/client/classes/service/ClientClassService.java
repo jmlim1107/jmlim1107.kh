@@ -14,8 +14,10 @@ public interface ClientClassService {
 	
 	//클래스 상세
 	public ClientClassVO clientClassDetail(ClientClassVO vo);
+		
+	public List<ClientClassVO> clientClassDetailList(ClientClassVO vo);
 	
 	//클래스의 센터 조회
-	public CenterVO clientCenterDetail(ClientClassVO vo);
+		public CenterVO clientCenterDetail(String ct_bizno);
 		
 }

@@ -50,17 +50,17 @@ public class LoginController {
 	
 	
 	/************************************************
-	 * 회원가입 화면
+	 * 1.회원가입 화면
 	 * 요청 url : http://localhost:8080/user/signupForm
 	************************************************/
 	@GetMapping("/user/signupForm")
 	public String signupForm() {
 		log.info("signupForm() 호출");
-		return "liuser/login/signupForm";
+		return "client/login/signupForm";
 	}
 	
 	/************************************************
-	 * 회원가입 처리
+	 * 2.회원가입 처리
 	 * 요청 url : http://localhost:8080/user/signup
 	 * @throws MessagingException 
 	 * @throws UnsupportedEncodingException 
@@ -87,11 +87,11 @@ public class LoginController {
 			model.addAttribute("message", message);
 			model.addAttribute("url", "/user/signupForm");
 		}
-		return "liuser/login/signupForm";
+		return "client/login/signupForm";
 	}
 	
 	/************************************************
-	 * 이메일 인증
+	 * 3.이메일 인증
 	 * 요청 url : http://localhost:8080/mailCertify
 	************************************************/
 	@ResponseBody
@@ -112,37 +112,37 @@ public class LoginController {
 	}
 	
 	/************************************************
-	 * 이용약관 화면
+	 * 4.이용약관 화면
 	 * 요청 url : http://localhost:8080/user/userTerms
 	************************************************/
 	@GetMapping("/user/userTerms")
 	public String userTerms() {
 		log.info("userTerms() 호출");
-		return "liuser/login/userTerms";
+		return "client/login/userTerms";
 	}
 	
 	/************************************************
-	 * 개인정보 취급방침
+	 * 5.개인정보 취급방침
 	 * 요청 url : http://localhost:8080/user/userPolicy
 	************************************************/
 	@GetMapping("/user/userPolicy")
 	public String userPolicy() {
 		log.info("userPolicy() 호출");
-		return "liuser/login/userPolicy";
+		return "client/login/userPolicy";
 	}
 	
 	/************************************************
-	 * 비밀번호찾기 화면
+	 * 6.비밀번호찾기 화면
 	 * 요청 url : http://localhost:8080/user/userFindpw
 	************************************************/
 	@GetMapping("/user/userFindpw")
 	public String userFindpw() {
 		log.info("userFindpw() 호출");
-		return "liuser/login/userFindpw";
+		return "client/login/userFindpw";
 	}
 	
 	/************************************************
-	 * 비밀번호 찾으려는 이메일 확인
+	 * 7.비밀번호 찾으려는 이메일 확인
 	 * 요청 url : http://localhost:8080/findEmail
 	************************************************/
 	@ResponseBody
@@ -164,7 +164,7 @@ public class LoginController {
 	}
 	
 	/************************************************
-	 * 비밀번호찾기 처리
+	 * 8.비밀번호찾기 처리
 	 * 요청 url : http://localhost:8080/findPw
 	************************************************/
 	@PostMapping("/findPw")
@@ -193,11 +193,11 @@ public class LoginController {
 			model.addAttribute("message", message);
 			model.addAttribute("url", "/user/userFindpw");
 		}
-		return "liuser/login/userFindpw";
+		return "client/login/userFindpw";
 	}
 	
 	/************************************************
-	 * 아이디 비밀번호 확인 (로그인)
+	 * 9.아이디 비밀번호 확인 (로그인)
 	 * 요청 url : http://localhost:8080/user/checkIdPwd
 	************************************************/
 	@ResponseBody
@@ -212,7 +212,7 @@ public class LoginController {
 	}
 
 	/************************************************
-	 * 로그인 처리
+	 * 10.로그인 처리
 	 * 요청 url : http://localhost:8080/user/login
 	************************************************/
 	@PostMapping("/user/login")
@@ -232,7 +232,7 @@ public class LoginController {
 	}
 	
 	/************************************************
-	 * 카카오톡 로그인
+	 * 11.카카오톡 로그인
 	 * 요청 url : http://localhost:8080/user/kakaoLogin
 	***********************************************/
 	@RequestMapping(value = "/user/kakaoLogin", method = RequestMethod.GET)
@@ -292,8 +292,8 @@ public class LoginController {
 	
 	
 	/************************************************
-	 * 네이버 로그인
-	 * 요청 url : http://localhost:8080/user/naverLogin
+	 * 12.네이버 로그인 화면
+	 * 요청 url : http://localhost:8080/user/getNaverAuthUrl
 	************************************************/
 	
 	// 네이버 로그인창 호출
@@ -305,6 +305,10 @@ public class LoginController {
 	    return reqUrl;
 	}
 	
+	/************************************************
+	 * 13.네이버 로그인
+	 * 요청 url : http://localhost:8080/user/naverLogin
+	************************************************/
 	//네이버 로그인 처리
 	 @RequestMapping(value = "/user/naverLogin",method = { RequestMethod.GET, RequestMethod.POST })
 	 public String naverLogin(HttpServletRequest request, HttpServletResponse response,RedirectAttributes ras) throws Exception{
@@ -371,7 +375,7 @@ public class LoginController {
 	 }
 	 
 	 	/************************************************
-		 * 로그아웃
+		 * 14.로그아웃
 		 * 요청 url : http://localhost:8080/user/logout
 		*************************************************/
 		@RequestMapping("/user/logout")

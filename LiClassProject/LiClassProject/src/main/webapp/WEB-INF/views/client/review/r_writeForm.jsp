@@ -38,10 +38,21 @@
 });
 </script>
 <%-- ************************** r_writeForm start *************************************  --%>
+	<form id = "hiddenWrite">
+		<div>
+			<input type = "hidden" value = "" id= "c_no">
+		</div>
+	</form>
+	
+	
 	<form id = "r_writeForm">
+<<<<<<< HEAD
+			<input type = "hidden" id= "c_no2">
+=======
 		<input type="hidden" name="cno" value="">
 		<input type="hidden" name="rno" value="">
 		<input type="hidden" name="userno" value="">
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 			<div class="modal" id = "writeModal">
 			  	<div class="modal_content" id = "writeContent">
 			  	
