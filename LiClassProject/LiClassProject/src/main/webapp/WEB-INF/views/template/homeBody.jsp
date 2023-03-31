@@ -157,8 +157,8 @@
 			              <div class="social">
 			                <a href=""><i class="bi bi-twitter"></i></a>
 			                <a href=""><i class="bi bi-facebook"></i></a>
-			                <a href=""><i class="bi bi-instagram"></i></a>
-			                <a href=""><i class="bi bi-linkedin"></i></a>
+			                <a href="https://instagram.com/euuuuunaaaaa?igshid=YmMyMTA2M2Y="><i class="bi bi-instagram"></i></a>
+			                <a href="https://github.com/kimeunazip"><i class="fa-brands fa-github"></i></a>
 			              </div>
 			            </div>
 			            <div class="member-info">
