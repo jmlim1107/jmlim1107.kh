@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -160,7 +161,7 @@ public class ReviewController {
 	 ********************************************/
 	@PostMapping(value = "/reviewUpdate", produces=MediaType.APPLICATION_JSON_VALUE)
 	public String reviewUpdate(@ModelAttribute ReviewVO vo) throws Exception {
-		log.info("reivewUpdate 호출 성공");
+		log.info("reivewUpdate 기능호출 성공");
 		log.info("reviewVO : " + vo);
 		
 		int result = 0;
@@ -170,16 +171,20 @@ public class ReviewController {
 		
 		// 업데이트 성공 시 이동할 페이지
 		if(result == 1) {
-			url = "/review/reviewList?review_no="+vo.getReview_no();
-			log.info("review url ::::::::::::::::::::::::; " + url);
+			url = "/courseHistory?r_no=" + vo.getR_no();
+			//url = "/reviewList?r_no"+vo.getR_no();
+			log.info("성공시 review url : " + url);
+			
 		// 업데이트 실패 시 이동할 페이지(수정하자)
 		} else {
-			log.info("실패시 ::::::::::::;;review url ::::::::::::::::::::::::; " + url);
-			url =  "/review/r_updateForm?review_no="+vo.getReview_no();
-			log.info("업데이트 실패::::::::::::::::::::::::::::::::;;");
-			// url = "/review/r_updateForm";
+			log.info("실패시 review url : " + url);
+
+			// url =  "/r_updateForm?r_no="+vo.getR_no();
+			url = "/courseHistory";
+			log.info("업데이트 실패");
 		}
-		return "redirect:"+url;
+		// "redirect:"+
+		return "redirect:"+ url;
 		
 	}
 
@@ -201,9 +206,9 @@ public class ReviewController {
 		result = reviewService.reviewDelete(vo);
 		
 		if(result == 1){
-			url="/review/reviewList";
+			url="/courseHistory";
 		}else{
-			url="/board/reviewDetail?review_no="+vo.getReview_no();
+			url="/courseHistory";
 			
 		}
 		return "redirect:"+url;

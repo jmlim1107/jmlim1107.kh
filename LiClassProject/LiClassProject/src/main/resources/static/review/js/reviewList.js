@@ -37,11 +37,12 @@ $(function(){
 			//$("#review_number").val(r_no); 
 			//console.log("글번호 : "+review_no); 
 			
+			
 			// 상세페이지 이동
 			$.ajax({
 				type : "post",
 				url : "/reviewDetail",
-				data : "review_no="+$(this).parents("td").attr("data-rno"),
+				data : "r_no="+$(this).parents("td").attr("data-rno"),
 				dataType : "json",
 				success : function(data){
 					//alert(data.review_content);
@@ -56,7 +57,7 @@ $(function(){
 					$("#test3").fadeIn();
 				},
 				error : function(data){
-					alert("실패");
+					alert("실패했습니다.");
 				
 					return false;
 				}
@@ -69,7 +70,6 @@ $(function(){
 		 /*,contentType : "application/json",*/
 	 	// 상세페이지 모달창 닫기
 		$("#detailmodal_close").click(function(){
-			console.log("버튼눌림");
 			$("#test3").fadeOut();
 		});
 	 	
@@ -83,27 +83,20 @@ $(function(){
 		$("#updateFormBtn2").click(function(){
 			//let review_no =  $(this).parent("#tttest").data("num");	
 			//$("#review_no").val(review_no);
-			console.log("글번호 : "+$("#review_number").val()); 
+			// console.log("글번호 : "+$("#review_number").val()); 
 			
 			//console.log("예약번호 : "+$(this).parent("div").data("data-rnum")); 
-			console.log($("#r_number").val());
+			console.log("예약 번호 : "+$("#r_nnumber").val());
 			
 			$.ajax({
 				type : "post",
-				url : "/review/r_updateForm",
 				url : "/r_updateForm",
-				/*data : JSON.stringify({ "review_no" : $("#review_no").val() }),*/
-				data : "review_no="+$("#review_number").val(),
-				data :  "r_no="+$("#r_number").val(),
-				/*,contentType : "application/json",*/
+				data :  "r_no="+$("#r_nnumber").val(),
 				dataType : "json",
 				success : function(data){
-					//alert(data.review_content);
 					// json 값을 모달에 설정
 					$("#updateContent").val(data.review_content);
 					$("#updateTitle").val(data.review_title);
-					
-					console.log("수정하기 성공");
 					
 					
 					$("#test3").hide(); 
@@ -118,27 +111,38 @@ $(function(){
 			});
 			console.log('업데이트폼 성공');	
 		});
+		
+		
 	  
-	  	// 업데이트 버튼 클릭 시
+	  	// 업데이트 버튼 클릭 시(post review 버튼)
 		$("#reviewUpdateBtn").click(function(e){
-			$("#reviewupdate_no").val($("#review_number").val())
-			console.log('수정폼 번호'+$("#reviewupdate_no").val());	
+			console.log("업데이트 버튼 클릭완료");
+			$("#reviewupdate_no").val($("#review_no").val());
+			$("#r_no").val($("#r_number").val());
+			
+			
+			console.log("리뷰 번호 : " + $("#review_no").val());
+			console.log("예약 번호 : " + $("#r_number").val());
+			
+			//console.log('수정폼 번호'+$("#reviewupdate_no").val());	
 			
 			//입력값 체크
-		if (!chkData("#updateTitle","수정할 제목을"))return;
-		else if (!chkData("#updateContent","수정할 내용을"))return;
-		else if (!$('input[name="agreements_reviews_termsAndConditions"]').is(':checked')){
-			alert("약관동의는 필수입니다.");
-			return false;
-		}
-		else{
-			$("#r_updateForm").attr({
-				"method":"post",
-				"action":"/review/reviewUpdate"
+			if (!chkData("#updateTitle","수정할 제목을"))return;
+			else if (!chkData("#updateContent","수정할 내용을"))return;
+			else if (!$('input[name="agreements_reviews_termsAndConditions"]').is(':checked')){
+				alert("약관동의는 필수입니다.");
+				return false;
+			}
+			else{
+				console.log("else");
+				$("#r_updateForm").attr({
+					"method":"post",
+					"action":"/reviewUpdate"
+				});
+				console.log("else");
+				$("#r_updateForm").submit();
+			}
 			});
-			$("#r_updateForm").submit();
-		}
-		});
 	  	
 		// 업데이트 모달창 닫기
 		$("#updatemodal_close").click(function(){
@@ -151,7 +155,7 @@ $(function(){
 	 	 *****************************************/
 	 	$("#deleteFormBtn222").click(function(){
 	 		if(confirm("정말 삭제하시겠습니까?")){
-				goUrl = "/review/reviewDelete";
+				goUrl = "/reviewDelete";
 				$("#detailForm").attr("action",goUrl);
 				$("#detailForm").submit();
 			}

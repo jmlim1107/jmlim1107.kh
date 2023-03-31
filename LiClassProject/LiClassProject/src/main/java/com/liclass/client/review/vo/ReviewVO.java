@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReviewVO extends CommonVO{
-	private int review_no	= 0;		// 리뷰 번호
+	private int review_no			= 0;		// 리뷰 번호
 	private String review_name 		= "";		// 리뷰 작성자명
 	private String review_title 	= "";		// 리뷰 제목
 	private String review_content 	= "";		// 리뷰 내용

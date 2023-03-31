@@ -89,11 +89,7 @@
                               <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
                                  <input type="button" value="리뷰보기" class="reviewDetail">
                               </td>
-                           </c:if>   
-                           
-                           <%-- <c:if test="${courseList.count>0 }">
-                              <td>수강 전</td>
-                           </c:if> --%>     
+                           </c:if>      
                         </tr>
                      </c:forEach>
                   </c:when>

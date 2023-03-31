@@ -99,7 +99,7 @@
 				  			</fieldset>
 				  			
 				  			<div>
-				  			<div data-rnum=>
+				  			<div data-rno="${courseList.r_no}">
 				  				<button type = "button" aria-label="Update Review"  class="btn btn-dark" name="bv-submit-button" id = "updateFormBtn2">수정하기</button>
 				  				<button type = "button" aria-label="Update Review"  class="btn btn-dark" name="bv-submit-button" id = "deleteFormBtn222">삭제하기</button>
 				  				
