@@ -40,7 +40,7 @@
 		.btn {
 		  flex: 1 1 auto;
 		  margin: 10px;
-		  padding: 15px;
+		  padding: 13px;
 		  text-align: center;
 		  text-transform: uppercase;
 		  transition: 0.5s;
@@ -49,6 +49,7 @@
 		 /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
 		  box-shadow: 0 0 20px #eee;
 		  border-radius: 10px;
+		  font-size: 13px;
 		 }
 		
 		/* Demo Stuff End -> */
