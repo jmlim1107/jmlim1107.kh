@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liclass.admin.statistics.dao.StatisticsDao">
+    <select id="userStatistics" parameterType="User" resultType="map">
+        SELECT
+            COUNT(*) AS allusers,
+            COUNT(CASE WHEN user_status = 0 THEN 1 END) AS activeuser,
+            COUNT(CASE WHEN user_status = 1 THEN 1 END) AS inactiveuser,
+            COUNT(CASE WHEN user_type = 0 THEN 1 END) AS emailuser,
+            COUNT(CASE WHEN user_type = 1 THEN 1 END) AS kakaouser,
+            COUNT(CASE WHEN user_type = 2 THEN 1 END) AS naveruser
+        FROM li_user
+    </select>
+
+    <select id="quarterStatistics" parameterType="Payment" resultType="HashMap">
+        SELECT
+            CASE
+                WHEN TO_CHAR(pay_date, 'Q') = '1' THEN '1분기'
+                WHEN TO_CHAR(pay_date, 'Q') = '2' THEN '2분기'
+                WHEN TO_CHAR(pay_date, 'Q') = '3' THEN '3분기'
+                ELSE '4분기'
+                END AS quarter,
+            SUM(pay_price) AS sales
+        FROM
+            li_payment
+        WHERE
+            TO_CHAR(pay_date, 'YYYY') = '2022'
+        GROUP BY
+            CASE
+                WHEN TO_CHAR(pay_date, 'Q') = '1' THEN '1분기'
+                WHEN TO_CHAR(pay_date, 'Q') = '2' THEN '2분기'
+                WHEN TO_CHAR(pay_date, 'Q') = '3' THEN '3분기'
+                ELSE '4분기'
+                END
+        ORDER BY
+            quarter
+    </select>
+
+    <select id="allSales" parameterType="Payment" resultType="map">
+        SELECT TO_CHAR(sum(NVL(pay_price, 0)), 'FM999,999,999,999') AS allSales FROM li_payment
+    </select>
+
+    <select id="levelStatistics" parameterType="Payment" resultType="HashMap">
+        SELECT
+            c_level,
+            NVL(SUM(pay_price), 0) AS sales_sum
+        FROM
+            li_class
+                LEFT OUTER JOIN li_episode ON li_class.c_no = li_episode.c_no
+                LEFT OUTER JOIN li_reserve ON li_episode.ep_no = li_reserve.ep_no
+                LEFT OUTER JOIN li_payment ON li_reserve.r_no = li_payment.r_no
+        GROUP BY
+            c_level,
+            CASE
+                WHEN c_level = '상' THEN 1
+                WHEN c_level = '중' THEN 2
+                WHEN c_level = '하' THEN 3
+                END
+    </select>
+
+    <select id="reserveStatistics" parameterType="Reserve" resultType="map">
+        SELECT
+            COUNT(*) AS allReserve,
+            COUNT(CASE WHEN r_state = 2 THEN 1 END) AS reserveComp,
+            COUNT(CASE WHEN r_state = 3 THEN 1 END) AS reserveCancel
+
+        FROM li_reserve
+    </select>
+
+
+</mapper>

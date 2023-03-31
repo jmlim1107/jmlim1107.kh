@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="ps-3">
                                     <%--계정 통계데이터 삽입--%>
-                                    <h6>&nbsp&nbsp&nbsp${userState.ACTIVEUSER} 214124</h6>
+                                    <h6>&nbsp&nbsp&nbsp${userData.ALLUSERS}</h6>
                                     <canvas id="ActiveUserChart" width="250" height="40"></canvas>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="ps-3">
                                     <%--매출 통계 데이터 삽입--%>
-                                    <h6>&nbsp&nbsp 1234건</h6><canvas id="SalesChart" width="200" height="40"></canvas>
+                                    <h6>&nbsp&nbsp ${userData.EMAILUSER}, ${userData.KAKAOUSER}, ${userData.NAVERUSER}</h6><canvas id="SalesChart" width="200" height="40"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -262,13 +262,13 @@
         type: 'doughnut',
         data: {
             labels: [
-                '전체 예약',
-                '예약 확정',
-                '예약 취소'
+                '활성화 계정',
+                '탈퇴 계정',
+
             ],
             datasets: [{
                 label: 'My First Dataset',
-                data: [300, 50, 100],
+                data: [${userData.ACTIVEUSER}, ${userData.INACTIVEUSER}],
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',

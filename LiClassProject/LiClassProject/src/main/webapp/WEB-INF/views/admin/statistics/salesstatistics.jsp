@@ -47,7 +47,8 @@
                                 </div>
                                 <div class="ps-3">
                                     <%--계정 통계데이터 삽입--%>
-                                    <h6>&nbsp&nbsp&nbsp${userState.ACTIVEUSER} 214124</h6>
+                                    <h6>&nbsp&nbsp&nbsp${allSales.ALLSALES}</h6>
+                                    <input type="hidden" id="allSales" name="allSales" value="${allSales.ALLSALES}">
                                     <canvas id="ActiveUserChart" width="250" height="40"></canvas>
                                 </div>
                             </div>
@@ -143,11 +144,20 @@
 
                         <div class="card-body">
                             <h5 class="card-title">Reports <span>/ <%=today%>></span></h5>
+                            <c:forEach items="${salesList}" var="sales" varStatus="quarter">
+
+                                <span>${sales}</span>
+                                <input type="hidden" id="${quarter.index+1}_quarter" name="quarter_sales" value="${sales}">
+                            </c:forEach>
+
 
                             <!-- Line Chart -->
                             <%--차트 통계데이터 기반으로 삽입--%>
                             <canvas id="barChart" <%--style="max-height: 400px;"--%> height="150"></canvas>
-
+                            <c:forEach items="${levelList}" var="level" varStatus="level_sales">
+                                <span>${level}</span>
+                                <input type="hidden" id="${level_sales.index+1}level" name="quarter_sales" value="${level}">
+                            </c:forEach>
                         </div>
                     </div>
                 </div><!-- End Reports -->
@@ -359,6 +369,16 @@
             },
         }
     });
+
+    const allSales_data = document.getElementById("allSales").value.replace(/,/g, "");
+    const quarter_data_1 = document.getElementById("1_quarter").value;
+    const quarter_data_2 = document.getElementById("2_quarter").value;
+    const quarter_data_3 = document.getElementById("3_quarter").value;
+    const quarter_data_4 = document.getElementById("4_quarter").value;
+    const level_data_1 = document.getElementById("1level").value;
+    const level_data_2 = document.getElementById("2level").value;
+    const level_data_3 = document.getElementById("3level").value;
+
     var ctx = document.getElementById("barChart");
     var barChart = new Chart(ctx, {
         type: 'bar',
@@ -366,26 +386,26 @@
             labels: ['전체 매출', '분기별 매출', '난이도별 매출'],
             datasets: [{
                 label: '',
-                data: [7, 12, 6],
+                data: [allSales_data, quarter_data_1, level_data_2],
                 backgroundColor: "rgb(153,204,255)",
                 borderColor: "rgb(153,204,255)",
 
             },
                 {
                     label: '',
-                    data: [0, 6, 3],
+                    data: [0, quarter_data_2, level_data_1],
                     backgroundColor: "rgb(229,204,255)",
                     borderColor: "rgb(229,204,255)",
                 },
                 {
                     label: '',
-                    data: [0, 8, 7],
+                    data: [0, quarter_data_3, level_data_3],
                     backgroundColor: "rgb(255,229,204)",
                     borderColor: "rgb(255,229,204)",
                 },
                 {
                     label: '',
-                    data: [0, 4, 0],
+                    data: [0, quarter_data_4, 0],
                     backgroundColor: "rgb(153,153,255)",
                     borderColor: "rgb(153,153,255)",
                 }]
@@ -406,5 +426,6 @@
             }
         }
     });
+
 
 </script>
