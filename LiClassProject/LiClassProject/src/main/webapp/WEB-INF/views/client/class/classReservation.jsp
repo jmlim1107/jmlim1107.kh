@@ -28,7 +28,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> 
->>>>>>> Stashed changes
 
 <style>
 	#sticky-nav{
@@ -190,12 +189,7 @@ $(function(){
 								      		<button type="button" class="main-white-button"><a class="like"><i class="fa-solid fa-heart"></i>찜하기</a></button>
 								      	</c:if>
 							         </c:if>
-							         
-                                        <button type="button" class="main-white-button"><a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i>공유하기</a></button>
-                                        <button type="button" class="main-white-button goReserve"><a href="#reserveModal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a></button>
                                   		
-								      	<!-- sns share modal start  --> 
-								      	<div class="modal" id="sns-share2" style="z-index: 2; position: initial; text-align: center;">
 							         <!-- 공유버튼  -->
                                         <button type="button" class="main-white-button">
                                        		<a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i>공유하기</a>
