@@ -43,6 +43,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/client/{1}/{2}.jsp" />
 	</definition>
 	
+	<!-- 웅배님 -->
 	<definition name="courseHistory" template="/WEB-INF/views/template/client/eunaLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
 		<put-attribute name="nav" value="" />
