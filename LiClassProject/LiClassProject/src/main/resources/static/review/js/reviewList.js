@@ -6,6 +6,7 @@ $(function(){
 	 	 *****************************************/
 	 	 
 	 	// 글쓰기 버튼 클릭시
+<<<<<<< HEAD
 		$("#insertFormBtn").click(function(){
 			let c_no =  $(this).parents("div").attr("data-cno");	
 			
@@ -45,6 +46,17 @@ $(function(){
 			
 			
    			
+=======
+		$(".insertFormBtn").click(function(){
+			console.log($(this).parents("td").attr("data-cno"));
+			var cno = $(this).parents("td").attr("data-cno");
+			var rno = $(this).parents("td").attr("data-rno");
+			var userno = $(this).parents("td").attr("data-userno");
+			$('input[name=cno]').attr('value',cno);
+			$('input[name=rno]').attr('value',rno);
+			$('input[name=userno]').attr('value',userno);
+   			$("#test1").fadeIn();
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
   		});
   
 		// 글쓰기 닫기 버튼 클릭시

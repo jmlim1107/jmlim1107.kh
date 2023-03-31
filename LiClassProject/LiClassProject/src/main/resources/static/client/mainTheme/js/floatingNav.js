@@ -69,7 +69,7 @@
 			   });
 			  
 			    $("#modal_close_btn").click(function(){
-			       $("login-pop-modal").attr("style", "display:none");
+			       $("#login-pop-modal").attr("style", "display:none");
 			 });
 			    
 		    /* 최근 본 클래스 */

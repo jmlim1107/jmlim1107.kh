@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.liclass.admin.episode.service.EpisodeService;
 import com.liclass.client.review.service.ReviewService;
@@ -70,18 +73,31 @@ public class ReviewController {
 	 * 글쓰기 구현하기
 	 * @throws Exception 
 	 *******************************************/
-	@RequestMapping(value="/reviewInsert" , method = RequestMethod.POST)
+	@PostMapping(value="/reviewInsert")
 	//@PostMapping("/boardInsert")
-	public String reviewInsert(ReviewVO vo, Model model) throws Exception {
+	public String reviewInsert(@ModelAttribute ReviewVO vo,@RequestParam int cno,
+			@RequestParam int rno, @RequestParam long userno,
+			Model model, RedirectAttributes ras) throws Exception {
 		log.info("reviewInsert 호출 성공................................");
-		log.info("vo : " + vo.toString());
+		System.out.println("cno="+cno);
+		vo.setC_no(cno);
+		vo.setR_no(rno);
+		vo.setUser_no(userno);
 		
+		log.info("vo : " + vo.toString());
 		int result = 0;
 		String url = "";
 		
 		result = reviewService.reviewInsert(vo);
 		if(result == 1) {
 			log.info("성공");
+<<<<<<< HEAD
+=======
+			url = "/courseHistory";
+			log.info(vo.getReview_status());
+			//model.addAttribute("review_status", vo.getReview_status());
+			ras.addFlashAttribute("review_status",vo.getReview_status());
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 		} else {
 			log.info("실패");
 		}

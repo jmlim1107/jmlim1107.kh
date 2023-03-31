@@ -1,5 +1,9 @@
 package com.liclass.client.review.vo;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 import com.liclass.common.vo.CommonVO;
 
 import lombok.AllArgsConstructor;
@@ -25,8 +29,16 @@ public class ReviewVO extends CommonVO{
 	private String c_name = "";					// 클래스 명
 	private int c_no = 0;						// 클래스 번호
 	private long user_no = 0;					// 회원 번호
+<<<<<<< HEAD
 	private String user_img = "";	// 회원 프로필 사진
 	private String user_name = "";
 	//private String review_c_img_file = "";		// 실제 서버에 저장할 리뷰 썸네일 파일명
+=======
+	private int r_no = 0;
+	//private String user_img = "";	// 회원 프로필 사진
+	//private String user_name = "";
+
+	private String review_img;
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 	
 }

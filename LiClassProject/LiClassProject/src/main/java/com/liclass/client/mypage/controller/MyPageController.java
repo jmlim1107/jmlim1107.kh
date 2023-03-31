@@ -124,6 +124,7 @@ public class MyPageController {
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 		pvo.setUser_no(loginUser.getUser_no());
         List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
+        //System.out.println("pvo"+pvo_courseList.toString());
 	    model.addAttribute("pvo_courseList", pvo_courseList);
 	    
 	    return "liuser/mypage/courseHistory";

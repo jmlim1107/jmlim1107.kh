@@ -22,9 +22,23 @@
     <link rel="stylesheet" type="text/css" href="/resources/review/css/reviewSearch.css">
     <script type = "type/javascript" src="/resources/include/js/jquery-3.6.2.min.js"></script>
     <script type="text/javascript" src="/resources/review/js/reviewList.js"></script>
-
+	<script type="text/javascript">
+		$(function(){
+			var review_status = ${review_status}
+			console.log(review_status);
+			if(review_status == 0){
+				console.log("성공");
+				$('input[name=reviewStatus]').attr('value',"리뷰보기");
+			}else{
+				console.log("실패");
+			}
+			
+			
+		});
+	</script>
 <style>
 	.table>tbody>tr>td{padding:12px;vertical-align: middle;}
+<<<<<<< HEAD
 </style>
 <script type="text/javascript">
 	$(function(){
@@ -61,9 +75,13 @@
 });
 </script>  
 
+=======
+</style> 
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 <div class="thumb">
 	<div class="row">
 		<div class="left-text">
+		
 		<hr>
 			<h4 class="center">수강 내역</h4>
 			<%-- ==================== 리스트 시작 ==================== --%>
@@ -93,6 +111,7 @@
 									<td>${ courseList.category }</td>
 									<td>${ courseList.level }</td>
 									<td>${ courseList.area }</td>
+<<<<<<< HEAD
 									<c:if test="${courseList.count>0 }">
 										
 										<td>		
@@ -101,8 +120,18 @@
 												<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
 											</div>
 											<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
+=======
+									
+										<td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
+											<!-- ================== 글쓰기 버튼 출력 시작 ============= -->
+											<div class="contentBtn  text-right">
+												<input type="button" value="글쓰기" name="reviewStatus" class="insertFormBtn" class="btn btn-dark">
+											</div>	
+											<!-- ================== 글쓰기 버튼 출력 종료 ============= -->
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 										</td>
-									</c:if>
+							
+									
 									<%-- <c:if test="${courseList.count>0 }">
 										<td>수강 전</td>
 									</c:if> --%>  	
@@ -131,7 +160,6 @@
 <div id = "test2" style="display: none;">
 	<%@ include file = "/WEB-INF/views/client/review/r_updateForm.jsp" %>
 </div>
-
 
 
 

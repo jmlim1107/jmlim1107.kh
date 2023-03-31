@@ -27,6 +27,7 @@
 		 else{
 			 console.log("입력 성공");
 		 	// reviewInsert 로 보내주기
+		 	console.log($(e).parents("td").attr("data-cno"));
 			$("#r_writeForm").attr({
 				"method" : "post",
 				"action" : "/reviewInsert"
@@ -45,7 +46,13 @@
 	
 	
 	<form id = "r_writeForm">
+<<<<<<< HEAD
 			<input type = "hidden" id= "c_no2">
+=======
+		<input type="hidden" name="cno" value="">
+		<input type="hidden" name="rno" value="">
+		<input type="hidden" name="userno" value="">
+>>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd
 			<div class="modal" id = "writeModal">
 			  	<div class="modal_content" id = "writeContent">
 			  	
@@ -60,7 +67,7 @@
 			 						<div class="bv-subject-info custom-cursor-default-hover">
 				 						<img class="bv-subject-image custom-cursor-default-hover" src="https://unicorn.lush.com/media/thumbnails/products/honey_i_washed_my_hair_shampoo_bar_2020_163b7de1_thumbnail_256.png">   
 				 						<span class="bv-subject-name-header">클래스명</span>
-			 						</div>   
+			 		 				</div>   
 			 					</div> 
 							</div>
 						</div>
