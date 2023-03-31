@@ -12,6 +12,21 @@
     String year = yearDate.format(date);
     String month = monthDate.format(date);
 %>
+<script type="text/javascript">
+    $(function (){
+
+    });
+
+    function userStatistics(){
+        location.href="/admin/statistics/userstatistics"
+    }
+    function salesStatistics(){
+        location.href="/admin/statistics/salesstatistics"
+    }
+    function reserveStatistics(){
+        location.href="/admin/statistics/reservestatistics"
+    }
+</script>
 
 
     <div class="pagetitle">
@@ -49,8 +64,8 @@
                                 </ul>
                             </div>
 
-                            <div class="card-body">
-                                <h5 class="card-title">활성화 계정<span>| <%=today%></span></h5>
+                            <div class="card-body" onclick="userStatistics()">
+                                <h5 class="card-title">활성화 계정<span>| <%=today%>&nbsp 기준</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -83,8 +98,8 @@
                                 </ul>
                             </div>
 
-                            <div class="card-body">
-                                <h5 class="card-title">전체 매출 통계 <span>| <%=today%></span></h5>
+                            <div class="card-body" onclick="salesStatistics()">
+                                <h5 class="card-title">전체 매출 통계 <span>| <%=today%>&nbsp 기준</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -116,8 +131,8 @@
                                 </ul>
                             </div>
 
-                            <div class="card-body">
-                                <h5 class="card-title">전체 예약 통계 <span>| <%=today%></span></h5>
+                            <div class="card-body" onclick="reserveStatistics()">
+                                <h5 class="card-title">전체 예약 통계 <span>| <%=today%>&nbsp 기준</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
