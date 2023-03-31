@@ -22,17 +22,24 @@ public class ClassServiceImpl implements ClientClassService{
 		List<ClientClassVO> list = classDao.clientClassList();
 		return list;
 	}
-
 	@Override
 	public ClientClassVO clientClassDetail(ClientClassVO vo) {
-		ClientClassVO cvo = classDao.clientClassDetail(vo);
-		return cvo;
+		ClientClassVO  clientClassDetail = classDao.clientClassDetail(vo);
+		return clientClassDetail;
 	}
 	@Override
-	public CenterVO clientCenterDetail(ClientClassVO vo) {
-		CenterVO cvo = classDao.clientCenterDetail(vo);
+	public List<ClientClassVO> clientClassDetailList(ClientClassVO vo) {
+		List<ClientClassVO> clientClassList = classDao.clientClassDetailList(vo);
+		return clientClassList;
+	}
+	@Override
+	//클래스의 센터 조회
+		public CenterVO clientCenterDetail(String ct_bizno) {
+		CenterVO cvo = classDao.clientCenterDetail(ct_bizno);
 		return cvo;
 	}
+
+	
 	
 
 }

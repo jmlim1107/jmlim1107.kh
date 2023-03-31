@@ -20,7 +20,7 @@
 		});
 	
 	</script>
-		
+	
 		
 		
 	</head>
@@ -40,7 +40,7 @@
 				<%-- ========= 버튼 추가 시작 ====== --%>
 				<div id="boardPwdBut" class="row text-center" style="float:right">
 					
-						<input type="button" value="목록" id="boardListBtn" class="button primary small" />
+						<input type="button" value="목록" id="boardListBtn" class="btn btn-primary btn-lg" />
 				
 				</div> 
 				<%--========= 버튼 추가 종료 ========= --%>
@@ -48,25 +48,28 @@
 				<br/>
 
 				<%-- =============== 상세 정보 보여주기 시작 ============ --%>
-							
+				<div style="text-align: center;">
 					<h1>${detail.s_title}</h1>
 							
 					<h2>센터명: ${detail.ct_name}</h2>
-					<span style="float:right">작성일 : ${detail.s_date}</span>
+					<span style="font-size:1.5em;">작성일 : ${detail.s_date}</span>
 					<br/>
 					<br/>
 					
-					<span class="image main">
+					<span class="image main" >
 						<c:if test="${not empty detail.s_file}">
 							<tr>
 								<td class="col-md-1"></td>
 								<td colspan="3" class="col-md-8 text-left">
-								<img src="/uploadLiClass/studio/${detail.s_file}" style="width: 70%; height: auto;"/></td>
+								<img src="/uploadLiClass/studio/${detail.s_file}" 
+								style="width: 700px; height: 500px;"/></td>
 							</tr>
 						</c:if>
 					</span>
-					<div style="white-space:pre-wrap;">${detail.s_content}</div>
-							
+					<br/>
+					<br/>
+					<div style="white-space:pre-wrap; font-size:1.5em;" >${detail.s_content}</div>
+				</div>			
 			</div>
 		</div>
 					<%-- =============== 상세 정보 보여주기 종료 ============ --%>
@@ -74,9 +77,9 @@
 	
 	<!-- Scripts -->
 			<!-- <script src="/resources/include/dist/studio/assets/js/jquery.min.js"></script> -->
-			<script src="/resources/include/dist/studio/assets/js/browser.min.js"></script>
+			<!-- <script src="/resources/include/dist/studio/assets/js/browser.min.js"></script>
 			<script src="/resources/include/dist/studio/assets/js/breakpoints.min.js"></script>
 			<script src="/resources/include/dist/studio/assets/js/util.js"></script>
-			<script src="/resources/include/dist/studio/assets/js/main.js"></script>
+			<script src="/resources/include/dist/studio/assets/js/main.js"></script> -->
 	</body>
 </html>

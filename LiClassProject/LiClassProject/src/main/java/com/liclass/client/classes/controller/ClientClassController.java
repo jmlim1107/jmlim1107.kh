@@ -33,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ClientClassController {
 	
 	@Setter(onMethod_ = @Autowired)
-	private ClientClassService classService;
+	private ClientClassService clientClassService;
 	@Setter(onMethod_ = @Autowired)
 	private CenterService centerService;
 	@Setter(onMethod_ = @Autowired)
@@ -42,34 +42,21 @@ public class ClientClassController {
 	private ReviewService reviewService;
 	
 	/************************************************
-	 * 게시판 전체조회 ->homecontroller에 포함시킴 ->03.30 별도분리
+	 * 클래스 전체 조회 
 	 * 요청 url : http://localhost:8080/class/classList
 	*************************************************/
 	@GetMapping("/class/classList")
 	public String classList(Model model) {
 		log.info("classList() 호출");
 		
-		List<ClientClassVO> classList =classService.clientClassList();
-		for(ClientClassVO vo : classList ) {
-			log.info("classList : "+vo.toString());
-		}
+		List<ClientClassVO> classList =clientClassService.clientClassList();
 		
 		model.addAttribute("classList",classList);
 		
 		return "class/classList";
 	}
-	/************************************************
-	 * 센터 상세정보
-	 * 요청 url : http://localhost:8080/user/signupForm
-	***********************************************
-	@GetMapping("/admin/centerDetail")
-	public String centerDetail(ClassVO vo,Model model) {
-		log.info("centerDetail() 호출");
-		CenterVO centerDetail = classService.centerDetail(vo);
-		model.addAttribute("centerDetail", centerDetail);
-		return "mypage/updateForm";
-	}*/
 	
+
 	/************************************************
 	 * 클래스 상세조회
 	 * 요청 url : http://localhost:8080/class/classList
@@ -80,12 +67,15 @@ public class ClientClassController {
 		log.info("classDetail() 호출");
 		ClientClassVO cvo = new ClientClassVO();
 		cvo.setC_no(c_no);
+		ClientClassVO clientClassDetail =  clientClassService.clientClassDetail(cvo);
+		model.addAttribute("clientClassDetail",clientClassDetail);
+
 		
 		//로그인 계정
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 		model.addAttribute("loginUser",loginUser);
 		
-		//클래스 관심클래스 유무
+		//클래스 관심클래스 유무 확인
 		if(loginUser != null) {
 			LikesVO lvo = new LikesVO();
 			lvo.setUser_no(loginUser.getUser_no());
@@ -98,12 +88,12 @@ public class ClientClassController {
 		}
 		
 		//클래스 상세정보
-		ClientClassVO classDetail =classService.clientClassDetail(cvo);
-		log.info("classDetail.toString() : "+classDetail.toString());
-		model.addAttribute("classDetail",classDetail);
+		List<ClientClassVO> clientClassDetailList = clientClassService.clientClassDetailList(clientClassDetail);
+		log.info("clientClassDetailList.toString() : "+clientClassDetailList.toString());
+		model.addAttribute("clientClassDetailList",clientClassDetailList);
 		
 		//해당 클래스의 센터 상세정보
-		CenterVO centerDetail = classService.clientCenterDetail(classDetail);
+		CenterVO centerDetail = clientClassService.clientCenterDetail(clientClassDetail.getCt_bizno());
 		if(centerDetail != null) {
 			log.info("centerDetail.toString() : "+centerDetail.toString());
 			model.addAttribute("centerDetail", centerDetail);
@@ -137,16 +127,16 @@ public class ClientClassController {
 	}
 	
 	/************************************************
-	 * 클래스 상세조회 (최근 본 클래스)
-	 * 요청 url : http://localhost:8080/class/classList2
+	 * 클래스 대표 이미지 조회
+	 * 요청 url : http://localhost:8080/class/getClassImg
 	*************************************************/
 	@ResponseBody
-	@GetMapping("/class/classDetail2")
-	public String classDetail2(ClientClassVO cvo) {
-		log.info("classDetail2() 호출");
+	@GetMapping("/class/getClassImg")
+	public String getClassImg(ClientClassVO cvo) {
+		log.info("getClassImg() 호출");
 
 		//클래스 상세정보
-		ClientClassVO recentClass =classService.clientClassDetail(cvo);
+		ClientClassVO recentClass = clientClassService.clientClassDetail(cvo);
 		String c_img_file = recentClass.getC_img_file();
 		
 		return c_img_file;
