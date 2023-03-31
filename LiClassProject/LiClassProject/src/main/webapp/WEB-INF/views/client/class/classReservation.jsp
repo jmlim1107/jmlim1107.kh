@@ -86,9 +86,10 @@ $(function(){
 				type : "POST",
 				url : "/like",
 				data : {
-					"c_no" : $(".class-content").data("num"),
+					"c_no" : ${param.c_no},
 					"user_no" : $(".login-info").data("num")
-				},success : function(result){
+				},
+				success : function(result){
 					/* if(result == "추가"){
 					 	alert("관심클래스에 추가되었습니다.");
 					}else if(result == "삭제"){
