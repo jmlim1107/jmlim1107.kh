@@ -3,22 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
 	$(function(){
-		
-		//클래스 카테고리
-		if("${1 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 공예");
-		}else if("${2 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 요리");
-		}else if("${3 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 미술");
-		}else if("${4 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 플라워");
-		}else if("${5 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 뷰티");
-		}else if("${6 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 체험 및 기타");
-		}
-		
 		//클래스 이미지 사진
 		var img1 = '/uploadLiClass/class/'+$('.class-img:eq(0)').val();
 		var img2 = '/uploadLiClass/class/'+$('.class-img:eq(1)').val();
@@ -41,7 +25,26 @@
    	</c:choose>
    	
 	<div class="class-content" data-num="${clientClassDetail.c_no}">
-      <h6 id="category"><i class="fa-solid fa-hashtag"></i></h6>
+      <h6 id="category"><i class="fa-solid fa-hashtag"></i>
+      	<c:if test = "${clientClassDetail.c_category eq 0}">
+			공예
+		</c:if>
+     	<c:if test = "${clientClassDetail.c_category eq 1}">
+			요리
+		</c:if>
+		<c:if test = "${clientClassDetail.c_category eq 2}">
+			미술
+		</c:if>
+		<c:if test = "${clientClassDetail.c_category eq 3}">
+			플라워
+		</c:if>
+		<c:if test = "${clientClassDetail.c_category eq 4}">
+			뷰티
+		</c:if>
+		<c:if test = "${clientClassDetail.c_category eq 5}">
+			체험 및 기타
+		</c:if>
+      </h6>
       <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${clientClassDetail.c_area}</h6>
       <h3>${clientClassDetail.c_title}</h3>
 	</div>

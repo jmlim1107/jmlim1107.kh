@@ -14,23 +14,7 @@
 <script src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
 <!-- 리뷰 css -->
 <link rel="stylesheet" type = "text/css" href="/resources/review/css/review.css" />
-<style type="text/css">
-   	#colorStar{
-   		direction: rtl;
-		unicode-bidi: bidi-override;
-   		color: #555; 
-   	}
-	.row>*{
-		width: 80%;
-	}
-	/* 클래스 상세페이지에서만 로그인창이 이상해서 별도 설정 */
-	#login-pop-modal .modal_content {
-	  top: 460px;height: 699px;
-	}
-	.wrap-login100{
-		height: 699px;
-	}
-   </style>
+
 <div id="class-detail-div" style="padding-top: 70px;">
 
 	<!-- 1. class img slider section start -->

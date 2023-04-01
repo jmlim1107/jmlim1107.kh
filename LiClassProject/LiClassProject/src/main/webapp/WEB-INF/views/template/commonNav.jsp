@@ -20,19 +20,18 @@
 		/* 로그인 */
 		$("#floating-login").click(function(){
 		       $("#login-pop-modal").attr("style", "display:block");
-		       $("#login-pop-modal").attr("style", "display:block");
 		   });
 		  
-		    $("#modal_close_btn").click(function(){
-		       $("#login-pop-modal").attr("style", "display:none");
+	    $("#modal_close_btn").click(function(){
+	       $("#login-pop-modal").attr("style", "display:none");
 		 });
 		    
 		/* 최근 본 클래스 */
 		//localStorage.clear();
 		//localStorage.removeItem("classNo");
 		//localStorage.removeItem("activePosition");
-		console.log("activePosition : "+localStorage.getItem("activePosition"));
 		//console.log("localStorage - classNo : "+localStorage.getItem("classNo"));
+		console.log("activePosition : "+localStorage.getItem("activePosition"));
 
 		/* 최근 본 클래스 */
 	 	var imgArr = [];
