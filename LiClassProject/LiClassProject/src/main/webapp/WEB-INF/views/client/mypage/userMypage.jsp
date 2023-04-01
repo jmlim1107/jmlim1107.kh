@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- 마이페이지 - 1. 첫화면 -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ --><!-- 마이페이지 - 1. 첫화면 -->
 <!--은아) 비밀번호 만료 알림 js,css  -->
 <script src="/resources/client/mypage/assets/js/pwExp.js"></script>
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/pwExp.css" />
@@ -61,6 +61,7 @@
 		         <div class="naccs">
 		           <div class="grid">
 		             <div class="row">
+		             
 		               <div class="col-lg-3">
 		                 <div class="menu">
 		                   <div class="first-thumb active point">
@@ -95,9 +96,11 @@
 		                   </div>
 		                 </div>
 		               </div> 
-		               <div class="col-lg-9 align-self-center">
-		                 <ul class="nacc">
-		                 
+		           <!--은아)마이페이지 좌측 메뉴 nav  -->  
+		            
+	               <!-- 우측 탭메뉴 시작 -->
+	               <div class="col-lg-9 align-self-center" style="top: -280px;">
+	                 <ul class="nacc">
 	                 	   <!-- 1. my profile start -->
 	                   	   <li class="mypageLi active">
 	                  			<%@ include file="/WEB-INF/views/client/mypage/myProfileHistory.jsp" %>
@@ -128,7 +131,8 @@
 	                  	  </li>
 	                  	  <!-- 5. my QnA end -->
 	         		   </ul>
-	               </div>          
+	               </div>    
+	               <!-- 우측 탭메뉴 종료 -->      
 	             </div>
 	           </div>
 	         </div>

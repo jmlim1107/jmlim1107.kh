@@ -51,15 +51,16 @@
 	     <tiles:insertAttribute name="footer" />
 	</footer>
     
-    
-	<!-- mainTheme --> 
+<!-- 하단 script 시작==============================================================================================-->
+
+	<!-- mainTheme 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 	<script src="/resources/client/mainTheme/js/bootstrap.min.js"></script> 
 	<script src="/resources/client/mainTheme/js/jquery.flexslider-min.js"></script> 
-	<!-- <script src="/resources/mainTheme/js/retina.min.js"></script>  -->
+	<!-- <script src="/resources/mainTheme/js/retina.min.js"></script> 
 	
 	<script src="/resources/client/mainTheme/js/modernizr.js"></script> 
-	<script src="/resources/client/mainTheme/js/main.js"></script>
+	<script src="/resources/client/mainTheme/js/main.js"></script>--> 
 	
 	<!-- login --> 
 	<!--===============================================================================================-->
@@ -79,15 +80,20 @@
 	<!--===============================================================================================-->
 	<script src="/resources/client/login/js/login.js"></script>
 	
-	<!-- mypage -->
+<%-- 	<!-- mypage -->
  	<script src="/resources/client/mypage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
  	<script src="/resources/client/mypage/assets/js/owl-carousel.js"></script>
 	<script src="/resources/client/mypage/vendor/jquery/jquery.min.js"></script>
  	<script src="/resources/client/mypage/assets/js/animation.js"></script>
  	<script src="/resources/client/mypage/assets/js/imagesloaded.js"></script>
- 	<script src="/resources/client/mypage/assets/js/custom.js"></script>
+ 	<script src="/resources/client/mypage/assets/js/custom.js"></script> -->
 
 	<%-- qna board --%>
 	<link rel="stylesheet" href="/resources/client/qnaBoard/css/css.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<!-- 하단 script 끝==============================================================================================-->
+
+
+
 </html>

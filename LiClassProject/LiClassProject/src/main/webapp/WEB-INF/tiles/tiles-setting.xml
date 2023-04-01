@@ -3,74 +3,65 @@
   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-	<!--은아) 홈화면 -->
+	<!-- 홈화면 -->
 	<definition name="home" template="/WEB-INF/views/template/client/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/template/homeBody.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
-	<!--은아) 지민헤더 -->
+	<!-- 기본 -->
 	<definition name="basicTemplate" template="/WEB-INF/views/template/client/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
-	
-	<definition name="class/*" extends="basicTemplate">
-		<put-attribute name="body" value="/WEB-INF/views/client/class/{1}.jsp" />
-	</definition>
-	
-	
-	
-	<!--은아) 은아헤더 (마이페이지에서 사용) -->
-	<definition name="userContent" template="/WEB-INF/views/template/client/clientLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
-		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
-	</definition>
-	
-	<!--은아) 은아 테스트중  -->
-	<definition name="mypageContent" template="/WEB-INF/views/template/client/eunaLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
-		<put-attribute name="nav" value="/WEB-INF/views/template/eunanav.jsp" />
-		<put-attribute name="body" value="" />
-	</definition>
-	
-	<!--은아) 0330 liuser-> client로 수정 -->
-	<definition name="client/*/*" extends="mypageContent">
-		<put-attribute name="body" value="/WEB-INF/views/client/{1}/{2}.jsp" />
-	</definition>
-	
-	<!-- 웅배님 -->
-	<definition name="courseHistory" template="/WEB-INF/views/template/client/eunaLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
-		<put-attribute name="nav" value="" />
-		<put-attribute name="body" value="/WEB-INF/views/client/mypage/courseHistory.jsp" />
-	</definition>
-	
-	<!--은아) 에러페이지 -->
+	<!-- 에러페이지 -->
 	<definition name="common/error/*" extends="basicTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/common/error/{1}.jsp" />
 	</definition>
 	
-	<!--은아) 팀소개 -->
+	<!-- 팀소개 -->
 	<definition name="team" template="/WEB-INF/views/template/client/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/team.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
-	<!--은아)0331 민섭님 타일즈가 겹쳐서 client를 빼봤어요.  -->
-	<definition name="qnaboard/*" extends="userContent">
+	<!-- 클래스  -->
+	<definition name="class/*" extends="basicTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/client/class/{1}.jsp" />
+	</definition>
+
+	<!-- 마이페이지  -->
+	<definition name="mypageContent" template="/WEB-INF/views/template/client/mypageLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/template/eunanav.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
+	</definition>
+	
+	<!-- 은아 -->
+	<definition name="client/*/*" extends="mypageContent">
+		<put-attribute name="body" value="/WEB-INF/views/client/{1}/{2}.jsp" />
+	</definition>
+	
+	<!-- 웅배 -->
+	<definition name="courseHistory" extends="mypageContent">
+		<put-attribute name="nav" value="" />
+		<put-attribute name="body" value="/WEB-INF/views/client/mypage/courseHistory.jsp" />
+	</definition>
+	
+	<!-- 민섭 -->
+	<definition name="qnaboard/*" extends="basicTemplate">
 		<put-attribute name="title" value="고객센터" />
 		<put-attribute name="body" value="/WEB-INF/views/client/qnaboard/{1}.jsp" />
 	</definition>
 	
 	<!-- 소영 -->
 	<definition name="studio/*" extends="basicTemplate">
-		<!-- <put-attribute name="title" value="스튜디오" /> -->
+		<put-attribute name="title" value="스튜디오" /> 
  		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
 	</definition>
 	

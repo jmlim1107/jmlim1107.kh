@@ -546,3 +546,62 @@ a.login100-form-btn:hover{
 	
 }
 
+/* ------------------------------------------------------------------------------
+	 은아 추가
+-------------------------------------------------------------------------------*/
+/*header*/
+#profile-thumbnail{
+	width: 30px;
+	height:30px;
+	overflow:hidden;
+	border-radius:70%;
+	object-fit:cover;
+	margin: 0px 10px;
+}
+
+#login-pop-modal {
+	top: 110px;
+display:none;
+  position:relative;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
+#login-pop-modal h2 {
+  margin:0;   
+}
+
+#login-pop-modal button {
+  display:inline-block;
+  width:100px;
+  margin-left:calc(100% - 100px - 10px);
+}
+
+#login-pop-modal .modal_content {
+  width:390px;
+  margin:0px auto;
+  background:#fff;
+  /* border:2px solid #666; */
+}
+
+#login-pop-modal .modal_layer {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.5);
+  z-index:-1;
+}   
+
+#modal_close_btn{
+	text-align: right;
+	font-size: 20px;
+}
+
+/*clientLayout*/
+.clientLayout{
+	margin-bottom: 120px;
+	
+}
