@@ -88,7 +88,7 @@
 			                     </c:when>
 			                     <c:otherwise>
 			                        <tr>
-			                           <td colspan="6" class="tac text-center"><i class="fa-solid fa-circle-question"></i>문의내역이 존재하지 않습니다.</td>
+			                           <td colspan="6" class="tac text-center"><i class="fa-solid fa-circle-question"></i>  문의내역이 존재하지 않습니다.</td>
 			                        </tr>
 			                     </c:otherwise>
 			                  </c:choose>

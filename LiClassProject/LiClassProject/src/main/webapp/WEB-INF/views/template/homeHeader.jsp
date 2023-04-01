@@ -55,7 +55,7 @@
 			                <li><a class="nav-link scrollto menu header-menu" href="/team">Team</a></li>
 			                <li><a class="nav-link scrollto menu header-menu" href="/client/qnaboard/qnaBoard">FAQ</a></li>
 			                <c:if test="${loginUser == null}">
-			                	<li><a class="nav-link scrollto" id="login-modal" style="color:white;">Login</a></li>
+			                	<li><a href="#gotop" class="nav-link scrollto" id="login-modal" style="color:white;">Login</a></li>
 			                </c:if>
 			                <c:if test="${loginUser != null}">
 				                <c:if test="${loginUser.user_img != ''}">

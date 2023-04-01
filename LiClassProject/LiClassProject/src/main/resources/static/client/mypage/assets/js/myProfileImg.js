@@ -49,7 +49,7 @@ $(function(){
 	    
 	    //기본이미지로 선택클릭
 	    $("#delete-img").click(function(){
-	    	if(confirm("삭제한 프로필사진은 복구할 수 없습니다. 정말 삭제하사겠습니까?")){
+	    	if(confirm("삭제한 프로필사진은 복구할 수 없습니다. 기본이미지로 변경하겠습니까?")){
 	    		location.href="/mypage/delImg";
 	    	}
 		});

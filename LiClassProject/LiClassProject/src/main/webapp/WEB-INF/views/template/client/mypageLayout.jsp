@@ -21,7 +21,7 @@
 	
 		
   	</head>
-  	<body>
+  	<body id="gotop">
   	
 		<header class="header" style="height: 0;">
 			<tiles:insertAttribute name="header" />

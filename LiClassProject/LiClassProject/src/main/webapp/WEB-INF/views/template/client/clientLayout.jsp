@@ -3,7 +3,6 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="tiles" uri = "http://tiles.apache.org/tags-tiles" %>
 <%@ include file="/WEB-INF/views/client/client_common.jspf" %>
-<!--지민) 메인화면  -->
 	
 	<title>LiClass</title>
 	<!-- 부트스트랩 -->
@@ -29,34 +28,35 @@
 
     <!-- Template Main CSS File -->
     <link href="/resources/include/mainLayout/css/style.css" rel="stylesheet">
+    
+     <!-- nav  -->
+	<script src="/resources/client/mainTheme/js/floatingNav.js"></script>
+	<link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
 		
   </head>
-  	<!-- 은아) 0331 로그인모달창 회색배경때문에 0으로 변경해봄 -->
-	<div class="header" style="height: 0;">
-		<tiles:insertAttribute name="header" />
-	</div>
-	
-	<body>
-	  <div class="clientLayout">
-	   		<tiles:insertAttribute name="body" />
-	  </div>
-	</body>
-	
-	<footer class="footer">
-	     <tiles:insertAttribute name="footer" />
-	</footer>
+  <body id="gotop">
+		<div class="header" style="height: 0;">
+			<tiles:insertAttribute name="header" />
+		</div>
+		
+		<body>
+		  <div class="clientLayout">
+		   		<tiles:insertAttribute name="body" />
+		  </div>
+		</body>
+		
+		 <nav class="nav">
+	    	<tiles:insertAttribute name="nav" />
+	    </nav>
+		
+		<footer class="footer">
+		     <tiles:insertAttribute name="footer" />
+		</footer>
+		
+
     
 <!-- 하단 script 시작==============================================================================================-->
 
-	<!-- mainTheme 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-	<script src="/resources/client/mainTheme/js/bootstrap.min.js"></script> 
-	<script src="/resources/client/mainTheme/js/jquery.flexslider-min.js"></script> 
-	<!-- <script src="/resources/mainTheme/js/retina.min.js"></script> 
-	
-	<script src="/resources/client/mainTheme/js/modernizr.js"></script> 
-	<script src="/resources/client/mainTheme/js/main.js"></script>--> 
-	
 	<!-- login --> 
 	<!--===============================================================================================-->
 	<script src="/resources/client/login/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -74,21 +74,11 @@
 	<script src="/resources/client/login/vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="/resources/client/login/js/login.js"></script>
-	
-<%-- 	<!-- mypage -->
- 	<script src="/resources/client/mypage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
- 	<script src="/resources/client/mypage/assets/js/owl-carousel.js"></script>
-	<script src="/resources/client/mypage/vendor/jquery/jquery.min.js"></script>
- 	<script src="/resources/client/mypage/assets/js/animation.js"></script>
- 	<script src="/resources/client/mypage/assets/js/imagesloaded.js"></script>
- 	<script src="/resources/client/mypage/assets/js/custom.js"></script> -->
 
 	<%-- qna board --%>
 	<link rel="stylesheet" href="/resources/client/qnaBoard/css/css.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
 <!-- 하단 script 끝==============================================================================================-->
-
-
-
+	</body>
 </html>

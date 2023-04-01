@@ -32,7 +32,7 @@
 					         			
 				         			</div>
 				         			<!-- profile img edit modal start -->
-									<div id="img-edit" class="filebox preview-image modal" style="height: 130px; z-index: 2; position: initial; text-align: center;">
+									<div id="img-edit" class="filebox preview-image modal" style="height: 150px; z-index: 2; position: initial; text-align: center;">
 										
 										<form id="img-update-form">
 											<label for="input-file" >
@@ -41,9 +41,9 @@
 											<input type="file" class="upload-hidden" id="input-file" name="file" accept="image/png, image/jpeg"  style="display: none;">
 	                             		</form>
 	                             		
-		                             	<a class="btn" id="update-img" ><i class="fa-solid fa-repeat"></i>변경</a>
-	                             		<a class="btn" id="delete-img" ><i class="fa-regular fa-user"></i>기본이미지로 변경</a>
-	                             		<a class="btn" id="cancel" rel="modal:close"><i class="fa-solid fa-xmark"></i>취소</a>
+		                             	<a class="btn" id="update-img" ><i class="fa-solid fa-repeat" style="margin:1px;"></i>변경</a>
+	                             		<a class="btn" id="delete-img" ><i class="fa-regular fa-user" style="margin:1px;"></i>기본이미지로 변경</a>
+	                             		<a class="btn" id="cancel" rel="modal:close"><i class="fa-solid fa-xmark" style="margin:1px;"></i>취소</a>
 									</div>
 									<!-- profile img edit modal end -->
 				         			
