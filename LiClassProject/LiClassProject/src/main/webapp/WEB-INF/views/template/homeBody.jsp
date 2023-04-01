@@ -3,39 +3,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="/resources/client/mainTheme/js/bootstrap.affix.js"></script>
-
-
-
 <style>
 #header{width: 100%;
     margin: 0px;
     padding : 29px 0;
     }
-#navbar.navbar{ 
-    margin: 0px 0px 0px 400px;
-
-}
+#navbar.navbar{margin: 0px 0px 0px 400px;}
 #header.header-scrolled{padding : 20px 0;}
-
 </style>
-
 <script>
 
-	/* 은아)메인화면 redirect 시 전달메시지 있을 때 */
-	if('${message}' != ""){
-		var message = "${message}" ;
-		alert(message);
-	}
+	$(function(){
+		//은아) activePosition 초기화
+		localStorage.removeItem("activePosition")
+		
+		//은아)메인화면 redirect 시 전달메시지 있을 때
+		if('${message}' != ""){
+			var message = "${message}" ;
+			alert(message);
+		}
+	})
 </script>
  <body id="page-top" data-spy="scroll" data-target=".side-menu">
-	<%-- <!-- 지민)클래스 리스트 -->
-	<!-- 1. class list start  -->
-	<section id="portfolio" class="section portfolio">
-		<%@ include file="/WEB-INF/views/client/class/classList.jsp" %>
-	</section>
-	<!-- 1. class list end  --> --%>
 	<div class="video-background"></div>
-       		
     	<div id="vidtop-content">
         	
 		    <!-- ======= Hero Section ======= -->

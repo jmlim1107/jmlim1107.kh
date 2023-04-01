@@ -3,11 +3,6 @@
 <mapper namespace="com.liclass.client.mypage.dao.MypageDAO">
 	<!--1. 나의 관심클래스 조회 -->
 	<select id="myLikesList" parameterType="User" resultType="c_class">
-        <!-- select a.c_no,a.c_title,a.c_content,a.c_category,a.c_area,a.c_luv,c.c_img_file as c_img_file
-     	select a.c_no,a.c_title,a.c_content,a.c_category,a.c_area,a.c_luv,c.c_img_file as c_img_file
-        from li_class a left join li_likes b on a.c_no = b.c_no
-                        left join li_class_img c on a.c_no = c.c_no
-        where b.user_no = #{user_no} -->
          SELECT A.like_no, A.user_no, A.c_no,B.c_img_file ,C.c_title,C.c_area
 			FROM li_likes A left outer join
 	    		(select c_no, 
@@ -35,7 +30,17 @@
 	
 	<!--2. 나의 후기 조회 -->
 	<select id="myReviewList" parameterType="User" resultType="Review">
-        select a.review_no,b.user_name as review_name,a.review_title,a.review_content,
+        select a.review_no,b.user_name as review_name,a.review_title,a.review_content,review_rating,(select 
+	        	MAX(DECODE(RID, 1, c_img_file)) c_img_file
+	    		from (
+            		SELECT c_no, c_img_file,
+                	ROW_NUMBER() OVER (PARTITION BY c_no ORDER BY c_img_no) RID, 
+                	c_img_no
+                	
+            		FROM li_class_img
+                    where c_no = a.c_no
+	        	) 
+	    		GROUP BY c_no) as class_img,
         to_char(a.review_date,'YYYY-MM-DD') as review_date,
         a.review_date,a.review_update,
         a.review_status,a.c_no,a.user_no,b.user_img,c.c_title

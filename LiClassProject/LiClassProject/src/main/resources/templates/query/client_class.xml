@@ -46,7 +46,20 @@
 	</select> 
 	
 	
-	
+		<!--3. 해당클래스의 센터 상세조회--><!-- 은아)03.29 수정완료  -->
+	<select id="getImg" resultType="String" parameterType="int">
+		select c_no, 
+	        	MAX(DECODE(RID, 1, c_img_file)) c_img_file
+	    		from (
+            		SELECT c_no, c_img_file,
+                	ROW_NUMBER() OVER (PARTITION BY c_no ORDER BY c_img_no) RID, 
+                	c_img_no
+                	
+            		FROM li_class_img
+                    where c_no=#{c_no}
+	        	) 
+	    		GROUP BY c_no
+	</select> 
 	
 	
 	

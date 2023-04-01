@@ -100,7 +100,7 @@
 					<span class="btn-show-pass">
 						<i class="zmdi zmdi-eye" id="title"></i>
 					</span>
-					<input class="input100" type="password" id="user_pw" name="user_pw" placeholder="Enter password">
+					<input class="input100" type="password" id="user_pw" name="user_pw" placeholder="Enter password" autocomplete="">
 					<span data-placeholder="Password"></span>
 				</div>
 				<div class="container-login100-form-btn">

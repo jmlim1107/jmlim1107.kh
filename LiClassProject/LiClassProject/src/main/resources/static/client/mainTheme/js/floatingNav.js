@@ -13,9 +13,9 @@
 		
 		//localStorage.clear();
 		//localStorage.removeItem("classNo");
-		localStorage.removeItem("activePosition");
-		console.log("localStorage - activePosition : "+localStorage.getItem("activePosition"));
-		console.log("localStorage - classNo : "+localStorage.getItem("classNo"));
+		//localStorage.removeItem("activePosition");
+		console.log("activePosition : "+localStorage.getItem("activePosition"));
+		//console.log("localStorage - classNo : "+localStorage.getItem("classNo"));
 
 		/* 최근 본 클래스 */
 	 	var imgArr = [];

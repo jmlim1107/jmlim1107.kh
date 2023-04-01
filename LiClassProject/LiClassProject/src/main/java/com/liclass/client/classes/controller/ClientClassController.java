@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.liclass.admin.management.center.service.CenterService;
@@ -26,7 +25,6 @@ import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import retrofit2.http.GET;
 
 @Controller
 @Slf4j
@@ -42,7 +40,7 @@ public class ClientClassController {
 	private ReviewService reviewService;
 	
 	/************************************************
-	 * 게시판 전체조회 ->homecontroller에 포함시킴 ->03.30 별도분리
+	 * 클래스 전체조회
 	 * 요청 url : http://localhost:8080/class/classList
 	*************************************************/
 	@GetMapping("/class/classList")
@@ -55,6 +53,7 @@ public class ClientClassController {
 		
 		return "class/classList";
 	}
+	
 	/************************************************
 	 * 센터 상세정보
 	 * 요청 url : http://localhost:8080/user/signupForm
@@ -137,13 +136,13 @@ public class ClientClassController {
 	}
 	
 	/************************************************
-	 * 클래스 상세조회 (최근 본 클래스)
-	 * 요청 url : http://localhost:8080/class/classList2
+	 * 클래스 대표사진 
+	 * 요청 url : http://localhost:8080/class/getClassImg
 	*************************************************/
 	@ResponseBody
-	@GetMapping("/class/classDetail2")
-	public String classDetail2(ClientClassVO cvo) {
-		log.info("classDetail2() 호출");
+	@GetMapping("/class/getClassImg")
+	public String getClassImg(ClientClassVO cvo) {
+		log.info("getClassImg() 호출");
 
 		//클래스 상세정보
 		ClientClassVO recentClass = clientClassService.clientClassDetail(cvo);
@@ -152,6 +151,20 @@ public class ClientClassController {
 		return c_img_file;
 	}
 	
+	/************************************************
+	 * 클래스 대표사진 
+	 * 요청 url : http://localhost:8080/class/getClassImg
+	*************************************************/
+	@ResponseBody
+	@GetMapping("/class/getClassImg2")
+	public String getClassImg2(int c_no) {
+		log.info("getClassImg() 호출");
+
+		//클래스 상세정보
+		String classImg = clientClassService.getImg(c_no);
+		
+		return classImg;
+	}
 	
 	/* 예약하기 
 	@GetMapping("/admin/episode/goReserve")

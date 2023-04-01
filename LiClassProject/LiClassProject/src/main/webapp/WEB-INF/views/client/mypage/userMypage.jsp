@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- --><!-- 마이페이지 - 1. 첫화면 -->
+<!-- 마이페이지 - 1. 첫화면 -->
 <!--은아) 비밀번호 만료 알림 js,css  -->
 <script src="/resources/client/mypage/assets/js/pwExp.js"></script>
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/pwExp.css" />
@@ -13,6 +12,7 @@
 </style> 
 <script>
 	$(function(){
+		
 		/* 은아)마이페이지 redirect 시 전달메시지 있을 때 */
 		if('${message}' != ""){
 			var message = "${message}" ;
