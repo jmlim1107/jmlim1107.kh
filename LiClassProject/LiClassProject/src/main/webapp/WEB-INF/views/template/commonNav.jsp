@@ -32,7 +32,7 @@
 		//localStorage.removeItem("classNo");
 		//localStorage.removeItem("activePosition");
 		console.log("activePosition : "+localStorage.getItem("activePosition"));
-		console.log("localStorage - classNo : "+localStorage.getItem("classNo"));
+		//console.log("localStorage - classNo : "+localStorage.getItem("classNo"));
 
 		/* 최근 본 클래스 */
 	 	var imgArr = [];
@@ -65,7 +65,7 @@
 				            }
 				            ,dataType : 'text',
 				            success: function (c_img_file) {
-								console.log("c_img_file : "+c_img_file)
+								//console.log("c_img_file : "+c_img_file)
 								
 				                imgArr.push(c_img_file);
 				                for(i=0;i<imgArr.length; i++){

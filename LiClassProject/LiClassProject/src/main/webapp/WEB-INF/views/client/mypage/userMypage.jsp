@@ -12,7 +12,6 @@
 </style> 
 <script>
 	$(function(){
-		
 		/* 은아)마이페이지 redirect 시 전달메시지 있을 때 */
 		if('${message}' != ""){
 			var message = "${message}" ;

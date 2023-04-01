@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.liclass.admin.management.center.vo.CenterVO;
 import com.liclass.client.classes.dao.ClientClassDAO;
-import com.liclass.client.classes.dao.ClientClassImgDAO;
 import com.liclass.client.classes.vo.ClientClassVO;
 
 import lombok.Setter;
