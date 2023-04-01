@@ -37,7 +37,7 @@
       });
    </script>
 <style>
-   .table>tbody>tr>td{padding:12px;vertical-align: middle;}
+   .table>tbody>tr>td{vertical-align: middle;}
 </style> 
 
 <div class="thumb">
@@ -62,10 +62,10 @@
                <!-- 데이터 출력 -->
                <c:choose>
                   <c:when test="${ not empty pvo_courseList }">
-                     <c:forEach var="courseList" items="${ pvo_courseList }" >
+                     <c:forEach var="courseList" items="${ pvo_courseList }" varStatus="status">
                         <tr class="text-center" data-num="${ courseList.r_no }">
-                           <td style="text-align:left;padding-left:15px;">
-                              <img src="https://item.kakaocdn.net/do/493188dee481260d5c89790036be0e66f604e7b0e6900f9ac53a43965300eb9a" style="width:60px;height:60px;object-fit:cover;" alt="..." class="img-rounded">
+                           <td style="text-align:left;">
+                              <img src="/uploadLiClass/class/thumbnail/${classImg[status.index]}" style="margin-left:20px;width:100px;height:100px;object-fit:cover;" alt="..." class="img-rounded">
                               <span style="padding-left:30px;">${ courseList.title }</span>
                            </td>                     
                            <td>${courseList.date }</td>
@@ -74,13 +74,13 @@
                            <td>${ courseList.area }</td>
                            <c:if test="${courseList.review_status == 0}">
                               <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
-                              	<input type="button" value="글쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn">
+                              	<input type="button" value="리뷰쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn" style="margin:0">
                               </td>
                            </c:if>
                            
                            <c:if test="${courseList.review_status == 1 }">
                               <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
-                                 <input type="button" value="리뷰보기" class="reviewDetail">
+                                 <input type="button" value="리뷰수정" class="btn btn-dark reviewDetail" style="margin:0">
                               </td>
 <!-- <<<<<<< HEAD -->
                            </c:if>     

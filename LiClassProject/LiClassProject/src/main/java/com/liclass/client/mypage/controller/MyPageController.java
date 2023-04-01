@@ -313,6 +313,16 @@ public class MyPageController {
         List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
 	    model.addAttribute("pvo_courseList", pvo_courseList);
 	    
+	    List<String> classImg = new ArrayList<>();
+        for(int i = 0; i < pvo_courseList.size(); i++) {
+        	String doc = mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_courseList.get(i).get("r_no"))));
+        	classImg.add(doc);
+        	//classImg.add(mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_paymentList.get(i).get("r_no")))));
+        }
+        System.out.println(classImg);
+        model.addAttribute("classImg", classImg);
+	    
+	    
 	    return "courseHistory";
 	}
 	

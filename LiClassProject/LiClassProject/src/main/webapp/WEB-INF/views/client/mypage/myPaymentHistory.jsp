@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <style>
-   .table>tbody>tr>td{padding:12px;vertical-align: middle;}
+   .table>tbody>tr>td{vertical-align: middle;}
    ul{height:0px;}
    .csp{text-decoration:none;color:black;}
    .csp:hover{text-decoration:underline;}
@@ -14,6 +14,9 @@
   justify-content: center;
   align-content: center;
 }
+span{justify-content: center;
+    align-items: center;
+    display: flex;}
 
 .pagination a {
   color: black;
@@ -153,8 +156,8 @@
                      <c:when test="${ not empty pvo_paymentList }">
                         <c:forEach var="payment" items="${ pvo_paymentList }" varStatus="status" >
                            <tr class="text-center" data-num="${ payment.merchant_uid }">
-                              <td style="text-align:left;padding-left:15px;">
-                                 <img src="/uploadLiClass/class/thumbnail/${classImg[status.index] }" style="width:60px;height:60px;object-fit:cover;" alt="..." class="img-rounded">
+                              <td style="text-align:left;display:flex; vertical-align: middle;">
+                                 <img src="/uploadLiClass/class/thumbnail/${classImg[status.index] }" style="width:80px;height:80px;object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
                                  <span style="padding-left:30px;">${ payment.pay_name }</span>
                               </td>                     
                               <td class="name">${ payment.pay_date }</td>
