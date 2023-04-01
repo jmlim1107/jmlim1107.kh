@@ -37,6 +37,7 @@ $(function(){
 			//$("#review_number").val(r_no); 
 			//console.log("글번호 : "+review_no); 
 			
+			
 			// 상세페이지 이동
 			$.ajax({
 				type : "post",
@@ -56,7 +57,7 @@ $(function(){
 					$("#test3").fadeIn();
 				},
 				error : function(data){
-					alert("실패");
+					alert("실패했습니다.");
 				
 					return false;
 				}
@@ -69,7 +70,6 @@ $(function(){
 		 /*,contentType : "application/json",*/
 	 	// 상세페이지 모달창 닫기
 		$("#detailmodal_close").click(function(){
-			console.log("버튼눌림");
 			$("#test3").fadeOut();
 		});
 	 	
@@ -83,23 +83,24 @@ $(function(){
 		$("#updateFormBtn2").click(function(){
 			//let review_no =  $(this).parent("#tttest").data("num");	
 			//$("#review_no").val(review_no);
-			console.log("글번호 : "+$("#review_number").val()); 
+			// console.log("글번호 : "+$("#review_number").val()); 
 			
 			//console.log("예약번호 : "+$(this).parent("div").data("data-rnum")); 
-			console.log($("#r_number").val());
+			console.log("예약 번호 : "+$("#r_nnumber").val());
 			
 			$.ajax({
 				type : "post",
 				url : "/r_updateForm",
-				data :  "r_no="+$("#r_number").val(),
+//<<<<<<< HEAD
+				/*data :  "r_no="+$("#r_number").val(),*/
+//=======
+				data :  "r_no="+$("#r_nnumber").val(),
+//>>>>>>> 720416294c0152cac3efc862011b8e908654a3d0
 				dataType : "json",
 				success : function(data){
-					//alert(data.review_content);
 					// json 값을 모달에 설정
 					$("#updateContent").val(data.review_content);
 					$("#updateTitle").val(data.review_title);
-					
-					console.log("수정하기 성공");
 					
 					
 					$("#test3").hide(); 
@@ -112,11 +113,20 @@ $(function(){
 				}
 			});
 		});
+		
+		
 	  
-	  	// 업데이트 버튼 클릭 시
+	  	// 업데이트 버튼 클릭 시(post review 버튼)
 		$("#reviewUpdateBtn").click(function(e){
-			$("#reviewupdate_no").val($("#review_number").val())
-			console.log('수정폼 번호'+$("#reviewupdate_no").val());	
+			console.log("업데이트 버튼 클릭완료");
+			$("#reviewupdate_no").val($("#review_no").val());
+			$("#r_no").val($("#r_number").val());
+			
+			
+			console.log("리뷰 번호 : " + $("#review_no").val());
+			console.log("예약 번호 : " + $("#r_number").val());
+			
+			//console.log('수정폼 번호'+$("#reviewupdate_no").val());	
 			
 			//입력값 체크
 			if (!chkData("#updateTitle","수정할 제목을"))return;
@@ -126,13 +136,24 @@ $(function(){
 				return false;
 			}
 			else{
+//<<<<<<< HEAD
+//=======
+				console.log("else");
+//>>>>>>> 720416294c0152cac3efc862011b8e908654a3d0
 				$("#r_updateForm").attr({
 					"method":"post",
 					"action":"/reviewUpdate"
 				});
+//<<<<<<< HEAD
 				$("#r_updateForm").submit();
 			}
 		});
+//=======
+				//console.log("else");
+				//$("#r_updateForm").submit();
+			//}
+			//});
+//>>>>>>> 720416294c0152cac3efc862011b8e908654a3d0
 	  	
 		// 업데이트 모달창 닫기
 		$("#updatemodal_close").click(function(){
