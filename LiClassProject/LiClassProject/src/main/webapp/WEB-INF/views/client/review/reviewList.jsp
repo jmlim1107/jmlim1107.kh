@@ -7,16 +7,7 @@
 	<script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>
 	<script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
     
-
-	<!-- 모달창 css -->
-	<link rel="stylesheet" type = "text/css" href="/resources/review/css/modal.css" />
-	<!-- 모달 디테일 css -->
-	<link rel="stylesheet" type = "text/css" href="/resources/review/css/modalDetail.css" />
-	<link rel="stylesheet" type = "text/css" href="/resources/review/css/screen.css" />
-	<!-- 별 불러오는 js -->
-	<script src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
-    <!-- 리뷰 css -->
-	<link rel="stylesheet" type = "text/css" href="/resources/review/css/review.css" />
+ 	
 
     <!-- 글씨체 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
