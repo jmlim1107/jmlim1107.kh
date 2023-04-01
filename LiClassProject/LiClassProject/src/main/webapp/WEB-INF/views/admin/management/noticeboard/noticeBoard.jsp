@@ -122,12 +122,107 @@
 
 
 
-
 <div class="contentContainer container" id="noticeList">
+    <div class="pagetitle">
+        <h1>공지사항 관리</h1>
+    </div>
 
-    <h1 class="mt-4">공지사항 관리</h1>
-    <hr/>
-    <nav class="navbar navbar-light">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">LiClass List</h5>
+                    <button type="button" class="btn btn-dark rounded-pill btn-lg" id="insertBtn">
+                        <i class="bi bi-cloud-upload"></i>&nbsp;신규등록</button>
+
+                    <!-- 검색영역 -->
+                    <!-- 검색 & 페이징을 동시에 처리하기 위한 form = 하나의 cvo저장 -->
+                    <form class="form-inline text-right"  id="f_search">
+                        <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}" />
+                        <input type="hidden" name="amount" value="${pageMaker.cvo.amount}" />
+                        <div class="form-group" >
+                            <select id="search" name="search"  class="form-control">
+                                <option value="all">전체</option>
+                                <option value="c_title">클래스명</option>
+                                <option value="c_area">클래스 지역</option>
+                                <option value="c_category">카테고리</option>
+                            </select>
+                        </div>
+                        <input type="text"  name="keyword"  id="keyword" class="form-control" placeholder="검색내용을 입력해주세요.."/>
+                        <button type="button" class="btn btn-outline-primary btn-lg"  id="searchBtn">Search</button>
+                    </form>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <td colspan="3"></td>
+                            <td colspan="2">
+                                <div id="boardSrch" class="text-right">
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col"  class="text-center">번호</th>
+                            <th scope="col"  class="text-center">카테고리</th>
+                            <th scope="col" class="text-center">제목</th>
+                            <th scope="col" class="text-center">지역</th>
+                            <th scope="col" class="text-center">센터번호</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                      <%--  <c:choose>
+                            <c:when test="${ not empty classList }">
+                                <c:forEach var="liclass"  items="${classList}"  varStatus="status">--%>
+                                    <tr data-num="${liclass.c_no}">
+                                        <%--<th scope="row" class="text-center">${ liclass.c_no}</th>
+                                        <td class="text-center">
+                                        </td>
+                                        <td class="goDetail">${liclass.c_title}</td>
+                                        <td class="text-center">${liclass.c_area}</td>
+                                        <td class="text-center">${liclass.ct_bizno }</td>--%>
+                                    </tr>
+<%--                                </c:forEach>
+                            </c:when>
+                            <c:otherwise>--%>
+                                <td colspan="5"> 조회내용이 없습니다. </td>
+                            <%--</c:otherwise>
+                        </c:choose>--%>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+            <nav aria-label="Page navigation example" style="text-align:center;">
+                <ul class="pagination">
+
+                    <c:if test="${pageMaker.prev}">
+                        <li class="page-item">
+                            <a class="page-link" href="${pageMaker.startPage-1}" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                    </c:if>
+
+                    <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                        <li class="page-item ${pageMaker.cvo.pageNum==num?'active':''}"><a class="page-link" href="${num}">${num}</a></li>
+                    </c:forEach>
+
+                    <c:if test="${pageMaker.next}">
+                        <li class="page-item">
+                            <a class="page-link" href="${pageMaker.endPage+1}" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </c:if>
+
+                </ul>
+            </nav><!-- End Pagination with icons -->
+        </div>
+    </div>
+</div>
+
+<%--    <nav class="navbar navbar-light">
         <div class="container-fluid">
             <form class="d-flex" id="f_search" name="f_search">
                 <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}">
@@ -159,9 +254,9 @@
             <c:when test="${not empty qnaBoardList}">
                 <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
                     <tr data-num="${qnaBoard.qna_no}">
-                        <%--게시물 수에 따른 글번호로 보기--%>
-                        <%--<td class="text-center">${count + status.index + 1}</td>--%>
-                        <%--원래 글번호로 보기--%>
+                        &lt;%&ndash;게시물 수에 따른 글번호로 보기&ndash;%&gt;
+                        &lt;%&ndash;<td class="text-center">${count + status.index + 1}</td>&ndash;%&gt;
+                        &lt;%&ndash;원래 글번호로 보기&ndash;%&gt;
                         <td>${qnaBoard.qna_no}</td>
                         <td class="goDetail text-left">${qnaBoard.qna_category} ${qnaBoard.qna_title}</td>
                         <td class="text-center">${qnaBoard.qna_date}</td>
@@ -188,24 +283,24 @@
         </c:choose>
         </tbody>
     </table>
-    <%-- ====================페이징 출력 시작==================== --%>
+    &lt;%&ndash; ====================페이징 출력 시작==================== &ndash;%&gt;
     <nav aria-label="Page navigation example" style="text-align:center;">
         <ul class="pagination">
-            <%--이전 바로가기 10개 존재 여부를 prev 필드의 값으로 확인.--%>
+            &lt;%&ndash;이전 바로가기 10개 존재 여부를 prev 필드의 값으로 확인.&ndash;%&gt;
             <c:if test="${pageMaker.prev}">
                 <li class="page-item">
                     <a class="page-link" href="${pageMaker.startPage - 1}">Previous</a>
                 </li>
             </c:if>
 
-            <%--바로가기 번호 출력--%>
+            &lt;%&ndash;바로가기 번호 출력&ndash;%&gt;
             <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
                 <li class="page-item ${pageMaker.cvo.pageNum == num ?'active':''}">
                     <a class="page-link" href="${num}">${num}</a>
                 </li>
             </c:forEach>
 
-            <%--다음 바로가기 10개 존재 여부를 next 필드의 값으로 확인. --%>
+            &lt;%&ndash;다음 바로가기 10개 존재 여부를 next 필드의 값으로 확인. &ndash;%&gt;
             <c:if test="${pageMaker.next}">
                 <li class="page-item next">
                     <a class="page-link" href="${pageMaker.endPage + 1}">Next</a>
@@ -213,5 +308,7 @@
             </c:if>
         </ul>
     </nav>
-    <%-- ====================페이징 출력 종료==================== --%>
-</div>
+    &lt;%&ndash; ====================페이징 출력 종료==================== &ndash;%&gt;
+</div>--%>
+
+
