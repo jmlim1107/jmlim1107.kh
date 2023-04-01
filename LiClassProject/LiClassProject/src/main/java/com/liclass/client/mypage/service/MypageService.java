@@ -3,10 +3,12 @@ package com.liclass.client.mypage.service;
 import java.util.List;
 import java.util.Map;
 
+import com.liclass.admin.img.vo.AdminClassImgVO;
 import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
+import com.liclass.client.reserve.vo.ReserveVO;
 import com.liclass.client.review.vo.ReviewVO;
 
 public interface MypageService {
@@ -44,4 +46,6 @@ public interface MypageService {
         public int paymentListCnt(PaymentVO paymentVO);
 
 		public List<Map<String, String>> courseList(PaymentVO pvo);
+
+		public String getClassImg(int r_no);
 }

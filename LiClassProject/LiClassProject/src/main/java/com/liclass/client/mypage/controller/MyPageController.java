@@ -1,6 +1,8 @@
 package com.liclass.client.mypage.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +29,7 @@ import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.mypage.service.MypageService;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
+import com.liclass.client.reserve.vo.ReserveVO;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.file.UserFileUpload;
 //import com.liclass.common.file.FileUploadUtil;
@@ -104,6 +107,21 @@ public class MyPageController {
         int total_payment = mypageService.paymentListCnt(pvo);
         // 페이징 처리
         model.addAttribute("pageMaker", new PageDTO(pvo, total_payment));
+        // 결제내역 이미지 가져오기
+        //mypageService.getClassImg(6);
+        //System.out.println(mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_paymentList.get(1).get("r_no")))));
+        List<String> classImg = new ArrayList<>();
+        for(int i = 0; i < pvo_paymentList.size(); i++) {
+        	String doc = mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_paymentList.get(i).get("r_no"))));
+        	classImg.add(doc);
+        	//classImg.add(mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_paymentList.get(i).get("r_no")))));
+        }
+        System.out.println(classImg);
+        model.addAttribute("classImg", classImg);
+        
+        
+
+        
         
         // 수강내역
         /* 테이블 수정중이여서 주석처리

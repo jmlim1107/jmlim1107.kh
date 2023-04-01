@@ -89,6 +89,8 @@
       $("#modal_close_btn").click(function(){
          $("#modal").attr("style", "display:none");
       });  
+      
+      
    });  
 </script>
 
@@ -149,10 +151,10 @@
                     <!-- 데이터 출력 --><!--   -->
                   <c:choose>
                      <c:when test="${ not empty pvo_paymentList }">
-                        <c:forEach var="payment" items="${ pvo_paymentList }" >
+                        <c:forEach var="payment" items="${ pvo_paymentList }" varStatus="status" >
                            <tr class="text-center" data-num="${ payment.merchant_uid }">
                               <td style="text-align:left;padding-left:15px;">
-                                 <img src="https://item.kakaocdn.net/do/493188dee481260d5c89790036be0e66f604e7b0e6900f9ac53a43965300eb9a" style="width:60px;height:60px;object-fit:cover;" alt="..." class="img-rounded">
+                                 <img src="/uploadLiClass/class/thumbnail/${classImg[status.index] }" style="width:60px;height:60px;object-fit:cover;" alt="..." class="img-rounded">
                                  <span style="padding-left:30px;">${ payment.pay_name }</span>
                               </td>                     
                               <td class="name">${ payment.pay_date }</td>
