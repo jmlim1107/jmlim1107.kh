@@ -41,7 +41,7 @@ $(function(){
 			$.ajax({
 				type : "post",
 				url : "/reviewDetail",
-				data : "review_no="+$(this).parents("td").attr("data-rno"),
+				data : "r_no="+$(this).parents("td").attr("data-rno"),
 				dataType : "json",
 				success : function(data){
 					//alert(data.review_content);
@@ -90,12 +90,8 @@ $(function(){
 			
 			$.ajax({
 				type : "post",
-				url : "/review/r_updateForm",
 				url : "/r_updateForm",
-				/*data : JSON.stringify({ "review_no" : $("#review_no").val() }),*/
-				data : "review_no="+$("#review_number").val(),
 				data :  "r_no="+$("#r_number").val(),
-				/*,contentType : "application/json",*/
 				dataType : "json",
 				success : function(data){
 					//alert(data.review_content);
@@ -111,12 +107,10 @@ $(function(){
 					
 				},
 				error : function(data){
-					alert($("관리자에게 문의하세요."));
 					alert("실패");
 					return false;
 				}
 			});
-			console.log('업데이트폼 성공');	
 		});
 	  
 	  	// 업데이트 버튼 클릭 시
@@ -125,19 +119,19 @@ $(function(){
 			console.log('수정폼 번호'+$("#reviewupdate_no").val());	
 			
 			//입력값 체크
-		if (!chkData("#updateTitle","수정할 제목을"))return;
-		else if (!chkData("#updateContent","수정할 내용을"))return;
-		else if (!$('input[name="agreements_reviews_termsAndConditions"]').is(':checked')){
-			alert("약관동의는 필수입니다.");
-			return false;
-		}
-		else{
-			$("#r_updateForm").attr({
-				"method":"post",
-				"action":"/review/reviewUpdate"
-			});
-			$("#r_updateForm").submit();
-		}
+			if (!chkData("#updateTitle","수정할 제목을"))return;
+			else if (!chkData("#updateContent","수정할 내용을"))return;
+			else if (!$('input[name="agreements_reviews_termsAndConditions"]').is(':checked')){
+				alert("약관동의는 필수입니다.");
+				return false;
+			}
+			else{
+				$("#r_updateForm").attr({
+					"method":"post",
+					"action":"/reviewUpdate"
+				});
+				$("#r_updateForm").submit();
+			}
 		});
 	  	
 		// 업데이트 모달창 닫기
@@ -151,7 +145,7 @@ $(function(){
 	 	 *****************************************/
 	 	$("#deleteFormBtn222").click(function(){
 	 		if(confirm("정말 삭제하시겠습니까?")){
-				goUrl = "/review/reviewDelete";
+				goUrl = "/reviewDelete";
 				$("#detailForm").attr("action",goUrl);
 				$("#detailForm").submit();
 			}
@@ -214,7 +208,7 @@ $(function(){
 
 		$("#review_search").attr({
 			"method":"get",
-			"action":"/review/reviewList"
+			"action":"/reviewList"
 		});
 		$("#review_search").submit();
 		}

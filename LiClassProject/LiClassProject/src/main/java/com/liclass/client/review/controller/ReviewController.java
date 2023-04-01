@@ -75,7 +75,7 @@ public class ReviewController {
 	//@PostMapping("/boardInsert")
 	public String reviewInsert(@ModelAttribute ReviewVO vo,@RequestParam int cno,
 			@RequestParam int rno, @RequestParam long userno,
-			Model model, RedirectAttributes ras) throws Exception {
+			Model model) throws Exception {
 		log.info("reviewInsert 호출 성공................................");
 		System.out.println("cno="+cno);
 		vo.setC_no(cno);
@@ -92,8 +92,6 @@ public class ReviewController {
 			log.info("성공");
 			url = "/courseHistory";
 			log.info(vo.getReview_status());
-			//model.addAttribute("review_status", vo.getReview_status());
-			ras.addFlashAttribute("review_status",vo.getReview_status());
 		} else {
 			log.info("실패");
 		}
@@ -158,7 +156,7 @@ public class ReviewController {
 	 * 한 번만 사용되는 데이터를 전송할 수 있는 addFlashAttribute() 라는 기능을 지원한다.
 	 * addFlashAttribute() 메서드는 브라우저까지 전송되기는 하지만, URL 상에는 보이지 않는 숨겨진 데이터의 형태로 전달된다.
 	 ********************************************/
-	@PostMapping(value = "/reviewUpdate", produces=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/reviewUpdate")
 	public String reviewUpdate(@ModelAttribute ReviewVO vo) throws Exception {
 		log.info("reivewUpdate 호출 성공");
 		log.info("reviewVO : " + vo);
@@ -170,14 +168,13 @@ public class ReviewController {
 		
 		// 업데이트 성공 시 이동할 페이지
 		if(result == 1) {
-			url = "/review/reviewList?review_no="+vo.getReview_no();
+			url = "/reviewList?r_no="+vo.getR_no();
 			log.info("review url ::::::::::::::::::::::::; " + url);
 		// 업데이트 실패 시 이동할 페이지(수정하자)
 		} else {
 			log.info("실패시 ::::::::::::;;review url ::::::::::::::::::::::::; " + url);
-			url =  "/review/r_updateForm?review_no="+vo.getReview_no();
+			url =  "/r_updateForm?r_no="+vo.getR_no();
 			log.info("업데이트 실패::::::::::::::::::::::::::::::::;;");
-			// url = "/review/r_updateForm";
 		}
 		return "redirect:"+url;
 		
@@ -201,7 +198,7 @@ public class ReviewController {
 		result = reviewService.reviewDelete(vo);
 		
 		if(result == 1){
-			url="/review/reviewList";
+			url="/reviewList";
 		}else{
 			url="/board/reviewDetail?review_no="+vo.getReview_no();
 			

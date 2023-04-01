@@ -93,7 +93,7 @@
 			review_no, review_title, review_content, Review_rating, review_recommend, r_no,
 			TO_CHAR(review_date, 'YYYY-MM-DD') AS review_date
 		FROM Li_review
-		WHERE review_no = #{review_no}
+		WHERE r_no = #{r_no}
 	
 	</select>
 	
@@ -114,7 +114,6 @@
 			review_content = #{review_content},
 			review_update = TO_CHAR(SYSDATE ,'YYYY-MM-DD'),
 			review_rating = #{review_rating}
-		where review_no = #{review_no}
 		where r_no = #{r_no}
 	</update>
 
@@ -122,7 +121,7 @@
 	<!-- 게시글 삭제 -->
 	<delete id = "reviewDelete" parameterType="review">
 		DELETE FROM Li_review 
-		where review_no = #{review_no}
+		where r_no = #{r_no}
 	</delete>
 
 

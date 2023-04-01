@@ -73,27 +73,17 @@
                            <td>${ courseList.category }</td>
                            <td>${ courseList.level }</td>
                            <td>${ courseList.area }</td>
-                           
                            <c:if test="${courseList.review_status == 0}">
                               <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
-                                 <!-- ================== 글쓰기 버튼 출력 시작 ============= -->
-
-                                    <input type="button" value="글쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn">
-  
-                                 <!-- ================== 글쓰기 버튼 출력 종료 ============= -->
+                              	<input type="button" value="글쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn">
                               </td>
-                     
                            </c:if>
                            
                            <c:if test="${courseList.review_status == 1 }">
                               <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
                                  <input type="button" value="리뷰보기" class="reviewDetail">
                               </td>
-                           </c:if>   
-                           
-                           <%-- <c:if test="${courseList.count>0 }">
-                              <td>수강 전</td>
-                           </c:if> --%>     
+                           </c:if>     
                         </tr>
                      </c:forEach>
                   </c:when>
