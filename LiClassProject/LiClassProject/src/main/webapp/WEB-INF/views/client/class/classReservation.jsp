@@ -59,6 +59,7 @@
     background: #ffffffbd;
 }
 </style>
+
 <script>
 $(function(){
 	var quick_menu = $('#sticky-nav');
@@ -76,7 +77,6 @@ $(function(){
 
 	//하트 클릭
 	$(".like").click(function(){
-		console.log("클릭됨클릭");
 		let user_no = $(".login-info").data("num");
 		if(user_no == 0){
 			alert("로그인 후 이용해주세요.");
@@ -203,7 +203,7 @@ $(function(){
 										 <!-- sns share modal end  --> 
 										 
 										 <!-- reserve modal start --> 
-										 <div class="modal" id="reserve-modal" style="z-index: 2; position: absolute; text-align: center; height: 500px; width: 1000px; overflow:hidden; top:200px; left:300px">
+										 <div class="modal" id="reserve-modal" style="z-index: 2; position: absolute; text-align: center; height: 500px; width: 800px; overflow:hidden; top:200px; left:300px">
 										 	<%@ include file = "/WEB-INF/views/reserve/reserve.jsp" %>
 										 </div>
 										 <!-- reserve modal end --> 

@@ -57,13 +57,8 @@
 		
 		<section class="ftco-section">
 			<div class="container">
-				<!--<div class="row justify-content-center">
-					 <div class="col-md-6 text-center mb-5">
-						<h5 class="heading-section">예약일정을 선택하세요</h5>
-					</div> 
-				</div>-->
-				<div class="row">
-					<div class="col-md-12" style="width:800px;">
+				<div class="row" style="display:block;">
+					<!-- <div class="col-md-12"> -->
 					<div class="elegant-calencar d-md-flex">
 					
 				      <div class="calendar-wrap" style="background:#FDF5E6"><!-- 캘린더 부분 -->
@@ -155,8 +150,8 @@
 						     <p id="reset" style="display: hidden">Today</p>
 						     
 						     <div class="accordion" id="accordionPanelsStayOpenExample"><!-- accordion 시작 -->
-								 <div class="accordion-item" style="width:245px;"> <!-- accordion-item1  -->
-								    <h5 class="accordion-header" id="panelsStayOpen-headingOne">
+								 <div class="accordion-item"> <!-- accordion-item1  -->
+								    <h5 class="accordion-header" id="panelsStayOpen-headingOne" style="width:238px">
 								      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded=true aria-controls="collapseOne">
 								        <span class="acbtnName">날짜</span>
 								      </button>
@@ -234,7 +229,7 @@
 				    </div>
 					</div>
 				</div>
-			</div>
+			<!--</div>   -->
 		</section>
 		<script src="/resources/reserve/js/jquery.min.js"></script>
 	  	<script src="/resources/reserve/js/popper.js"></script>

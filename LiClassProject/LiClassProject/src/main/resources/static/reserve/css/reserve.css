@@ -85,3 +85,6 @@ input[name='sample_cnt']{
 .checkEp {
 	border: 2px solid #DB631F;
 }
+.accordion-item{
+	width: 238px;
+}
