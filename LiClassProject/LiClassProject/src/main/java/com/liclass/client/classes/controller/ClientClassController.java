@@ -45,26 +45,10 @@ public class ClientClassController {
 	*************************************************/
 	@GetMapping("/class/classList")
 	public String classList(Model model) {
-		log.info("classList() 호출");
-		
 		List<ClientClassVO> classList =clientClassService.clientClassList();
-		
 		model.addAttribute("classList",classList);
-		
 		return "class/classList";
 	}
-	
-	/************************************************
-	 * 센터 상세정보
-	 * 요청 url : http://localhost:8080/user/signupForm
-	***********************************************
-	@GetMapping("/admin/centerDetail")
-	public String centerDetail(ClassVO vo,Model model) {
-		log.info("centerDetail() 호출");
-		CenterVO centerDetail = classService.centerDetail(vo);
-		model.addAttribute("centerDetail", centerDetail);
-		return "mypage/updateForm";
-	}*/
 	
 	/************************************************
 	 * 클래스 상세조회
@@ -73,12 +57,8 @@ public class ClientClassController {
 	*************************************************/
 	@GetMapping("/class/classDetail")
 	public String classDetail(int c_no,Model model,HttpSession session, @ModelAttribute ReviewVO vo) throws Exception {
-		log.info("classDetail() 호출");
 		ClientClassVO cvo = new ClientClassVO();
 		cvo.setC_no(c_no);
-		ClientClassVO clientClassDetail =  clientClassService.clientClassDetail(cvo);
-		model.addAttribute("clientClassDetail",clientClassDetail);
-
 		
 		//로그인 계정
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
@@ -97,16 +77,14 @@ public class ClientClassController {
 		}
 		
 		//클래스 상세정보
+		ClientClassVO clientClassDetail =  clientClassService.clientClassDetail(cvo);
+		model.addAttribute("clientClassDetail",clientClassDetail);
 		List<ClientClassVO> clientClassDetailList = clientClassService.clientClassDetailList(clientClassDetail);
-		log.info("clientClassDetailList.toString() : "+clientClassDetailList.toString());
 		model.addAttribute("clientClassDetailList",clientClassDetailList);
 		
 		//해당 클래스의 센터 상세정보
-		CenterVO centerDetail = clientClassService.clientCenterDetail(clientClassDetail.getCt_bizno());
-		if(centerDetail != null) {
-			log.info("centerDetail.toString() : "+centerDetail.toString());
-			model.addAttribute("centerDetail", centerDetail);
-		}
+		CenterVO clientCenterDetail = centerService.clientCenterDetail(clientClassDetail.getCt_bizno());
+		model.addAttribute("clientCenterDetail", clientCenterDetail);
 		
 		/** 후기 관련 코드 */
 		// 전체 레코드 조회
@@ -130,7 +108,6 @@ public class ClientClassController {
 			log.info("Key ::::::::::::::::::::::::::::: "+ i);
 			log.info("Value ::::::::::::::::::::::::::::: "+ tongRating.get(i));
 		}
-				
 
 		return "class/classDetail";
 	}
@@ -165,6 +142,24 @@ public class ClientClassController {
 		
 		return classImg;
 	}
+
+	/************************************************
+	 * 센터 상세정보
+	 * 요청 url : http://localhost:8080/class/clientCenterDetail
+	************************************************/
+	@GetMapping("/class/clientCenterDetail")
+	public String centerDetail(ClientClassVO cvo,Model model) {
+		
+		return "mypage/updateForm";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/* 예약하기 
 	@GetMapping("/admin/episode/goReserve")

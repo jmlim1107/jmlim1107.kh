@@ -8,7 +8,9 @@
       <div class="col-md-12 col-sm-6">
         <div class="services-content">
           <h5 style="margin-bottom: 2%;">
-          	<i class="fa-solid fa-quote-left"></i>  안녕하세요, [센터명] 입니다.  <i class="fa-solid fa-quote-right"></i>
+          	<i class="fa-solid fa-quote-left"></i>  
+          	안녕하세요, ${clientCenterDetail.ct_name} 입니다.  
+          	<i class="fa-solid fa-quote-right"></i>
           </h5>
          	<p>${clientClassDetail.c_content}</p>
           </div>

@@ -13,10 +13,10 @@
 .tab-pane { padding: 15px 0; }
 .tab-content{padding:20px}
 
-.card { padding: 20px; background: #FFF none repeat scroll 0% 0%; margin-bottom: 30px; }
+.card { padding: 20px; background:#ffffff00 none repeat scroll 0% 0%; margin-bottom: 30px; }
 
 .class-booking-form{
-	background: white;
+	background: #ffffff00;
 }
 .card{
 	width:80%;

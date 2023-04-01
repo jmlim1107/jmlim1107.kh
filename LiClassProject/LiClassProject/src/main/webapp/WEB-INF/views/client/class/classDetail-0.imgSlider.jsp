@@ -46,25 +46,25 @@
       <h3>${clientClassDetail.c_title}</h3>
 	</div>
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+	<div id="classImgs" class="carousel slide" data-ride="carousel" style="width: 900px; margin: 30px;"> 
 	    <!-- Wrapper for slides -->
 	    <div class="carousel-inner" role="listbox">
 	      <div class="item active"> 
-	      	<img class="img-item" id="img1" style="width: 680px;height: 500px;">
+	      	<img class="img-item" id="img1" style="width: 900px;height: 500px;">
 	      </div>
 	      <div class="item">
-	       <img class="img-item" id="img2" style="width: 680px;height: 500px;">
+	       <img class="img-item" id="img2" style="width: 900px;height: 500px;">
 	      </div>
 	      <div class="item">
-	       <img class="img-item"  id="img3" style="width: 680px;height: 500px;"> 
+	       <img class="img-item"  id="img3" style="width: 900px;height: 500px;"> 
 	      </div>
 	    </div>
 	    <!-- Controls --> 
-	    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> 
+	    <a class="left carousel-control" href="#classImgs" role="button" data-slide="prev"> 
 		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
 		    <span class="sr-only">Previous</span>
 	    </a> 
-	    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> 
+	    <a class="right carousel-control" href="#classImgs" role="button" data-slide="next"> 
 		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> 
 		    <span class="sr-only">Next</span>
 	    </a>
