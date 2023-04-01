@@ -4,7 +4,6 @@ import com.liclass.admin.management.qnaboard.vo.QnaBoardVo;
 import com.liclass.client.qnaboard.service.ClientQnaBoardService;
 import com.liclass.common.vo.PageDTO;
 import lombok.Setter;
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,7 @@ import java.util.List;
 @Slf4j
 @Controller
 @RequestMapping("/client/qnaboard/*") 
-public class ClientQnaBoardController {  /*은아)0331 민섭님 타일즈가 겹쳐서 리턴값에서 client를 제거했어요ㅜㅜㅜ*/
+public class ClientQnaBoardController {
     @Setter(onMethod_ = @Autowired)
     private ClientQnaBoardService clientQnaBoardService;
 

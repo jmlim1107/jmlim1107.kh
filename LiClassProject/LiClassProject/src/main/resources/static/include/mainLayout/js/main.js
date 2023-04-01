@@ -87,6 +87,7 @@
     const headerScrolled = () => {
       if (window.scrollY > 100) {
         selectHeader.classList.add('header-scrolled')
+        $(".header-menu").classList.remove('active');
       } else {
         selectHeader.classList.remove('header-scrolled')
       }

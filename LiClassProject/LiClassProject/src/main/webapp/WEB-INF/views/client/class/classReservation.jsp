@@ -14,7 +14,7 @@
 <!--  cloudflare -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> 
+<link rel="stylesheet" type = "text/css" href="/resources/client/classDetail/css/classReservaion_modal.css" />
 
 <style>
 	#sticky-nav{
@@ -103,7 +103,7 @@ $(function(){
 		}
 		});
 	
-	/*예약페이지로 넘어가기*/
+	/*예약페이지로 넘어가기
 	$(".goReserve").click(function(){
 			let user_no = $(".login-info").data("num");
 			if(user_no == 0){
@@ -113,6 +113,7 @@ $(function(){
 			location.href="/admin/episode/goReserve?c_no="+${param.c_no};
 		}
 	});
+	*/
 	
 }); //최상위$
 
@@ -187,7 +188,7 @@ $(function(){
                                        </button>
                						<!-- 예약버튼 -->
                                        <button type="button" class="main-white-button goReserve">
-                                        	<a><i class="fa-regular fa-hand-point-up"></i>예약하기</a>
+                                        	<a href="#reserve-modal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a>
                                         </button>
       								
 								      	<!-- sns share modal start --> 
@@ -200,6 +201,14 @@ $(function(){
 											   <a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555;"></i></a>
 										 </div> 
 										 <!-- sns share modal end  --> 
+										 
+										 <!-- reserve modal start --> 
+										 <div class="modal" id="reserve-modal" style="z-index: 2; position: absolute; text-align: center; height: 500px; width: 1000px; overflow:hidden; top:200px; left:300px">
+										 	<%@ include file = "/WEB-INF/views/reserve/reserve.jsp" %>
+										 </div>
+										 <!-- reserve modal end --> 
+										 
+										 
                                     </div>
                                 </div>
                            </form>

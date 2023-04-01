@@ -7,7 +7,7 @@
 						<div>
 	                       <div class="thumb">
 	                         <div class="row">
-	                           <div class="col-lg-5 align-self-center">
+	                           <div class="col-lg-12 align-self-center">
 	                             <div class="left-text">
 	                               <h4>안녕하세요, ${loginUser.user_name} 님!</h4>
 	                               <div class="img-box-sm">
@@ -53,10 +53,10 @@
 	                               <i class="fa-solid fa-envelope"></i><p>${loginUser.user_email}</p>
 	                               <i class="fa-solid fa-phone"></i><p>${loginUser.user_tel}</p>
 	                               <div class="main-white-button">
-	                               		<a href="/mypage/updateForm" id="edit-btn"><i class="fa-regular fa-user"></i>수정하기</a>
+	                               		<a href="/mypage/updateForm" id="edit-btn" style="width: 50%;"><i class="fa-regular fa-user"></i>수정하기</a>
 	                               	</div>
 	                               <div class="main-white-button">
-	                               		<a href="/courseHistory"><i class="fa-solid fa-money-check"></i>수강내역</a>
+	                               		<a href="/courseHistory" style="width: 50%;"><i class="fa-solid fa-money-check"></i>수강내역</a>
 	                               </div>
 	                             </div>
 	                           </div>

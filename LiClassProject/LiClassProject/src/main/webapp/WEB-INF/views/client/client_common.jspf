@@ -3,8 +3,6 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-<!--은아) 메인 템플릿 및 로그인관련  -->
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -25,35 +23,34 @@
 		<!-- icon -->
 		<script src="https://kit.fontawesome.com/571c07eac2.js" crossorigin="anonymous"></script>
 		
-		<!-- mainTheme(auro)  -->
-		<link rel="stylesheet" href="/resources/client/mainTheme/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/resources/client/mainTheme/css/flexslider.css">
+		<!-- homeHeader/homeFooter/homeBody  -->
+		<!-- Google Fonts -->
+	    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	    
+	    <!-- Vendor CSS Files -->
+	    <link href="/resources/include/mainLayout/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="/resources/include/mainLayout/vendor/bootstrap-icons/bootstrap-icons.scss" rel="stylesheet">
+	    <link href="/resources/include/mainLayout/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	    <link href="/resources/include/mainLayout/vendor/glightbox/css/glightbox.css" rel="stylesheet">
+	    <link href="/resources/include/mainLayout/vendor/remixicon/remixicon.css" rel="stylesheet">
+	    <link href="/resources/include/mainLayout/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	    <script src="/resources/include/mainLayout/js/main.js"></script>
+	    <script src="/resources/include/mainLayout/vendor/bootstrap/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="/resources/client/mainTheme/css/main.css">
-		<link rel="stylesheet" href="/resources/client/mainTheme/css/responsive.css">
-		<link rel="stylesheet" href="/resources/client/mainTheme/css/animate.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		
-		<!--login modal -->
-		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="/resources/client/mainTheme/css/bootstrap.min.css">
-		<!--===============================================================================================-->
+	    <!-- Template Main CSS File -->
+	    <link href="/resources/include/mainLayout/css/style.css" rel="stylesheet">
+	    	
+		<!-- login modal, profile -->
 		<link rel="stylesheet" type="text/css" href="/resources/client/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="/resources/client/login/fonts/iconic/css/material-design-iconic-font.min.css">
-		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="/resources/client/login/vendor/animate/animate.css">
-		<!--===============================================================================================-->	
 		<link rel="stylesheet" type="text/css" href="/resources/client/login/vendor/css-hamburgers/hamburgers.min.css">
-		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="/resources/client/login/vendor/animsition/css/animsition.min.css">
-		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="/resources/client/login/vendor/select2/select2.min.css">
-		<!--===============================================================================================-->	
 		<link rel="stylesheet" type="text/css" href="/resources/client/login/vendor/daterangepicker/daterangepicker.css">
-		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="/resources/client/login/css/loginUtil.css">
 		<link rel="stylesheet" type="text/css" href="/resources/client/login/css/login.css">
-		<!--===============================================================================================-->
 		
 		<!--카카오,네이버  -->
 		<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
@@ -61,10 +58,10 @@
 	    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 		
-		<!-- modal 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<!-- modal -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>-->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> 
 	
 		<!-- login,카카오,네이버,modal  -->
 		<script type="text/javascript">
@@ -142,13 +139,3 @@
 		 	}
 		 	
 	</script>
-
-		<!-- mypage -->
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-    	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    	<link rel="stylesheet" href="/resources/client/mainTheme/css/bootstrap.min.css" >
-	    <link rel="stylesheet" href="/resources/client/mypage/assets/css/fontawesome.css">
-	    <link rel="stylesheet" href="/resources/client/mypage/assets/css/templatemo-plot-listing.css">
-	    <link rel="stylesheet" href="/resources/client/mypage/assets/css/animated.css">
-	    <link rel="stylesheet" href="/resources/client/mypage/assets/css/owl.css">
-	    

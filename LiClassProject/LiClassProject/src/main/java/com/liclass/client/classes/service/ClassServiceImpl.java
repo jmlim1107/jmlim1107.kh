@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.liclass.admin.management.center.vo.CenterVO;
 import com.liclass.client.classes.dao.ClientClassDAO;
+import com.liclass.client.classes.dao.ClientClassImgDAO;
 import com.liclass.client.classes.vo.ClientClassVO;
 
 import lombok.Setter;
@@ -37,6 +38,12 @@ public class ClassServiceImpl implements ClientClassService{
 		public CenterVO clientCenterDetail(String ct_bizno) {
 		CenterVO cvo = classDao.clientCenterDetail(ct_bizno);
 		return cvo;
+	}
+	//클래스 이미지 조회
+	@Override
+	public String getImg(int c_no) {
+		String classImg = classDao.getImg(c_no);
+		return classImg;
 	}
 
 	

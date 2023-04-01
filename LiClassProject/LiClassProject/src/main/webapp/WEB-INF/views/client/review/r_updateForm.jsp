@@ -1,16 +1,16 @@
-@@ -1,110 +1,108 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%-- ************************** r_updateForm start *************************************  --%>
 	<form id = "detailForm"  target="iframe1">
-		<input type = "hidden" id = "review_no" value = "${detail.review_no}" />
+		<input type = "hidden" id = "review_no" value = "0" />
 	</form>
 
 	
  
 	<form id = "r_updateForm"><!-- 수정 : 폼태그 jquery로 관리 -->
-	<input type = "hidden" name = "review_no" id="reviewupdate_no" />
+	<input type = "hidden" name = "review_no" id="reviewupdate_no" value = "0" />
+	<input type = "hidden" name = "r_no" id="r_nnumber" value = "0" />
 		<div class="modal" id = "updateModal">
 		  	<div class="modal_content" id = "update_content">
 		  		
@@ -100,7 +100,7 @@
 			  			</fieldset>
 			  			
 			  			<div>
-			  				<button aria-label="Post Review"  class="btn-dark" name="bv-submit-button" id = "reviewUpdateBtn">Update Review</button>
+			  				<button aria-label="Post Review"  class="btn-dark" name="bv-submit-button" id = "reviewUpdateBtn" type="button">Update Review</button>
 			  			</div>
 			  		</div>
 			  	</div>

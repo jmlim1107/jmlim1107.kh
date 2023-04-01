@@ -26,6 +26,18 @@
 							$(this).addClass("active");
 						}
 					});
+					/* 
+					const headerScrolled = () => {
+					      if (window.scrollY > 100) {
+					    	  $('#header').classList.add('header-scrolled')
+					        $('#profile-thumbnail').classList.add('none')
+					        $(".header-menu").classList.remove('active');
+					      } else {
+					        selectHeader.classList.remove('header-scrolled')
+					      }
+					    }
+					 */
+					
 				});
 			</script>
 			<c:set var="uri" value="${requestScope['javax.servlet.forward.request_uri']}"/>
@@ -37,11 +49,11 @@
 			            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 			            <nav id="navbar" class="navbar">
 			                <ul>
-			                <li><a class="nav-link scrollto active" href="/">Home</a></li>
-			                <li><a class="nav-link scrollto menu" href="/class/classList">Class</a></li>
-			                <li><a class="nav-link scrollto menu" href="/studio/studioList">Studio</a></li>
-			                <li><a class="nav-link scrollto menu" href="/team">Team</a></li>
-			                <li><a class="nav-link scrollto menu" href="/client/qnaboard/qnaBoard">FAQ</a></li>
+			                <li><a class="nav-link scrollto active header-menu" href="/">Home</a></li>
+			                <li><a class="nav-link scrollto menu header-menu" href="/class/classList">Class</a></li>
+			                <li><a class="nav-link scrollto menu header-menu" href="/studio/studioList">Studio</a></li>
+			                <li><a class="nav-link scrollto menu header-menu" href="/team">Team</a></li>
+			                <li><a class="nav-link scrollto menu header-menu" href="/client/qnaboard/qnaBoard">FAQ</a></li>
 			                <c:if test="${loginUser == null}">
 			                	<li><a class="nav-link scrollto" id="login-modal" style="color:white;">Login</a></li>
 			                </c:if>
@@ -88,11 +100,11 @@
 					<span class="btn-show-pass">
 						<i class="zmdi zmdi-eye" id="title"></i>
 					</span>
-					<input class="input100" type="password" id="user_pw" name="user_pw" placeholder="Enter password">
+					<input class="input100" type="password" id="user_pw" name="user_pw" placeholder="Enter password" autocomplete="">
 					<span data-placeholder="Password"></span>
 				</div>
 				<div class="container-login100-form-btn">
-					<div class="col-lg-12 text-center mt-3">
+					<div class="col-lg-12 text-center">
 					    <div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<a href="#login" class="login100-form-btn" id="login" style="background-color: #555; a:hover:#dbcfd14d;">
@@ -101,19 +113,19 @@
 						</div>
 					</div>
 					<!-- 카카오 로그인 -->
-			<div class="col-lg-12 text-center mt-3">
+			<div class="col-lg-12 text-center">
 			    <div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn-kakao"></div>
-					<a class="login100-form-btn" id="kakao-login" onclick="loginWithKakao()">
+					<a class="login100-form-btn" id="kakao-login" onclick="loginWithKakao()" style="color:white;">
 						Kakao
 					</a>
 				</div>
 			</div>
 			<!-- 네이버 로그인 -->
-			<div class="col-lg-12 text-center mt-3">
+			<div class="col-lg-12 text-center">
 			    <div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn-naver"></div>
-						<a class="login100-form-btn" id="naver-login" onclick="loginWithNaver()">
+						<a class="login100-form-btn" id="naver-login" onclick="loginWithNaver()" style="color:white;">
 										Naver
 									</a>
 							</div>
@@ -127,12 +139,12 @@
 						</div>
 					</div>
 					
-					<div class="text-center p-t-60">
+					<div class="text-center p-t-30">
 						<span class="txt1">
 							아직 가입하지 않았나요?
 						</span>
 	
-						<a class="txt2" href="/user/signupForm">
+						<a class="txt2" href="/user/signupForm" >
 							회원가입
 						</a>
 						<br/>

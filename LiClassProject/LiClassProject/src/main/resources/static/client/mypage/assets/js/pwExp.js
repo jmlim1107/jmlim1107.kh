@@ -50,7 +50,7 @@
 					
 					//마이페이지 로딩 시 activePosition에 따라 보여질 시작메뉴 지정
 					var activePosition = localStorage.getItem("activePosition");
-					console.log("get activePosition : "+activePosition);
+					//console.log("get activePosition : "+activePosition);
 					
 					if(typeof activePosition != "undefined" && activePosition != null && activePosition != ""){
 					      if (!$(this).is("active")) {

@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="ps-3">
                                     <%--계정 통계데이터 삽입--%>
-                                    <h6>&nbsp&nbsp&nbsp${userState.ACTIVEUSER} 214124</h6>
+                                    <h6>&nbsp&nbsp&nbsp${reserveData.ALLRESERVE}</h6>
                                     <canvas id="ActiveUserChart" width="250" height="40"></canvas>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="ps-3">
                                     <%--매출 통계 데이터 삽입--%>
-                                    <h6>&nbsp&nbsp 1234건</h6><canvas id="SalesChart" width="200" height="40"></canvas>
+                                    <h6>&nbsp&nbsp ${reserveData.RESERVECOMP}</h6><canvas id="SalesChart" width="200" height="40"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="ps-3">
                                     <%--예약 통계데이터 삽입--%>
-                                    <h6>&nbsp&nbsp424건</h6><canvas id="ReserveChart" width="250" height="40"></canvas>
+                                    <h6>&nbsp&nbsp${reserveData.RESERVECANCEL}</h6><canvas id="ReserveChart" width="250" height="40"></canvas>
                                 </div>
                             </div>
 
@@ -359,71 +359,6 @@
             },
         }
     });
-    //리포트 통계 차트
-/*    var ctx = document.getElementById("ReportChart");
-    var ReportChart = new Chart(ctx, {
-        type: 'horizontalBar',
-        data: {
-            labels: ['계정', '매출', '예약'],
-            datasets: [{
-                label: '어제',
-                data: [8, 3, 20],
-                backgroundColor: "rgb(204,229,255)",
-                borderColor: "rgb(204,229,255)",
-            },
-                {
-                    label: '오늘',
-                    data: [7, 7, 14],
-                    backgroundColor: "rgb(255,229,204)",
-                    borderColor: "rgb(255,229,204)",
-                }]
-        },
-        options: {
-            responsive: false,
-            title: {
-                display: false,
-                text: 'Report',
-            },
-            tooltips: {
-                mode: 'index',
-                intersect: false,
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            },
-            scales: {
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: false,
-                        labelString: 'x축'
-                    },
-                    gridLines :{
-                        display: false,
-                    },
-                }],
-                xAxes: [{
-                    display: true,
-                    ticks: {
-                        display :false,
-                        autoSkip: false
-                    },
-                    gridLines :{
-                        display: false,
-                    },
-                    scaleLabel: {
-                        display: false,
-                        labelString: 'y축'
-                    },
-
-                }]
-            },
-            legend:{
-                display : false
-            }
-        }
-    });*/
     var ctx = document.getElementById("pieChart");
     var pieChart = new Chart(ctx, {
         type: 'pie',
@@ -435,7 +370,7 @@
             ],
             datasets: [{
                 label: 'My First Dataset',
-                data: [300, 50, 100],
+                data: [${reserveData.ALLRESERVE}, ${reserveData.RESERVECOMP}, ${reserveData.RESERVECANCEL}],
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',
