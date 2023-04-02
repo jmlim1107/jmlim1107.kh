@@ -44,13 +44,16 @@
 			});
 		});
 	</script>
+<div id="unregisterForm" style="padding:70px;">
 	<!-- unregisterForm start -->
-	<section class="section services">
-         <h4 class="center">회원 탈퇴 안내</h4>
+	<section class="section services" style="padding: 50px;">
 	  <div class="container-fluid">
 	    <div>
 	      <div>
 	        <div class="services-content" style="color:#555;">
+	        	<h5 class="text-center" style="margin-bottom: 50px;">
+    				<b>회원 탈퇴 안내</b>
+    			</h5>
     			<h5 style="margin-bottom: 30px;">
     				<i class="fa-solid fa-face-sad-tear"></i> "${loginUser.user_name}"이 탈퇴하신다니 아쉬워요, 회원탈퇴를 신청하기 전에 안내 사항을 꼭 확인해주세요.
     			</h5>
@@ -76,3 +79,4 @@
 	  </div>
 	</section>
 	<!-- unregisterForm end -->
+</div>

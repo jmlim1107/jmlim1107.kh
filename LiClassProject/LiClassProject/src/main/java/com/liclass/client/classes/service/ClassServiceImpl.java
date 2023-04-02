@@ -38,6 +38,12 @@ public class ClassServiceImpl implements ClientClassService{
 		CenterVO cvo = classDao.clientCenterDetail(ct_bizno);
 		return cvo;
 	}
+	//클래스 이미지 조회
+	@Override
+	public String getImg(int c_no) {
+		String classImg = classDao.getImg(c_no);
+		return classImg;
+	}
 
 	
 	

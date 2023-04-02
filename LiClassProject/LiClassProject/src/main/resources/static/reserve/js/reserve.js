@@ -45,6 +45,7 @@ function tdActive(classnum){
 }
 			
 function templateEp( ep_no, ep_reserveState, ep_date, ep_price, ep_cnt, c_maxcnt, c_endtime, until_cnt  ){
+	console.log("함수호출");
 	let $epBox = $("#ep_template").clone().removeAttr("id");
 	$epBox.addClass("episodeBox"); //해당작업(templateEp함수)을 통해 만들어진 episodeBox
 	

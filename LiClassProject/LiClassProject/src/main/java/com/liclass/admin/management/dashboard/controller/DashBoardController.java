@@ -53,15 +53,4 @@ public class DashBoardController {
         return "admin/management/dashboard";
     }
 
-    /*@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-    public String qnaList(@ModelAttribute QnaBoardVo qnaBoard, Model model) {
-        log.info("boardList() 메서드 호출");
-        log.info("QnaBoardVO"+qnaBoard);
-        List<QnaBoardVo> qnaList = dashBoardService.qnaList(qnaBoard);
-
-        model.addAttribute("qnaList", qnaList);
-
-        return "admin/management/dashboard";
-    }*/
-
 }

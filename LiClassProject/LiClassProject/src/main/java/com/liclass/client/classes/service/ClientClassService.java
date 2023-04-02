@@ -17,7 +17,10 @@ public interface ClientClassService {
 		
 	public List<ClientClassVO> clientClassDetailList(ClientClassVO vo);
 	
+	public String getImg(int c_no);
+	
 	//클래스의 센터 조회
-		public CenterVO clientCenterDetail(String ct_bizno);
+	public CenterVO clientCenterDetail(String ct_bizno);
 		
+	
 }

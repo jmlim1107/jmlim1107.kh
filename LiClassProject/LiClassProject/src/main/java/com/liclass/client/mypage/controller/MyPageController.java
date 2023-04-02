@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.liclass.client.classes.service.ClientClassService;
 import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.likes.service.LikesService;
 import com.liclass.client.likes.vo.LikesVO;
@@ -43,6 +44,8 @@ public class MyPageController {
 	private MypageService mypageService;
 	@Setter(onMethod_ = @Autowired)
 	private LikesService likesService;
+	@Setter(onMethod_ = @Autowired)
+	private ClientClassService clientClassService;
 	@Setter(onMethod_ = @Autowired)
 	private UserFileUpload fileUploadUtil;
 	
@@ -75,12 +78,7 @@ public class MyPageController {
 		qvo.setUser_no(loginUser.getUser_no());
 		log.info("qvo.getAmount : "+qvo.getAmount());
 		log.info("qvo.getPageNum : "+qvo.getPageNum());
-		/*
-		 * loginUser.setAmount(ccvo.getAmount());
-		 * loginUser.setPageNum(ccvo.getPageNum());
-		 * log.info("loginUser.getPageNum() : "+loginUser.getPageNum());
-		 */
-		
+
 		int qnaCnt = mypageService.myQnaCnt(loginUser); 
 		PageDTO qnaPageDto = new PageDTO(qvo,qnaCnt);
 		model.addAttribute("qnaPageMaker",qnaPageDto);
@@ -250,7 +248,7 @@ public class MyPageController {
 	 * 7.회원정보 탈퇴 화면
 	 * 요청 url : http://localhost:8080/mypage/unregisterForm
 	************************************************/
-	@GetMapping("/mypage/unregisterForm")
+	@PostMapping("/mypage/unregisterForm")
 	public String unregisterForm() {
 		log.info("unregisterForm() 호출");
 		return "client/mypage/unregisterForm";
@@ -317,4 +315,6 @@ public class MyPageController {
 		
 		return "redirect:/mypage";
 	}
+	
+	
 }

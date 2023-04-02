@@ -1,10 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- 클래스 상세페이지 전체 테마 관련 -->
 <script src="/resources/client/classDetail/js/classDetail.js"></script>
-<link rel="stylesheet" href="/resources/client/classDetail/css/classDetail.css" />
+<link href="/resources/client/classDetail/css/classDetail.css" rel="stylesheet"  />
 <link href="/resources/client/classDetail/css/themify-icons.css" rel="stylesheet">
 <link href='/resources/client/classDetail/css/dosis-font.css' rel='stylesheet' type='text/css'>
+<!-- 모달창 css -->
+<link rel="stylesheet" type = "text/css" href="/resources/review/css/modal.css" />
+<!-- 모달 디테일 css -->
+<link rel="stylesheet" type = "text/css" href="/resources/review/css/modalDetail.css" />
+<link rel="stylesheet" type = "text/css" href="/resources/review/css/screen.css" />
+<!-- 별 불러오는 js -->
+<script src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
+<!-- 리뷰 css -->
+<link rel="stylesheet" type = "text/css" href="/resources/review/css/review.css" />
 
+<<<<<<< HEAD
 	<!-- 모달창 css -->
 	<link rel="stylesheet" type = "text/css" href="/resources/review/css/modal.css" />
 	<!-- 모달 디테일 css -->
@@ -120,15 +131,26 @@
 	    <!-- Controls --> 
 	    <a style = "background: bottom;" class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span></a> <a style = "background: bottom;" class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span></a>
 	    </div>
+=======
+<div id="class-detail-div" style="padding-top: 70px;">
+
+	<!-- 1. class img slider section start -->
+	<section id="header-slider" class="section">
+		<%@ include file="/WEB-INF/views/client/class/classDetail-0.imgSlider.jsp" %>
+>>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 	</section>
-	<!-- header slider section end -->
+	<!-- 1. class img slider section end -->
 	
-	<!-- information section start -->
+	<!-- 2. information section start -->
 	<div class="container-fluid class-info" data-title = "${clientClassDetail.c_title}">
 		<div class="row" style="display:block;">
 		    <div class="col-md-10">
+<<<<<<< HEAD
 			      <div class="card" style="display: block;     margin-left: 36px;
     width: 78%;">
+=======
+			      <div class="card" style="display: block; border: none;">
+>>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 				      <!-- Nav tabs start -->
 				      <ul class="nav nav-tabs" role="tablist">
 				          <li role="presentation" class="active"><a href="#class-info" aria-controls="class-info" role="tab" data-toggle="tab">클래스정보</a></li>
@@ -140,102 +162,17 @@
 					 
 	     			 <!-- Tab panes start -->
 				      <div class="tab-content">
-				      <c:choose>
-                		<c:when test="${ not empty clientClassDetailList }">
-                			<c:forEach var="classDetail"  items="${clientClassDetailList}"  varStatus="status">
-                				<input type="hidden" class="class-img" value = "${classDetail.c_img_file}" />
-                			</c:forEach>
-                		</c:when>
-                	</c:choose>
-				      	  <!-- 1. class info start-->
+				    
+				      	  <!-- 1. class info -->
 				          <div role="tabpanel" class="tab-pane active" id="class-info" >
-				          	${clientClassDetail.c_content}
+				          	<%@ include file="/WEB-INF/views/client/class/classDetail-1.classInfo.jsp" %>
 				          </div>
-						  <!-- 1. class info end-->
-						  <!-- 2. center info start -->
+						  <!-- 2. center info-->
 				          <div role="tabpanel" class="tab-pane" id="center-info">
-				          	<c:if test="${centerDetail != null} ">
-				            	<div class="row me-row content-ct speaker" id="speakers">
-						          <h2 class="row-title">${centerDetail.ct_name}</h2>
-						          <div class="col-md-4 col-sm-6 feature" style="width: 100%;">
-						            <p>${centerDetail.ct_intro}</p>
-						            <ul class="speaker-social">
-						              <c:if test="${centerDetail.ct_hmpg_addr != null}">
-						              	<li><a href="${centerDetail.ct_hmpg_addr}"><i class="fa-solid fa-house"></i></a></li>
-							         </c:if>
-						            </ul>
-						          </div>
-						        </div>
-						      </c:if>
-				        	 <div class="main-white-button" id="map-click" style="margin:5px;"><a href="#"><i class="fa-solid fa-map-pin"></i>${clientClassDetail.c_area}</a>
-							 <p style="padding: 12px 25px;"><i class="fa-regular fa-circle-check"></i>자세한 주소는 예약내역에서 확인해주세요.</p>
-				        	 </div>
-							 <div id="map" style="width:100%;height:350px;"></div>
+				          	<%@ include file="/WEB-INF/views/client/class/classDetail-2.centerInfo.jsp" %>
 				          </div>
 				          
-				          <!--  kakao map start  -->
-				          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93dabf793b8403bbf540b6d314c75a8f&libraries=services"></script>
-						  <script type="text/javascript" >
-					
-						  
-						  
-							$("#map-click").click(function(){
-								var mapContainer = document.getElementById('map'), 
-								    mapOption = {
-								        center: new kakao.maps.LatLng(33.450701, 126.570667),
-								        level: 4
-								    };  
-								var map = new kakao.maps.Map(mapContainer, mapOption); 
-								
-									map.relayout();
-									map.setCenter(new kakao.maps.LatLng(33.450701, 126.570667));
-									
-									var addr = "${classDetail.c_area}";
-									var detailAddr =  "${centerDetail.ct_detail_addr}";
-									var centerAddr = addr+" "+detailAddr;
-									console.log("센터 주소 : "+centerAddr);
-									var geocoder = new kakao.maps.services.Geocoder();
-									
-									geocoder.addressSearch(centerAddr, function(result, status) {
-									   
-									     if (status === kakao.maps.services.Status.OK) {
-									
-									        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-									
-									        map.setCenter(coords);
-									        
-									     	/*  */
-											var markerPosition  = coords;
-											// 마커를 생성합니다
-											var marker = new kakao.maps.Marker({
-											    position: markerPosition
-											});
-			
-											// 마커가 지도 위에 표시되도록 설정합니다
-											marker.setMap(map);
-											
-											var iwContent = '<div style="text-align:center;color:#555;">${centerDetail.ct_name}</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-										    iwPosition = coords; //인포윈도우 표시 위치입니다
-			
-											// 인포윈도우를 생성합니다
-											var infowindow = new kakao.maps.InfoWindow({
-											    position : iwPosition, 
-											    content : iwContent 
-											});
-											  
-											// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-											infowindow.open(map, marker);
-										    } 
-									});
-									
-									
-							});
-							</script>
-							<!--  kakao map end  -->
-				          <!-- 3. center info end -->
-				          
-			              <!-- 4. class-review start -->
-			              
+			              <!-- 3. class-review -->
 				          <div role="tabpanel" class="tab-pane" id="class-review" data-num="${clientClassDetail.c_no}">
 				          	<form id = "detailForm">
 								<input type = "hidden" name ="review_no" id = "review_no" value = "review_no" />
@@ -259,8 +196,6 @@
 							    	$("#bar5").width(ratingAvg5);
 							    	
 							    });
-							    
-							    
 							    </script>
 		
 							<!-- 리뷰 작성 폼 
@@ -276,9 +211,14 @@
 							<div id = "test3" style="display: none;">
 								<%-- <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp">
 								</jsp:include> --%>
+<<<<<<< HEAD
 								include file = "/WEB-INF/views/client/review/reviewDetail.jsp"
 							</div>-->
 							
+=======
+								<%@ include file = "/WEB-INF/views/client/review/reviewDetail.jsp" %>
+							</div>
+>>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 							<!-- 별점 통계 start -->
 						  	<div class="container">
 							    <div class="row" style = "justify-content: flex-start;">
@@ -335,15 +275,21 @@
 							              </div>
 						            </div>
 						            <!-- 별점 통계 end -->
+<<<<<<< HEAD
 	            
             
             
 						            <!-- 검색창 -->
 						             <div class="container-fluid">
+=======
+						            <!-- 검색창 -->
+						             <div class="container-fluid" style="margin-top:30px;">
+>>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 									    <form name = "review_search" id = "review_search">
 									    	<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
 						 					<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
 						
+<<<<<<< HEAD
 										    <div id = "searchDiv" style="display: inline-flex;">
 												<select id="search" name="search"  class="form-control col4">
 													<option value="all">전체</option>
@@ -526,20 +472,168 @@
 							</section>
 						 </div>
 						  <!-- 5. attention end -->
+=======
+									    <div id = "searchDiv" style="display: inline-flex;">
+											<select id="search" name="search"  class="form-control col">
+												<option value="all">전체</option>
+												<option value="b_title">제목</option>
+												<option value="b_content">내용</option>
+											</select>
+											<input id = "keyword" name = "keyword" class="form-control me-2" type="text" placeholder="Contents Search...." aria-label="Search">
+											<button id = "searchData" class="btn btn-dark col" type="button">Search</button>
+										</div>
+						
+									    </form>
+									  </div>
+						            <%-- ================== 글쓰기 버튼 출력 시작 ============= --%>
+									<div class="contentBtn  text-right">
+										<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
+									</div>
+									<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
+					         <!--  댓글창 -->
+					         <div class="comment-wrapper pt--40">
+					         <c:choose>
+								<c:when test="${not empty reviewList}" >
+									<c:forEach var="review" items="${reviewList}" varStatus="status">
+						              <div class="edu-comment" data-num="${review.review_no}" id = "tttest">
+						              <form id = "detailForm">
+										<input type = "hidden" id = "review_no" value = "${review.review_no}" />
+										</form>
+						              	
+						              	<%-- ================== 상세버튼 시작 =============
+						              	<button class = "test3" type = "button">상세보기 버튼</button> --%>
+						              	<%-- ================== 상세버튼 종료 ============= --%>
+						                <div class="thumbnail"><img src="/uploadLiClass/user/${review.user_img}"></div>
+						                <div class="comment-content">
+						                  <div class="comment-top">
+						                    <h6 class="title" id = "title">" ${review.review_title} "</h6>
+						                    
+						                
+						                    
+						                    <!-- 댓글창 별점 -->
+						                    <c:set var = "rating" value = "${review.review_rating}"/>	 
+						                    
+						                    <c:if test="${rating eq 1}">
+					                    		<div class="rating">
+							                    	<i class="fas fa-star" aria-hidden="true"></i>
+							                    	<i class="fas fa-star" aria-hidden="true"></i>
+							                    	<i class="fas fa-star" aria-hidden="true"></i>
+							                    	<i class="fas fa-star" aria-hidden="true"></i> 
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    </div> 	
+					                    	</c:if>
+						                    
+					                    	
+					                    	<c:if test="${rating eq 2}">
+					                    		<div class="rating">
+							                    	<i class="fas fa-star" aria-hidden="true"></i>
+							                    	<i class="fas fa-star" aria-hidden="true"></i>
+							                    	<i class="fas fa-star" aria-hidden="true"></i> 
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    </div> 	
+					                    	</c:if>
+					                    	
+					                    	
+					                    	<c:if test="${rating eq 3}">
+					                    		<div class="rating">
+							                    	<i class="fas fa-star" aria-hidden="true"></i>
+							                    	<i class="fas fa-star" aria-hidden="true"></i> 
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    </div> 	
+					                    	</c:if>
+			
+					                    	<c:if test="${rating eq 4}">
+					                    		<div class="rating">
+					                    			<i class="fas fa-star" aria-hidden="true"></i> 
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    </div> 	
+					                    	</c:if>
+					                    	
+					                    	
+					                    	<c:if test="${rating eq 5}">
+					                    		<div class="rating">
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+							                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i> 
+							                    </div> 	
+					                    	</c:if>
+					                  
+					                    
+					                  </div>
+					                  <div style="margin-bottom: 5px;">
+					                  	<span>${review.review_name}</span>
+					                  	<span>${review.review_date}</span>
+					                  	<span>${review.user_name}</span>
+>>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 				
+					                  </div>
+					                  <div id = "review_content" name = "review_content">${review.review_content}</div>
+					                  <span>친구에게 추천하시겠습니까?</span>
+					                  <span>${review.review_recommend}</span>
+					                </div>
+					              </div>
+				              </c:forEach>
+				          	</c:when>
+				          	<c:otherwise>
+				          		<!--등록된 글이 없을 경우 -->
+								<div>등록된 게시글이 존재하지 않습니다.</div>
+							</c:otherwise>
+				          </c:choose>
+				          <!-- Comment Box end--->
+					          
+				            <%-- ============== 페이징 출력 시작 =========== --%>
+							 <div class="text-center">
+								<ul class="pagination" style="justify-content: center;">
+								<c:if test="${pageMaker.prev}">
+								 	<li class="paginate_button">
+								 		<a href="${pageMaker.startPage -1}" class = "page-link">Previous</a>
+									</li>
+								</c:if>
+								<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+								 	<li class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active':''}">
+								 		<a href="${num}" class = "page-link">${num}</a>
+									</li>
+								</c:forEach>
+								<c:if test="${pageMaker.next}">
+									<li class="paginate_button next">
+										<a href="${pageMaker.endPage +1 }" class = "page-link">Next</a>
+									</li>
+								</c:if> 
+								</ul>
+							 </div> 
+					 		<%-- ============== 페이징 출력 종료 ============= --%>
+							  </div>
+				       		</div>
+				   		</div>
+					  </div>
+					</div>
+				 </div>
+					
+			  		  </div>
+			          <!-- 4. attention  -->
+			          <div role="tabpanel" class="tab-pane" id="attention">
+						<%@ include file="/WEB-INF/views/client/class/classDetail-4.attention.jsp" %>
+					  </div>
 					</div><!-- Tab panes end -->
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- information section end -->
-	
-	<!-- reservation section start -->
-	<div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px; z-index: 0;">
-		<jsp:include page="/WEB-INF/views/client/class/classReservation.jsp">
-			<jsp:param value="${clientClassDetail.c_no}" name="c_no"/>
-		</jsp:include> 
-		 <%--<%@ include file="/WEB-INF/views/client/class/classReservation.jsp" %>--%>
-	</div>
-	
-	<!-- reservation section start -->
+	<!-- 2. information section end -->
+</div>
+<!-- 3. reservation section start -->
+<div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px; z-index: 0;">
+	<jsp:include page="/WEB-INF/views/client/class/classReservation.jsp">
+		<jsp:param value="${clientClassDetail.c_no}" name="c_no"/>
+	</jsp:include> 
+	 <%--<%@ include file="/WEB-INF/views/client/class/classReservation.jsp" %>--%>
+</div>
+<!-- 3. reservation section start -->

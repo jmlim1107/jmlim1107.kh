@@ -23,7 +23,6 @@
 	</definition>
 	
 	
-	
 	<!--은아) 은아헤더 (마이페이지에서 사용) -->
 	<definition name="userContent" template="/WEB-INF/views/template/client/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
@@ -31,23 +30,9 @@
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
-	<!--은아) 은아 테스트중  -->
-	<definition name="mypageContent" template="/WEB-INF/views/template/client/eunaLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
-		<put-attribute name="nav" value="/WEB-INF/views/template/eunanav.jsp" />
-		<put-attribute name="body" value="" />
-	</definition>
-	
 	<!--은아) 0330 liuser-> client로 수정 -->
-	<definition name="client/*/*" extends="mypageContent">
+	<definition name="client/*/*" extends="userContent">
 		<put-attribute name="body" value="/WEB-INF/views/client/{1}/{2}.jsp" />
-	</definition>
-	
-	<!-- 웅배님 -->
-	<definition name="courseHistory" template="/WEB-INF/views/template/client/eunaLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
-		<put-attribute name="nav" value="" />
-		<put-attribute name="body" value="/WEB-INF/views/client/mypage/courseHistory.jsp" />
 	</definition>
 	
 	<!--은아) 에러페이지 -->
@@ -55,23 +40,36 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/error/{1}.jsp" />
 	</definition>
 	
-	<!--은아) 팀소개 -->
-	<definition name="team" template="/WEB-INF/views/template/client/clientLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/common/team.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
-	</definition>
-	
-	<!--은아)0331 민섭님 타일즈가 겹쳐서 client를 빼봤어요.  -->
-	<definition name="qnaboard/*" extends="userContent">
+
+	<definition name="client/qnaboard/*" extends="userContent">
 		<put-attribute name="title" value="고객센터" />
 		<put-attribute name="body" value="/WEB-INF/views/client/qnaboard/{1}.jsp" />
 	</definition>
 	
+<<<<<<< HEAD
 	<!-- 소영 -->
 	<definition name="studio/*" extends="basicTemplate">
 		<!-- <put-attribute name="title" value="스튜디오" /> -->
  		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
 	</definition>
+=======
+<<<<<<< HEAD
+	<definition name="clienthjgy/studio/*" template="/WEB-INF/views/template/client/studioLayout.jsp">
+		<!-- <put-attribute name="header" value="/WEB-INF/views/template/studioHeader.jsp" /> -->
+ 		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/studioFooter.jsp" />
+	</definition>
+	
+	<definition name="common/*/*" extends="userContent">
+		<put-attribute name="body" value="/WEB-INF/views/common/{1}/{2}.jsp" />
+	</definition>
+
+=======
+	<definition name="client/studio/*" extends="basicTemplate">
+		<put-attribute name="title" value="스튜디오" />
+ 		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
+	</definition> 
+>>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
+>>>>>>> 3cfc9d47250477e57fbbdfbb7e13d9dc26eb73ed
 	
 </tiles-definitions>

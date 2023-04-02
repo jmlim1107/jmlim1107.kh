@@ -61,8 +61,8 @@ public class LikesController {
 	}
 	
 	/************************************************
-	 * 3.관심클래스 추가 처리
-	 * 요청 url : http://localhost:8080/addLikes
+	 * 3.관심클래스 삭제 처리
+	 * 요청 url : http://localhost:8080/delLikes
 	************************************************/
 	@ResponseBody
 	@PostMapping("/delLikes")

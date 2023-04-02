@@ -87,6 +87,7 @@
     const headerScrolled = () => {
       if (window.scrollY > 100) {
         selectHeader.classList.add('header-scrolled')
+        $(".header-menu").classList.remove('active');
       } else {
         selectHeader.classList.remove('header-scrolled')
       }
@@ -179,14 +180,14 @@
 
   /**
    * Initiate portfolio lightbox 
-   */
+   
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
-
+*/
   /**
    * Portfolio details slider
-   */
+   
   new Swiper('.portfolio-details-slider', {
     speed: 400,
     loop: true,
@@ -199,7 +200,7 @@
       type: 'bullets',
       clickable: true
     }
-  });
+  });*/
 
   /**
    * Scroll with ofset on page load with hash links in the url

@@ -151,7 +151,11 @@ $(function(){
 		    	 if(checkData == "0"){
 		    		 alert("비밀번호를 확인해 주세요.");
 		    	 }else if(checkData == "1"){
-		    		 location.href='/mypage/unregisterForm';
+					 $("#update-form").attr({
+					"method":"post",
+					"action":"/mypage/unregisterForm"
+					});
+					$("#update-form").submit();
 		    	 }
 		      }
 		   });

@@ -7,7 +7,7 @@
 						<div>
 	                       <div class="thumb">
 	                         <div class="row">
-	                           <div class="col-lg-5 align-self-center">
+	                           <div class="col-lg-12 align-self-center">
 	                             <div class="left-text">
 	                               <h4>안녕하세요, ${loginUser.user_name} 님!</h4>
 	                               <div class="img-box-sm">
@@ -32,7 +32,7 @@
 					         			
 				         			</div>
 				         			<!-- profile img edit modal start -->
-									<div id="img-edit" class="filebox preview-image modal" style="height: 130px; z-index: 2; position: initial; text-align: center;">
+									<div id="img-edit" class="filebox preview-image modal" style="height: 150px; z-index: 2; position: initial; text-align: center;">
 										
 										<form id="img-update-form">
 											<label for="input-file" >
@@ -41,9 +41,9 @@
 											<input type="file" class="upload-hidden" id="input-file" name="file" accept="image/png, image/jpeg"  style="display: none;">
 	                             		</form>
 	                             		
-		                             	<a class="btn" id="update-img" ><i class="fa-solid fa-repeat"></i>변경</a>
-	                             		<a class="btn" id="delete-img" ><i class="fa-regular fa-user"></i>기본이미지로 변경</a>
-	                             		<a class="btn" id="cancel" rel="modal:close"><i class="fa-solid fa-xmark"></i>취소</a>
+		                             	<a class="btn" id="update-img" ><i class="fa-solid fa-repeat" style="margin:1px;"></i>변경</a>
+	                             		<a class="btn" id="delete-img" ><i class="fa-regular fa-user" style="margin:1px;"></i>기본이미지로 변경</a>
+	                             		<a class="btn" id="cancel" rel="modal:close"><i class="fa-solid fa-xmark" style="margin:1px;"></i>취소</a>
 									</div>
 									<!-- profile img edit modal end -->
 				         			
@@ -53,10 +53,10 @@
 	                               <i class="fa-solid fa-envelope"></i><p>${loginUser.user_email}</p>
 	                               <i class="fa-solid fa-phone"></i><p>${loginUser.user_tel}</p>
 	                               <div class="main-white-button">
-	                               		<a href="/mypage/updateForm" id="edit-btn"><i class="fa-regular fa-user"></i>수정하기</a>
+	                               		<a href="/mypage/updateForm" id="edit-btn" style="width: 50%;"><i class="fa-regular fa-user"></i>수정하기</a>
 	                               	</div>
 	                               <div class="main-white-button">
-	                               		<a href="/courseHistory"><i class="fa-solid fa-money-check"></i>수강내역</a>
+	                               		<a href="/courseHistory" style="width: 50%;"><i class="fa-solid fa-money-check"></i>수강내역</a>
 	                               </div>
 	                             </div>
 	                           </div>

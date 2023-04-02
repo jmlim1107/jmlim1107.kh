@@ -3,60 +3,53 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="tiles" uri = "http://tiles.apache.org/tags-tiles" %>
 <%@ include file="/WEB-INF/views/client/client_common.jspf" %>
+
+	<title>LiClass :: My page</title>
 	
-	<title>LiClass</title>
-	<!-- 부트스트랩 -->
-    <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
-	<!-- script -->
-	<script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>
-	<script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
+	<!-- mypage -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+   	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   	<link rel="stylesheet" href="/resources/client/mainTheme/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/resources/client/mypage/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/resources/client/mypage/assets/css/templatemo-plot-listing.css">
+    <link rel="stylesheet" href="/resources/client/mypage/assets/css/animated.css">
+    <link rel="stylesheet" href="/resources/client/mypage/assets/css/owl.css">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="/resources/include/mainLayout/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/bootstrap-icons/bootstrap-icons.scss" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/glightbox/css/glightbox.css" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="/resources/include/mainLayout/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <script src="/resources/include/mainLayout/js/main.js"></script>
-    <script src="/resources/include/mainLayout/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Template Main CSS File -->
-    <link href="/resources/include/mainLayout/css/style.css" rel="stylesheet">
-    
-     <!-- nav  -->
+    <!-- nav  -->
 	<script src="/resources/client/mainTheme/js/floatingNav.js"></script>
 	<link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
+	
 		
-  </head>
-  <body id="gotop">
-		<div class="header" style="height: 0;">
+  	</head>
+  	<body id="gotop">
+  	
+		<header class="header" style="height: 0;">
 			<tiles:insertAttribute name="header" />
+		</header>
+	
+		<div class="mypageLayout" style="margin-top: 100px;">
+		   		<tiles:insertAttribute name="body" />
 		</div>
 		
-		<body>
-		  <div class="clientLayout">
-		   		<tiles:insertAttribute name="body" />
-		  </div>
-		</body>
-		
-		 <nav class="nav">
+	    <nav class="nav">
 	    	<tiles:insertAttribute name="nav" />
 	    </nav>
-		
-		<footer class="footer">
-		     <tiles:insertAttribute name="footer" />
-		</footer>
-		
-
     
+		<footer class="footer">
+			     <tiles:insertAttribute name="footer" />
+		</footer>
+   
 <!-- 하단 script 시작==============================================================================================-->
 
+	<!-- mainTheme --> 
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+	<script src="/resources/client/mainTheme/js/bootstrap.min.js"></script> 
+	<script src="/resources/client/mainTheme/js/jquery.flexslider-min.js"></script> 
+	<script src="/resources/mainTheme/js/retina.min.js"></script> 
+	
+	<script src="/resources/client/mainTheme/js/modernizr.js"></script> 
+	<script src="/resources/client/mainTheme/js/main.js"></script> -->
+	
 	<!-- login --> 
 	<!--===============================================================================================-->
 	<script src="/resources/client/login/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -74,11 +67,16 @@
 	<script src="/resources/client/login/vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="/resources/client/login/js/login.js"></script>
-
-	<%-- qna board --%>
-	<link rel="stylesheet" href="/resources/client/qnaBoard/css/css.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+		
+	<!-- mypage -->
+ 	<script src="/resources/client/mypage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ 	<script src="/resources/client/mypage/assets/js/owl-carousel.js"></script>
+	<script src="/resources/client/mypage/vendor/jquery/jquery.min.js"></script>
+ 	<script src="/resources/client/mypage/assets/js/animation.js"></script>
+ 	<script src="/resources/client/mypage/assets/js/imagesloaded.js"></script>
+ 	<script src="/resources/client/mypage/assets/js/custom.js"></script>
 
 <!-- 하단 script 끝==============================================================================================-->
+
 	</body>
 </html>
