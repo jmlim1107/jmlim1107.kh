@@ -17,20 +17,24 @@
 	});
 	
 	$(function(){
+		var c_no = "${clientClassDetail.c_no}";
+		var user_no = $("#user-info").data("num");
 		
 		//하트 클릭
 		 $(".like").click(function(){
 			var likeId = $(this).attr("id");
+			console.log(likeId);
 			if(likeId == "loginLike"){
 				alert("로그인 후 이용해주세요.");
 				return;
 			}else if(likeId == "addLike"){
+				console.log(likeId);
 				$.ajax({
 					type : "POST",
 					url : "/addLikes",
-					data : {
-						"c_no" : $("#class-info").data("num"),
-						"user_no" : $("#user-info").data("num")
+			        data: {
+						c_no : c_no,
+						user_no : user_no
 					},
 					success : function(result){
 						if(result == 1){
@@ -42,22 +46,25 @@
 					}
 				 });
 			}else if(likeId == "delLike"){
-				$.ajax({
-					type : "POST",
-					url : "/delLikes",
-					data : {
-						"c_no" : "${clientClassDetail.c_no }",
-						"user_no" : $("#user-info").data("num")
-					},
-					success : function(result){
-						if(result == 1){
-						 	alert("관심클래스에서 삭제되었습니다.");
-						}else{
-							alert("잠시후에 다시 시도해주세요.");
-						} 
-						document.location.reload();
-					}
-				 });
+				if(confirm("관심클래스에서 삭제하시겠습니까?")){
+					console.log(likeId);
+					$.ajax({
+						type : "POST",
+						url : "/delLikes",
+				        data: {
+				        	c_no : c_no,
+							user_no : user_no
+						},
+						success : function(result){
+							if(result == 1){
+								alert("관심클래스에서 삭제되었습니다.");
+							}else{
+								alert("잠시후에 다시 시도해주세요.");
+							} 
+							document.location.reload();
+						}
+					 });
+				}
 			}  
 			
 		});
@@ -101,8 +108,8 @@
 				<i class="fa-regular fa-star"></i>
 			</c:if>
 			<c:if test = "${clientClassDetail.c_level eq '하'}">
-				<i class="fa-regular fa-star"></i>
-				<i class="fa-regular fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
 				<i class="fa-regular fa-star"></i>
 				<i class="fa-regular fa-star"></i>
 				<i class="fa-regular fa-star"></i>
@@ -159,12 +166,12 @@
 		      </c:if>
 		      <c:if test="${loginUser != null}">
 				<c:if test="${checkResult eq 1}">
-					<button type="button" class="main-white-button like" id="addLike" style="margin: 0px 5px;">
+					<button type="button" class="main-white-button like" id="delLike" style="margin: 0px 5px;">
 						<i class="fa-solid fa-heart-circle-check" style="color:#f96868e6;" ></i>
 					</button>
 				</c:if>
 				<c:if test="${checkResult eq 0}">
-					<button type="button" class="main-white-button like" id="delLike" style="margin: 0px 5px;">
+					<button type="button" class="main-white-button like" id="addLike" style="margin: 0px 5px;">
 						<i class="fa-solid fa-heart-circle-plus"></i>
 					</button>
 				</c:if>

@@ -14,6 +14,112 @@
 <script src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
 <!-- 리뷰 css -->
 <link rel="stylesheet" type = "text/css" href="/resources/review/css/review.css" />
+	
+	
+	<!-- 글씨체 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+	
+
+<style type="text/css">
+    	#colorStar{
+    		direction: rtl;
+			unicode-bidi: bidi-override;
+    		color: #555; 
+    	}
+    	#login-pop-modal{
+    		top: 250px;
+    	}
+    	
+    	#login-pop-modal .modal_content {
+		  width:390px;
+		  margin:0px auto;
+		  background:#fff;
+		  border:2px solid #666; 
+		  top: 60%;
+    	  height: 745px;
+		}
+		.card{
+			border:none;
+			display: block; 
+		}
+		.row>*{
+			width: 80%;
+		}
+		
+    	.card{
+    		border:none;
+    	}
+    </style>
+
+<script type="text/javascript">
+	$(function(){
+		
+		//은아)
+		if("${1 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 공예");
+		}else if("${2 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 요리");
+		}else if("${3 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 미술");
+		}else if("${4 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 플라워");
+		}else if("${5 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 뷰티");
+		}else if("${6 eq classDetail.c_category}"){
+			$("#category").html("<i class='fa-solid fa-hashtag'></i> 체험 및 기타");
+		}
+		
+		//클래스 이미지 사진
+		var img1 = '/uploadLiClass/class/'+$('.class-img:eq(0)').val();
+		var img2 = '/uploadLiClass/class/'+$('.class-img:eq(1)').val();
+		var img3 = '/uploadLiClass/class/'+$('.class-img:eq(2)').val();
+		console.log("img : "+ img1);
+		console.log("img : "+ img2);
+		console.log("img : "+ img3);
+	    /* find('.img-item:eq(1)').attr('src','/uploadLiClass/class/'+img1); */
+	    $("#img1").attr("src",img1);
+	    $("#img2").attr("src",img2);
+	    $("#img3").attr("src",img3);
+	});
+	    
+</script>
+
+	<!-- header slider section start -->
+	<section id="header-slider" class="section" style="margin-top : 150px;">
+	<div class="class-content" data-num="${clientClassDetail.c_no}">
+      <h6 id="category"><i class="fa-solid fa-hashtag"></i></h6>
+      <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${clientClassDetail.c_area}</h6>
+      <h3>${clientClassDetail.c_title}</h3>
+     
+      <div style="display: flex;" class="login-info" data-num="${loginUser.user_no}">
+      	
+      </div>
+      
+	</div>
+	
+	  <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+	    <!-- Indicators -->
+	    <ol class="carousel-indicators">
+	      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	      <li data-target="#myCarousel" data-slide-to="1"></li>
+	    </ol>
+	    <!-- Wrapper for slides -->
+	    <div class="carousel-inner" role="listbox">
+	      <div class="item active"> 
+	      	<img class="img-item" id="img1">
+	      </div>
+	      <div class="item">
+	       <img class="img-item" id="img2">
+	      </div>
+	      <div class="item" id="img3">
+	       <img class="img-item">
+	      </div>
+	    </div>
+	    <!-- Controls --> 
+	    <a style = "background: bottom;" class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span></a> <a style = "background: bottom;" class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span></a>
+	    </div>
 
 <div id="class-detail-div" style="padding-top: 70px;">
 
@@ -27,6 +133,8 @@
 	<div class="container-fluid class-info" data-title = "${clientClassDetail.c_title}">
 		<div class="row" style="display:block;">
 		    <div class="col-md-10">
+			      <div class="card" style="display: block;     margin-left: 36px;
+    width: 78%;">
 			      <div class="card" style="display: block; border: none;">
 				      <!-- Nav tabs start -->
 				      <ul class="nav nav-tabs" role="tablist">
@@ -75,24 +183,28 @@
 							    });
 							    </script>
 		
-							<!-- 리뷰 작성 폼 -->
+							<!-- 리뷰 작성 폼 dd
 							<div id = "test1" style="display: none;">
-								<%@ include file = "/WEB-INF/views/client/review/r_writeForm.jsp" %>
-							</div>
-							<!-- 리뷰 업데이트 폼 -->
+								include file = "/WEB-INF/views/client/review/r_writeForm.jsp" 
+							</div> -->
+							<!-- 리뷰 업데이트 폼 
 							<div id = "test2" style="display: none;">
-								<%@ include file = "/WEB-INF/views/client/review/r_updateForm.jsp" %>
-							</div>
+								include file = "/WEB-INF/views/client/review/r_updateForm.jsp" 
+							</div>-->
 							
-							<!-- 리뷰 상세보기 폼 -->
+							<!-- 리뷰 상세보기 폼 
 							<div id = "test3" style="display: none;">
 								<%-- <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp">
 								</jsp:include> --%>
+
+								include file = "/WEB-INF/views/client/review/reviewDetail.jsp"
+							</div>-->
+							
 								<%@ include file = "/WEB-INF/views/client/review/reviewDetail.jsp" %>
 							</div>
 							<!-- 별점 통계 start -->
 						  	<div class="container">
-							    <div class="row">
+							    <div class="row" style = "justify-content: flex-start;">
 							      <div class="col-md-13 course-details-content">
 							        <div class="course-details-card mt--40">
 							          <div class="course-content">
@@ -146,12 +258,198 @@
 							              </div>
 						            </div>
 						            <!-- 별점 통계 end -->
+	            
+            
+            
+						            <!-- 검색창 -->
+						             <div class="container-fluid">
 						            <!-- 검색창 -->
 						             <div class="container-fluid" style="margin-top:30px;">
 									    <form name = "review_search" id = "review_search">
 									    	<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
 						 					<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
+										    <div id = "searchDiv" style="display: inline-flex;">
+												<select id="search" name="search"  class="form-control col4">
+													<option value="all">전체</option>
+													<option value="b_title">제목</option>
+													<option value="b_content">내용</option>
+												</select>
+												<input id = "keyword" name = "keyword" class="form-control me-2" type="text" placeholder="Contents Search...." aria-label="Search">
+												<button id = "searchData" class="btn btn-dark col" type="button" s>Search</button>
+											</div>
+							    		</form>
+							  		</div>
+			  
+			
+			
+						            <%-- ================== 글쓰기 버튼 출력 시작 ============= 
+									<div class="contentBtn  text-right">
+										<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
+									</div>--%>
+									<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
+		
+
+			
+
+							         <!--  댓글창 -->
+							         <div class="comment-wrapper pt--40">
+							         <c:choose>
+										<c:when test="${not empty reviewList}" >
+											<c:forEach var="review" items="${reviewList}" varStatus="status">
+								              <div class="edu-comment" data-num="${review.review_no}" id = "tttest">
+								              	<form id = "detailForm">
+													<input type = "hidden" id = "review_no" value = "${review.review_no}" />
+												</form>
+								              	
+								              	<%-- ================== 상세버튼 시작 =============
+								              	<button class = "test3" type = "button">상세보기 버튼</button> --%>
+								              	<%-- ================== 상세버튼 종료 ============= --%>
+								                <div class="thumbnail"><img src="/uploadLiClass/user/${review.user_img}"></div>
+									                <div class="comment-content">
+									                  <div class="comment-top">
+									                    <h6 class="title" id = "title">" ${review.review_title} "</h6>       
+									                    <!-- 댓글창 별점 -->
+									                    <c:set var = "rating" value = "${review.review_rating}"/>	 
+									                    
+									                    <c:if test="${rating eq 1}">
+								                    		<div class="rating">
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i> 
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    </div> 	
+								                    	</c:if>
+									                    
+								                    	
+								                    	<c:if test="${rating eq 2}">
+								                    		<div class="rating">
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i> 
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    </div> 	
+								                    	</c:if>
+								                    	
+								                    	
+								                    	<c:if test="${rating eq 3}">
+								                    		<div class="rating">
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i> 
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    </div> 	
+								                    	</c:if>
 						
+								                    	<c:if test="${rating eq 4}">
+								                    		<div class="rating">
+								                    			<i class="fas fa-star" aria-hidden="true"></i> 
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    </div> 	
+								                    	</c:if>
+								                    	
+								                    	
+								                    	<c:if test="${rating eq 5}">
+								                    		<div class="rating">
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i> 
+										                    </div> 	
+								                    	</c:if>
+								                  
+								                    
+								                  </div>
+								                  <div style="margin-bottom: 5px;">
+								                  	<span>${review.review_name}</span>
+								                  	<span>${review.review_date}</span>
+								                  	<span>${review.user_name}</span>
+							
+								                  </div>
+								                  <div id = "review_content" name = "review_content">${review.review_content}</div>
+								                  <span>친구에게 추천하시겠습니까?</span>
+								                  <span>${review.review_recommend}</span>
+								                </div>
+								                
+								                
+							
+								              </div>
+							              </c:forEach>
+							          	</c:when>
+							          	<c:otherwise>
+							          		<!--등록된 글이 없을 경우 -->
+											<div>등록된 게시글이 존재하지 않습니다.</div>
+										</c:otherwise>
+							          </c:choose>
+							          <!-- Comment Box end--->
+							          
+							            <%-- ============== 페이징 출력 시작 =========== --%>
+									 <div class="text-center">
+										<ul class="pagination" style="justify-content: center;">
+										<c:if test="${pageMaker.prev}">
+										 	<li class="paginate_button">
+										 		<a href="${pageMaker.startPage -1}" class = "page-link">Previous</a>
+											</li>
+										</c:if>
+										<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+										 	<li class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active':''}">
+										 		<a href="${num}" class = "page-link">${num}</a>
+											</li>
+										</c:forEach>
+										<c:if test="${pageMaker.next}">
+											<li class="paginate_button next">
+												<a href="${pageMaker.endPage +1 }" class = "page-link">Next</a>
+											</li>
+										</c:if> 
+										</ul>
+									 </div> 
+							 		<%-- ============== 페이징 출력 종료 ============= --%>
+									  </div>
+						       		</div>
+						   		</div>
+							  </div>
+							</div>
+						 </div>
+														
+						  </div>
+						  <!--4. class-review end -->
+						  
+				          <!-- 5. attention start -->
+				          <div role="tabpanel" class="tab-pane" id="attention">
+							<section id="services" class="section services" style="margin:0px; width:100%;">
+							  <div class="container-fluid">
+							    <div class="row" style="justify-content: left;">
+							      <div class="col-md-12 col-sm-6">
+							        <div class="services-content">
+							          <h5><i class="fa-solid fa-bullhorn"></i>  클래스 안내사항</h5>
+							         	<p>LiClass는 오프라인 클래스 플랫폼입니다.</p>
+							          	<p>다양한 분야의 아티스트들이 본인의 철학과 노하우, 지식을 클래스 형태로 풀어냅니다.</p>
+							          	<p>직접 체험하실 수업은 해당 분야에 대한 아티스트의 노하우와 지식 위주로 제작되었으며 아티스트의 일상과 생각도 함께 엿볼 수 있습니다. </p>
+							          	<p>라이크래스에서 나만의 예술을 시작해보세요. </p>
+							        	<p>라이클래스는 평소에 쉽게 접할 수 없는 아티스트들 본인만의 철학과 노하우를 풀어낸 형식의 클래스로 난이도에 상관없이 모든 분들이 수강하실 수 있습니다.</p>
+							          	<p>어디서도 경험할 수 없는 각 분야에서 성공한 아티스트들의 철학과 노하우를 통해 많은 것은 얻어가실 수 있을 것으로 생각되며 </p>
+							          	<p>직접 체험을 통해 느끼고 배우시면서 저희 라이클래스를 수강하신다면 더 큰 시너지 효과를 보실 수 있습니다. </p>
+							          </div>
+							          <div class="services-content">	
+						          	  	<h5><i class="fa-solid fa-money-check-dollar"></i>  클래스 환불규정</h5>
+						         	 	 <p>클래스 예약 내역은 우측 상단 프로필 아이콘을 클릭하시면 My page로 이동합니다. 수강내역 버튼 -> 클래스 목록을 참고하시고, 
+						         	  		실제 결제 내역은 My payment 나의 결제내역을 통해 확인하실 수 있습니다.</p>
+						         	 	 <p>모든 클래스 수강권은 '7일 이내', '사용이력이 없는 경우'에만 환불이 가능합니다.</p>
+						         	 	 <p>환불은 회원이 결제한 수단과 같은 형태로 진행됩니다. 다만 기술적인 문제가 발생할 경우 회사와 회원 양측이 동의하는 형태로 변경하여 진행할 수 있습니다.</p>
+						         	 	 <p>환불은 회사, 결제대행사, 카드사, 페이먼트사 등의 사정에 따라 시간이 지연될 수 있습니다.</p>
+							     	 </div>
+							   	  </div>
+							    </div>
+							  </div>
+							</section>
+						 </div>
+						  <!-- 5. attention end -->
 									    <div id = "searchDiv" style="display: inline-flex;">
 											<select id="search" name="search"  class="form-control col">
 												<option value="all">전체</option>

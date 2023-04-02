@@ -11,10 +11,7 @@
    <!-- 리뷰 css -->
 <link rel="stylesheet" type = "text/css" href="/resources/review/css/review.css" />
 
-<!-- 글씨체 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
 
 <!-- 검색창 css -->
 <link rel="stylesheet" type="text/css" href="/resources/review/css/reviewSearch.css">

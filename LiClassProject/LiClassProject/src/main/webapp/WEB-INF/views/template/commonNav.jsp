@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!--은아)2. 플로팅 메뉴 js,css  -->
-<script src="/resources/client/mainTheme/js/floatingNav.js"></script>
 <link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
 <script type="text/javascript">
 	/* 메인화면 floating nav */

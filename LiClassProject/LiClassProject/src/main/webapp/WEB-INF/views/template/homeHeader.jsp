@@ -3,7 +3,19 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
+<!-- 로고 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Shrikhand&display=swap" rel="stylesheet">
+
 <style>
+
 		#header{width: 100%;
 		    margin: 0px;
 		    padding : 29px 0;
@@ -44,7 +56,7 @@
 
         	<header id="header" class="fixed-top header-scrolled">
        	 		<div class="container d-flex align-items-center justify-content-between">
-            		<h1 class="logo"><a href="/">LiClass</a></h1>
+            		<h1 class="logo" ><a href="/" style="font-family: 'Racing Sans One', cursive; font-size: 30px;">LiClass</a></h1>
 			            <!-- Uncomment below if you prefer to use an image logo -->
 			            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 			            <nav id="navbar" class="navbar">

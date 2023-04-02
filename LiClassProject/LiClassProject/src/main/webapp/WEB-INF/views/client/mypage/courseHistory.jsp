@@ -73,17 +73,15 @@
                            <td>${ courseList.category }</td>
                            <td>${ courseList.level }</td>
                            <td>${ courseList.area }</td>
-                           <c:if test="${courseList.review_status == 0}">
-                              <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
-                              	<input type="button" value="글쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn">
-                              </td>
-                           </c:if>
                            
+                          <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
+                           <c:if test="${courseList.review_status == 0}">
+                              	<input type="button" value="글쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn">
+                           </c:if>
                            <c:if test="${courseList.review_status == 1 }">
-                              <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
                                  <input type="button" value="리뷰보기" class="reviewDetail">
-                              </td>
-                           </c:if>     
+                           </c:if>    
+                           </td> 
                         </tr>
                      </c:forEach>
                   </c:when>

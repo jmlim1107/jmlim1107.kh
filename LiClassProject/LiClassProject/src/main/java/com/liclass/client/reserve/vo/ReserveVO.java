@@ -17,4 +17,5 @@ public class ReserveVO {
 	private int r_state;
 	private int r_price;
 	private int r_cnt;
+	private int review_status;
 }
