@@ -23,4 +23,6 @@ public interface QnaBoardService {
     //문의게시판 문의글 답변 메서드
     public int qnaAnswerInsert(QnaBoardVo qnaBoard);
 
+    public QnaBoardVo qnaBoardAnswerDetail(QnaBoardVo qnaBoard);
+
 }

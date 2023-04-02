@@ -1,6 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %>
+<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css">
 <script type="text/javascript">
 
     $(function (){
@@ -27,51 +30,63 @@
 
 </script>
 
-<div class="contentContainer container">
-    <!-- <div class="contentTit page-header"><h3 class="text-center">게시판 상세보기</h3></div>  -->
 
-    <form name="f_data" id="f_data" method="post">
-        <input type="hidden" name="qna_no" id="qna_no" value="${detail.qna_no}"/>
-    </form>
+<div class="pagetitle">
+    <h1>문의사항 상세조회</h1>
+    <hr />
+</div><!-- End Page Title -->
+    <div class="contentContainer container">
+        <form name="f_data" id="f_data" method="post">
+            <input type="hidden" name="qna_no" id="qna_no" value="${detail.qna_no}"/>
+        </form>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left" style="line-height: 2.5;"><strong>[${detail.qna_category}]</strong>&nbsp${detail.qna_title}</h3>
 
-        <div class="btnArea col-md-4 text-right">
-            <input type="button" value="답변" id="qnaAnswerBtn" class="btn btn-success" />
-            <input type="button" value="글삭제" id="noticeDeleteBtn" class="btn btn-success" />
-        </div>
-
-
-    <%-- =============== 상세 정보 보여주기 시작 ============ --%>
-    <div class="contentTB text-center">
-        <table class="table table-bordered">
-            <tbody>
-            <tr>
-                <td class="col-md-3 text-left">관리자(${detail.qna_date})</td>
-            </tr>
-            <tr>
-                <td class="col-md-4">글제목</td>
-                <td colspan="3" class="col-md-8 text-left">${detail.qna_title}</td>
-            </tr>
-            <tr class="table-tr-height">
-                <td class="col-md-4">글내용</td>
-                <td colspan="3" class="col-md-8 text-left">${detail.qna_content}</td>
-            </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <div id="reviewList">
-        <div id="item-template" class="panel panel-success">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <span class="name">관리자 / </span>
-                    <span class="date">(${detail.qna_date})</span>
-                    <button type="button" data-btn="upBtn" class="btn btn-default gap">수정하기</button>
-                    <button type="button" data-btn="delBtn" class="btn btn-default gap">삭제하기</button>
-                </h3>
+                    <div class="pull-right">
+                        <c:if test="${empty answerDetail}">
+                        <button type="button" class="btn btn-primary" id="qnaAnswerBtn">답변</button>
+                        </c:if>
+                        <button type="button" class="btn btn-danger" id="noticeDeleteBtn">삭제</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p><strong>작성자: </strong>${detail.user_name}</p>
+                    <p><strong>작성일: </strong>${detail.qna_date}</p>
+                    <hr>
+                    <div id="collapse2" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>${detail.qna_content}</p>
+                        </div>
+                    </div>
+                    <c:choose>
+                        <c:when test="${detail.qna_group == answerDetail.qna_group}">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading clearfix">
+                                <h4 class="panel-title pull-left" style="line-height: 2.5;"><strong>[${answerDetail.qna_category}]</strong> &nbsp${answerDetail.qna_title}</h4>
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-success" id="qnaAnswerUpdateBtn">수정</button>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                            <p><strong>작성자: </strong>${answerDetail.admin_name}</p>
+                            <p><strong>작성일: </strong>${answerDetail.qna_date}</p>
+                            <hr>
+                            <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <p>${answerDetail.qna_content}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        </c:when>
+                    </c:choose>
+                   </div>
+                </div>
             </div>
-            <div class="panel-body">${detail.qna_content}</div>
         </div>
     </div>
-
 </div>

@@ -37,7 +37,10 @@ public class QnaBoardController {
 
         QnaBoardVo detail = qnaBoardService.qnaBoardDetail(qnaBoard);
         model.addAttribute("detail", detail);
-
+        QnaBoardVo answerDetail = qnaBoardService.qnaBoardAnswerDetail(qnaBoard);
+        if (answerDetail != null && detail.getQna_no() == answerDetail.getQna_group()) {
+            model.addAttribute("answerDetail", answerDetail);
+        }
         return "admin/management/qnaboard/qnaBoardDetail";
     }
 

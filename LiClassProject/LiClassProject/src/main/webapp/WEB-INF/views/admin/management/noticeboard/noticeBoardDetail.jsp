@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/common.jspf" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css">
 <script type="text/javascript">
 
     $(function (){
@@ -26,42 +28,42 @@
 
 
 </script>
-
+<div class="pagetitle">
+    <h1>공지사항 상세조회</h1>
+    <hr />
+</div><!-- End Page Title -->
 <div class="contentContainer container">
-    <!-- <div class="contentTit page-header"><h3 class="text-center">게시판 상세보기</h3></div>  -->
-
     <form name="f_data" id="f_data" method="post">
         <input type="hidden" name="qna_no" id="qna_no" value="${detail.qna_no}"/>
     </form>
-
-        <div class="btnArea col-md-4 text-right">
-            <input type="button" value="글수정" id="updateFormBtn" class="btn btn-success" />
-            <input type="button" value="글삭제" id="noticeDeleteBtn" class="btn btn-success" />
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left" style="line-height: 2.5;">${detail.qna_title}</h3>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-primary" id="updateFormBtn">수정</button>
+                        <button type="button" class="btn btn-danger" id="noticeDeleteBtn">삭제</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p><strong>작성자: </strong>${adminLogin.admin_name}</p>
+                    <p><strong>작성일: </strong>${detail.qna_date}
+                        <c:if test="${not empty detail.qna_date_fix}">
+                        (<strong>수정일: </strong>${detail.qna_date_fix})
+                    </c:if></p>
+                    <hr>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <p>${detail.qna_content}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <%-- =============== 상세 정보 보여주기 시작 ============ --%>
-    <div class="contentTB text-center">
-        <table class="table table-bordered">
-            <tbody>
-            <tr>
-                <td class="col-md-4">작성자</td>
-                <td class="col-md-3 text-left">${adminLogin.admin_name}</td>
-            </tr>
-            <tr>
-                <td class="col-md-3 text-left">최초 등록일(${detail.qna_date})</td>
-                <td class="col-md-3 text-left">최근 수정일(${detail.qna_date_fix})</td>
-            </tr>
-            <tr>
-                <td class="col-md-4">글제목</td>
-                <td colspan="3" class="col-md-8 text-left">${detail.qna_title}</td>
-            </tr>
-            <tr class="table-tr-height">
-                <td class="col-md-4">글내용</td>
-                <td colspan="3" class="col-md-8 text-left">${detail.qna_content}</td>
-            </tr>
-
-            </tbody>
-        </table>
     </div>
 </div>
