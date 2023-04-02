@@ -38,13 +38,16 @@
    </script>
 <style>
    .table>tbody>tr>td{vertical-align: middle;}
+   span{justify-content: center;
+    	align-items: center;
+    	display: flex;}
 </style> 
 
 <div class="thumb">
    <div class="row">
-      <div class="left-text">
+      <div class="left-text" style="width:90%;">
       <hr>
-         <h4 class="center">수강 내역</h4>
+         <h2 class="center">수강 내역</h2><br><br>
          <%-- ==================== 리스트 시작 ==================== --%>
          <div id="paymentList" class="table-height">
             <table summary="결제내역 리스트" class="table table-hover">
@@ -64,29 +67,32 @@
                   <c:when test="${ not empty pvo_courseList }">
                      <c:forEach var="courseList" items="${ pvo_courseList }" varStatus="status">
                         <tr class="text-center" data-num="${ courseList.r_no }">
-                           <td style="text-align:left;">
-                              <img src="/uploadLiClass/class/thumbnail/${classImg[status.index]}" style="margin-left:20px;width:100px;height:100px;object-fit:cover;" alt="..." class="img-rounded">
+                           <td style="text-align:left;display:flex; vertical-align: middle;">
+                              <img src="/uploadLiClass/class/thumbnail/${classImg[status.index]}" style="margin-left:20px;width:100px;height:100px;object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
                               <span style="padding-left:30px;">${ courseList.title }</span>
                            </td>                     
                            <td>${courseList.date }</td>
                            <td>${ courseList.category }</td>
                            <td>${ courseList.level }</td>
                            <td>${ courseList.area }</td>
-                           <c:if test="${courseList.review_status == 0}">
-                              <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
-                              	<input type="button" value="리뷰쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn" style="margin:0">
-                              </td>
+                           
+                           <c:if test="${courseList.count >= 0}">
+                           		<td>수강전</td>
                            </c:if>
                            
-                           <c:if test="${courseList.review_status == 1 }">
-                              <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
-                                 <input type="button" value="리뷰수정" class="btn btn-dark reviewDetail" style="margin:0">
-                              </td>
-<!-- <<<<<<< HEAD -->
-                           </c:if>     
-<!-- ======= -->
-                           <%-- </c:if> --%>      
-<!-- >>>>>>> 720416294c0152cac3efc862011b8e908654a3d0 -->
+                           <c:if test="${courseList.count < 0 }">
+	                           <c:if test="${courseList.review_status == 0}">
+	                              <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
+	                              	<input type="button" value="리뷰쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn" style="margin:0">
+	                              </td>
+	                           </c:if>
+	                           
+	                           <c:if test="${courseList.review_status == 1 }">
+	                              <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
+	                                 <input type="button" value="리뷰수정" class="btn btn-dark reviewDetail" style="margin:0">
+	                              </td>
+	                           </c:if>     
+							</c:if>
                         </tr>
                      </c:forEach>
                   </c:when>
