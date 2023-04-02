@@ -90,7 +90,7 @@
 		           <div class="grid">
 		             <div class="row">
 		             
-		               <div class="col-lg-3">
+		               <div class="col-lg-3" style="margin-top : -49px;">
 		                 <div class="menu">
 		                   <div class="first-thumb active point">
 		                  	<div class="thumb">

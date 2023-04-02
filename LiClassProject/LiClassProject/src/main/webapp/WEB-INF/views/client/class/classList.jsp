@@ -19,6 +19,8 @@
 		.goClassDetail{
 			cursor: pointer;
 		}
+		
+		
 	</style>
 	<script>
     	$(function(){
@@ -98,19 +100,14 @@
     <input type="hidden" class="login-info" data-num="${loginUser.user_no }" />
     
     <!-- 지민) 클래스 리스트 시작 -->
-    <div class="container pt-5" style="padding-top: 100px;">
+    <div class="container pt-5" style="padding-top: 150px; margin-top : 50px;">
     	<div class="row">
         	<div class="col-md-8 order-md-2 col-lg-9">
             	<div class="container-fluid">
 	           	<!-- 드롭다운 메뉴 시작 -->
 	             <div class="row   mb-5">
 	               <div class="col-12">
-	                   
-	                   <div id = "prodeuct_order_list">
-	                   <label class="mr-2">Sort by:</label>
-		                   <a href="javascript:recentlist();">최신순 | </a>
-		                   <a href="javascript:likelist();">인기순</a>
-	                   </div>
+	                 
 	               </div>
 	             </div>
 	             <!-- 드롭다운 메뉴 끝 -->
