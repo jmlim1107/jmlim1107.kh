@@ -52,13 +52,26 @@ public class LikesController {
 	************************************************/
 	@ResponseBody
 	@PostMapping("/addLikes")
+	public int addLikes(int c_no,String user_no,HttpSession session) {
+		long userno = Long.parseLong(user_no);
+		LikesVO lvo = new LikesVO();
+		lvo.setC_no(c_no);
+		lvo.setUser_no(userno);
+		int result = likesService.addLikes(lvo);
+		// 0: 입력실패 1 : 입력성공
+		return result;
+	}
+	
+	/*
+	@ResponseBody
+	@PostMapping("/addLikes")
 	public int addLikes(LikesVO lvo,HttpSession session) {
 		log.info("addLikes() 호출");
 		int result;
 		result = likesService.addLikes(lvo);
 		// 0: 입력실패 1 : 입력성공
 		return result;
-	}
+	}*/
 	
 	/************************************************
 	 * 3.관심클래스 삭제 처리
