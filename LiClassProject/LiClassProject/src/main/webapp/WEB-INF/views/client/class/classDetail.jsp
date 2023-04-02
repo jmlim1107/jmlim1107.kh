@@ -307,6 +307,7 @@
 	</div>
 	<!-- 2. information section end -->
 </div>
+
 <!-- 3. reservation section start -->
 <div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px; z-index: 0;">
 	<jsp:include page="/WEB-INF/views/client/class/classReservation.jsp">
