@@ -3,22 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
 	$(function(){
-		
-		//클래스 카테고리
-		if("${1 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 공예");
-		}else if("${2 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 요리");
-		}else if("${3 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 미술");
-		}else if("${4 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 플라워");
-		}else if("${5 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 뷰티");
-		}else if("${6 eq classDetail.c_category}"){
-			$("#category").html("<i class='fa-solid fa-hashtag'></i> 체험 및 기타");
-		}
-		
 		//클래스 이미지 사진
 		var img1 = '/uploadLiClass/class/'+$('.class-img:eq(0)').val();
 		var img2 = '/uploadLiClass/class/'+$('.class-img:eq(1)').val();
@@ -41,30 +25,49 @@
    	</c:choose>
    	
 	<div class="class-content" data-num="${clientClassDetail.c_no}">
-      <h6 id="category"><i class="fa-solid fa-hashtag"></i></h6>
+      <h6 id="category"><i class="fa-solid fa-hashtag"></i>
+      	<c:if test = "${clientClassDetail.c_category eq 0}">
+			공예
+		</c:if>
+     	<c:if test = "${clientClassDetail.c_category eq 1}">
+			요리
+		</c:if>
+		<c:if test = "${clientClassDetail.c_category eq 2}">
+			미술
+		</c:if>
+		<c:if test = "${clientClassDetail.c_category eq 3}">
+			플라워
+		</c:if>
+		<c:if test = "${clientClassDetail.c_category eq 4}">
+			뷰티
+		</c:if>
+		<c:if test = "${clientClassDetail.c_category eq 5}">
+			체험 및 기타
+		</c:if>
+      </h6>
       <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${clientClassDetail.c_area}</h6>
       <h3>${clientClassDetail.c_title}</h3>
 	</div>
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+	<div id="classImgs" class="carousel slide" data-ride="carousel" style="width: 900px; margin: 30px;"> 
 	    <!-- Wrapper for slides -->
 	    <div class="carousel-inner" role="listbox">
 	      <div class="item active"> 
-	      	<img class="img-item" id="img1" style="width: 680px;height: 500px;">
+	      	<img class="img-item" id="img1" style="width: 900px;height: 500px;">
 	      </div>
 	      <div class="item">
-	       <img class="img-item" id="img2" style="width: 680px;height: 500px;">
+	       <img class="img-item" id="img2" style="width: 900px;height: 500px;">
 	      </div>
 	      <div class="item">
-	       <img class="img-item"  id="img3" style="width: 680px;height: 500px;"> 
+	       <img class="img-item"  id="img3" style="width: 900px;height: 500px;"> 
 	      </div>
 	    </div>
 	    <!-- Controls --> 
-	    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> 
+	    <a class="left carousel-control" href="#classImgs" role="button" data-slide="prev"> 
 		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
 		    <span class="sr-only">Previous</span>
 	    </a> 
-	    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> 
+	    <a class="right carousel-control" href="#classImgs" role="button" data-slide="next"> 
 		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> 
 		    <span class="sr-only">Next</span>
 	    </a>

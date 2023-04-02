@@ -25,7 +25,7 @@
 		                popUpAction('pwOverExp');
 			}else
 				alert(message);
-			
+		
 			// 닫기버튼 클릭 이벤트 
 	        $('.btn_close').click(function () {
 	            $(this).parent('.main_notice_pop').fadeOut();
@@ -37,8 +37,28 @@
 
 	            // name으로 해당 팝업창 닫기 
 	            $(this).parent("div[name=" + name + "]").fadeOut();
-	        }) 
+	        })
 	        
+		}
+	
+		//마이페이지 로딩 시 activePosition에 따라 보여질 시작메뉴 지정
+		var activePosition = localStorage.getItem("activePosition");
+		console.log("get activePosition : "+activePosition);
+		
+		if(typeof activePosition != "undefined" && activePosition != null && activePosition != ""){
+		      if (!$(this).is("active")) {
+		          $(".naccs .menu div").removeClass("active");
+		          $(".naccs ul .mypageLi").removeClass("active");
+		
+		          $(this).addClass("active");
+		          $(".naccs ul").find(".mypageLi:eq(" + activePosition + ")").addClass("active");
+		          $(".naccs .menu").find(".point:eq(" + activePosition + ")").addClass("active");
+		
+		          var listItemHeight = $(".naccs ul")
+		            .find(".mypageLi:eq(" + activePosition + ")")
+		            .innerHeight();
+		          $(".naccs ul").height(listItemHeight + "px");
+		        }
 		}
 	});
 </script>

@@ -12,7 +12,7 @@
 
 	<!--은아) 클래스 상세조회 -->
 	<select id="clientClassDetail" parameterType="c_class" resultType="c_class">
-			SELECT A.c_no, A.c_title, A.c_content, A.c_category , A.c_area , A.c_luv, A.c_state, to_char(A.c_date, 'YYYY-MM-DD') as c_date, B.c_img_file 
+			SELECT A.c_no, A.c_title, A.c_content,A.c_leadtime,A.c_maxcnt,A.c_mincnt,A.c_category,A.c_level , A.c_area ,A.ct_bizno , A.c_luv, A.c_state, to_char(A.c_date, 'YYYY-MM-DD') as c_date, B.c_img_file 
 			FROM li_class A left outer join
 	    		(select c_no, 
 	        	MAX(DECODE(RID, 1, c_img_file)) c_img_file

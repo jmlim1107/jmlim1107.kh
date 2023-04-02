@@ -45,7 +45,7 @@ public class CenterServiceImpl implements CenterService {
 
 		// 센터글 상세 구현
 		@Override
-		public CenterVO centerDetail2(CenterVO cvo) { /* 0328은아 admin-center.xml과 겹쳐서 수정합니다. */
+		public CenterVO centerDetail2(CenterVO cvo) { 
 			CenterVO detail = null;
 			
 			detail = centerDao.centerDetail2(cvo);
@@ -57,7 +57,7 @@ public class CenterServiceImpl implements CenterService {
 		public CenterVO updateForm(CenterVO cvo) {
 			CenterVO updateData = null;
 			
-			updateData = centerDao.centerDetail2(cvo); /* 0328은아 admin-center.xml과 겹쳐서 수정합니다. */
+			updateData = centerDao.centerDetail2(cvo); 
 			
 			return updateData;
 		}
@@ -86,6 +86,13 @@ public class CenterServiceImpl implements CenterService {
 			List<CenterVO> clist = null;
 			clist = centerDao.centerlist2();
 			return clist;
+		}
+
+		//은아)li_class의 ct_bizno로 센터 상세정보 조회
+		@Override
+		public CenterVO clientCenterDetail(String ct_bizno) {
+			CenterVO clientCenterDetail = centerDao.clientCenterDetail(ct_bizno);
+			return clientCenterDetail;
 		}
 
 }
