@@ -187,7 +187,7 @@ $(function(){
                                        		<a href="#sns-share" rel="modal:open"><i class="fa-solid fa-share-nodes"></i>공유하기</a>
                                        </button>
                						<!-- 예약버튼 -->
-                                       <button type="button" class="main-white-button goReserve">
+                                       <button type="button" class="main-white-button">
                                         	<a href="#reserve-modal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a>
                                         </button>
       								
