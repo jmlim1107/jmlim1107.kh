@@ -14,18 +14,7 @@
 <script src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
 <!-- 리뷰 css -->
 <link rel="stylesheet" type = "text/css" href="/resources/review/css/review.css" />
-
-<<<<<<< HEAD
-	<!-- 모달창 css -->
-	<link rel="stylesheet" type = "text/css" href="/resources/review/css/modal.css" />
-	<!-- 모달 디테일 css -->
-	<link rel="stylesheet" type = "text/css" href="/resources/review/css/modalDetail.css" />
-	<link rel="stylesheet" type = "text/css" href="/resources/review/css/screen.css" />
-	<!-- 별 불러오는 js -->
-	<script src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
-    <!-- 리뷰 css -->
-	<link rel="stylesheet" type = "text/css" href="/resources/review/css/review.css" />
-	<link rel="stylesheet" type = "text/css" href="/resources/review/css/reviewSearch.css" />
+	
 	
 	<!-- 글씨체 -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,13 +120,12 @@
 	    <!-- Controls --> 
 	    <a style = "background: bottom;" class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span></a> <a style = "background: bottom;" class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span></a>
 	    </div>
-=======
+
 <div id="class-detail-div" style="padding-top: 70px;">
 
 	<!-- 1. class img slider section start -->
 	<section id="header-slider" class="section">
 		<%@ include file="/WEB-INF/views/client/class/classDetail-0.imgSlider.jsp" %>
->>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 	</section>
 	<!-- 1. class img slider section end -->
 	
@@ -145,12 +133,9 @@
 	<div class="container-fluid class-info" data-title = "${clientClassDetail.c_title}">
 		<div class="row" style="display:block;">
 		    <div class="col-md-10">
-<<<<<<< HEAD
 			      <div class="card" style="display: block;     margin-left: 36px;
     width: 78%;">
-=======
 			      <div class="card" style="display: block; border: none;">
->>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 				      <!-- Nav tabs start -->
 				      <ul class="nav nav-tabs" role="tablist">
 				          <li role="presentation" class="active"><a href="#class-info" aria-controls="class-info" role="tab" data-toggle="tab">클래스정보</a></li>
@@ -211,14 +196,12 @@
 							<div id = "test3" style="display: none;">
 								<%-- <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp">
 								</jsp:include> --%>
-<<<<<<< HEAD
+
 								include file = "/WEB-INF/views/client/review/reviewDetail.jsp"
 							</div>-->
 							
-=======
 								<%@ include file = "/WEB-INF/views/client/review/reviewDetail.jsp" %>
 							</div>
->>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 							<!-- 별점 통계 start -->
 						  	<div class="container">
 							    <div class="row" style = "justify-content: flex-start;">
@@ -275,21 +258,16 @@
 							              </div>
 						            </div>
 						            <!-- 별점 통계 end -->
-<<<<<<< HEAD
 	            
             
             
 						            <!-- 검색창 -->
 						             <div class="container-fluid">
-=======
 						            <!-- 검색창 -->
 						             <div class="container-fluid" style="margin-top:30px;">
->>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 									    <form name = "review_search" id = "review_search">
 									    	<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
 						 					<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
-						
-<<<<<<< HEAD
 										    <div id = "searchDiv" style="display: inline-flex;">
 												<select id="search" name="search"  class="form-control col4">
 													<option value="all">전체</option>
@@ -472,7 +450,6 @@
 							</section>
 						 </div>
 						  <!-- 5. attention end -->
-=======
 									    <div id = "searchDiv" style="display: inline-flex;">
 											<select id="search" name="search"  class="form-control col">
 												<option value="all">전체</option>
@@ -572,7 +549,6 @@
 					                  	<span>${review.review_name}</span>
 					                  	<span>${review.review_date}</span>
 					                  	<span>${review.user_name}</span>
->>>>>>> d4266189ac4632119f7af52be7c17ad7125b5641
 				
 					                  </div>
 					                  <div id = "review_content" name = "review_content">${review.review_content}</div>
