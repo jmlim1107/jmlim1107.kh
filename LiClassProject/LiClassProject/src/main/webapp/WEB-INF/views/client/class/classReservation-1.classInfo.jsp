@@ -33,7 +33,8 @@
 						"user_no" : $("#user-info").data("num")
 					},
 					success : function(result){
-						if(result == 1){
+						alert(result);
+						if(result == '1'){
 						 	alert("관심클래스에 추가되었습니다.");
 						}else{
 							alert("잠시후에 다시 시도해주세요.");

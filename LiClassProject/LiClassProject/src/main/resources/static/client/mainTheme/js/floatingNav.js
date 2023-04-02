@@ -1,4 +1,5 @@
-	/* 메인화면 floating nav */
+
+/* 메인화면 floating nav 
 	function isNull(obj){
 		 if(obj == '' || obj == null || obj == undefined || obj == NaN){ 
 		  return true;
@@ -8,7 +9,7 @@
 	}
 	
 	$(function(){
-		/* 로그인 */
+		/* 로그인 
 		$("#floating-login").click(function(){
 		       $("#login-pop-modal").attr("style", "display:block");
 		       $("#login-pop-modal").attr("style", "display:block");
@@ -18,14 +19,14 @@
 		       $("#login-pop-modal").attr("style", "display:none");
 		 });
 		    
-		/* 최근 본 클래스 */
+		/* 최근 본 클래스 
 		//localStorage.clear();
 		//localStorage.removeItem("classNo");
 		//localStorage.removeItem("activePosition");
 		//console.log("localStorage - classNo : "+localStorage.getItem("classNo"));
 		console.log("activePosition : "+localStorage.getItem("activePosition"));
 
-		/* 최근 본 클래스 */
+		/* 최근 본 클래스 
 	 	var imgArr = [];
 		var recetClasses = JSON.parse(localStorage.getItem("classNo") || "[]");
 		if (isNull(recetClasses)) {
@@ -90,4 +91,4 @@
 		 
 	})
 
-	
+	*/
