@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!--은아)2. 플로팅 메뉴 js,css  -->
+<%-- 은아) 우측 플로팅 메뉴 --%>
 <link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
 <script type="text/javascript">
 	/* 메인화면 floating nav */
@@ -63,8 +63,6 @@
 				            }
 				            ,dataType : 'text',
 				            success: function (c_img_file) {
-								//console.log("c_img_file : "+c_img_file)
-								
 				                imgArr.push(c_img_file);
 				                for(i=0;i<imgArr.length; i++){
 			                	 $(".recent-img:eq("+i+")").css("display","grid");

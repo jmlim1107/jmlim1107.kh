@@ -7,11 +7,9 @@ import com.liclass.client.login.dao.UserDAO;
 import com.liclass.client.login.vo.UserVO;
 
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService { //은아
 
 	@Setter(onMethod_ = @Autowired)
 	private UserDAO userDao;
@@ -35,9 +33,6 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public int updatePw(UserVO vo) {
-		log.info("updatePw ()");
-		log.info("email : "+vo.getUser_email());
-		log.info("user_pw : "+vo.getUser_pw());
 		int result = userDao.updatePw(vo);
 		return result;
 	}
@@ -88,6 +83,5 @@ public class UserServiceImpl implements UserService {
 		int result = userDao.unregister(vo);
 		return result;
 	}
-
 	
 }

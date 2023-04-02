@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/myProfileImg.css" />
 <script src="/resources/client/mypage/assets/js/myProfileImg.js"></script>
+<%-- 은아) 마이페이지 1. 나의 회원정보--%>	
 
 						<div>
 	                       <div class="thumb">

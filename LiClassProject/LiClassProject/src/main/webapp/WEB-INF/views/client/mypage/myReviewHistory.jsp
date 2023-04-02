@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!-- 마이페이지 - 3. 나의 후기 -->
+<%-- 은아) 마이페이지 3. 나의 후기 --%>	
 <script>
 	$(function(){
 		

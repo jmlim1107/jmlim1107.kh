@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 마이페이지 - 1-3. 회원탈퇴 -->
+<%-- 은아) 마이페이지 1-3. 회원탈퇴 --%>
  <script>
 	/*은아)회원탈퇴 완료 후 성공/실패 alert 후 redirect*/
 	if('${message}' != "" || '${url}' !=""){

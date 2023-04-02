@@ -12,7 +12,7 @@ import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
 import com.liclass.client.review.vo.ReviewVO;
 
 @Mapper
-public interface MypageDAO {
+public interface MypageDAO { //은아,웅배
 	
 		/* 은아 */
 		//1. 나의 관심클래스 조회
@@ -33,9 +33,6 @@ public interface MypageDAO {
 		//5. 프로필사진 수정
 		public int updateImg(UserVO vo) throws Exception;
 	
-		
-		
-		
 		/* 웅배 */
        // 결제내역 불러오기
        public List<Map<String, String>> paymentList(PaymentVO paymentVO);

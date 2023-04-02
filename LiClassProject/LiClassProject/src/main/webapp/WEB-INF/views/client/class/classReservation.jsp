@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%--클래스 상세페이지 우측 예약네비 --%>	
 <!-- 부트스트랩 -->
 <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" type = "text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
@@ -236,7 +236,7 @@
 </div>-->
 <!-- episode Box -->
 
-		<div class="row">
+		<div class="row" style="width:400px;">
              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
                  <div class="class-booking-form">
                      <form>

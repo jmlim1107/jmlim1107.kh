@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="/resources/client/login/js/signupForm.js"></script> 
+<script src="/resources/client/login/js/signupForm.js"></script>
+<%-- 은아) 회원가입화면 --%>	
 <script>
 	/*회원가입 완료 후 성공/실패 alert 후 redirect*/
 	if('${message}' != "" || '${url}' !=""){

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%-- 은아) 이용정보약관화면--%>	   
     <!-- userPolicy start -->
 	<section id="services" class="section services">
          <h4 class="center">개인정보 취급방침</h4>

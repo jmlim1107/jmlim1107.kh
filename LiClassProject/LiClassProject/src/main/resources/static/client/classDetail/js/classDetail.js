@@ -1,3 +1,4 @@
+/* 은아 */
 $(function(){
 		//localStorage.clear();
 		//최근 본 클래스에 추가

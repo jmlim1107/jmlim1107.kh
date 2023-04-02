@@ -12,7 +12,7 @@ import com.liclass.client.classes.vo.ClientClassVO;
 import lombok.Setter;
 
 @Service
-public class ClassServiceImpl implements ClientClassService{
+public class ClientClassServiceImpl implements ClientClassService{
 	
 	@Setter(onMethod_ = @Autowired)
 	private ClientClassDAO classDao;
@@ -22,30 +22,19 @@ public class ClassServiceImpl implements ClientClassService{
 		List<ClientClassVO> list = classDao.clientClassList();
 		return list;
 	}
+	
+	//은아) 클래스 상세조회
 	@Override
 	public ClientClassVO clientClassDetail(ClientClassVO vo) {
 		ClientClassVO  clientClassDetail = classDao.clientClassDetail(vo);
 		return clientClassDetail;
 	}
+	
+	//은아) 클래스 센터 조회
 	@Override
-	public List<ClientClassVO> clientClassDetailList(ClientClassVO vo) {
-		List<ClientClassVO> clientClassList = classDao.clientClassDetailList(vo);
-		return clientClassList;
-	}
-	@Override
-	//클래스의 센터 조회
 		public CenterVO clientCenterDetail(String ct_bizno) {
 		CenterVO cvo = classDao.clientCenterDetail(ct_bizno);
 		return cvo;
 	}
-	//클래스 이미지 조회
-	@Override
-	public String getImg(int c_no) {
-		String classImg = classDao.getImg(c_no);
-		return classImg;
-	}
-
 	
-	
-
 }

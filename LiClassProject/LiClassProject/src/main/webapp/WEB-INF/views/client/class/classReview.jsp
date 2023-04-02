@@ -10,9 +10,6 @@
 <script src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
    <!-- 리뷰 css -->
 <link rel="stylesheet" type = "text/css" href="/resources/review/css/review.css" />
-
-
-
 <!-- 검색창 css -->
 <link rel="stylesheet" type="text/css" href="/resources/review/css/reviewSearch.css">
 <script type = "type/javascript" src="/resources/include/js/jquery-3.6.2.min.js"></script>

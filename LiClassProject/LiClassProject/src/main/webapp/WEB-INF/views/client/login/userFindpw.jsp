@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- 은아) 비밀번호찾기화면--%>	
     <script>
 	/*임시비밀번호 발급 성공/실패 alert 후 redirect*/
 	if('${message}' != "" || '${url}' !=""){

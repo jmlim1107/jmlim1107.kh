@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class UserVO extends CommonVO{
+public class UserVO extends CommonVO{ //은아
 	
 	//12개의 필드(컬럼)
 	private long user_no =0;

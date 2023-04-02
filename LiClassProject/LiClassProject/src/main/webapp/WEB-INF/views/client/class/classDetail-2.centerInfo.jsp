@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%-- 은아) 클래스 상세페이지 탭메뉴2. 센터정보 --%>	
 		<section id="services" class="section services" style="margin:0px; width:100%;">
 		  <div class="container-fluid">
 		    <div class="row" style="justify-content: left;">

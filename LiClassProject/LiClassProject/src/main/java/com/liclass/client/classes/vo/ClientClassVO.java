@@ -11,23 +11,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ClientClassVO {
-	/*
-	private int c_no;
-	private String ct_bizno; //추후 강사테이블 상속으로 대체?
-	private String c_title;
-	private String c_img_file;
-	private String c_content;
-	private String c_category;
-	private String c_level;
-	private String c_area;
-	private int c_luv;
-	private int c_leadtime;
-	private int c_maxcnt;
-	private int c_mincnt;
-	private String c_date;
-	private int c_state;*/
-	
-	private int c_no					=0;		//클래스 번호
+
+	private int c_no				=0;		//클래스 번호
 	private String ct_bizno 		="";		//사업자 등록번호(센터)
 	private String c_title 			="";		//클래스 제목
 	private String c_content		="";		//클래스 소개글

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.liclass.client.login.vo.UserVO;
 
 @Service
-public interface MailService {
+public interface MailService { //은아
     
 	// 메일 내용 작성 
     public MimeMessage creatMessage(String email) throws MessagingException, UnsupportedEncodingException;

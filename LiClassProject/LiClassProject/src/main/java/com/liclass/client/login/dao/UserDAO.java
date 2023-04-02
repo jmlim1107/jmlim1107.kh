@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.liclass.client.login.vo.UserVO;
 
 @Mapper
-public interface UserDAO {
+public interface UserDAO { //은아
 	
 		//회원가입
 		public int signup(UserVO vo);

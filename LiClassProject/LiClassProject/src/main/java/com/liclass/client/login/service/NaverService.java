@@ -16,11 +16,8 @@ import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
 import com.liclass.client.login.vo.NaverLoginAPI;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Service
-@Slf4j
-public class NaverService {
+public class NaverService { //은아
 	
 	private final static String CLIENT_ID = "RL1_YU51eYgS_rQFy7sA";
 	private final static String CLIENT_SECRET = "v_BueOG1a6";
@@ -29,7 +26,6 @@ public class NaverService {
 	private final static String PROFILE_API_URL = "https://openapi.naver.com/v1/nid/me";
 	
 	public String getAuthorizationUrl(HttpSession session) {
-		log.info("getAuthorizationUrl() 호출");
 		String state = generateRandomString();
 		setSession(session,state);
 		OAuth20Service oauthService = new ServiceBuilder()
@@ -38,16 +34,11 @@ public class NaverService {
 			.callback(REDIRECT_URI)
 			.state(state) 
 			.build(NaverLoginAPI.instance());
-			log.info("oauthService : "+oauthService);
 		
 			return oauthService.getAuthorizationUrl();
 	}
 	
 	public OAuth2AccessToken getAccessToken(HttpSession session, String code, String state) throws IOException{
-		log.info("getAccessToken() 호출");
-		log.info("code : "+code);
-		log.info("state : "+state);
-		
 		String sessionState = getSession(session);
 		if(StringUtils.pathEquals(sessionState, state)){
 			OAuth20Service oauthService = new ServiceBuilder()

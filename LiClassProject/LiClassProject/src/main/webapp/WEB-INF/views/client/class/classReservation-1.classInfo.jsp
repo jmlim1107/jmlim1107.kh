@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- 은아) 클래스 상세페이지 예약네비1. 클래스정보 --%>	
 <script>
 
 	//right nav
@@ -120,45 +121,29 @@
 		 <!-- 2. 소요시간  -->
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
               <div class="form-group">
-                  <label class="control-label required" for="booking_by">수업시간 ${clientClassDetail.c_leadtime}</label>
+                  <label class="control-label required" for="booking_by">수업시간 ${clientClassDetail.c_leadtime}시간</label>
+              </div>
+          </div>
+		  <!-- 3. 최소/최대인원  -->
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="form-group">
+                  <label class="control-label required" for="type">최대인원 ${clientClassDetail.c_maxcnt} 명</label>
               </div>
           </div>
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
               <div class="form-group">
+                  <label class="control-label required" for="type">최소인원 ${clientClassDetail.c_mincnt} 명</label>
               </div>
           </div>
-		  <!-- 3. 최소/최대인원  -->
-          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-              <div class="form-group">
-                  <label class="control-label required" for="type">최대인원 ${clientClassDetail.c_maxcnt}</label>
-              </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-             <div class="form-group">
-             </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-              <div class="form-group">
-                  <label class="control-label required" for="type">최소인원 ${clientClassDetail.c_mincnt}</label>
-              </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-             <div class="form-group">
-             </div>
-         </div>
           <!-- 4. 관심클래스 등록수  -->
-         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
              <div class="form-group">
                  <label class="control-label required" for="type">관심수 ${clientClassDetail.c_luv}</label>
              </div>
          </div>
-         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-             <div class="form-group">
-             </div>
-         </div>
          
          <!-- 5. 관심클래스,공유하기 -->
-	      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt30">
+	      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 		      <c:if test="${loginUser == null}">
 		      		<button type="button" class="main-white-button like" id="loginLike" style="margin: 0px 5px;">
 						<i class="fa-solid fa-heart-circle-plus"></i>
@@ -176,22 +161,17 @@
 					</button>
 				</c:if>
 				</c:if>
-				<a id="sns-share-btn" style="margin: 0px 10px;">
+				<a id="sns-share-btn" style="margin: 0px 20px;">
               		<label class="control-label required" for="type"><i class="fa-solid fa-share-nodes"></i></label>
               	</a>
 		  </div>
-          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" id="sns-share-div" style="visibility:hidden;">
-              <div class="form-group" style="display: flex; justify-content: space-around;">
-              	<a id="kakao-link-btn" href="javascript:kakaoShare()"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
-				<a id="twitter-link-btn" href="javascript:shareTwitter()"><i class="fa-brands fa-twitter"></i></a>
-				<a id="facebook-link-btn" href="javascript:shareFacebook()"><i class="fa-brands fa-facebook-f" style="color:#415893;"></i></a>
-				<a id="naver-link-btn" href="javascript:shareNaver()" ><i class="fa-solid fa-n" style="color:#5ECC69;"></i></a>
-				<a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555;"></i></a>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="sns-share-div" style="visibility:hidden;">
+              <div class="form-group" style="margin:5px 0px; background: #55555514; border-radius: 11em; width: fit-content;">
+              	<a id="kakao-link-btn" href="javascript:kakaoShare()" style="margin: 0px 20px;"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
+				<a id="twitter-link-btn" href="javascript:shareTwitter()" style="margin: 0px 20px;"><i class="fa-brands fa-twitter"></i></a>
+				<a id="facebook-link-btn" href="javascript:shareFacebook()" style="margin: 0px 20px;"><i class="fa-brands fa-facebook-f" style="color:#415893;"></i></a>
+				<a id="naver-link-btn" href="javascript:shareNaver()" style="margin: 0px 20px;"><i class="fa-solid fa-n" style="color:#5ECC69;"></i></a>
+				<a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555; margin: 0px 20px;"></i></a>
               </div>
           </div>
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-              <div class="form-group">
-              </div>
-          </div>
-          
           

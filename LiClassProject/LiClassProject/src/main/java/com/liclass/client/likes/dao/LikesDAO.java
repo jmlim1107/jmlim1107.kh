@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.liclass.client.likes.vo.LikesVO;
 
 @Mapper
-public interface LikesDAO {
+public interface LikesDAO { //은아
 
 	//관심클래스 유무 확인
 	public int checkLikes(LikesVO vo);

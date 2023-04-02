@@ -1,4 +1,6 @@
 @charset "UTF-8";
+
+/* 은아,지민  */
 #colorStar{
   		direction: rtl;
 	unicode-bidi: bidi-override;
@@ -17,7 +19,7 @@
 	
 .section{
 	padding: 20px;
-    width: 70%;
+    width: 60%;
 }
 .nav-tabs { border-bottom: 2px solid #DDD; }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
@@ -109,4 +111,9 @@
 .main-white-button a:hover {
   background-color: #555;
   color: #fff;
+}
+.class-booking-form{
+	background: #f2f2f2;
+    padding: 20px;
+    border-radius: 15px;
 }

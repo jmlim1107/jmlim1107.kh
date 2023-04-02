@@ -1,3 +1,4 @@
+/*은아*/
 	/* 비밀번호 만료 알림창 */
 	// 쿠키 가져오기 
         function getCookie(name) {

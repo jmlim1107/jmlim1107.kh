@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.liclass.admin.management.center.service.CenterService;
 import com.liclass.admin.management.center.vo.CenterVO;
+import com.liclass.client.classes.service.ClientClassImgService;
 import com.liclass.client.classes.service.ClientClassService;
+import com.liclass.client.classes.vo.ClientClassImgVO;
 import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.likes.service.LikesService;
 import com.liclass.client.likes.vo.LikesVO;
@@ -28,10 +30,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-public class ClientClassController {
+public class ClientClassController { //은아,지민,경민
 	
 	@Setter(onMethod_ = @Autowired)
 	private ClientClassService clientClassService;
+	@Setter(onMethod_ = @Autowired)
+	private ClientClassImgService clientClassImgService;
 	@Setter(onMethod_ = @Autowired)
 	private CenterService centerService;
 	@Setter(onMethod_ = @Autowired)
@@ -69,9 +73,7 @@ public class ClientClassController {
 			LikesVO lvo = new LikesVO();
 			lvo.setUser_no(loginUser.getUser_no());
 			lvo.setC_no(c_no);
-			log.info("LikesVO vo : "+lvo.toString());
 			int checkResult = likesService.checkLikes(lvo);
-			log.info("checkResult : "+checkResult);
 			model.addAttribute("checkResult",checkResult);
 			model.addAttribute("lvo",lvo);
 		}
@@ -79,8 +81,10 @@ public class ClientClassController {
 		//클래스 상세정보
 		ClientClassVO clientClassDetail =  clientClassService.clientClassDetail(cvo);
 		model.addAttribute("clientClassDetail",clientClassDetail);
-		List<ClientClassVO> clientClassDetailList = clientClassService.clientClassDetailList(clientClassDetail);
-		model.addAttribute("clientClassDetailList",clientClassDetailList);
+
+		//클래스 전체이미지
+		List<ClientClassImgVO> list = clientClassImgService.getImgs(c_no);
+		model.addAttribute("imgList", list);
 		
 		//해당 클래스의 센터 상세정보
 		CenterVO clientCenterDetail = centerService.clientCenterDetail(clientClassDetail.getCt_bizno());
@@ -119,7 +123,6 @@ public class ClientClassController {
 	@ResponseBody
 	@GetMapping("/class/getClassImg")
 	public String getClassImg(ClientClassVO cvo) {
-		log.info("getClassImg() 호출");
 
 		//클래스 상세정보
 		ClientClassVO recentClass = clientClassService.clientClassDetail(cvo);
@@ -128,21 +131,6 @@ public class ClientClassController {
 		return c_img_file;
 	}
 	
-	/************************************************
-	 * 클래스 대표사진 
-	 * 요청 url : http://localhost:8080/class/getClassImg
-	*************************************************/
-	@ResponseBody
-	@GetMapping("/class/getClassImg2")
-	public String getClassImg2(int c_no) {
-		log.info("getClassImg() 호출");
-
-		//클래스 상세정보
-		String classImg = clientClassService.getImg(c_no);
-		
-		return classImg;
-	}
-
 	/************************************************
 	 * 센터 상세정보
 	 * 요청 url : http://localhost:8080/class/clientCenterDetail
@@ -154,13 +142,6 @@ public class ClientClassController {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	/* 예약하기 
 	@GetMapping("/admin/episode/goReserve")
 	public String goReserve(@RequestParam int c_no, HttpSession session, Model model) {
@@ -169,26 +150,6 @@ public class ClientClassController {
 	    model.addAttribute("loginUser",loginUser);
 		return "reserve/reserve";
 	}*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

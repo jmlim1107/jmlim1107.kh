@@ -2,7 +2,7 @@ package com.liclass.client.likes.service;
 
 import com.liclass.client.likes.vo.LikesVO;
 
-public interface LikesService {
+public interface LikesService { //은아
 	
 	//관심클래스 유무 확인
 	public int checkLikes(LikesVO vo);

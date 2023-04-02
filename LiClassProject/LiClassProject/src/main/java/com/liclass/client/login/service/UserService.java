@@ -2,7 +2,7 @@ package com.liclass.client.login.service;
 
 import com.liclass.client.login.vo.UserVO;
 
-	public interface UserService {
+	public interface UserService { //은아
 		
 			//회원가입
 			public int signup(UserVO vo);
