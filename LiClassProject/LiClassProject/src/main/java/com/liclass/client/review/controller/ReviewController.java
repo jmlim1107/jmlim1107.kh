@@ -168,13 +168,12 @@ public class ReviewController {
 		
 		// 업데이트 성공 시 이동할 페이지
 		if(result == 1) {
-			url = "/reviewList?r_no="+vo.getR_no();
+			url = "/courseHistory" ;
 			log.info("review url ::::::::::::::::::::::::; " + url);
 		// 업데이트 실패 시 이동할 페이지(수정하자)
 		} else {
-			log.info("실패시 ::::::::::::;;review url ::::::::::::::::::::::::; " + url);
+			log.info("실패시 url : " + url);
 			url =  "/r_updateForm?r_no="+vo.getR_no();
-			log.info("업데이트 실패::::::::::::::::::::::::::::::::;;");
 		}
 		return "redirect:"+url;
 		
@@ -187,7 +186,7 @@ public class ReviewController {
 	@RequestMapping(value = "/reviewDelete")
 	public String reviewDelete(@ModelAttribute ReviewVO vo) throws Exception{
 		log.info("revieDelete 호출 성공");
-		log.info("삭제할 후기글 번호: " + vo.getReview_no());
+		log.info("삭제할 후기글 번호: " + vo.getR_no());
 		
 		//아래 변수에는 입력 성공에 대한 상태값 담습니다.(1 or 0)
 		int result = 0;
@@ -196,11 +195,12 @@ public class ReviewController {
 
 		//result = boardService.boardDelete(bvo.getB_num());
 		result = reviewService.reviewDelete(vo);
-		
 		if(result == 1){
-			url="/reviewList";
+			log.info("삭제성공");
+			url="/courseHistory?review_no=" + vo.getReview_no();
 		}else{
-			url="/board/reviewDetail?review_no="+vo.getReview_no();
+			log.info("삭제실패");
+			url="/courseHistory";
 			
 		}
 		return "redirect:"+url;

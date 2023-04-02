@@ -1,13 +1,13 @@
-@@ -1,107 +1,108 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- ************************** reviewDetail start *************************************  --%>
 
-	<form>
+	<!-- <form>
 		<input type="hidden" name="review_no" id="review_number" />
-	</form>
+	</form> -->
 	<form id="dataForm">
 		<input type="hidden" name="r_no" id="r_number" value="" />
+		<input type="hidden" name="review_no" id="review_number" />
 		
 			<div class="modal" id = "writeModal">
 			  	<div class="modal_content" id = "writeContent">
