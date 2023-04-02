@@ -6,18 +6,6 @@
 <script>
 	$(function(){
 		
-		$(".text-center.col-md-2").click(function(){
-			var review_status = ${review_status}
-	         console.log(review_status);
-	         if(review_status == 0){
-	            console.log("성공");
-	            $('input[name=reviewStatus]').attr('value',"리뷰보기");
-	         }else{
-	            console.log("실패");
-	         }
-		});
-		 
-		
 		//은아)후기글 제목 클릭 시 상세내용
 		$(".review_title").click(function(){
 			let contentTr = $(this).parent(".review-tr").next(".review-tr");
@@ -77,7 +65,7 @@
 						                        <th class="order text-center col-md-3">제목</th>
 						                        <th class="text-center col-md-2">작성일자</th>
 						                        <th class="text-center col-md-2">별점</th>
-						                        <th class = "text-center col-md-2">리뷰작성</th>
+					
 						                     </tr>
 						                  </thead>
 						                    <tbody class="table-striped">
@@ -143,16 +131,7 @@
 								                           
 								                             
 							                           </tr>
-							                           <tr style="text-align: center; display: none;" class="review-tr">
-							                           		<td colspan="3">
-								                               <span style="padding-left:30px;" class="review__content">${reviewVO.review_content}</span>
-							                           		</td>
-							                           		<td>
-							                                	<button type="button" style="margin: 0px auto;" onclick="location.href='review_no=${reviewVO.review_no}'">
-							                                		<i class="fa-regular fa-pen-to-square"></i>추후링크연결하기
-							                                	</button>
-							                                </td>
-							                           </tr>
+							                          
 							                        </c:forEach>
 							                     </c:when>
 							                     <c:otherwise>
