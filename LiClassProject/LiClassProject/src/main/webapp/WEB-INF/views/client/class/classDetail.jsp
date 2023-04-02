@@ -183,7 +183,7 @@
 							    });
 							    </script>
 		
-							<!-- 리뷰 작성 폼 
+							<!-- 리뷰 작성 폼 dd
 							<div id = "test1" style="display: none;">
 								include file = "/WEB-INF/views/client/review/r_writeForm.jsp" 
 							</div> -->
