@@ -5,7 +5,9 @@
     height: 40px;
     }
 #search{    
-	width: 200px;
-    margin: 0px;
+    width: 150px;
+    height: 40px;
+    margin-right: 2px;}
+#searchData{ margin-top: 0px;}
 
-    height: 40px;}
+#searchDiv{width: 100%; margin-top: 30px;}

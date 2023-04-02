@@ -14,6 +14,12 @@
 	<script src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
     <!-- 리뷰 css -->
 	<link rel="stylesheet" type = "text/css" href="/resources/review/css/review.css" />
+	<link rel="stylesheet" type = "text/css" href="/resources/review/css/reviewSearch.css" />
+	
+	<!-- 글씨체 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 	
 
 <style type="text/css">
@@ -81,7 +87,7 @@
 </script>
 
 	<!-- header slider section start -->
-	<section id="header-slider" class="section">
+	<section id="header-slider" class="section" style="margin-top : 150px;">
 	<div class="class-content" data-num="${clientClassDetail.c_no}">
       <h6 id="category"><i class="fa-solid fa-hashtag"></i></h6>
       <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${clientClassDetail.c_area}</h6>
@@ -112,7 +118,7 @@
 	      </div>
 	    </div>
 	    <!-- Controls --> 
-	    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span></a>
+	    <a style = "background: bottom;" class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span></a> <a style = "background: bottom;" class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span></a>
 	    </div>
 	</section>
 	<!-- header slider section end -->
@@ -121,7 +127,8 @@
 	<div class="container-fluid class-info" data-title = "${clientClassDetail.c_title}">
 		<div class="row" style="display:block;">
 		    <div class="col-md-10">
-			      <div class="card" style="display: block;">
+			      <div class="card" style="display: block;     margin-left: 36px;
+    width: 78%;">
 				      <!-- Nav tabs start -->
 				      <ul class="nav nav-tabs" role="tablist">
 				          <li role="presentation" class="active"><a href="#class-info" aria-controls="class-info" role="tab" data-toggle="tab">클래스정보</a></li>
@@ -256,25 +263,25 @@
 							    
 							    </script>
 		
-							<!-- 리뷰 작성 폼 -->
+							<!-- 리뷰 작성 폼 
 							<div id = "test1" style="display: none;">
-								<%@ include file = "/WEB-INF/views/client/review/r_writeForm.jsp" %>
-							</div>
-							<!-- 리뷰 업데이트 폼 -->
+								include file = "/WEB-INF/views/client/review/r_writeForm.jsp" 
+							</div> -->
+							<!-- 리뷰 업데이트 폼 
 							<div id = "test2" style="display: none;">
-								<%@ include file = "/WEB-INF/views/client/review/r_updateForm.jsp" %>
-							</div>
+								include file = "/WEB-INF/views/client/review/r_updateForm.jsp" 
+							</div>-->
 							
-							<!-- 리뷰 상세보기 폼 -->
+							<!-- 리뷰 상세보기 폼 
 							<div id = "test3" style="display: none;">
 								<%-- <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp">
 								</jsp:include> --%>
-								<%@ include file = "/WEB-INF/views/client/review/reviewDetail.jsp" %>
-							</div>
+								include file = "/WEB-INF/views/client/review/reviewDetail.jsp"
+							</div>-->
 							
 							<!-- 별점 통계 start -->
 						  	<div class="container">
-							    <div class="row">
+							    <div class="row" style = "justify-content: flex-start;">
 							      <div class="col-md-13 course-details-content">
 							        <div class="course-details-card mt--40">
 							          <div class="course-content">
@@ -331,165 +338,161 @@
 	            
             
             
-            <!-- 검색창 -->
-             <div class="container-fluid" style="margin-top:30px;">
-			    <form name = "review_search" id = "review_search">
-			    	<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
- 					<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
-
-			    <div id = "searchDiv" style="display: inline-flex;">
-					<select id="search" name="search"  class="form-control col">
-						<option value="all">전체</option>
-						<option value="b_title">제목</option>
-						<option value="b_content">내용</option>
-					</select>
-					<input id = "keyword" name = "keyword" class="form-control me-2" type="text" placeholder="Contents Search...." aria-label="Search">
-					<button id = "searchData" class="btn btn-dark col" type="button">Search</button>
-				</div>
-
-			    </form>
-			  </div>
+						            <!-- 검색창 -->
+						             <div class="container-fluid">
+									    <form name = "review_search" id = "review_search">
+									    	<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
+						 					<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
+						
+										    <div id = "searchDiv" style="display: inline-flex;">
+												<select id="search" name="search"  class="form-control col4">
+													<option value="all">전체</option>
+													<option value="b_title">제목</option>
+													<option value="b_content">내용</option>
+												</select>
+												<input id = "keyword" name = "keyword" class="form-control me-2" type="text" placeholder="Contents Search...." aria-label="Search">
+												<button id = "searchData" class="btn btn-dark col" type="button" s>Search</button>
+											</div>
+							    		</form>
+							  		</div>
 			  
 			
 			
-            <%-- ================== 글쓰기 버튼 출력 시작 ============= --%>
-			<div class="contentBtn  text-right">
-				<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
-			</div>
-			<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
+						            <%-- ================== 글쓰기 버튼 출력 시작 ============= 
+									<div class="contentBtn  text-right">
+										<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
+									</div>--%>
+									<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
 		
 
 			
 
-	         <!--  댓글창 -->
-	         <div class="comment-wrapper pt--40">
-	         <c:choose>
-				<c:when test="${not empty reviewList}" >
-					<c:forEach var="review" items="${reviewList}" varStatus="status">
-		              <div class="edu-comment" data-num="${review.review_no}" id = "tttest">
-		              <form id = "detailForm">
-						<input type = "hidden" id = "review_no" value = "${review.review_no}" />
-						</form>
-		              	
-		              	<%-- ================== 상세버튼 시작 =============
-		              	<button class = "test3" type = "button">상세보기 버튼</button> --%>
-		              	<%-- ================== 상세버튼 종료 ============= --%>
-		                <div class="thumbnail"><img src="/uploadLiClass/user/${review.user_img}"></div>
-		                <div class="comment-content">
-		                  <div class="comment-top">
-		                    <h6 class="title" id = "title">" ${review.review_title} "</h6>
-		                    
-		                
-		                    
-			                    <!-- 댓글창 별점 -->
-			                    <c:set var = "rating" value = "${review.review_rating}"/>	 
-			                    
-			                    <c:if test="${rating eq 1}">
-		                    		<div class="rating">
-				                    	<i class="fas fa-star" aria-hidden="true"></i>
-				                    	<i class="fas fa-star" aria-hidden="true"></i>
-				                    	<i class="fas fa-star" aria-hidden="true"></i>
-				                    	<i class="fas fa-star" aria-hidden="true"></i> 
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    </div> 	
-		                    	</c:if>
-			                    
-		                    	
-		                    	<c:if test="${rating eq 2}">
-		                    		<div class="rating">
-				                    	<i class="fas fa-star" aria-hidden="true"></i>
-				                    	<i class="fas fa-star" aria-hidden="true"></i>
-				                    	<i class="fas fa-star" aria-hidden="true"></i> 
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    </div> 	
-		                    	</c:if>
-		                    	
-		                    	
-		                    	<c:if test="${rating eq 3}">
-		                    		<div class="rating">
-				                    	<i class="fas fa-star" aria-hidden="true"></i>
-				                    	<i class="fas fa-star" aria-hidden="true"></i> 
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    </div> 	
-		                    	</c:if>
-
-		                    	<c:if test="${rating eq 4}">
-		                    		<div class="rating">
-		                    			<i class="fas fa-star" aria-hidden="true"></i> 
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    </div> 	
-		                    	</c:if>
-		                    	
-		                    	
-		                    	<c:if test="${rating eq 5}">
-		                    		<div class="rating">
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
-				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i> 
-				                    </div> 	
-		                    	</c:if>
-		                  
-		                    
-		                  </div>
-		                  <div style="margin-bottom: 5px;">
-		                  	<span>${review.review_name}</span>
-		                  	<span>${review.review_date}</span>
-		                  	<span>${review.user_name}</span>
-	
-		                  </div>
-		                  <div id = "review_content" name = "review_content">${review.review_content}</div>
-		                  <span>친구에게 추천하시겠습니까?</span>
-		                  <span>${review.review_recommend}</span>
-		                </div>
-		                
-		                
-	
-		              </div>
-	              </c:forEach>
-	          	</c:when>
-	          	<c:otherwise>
-	          		<!--등록된 글이 없을 경우 -->
-					<div>등록된 게시글이 존재하지 않습니다.</div>
-				</c:otherwise>
-	          </c:choose>
-	          <!-- Comment Box end--->
-	          
-	            <%-- ============== 페이징 출력 시작 =========== --%>
-			 <div class="text-center">
-				<ul class="pagination" style="justify-content: center;">
-				<c:if test="${pageMaker.prev}">
-				 	<li class="paginate_button">
-				 		<a href="${pageMaker.startPage -1}" class = "page-link">Previous</a>
-					</li>
-				</c:if>
-				<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-				 	<li class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active':''}">
-				 		<a href="${num}" class = "page-link">${num}</a>
-					</li>
-				</c:forEach>
-				<c:if test="${pageMaker.next}">
-					<li class="paginate_button next">
-						<a href="${pageMaker.endPage +1 }" class = "page-link">Next</a>
-					</li>
-				</c:if> 
-				</ul>
-			 </div> 
-	 		<%-- ============== 페이징 출력 종료 ============= --%>
-			  </div>
-       		</div>
-   		</div>
-	  </div>
-	</div>
- </div>
-								
+							         <!--  댓글창 -->
+							         <div class="comment-wrapper pt--40">
+							         <c:choose>
+										<c:when test="${not empty reviewList}" >
+											<c:forEach var="review" items="${reviewList}" varStatus="status">
+								              <div class="edu-comment" data-num="${review.review_no}" id = "tttest">
+								              	<form id = "detailForm">
+													<input type = "hidden" id = "review_no" value = "${review.review_no}" />
+												</form>
+								              	
+								              	<%-- ================== 상세버튼 시작 =============
+								              	<button class = "test3" type = "button">상세보기 버튼</button> --%>
+								              	<%-- ================== 상세버튼 종료 ============= --%>
+								                <div class="thumbnail"><img src="/uploadLiClass/user/${review.user_img}"></div>
+									                <div class="comment-content">
+									                  <div class="comment-top">
+									                    <h6 class="title" id = "title">" ${review.review_title} "</h6>       
+									                    <!-- 댓글창 별점 -->
+									                    <c:set var = "rating" value = "${review.review_rating}"/>	 
+									                    
+									                    <c:if test="${rating eq 1}">
+								                    		<div class="rating">
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i> 
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    </div> 	
+								                    	</c:if>
+									                    
+								                    	
+								                    	<c:if test="${rating eq 2}">
+								                    		<div class="rating">
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i> 
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    </div> 	
+								                    	</c:if>
+								                    	
+								                    	
+								                    	<c:if test="${rating eq 3}">
+								                    		<div class="rating">
+										                    	<i class="fas fa-star" aria-hidden="true"></i>
+										                    	<i class="fas fa-star" aria-hidden="true"></i> 
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    </div> 	
+								                    	</c:if>
+						
+								                    	<c:if test="${rating eq 4}">
+								                    		<div class="rating">
+								                    			<i class="fas fa-star" aria-hidden="true"></i> 
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    </div> 	
+								                    	</c:if>
+								                    	
+								                    	
+								                    	<c:if test="${rating eq 5}">
+								                    		<div class="rating">
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+										                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i> 
+										                    </div> 	
+								                    	</c:if>
+								                  
+								                    
+								                  </div>
+								                  <div style="margin-bottom: 5px;">
+								                  	<span>${review.review_name}</span>
+								                  	<span>${review.review_date}</span>
+								                  	<span>${review.user_name}</span>
+							
+								                  </div>
+								                  <div id = "review_content" name = "review_content">${review.review_content}</div>
+								                  <span>친구에게 추천하시겠습니까?</span>
+								                  <span>${review.review_recommend}</span>
+								                </div>
+								                
+								                
+							
+								              </div>
+							              </c:forEach>
+							          	</c:when>
+							          	<c:otherwise>
+							          		<!--등록된 글이 없을 경우 -->
+											<div>등록된 게시글이 존재하지 않습니다.</div>
+										</c:otherwise>
+							          </c:choose>
+							          <!-- Comment Box end--->
+							          
+							            <%-- ============== 페이징 출력 시작 =========== --%>
+									 <div class="text-center">
+										<ul class="pagination" style="justify-content: center;">
+										<c:if test="${pageMaker.prev}">
+										 	<li class="paginate_button">
+										 		<a href="${pageMaker.startPage -1}" class = "page-link">Previous</a>
+											</li>
+										</c:if>
+										<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+										 	<li class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active':''}">
+										 		<a href="${num}" class = "page-link">${num}</a>
+											</li>
+										</c:forEach>
+										<c:if test="${pageMaker.next}">
+											<li class="paginate_button next">
+												<a href="${pageMaker.endPage +1 }" class = "page-link">Next</a>
+											</li>
+										</c:if> 
+										</ul>
+									 </div> 
+							 		<%-- ============== 페이징 출력 종료 ============= --%>
+									  </div>
+						       		</div>
+						   		</div>
+							  </div>
+							</div>
+						 </div>
+														
 						  </div>
 						  <!--4. class-review end -->
 						  
