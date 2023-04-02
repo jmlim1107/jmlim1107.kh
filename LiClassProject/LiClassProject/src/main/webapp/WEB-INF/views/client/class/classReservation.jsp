@@ -27,7 +27,7 @@
 	}
 	#header.header-scrolled {
     padding: 20px 0;
-    z-index: -1;
+    z-index: 1;
 }
 </style>
 <script type="text/javascript" src="/resources/include/js/jquery-3.6.2.min.js"></script>
@@ -252,12 +252,13 @@
 	                          </button>
 						
 							 <%--  reserve modal start   --%>
-							 <div class="modal" id="reserve-modal" style="z-index: 1; position: relative; text-align: center; height: 100%; width:100%;
-							 overflow:hidden; left:auto; padding: 0px">		
+							 <div class="modal" id="reserve-modal" style="z-index: 2; position: relative; text-align: center; height: 100%; width:800px;
+							 overflow:hidden; left:auto; padding: 0px; background:#FDF5E6">		
 					<a href="#close-modal" rel="modal:close" class="close-modal" style="position: relative;left: 98%;z-index: 3">Close</a>
 					<div style="width:100%;height:100%">
+					<h2  style="font-color:	#646464">LiClass Reservation</h2>
 					<div class="elegant-calencar d-md-flex" style="margin: 70px auto;">
-				      <div class="calendar-wrap" style="background:#FDF5E6;"><!-- 캘린더 부분 -->
+				      <div class="calendar-wrap" style="background:#FDF5E6;box-shadow:none;"><!-- 캘린더 부분 -->
 				      	<div class="w-100 button-wrap">
 					      	<div class="pre-button d-flex align-items-center justify-content-center disabled moveBtn"><i class="fa fa-chevron-left"></i></div>
 					      	<div class="print-month" style="font-size:15px;color:#5a5a5;font-weight:bold"></div> 
