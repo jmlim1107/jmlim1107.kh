@@ -138,7 +138,7 @@
           <!-- 4. 관심클래스 등록수  -->
          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
              <div class="form-group">
-                 <label class="control-label required" for="type">관심수 ${clientClassDetail.c_luv}</label>
+                 <label class="control-label required" for="type">관심수 </label>
              </div>
          </div>
          
@@ -146,18 +146,18 @@
 	      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 		      <c:if test="${loginUser == null}">
 		      		<button type="button" class="main-white-button like" id="loginLike" style="margin: 0px 5px;">
-						<i class="fa-solid fa-heart-circle-plus"></i>
+						<i class="fa-solid fa-heart-circle-plus"></i>${clientClassDetail.c_luv}
 					</button>
 		      </c:if>
 		      <c:if test="${loginUser != null}">
 				<c:if test="${checkResult eq 1}">
 					<button type="button" class="main-white-button like" id="delLike" style="margin: 0px 5px;">
-						<i class="fa-solid fa-heart-circle-check" style="color:#f96868e6;" ></i>
+						<i class="fa-solid fa-heart-circle-check" style="color:#f96868e6;" ></i>${clientClassDetail.c_luv}
 					</button>
 				</c:if>
 				<c:if test="${checkResult eq 0}">
 					<button type="button" class="main-white-button like" id="addLike" style="margin: 0px 5px;">
-						<i class="fa-solid fa-heart-circle-plus"></i>
+						<i class="fa-solid fa-heart-circle-plus"></i>${clientClassDetail.c_luv}
 					</button>
 				</c:if>
 				</c:if>
