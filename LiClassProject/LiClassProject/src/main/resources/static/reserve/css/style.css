@@ -8182,6 +8182,7 @@ h1, h2, h3, h4, h5,
   background-position: center center; }
 
 .elegant-calencar {
+  height: 640px;	
   max-width: 700px;
   text-align: center;
   position: relative;

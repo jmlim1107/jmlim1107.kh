@@ -22,105 +22,90 @@
 <script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>
 <script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
 
-							<form id = "detailForm">
-								<input type = "hidden" name ="review_no" id = "review_no" value = "review_no" />
-							</form>
-							<script type="text/javascript">
+<form id = "detailForm">
+	<input type = "hidden" name ="review_no" id = "review_no" value = "review_no" />
+</form>
+<script type="text/javascript">
+
+    $(function(){
+    	var ratingTotal = ${tongRating.RATING1} + ${tongRating.RATING2} + ${tongRating.RATING3} + ${tongRating.RATING4} + ${tongRating.RATING5}
+    	$("#ratingTotal").text("(" + ratingTotal + ")");
+    	
+    	var ratingAvg1 = Math.ceil(${tongRating.RATING1} / ratingTotal *1000);
+    	var ratingAvg2 = Math.ceil(${tongRating.RATING2} / ratingTotal *1000);
+    	var ratingAvg3 = Math.ceil(${tongRating.RATING3} / ratingTotal *1000);
+    	var ratingAvg4 = Math.ceil(${tongRating.RATING4} / ratingTotal *1000);
+    	var ratingAvg5 = Math.ceil(${tongRating.RATING5} / ratingTotal *1000);
+    	
+    	$("#bar1").width(ratingAvg1);
+    	$("#bar2").width(ratingAvg2);
+    	$("#bar3").width(ratingAvg3);
+    	$("#bar4").width(ratingAvg4);
+    	$("#bar5").width(ratingAvg5);
+    	
+    });
     
-							    $(function(){
-							    	var ratingTotal = ${tongRating.RATING1} + ${tongRating.RATING2} + ${tongRating.RATING3} + ${tongRating.RATING4} + ${tongRating.RATING5}
-							    	$("#ratingTotal").text("(" + ratingTotal + ")");
-							    	
-							    	var ratingAvg1 = Math.ceil(${tongRating.RATING1} / ratingTotal *1000);
-							    	var ratingAvg2 = Math.ceil(${tongRating.RATING2} / ratingTotal *1000);
-							    	var ratingAvg3 = Math.ceil(${tongRating.RATING3} / ratingTotal *1000);
-							    	var ratingAvg4 = Math.ceil(${tongRating.RATING4} / ratingTotal *1000);
-							    	var ratingAvg5 = Math.ceil(${tongRating.RATING5} / ratingTotal *1000);
-							    	
-							    	$("#bar1").width(ratingAvg1);
-							    	$("#bar2").width(ratingAvg2);
-							    	$("#bar3").width(ratingAvg3);
-							    	$("#bar4").width(ratingAvg4);
-							    	$("#bar5").width(ratingAvg5);
-							    	
-							    });
-							    
-							    
-							    </script>
+    
+    </script>
 		
-							<!-- 리뷰 작성 폼 -->
-							<div id = "test1" style="display: none;">
-								<%@ include file = "/WEB-INF/views/client/review/r_writeForm.jsp" %>
-							</div>
-							<!-- 리뷰 업데이트 폼 -->
-							<div id = "test2" style="display: none;">
-								<%@ include file = "/WEB-INF/views/client/review/r_updateForm.jsp" %>
-							</div>
 							
-							<!-- 리뷰 상세보기 폼 -->
-							<div id = "test3" style="display: none;">
-								<%-- <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp">
-								</jsp:include> --%>
-								<%@ include file = "/WEB-INF/views/client/review/reviewDetail.jsp" %>
-							</div>
-							
-							<!-- 별점 통계 start -->
-						  	<div class="container">
-							    <div class="row" style="justify-content: left;">
-							      <div class="col-md-13 course-details-content">
-							        <div class="course-details-card mt--40">
-							          <div class="course-content">
-							            <h5 class="mb--20">Review</h5>
-							            <!-- 별점 -->
-							            <div class="row row--30">
-							              <div class="col-lg-4" style="position: static;">
-							                <div class="rating-box">
-							                  <div class="rating-number">${ratingAvg}</div>
-							                  <div class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> </div>
-							                  <span id = "ratingTotal">전체 후기 개수</span></div>
-							              </div>
-							              <div class="col-lg-8">
-							                <div class="review-wrapper">
-							                  <div class="single-progress-bar">
-							                    <div class="rating-text"> 5 <i class="fa fa-star" aria-hidden="true"></i> </div>
-							                    <h3>${review}</h3>
-								                    <!-- 통계바 -->
-								                    <div class="progress">
-							                    			<div id = "bar5" class="progress-bar" role="progressbar" style="width:0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-							                  		</div>
-							                  		<span class="rating-value">${tongRating.RATING5}</span> </div>
-								   
-							                 
-								                  	<div class="single-progress-bar">
-								                    	<div class="rating-text"> 4 <i class="fa fa-star" aria-hidden="true"></i> </div>
-								                    	<div class="progress">
-								                      		<div id = "bar4" class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-								                    	</div>
-								                   		<span class="rating-value">${tongRating.RATING4}</span>
-								                   	</div>
-									                <div class="single-progress-bar">
-									                    <div class="rating-text"> 3 <i class="fa fa-star" aria-hidden="true"></i> </div>
-									                    <div class="progress">
-									                      <div id = "bar3"  class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-									                    </div>
-									                    <span class="rating-value">${tongRating.RATING3}</span> </div>
-								                  	<div class="single-progress-bar">
-								                    	<div class="rating-text"> 2 <i class="fa fa-star" aria-hidden="true"></i> </div>
-								                    	<div class="progress">
-								                      		<div id = "bar2"  class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-								                   		</div>
-							                    		<span class="rating-value">${tongRating.RATING2}</span> </div>
-								                  	<div class="single-progress-bar">
-								                    	<div class="rating-text"> 1 <i class="fa fa-star" aria-hidden="true"></i> </div>
-								                    	<div class="progress">
-								                      		<div id = "bar1"  class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="80" aria-valuemax="100"></div>
-								                    	</div>
-								                    	<span class="rating-value">${tongRating.RATING1}</span> </div>
-								                </div>
-							              </div>
-						            </div>
-						            <!-- 별점 통계 end -->
-	            
+	<!-- 별점 통계 start -->
+  	<div class="container">
+	    <div class="row" style="justify-content: left;">
+	      <div class="col-md-13 course-details-content">
+	        <div class="course-details-card mt--40">
+	          <div class="course-content">
+	            <h5 class="mb--20">Review</h5>
+	            <!-- 별점 -->
+	            <div class="row row--30">
+	              <div class="col-lg-4" style="position: static;">
+	                <div class="rating-box">
+	                  <div class="rating-number">${ratingAvg}</div>
+	                  <div class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> </div>
+	                  <span id = "ratingTotal">전체 후기 개수</span></div>
+	              </div>
+	              <div class="col-lg-8">
+	                <div class="review-wrapper">
+	                  <div class="single-progress-bar">
+	                    <div class="rating-text"> 5 <i class="fa fa-star" aria-hidden="true"></i> </div>
+	                    <h3>${review}</h3>
+		                    <!-- 통계바 -->
+		                    <div class="progress">
+	                    			<div id = "bar5" class="progress-bar" role="progressbar" style="width:0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+	                  		</div>
+	                  		<span class="rating-value">${tongRating.RATING5}</span> </div>
+		   
+	                 
+		                  	<div class="single-progress-bar">
+		                    	<div class="rating-text"> 4 <i class="fa fa-star" aria-hidden="true"></i> </div>
+		                    	<div class="progress">
+		                      		<div id = "bar4" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+		                    	</div>
+		                   		<span class="rating-value">${tongRating.RATING4}</span>
+		                   	</div>
+			                <div class="single-progress-bar">
+			                    <div class="rating-text"> 3 <i class="fa fa-star" aria-hidden="true"></i> </div>
+			                    <div class="progress">
+			                      <div id = "bar3"  class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+			                    </div>
+			                    <span class="rating-value">${tongRating.RATING3}</span> </div>
+		                  	<div class="single-progress-bar">
+		                    	<div class="rating-text"> 2 <i class="fa fa-star" aria-hidden="true"></i> </div>
+		                    	<div class="progress">
+		                      		<div id = "bar2"  class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+		                   		</div>
+	                    		<span class="rating-value">${tongRating.RATING2}</span> </div>
+		                  	<div class="single-progress-bar">
+		                    	<div class="rating-text"> 1 <i class="fa fa-star" aria-hidden="true"></i> </div>
+		                    	<div class="progress">
+		                      		<div id = "bar1"  class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="80" aria-valuemax="100"></div>
+		                    	</div>
+		                    	<span class="rating-value">${tongRating.RATING1}</span> </div>
+		                </div>
+	              </div>
+            </div>
+            <!-- 별점 통계 end -->
+       
             
             
             <!-- 검색창 -->
