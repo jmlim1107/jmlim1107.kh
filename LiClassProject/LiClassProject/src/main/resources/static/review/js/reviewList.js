@@ -97,11 +97,7 @@ $(function(){
 			$.ajax({
 				type : "post",
 				url : "/r_updateForm",
-//<<<<<<< HEAD
-				/*data :  "r_no="+$("#r_number").val(),*/
-//=======
-				data :  "r_no="+$("#r_nnumber").val(),
-//>>>>>>> 720416294c0152cac3efc862011b8e908654a3d0
+				data :  "r_no="+$("#r_number").val(),
 				dataType : "json",
 				success : function(data){
 					// json 값을 모달에 설정
@@ -150,24 +146,14 @@ $(function(){
 				return false;
 			}
 			else{
-//<<<<<<< HEAD
-//=======
-				console.log("else");
-//>>>>>>> 720416294c0152cac3efc862011b8e908654a3d0
 				$("#r_updateForm").attr({
 					"method":"post",
 					"action":"/reviewUpdate"
 				});
-//<<<<<<< HEAD
 				$("#r_updateForm").submit();
 			}
 		});
-//=======
-				//console.log("else");
-				//$("#r_updateForm").submit();
-			//}
-			//});
-//>>>>>>> 720416294c0152cac3efc862011b8e908654a3d0
+
 	  	
 		// 업데이트 모달창 닫기
 		$("#updatemodal_close").click(function(){

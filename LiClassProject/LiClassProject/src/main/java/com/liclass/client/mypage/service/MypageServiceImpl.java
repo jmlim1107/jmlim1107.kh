@@ -67,35 +67,31 @@ public class MypageServiceImpl implements MypageService{ //은아,웅배
 		}
 		
 
-	/* 웅배파트 */
-	// 결제내역 불러오기
-	@Override
-	public List<Map<String, String>> paymentList(PaymentVO paymentVO) {
-		List<Map<String, String>> pvo = mypageDao.paymentList(paymentVO);
-		return pvo;
-	}
-	
-	@Override
-	public int paymentListCnt(PaymentVO paymentVO) {
-		int result = mypageDao.paymentListCnt(paymentVO);
-		return result;
-	}
-	
-	@Override
-	public List<Map<String, String>> courseList(PaymentVO paymentVO_forCourseList) {
-		List<Map<String, String>> pvo = mypageDao.courseList(paymentVO_forCourseList);
-		return pvo;
-	}
-	
-	@Override
-	public String getClassImg(int r_no) {
-		String result = mypageDao.getClassImg(r_no);
-		return result;
-	}
-
-	   
-
-	
+		/* 웅배파트 */
+		// 결제내역 불러오기
+		@Override
+		public List<Map<String, String>> paymentList(PaymentVO paymentVO) {
+			List<Map<String, String>> pvo = mypageDao.paymentList(paymentVO);
+			return pvo;
+		}
+		
+		@Override
+		public int paymentListCnt(PaymentVO paymentVO) {
+			int result = mypageDao.paymentListCnt(paymentVO);
+			return result;
+		}
+		
+		@Override
+		public List<Map<String, String>> courseList(PaymentVO paymentVO_forCourseList) {
+			List<Map<String, String>> pvo = mypageDao.courseList(paymentVO_forCourseList);
+			return pvo;
+		}
+		
+		@Override
+		public String getClassImg(int r_no) {
+			String result = mypageDao.getClassImg(r_no);
+			return result;
+		}
 
 	
 }

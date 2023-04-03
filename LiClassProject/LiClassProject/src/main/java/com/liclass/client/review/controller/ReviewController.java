@@ -157,59 +157,61 @@ public class ReviewController {
 	 * 한 번만 사용되는 데이터를 전송할 수 있는 addFlashAttribute() 라는 기능을 지원한다.
 	 * addFlashAttribute() 메서드는 브라우저까지 전송되기는 하지만, URL 상에는 보이지 않는 숨겨진 데이터의 형태로 전달된다.
 	 ********************************************/
-	/*
-	 * @PostMapping(value = "/reviewUpdate") public String
-	 * reviewUpdate(@ModelAttribute ReviewVO vo) throws Exception {
-	 * log.info("reivewUpdate 기능호출 성공"); log.info("reviewVO : " + vo);
-	 * 
-	 * int result = 0; String url = "";
-	 * 
-	 * result = reviewService.reviewUpdate(vo);
-	 * 
-	 * // 업데이트 성공 시 이동할 페이지 if(result == 1) { <<<<<<< HEAD //<<<<<<< HEAD //url =
-	 * "/reviewList?r_no="+vo.getR_no();
-	 * //log.info("review url ::::::::::::::::::::::::; " + url); url =
-	 * "/courseHistory?r_no=" + vo.getR_no(); //url =
-	 * "/reviewList?r_no"+vo.getR_no(); log.info("성공시 review url : " + url); =======
-	 * url = "/courseHistory" ; log.info("review url ::::::::::::::::::::::::; " +
-	 * url); >>>>>>> e9e903f01e01cbe6c577dfc82c46d1d4f1b0772c // 업데이트 실패 시 이동할
-	 * 페이지(수정하자) } else { log.info("실패시 url : " + url); url =
-	 * "/r_updateForm?r_no="+vo.getR_no(); <<<<<<< HEAD
-	 * log.info("업데이트 실패::::::::::::::::::::::::::::::::;;"); //======= //url =
-	 * "/courseHistory?r_no=" + vo.getR_no(); //url =
-	 * "/reviewList?r_no"+vo.getR_no(); //log.info("성공시 review url : " + url);
-	 * 
-	 * // 업데이트 실패 시 이동할 페이지(수정하자) } //else { //log.info("실패시 review url : " + url);
-	 * 
-	 * // url = "/r_updateForm?r_no="+vo.getR_no(); //url = "/courseHistory";
-	 * //log.info("업데이트 실패"); //>>>>>>> 720416294c0152cac3efc862011b8e908654a3d0 //}
-	 * // "redirect:"+ return "redirect:"+ url; ======= } return "redirect:"+url;
-	 * >>>>>>> e9e903f01e01cbe6c577dfc82c46d1d4f1b0772c
-	 * 
-	 * }
-	 */
+	@PostMapping(value = "/reviewUpdate")
+	public String reviewUpdate(@ModelAttribute ReviewVO vo) throws Exception {
+		log.info("reivewUpdate 기능호출 성공");
+		log.info("reviewVO : " + vo);
+		
+		int result = 0;
+		String url = "";
+		
+		result = reviewService.reviewUpdate(vo);
+		
+		// 업데이트 성공 시 이동할 페이지
+		if(result == 1) {
+			/*url = "/courseHistory?r_no=" + vo.getR_no();*/
+			url = "/courseHistory";
+			log.info("review url ::::::::::::::::::::::::; " + url);
+		// 업데이트 실패 시 이동할 페이지(수정하자)
+		} else {
+			log.info("실패시 url : " + url);
+			url =  "/r_updateForm?r_no="+vo.getR_no();
+
+			log.info("업데이트 실패::::::::::::::::::::::::::::::::;;");
+
+			
+		
+		} 
+
+		return "redirect:"+ url;
+	}
 
 	
 	/*******************************************
 	 * 글 삭제 구현하기
 	 *******************************************/
-	/*
-	 * @RequestMapping(value = "/reviewDelete") public String
-	 * reviewDelete(@ModelAttribute ReviewVO vo) throws Exception{
-	 * log.info("revieDelete 호출 성공"); log.info("삭제할 후기글 번호: " + vo.getR_no());
-	 * 
-	 * //아래 변수에는 입력 성공에 대한 상태값 담습니다.(1 or 0) int result = 0; String url = "";
-	 * 
-	 * 
-	 * //result = boardService.boardDelete(bvo.getB_num()); result =
-	 * reviewService.reviewDelete(vo); if(result == 1){ <<<<<<< HEAD //<<<<<<< HEAD
-	 * url="/reviewList"; //======= //url="/courseHistory"; //>>>>>>>
-	 * 720416294c0152cac3efc862011b8e908654a3d0 }else{ ======= log.info("삭제성공");
-	 * url="/courseHistory?review_no=" + vo.getReview_no(); }else{ log.info("삭제실패");
-	 * >>>>>>> e9e903f01e01cbe6c577dfc82c46d1d4f1b0772c url="/courseHistory";
-	 * 
-	 * } return "redirect:"+url; }
-	 */
+	@RequestMapping(value = "/reviewDelete")
+	public String reviewDelete(@ModelAttribute ReviewVO vo) throws Exception{
+		log.info("revieDelete 호출 성공");
+		log.info("삭제할 후기글 번호: " + vo.getR_no());
+		
+		//아래 변수에는 입력 성공에 대한 상태값 담습니다.(1 or 0)
+		int result = 0;
+		String url = "";
+		
+
+		//result = boardService.boardDelete(bvo.getB_num());
+		result = reviewService.reviewDelete(vo);
+		if(result == 1){
+			log.info("삭제성공");
+			url="/courseHistory?review_no=" + vo.getReview_no();
+		}else{
+			log.info("삭제실패");
+			url="/courseHistory";
+			
+		}
+		return "redirect:"+url;
+	}
 	
 	
 	/*******************************************

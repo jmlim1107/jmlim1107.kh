@@ -140,7 +140,7 @@ span{justify-content: center;
             <form id="dataForm">
                <input type="hidden" name="user_no" value='${loginUser.user_no }'>
                 <!-- 은아) 0401 웅배야 테이블 너비 늘렸는데 함해보고 없애거나 조정해~~ style="width: 110%;max-width: 110%;" -->
-               <table summary="결제내역 리스트" class="table table-hover"  style="width: 110%;max-width: 110%;">
+               <table summary="결제내역 리스트" class="table table-hover"  style="width: 140%;max-width: 140%;">
                   <thead>
                      <tr>
                         <th data-value="b_num" class="order text-center col-md-3">상품정보</th>
