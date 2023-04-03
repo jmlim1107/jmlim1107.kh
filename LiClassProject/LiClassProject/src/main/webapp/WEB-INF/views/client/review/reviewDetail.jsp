@@ -55,11 +55,11 @@
 							</fieldset>
 								
 							<!-- 리뷰 제목 -->
-							<fieldset class="bv-fieldset bv-fieldset-title bv-text-field bv-nocount custom-cursor-default-hover"> 
+							<fieldset class="bv-fieldset bv-fieldset-title bv-text-field bv-nocount"> 
 								<legend>
-									<span class="bv-fieldset-label-text custom-cursor-default-hover blocktitle"> Review Title* </span>  
+									<span class="bv-fieldset-label-text blocktitle"> Review Title* </span>  
 									<div class = "blockcontent">
-										<input type = "text" id = "r_detailTitle" disabled="disabled">
+
 										<input type = "text" id = "r_detailTitle" name="r_detailTitle" disabled="disabled" value="">
 									</div>
 								</legend>
@@ -70,23 +70,10 @@
 								<legend>
 									<span class = "bv-off-screen blocktitle">Review Content* </span>
 									<textarea id= "r_detailContent" disabled="disabled" name = "review_content" aria-describedby="bv-review-guidelines-label" class="bv-text bv-focusable custom-cursor-default-hover blockcontent" name="review_content" maxlength="10000" placeholder="Example: I bought this a month ago and am so happy that I did..." cols=30 style= "overflow:visible"></textarea> 
-									<div class = "blockcontent text-left">
-	               						<input type = "file" name = "file" id = "file" />
-	               					</div>
+									
 								</legend>
 				  			</fieldset>
 				  			
-				  			<!-- 친구한테 추천할거니? -->
-				  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid">
-				  				<legend class="bv-off-screen"><span class = "blocktitle">클래스를 다른 사람들에게 추천하나요?</span>
-										<div class = "blockcontent">
-											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio">
-											<label for="toggle-on" class="btn">Yes</label>
-											<input id="toggle-off" class="toggle toggle-right" name="review_recommend" value="No" type="radio">
-											<label for="toggle-off" class="btn">No</label>
-										</div>
-				  				</legend>
-				  			</fieldset>	
 				  			
 				  			<!-- 약관 동의 -->
 				  			<fieldset class="bv-fieldset bv-fieldset-agreements bv-fieldset-reviews-termsAndConditions bv-checkbox-field custom-cursor-default-hover"> 

@@ -64,11 +64,11 @@
 						</fieldset>
 							
 						<!-- 리뷰 제목 -->
-						<fieldset class="bv-fieldset bv-fieldset-title bv-text-field bv-nocount custom-cursor-default-hover"> 
+						<fieldset class="bv-fieldset bv-fieldset-title bv-text-field bv-nocount"> 
 							<legend>
-								<span class="bv-fieldset-label-text custom-cursor-default-hover blocktitle"> Review Title* </span>  
+								<span class="bv-fieldset-label-text blocktitle"> Review Title* </span>  
 								<div class = "blockcontent">
-									<input id="updateTitle" placeholder="제목을 입력해주세요." value = "${detail.review_title}" name = "review_title"  class="bv-text bv-focusable custom-cursor-default-hover" type="text" name="review_title" maxlength="50" aria-describedby="title_validation" aria-required="true" tabindex="0">
+									<input id="updateTitle" placeholder="제목을 입력해주세요." value = "${detail.review_title}" name = "review_title"  type="text" name="review_title" maxlength="50" aria-describedby="title_validation" aria-required="true" tabindex="0">
 								</div>
 							</legend>
 						</fieldset>
@@ -78,23 +78,21 @@
 							<legend>
 								<span class = "bv-off-screen blocktitle">Review Content* </span>
 								<textarea id= "updateContent" name = "review_content"  aria-describedby="bv-review-guidelines-label" class="bv-text bv-focusable custom-cursor-default-hover blockcontent" name="review_content" maxlength="10000" placeholder="Example: I bought this a month ago and am so happy that I did..." cols=30 style= "overflow:visible"></textarea> 
-								<div class = "blockcontent text-left">
-               						<input type = "file" name= "file" id = "file" />
-               					</div>
+								
 							</legend>
 			  			</fieldset>
 			  			
 			  			<!-- 친구한테 추천할거니? -->
-			  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid">
-			  				<legend class="bv-off-screen"><span class = "blocktitle">클래스를 다른 사람들에게 추천하나요?</span>
-									<div class = "blockcontent">
-										<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
-										<label for="toggle-on" class="btn toggleBtn">Yes</label>
-										<input id="toggle-off" class="toggle toggle-right" name="review_recommend" value="No" type="radio">
-										<label for="toggle-off" class="btn toggleBtn">No</label>
-									</div>
-			  				</legend>
-			  			</fieldset>	
+				  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid">
+				  				<legend class="bv-off-screen"><span class = "blocktitle">클래스를 다른 사람들에게 추천하나요?</span>
+										<div class = "blockcontent">
+											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
+											<label for="toggle-on" class="btn toggleBtn">Yes</label>
+											<input id="toggle-off" class="toggle toggle-right" name="review_recommend" value="No" type="radio">
+											<label for="toggle-off" class="btn toggleBtn">No</label>
+										</div>
+				  				</legend>
+				  			</fieldset>	
 			  			
 			  			<!-- 약관 동의 -->
 			  			<fieldset class="bv-fieldset bv-fieldset-agreements bv-fieldset-reviews-termsAndConditions bv-checkbox-field custom-cursor-default-hover"> 
