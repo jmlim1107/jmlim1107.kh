@@ -10,7 +10,7 @@
 <script type="text/javascript">
 
     $(function(){
-       $("#insertForm").click(function(){
+       $("#insertBtn").click(function(){
             location.href="/management/noticeboard/insertForm";
        });
         /* 제목 클릭 시 상세페이지 이동을 위한 처리 이벤트 */
@@ -67,10 +67,6 @@
                            $("#detailForm").submit();
                        }
                     });
-                    /*$("#detailForm").attr({
-                       "method" : "post",
-                       "action" : "/management/noticeBoard/noticeStateUpdate"
-                    });*/
                 }
             }else{
                 if(confirm("상단에 고정 하시겠습니까?")){
@@ -88,36 +84,14 @@
                             noticeStateReload();
                         }
                     });
-/*                    $("#detailForm").attr({
-                        "method" : "post",
-                        "action" : "/management/noticeBoard/noticeStateUpdate"
-                    });*/
                 }
 
             }
             });
-            $(".page-item a").click(function(e){
-                e.preventDefault();
-                $("#f_search").find("input[name='pageNum']").val($(this).attr("href"));
-                goPage();
-            });
-
         });
-    /*});*/
 
     function noticeStateReload(){
         $("#noticeList").load(window.location.href + "#noticeList");
-    }
-
-    function goPage(){
-        if($("#search").val()=="all"){
-            $("#keyword").val("");
-        }
-        $("#f_search").attr({
-            "method" : "get",
-            "action" : "/management/noticeboard/noticeBoard"
-        });
-        $("#f_search").submit();
     }
 
 </script>
@@ -130,17 +104,9 @@
     </div><!-- End Page Title -->
     <div class="row">
         <div class="col-lg-12">
-            <button type="button" class="btn btn-dark rounded-pill btn-lg" id="insertBtn">
-                <i class="bi bi-cloud-upload"></i>&nbsp;신규등록</button>
-            <!-- 검색영역 -->
-            <!-- 검색 & 페이징을 동시에 처리하기 위한 form = 하나의 cvo저장 -->
-            <form class="form-inline text-right"  id="f_search">
-                <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}" />
-                <input type="hidden" name="amount" value="${pageMaker.cvo.amount}" />
-                <input type="text"  name="keyword"  id="keyword" class="form-control" placeholder="검색내용을 입력해주세요.."/>
-                <button type="button" class="btn btn-outline-primary btn-lg"  id="searchBtn">Search</button>
-            </form>
-
+            <div class="text-right">
+            <button type="button" class="btn btn-success rounded-pill btn-lg " id="insertBtn">공지사항등록</button>
+            </div>
             <form id="detailForm">
                 <input type="hidden" id="qna_no" name="qna_no"/>
             </form>
@@ -158,7 +124,7 @@
                 <c:choose>
                     <c:when test="${not empty qnaBoardList}">
                         <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
-                            <tr data-num="${qnaBoard.qna_no}">
+                            <tr class="text-center" data-num="${qnaBoard.qna_no}">
                                 <%--게시물 수에 따른 글번호로 보기--%>
                                 <%--<td class="text-center">${count + status.index + 1}</td>--%>
                                 <%--원래 글번호로 보기--%>
