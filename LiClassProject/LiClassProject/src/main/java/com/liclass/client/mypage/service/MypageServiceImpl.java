@@ -38,18 +38,23 @@ public class MypageServiceImpl implements MypageService{ //은아,웅배
 		
 		//3. 나의 후기 조회
 		@Override
-		public List<ReviewVO> myReviewList(UserVO vo) {
+		public List<ReviewVO> myReviewList(ReviewVO vo) {
 			List<ReviewVO> list = mypageDao.myReviewList(vo);
 			return list;
 		}
-		
-		//4. 나의 문의 조회
+		//4. 나의 후기 갯수
+		@Override
+		public int myReviewCnt(ReviewVO vo) {
+			int result = mypageDao.myReviewCnt(vo);
+			return result;
+		}
+		//5. 나의 문의 조회
 		@Override
 		public List<ClientQnaBoardVO> myQnaList(ClientQnaBoardVO vo) {
 			List<ClientQnaBoardVO> list = mypageDao.myQnaList(vo);
 			return list;
 		}
-		//5. 나의 문의 갯수
+		//6. 나의 문의 갯수
 		@Override
 		public int myQnaCnt(UserVO vo) {
 			int result = mypageDao.myQnaCnt(vo);
@@ -57,7 +62,7 @@ public class MypageServiceImpl implements MypageService{ //은아,웅배
 		}
 				
 				
-		//5. 프로필 사진 수정
+		//7. 프로필 사진 수정
 		@Override
 		public int updateImg(UserVO vo)throws Exception {
 			int result = mypageDao.updateImg(vo);
@@ -90,6 +95,4 @@ public class MypageServiceImpl implements MypageService{ //은아,웅배
 			String result = mypageDao.getClassImg(r_no);
 			return result;
 		}
-
-	
 }

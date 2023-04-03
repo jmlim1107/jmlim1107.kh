@@ -142,15 +142,4 @@ public class ClientClassController { //은아,지민,경민
 		return "mypage/updateForm";
 	}
 	
-	
-	/* 예약하기 
-	@GetMapping("/admin/episode/goReserve")
-	public String goReserve(@RequestParam int c_no, HttpSession session, Model model) {
-		log.info("예약페이지로 넘어갑니다...");
-		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-	    model.addAttribute("loginUser",loginUser);
-		return "reserve/reserve";
-	}*/
-	
-	
 }

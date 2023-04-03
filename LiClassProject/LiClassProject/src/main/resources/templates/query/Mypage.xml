@@ -30,25 +30,57 @@
 	</select>
 	
 	<!--2. 나의 후기 조회 -->
-	<select id="myReviewList" parameterType="User" resultType="Review">
-        select a.review_no,b.user_name as review_name,a.review_title,a.review_content,review_rating,(select 
-	        	MAX(DECODE(RID, 1, c_img_file)) c_img_file
-	    		from (
-            		SELECT c_no, c_img_file,
-                	ROW_NUMBER() OVER (PARTITION BY c_no ORDER BY c_img_no) RID, 
-                	c_img_no
-                	
-            		FROM li_class_img
-                    where c_no = a.c_no
-	        	) 
-	    		GROUP BY c_no) as class_img,
-        to_char(a.review_date,'YYYY-MM-DD') as review_date,
-        a.review_date,a.review_update,
-        a.review_status,a.c_no,a.user_no,b.user_img,c.c_title
-		from li_review a left join li_user b on a.user_no = b.user_no
-		                left join li_class c on a.c_no = c.c_no
-		where b.user_no = #{user_no}
-		order by a.review_date desc
+	<select id="myReviewList" parameterType="Review" resultType="Review">
+		 <![CDATA[
+             select review_no,review_name,review_title,review_content,review_rating,class_img,
+		        to_char(review_date,'YYYY-MM-DD') as review_date,review_update,
+		        review_status,c_no,user_no,user_img,c_title
+		      from
+		            (select rownum rnum,review_no,review_name,review_title,review_content,review_rating,class_img,
+		            review_date,review_update,
+		            review_status,c_no,user_no,user_img,c_title
+		                    from
+		                    
+                        (select         a.review_no review_no,
+                                        b.user_name review_name,
+                                        a.review_title review_title,
+                                        a.review_content review_content, 
+                                        review_rating,
+                                        (select MAX(DECODE(RID, 1, c_img_file)) c_img_file
+                                        from (
+                                            SELECT rownum rnum, c_no, c_img_file,
+                                            ROW_NUMBER() OVER (PARTITION BY c_no ORDER BY c_img_no) RID, 
+                                            c_img_no
+                                            
+                                            FROM li_class_img
+                                            where c_no = a.c_no
+                                        ) GROUP BY c_no) as class_img,
+                                        a.review_date review_date,
+                                        a.review_update review_update,
+                                        a.review_status review_status,
+                                        a.c_no c_no,
+                                        a.user_no user_no,
+                                        b.user_img user_img,
+                                        c.c_title c_title
+                        from li_review a left join li_user b on a.user_no = b.user_no
+                                        left join li_class c on a.c_no = c.c_no
+                        where b.user_no = #{user_no}
+                        order by review_date desc)
+                        where
+
+              ]]>
+               <![CDATA[
+                  ROWNUM <= #{pageNum} * #{amount}  
+            )
+            where rnum > (#{pageNum} - 1) * #{amount}
+            ]]>
+            
+	</select>
+	
+	<!--3. 나의 후기 갯수 -->
+	<select id="myReviewCnt" parameterType="Review" resultType="int">
+        select count(*) from li_review
+		where user_no = #{user_no}
 	</select>
 	
 	<!--3. 나의 문의 조회 -->
@@ -75,7 +107,7 @@
               ]]>
                <![CDATA[
                   ROWNUM <= #{pageNum} * #{amount}  
-            )li
+            )
             where rnum > (#{pageNum} - 1) * #{amount}
             ]]>
 
