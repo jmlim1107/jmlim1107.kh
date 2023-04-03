@@ -59,7 +59,7 @@
 	            <!-- 별점 -->
 	            <div class="row row--30">
 	              <div class="col-lg-4" style="position: static;">
-	                <div class="rating-box">
+	                <div class="rating-box" style="height: 100%; padding-top: 80px;">
 	                  <div class="rating-number">${ratingAvg}</div>
 	                  <div class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> </div>
 	                  <span id = "ratingTotal">전체 후기 개수</span></div>
@@ -120,20 +120,12 @@
 						<option value="b_title">제목</option>
 						<option value="b_content">내용</option>
 					</select>
-					<input id = "keyword" name = "keyword" class="form-control me-2" type="text" placeholder="Contents Search...." aria-label="Search">
+					<input id = "keyword" name = "keyword" class="form-control me-2" type="text" placeholder="Contents Search...." aria-label="Search" style="width: 70%;">
 					<button id = "searchData" class="btn btn-dark col" type="button">Search</button>
 				</div>
 
 			    </form>
 			  </div>
-			  
-			
-			
-            <%-- ================== 글쓰기 버튼 출력 시작 ============= --%>
-			<div class="contentBtn  text-right">
-				<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-dark">
-			</div>
-			<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
 		
 
 			

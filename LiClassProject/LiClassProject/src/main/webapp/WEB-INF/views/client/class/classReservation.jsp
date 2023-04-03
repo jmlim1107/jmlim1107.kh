@@ -260,6 +260,7 @@
                  <div class="class-booking-form">
                      <form>
                          <div class="row">
+                         <h1></h1>
 	                       	<!--1. class info start --> 
 	                          	<%@ include file="/WEB-INF/views/client/class/classReservation-1.classInfo.jsp" %>
 	                        <!--1. class info end --> 
@@ -375,7 +376,6 @@
 				      <%--============================================================================= --%>
 				      
 				      <div class="wrap-header d-flex align-items-center img" style="background:#FAEBCD">
-						     <p id="reset" style="display: hidden">Today</p>
 						     
 						     <div class="accordion" id="accordionPanelsStayOpenExample"><!-- accordion 시작 -->
 								 <div class="accordion-item"> <!-- accordion-item1  -->
