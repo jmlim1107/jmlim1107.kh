@@ -26,7 +26,7 @@
 		 					<div class="bv-subject-info-section">  
 		 						<div class="bv-subject-info custom-cursor-default-hover">
 			 						<img class="bv-subject-image custom-cursor-default-hover" src="https://unicorn.lush.com/media/thumbnails/products/honey_i_washed_my_hair_shampoo_bar_2020_163b7de1_thumbnail_256.png" alt="Honey I Washed My Hair">   
-			 						<span class="bv-subject-name-header">클래스명</span>
+			 						<span class="bv-subject-name-header">${detail.c_no}</span>
 		 						</div>   
 		 					</div> 
 						</div>
