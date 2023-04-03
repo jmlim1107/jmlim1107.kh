@@ -28,7 +28,7 @@
 		});
 	
 		//은아)페이지네이션 번호 클릭 시
-		$(".paginate_button2").click(function(){
+		$(".paginate_button3").click(function(){
 			
 			//현재페이지 localStorage에 activePosition저장
 			var activePosition = 2;
@@ -117,26 +117,22 @@
 								                              	<i class="fa-solid fa-star" style="font-size: 10px;"></i>
 								                              </td>
 							                              	</c:if>
-							                              	
-							                               	<td data-cno="${ pvo_courseList.c_no }" data-rno="${pvo_courseList.r_no }" data-userno="${pvo_courseList.user_no }">
-							    									<h1>${pvo_courseList.review_status}</h1>
-							                              		<c:if test="${pvo_courseList.review_status eq 0}">
-									                              	<input type="button" value="글쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn">글쓰기
-									                           	</c:if>
-								                           
-								                           		<c:if test="${pvo_courseList.review_status eq 1 }">
-								                                 	<input type="button" value="리뷰보기" class="reviewDetail">리뷰보기
-								                           		</c:if>     	
-								                           	</td>
-								                           
-								                             
 							                           </tr>
-							                          
+							                           <tr style="text-align: center; display: none;" class="review-tr">
+							                           		<td colspan="3">
+								                               <span style="padding-left:30px;" class="review__content">${reviewVO.review_content}</span>
+							                           		</td>
+							                           		<td>
+							                                	<button type="button" style="margin: 0px auto;" onclick="location.href='/class/classDetail?c_no=${reviewVO.c_no}'">
+							                                		<i class="fa-regular fa-pen-to-square"></i>
+							                                	</button>
+							                                </td>
+							                           </tr>
 							                        </c:forEach>
 							                     </c:when>
 							                     <c:otherwise>
 							                        <tr>
-							                           <td colspan="6" class="tac text-center"><i class="fa-regular fa-comment"></i>  작성한 후기가 존재하지 않습니다.</td>
+							                           <td colspan="6" class="tac text-center"><i class="fa-regular fa-comment"></i> 작성한 후기가 존재하지 않습니다.</td>
 							                        </tr>
 							                     </c:otherwise>
 							                  </c:choose>
@@ -144,6 +140,26 @@
 						               </table>
 						            </form>
 						         </div>
+						         
+						            <!--은아)나의 문의내역 페이징 처리  -->
+						       	<!-- myqna pagination start  -->
+						       	<div class="pagination">
+									<c:if test="${reviewPageMaker.prev}">
+									<a href="${reviewPageMaker.startPage - 1}">&laquo;</a>
+									</c:if>
+									<c:forEach var="num" begin="${reviewPageMaker.startPage}" end="${reviewPageMaker.endPage}">
+									<a class="paginate_button3 ${reviewPageMaker.cvo.pageNum == num ? 'active':''} "  data-num="${num}" >${num}</a>
+									</c:forEach>
+									<c:if test="${reviewPageMaker.next}">
+									<a href="${reviewPageMaker.endPage + 1 }">&raquo;</a>
+									</c:if>
+								</div>
+								          
+						          <form id="page-form">
+						          	<input type="hidden" id="select-page" name="pageNum" value="">
+						          	<input type="hidden" name="amount" value="${reviewPageMaker.cvo.amount }">
+							       </form>
+							      <!-- myqna pagination end  -->
                              </div>
                            </div>
                          </div>

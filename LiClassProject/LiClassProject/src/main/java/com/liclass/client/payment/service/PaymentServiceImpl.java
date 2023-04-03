@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
-import com.liclass.admin.episode.vo.EpisodeVO;
-import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.dao.PaymentDao;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -182,20 +180,9 @@ public class PaymentServiceImpl implements PaymentService{
       return uvo;
    }
    @Override
-   public ClientClassVO getClassInfo(int c_no) {
-      ClientClassVO cvo = paymentDao.getClassInfo(c_no);
-      return cvo;
-   }
-   @Override
    public ReserveVO getPriceInfo(int r_no) {
       ReserveVO rvo = paymentDao.getReserveInfo(r_no);
       return rvo;
-   }
-
-   @Override
-   public EpisodeVO getEpisodeInfo(int ep_no) {
-      EpisodeVO evo = paymentDao.getEpisodeInfo(ep_no);
-      return evo;
    }
    
    // 에약상태 수정하기

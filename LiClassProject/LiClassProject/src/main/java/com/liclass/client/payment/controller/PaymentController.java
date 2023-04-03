@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.http.MediaType;
 
-import com.liclass.admin.episode.service.EpisodeService;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.service.PaymentService;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -30,7 +30,6 @@ public class PaymentController {
 
    @Setter(onMethod_ = @Autowired)
    private PaymentService paymentSerivce;
-   private EpisodeService episodeService;
    
    // 결제 서버(db에 저장된 결제금액과 api에서 실제로 빠져나간 결제금액을 비교하여 검증 후 처리)
    @ResponseBody
@@ -56,7 +55,6 @@ public class PaymentController {
       
       // 결제 시스템
       int result = paymentSerivce.callback_receive(success, imp_uid, error_msg, pay_price);
-      System.out.println("result="+result);
       
       // 실제 결제 금액 가져오기
       int price = paymentSerivce.getPrice(success, imp_uid, error_msg);
@@ -84,8 +82,7 @@ public class PaymentController {
          paymentVO.setPay_status(pay_status);
          paymentSerivce.inserPayment(paymentVO);
          paymentSerivce.changeRerserveStatus(r_no, r_state);
-         ReserveVO reserveVO = paymentSerivce.getPriceInfo(r_no);
-         episodeService.EpcntUpdat(reserveVO);
+         System.out.println("결제 성공");
          goUrl = "/payment/paySuccess"; // 결제 완료 페이지로 이동
          paymentData.put("goUrl", goUrl);
       }else if(result == 1){   // 결제 실패 1. db와 실페지불금액의 가격이 다름 2. 프로그램 상에 이유로 결제 실패(결제가 아마 안될거임)
@@ -112,17 +109,19 @@ public class PaymentController {
    
    // 결제 도중 취소
    @PostMapping("/justCancel")
-   public String justCancel(@RequestParam("r_no") int r_no, Model model) {
+   public String justCancel(@RequestParam("r_no") int r_no, Model model,RedirectAttributes ras) {
       log.info("justCancel() 호출 성공");
       int r_state = 3;
       paymentSerivce.changeRerserveStatus(r_no, r_state);
+      ras.addFlashAttribute("errormsg","결제에 실패하였습니다.");
       
-      return "home"; // 리스트 상세페이지로 다시 이동
+      return "redirect:/"; // 리스트 상세페이지로 다시 이동
    }
    
    // 환불처리
    @RequestMapping(value="/payCencel")
-   public String payCencel(@RequestParam("merchant_uid") String merchant_uid, @RequestParam("user_no") long user_no) { // 버튼 누른 그 목록의 merchant_uid를 가져와야함. 지금은 테스트라 내가 설정해줌
+   public String payCencel(@RequestParam("merchant_uid") String merchant_uid, @RequestParam("user_no") long user_no
+		   , RedirectAttributes ras) { // 버튼 누른 그 목록의 merchant_uid를 가져와야함. 지금은 테스트라 내가 설정해줌
       log.info("payCencel() 호출 성공");
       String goUrl = null;
       RefundVO refundVO = new RefundVO();
@@ -142,9 +141,8 @@ public class PaymentController {
          paymentSerivce.changeRerserveStatus(paymentInfo.getR_no(), r_state);
          paymentSerivce.changePaymentStatus(merchant_uid);
          paymentSerivce.insertRefund(refundVO);
-         ReserveVO reserveVO = paymentSerivce.getPriceInfo(paymentInfo.getR_no());
-         episodeService.EpcntDel(reserveVO);
-         goUrl = "mypage/userMypage"; // 환불 완료 페이지
+         ras.addFlashAttribute("msg","환불이 완료되었습니다.");
+         goUrl = "redirect:/mypage"; // 환불 완료 페이지
       }else {
          refund_status = 1;
          refundVO.setRefund_status(refund_status);
@@ -157,24 +155,17 @@ public class PaymentController {
    
    // 성공했을 때 페이지
    @RequestMapping(value="/paySuccess")
-   public String paySuccess( ReserveVO reserveVO, Model model, PaymentVO paymentVO) {
+   public String paySuccess(ReserveVO reserveVO, Model model, PaymentVO paymentVO) {
       log.info("paySuccess() 호출 성공");
       
       // 유저정보 가져오기
       UserVO uvo = paymentSerivce.getUserInfo(reserveVO.getUser_no());
       model.addAttribute("uvo", uvo);
-      
-      // 클래스 정보 가져오기
-      //ClientClassVO cvo = paymentSerivce.getClassInfo(classVO.getC_no());
-      //model.addAttribute("cvo", cvo);
-      
+       
       // 예약정보 가져오기
       ReserveVO rvo = paymentSerivce.getPriceInfo(reserveVO.getR_no());
       model.addAttribute("rvo", rvo);
-      
-      // 회차정보 가져오기
-      //EpisodeVO evo = paymentSerivce.getEpisodeInfo(rvo.getEp_no());
-      //model.addAttribute("evo", evo);
+
       
       PaymentVO pvo = paymentSerivce.getPaymentInfo(paymentVO.getMerchant_uid());
       model.addAttribute("pvo", pvo);

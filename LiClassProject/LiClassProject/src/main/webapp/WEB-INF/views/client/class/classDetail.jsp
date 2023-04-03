@@ -10,6 +10,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 
+<script type="text/javascript">
+	$(function(){
+		var msg = ${errormsg};
+		if(msg != null){
+			alert(msg);
+		}
+	});
+</script>
+
 <div id="class-detail-div" style="padding-top: 70px;">
 	<!-- 1. class img slider section start -->
 	<section id="header-slider" class="section">

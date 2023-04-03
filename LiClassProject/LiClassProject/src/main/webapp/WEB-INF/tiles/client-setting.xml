@@ -58,7 +58,6 @@
 	<definition name="client/*/*" extends="mypageContent">
 		<put-attribute name="body" value="/WEB-INF/views/client/{1}/{2}.jsp" />
 	</definition>
-	
 	<!-- 웅배 -->
 	<definition name="courseHistory" extends="mypageContent">
 		<put-attribute name="nav" value="" />

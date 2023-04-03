@@ -34,5 +34,7 @@ public interface ReviewDAO {
 			public void changeReviewStatus(int rno);
 
 			public ReviewVO updateFormToRno(ReviewVO vo);
+
+			public void changeReviewStatus2(int r_no);
 	
 }

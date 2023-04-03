@@ -95,36 +95,13 @@
 						});
 						$("#rnoDataForm").submit();
 					}
-				});
-				
-				/*const data = {
-						pg: 'html5_inicis.INIpayTest',
-						pay_method : 'card', // 무조건 카드
-						merchant_uid : "KH-LICLASS-" + makeMerchantUid, // 중복되면 결제 안됨
-						name : productName,
-						amount : price,
-						buyer_email : buyerEmail,
-						buyer_name : buyerName,
-						buyer_tel : buyerTel
-				};
-				
-				IMP.request_pay(data, response => {
-					//STEP 4
-					jQuery.ajax({
-						url : "/payment/callback_receive",
-						method : "POST",
-						headers : {"Content-Type" : "application/json"},
-						data : JSON.stringify(response)
-					}).done(function(data){
-						//STEP6
-						location.href = data;
-					});
-				});*/
+				});	
 	        }
 		</script>
 	</head>
 	<body onload="payment()">
 		<form id="rnoDataForm">
+			<input type="hidden" name="user_no" value="${rvo.user_no}">
 			<input type="hidden" name="r_no" value="${rvo.r_no }">
 			<input type="hidden" name="merchant_uid" value="">
 		</form>

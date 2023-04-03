@@ -46,6 +46,13 @@
 		      }
 		}); 
 		
+		// 지민) close 버튼 테스트
+		$("#CloseBtn").click(function(){
+			$(this).attr('rel', 'modal:close');
+			console.log("버튼 클릭완료");
+		});
+		
+		
 		let c_no = ${param.c_no};
 		//-------1) 각 td에 온전한 날짜값을 부여--------//
 		insertDate();											//1. 페이지 로딩과 동시에 insertDate 처리(1회)
@@ -253,6 +260,7 @@
                  <div class="class-booking-form">
                      <form>
                          <div class="row">
+                         <h1></h1>
 	                       	<!--1. class info start --> 
 	                          	<%@ include file="/WEB-INF/views/client/class/classReservation-1.classInfo.jsp" %>
 	                        <!--1. class info end --> 
@@ -264,11 +272,23 @@
 	                          </button>
 						
 							 <%--  reserve modal start   --%>
-							 <div class="modal" id="reserve-modal" style="z-index: 2; position: relative; text-align: center; height: 100%; width:800px;
-							 overflow:hidden; left:auto; padding: 0px; background:#FDF5E6">		
-					<a href="#close-modal" rel="modal:close" class="close-modal" style="position: relative;left: 98%;z-index: 3">Close</a>
-					<div style="width:100%;height:100%">
-					<h2  style="font-color:	#646464">LiClass Reservation</h2>
+							<div class="modal" id="reserve-modal" style="z-index: 2; position: relative; text-align: center; height: 100%; width:800px;
+							 
+							 overflow:hidden; left:auto; padding: 0px; background:rgb(0, 0, 0, 0); box-shadow: none;">	
+								<div style="width:100%;height:100%">
+								
+								<div style="position: relative;
+								    top: 80px;
+								    background-color: #FDF5E6;
+								    width: 700px;
+								    margin-left: 50px;
+								    padding: 10px;">
+									<h2  style="font-color:	#646464; display: inline;">LiClass Reservation</h2>
+								    	<a id = "CloseBtn" />
+								    	<button type="button" class="btn-close" aria-label="Close" style="display: inline; float: right;  margin-top: 5px;  margin-right: 5px;"></button>
+								</div>
+					
+					
 					<div class="elegant-calencar d-md-flex" style="margin: 70px auto;">
 				      <div class="calendar-wrap" style="background:#FDF5E6;box-shadow:none;"><!-- 캘린더 부분 -->
 				      	<div class="w-100 button-wrap">
@@ -356,7 +376,6 @@
 				      <%--============================================================================= --%>
 				      
 				      <div class="wrap-header d-flex align-items-center img" style="background:#FAEBCD">
-						     <p id="reset" style="display: hidden">Today</p>
 						     
 						     <div class="accordion" id="accordionPanelsStayOpenExample"><!-- accordion 시작 -->
 								 <div class="accordion-item"> <!-- accordion-item1  -->

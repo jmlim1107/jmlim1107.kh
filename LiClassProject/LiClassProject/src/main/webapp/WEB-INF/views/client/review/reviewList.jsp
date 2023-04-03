@@ -102,26 +102,26 @@
 	                  	<div class="single-progress-bar">
 	                    	<div class="rating-text"> 4 <i class="fa fa-star" aria-hidden="true"></i> </div>
 	                    	<div class="progress">
-	                      		<div id = "bar4" class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+	                      		<div id = "bar4" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 	                    	</div>
 	                   		<span class="rating-value">${tongRating.RATING4}</span>
 	                   	</div>
 		                <div class="single-progress-bar">
 		                    <div class="rating-text"> 3 <i class="fa fa-star" aria-hidden="true"></i> </div>
 		                    <div class="progress">
-		                      <div id = "bar3"  class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+		                      <div id = "bar3"  class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 		                    </div>
 		                    <span class="rating-value">${tongRating.RATING3}</span> </div>
 	                  	<div class="single-progress-bar">
 	                    	<div class="rating-text"> 2 <i class="fa fa-star" aria-hidden="true"></i> </div>
 	                    	<div class="progress">
-	                      		<div id = "bar2"  class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+	                      		<div id = "bar2"  class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 	                   		</div>
                     		<span class="rating-value">${tongRating.RATING2}</span> </div>
 	                  	<div class="single-progress-bar">
 	                    	<div class="rating-text"> 1 <i class="fa fa-star" aria-hidden="true"></i> </div>
 	                    	<div class="progress">
-	                      		<div id = "bar1"  class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="80" aria-valuemax="100"></div>
+	                      		<div id = "bar1"  class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="80" aria-valuemax="100"></div>
 	                    	</div>
 	                    	<span class="rating-value">${tongRating.RATING1}</span> </div>
 	                	</div>
@@ -143,7 +143,7 @@
 						<option value="b_title">제목</option>
 						<option value="b_content">내용</option>
 					</select>
-					<input id = "keyword" name = "keyword" class="form-control me-2" type="text" placeholder="Contents Search...." aria-label="Search">
+					<input id = "keyword" name = "keyword" class="form-control me-2" type="text" placeholder="Contents Search...." aria-label="Search" style="width: 80%;">
 					<button id = "searchData" class="btn btn-dark col" type="button">Search</button>
 				</div>
 

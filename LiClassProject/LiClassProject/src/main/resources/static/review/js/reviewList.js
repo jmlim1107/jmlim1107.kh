@@ -92,7 +92,7 @@ $(function(){
 
 			
 			//console.log("예약번호 : "+$(this).parent("div").data("data-rnum")); 
-			console.log("예약 번호 : "+$("#r_nnumber").val());
+			console.log("예약 번호 : "+$("#r_number").val());
 			
 			$.ajax({
 				type : "post",
@@ -122,11 +122,11 @@ $(function(){
 		$("#reviewUpdateBtn").click(function(e){
 
 			console.log("업데이트 버튼 클릭완료");
-			$("#reviewupdate_no").val($("#review_no").val());
+			$("#reviewupdate_no").val($("#reviewupdate_no").val());
 			$("#r_no").val($("#r_number").val());
 			
 			
-			console.log("리뷰 번호 : " + $("#review_no").val());
+			console.log("리뷰 번호 : " + $("#reviewupdate_no").val());
 			console.log("예약 번호 : " + $("#r_number").val());
 			
 			//console.log('수정폼 번호'+$("#reviewupdate_no").val());	
@@ -172,6 +172,7 @@ $(function(){
 				$("#dataForm").attr("action",goUrl);
 				$("#dataForm").submit();
 			}
+			alert("삭제가 완료되었습니다.");
 		});
 		 
 	 	 /****************************************

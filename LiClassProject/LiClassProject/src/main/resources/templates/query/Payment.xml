@@ -7,23 +7,11 @@
       select * from li_user
       where user_no = #{user_no}
    </select>
-   
-   <select id="getClassInfo" parameterType="int" resultType="c_class">
-      select * from li_class
-      where c_no = #{c_no}
-   </select>
-   
+
    <select id="getReserveInfo" parameterType="int" resultType="reserve">
       select * from li_reserve
       where r_no = #{r_no}
-   </select>
-   
-   <select id="getEpisodeInfo" parameterType="int" resultType="episode">
-      select * from li_episode
-      where ep_no = #{ep_no}
-   </select>
-   
-   
+   </select>   
    
    <!-- 결제 테이블 저장(insert) -->
    <insert id="inserPayment" parameterType="payment">

@@ -126,6 +126,11 @@ public class ReviewServiceImpl implements ReviewService {
 		return result;
 	}
 
+	@Override
+	public void changeReviewStatus2(int r_no) {
+		reviewDao.changeReviewStatus2(r_no);	
+	}
+
 	
 	 
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.liclass.admin.management.center.service.CenterService;
@@ -140,16 +141,5 @@ public class ClientClassController { //은아,지민,경민
 		
 		return "mypage/updateForm";
 	}
-	
-	
-	/* 예약하기 
-	@GetMapping("/admin/episode/goReserve")
-	public String goReserve(@RequestParam int c_no, HttpSession session, Model model) {
-		log.info("예약페이지로 넘어갑니다...");
-		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-	    model.addAttribute("loginUser",loginUser);
-		return "reserve/reserve";
-	}*/
-	
 	
 }

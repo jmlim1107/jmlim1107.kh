@@ -23,15 +23,12 @@
 		html, body {
 	    	height: 100%
 		}
-		
 		#wrap {
-		    min-height: calc(100&-120px);
+		    min-height: calc(100%-120px);
 		    position: relative;
 		    padding-bottom: 60px;
 		}
 		.footer{
-		  bottom: 0;
-		  position: absolute;
 		  height: 60px;
 		  width: 100%;
 		  padding: 0 25px;
@@ -52,7 +49,7 @@
 		    	<tiles:insertAttribute name="nav" />
 		    </nav>
    		</div>
-   		<footer class="footer">
+   		<footer class="footer" style="margin-top: 30%;">
 			      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
 			        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
 			        <li class="nav-item"><a href="/class/classList" class="nav-link px-2 text-muted">Classes</a></li>
@@ -61,18 +58,8 @@
 			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
 			      </ul>
 			      <p class="text-center text-muted">© 2022 Company, Kh정보교육원</p>
-			</footer>
+		</footer>
 <!-- 하단 script 시작==============================================================================================-->
-
-	<!-- mainTheme --> 
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-	<script src="/resources/client/mainTheme/js/bootstrap.min.js"></script> 
-	<script src="/resources/client/mainTheme/js/jquery.flexslider-min.js"></script> 
-	<script src="/resources/mainTheme/js/retina.min.js"></script> 
-	
-	<script src="/resources/client/mainTheme/js/modernizr.js"></script> 
-	<script src="/resources/client/mainTheme/js/main.js"></script> -->
-	
 	<!-- login --> 
 	<!--===============================================================================================-->
 	<script src="/resources/client/login/vendor/jquery/jquery-3.2.1.min.js"></script>

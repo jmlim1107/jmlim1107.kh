@@ -36,6 +36,8 @@ public interface ReviewService {
 		public void changeReviewStatus(int rno);
 
 		public ReviewVO updateFormToRno(ReviewVO detail);
+
+		public void changeReviewStatus2(int r_no);
 		
 		
 }
