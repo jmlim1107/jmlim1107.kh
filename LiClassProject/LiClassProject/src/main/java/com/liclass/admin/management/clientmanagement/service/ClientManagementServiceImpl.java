@@ -27,7 +27,10 @@ public class ClientManagementServiceImpl implements ClientManagementService {
 		int result = clientManagementDao.clientListCnt(uservo);
 		return result;
 	}
-	
-	
-	
+
+	@Override
+	public void outClient(long user_no) {
+		clientManagementDao.outClient(user_no);		
+	}
+
 }
