@@ -34,6 +34,17 @@
 <script type="text/javascript" src="/resources/reserve/js/reserve.js"></script>
 <script type="text/javascript">
 	$(function(){
+		/*모달 열리기전 로그인여부 체크체크 */
+		$('a[href="#reserve-modal"]').click(function(e) {
+			  //console.log("로그인내역 : " + "${loginUser.user_no }" );
+		      e.preventDefault();
+			  if( '${loginUser.user_no }' == "" ){
+		    	  alert("로그인 후 이용해주세요.");
+		      }  else {
+		    	$(this).attr('rel', 'modal:open');
+		      }
+		}); 
+		
 		let c_no = ${param.c_no};
 		//-------1) 각 td에 온전한 날짜값을 부여--------//
 		insertDate();											//1. 페이지 로딩과 동시에 insertDate 처리(1회)
