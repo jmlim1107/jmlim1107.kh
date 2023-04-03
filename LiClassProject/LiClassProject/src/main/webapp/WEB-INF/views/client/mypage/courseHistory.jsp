@@ -55,9 +55,9 @@
                   <tr>
                      <th data-value="b_num" class="order text-center col-md-3">클래스정보</th>
                      <th class="text-center col-md-2">수강일자</th>
-                     <th class="text-center col-md-2">카테고리</th>
+                     <th class="text-center col-md-1">카테고리</th>
                      <th class="text-center col-md-1">난이도</th>
-                     <th class="text-center col-md-1">지역</th>
+                     <th class="text-center col-md-3">주소</th>
                      <th class="text-center col-md-1">후기</th>
                   </tr>
                </thead>
@@ -74,7 +74,7 @@
                            <td>${courseList.date }</td>
                            <td>${ courseList.category }</td>
                            <td>${ courseList.level }</td>
-                           <td>${ courseList.area }</td> 
+                           <td>${ courseList.ct_addr },<br>${ courseList.ct_detail_addr }</td> 
                            
                            <c:if test="${courseList.count >= 0}">
                            		<td>수강전</td>
