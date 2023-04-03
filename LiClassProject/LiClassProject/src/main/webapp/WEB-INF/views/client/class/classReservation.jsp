@@ -40,6 +40,7 @@
 		      e.preventDefault();
 			  if( '${loginUser.user_no }' == "" ){
 		    	  alert("로그인 후 이용해주세요.");
+		    	  $(this).attr('rel', 'modal:close');
 		      }  else {
 		    	$(this).attr('rel', 'modal:open');
 		      }
