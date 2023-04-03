@@ -27,7 +27,12 @@
                   <h5 class="fw-bolder goClassDetail" data-num="${classes.c_no}">${classes.c_title}</h5>
                   <!-- Product reviews-->
                   <div class="d-flex justify-content-center small text-warning mb-2">
-                      <div class="bi-star-fill">평균별점 추후에 작업 예정</div>
+                      <span class="bi-star-fill"></span>
+                      <span class="bi-star-fill"></span>
+                      <span class="bi-star-fill"></span>
+                      <span class="bi-star-fill"></span>
+                      <span class="bi-star-fill"></span>
+                      
                   </div>
                   <div class = "classContent">${classes.c_content}</div>
               	</div>

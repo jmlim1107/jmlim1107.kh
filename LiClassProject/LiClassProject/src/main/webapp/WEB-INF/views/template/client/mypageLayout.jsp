@@ -3,6 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="tiles" uri = "http://tiles.apache.org/tags-tiles" %>
 <%@ include file="/WEB-INF/views/client/client_common.jspf" %>
+
 <%-- 은아) 마이페이지 전용 레이아웃 --%>
 	<title>LiClass :: My page</title>
 	
@@ -49,7 +50,8 @@
 		    	<tiles:insertAttribute name="nav" />
 		    </nav>
    		</div>
-   		<footer class="footer" style="margin-top: 30%;">
+
+   		<footer class="footer" style="margin-bottom:30%;">
 			      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
 			        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
 			        <li class="nav-item"><a href="/class/classList" class="nav-link px-2 text-muted">Classes</a></li>

@@ -79,6 +79,7 @@ public class MyPageController { //은아,웅배
 		
 		//문의 조회+페이징처리
 		qvo.setUser_no(loginUser.getUser_no());
+		qvo.setAmount(10);
 		int qnaCnt = mypageService.myQnaCnt(loginUser); 
 		PageDTO qnaPageDto = new PageDTO(qvo,qnaCnt);
 		model.addAttribute("qnaPageMaker",qnaPageDto);

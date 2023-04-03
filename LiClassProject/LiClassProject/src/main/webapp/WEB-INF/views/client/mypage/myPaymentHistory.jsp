@@ -139,7 +139,6 @@ span{justify-content: center;
 	         <div id="paymentList" class="table-height">
 	            <form id="dataForm">
 	               <input type="hidden" name="user_no" value='${loginUser.user_no }'>
-	                <!-- 은아) 0401 웅배야 테이블 너비 늘렸는데 함해보고 없애거나 조정해~~ style="width: 110%;max-width: 110%;" -->
 	               <table summary="결제내역 리스트" class="table table-hover">
 	                  <thead>
 	                     <tr>
@@ -165,33 +164,33 @@ span{justify-content: center;
 	                              <td>${ payment.pay_price }</td>
 	                                   
 	                              <c:choose>
-	                                 <c:when test="${payment.count >=1 and payment.pay_status==0 }">
+	                                 <c:when test="${payment.count >=7 and payment.pay_status==0 }">
 	                                    <td>결제완료/
 	                                       <button type="button" class="btn-default btn-xs payCencelBtn" disabled>환불불가</button>
 	                                            </td>
 	                                      </c:when>
-	                                 <c:when test="${payment.count >=1 and payment.pay_status==1 }">
+	                                 <c:when test="${payment.count >=7 and payment.pay_status==1 }">
 	                                    <td>결제취소</td>
 	                                      </c:when>
-	                                      <c:when test="${payment.count >=1 and payment.pay_status==2 }">
+	                                      <c:when test="${payment.count >=7 and payment.pay_status==2 }">
 	                                    <td>결제실패</td>
 	                                      </c:when>
-	                                      <c:when test="${payment.count >=1 and payment.pay_status==3 }">
+	                                      <c:when test="${payment.count >=7 and payment.pay_status==3 }">
 	                                    <td>환불완료</td>
 	                                      </c:when>
 	            
-	                                      <c:when test="${payment.count < 1 and payment.pay_status==0 }">
+	                                      <c:when test="${payment.count < 7 and payment.pay_status==0 }">
 	                                    <td>결제완료/
 	                                       <button type="button" class="btn-default btn-xs payCencelBtn">환불하기</button>
 	                                            </td>
 	                                      </c:when>
-	                                      <c:when test="${payment.count < 1 and payment.pay_status==1 }">
+	                                      <c:when test="${payment.count < 7 and payment.pay_status==1 }">
 	                                    <td>결제취소</td>
 	                                      </c:when>
-	                                      <c:when test="${payment.count < 1 and payment.pay_status==2 }">
+	                                      <c:when test="${payment.count < 7 and payment.pay_status==2 }">
 	                                    <td>결제실패</td>
 	                                      </c:when>
-	                                      <c:when test="${payment.count < 1 and payment.pay_status==3 }">
+	                                      <c:when test="${payment.count < 7 and payment.pay_status==3 }">
 	                                    <td>환불완료</td>
 	                                      </c:when>
 	                                   </c:choose>                       

@@ -78,4 +78,20 @@ public class QnaBoardServiceImpl implements QnaBoardService{
     }
 
 
+    @Override
+    public QnaBoardVo answerUpdateForm(QnaBoardVo qnaBoard){
+        QnaBoardVo updateData = null;
+        updateData = qnaBoardDao.qnaBoardDetail(qnaBoard);
+
+        return updateData;
+    }
+
+    @Override
+    public int qnaBoardUpdate(QnaBoardVo qnaBoard) {
+        int result = 0;
+
+        result = qnaBoardDao.qnaBoardUpdate(qnaBoard);
+        return result;
+    }
+
 }

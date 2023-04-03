@@ -26,6 +26,11 @@
 					location.href="/";
 				});
 			}
+			function goClass(){
+				$("#goClass").click(function(){
+					location.href="/class/classList";
+				});
+			}
 		</script>
 	</head>
 	<body>
@@ -119,7 +124,7 @@
 			</div>
 			<div style="text-align:center;">
 				<button type="button" class="btn btn-dark" id="goHome" onclick="goHome()">홈으로</button>
-				<button type="button" class="btn btn-dark" id="goClass">클래스 계속보기</button>
+				<button type="button" class="btn btn-dark" id="goClass" onclick="goClass()">클래스 계속보기</button>
 			</div>
 		</div>
 	</body>

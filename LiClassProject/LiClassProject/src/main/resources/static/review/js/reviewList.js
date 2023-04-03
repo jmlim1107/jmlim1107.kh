@@ -86,7 +86,6 @@ $(function(){
 					// json 값을 모달에 설정
 					$("#updateContent").val(data.review_content);
 					$("#updateTitle").val(data.review_title);
-					$("")
 			
 					
 					$("#test3").hide(); 

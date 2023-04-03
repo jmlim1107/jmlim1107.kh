@@ -5,23 +5,14 @@
 <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css">
 <script type="text/javascript">
     $(function(){
-        var title = document.getElementById('qna_title');
-        var content = document.getElementById('qna_content');
-        var category = document.getElementById('qna_category');
-        var state = document.getElementById('qna_top_state_checked');
         /* 저장 버튼 클릭 시 처리 이벤트 */
         $("#answerInsertBtn").click(function(){
-            /*            console.log(title.value);
-                        console.log(content.value);
-                        console.log(category.value);
-                        console.log(state.value);*/
-
 
             if(!chkData("#qna_title", "제목을")) return;
             else if(!chkData("#qna_content", "본문을")) return;
             $("#writeForm").attr({
                 "method" : "post",
-                "action" : "/management/qnaboard/qnaAnswerInsert"
+                "action" : "/management/qnaboard/answerUpdate"
             });
             $("#writeForm").submit();
         })
@@ -31,17 +22,6 @@
             location.href="/management/qnaboard/qnaBoard";
         });
     });
-    function topStateCheck(state){
-        var checked = state.checked;
-        if(checked){
-            state.value = "Y";
-            console.log(state.value);
-        } else{
-            state.value = "N";
-            console.log(state.value);
-        }
-        return state;
-    };
 </script>
 
 <div class="contentContainer container">
