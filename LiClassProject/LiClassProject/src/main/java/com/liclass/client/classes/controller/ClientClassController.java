@@ -130,15 +130,4 @@ public class ClientClassController { //은아,지민,경민
 		
 		return c_img_file;
 	}
-	
-	/************************************************
-	 * 센터 상세정보
-	 * 요청 url : http://localhost:8080/class/clientCenterDetail
-	************************************************/
-	@GetMapping("/class/clientCenterDetail")
-	public String centerDetail(ClientClassVO cvo,Model model) {
-		
-		return "mypage/updateForm";
-	}
-	
 }

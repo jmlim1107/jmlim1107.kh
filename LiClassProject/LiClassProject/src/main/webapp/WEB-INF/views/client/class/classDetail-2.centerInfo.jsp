@@ -23,7 +23,7 @@
 		    </div>
 			<div class="main-white-button" id="map-click" style="margin:5px;">
 				<a href="#"><i class="fa-solid fa-map-pin"></i>${clientClassDetail.c_area}</a>
-				<span style="padding: 12px 25px; font-size: 12px;"><i class="fa-regular fa-circle-check"></i>자세한 주소는 예약내역에서 확인해주세요.</span>
+				<span style="padding: 12px 25px; font-size: 12px;"><i class="fa-regular fa-circle-check"></i>자세한 주소는 수강내역에서 확인해주세요.</span>
 			</div>
 	 	 </div>
 	  </section>
