@@ -90,7 +90,7 @@
 			          <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">후기 작성은 어디서 하나요 ?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
 			          <div id="faq6" class="collapse" data-bs-parent=".faq-list">
 			            <p>
-			              Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+			              로그인 -> 마이페이지 -> 나의 후기에서 작성할 수 있습니다.
 			            </p>
 			          </div>
 			        </li>
