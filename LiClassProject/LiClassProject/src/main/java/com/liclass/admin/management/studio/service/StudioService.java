@@ -7,6 +7,8 @@ import com.liclass.admin.management.studio.vo.StudioVO;
 
 public interface StudioService {
 	public List<StudioVO> studioList(StudioVO svo);/* 검색 포함 리스트 */
+	public List<StudioVO> clientStudioList(StudioVO svo);
+	
 	public int studioListCnt(StudioVO svo);
 	public int studioInsert(StudioVO svo) throws Exception;
 	public StudioVO studioDetail(StudioVO svo);
