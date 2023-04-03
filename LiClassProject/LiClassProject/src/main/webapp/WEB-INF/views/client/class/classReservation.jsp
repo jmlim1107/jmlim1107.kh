@@ -199,7 +199,7 @@
 		});//결제버튼 클릭 종료
 		
 		//모달 닫았을때 선택내용 reset
-		$('#reserve-modal').on('hidden', function (){
+		$('.btn-close').click(function (){
 			console.log("엑스엑스");
 			$("#epListOfDay").each(function(){
 				this.reset();
@@ -207,6 +207,12 @@
 			$("#reservFrm").each(function(){
 				this.reset();
 			});
+			$(".part1").text("날짜를 선택해주세요.");
+			$("#collapseTwo").removeClass("show");
+			$("#collapseThree").removeClass("show");
+			$("#collapseFour").removeClass("show");
+			
+			
 			//#collapseOne, #collapseTwo, #collapseThree, #collapseFour
     	});
 		
@@ -283,7 +289,7 @@
 								    width: 700px;
 								    margin-left: 50px;
 								    padding: 10px;">
-									<h2  style="font-color:	#646464; display: inline;">LiClass Reservation</h2>
+									<h2  style="font-color:	#646464; display: inline;padding: 30px">LiClass Reservation</h2>
 								    	<a id = "CloseBtn" />
 								    	<button type="button" class="btn-close" aria-label="Close" style="display: inline; float: right;  margin-top: 5px;  margin-right: 5px;"></button>
 								</div>

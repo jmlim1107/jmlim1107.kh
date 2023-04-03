@@ -25,4 +25,8 @@ public interface QnaBoardService {
 
     public QnaBoardVo qnaBoardAnswerDetail(QnaBoardVo qnaBoard);
 
+    public QnaBoardVo answerUpdateForm(QnaBoardVo qnaBoard);
+
+    public int qnaBoardUpdate(QnaBoardVo qnaBoard);
+
 }

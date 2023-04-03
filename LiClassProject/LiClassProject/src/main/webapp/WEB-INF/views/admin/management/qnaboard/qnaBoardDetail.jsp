@@ -7,6 +7,8 @@
 <script type="text/javascript">
 
     $(function (){
+
+
         $("#qnaAnswerBtn").click(function(){
             console.log("dddd")
             $("#f_data").attr({
@@ -23,7 +25,16 @@
                 });
                 $("#f_data").submit();
             }
-
+        });
+        $("#qnaAnswerUpdateBtn").click(function (){
+            let qna_no = $(this).attr("data-num");
+            $("#qna_no").val(qna_no);
+            console.log(qna_no);
+           $("#f_data").attr({
+               "method" : "post",
+               "action" : "/management/qnaboard/answerUpdateForm"
+           });
+           $("#f_data").submit();
         });
     });
 
@@ -37,13 +48,13 @@
 </div><!-- End Page Title -->
     <div class="contentContainer container">
         <form name="f_data" id="f_data" method="post">
-            <input type="hidden" name="qna_no" id="qna_no" value="${detail.qna_no}"/>
+            <input type="hidden" name="qna_no" id="qna_no"/>
         </form>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading clearfix">
-                    <h3 class="panel-title pull-left" style="line-height: 2.5;"><strong>[${detail.qna_category}]</strong>&nbsp${detail.qna_title}</h3>
+                    <h3 class="panel-title pull-left" style="line-height: 2.5;"><strong>[${detail.qna_category}]</strong>&nbsp;${detail.qna_title}</h3>
 
                     <div class="pull-right">
                         <c:if test="${empty answerDetail}">
@@ -53,7 +64,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <p><strong>작성자: </strong>${detail.user_name}</p>
+                    <p><strong>작성자: </strong>${detail.admin_name}</p>
                     <p><strong>작성일: </strong>${detail.qna_date}</p>
                     <hr>
                     <div id="collapse2" class="panel-collapse collapse in">
@@ -68,7 +79,7 @@
                             <div class="panel-heading clearfix">
                                 <h4 class="panel-title pull-left" style="line-height: 2.5;"><strong>[${answerDetail.qna_category}]</strong> &nbsp${answerDetail.qna_title}</h4>
                                 <div class="pull-right">
-                                    <button type="button" class="btn btn-success" id="qnaAnswerUpdateBtn">수정</button>
+                                    <button type="button" class="btn btn-success" id="qnaAnswerUpdateBtn" data-num="${answerDetail.qna_no}">수정</button>
                                 </div>
                             </div>
                             <div class="panel-body">

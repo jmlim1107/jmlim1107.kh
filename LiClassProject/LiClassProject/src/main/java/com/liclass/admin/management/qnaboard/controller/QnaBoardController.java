@@ -113,4 +113,32 @@ public class QnaBoardController {
         return "redirect:"+url;
 
     }
+
+    @RequestMapping(value = "/answerUpdateForm")
+    public String updateForm(@ModelAttribute QnaBoardVo qnaBoard, Model model){
+        log.info("updateForm 호출");
+        log.info("qna_no =" + qnaBoard.getQna_no());
+
+        QnaBoardVo detail = qnaBoardService.qnaBoardDetail(qnaBoard);
+        model.addAttribute("detail", detail);
+        QnaBoardVo updateData = qnaBoardService.answerUpdateForm(qnaBoard);
+        model.addAttribute("updateData", updateData);
+
+        return "admin/management/qnaboard/answerUpdateForm";
+    }
+
+    @RequestMapping(value = "/answerUpdate", method = RequestMethod.POST)
+    public String answerUpdate(@ModelAttribute QnaBoardVo qnaBoard, Model model){
+        int result = 0;
+
+        String url = null;
+
+        result = qnaBoardService.qnaBoardUpdate(qnaBoard);
+        if(result == 1){
+            url = "/management/qnaboard/qnaBoard";
+        } else {
+            url = "/management/qnaboard/answerUpdateForm";
+        }
+        return "redirect:"+url;
+    }
 }

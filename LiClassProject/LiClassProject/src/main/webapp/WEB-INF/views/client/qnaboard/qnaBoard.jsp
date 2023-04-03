@@ -6,7 +6,13 @@
 <script type="text/javascript">
     $(function (){
         $("#insertForm").click(function(){
+            let login_user_no = $("#login_user_no").val();
+            if(login_user_no != 0){
             location.href="/client/qnaboard/qnaInsertForm";
+            } else {
+                alert("로그인 후 글쓰기 가능합니다.")
+            }
+
         });
         /* 제목 클릭 시 상세페이지 이동을 위한 처리 이벤트 */
         $(".goDetail").click(function(){
@@ -35,7 +41,7 @@
                     });
                     $("#detailForm").submit();
                 } else {
-                    alert("로그인 후 이용해주세요.");
+                    alert("로그인 하시거나, 자신이 작성한 글만 확인할 수 있습니다.");
                 }
             }
         });
