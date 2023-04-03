@@ -9,7 +9,7 @@
 		<input type="hidden" name="r_no" id="r_number" value="" />
 		<input type="hidden" name="review_no" id="review_number" />
 		
-			<div class="modal" id = "writeModal">
+			<div class="modal" id = "writeModal" style="position:fixed;max-width:100%;">
 			  	<div class="modal_content" id = "writeContent">
 			  	
 			  		<!-- side bar start -->

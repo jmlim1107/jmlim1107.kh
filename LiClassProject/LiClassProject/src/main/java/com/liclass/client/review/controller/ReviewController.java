@@ -204,7 +204,9 @@ public class ReviewController {
 		result = reviewService.reviewDelete(vo);
 		if(result == 1){
 			log.info("삭제성공");
+			reviewService.changeReviewStatus2(vo.getR_no());
 			url="/courseHistory?review_no=" + vo.getReview_no();
+			
 		}else{
 			log.info("삭제실패");
 			url="/courseHistory";

@@ -2,7 +2,6 @@ package com.liclass.client.mypage.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +28,6 @@ import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.mypage.service.MypageService;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
-import com.liclass.client.reserve.vo.ReserveVO;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.file.UserFileUpload;
 //import com.liclass.common.file.FileUploadUtil;
@@ -55,7 +53,7 @@ public class MyPageController { //은아,웅배
 	 * 요청 url : http://localhost:8080/mypage
 	************************************************/
 	@RequestMapping("/mypage")
-	public String mypage(UserVO vo,Model model,HttpSession session,PaymentVO pvo,ClientQnaBoardVO qvo) {
+	public String mypage(UserVO vo,Model model,HttpSession session,PaymentVO pvo,ClientQnaBoardVO qvo,ReviewVO rvo) {
 		
 		/* 은아 */
 		//로그인 세션
@@ -69,13 +67,18 @@ public class MyPageController { //은아,웅배
 		List<ClientClassVO> myLikesList = mypageService.myLikesList(loginUser);
 		model.addAttribute("myLikesList",myLikesList);
 		
-		//후기 조회
-		List<ReviewVO> myReviewList = mypageService.myReviewList(loginUser);
+		//후기 조회+페이징처리
+		rvo.setUser_no(loginUser.getUser_no());
+		rvo.setAmount(3);
+		int reviewCnt = mypageService.myReviewCnt(rvo);
+		PageDTO reviewPageDto = new PageDTO(rvo,reviewCnt);
+		model.addAttribute("reviewPageMaker",reviewPageDto);
+		
+		List<ReviewVO> myReviewList = mypageService.myReviewList(rvo);
 		model.addAttribute("myReviewList",myReviewList);
 		
 		//문의 조회+페이징처리
 		qvo.setUser_no(loginUser.getUser_no());
-
 		int qnaCnt = mypageService.myQnaCnt(loginUser); 
 		PageDTO qnaPageDto = new PageDTO(qvo,qnaCnt);
 		model.addAttribute("qnaPageMaker",qnaPageDto);
