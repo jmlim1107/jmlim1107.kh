@@ -140,7 +140,7 @@
 	      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 		      <c:if test="${loginUser == null}">
 		      		<button type="button" class="main-white-button like" id="loginLike" style="margin: 0px 5px;">
-						<i class="fa-solid fa-heart-circle-plus"></i>  ${clientClassDetail.c_luv}
+						<i class="fa-solid fa-heart-circle-plus" style="margin:0px 5px;"></i>  ${clientClassDetail.c_luv}
 					</button>
 		      </c:if>
 		      <c:if test="${loginUser != null}">
