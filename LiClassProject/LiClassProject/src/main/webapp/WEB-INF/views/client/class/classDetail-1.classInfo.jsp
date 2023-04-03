@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 <%-- 은아) 클래스 상세페이지 탭메뉴1. 클래스정보 --%>	
 	
 <section id="services" class="section services" style="margin:0px; width:100%;">
@@ -12,7 +14,7 @@
           	안녕하세요, ${clientCenterDetail.ct_name} 입니다.  
           	<i class="fa-solid fa-quote-right"></i>
           </h5>
-         	<p>${clientClassDetail.c_content}</p>
+         	${fn:replace(clientClassDetail.c_content, replaceChar, "<br/>")}
           </div>
    	  </div>
     </div>
