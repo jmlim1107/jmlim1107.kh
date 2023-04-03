@@ -92,7 +92,7 @@ $(function(){
 
 			
 			//console.log("예약번호 : "+$(this).parent("div").data("data-rnum")); 
-			console.log("예약 번호 : "+$("#r_nnumber").val());
+			console.log("예약 번호 : "+$("#r_number").val());
 			
 			$.ajax({
 				type : "post",

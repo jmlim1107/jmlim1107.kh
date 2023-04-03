@@ -46,14 +46,14 @@
 		<put-attribute name="body" value="/WEB-INF/views/client/qnaboard/{1}.jsp" />
 	</definition>
 	
-<<<<<<< HEAD
+
 	<!-- 소영 -->
 	<definition name="studio/*" extends="basicTemplate">
 		<!-- <put-attribute name="title" value="스튜디오" /> -->
  		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
 	</definition>
-=======
-<<<<<<< HEAD
+
+
 	<definition name="clienthjgy/studio/*" template="/WEB-INF/views/template/client/studioLayout.jsp">
 		<!-- <put-attribute name="header" value="/WEB-INF/views/template/studioHeader.jsp" /> -->
  		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
@@ -64,12 +64,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/{1}/{2}.jsp" />
 	</definition>
 
-=======
+
 	<definition name="client/studio/*" extends="basicTemplate">
 		<put-attribute name="title" value="스튜디오" />
  		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
 	</definition> 
->>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
->>>>>>> 3cfc9d47250477e57fbbdfbb7e13d9dc26eb73ed
-	
+
 </tiles-definitions>

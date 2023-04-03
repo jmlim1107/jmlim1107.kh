@@ -15,12 +15,9 @@ public interface PaymentDao {
    // 웅배
    // 회원아이디를 통해 회원 정보 가져오기
    public UserVO getUserInfo(long user_no);
-   // 클래스번호를 이용하여 클래스 정보 가져오기
-   public ClientClassVO getClassInfo(int c_no);
    // 예약정보 가져오기
    public ReserveVO getReserveInfo(int r_no);
 
-   public EpisodeVO getEpisodeInfo(int ep_no);
    
    // 결제 테이블 저장
    public int inserPayment(PaymentVO paymentVO);

@@ -6,13 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.liclass.admin.img.vo.AdminClassImgVO;
 import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.mypage.dao.MypageDAO;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
-import com.liclass.client.reserve.vo.ReserveVO;
 import com.liclass.client.review.vo.ReviewVO;
 
 import lombok.Setter;

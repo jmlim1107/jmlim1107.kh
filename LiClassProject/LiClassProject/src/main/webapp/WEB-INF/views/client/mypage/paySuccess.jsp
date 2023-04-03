@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/client/client_common.jspf" %>
+<%-- <%@ include file="/WEB-INF/views/client/client_common.jspf" %> --%>
 		<style>
 			.container{display: flex;
   					   justify-content: center;
@@ -30,10 +30,8 @@
 	</head>
 	<body>
 		<div class="all">
-			<h1 style="text-align:center;font-size:50px;">결제 완료</h1><br>
+			<h1 style="text-align:center;font-size:50px;padding:20px;">결제 완료</h1><br>
 			<div class="container">
-				
-				
 				<div class="bordercss">
 					<div>
 						<div>
@@ -69,10 +67,10 @@
 								</thead>
 								
 								<tbody>
-									<%-- <tr>
+									<tr>
 										<td>클래스 이름</td>
 										<td>${rvo.c_title }</td>
-									</tr> --%>
+									</tr>
 									<tr>
 										<td>예약일</td>
 										<td>${rvo.r_date}</td>
@@ -120,8 +118,8 @@
 				</div>
 			</div>
 			<div style="text-align:center;">
-				<button type="button" class="btn btn-default" id="goHome" onclick="goHome()">홈으로</button>
-				<button type="button" class="btn btn-default" id="goClass">클래스 계속보기</button>
+				<button type="button" class="btn btn-dark" id="goHome" onclick="goHome()">홈으로</button>
+				<button type="button" class="btn btn-dark" id="goClass">클래스 계속보기</button>
 			</div>
 		</div>
 	</body>

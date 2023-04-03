@@ -22,6 +22,12 @@
 			var message = "${message}" ;
 			alert(message);
 		}
+		
+		//웅배)메인화면 redirect 시 전달메시지 있을 때
+		if('${errormsg}' != ""){
+			var message = "${errormsg}" ;
+			alert(message);
+		}
 	})
 </script>
  <body id="page-top" data-spy="scroll" data-target=".side-menu">

@@ -124,129 +124,110 @@ span{justify-content: center;
 </div>
 <!-- 모달창  -->
 
-<div id="portfolio2">
-<div class="thumb">
-   <div class="row" ><!-- 은아)0330 수정 style="height: 632px;" -->
-      <div class="left-text">
-         <h4>결제내역</h4>
-
-         <form id="f_search" name="f_search" class="form-inline">
-            <input type="hidden" name="pageNum" id="pageNum"  value="${ pageMaker.cvo.pageNum }">
-            <input type="hidden" name="amount" id="amount" value="${ pageMaker.cvo.amount }">
-         </form>
-             
-         <%-- ==================== 리스트 시작 ==================== --%>
-         <div id="paymentList" class="table-height">
-            <form id="dataForm">
-               <input type="hidden" name="user_no" value='${loginUser.user_no }'>
-                <!-- 은아) 0401 웅배야 테이블 너비 늘렸는데 함해보고 없애거나 조정해~~ style="width: 110%;max-width: 110%;" -->
-               <table summary="결제내역 리스트" class="table table-hover"  style="width: 140%;max-width: 140%;">
-                  <thead>
-                     <tr>
-                        <th data-value="b_num" class="order text-center col-md-3">상품정보</th>
-                        <th class="text-center col-md-2">결제일자</th>
-                        <th class="text-center col-md-2">결제번호</th>
-                        <th class="text-center col-md-1">주문금액</th>
-                        <th class="text-center col-md-1">주문 상태</th>
-                     </tr>
-                  </thead>
-                    <tbody id="paymentList" class="table-striped">
-                    <!-- 데이터 출력 --><!--   -->
-                  <c:choose>
-                     <c:when test="${ not empty pvo_paymentList }">
-                        <c:forEach var="payment" items="${ pvo_paymentList }" varStatus="status" >
-                           <tr class="text-center" data-num="${ payment.merchant_uid }">
-                              <td style="text-align:left;display:flex; vertical-align: middle;">
-                                 <img src="/uploadLiClass/class/thumbnail/${classImg[status.index] }" style="width:80px;height:80px;object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
-                                 <span style="padding-left:30px;">${ payment.pay_name }</span>
-                              </td>                     
-                              <td class="name">${ payment.pay_date }</td>
-                              <td class="name"><a class="csp" href="#sns-share" rel="modal:open">${ payment.merchant_uid }</a></td>
-                              <td>${ payment.pay_price }</td>
-                                   
-                              <c:choose>
-                                 <c:when test="${payment.count >=1 and payment.pay_status==0 }">
-                                    <td>결제완료/
-                                       <button type="button" class="btn-default btn-xs payCencelBtn" disabled>환불불가</button>
-                                            </td>
-                                      </c:when>
-                                 <c:when test="${payment.count >=1 and payment.pay_status==1 }">
-                                    <td>결제취소</td>
-                                      </c:when>
-                                      <c:when test="${payment.count >=1 and payment.pay_status==2 }">
-                                    <td>결제실패</td>
-                                      </c:when>
-                                      <c:when test="${payment.count >=1 and payment.pay_status==3 }">
-                                    <td>환불완료</td>
-                                      </c:when>
-            
-                                      <c:when test="${payment.count < 1 and payment.pay_status==0 }">
-                                    <td>결제완료/
-                                       <button type="button" class="btn-default btn-xs payCencelBtn">환불하기</button>
-                                            </td>
-                                      </c:when>
-                                      <c:when test="${payment.count < 1 and payment.pay_status==1 }">
-                                    <td>결제취소</td>
-                                      </c:when>
-                                      <c:when test="${payment.count < 1 and payment.pay_status==2 }">
-                                    <td>결제실패</td>
-                                      </c:when>
-                                      <c:when test="${payment.count < 1 and payment.pay_status==3 }">
-                                    <td>환불완료</td>
-                                      </c:when>
-                                   </c:choose>                       
-                                </tr>
-                        </c:forEach>
-                     </c:when>
-                     <c:otherwise>
-                        <tr>
-                           <td colspan="6" class="tac text-center">결제내역이 존재하지 않습니다.</td>
-                        </tr>
-                     </c:otherwise>
-                  </c:choose>
-                  </tbody>
-               </table>
-            </form>
-         </div>
-         <%-- ==================== 리스트 종료 ==================== --%>
-      </div>
-   </div>
-</div>
-</div>
+<div id="portfolio2" style="width:140%">
+	<div class="thumb">
+	   <div class="row"><!-- 은아)0330 수정 style="height: 632px;" -->
+	      <div class="left-text">
+	         <h4>결제내역</h4>
+	
+	         <form id="f_search" name="f_search" class="form-inline">
+	            <input type="hidden" name="pageNum" id="pageNum"  value="${ pageMaker.cvo.pageNum }">
+	            <input type="hidden" name="amount" id="amount" value="${ pageMaker.cvo.amount }">
+	         </form>
+	             
+	         <%-- ==================== 리스트 시작 ==================== --%>
+	         <div id="paymentList" class="table-height">
+	            <form id="dataForm">
+	               <input type="hidden" name="user_no" value='${loginUser.user_no }'>
+	                <!-- 은아) 0401 웅배야 테이블 너비 늘렸는데 함해보고 없애거나 조정해~~ style="width: 110%;max-width: 110%;" -->
+	               <table summary="결제내역 리스트" class="table table-hover">
+	                  <thead>
+	                     <tr>
+	                        <th data-value="b_num" class="order text-center col-md-3">상품정보</th>
+	                        <th class="text-center col-md-2">결제일자</th>
+	                        <th class="text-center col-md-2">결제번호</th>
+	                        <th class="text-center col-md-1">주문금액</th>
+	                        <th class="text-center col-md-1">주문 상태</th>
+	                     </tr>
+	                  </thead>
+	                    <tbody id="paymentList" class="table-striped">
+	                    <!-- 데이터 출력 --><!--   -->
+	                  <c:choose>
+	                     <c:when test="${ not empty pvo_paymentList }">
+	                        <c:forEach var="payment" items="${ pvo_paymentList }" varStatus="status" >
+	                           <tr class="text-center" data-num="${ payment.merchant_uid }">
+	                              <td style="text-align:left;display:flex; vertical-align: middle;">
+	                                 <img src="/uploadLiClass/class/thumbnail/${classImg[status.index] }" style="width:80px;height:80px;object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
+	                                 <span style="padding-left:30px;">${ payment.pay_name }</span>
+	                              </td>                     
+	                              <td class="name">${ payment.pay_date }</td>
+	                              <td class="name"><a class="csp" href="#sns-share" rel="modal:open">${ payment.merchant_uid }</a></td>
+	                              <td>${ payment.pay_price }</td>
+	                                   
+	                              <c:choose>
+	                                 <c:when test="${payment.count >=1 and payment.pay_status==0 }">
+	                                    <td>결제완료/
+	                                       <button type="button" class="btn-default btn-xs payCencelBtn" disabled>환불불가</button>
+	                                            </td>
+	                                      </c:when>
+	                                 <c:when test="${payment.count >=1 and payment.pay_status==1 }">
+	                                    <td>결제취소</td>
+	                                      </c:when>
+	                                      <c:when test="${payment.count >=1 and payment.pay_status==2 }">
+	                                    <td>결제실패</td>
+	                                      </c:when>
+	                                      <c:when test="${payment.count >=1 and payment.pay_status==3 }">
+	                                    <td>환불완료</td>
+	                                      </c:when>
+	            
+	                                      <c:when test="${payment.count < 1 and payment.pay_status==0 }">
+	                                    <td>결제완료/
+	                                       <button type="button" class="btn-default btn-xs payCencelBtn">환불하기</button>
+	                                            </td>
+	                                      </c:when>
+	                                      <c:when test="${payment.count < 1 and payment.pay_status==1 }">
+	                                    <td>결제취소</td>
+	                                      </c:when>
+	                                      <c:when test="${payment.count < 1 and payment.pay_status==2 }">
+	                                    <td>결제실패</td>
+	                                      </c:when>
+	                                      <c:when test="${payment.count < 1 and payment.pay_status==3 }">
+	                                    <td>환불완료</td>
+	                                      </c:when>
+	                                   </c:choose>                       
+	                                </tr>
+	                        </c:forEach>
+	                     </c:when>
+	                     <c:otherwise>
+	                        <tr>
+	                           <td colspan="6" class="tac text-center">결제내역이 존재하지 않습니다.</td>
+	                        </tr>
+	                     </c:otherwise>
+	                  </c:choose>
+	                  </tbody>
+	               </table>
+	            </form>
+	         </div>
+	         <%-- ==================== 리스트 종료 ==================== --%>
+	       
   
 
-  <%-- ==================== 페이징 출력 시작 ====================
-     <div class="pagination">
-        <!-- 이전 바로가기 10개 존재 여부를 prev 필드의 값으로 확인. -->
-        <c:if test="${pageMaker.prev}">
-           <li class="paginate_button previous" style="position:inherit;opacity:inherit;">
-              <a href="${pageMaker.startPage - 1}">Previous</a>
-           </li>
-        </c:if>
-              
-        <!-- 바로가기 번호 출력 -->
-        <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-           <li class="paginate_button  ${pageMaker.cvo.pageNum == num ? 'active':''}" style="position:inherit;opacity:inherit;">
-              <a href="${num}">${num}</a>
-           </li>
-        </c:forEach>
-  
-        <!-- 다음 바로가기 10개 존재 여부를 next 필드의 값으로 확인. -->
-        <c:if test="${pageMaker.next}">
-           <li class="paginate_button next" style="position:inherit;opacity:inherit;">
-              <a href="${pageMaker.endPage + 1 }">Next</a>
-           </li>
-        </c:if> 
-     </div> --%>
-  <%-- ==================== 페이징 출력 종료 ==================== --%> 
-<div class="pagination">
-   <c:if test="${pageMaker.prev}">
-      <a href="${pageMaker.startPage - 1}">&laquo;</a>
-   </c:if>
-   <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-      <a class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active':''} "  data-num="${num}" >${num}</a>
-   </c:forEach>
-   <c:if test="${pageMaker.next}">
-      <a href="${pageMaker.endPage + 1 }">&raquo;</a>
-   </c:if>
+  			<%-- ==================== 페이징 출력 시작 ==================== --%>
+			<div class="pagination">
+			   <c:if test="${pageMaker.prev}">
+			      <a href="${pageMaker.startPage - 1}">&laquo;</a>
+			   </c:if>
+			   <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+			      <a class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active':''} "  data-num="${num}" >${num}</a>
+			   </c:forEach>
+			   <c:if test="${pageMaker.next}">
+			      <a href="${pageMaker.endPage + 1 }">&raquo;</a>
+			   </c:if>
+			</div> 
+			<%-- ==================== 페이징 출력 종료 ==================== --%>
+			</div>
+	   </div>
+	</div>
 </div>
+   
+ 
