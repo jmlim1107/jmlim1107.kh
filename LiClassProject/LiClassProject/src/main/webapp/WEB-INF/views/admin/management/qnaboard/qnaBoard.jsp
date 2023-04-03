@@ -26,11 +26,26 @@
             $("#detailForm").submit();
         });
 
+        $(".listAnswerBtn").click(function() {
+            let qna_no = $(this).parents("tr").attr("data-num");
+            let group_no = $(this).parents("tr").attr("group-num");
+            $("#qna_no").val(qna_no);
+            $("#qna_group").val(group_no);
+            console.log("dddd")
+            $("#detailForm").attr({
+                "method": "post",
+                "action": "/management/qnaboard/qnaAnswerForm/"
+            });
+            $("#detailForm").submit();
+        });
         //리스트에서 삭제버튼 클릭시 동작 이벤트
         $(".listDeleteBtn").click(function (){
             let qna_no = $(this).parents("tr").attr("data-num");
+            let group_no = $(this).parents("tr").attr("group-num");
+
             if(confirm("정말 삭제하시겠습니까?")){
             $("#qna_no").val(qna_no);
+            $("#qna_group").val(group_no);
                 $("#detailForm").attr({
                     "method" : "post",
                     "action" : "/management/qnaboard/qnaBoardDelete"
@@ -94,12 +109,29 @@
                             </c:forEach>
                         <i class="bi bi-arrow-return-right"></i> &nbsp
                         </c:if>
-                                <span class="goDetail">[${qnaBoard.qna_category}]&nbsp ${qnaBoard.qna_title}</span>
+                            <span class="goDetail">[${qnaBoard.qna_category}]&nbsp ${qnaBoard.qna_title}</span>
                         <%--<td class="goDetail text-left">${qnaBoard.qna_title}</td>--%>
-                        <td class="text-center">${qnaBoard.user_name}</td>
+                        <c:choose>
+                            <c:when test="${qnaBoard.admin_no > 0}">
+                                <td class="text-center">${qnaBoard.admin_name}</td>
+                            </c:when>
+                            <c:otherwise>
+                                 <td class="text-center">${qnaBoard.user_name}</td>
+                            </c:otherwise>
+                        </c:choose>
                         <td class="text-center">${qnaBoard.qna_date}</td>
                         <td class="text-center">
-                            <button class="btn btn-success listUpdateBtn">수정</button>
+                            <c:choose>
+                            <c:when test="${qnaBoard.qna_group == qnaBoard.qna_no}">
+
+                            </c:when>
+                                <c:when test="${qnaBoard.qna_group == qnaBoard.qna_no}">
+                                    <button class="btn btn-success listAnswerBtn">답변</button>
+                                </c:when>
+                            <c:otherwise>
+                                <button class="btn btn-primary listUpdateBtn">수정</button>
+                            </c:otherwise>
+                            </c:choose>
                             <button class="btn btn-danger listDeleteBtn">삭제</button>
                         </td>
                     </tr>
