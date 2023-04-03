@@ -38,18 +38,6 @@
 							$(this).addClass("active");
 						}
 					});
-					/* 
-					const headerScrolled = () => {
-					      if (window.scrollY > 100) {
-					    	  $('#header').classList.add('header-scrolled')
-					        $('#profile-thumbnail').classList.add('none')
-					        $(".header-menu").classList.remove('active');
-					      } else {
-					        selectHeader.classList.remove('header-scrolled')
-					      }
-					    }
-					 */
-					
 				});
 			</script>
 			<c:set var="uri" value="${requestScope['javax.servlet.forward.request_uri']}"/>
@@ -73,16 +61,17 @@
 				                <c:if test="${loginUser.user_img != ''}">
 				         			<c:choose>
 						         		<c:when test="${loginUser.user_type eq 0}">
-							         		<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/${loginUser.user_img}" />${loginUser.user_name}님</a>
+						         			<c:if test="${loginUser.user_img == 'default-profile.png'}">
+								         			<a href="/mypage"><img id="profile-thumbnail" src="/resources/client/login/default-profile-black.png" alt="profile"/>${loginUser.user_name}님</a>
+						         			</c:if>
+						         			<c:if test="${loginUser.user_img != 'default-profile.png'}">
+									         		<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/${loginUser.user_img}" />${loginUser.user_name}님</a>
+						         			</c:if>
 					         			</c:when>
 					         			<c:otherwise>
 							         		<a href="/mypage"><img id="profile-thumbnail" src="${loginUser.user_img}"/>${loginUser.user_name}님</a>
 					         			</c:otherwise>
 				         			</c:choose>
-			         			</c:if>
-			         			
-			         			<c:if test="${loginUser.user_img == ''}">
-					         			<a href="/mypage"><img id="profile-thumbnail" src="/uploadLiClass/user/default-profile.png" alt="profile"/>${loginUser.user_name}님</a>
 			         			</c:if>
 				                <li><a class="nav-link scrollto" href="/user/logout">Logout</a></li>
 			                </c:if>
