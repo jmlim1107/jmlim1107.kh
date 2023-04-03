@@ -50,38 +50,54 @@
     <div class="board_view_wrap">
         <div class="board_view">
             <div class="title">
-                ${detail.qna_title}
+                <h3>[${detail.qna_category}]&nbsp;&nbsp;${detail.qna_title}</h3>
                 <div class="info">
                     <dl>
-                        <dt>작성자</dt>
-                        <c:choose>
-                            <c:when test="${detail.admin_no > 0}">
-                                <dd>${detail.admin_name}</dd>
-                            </c:when>
-                            <c:otherwise>
-                                <dd>${detail.user_name}</dd>
-                            </c:otherwise>
-                        </c:choose>
+                        <dt><strong>작성자</strong></dt>
+                        <dd>${detail.user_name}</dd>
                     </dl>
                     <dl>
-                        <dt>작성날짜 : </dt>
+                        <dt><strong>작성날짜</strong>&nbsp;:&nbsp;</dt>
                         <dd>${detail.qna_date}&nbsp;&nbsp;</dd>
                         <c:if test="${not empty detail.qna_date_fix}">
                         <dd>(</dd>
-                        <dt>수정날짜 : </dt>
+                            <dt><strong>수정날짜</strong>&nbsp;:&nbsp;</dt>
                         <dd>${detail.qna_date_fix})</dd>
                         </c:if>
                     </dl>
                 </div>
             </div>
-
             <div class="cont">
                 ${detail.qna_content}
             </div>
-            <div>
-            </div>
         </div>
-
+        <c:choose>
+            <c:when test="${detail.qna_group == answerDetail.qna_group}">
+            <div class="board_view_answer">
+                <div class="title">
+                    <h3>[${answerDetail.qna_category}]&nbsp;&nbsp;${answerDetail.qna_title}</h3>
+                    <div class="info">
+                        <dl>
+                            <dt><strong>작성자</strong>&nbsp;:&nbsp;</dt>
+                                <dd>${answerDetail.admin_name}</dd>
+                        </dl>
+                        <dl>
+                            <dt>작성날짜 : </dt>
+                            <dd>${answerDetail.qna_date}&nbsp;&nbsp;</dd>
+                            <c:if test="${not empty answerDetail.qna_date_fix}">
+                                <dd>(</dd>
+                                <dt><strong>수정날짜</strong>&nbsp;:&nbsp;</dt>
+                                <dd>${answerDetail.qna_date_fix})</dd>
+                            </c:if>
+                        </dl>
+                    </div>
+                </div>
+                <div class="cont">
+                    ${answerDetail.qna_content}
+                </div>
+            </div>
+            </c:when>
+        </c:choose>
         <div class="bt_wrap">
             <button type="button" class="on" id="listBtn">목록</button>
             <button type="button" class="on" id="updateBtn">수정</button>

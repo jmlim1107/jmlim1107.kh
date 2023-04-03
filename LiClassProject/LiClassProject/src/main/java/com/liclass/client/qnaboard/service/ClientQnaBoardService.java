@@ -24,4 +24,6 @@ public interface ClientQnaBoardService {
     public List<QnaBoardVo> noticeBoardList(QnaBoardVo qnaBoard);
     public int noticeBoardCnt(QnaBoardVo qnaBoard);
     public QnaBoardVo noticeBoardDetail(QnaBoardVo qnaBoard);
+
+    public QnaBoardVo qnaBoardAnswerDetail(QnaBoardVo qnaBoard);
 }

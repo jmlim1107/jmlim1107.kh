@@ -15,7 +15,7 @@
         /* 제목 클릭 시 상세페이지 이동을 위한 처리 이벤트 */
         $(".goDetail").click(function(){
             let qna_no = $(this).parents("tr").attr("data-num");
-             let group_no = $(this).parents("tr").attr("group-num");
+            let group_no = $(this).parents("tr").attr("group-num");
             $("#qna_no").val(qna_no);
             $("#qna_group").val(group_no);
             //상세페이지로 이동하기 위해 form 추가 (id : detailForm)
