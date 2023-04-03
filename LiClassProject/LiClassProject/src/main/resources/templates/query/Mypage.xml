@@ -220,7 +220,7 @@
                           inner join li_payment lp on lr.r_no = lp.r_no
                           
           where lp.user_no = #{user_no} and lp.pay_status = 0
-          order by ep_date desc
+          order by ep_date asc
    </select>
    
 	<select id="getClassImg" parameterType="int" resultType="String">
