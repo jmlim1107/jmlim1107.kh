@@ -3,6 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="tiles" uri = "http://tiles.apache.org/tags-tiles" %>
 <%@ include file="/WEB-INF/views/client/client_common.jspf" %>
+
 <%-- 은아) 마이페이지 전용 레이아웃 --%>
 	<title>LiClass :: My page</title>
 	
@@ -49,15 +50,15 @@
 		    	<tiles:insertAttribute name="nav" />
 		    </nav>
    		</div>
-   		<footer class="footer" style="margin-top: 30%;">
-			      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-			        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
-			        <li class="nav-item"><a href="/class/classList" class="nav-link px-2 text-muted">Classes</a></li>
-			        <li class="nav-item"><a href="/studio/studioList" class="nav-link px-2 text-muted">Center</a></li>
-			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-			      </ul>
-			      <p class="text-center text-muted">© 2022 Company, Kh정보교육원</p>
+   		<footer class="footer" id="mypage-footer" style="margin-top: 30%;">
+		      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+		        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+		        <li class="nav-item"><a href="/class/classList" class="nav-link px-2 text-muted">Classes</a></li>
+		        <li class="nav-item"><a href="/studio/studioList" class="nav-link px-2 text-muted">Center</a></li>
+		        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+		        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+		      </ul>
+		      <p class="text-center text-muted">© 2022 Company, Kh정보교육원</p>
 		</footer>
 <!-- 하단 script 시작==============================================================================================-->
 	<!-- login --> 

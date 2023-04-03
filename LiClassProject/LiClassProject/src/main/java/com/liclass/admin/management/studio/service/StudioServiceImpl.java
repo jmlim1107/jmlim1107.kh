@@ -29,6 +29,16 @@ public class StudioServiceImpl implements StudioService {
 		list = studioDao.studioList(svo);
 		return list;
 	}
+	
+	
+	// 클라이언트 스튜디오 글목록 구현
+		@Override
+		public List<StudioVO> clientStudioList(StudioVO svo) {
+			List<StudioVO> list = null;
+			list = studioDao.clientStudioList(svo);
+			return list;
+		}
+	
 
 	// 전체 레코드 수 구현
 	@Override

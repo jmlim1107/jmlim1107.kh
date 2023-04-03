@@ -60,6 +60,8 @@
 	<!-- 힌트(hint): 개발자가 데이터베이스에 어떤 방식으로 실행해 줘야 하는지를 명시하기 때문에 강제성을 부여한다. 
 	     구문: /*+로 시작하고 */ 로 종료된다. /*+ INDEX_DESC(테이블명 인덱스명[기본키 설정시 제약조건명으로 인덱스 자동 생성]) */ -->
 	<!--rownum: SQL이 실행된 결과에 넘버링해준다. -->
+	
+	
 	<select id="studioList" parameterType="studio" resultType="studio">
 		<![CDATA[ 
 		SELECT 
@@ -76,6 +78,14 @@
         	 ) studiolist
     	 WHERE rnum > (#{pageNum} - 1) * #{amount} 
     	 ]]>
+	</select>
+	
+	
+	<select id="clientStudioList" parameterType="studio" resultType="studio">
+		
+		SELECT /*+ INDEX_DESC(li_studio li_studio_pk) */
+        	s_no, s_title, s_content, to_char(s_date,'YYYY-MM-DD') as s_date, s_thumb, s_file
+   		FROM li_studio 
 	</select>
 	
 	
