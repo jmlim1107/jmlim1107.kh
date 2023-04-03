@@ -14,13 +14,12 @@
             let qna_top_state = $(this).parents("div").attr("state-num");
             let user_no = $(this).parents("div").attr("data-user_no");
             let login_user_no = $("#login_user_no").val();
+            let group_no = $(this).parents("div").attr("group-num");
 
-            console.log(login_user_no);
-            console.log(user_no);
             $("#qna_no").val(qna_no);
             $("#qna_top_state").val(qna_top_state);
             $("#user_no").val(user_no);
-
+            $("#qna_group").val(group_no);
             if(qna_top_state == 1){
                 // 로그인한 사용자이거나 qna_top_state 값이 1인 경우 상세페이지로 이동
                 $("#detailForm").attr({
@@ -46,6 +45,7 @@
         <input type="hidden" id="qna_no" name="qna_no"/>
         <input type="hidden" id="user_no" name="user_no"/>
         <input type="hidden" id="qna_top_state" name="qna_top_state"/>
+        <input type="hidden" id="qna_group" name="qna_group"/>
         <input type="hidden" id="login_user_no" name="login_user_no" value="${loginUser.user_no}">
     </form>
 
@@ -67,7 +67,7 @@
                 <c:choose>
                     <c:when test="${not empty qnaBoardList}">
                         <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
-                            <div data-num="${qnaBoard.qna_no}" state-num="${qnaBoard.qna_top_state}" data-user_no="${qnaBoard.user_no}">
+                            <div data-num="${qnaBoard.qna_no}" state-num="${qnaBoard.qna_top_state}" data-user_no="${qnaBoard.user_no}" group-num="${qnaBoard.qna_group}">
                                 <c:choose>
                                     <c:when test="${qnaBoard.qna_top_state > 0}">
                                         <div class="num" ><i class="bi bi-megaphone"></i></div>

@@ -64,8 +64,8 @@
                                 </ul>
                             </div>
 
-                            <div class="card-body" onclick="userStatistics()">
-                                <h5 class="card-title">활성화 계정<span>| <%=today%>&nbsp 기준</span></h5>
+                            <div class="card-body" >
+                                <h5 class="card-title" onclick="userStatistics()">활성화 계정<span>| <%=today%>&nbsp 기준</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                                 <div class="progress mt-3">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
 
@@ -101,8 +101,8 @@
                                 </ul>
                             </div>
 
-                            <div class="card-body" onclick="salesStatistics()">
-                                <h5 class="card-title">전체 매출 통계 <span>| <%=today%>&nbsp 기준</span></h5>
+                            <div class="card-body" >
+                                <h5 class="card-title" onclick="salesStatistics()">전체 매출 통계 <span>| <%=today%>&nbsp 기준</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -110,11 +110,14 @@
                                     </div>
                                     <div class="ps-3">
                                         <%--매출 통계 데이터 삽입--%>
-                                        <h6>&nbsp&nbsp &#8361; ${allSales.ALLSALES}</h6><%--<canvas id="SalesChart" height="40"></canvas>--%>
+                                        <h6>&#8361; ${allSales.ALLSALES}</h6>
+                                            <span class="text-muted small pt-2 ps-1">전일대비</span>
+                                            <span class="text-success small pt-1 fw-bold">8%</span><i class="bi bi-caret-up"></i>
+                                            <%--<canvas id="SalesChart" height="40"></canvas>--%>
                                     </div>
                                 </div>
                                 <div class="progress mt-3">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -137,8 +140,8 @@
                                 </ul>
                             </div>
 
-                            <div class="card-body" onclick="reserveStatistics()">
-                                <h5 class="card-title">전체 예약 통계 <span>| <%=today%>&nbsp 기준</span></h5>
+                            <div class="card-body" >
+                                <h5 class="card-title" onclick="reserveStatistics()">전체 예약 통계 <span>| <%=today%>&nbsp 기준</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -150,7 +153,7 @@
                                     </div>
                                 </div>
                                 <div class="progress mt-3">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
 <%--                                <div class="progress mt-3">
                                     <div class="progress-bar progress-bar-striped bg-success" style="width: 20%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">Step 1</div>
