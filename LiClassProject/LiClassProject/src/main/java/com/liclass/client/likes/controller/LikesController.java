@@ -12,11 +12,9 @@ import com.liclass.client.likes.service.LikesService;
 import com.liclass.client.likes.vo.LikesVO;
 
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Slf4j
-public class LikesController {
+public class LikesController { //은아
 	
 	@Setter(onMethod_ = @Autowired)
 	private LikesService likesService;
@@ -30,18 +28,12 @@ public class LikesController {
 	@ResponseBody
 	@PostMapping("/like")
 	public int like(long user_no,int c_no) {
-		log.info("like() 호출");
 		int checkResult = 0;
 		if(user_no != 0) {
-			log.info("loginUser.user_no: "+user_no);
-			log.info("classList.c_no: "+c_no);
-			
 			LikesVO vo = new LikesVO();
 			vo.setUser_no(user_no);
 			vo.setC_no(c_no);
-			log.info("LikesVO vo : "+vo.toString());
 			checkResult = likesService.checkLikes(vo);
-			log.info("checkResult : "+checkResult);
 		}
 		return checkResult;
 	}
@@ -52,22 +44,23 @@ public class LikesController {
 	************************************************/
 	@ResponseBody
 	@PostMapping("/addLikes")
-	public int addLikes(LikesVO lvo,HttpSession session) {
-		log.info("addLikes() 호출");
-		int result;
-		result = likesService.addLikes(lvo);
+	public int addLikes(int c_no,String user_no,HttpSession session) {
+		long userno = Long.parseLong(user_no);
+		LikesVO lvo = new LikesVO();
+		lvo.setC_no(c_no);
+		lvo.setUser_no(userno);
+		int result = likesService.addLikes(lvo);
 		// 0: 입력실패 1 : 입력성공
 		return result;
 	}
 	
 	/************************************************
-	 * 3.관심클래스 추가 처리
-	 * 요청 url : http://localhost:8080/addLikes
+	 * 3.관심클래스 삭제 처리
+	 * 요청 url : http://localhost:8080/delLikes
 	************************************************/
 	@ResponseBody
 	@PostMapping("/delLikes")
 	public int delLikes(LikesVO lvo,HttpSession session) {
-		log.info("addLikes() 호출");
 		int result;
 		result = likesService.delLikes(lvo);
 		// 0: 삭제실패 1 : 삭제성공

@@ -12,39 +12,67 @@
 </style> 
 <script>
 	$(function(){
-		
 		/* 은아)마이페이지 redirect 시 전달메시지 있을 때 */
 		if('${message}' != ""){
 			var message = "${message}" ;
-			console.log(message);
+			console.log("message : "+message);
 			
 			/* 은아) 비밀번호 만료시 알림 */	
 			if(message == "pwOverExp"){
 					var pwOverExp = getCookie('pwOverExp');
+					console.log("pwOverExp : " +pwOverExp);
 		            if (!pwOverExp) 
 		                popUpAction('pwOverExp');
 			}else
 				alert(message);
+		
+			// 닫기버튼 클릭 이벤트 
+	        $('.btn_close').click(function () {
+	            $(this).parent('.main_notice_pop').fadeOut();
+
+	            // 오늘하루 보지않기 체크 확인 
+	            if ($("input:checkbox[name=today_close1]").is(":checked") == true) {
+	                setCookie00('pwOverExp', "notoday", 1);
+	            }
+
+	            // name으로 해당 팝업창 닫기 
+	            $(this).parent("div[name=" + name + "]").fadeOut();
+	        })
+	        
+		}
+	
+		//마이페이지 로딩 시 activePosition에 따라 보여질 시작메뉴 지정
+		var activePosition = localStorage.getItem("activePosition");
+		console.log("get activePosition : "+activePosition);
+		
+		if(typeof activePosition != "undefined" && activePosition != null && activePosition != ""){
+		      if (!$(this).is("active")) {
+		          $(".naccs .menu div").removeClass("active");
+		          $(".naccs ul .mypageLi").removeClass("active");
+		
+		          $(this).addClass("active");
+		          $(".naccs ul").find(".mypageLi:eq(" + activePosition + ")").addClass("active");
+		          $(".naccs .menu").find(".point:eq(" + activePosition + ")").addClass("active");
+		
+		          var listItemHeight = $(".naccs ul")
+		            .find(".mypageLi:eq(" + activePosition + ")")
+		            .innerHeight();
+		          $(".naccs ul").height(listItemHeight + "px");
+		        }
 		}
 	});
 </script>
+<div id="gotop"></div>
 	<!--은아) 비밀번호 만료알림창  -->
 	<!--password expiration alert modal start  -->
-	<div class="modal" id="pwOverExp-modal" >
-	   <a id="kakao-link-btn" href="javascript:kakaoShare()"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
-	   <a id="twitter-link-btn" href="javascript:shareTwitter()"><i class="fa-brands fa-twitter"></i></a>
-	   <a id="facebook-link-btn" href="javascript:shareFacebook()"><i class="fa-brands fa-facebook-f" style="color:#415893;"></i></a>
-	   <a id="naver-link-btn" href="javascript:shareNaver()" ><i class="fa-solid fa-n" style="color:#5ECC69;"></i></a>
-	   <a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555;"></i></a>
-	</div>
-	<div class="main_notice_pop" name="pwOverExp" style="position:fixed; left:60%; top:10%; display:none; z-index:999;">
+	<div class="main_notice_pop" name="pwOverExp" style="position:fixed; left:60%; top:25%; display:none; z-index:1;">
 	    <div id="alert-popup" style="">
 	    	<h3><i class="fa-solid fa-bell" style="font-size: 16px;"></i> ${loginUser.user_name}님, </h3>
 	    	<p>비밀번호 변경일로부터 90일이 경과되었습니다.</p> 
 	    	<p>소중한 개인정보를 보호하기 위해 안전한 <br/>비밀번호로 변경해 주세요.</p>
 	    </div>         
 	    <a href="#" class="btn_close"><i class="fa-solid fa-circle-xmark" style="font-size: 20px; color:black;"></i></a> <br> 
-	    <input type="checkbox" name="today_close1" /> 오늘만 이 창을 열지 않음
+	    <label class="nottoday"><input type="checkbox" class="nottoday" name="today_close1" /> 오늘만 이 창을 열지 않음</label>
 	</div> 
 	<!--password expiration alert modal end  -->  
 	
@@ -62,7 +90,7 @@
 		           <div class="grid">
 		             <div class="row">
 		             
-		               <div class="col-lg-3">
+		               <div class="col-lg-3" style="margin-top : -49px;">
 		                 <div class="menu">
 		                   <div class="first-thumb active point">
 		                  	<div class="thumb">

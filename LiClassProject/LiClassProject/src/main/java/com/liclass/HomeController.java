@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.liclass.client.classes.service.ClientClassService;
 
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Slf4j
 public class HomeController {
 	@Setter(onMethod_ = @Autowired)
 	private ClientClassService classService;
@@ -25,8 +23,6 @@ public class HomeController {
 	************************************************/
 	@GetMapping("/")
 	public String home(Locale locale, Model model) {
-		log.info("home() 호출");
-
 		return "home";
 	}
 	
@@ -36,8 +32,6 @@ public class HomeController {
 	************************************************/
 	@GetMapping("/team")
 	public String team() {
-		log.info("team() 호출");
-
 		return "team";
 	}
 }

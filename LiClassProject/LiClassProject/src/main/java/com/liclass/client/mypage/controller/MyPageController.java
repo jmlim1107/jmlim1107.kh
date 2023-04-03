@@ -36,11 +36,9 @@ import com.liclass.common.file.UserFileUpload;
 import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Slf4j
-public class MyPageController {
+public class MyPageController { //은아,웅배
 	@Setter(onMethod_ = @Autowired)
 	private UserService userService;
 	@Setter(onMethod_ = @Autowired)
@@ -58,7 +56,6 @@ public class MyPageController {
 	************************************************/
 	@RequestMapping("/mypage")
 	public String mypage(UserVO vo,Model model,HttpSession session,PaymentVO pvo,ClientQnaBoardVO qvo) {
-		log.info("mypage() 호출");
 		
 		/* 은아 */
 		//로그인 세션
@@ -69,7 +66,6 @@ public class MyPageController {
 		}
 		
 		//관심클래스 조회
-		log.info("loginUser : " +loginUser.toString());
 		List<ClientClassVO> myLikesList = mypageService.myLikesList(loginUser);
 		model.addAttribute("myLikesList",myLikesList);
 		
@@ -77,22 +73,18 @@ public class MyPageController {
 		List<ReviewVO> myReviewList = mypageService.myReviewList(loginUser);
 		model.addAttribute("myReviewList",myReviewList);
 		
-		//문의 조회
+		//문의 조회+페이징처리
 		qvo.setUser_no(loginUser.getUser_no());
-		log.info("qvo.getAmount : "+qvo.getAmount());
-		log.info("qvo.getPageNum : "+qvo.getPageNum());
 
 		int qnaCnt = mypageService.myQnaCnt(loginUser); 
 		PageDTO qnaPageDto = new PageDTO(qvo,qnaCnt);
 		model.addAttribute("qnaPageMaker",qnaPageDto);
-		log.info("qnaPageDto.getCvo().getPageNum() : "+qnaPageDto.getCvo().getPageNum());
 
 		List<ClientQnaBoardVO> myQnaList = mypageService.myQnaList(qvo);
 		model.addAttribute("myQnaList",myQnaList);
 		
 		//비밀번호 만료 알림
 		int result = userService.checkPwExp(loginUser);
-		log.info("checkPwExp result : " +result);
 		if(result>90) {
 			model.addAttribute("message", "pwOverExp");
 		}
@@ -143,13 +135,13 @@ public class MyPageController {
 	 * 
 	 * return "liuser/mypage/courseHistory"; }
 	 */
+	
 	/************************************************
 	 * 2.회원정보 수정화면
 	 * 요청 url : http://localhost:8080/mypage/updateForm
 	************************************************/
 	@GetMapping("/mypage/updateForm")
 	public String updateForm() {
-		log.info("updateForm() 호출");
 		return "client/mypage/updateForm";
 	}
 	
@@ -160,11 +152,8 @@ public class MyPageController {
 	@ResponseBody
 	@PostMapping("/checkPw")
 	public int checkPw(UserVO vo, Model model) {
-		log.info("checkPw() 호출");
-		log.info("user_email : "+vo.getUser_email()+", user_pw : "+vo.getUser_pw());
 		int checkData = userService.checkPw(vo);
 		model.addAttribute("checkData",checkData);
-		log.info("checkPw() checkData"+checkData);
 		return checkData;
 	}
 	
@@ -176,13 +165,10 @@ public class MyPageController {
 	************************************************/
 	@PostMapping(value ="/mypage/update")
 	public String update(@ModelAttribute UserVO vo,Model model){
-		log.info("update() 호출");
 		
 		String message ="";
 		if(vo != null) {
-			log.info("vo " + vo.toString()); 
 			int result = userService.update(vo);
-			log.info("update result : "+result);
 			
 			if(result == 1) {
 				message = vo.getUser_name()+"님, 새로운 정보로 수정되었습니다.";
@@ -206,10 +192,8 @@ public class MyPageController {
 	************************************************/
 	@PostMapping(value ="/mypage/imgUpdate")
 	public String imgUpdate(@RequestParam("file") MultipartFile file, HttpSession session,Model model)throws Exception{
-		log.info("imgUpdate() 호출");
 		
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		log.info("loginUser : "+loginUser.toString());
 		
 		String originImg = loginUser.getUser_img();
 		if(file != null) {
@@ -227,8 +211,7 @@ public class MyPageController {
 				loginUser.setUser_img(user_img);
 			}
 			
-			int result = mypageService.updateImg(loginUser);
-			log.info("imgUpdate result : "+result);
+			mypageService.updateImg(loginUser);
 		}else {
 			//3. 기본이미지로 변경
 			loginUser.setUser_img("default-profile.png");
@@ -246,10 +229,8 @@ public class MyPageController {
 	************************************************/
 	@GetMapping(value ="/mypage/delImg")
 	public String delImg(HttpSession session,Model model)throws Exception{
-		log.info("delImg() 호출");
 		
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		log.info("loginUser : "+loginUser.toString());
 		
 		String profile = loginUser.getUser_img();
 		//1. 기존 프로필 사진을 서버에서 지운다.
@@ -268,7 +249,6 @@ public class MyPageController {
 	************************************************/
 	@PostMapping("/mypage/unregisterForm")
 	public String unregisterForm() {
-		log.info("unregisterForm() 호출");
 		return "client/mypage/unregisterForm";
 	}
 	
@@ -278,12 +258,9 @@ public class MyPageController {
 	************************************************/
 	@PostMapping("/unregister")
 	public String unregister(@ModelAttribute UserVO vo,Model model,HttpSession session) {
-		log.info("unregister() 호출");
-		log.info("vo " + vo.toString());
 		
 		String message ="";
 		int result = userService.unregister(vo);
-		log.info("unregister result : "+result);
 		
 		if(result == 1) {
 			message = "탈퇴되었습니다. 그동안 LiClass를 이용해주셔서 감사합니다. 다음에 다시 만나요. ";
@@ -332,17 +309,13 @@ public class MyPageController {
 	************************************************/
 	@GetMapping("/mypage/delLikes")
 	public String delLikes(int c_no,Model model,HttpSession session) {
-		log.info("delLikes() 호출 ");
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 		LikesVO lvo = new LikesVO();
 		lvo.setUser_no(loginUser.getUser_no());
 		lvo.setC_no(c_no);
-		log.info("LikesVO lvo : "+lvo.toString());
 		
 		likesService.delLikes(lvo);
 		
 		return "redirect:/mypage";
 	}
-	
-	
 }

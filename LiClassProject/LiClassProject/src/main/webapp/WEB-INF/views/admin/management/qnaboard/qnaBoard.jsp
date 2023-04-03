@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css">
 <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="/resources/include/js/common.js"></script>
+
 <script type="text/javascript">
     $(function(){
 
@@ -12,7 +15,9 @@
         /* 제목 클릭 시 상세페이지 이동을 위한 처리 이벤트 */
         $(".goDetail").click(function(){
             let qna_no = $(this).parents("tr").attr("data-num");
+             let group_no = $(this).parents("tr").attr("group-num");
             $("#qna_no").val(qna_no);
+            $("#qna_group").val(group_no);
             //상세페이지로 이동하기 위해 form 추가 (id : detailForm)
             $("#detailForm").attr({
                 "method" : "get",
@@ -42,21 +47,25 @@
 
 <div class="contentContainer container">
 
-    <h1 class="mt-4">문의게시판 관리</h1>
-    <hr/>
-    <nav class="navbar navbar-light">
-        <div class="container-fluid">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="검색...." aria-label="Search">
-                <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
-            </form>
-            <button type="button" class="btn btn-outline-secondary" id="insertForm">공지사항 작성</button>
-        </div>
-
-    </nav>
+    <div class="pagetitle">
+        <h1>문의사항 관리</h1>
+        <hr />
+        <div class="row">
+            <div class="col-lg-12">
+                <button type="button" class="btn btn-dark rounded-pill btn-lg" id="insertBtn">
+                    <i class="bi bi-cloud-upload"></i>&nbsp;공지사항 등록</button>
+                <!-- 검색영역 -->
+                <!-- 검색 & 페이징을 동시에 처리하기 위한 form = 하나의 cvo저장 -->
+                <form class="form-inline text-right"  id="f_search">
+                    <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}" />
+                    <input type="hidden" name="amount" value="${pageMaker.cvo.amount}" />
+                    <input type="text"  name="keyword"  id="keyword" class="form-control" placeholder="검색내용을 입력해주세요.."/>
+                    <button type="button" class="btn btn-outline-primary btn-lg"  id="searchBtn">Search</button>
+                </form>
 
     <form id="detailForm">
         <input type="hidden" id="qna_no" name="qna_no"/>
+        <input type="hidden" id="qna_group" name="qna_group"/>
     </form>
     <table class="table table-striped">
         <thead>
@@ -73,7 +82,8 @@
         <c:choose>
             <c:when test="${not empty qnaBoardList}">
                 <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
-                    <tr data-num="${qnaBoard.qna_no}">
+                    <c:if test="${qnaBoard.qna_category != '공지'}">
+                    <tr data-num="${qnaBoard.qna_no}" group-num="${qnaBoard.qna_group}">
                         <%--<td class="text-center">${qnaBoard.qna_no}</td>--%>
                             <td class="text-center">${count + status.index + 1}</td>
                         <%--<td class="goDetail text-left">${qnaBoard.qna_title}</td>--%>
@@ -82,9 +92,9 @@
                             <c:forEach begin="1" end="${qnaBoard.qna_indent}">
                                 &nbsp;&nbsp;&nbsp;
                             </c:forEach>
-                        <i class="bi bi-arrow-return-right"></i> [RE] :
+                        <i class="bi bi-arrow-return-right"></i> &nbsp
                         </c:if>
-                                <span class="goDetail">${qnaBoard.qna_category} ${qnaBoard.qna_title}</span>
+                                <span class="goDetail">[${qnaBoard.qna_category}]&nbsp ${qnaBoard.qna_title}</span>
                         <%--<td class="goDetail text-left">${qnaBoard.qna_title}</td>--%>
                         <td class="text-center">${qnaBoard.user_name}</td>
                         <td class="text-center">${qnaBoard.qna_date}</td>
@@ -93,6 +103,7 @@
                             <button class="btn btn-danger listDeleteBtn">삭제</button>
                         </td>
                     </tr>
+                    </c:if>
                 </c:forEach>
             </c:when>
             <c:otherwise>
@@ -103,4 +114,8 @@
         </c:choose>
         </tbody>
     </table>
+            </div>
+        </div>
 </div>
+</div>
+

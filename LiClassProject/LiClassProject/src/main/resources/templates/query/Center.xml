@@ -2,41 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liclass.admin.management.center.dao.CenterDAO">
 	
-
-<!-- 게시판 리스트 기본 조회  
-	<select id="boardList" parameterType="board" resultType="board">
-		SELECT b_num, b_name, b_title, to_char(b_date,'YYYY-MM-DD') as b_date
-		FROM spring_board
-		<where>
-			<if test="search=='b_title'">
-				<![CDATA[ b_title LIKE '%'|| #{keyword} ||'%' ]]>					
-			</if>
-			<if test="search=='b_content'">
-				<![CDATA[ b_content LIKE '%'|| #{keyword} ||'%' ]]>					
-			</if>
-			<if test="search=='b_name'">
-				<![CDATA[ b_name LIKE '%'|| #{keyword} ||'%' ]]>					
-			</if>
-		</where>
-		ORDER BY b_num desc
-	</select> -->
-	
-	<!-- 전체 레코드 수 조회 
-	<select id="boardListCnt" parameterType="board" resultType="int">
-		SELECT count(*) FROM spring_board 
-		<trim prefix=" where (" suffix=")" >
-			<if test="search=='b_title'">
-				<![CDATA[ b_title LIKE '%'|| #{keyword} ||'%' ]]>
-			</if>
-			<if test="search=='b_content'">
-				<![CDATA[ b_content LIKE '%'|| #{keyword} ||'%' ]]>
-			</if>
-			<if test="search=='b_name'">
-				<![CDATA[ b_name LIKE '%'|| #{keyword} ||'%' ]]>
-			</if>
-		</trim>
-	</select> -->
-	
 	<!-- 전체 레코드 수 조회 -->
 	<select id="centerListCnt" parameterType="center" resultType="int">
 		SELECT count(*) FROM li_center 
@@ -95,10 +60,8 @@
 		insert into li_center(ct_bizno, ct_name, ct_opbiz_ym, ct_intro, ct_mainart, ct_zipno, ct_addr, ct_detail_addr, ct_tel, ct_hmpg_addr)
 		values(#{ct_bizno}, #{ct_name}, #{ct_opbiz_ym}, #{ct_intro}, #{ct_mainart}, #{ct_zipno}, #{ct_addr}, #{ct_detail_addr}, #{ct_tel}, #{ct_hmpg_addr})
 	</insert>
-	
-	<!-- 상세 페이지를 위한 게시물 조회 --> <!-- 0328은아 admin-center.xml과 겹쳐서 수정합니다. -->
+	<!-- 상세 페이지를 위한 게시물 조회 -->
 	<select id="centerDetail2" parameterType="center" resultType="center">
-		/* Center - boardDetail */
 		select
 				ct_bizno, ct_name, ct_opbiz_ym, ct_intro, ct_mainart, ct_zipno, ct_addr, ct_detail_addr, ct_tel, ct_hmpg_addr,
 				to_char(ct_date, 'YYYY-MM-DD HH24:MI:SS') as ct_date
@@ -106,7 +69,6 @@
 		where ct_bizno = #{ct_bizno}
 	</select>
 	
-
 	<!-- 게시물 수정 -->
 	<update id="centerUpdate" parameterType="center">
 	/* Center - centerUpdate */
@@ -141,5 +103,15 @@
 	<select id="centerlist2" parameterType="Center" resultType="Center">
 		select * from li_center
 	</select>
+	
+	
+	<!-- 은아) li_class의 ct_bizno로 센터 상세정보 조회 -->
+	<select id="clientCenterDetail" parameterType="String" resultType="center">
+		select  ct_bizno, ct_name, ct_opbiz_ym, ct_intro, ct_mainart, ct_zipno, ct_addr, ct_detail_addr, ct_tel, ct_hmpg_addr,
+				to_char(ct_date, 'YYYY-MM-DD HH24:MI:SS') as ct_date
+		from li_center
+		where ct_bizno = #{ct_bizno}
+	</select>
+	
 	
 </mapper>

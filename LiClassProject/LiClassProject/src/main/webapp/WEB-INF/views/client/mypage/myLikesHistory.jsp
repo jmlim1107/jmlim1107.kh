@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- 마이페이지 4. 나의 관심클래스 -->
+<%-- 은아) 마이페이지 4. 나의 관심클래스--%>	
 <style>
 	.mylikes-img{
 		width:400px;
@@ -17,7 +17,6 @@
 			//은아)삭제 후 새로고침 하고 현재 탭메뉴로 돌아오기위해 localStorage에 activePosition 저장
 			var activePosition = 3;
 			localStorage.setItem("activePosition",activePosition);
-			console.log("set activePosition : "+activePosition);
 			
 			let c_no = $(this).parent(".portfolio-item").data("num");
 			location.href="/mypage/delLikes?c_no="+c_no;
@@ -45,7 +44,7 @@
 											        </div>
 											       	 <img src="/uploadLiClass/class/${likedClass.c_img_file}" class="img-responsive mylikes-img" alt="class-img">
 										        </a>
-	   									        <a class="delete-likes"><i class="fa-solid fa-trash-can"></i></a>
+	   									        <a class="delete-likes" style="cursor: pointer;"><i class="fa-solid fa-heart-circle-minus" style="color:#555;"></i></a>
 									         </div>
 											</c:forEach>
 							              </c:when>

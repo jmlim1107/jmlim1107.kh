@@ -32,12 +32,10 @@ import com.liclass.client.login.service.UserService;
 import com.liclass.client.login.vo.UserVO;
 
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Slf4j
 @SessionAttributes("loginUser")
-public class LoginController {
+public class LoginController { //은아
 	
 	@Setter(onMethod_ = @Autowired)
 	private UserService userService;
@@ -58,7 +56,6 @@ public class LoginController {
 	************************************************/
 	@GetMapping("/user/signupForm")
 	public String signupForm() {
-		log.info("signupForm() 호출");
 		return "client/login/signupForm";
 	}
 	
@@ -70,18 +67,14 @@ public class LoginController {
 	************************************************/
 	@PostMapping(value ="/user/signup", produces="application/text; charset=UTF-8;")
 	public String signup(@ModelAttribute UserVO vo,Model model) throws UnsupportedEncodingException, MessagingException {
-		log.info("signup() 호출");
 		String message ="";
 		int result = userService.signup(vo);
-		log.info("signup result : "+result);
 		
 		if(result == 1) {
 			mailService.sendEmail(mailService.welcomeMessage(vo));
 			message = "환영합니다, "+vo.getUser_name()+"님";
 			UserVO loginUser = userService.login(vo);
-			log.info("vo : " +vo.toString());
 			model.addAttribute("loginUser", loginUser);
-			log.info("loginUser : " +loginUser.toString());
 			
 			model.addAttribute("message", message);
 			model.addAttribute("url", "/");
@@ -100,7 +93,6 @@ public class LoginController {
 	@ResponseBody
 	@PostMapping("/mailCertify")
 	public String mailCertify(@RequestParam("email") String email,Model model) throws Exception {
-		log.info("mailCertify() 호출");
 		String authoKey ="";
 		
 		int result = userService.checkEmail(email);
@@ -120,7 +112,6 @@ public class LoginController {
 	************************************************/
 	@GetMapping("/user/userTerms")
 	public String userTerms() {
-		log.info("userTerms() 호출");
 		return "client/login/userTerms";
 	}
 	
@@ -130,7 +121,6 @@ public class LoginController {
 	************************************************/
 	@GetMapping("/user/userPolicy")
 	public String userPolicy() {
-		log.info("userPolicy() 호출");
 		return "client/login/userPolicy";
 	}
 	
@@ -140,7 +130,6 @@ public class LoginController {
 	************************************************/
 	@GetMapping("/user/userFindpw")
 	public String userFindpw() {
-		log.info("userFindpw() 호출");
 		return "client/login/userFindpw";
 	}
 	
@@ -151,7 +140,6 @@ public class LoginController {
 	@ResponseBody
 	@PostMapping("/findEmail")
 	public String findEmail(@RequestParam("email") String email,Model model) throws Exception {
-		log.info("findEmail() 호출");
 		String result ="";
 		
 		int check = userService.findEmail(email);
@@ -162,7 +150,6 @@ public class LoginController {
 		}else {
 			result = "error";
 		}
-		log.info("result : "+result);
 		return result;
 	}
 	
@@ -172,17 +159,14 @@ public class LoginController {
 	************************************************/
 	@PostMapping("/findPw")
 	public String findPw(@RequestParam("user_email") String user_email,Model model) throws Exception{
-		log.info("findPw() 호출");
 		
 		String user_pw = mailService.createKey();
-		log.info("임시비밀번호 user_pw : "+user_pw);
 		
 		UserVO pwUpdateVo= new UserVO();
 		pwUpdateVo.setUser_email(user_email);
 		pwUpdateVo.setUser_pw(user_pw);
 		
 		int result = userService.updatePw(pwUpdateVo);
-		log.info("임시비밀번호로 수정결과 result : "+result);
 		
 		String message ="";
 		
@@ -206,11 +190,9 @@ public class LoginController {
 	@ResponseBody
 	@RequestMapping("/user/checkIdPw")
 	public int checkIdPw(@ModelAttribute UserVO vo, Model model) {
-		log.info("checkIdPw() 호출");
 		
 		int checkData = userService.checkIdPw(vo);
 		model.addAttribute("checkData",checkData);
-		log.info("checkIdPwd() checkData"+checkData);
 		return checkData;
 	}
 
@@ -220,7 +202,6 @@ public class LoginController {
 	************************************************/
 	@PostMapping("/user/login")
 	public String login(UserVO vo,Model model,RedirectAttributes ras) {
-		log.info("login() 호출");
 		UserVO loginUser = userService.login(vo);
 		
 		if(loginUser != null) {
@@ -228,8 +209,6 @@ public class LoginController {
 		}else {
 			ras.addFlashAttribute("errorMsg", "로그인 실패");
 		}
-		
-		log.info("loginUser : " +loginUser);
 		
 		return "redirect:/";
 	}
@@ -240,15 +219,12 @@ public class LoginController {
 	***********************************************/
 	@RequestMapping(value = "/user/kakaoLogin", method = RequestMethod.GET)
     public String kakaoLogin(@RequestParam String code, HttpSession session,Model model,RedirectAttributes ras) throws IOException {
-			log.info("kakaoLogin() 호출");    
-			log.info("code :: " +code);    
             
             //접속토큰 get
             String snsToken = kakaoService.getReturnAccessToken(code);
             
             //접속자 정보 get
             Map<String, Object> result = kakaoService.getUserInfo(snsToken);
-            log.info("result:: " + result);
             String user_email = (String) result.get("user_email");
             String user_pw = (String) result.get("user_pw");
             String user_name = (String) result.get("user_name");
@@ -259,18 +235,15 @@ public class LoginController {
             
             //로그인 하려는 이메일이 회원테이블에 없을 시 회원가입
             if (userService.SNSLogin(user_email) == null) {
-                log.warn("카카오 신규연동");
                 //새객체에 신규연동한 카카오계정의 정보를 담는다.
                 loginUser.setUser_email(user_email);
                 loginUser.setUser_pw(user_pw);
                 loginUser.setUser_name(user_name);
                 loginUser.setUser_img(user_img);
                 loginUser.setUser_type(user_type);
-                log.info("신규연동한 카카오계정을 담은 UserVO : "+loginUser.toString());
                 
                 //새로 탄생한 UserVO를 테이블에 insert한다.
                 userService.SNSInsert(loginUser);
-                log.info("SNSInsert() 호출");
                 session.setAttribute("loginUser", loginUser);
                 
                 //추후 로그아웃을 위한 setAttribute
@@ -279,15 +252,12 @@ public class LoginController {
             }else if (userService.SNSLogin(user_email) != null) { //기존연동했을 경우
             	UserVO vo = userService.SNSLogin(user_email);
             	loginUser = userService.login(vo);
-            	log.info("login() 호출");
             	  session.setAttribute("loginUser", loginUser);
             	//추후 로그아웃을 위한 setAttribute
             	  session.setAttribute("snsToken", snsToken);
             }else {
             	ras.addFlashAttribute("errorMsg", "로그인 실패");
             }
-            
-            log.info("snsToken(kakao) : "+session.getAttribute("snsToken"));
             
         return "redirect:/";
     }
@@ -302,9 +272,7 @@ public class LoginController {
 	// 네이버 로그인창 호출
 	@RequestMapping(value = "/user/getNaverAuthUrl")
 	public @ResponseBody String getNaverAuthUrl(HttpSession session) throws Exception {
-		log.info("getNaverAuthUrl() 호출");
 	    String reqUrl = naverService.getAuthorizationUrl(session);
-	    log.info("reqUrl :: " + reqUrl);
 	    return reqUrl;
 	}
 	
@@ -315,7 +283,6 @@ public class LoginController {
 	//네이버 로그인 처리
 	 @RequestMapping(value = "/user/naverLogin",method = { RequestMethod.GET, RequestMethod.POST })
 	 public String naverLogin(HttpServletRequest request, HttpServletResponse response,RedirectAttributes ras) throws Exception{
-		 log.info("naverLogin() 호출");
 		 
 		    HttpSession session = request.getSession();
 		    String code = request.getParameter("code");
@@ -331,10 +298,8 @@ public class LoginController {
 
 		    OAuth2AccessToken fullToken;
 		    fullToken = naverService.getAccessToken(session, code, state);
-		    log.info("fullToken(naver) :: "+fullToken);
 		    String snsToken = fullToken.getAccessToken();
 		    String loginInfo = naverService.getUserProfile(session, fullToken);
-		    log.info("loginInfo :: "+loginInfo);
 		    
 		    //JSON 형태로 변환
 		    JSONParser jsonParser = new JSONParser();
@@ -354,21 +319,16 @@ public class LoginController {
 				loginUser.setUser_img(user_img);
 				loginUser.setUser_type(2);
 				
-				log.info("신규연동한 네이버계정 UserVO :: "+loginUser.toString());
-				
 				 //새로 탄생한 UserVO를 테이블에 insert한다.
 	            userService.SNSInsert(loginUser);
-	            log.info("SNSInsert() 호출");
 	            session.setAttribute("loginUser", loginUser);
 	            
 			 }else if (userService.SNSLogin(user_email) != null) { //기존연동했을 경우
 	            	UserVO vo = userService.SNSLogin(user_email);
 	            	loginUser = userService.login(vo);
-	            	log.info("login() 호출");
 	            	session.setAttribute("loginUser", loginUser);
 	            	 
 	            	session.setAttribute("snsToken", snsToken);
-	            	log.info("snsToken(naver) : "+session.getAttribute("snsToken"));
 	            	
 	          }else {
 	            	ras.addFlashAttribute("errorMsg", "로그인 실패");
@@ -383,11 +343,9 @@ public class LoginController {
 		*************************************************/
 		@RequestMapping("/user/logout")
 		public String logout(HttpSession session,Model model) {
-			log.info("logout() 호출");
 			UserVO vo =(UserVO) model.getAttribute("loginUser");
 			if(vo != null) {
 				int user_type = vo.getUser_type();
-				log.info("user_type : "+user_type);
 				if(user_type == 0) { //이메일
 					model.addAttribute("loginUser",null);
 					session.invalidate();

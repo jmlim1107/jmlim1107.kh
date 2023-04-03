@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liclass.client.classes.dao.ClientClassDAO">
-	<!-- 은아  -->
-	<!-- 1. 클래스 리스트  
-	 <select id="clientClassList" resultType="c_class">
-		select a.c_no, a.c_title,a.c_content,a.c_category,a.c_area,b.c_img_file as c_img_file,
-				(select count(*) 
-				from li_likes where c_no = a.c_no) as c_luv
-        from li_class a left join li_class_img b on a.c_no = b.c_no
-	</select> -->
-
+	
 	<!--은아) 클래스 상세조회 -->
 	<select id="clientClassDetail" parameterType="c_class" resultType="c_class">
-			SELECT A.c_no, A.c_title, A.c_content, A.c_category , A.c_area , A.c_luv, A.c_state, to_char(A.c_date, 'YYYY-MM-DD') as c_date, B.c_img_file 
+			SELECT A.c_no, A.c_title, A.c_content,A.c_leadtime,A.c_maxcnt,A.c_mincnt,A.c_category,A.c_level , A.c_area ,A.ct_bizno , A.c_luv, A.c_state, to_char(A.c_date, 'YYYY-MM-DD') as c_date, B.c_img_file 
 			FROM li_class A left outer join
 	    		(select c_no, 
 	        	MAX(DECODE(RID, 1, c_img_file)) c_img_file
@@ -29,40 +21,14 @@
 				where A.c_no = #{c_no}
 				ORDER BY c_no asc
 	</select>
-		<select id="clientClassDetailList" parameterType="c_class" resultType="c_class">
-				select a.c_no, a.c_title,a.c_content,a.c_category,a.c_area,b.c_img_file as c_img_file,
-				(select count(*) 
-				from li_likes where c_no = a.c_no) as c_luv
-        		from li_class a left join li_class_img b on a.c_no = b.c_no
-        		where a.c_no = #{c_no}
-	</select>
 	
-	<!--3. 해당클래스의 센터 상세조회--><!-- 은아)03.29 수정완료  -->
+	<!--은아) 클래스 센터 상세조회-->
 	<select id="clientCenterDetail" resultType="center" parameterType="String">
 		select ct_bizno,ct_name,ct_opbiz_ym,ct_intro,ct_mainart,ct_zipno,ct_addr,
 				ct_detail_addr,ct_tel,ct_hmpg_addr
         from li_center 
         where ct_bizno= #{ct_bizno}
 	</select> 
-	
-	
-		<!--3. 해당클래스의 센터 상세조회--><!-- 은아)03.29 수정완료  -->
-	<select id="getImg" resultType="String" parameterType="int">
-		select c_no, 
-	        	MAX(DECODE(RID, 1, c_img_file)) c_img_file
-	    		from (
-            		SELECT c_no, c_img_file,
-                	ROW_NUMBER() OVER (PARTITION BY c_no ORDER BY c_img_no) RID, 
-                	c_img_no
-                	
-            		FROM li_class_img
-                    where c_no=#{c_no}
-	        	) 
-	    		GROUP BY c_no
-	</select> 
-	
-	
-	
 	
 	<!-- 지민 -->
 	

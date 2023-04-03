@@ -1,3 +1,4 @@
+/* 은아 */
 $(function(){
 		//localStorage.clear();
 		//최근 본 클래스에 추가
@@ -5,7 +6,7 @@ $(function(){
 		var c_no = $(".class-content").data("num");
 		classNo.push(JSON.stringify(c_no));
 		localStorage.setItem("classNo",JSON.stringify(classNo));
-		console.log("localStorage - classNo : "+localStorage.getItem("classNo"));
+		/*console.log("localStorage - classNo : "+localStorage.getItem("classNo"));*/
 	
 		//지도보기 클릭 시 스크롤제어
 		$("#map-click").click(function(e){

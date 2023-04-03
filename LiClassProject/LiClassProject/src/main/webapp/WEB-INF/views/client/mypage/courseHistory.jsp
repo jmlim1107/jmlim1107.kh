@@ -74,8 +74,7 @@
                            <td>${courseList.date }</td>
                            <td>${ courseList.category }</td>
                            <td>${ courseList.level }</td>
-                           <td>${ courseList.area }</td>
-                           
+                           <td>${ courseList.area }</td> 
                            <c:if test="${courseList.count >= 0}">
                            		<td>수강전</td>
                            </c:if>
@@ -93,6 +92,7 @@
 	                              </td>
 	                           </c:if>     
 							</c:if>
+							
                         </tr>
                      </c:forEach>
                   </c:when>

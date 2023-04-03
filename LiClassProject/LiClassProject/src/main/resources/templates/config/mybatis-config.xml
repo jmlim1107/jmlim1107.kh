@@ -4,12 +4,10 @@
 	<typeAliases>
 		<!--은아-->
 		<typeAlias type="com.liclass.client.login.vo.UserVO" alias="User"/>
-		<!--은아)지민과 중복. 삭제예정 <typeAlias type="com.liclass.client.classes.vo.ClientClassVO" alias="ClientClass"/> -->
 		<typeAlias type="com.liclass.client.likes.vo.LikesVO" alias="Likes"/>
 		<typeAlias type="com.liclass.client.review.vo.ReviewVO" alias="Review"/>
 		<typeAlias type="com.liclass.client.qnaboard.vo.ClientQnaBoardVO" alias="ClientQnaBoard"/>
-      	<!-- 은아)소영님과 중복. 삭제예정 <typeAlias type="com.liclass.admin.management.center.vo.CenterVO" alias="Center"/> -->
-		
+		<typeAlias type="com.liclass.client.classes.vo.ClientClassImgVO" alias="ClassImg"/>
 		<!--웅배-->
 		<typeAlias type="com.liclass.client.reserve.vo.ReserveVO" alias="reserve"/>
          <typeAlias type="com.liclass.client.payment.vo.PaymentVO" alias="payment"/>

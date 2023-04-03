@@ -53,6 +53,8 @@ $(function(){
 					$('input[name="review_recommend"]').val([data.review_recommend]);
 			
 					$('input[name="r_no"]').val([data.r_no]);
+					$('input[name="review_no"]').val([data.review_no]);
+					
 					// 모달창 띄우기
 					$("#test3").fadeIn();
 				},
@@ -83,7 +85,11 @@ $(function(){
 		$("#updateFormBtn2").click(function(){
 			//let review_no =  $(this).parent("#tttest").data("num");	
 			//$("#review_no").val(review_no);
+
 			// console.log("글번호 : "+$("#review_number").val()); 
+
+			console.log("글번호 : "+$("#reviewupdate_no").val()); 
+
 			
 			//console.log("예약번호 : "+$(this).parent("div").data("data-rnum")); 
 			console.log("예약 번호 : "+$("#r_nnumber").val());
@@ -101,7 +107,7 @@ $(function(){
 					// json 값을 모달에 설정
 					$("#updateContent").val(data.review_content);
 					$("#updateTitle").val(data.review_title);
-					
+			
 					
 					$("#test3").hide(); 
 					$("#test2").show();
@@ -118,6 +124,7 @@ $(function(){
 	  
 	  	// 업데이트 버튼 클릭 시(post review 버튼)
 		$("#reviewUpdateBtn").click(function(e){
+
 			console.log("업데이트 버튼 클릭완료");
 			$("#reviewupdate_no").val($("#review_no").val());
 			$("#r_no").val($("#r_number").val());
@@ -127,6 +134,13 @@ $(function(){
 			console.log("예약 번호 : " + $("#r_number").val());
 			
 			//console.log('수정폼 번호'+$("#reviewupdate_no").val());	
+
+			/*console.log('예약번호: '+$("#r_number").val());
+			console.log('리뷰번호: '+$("#reviewupdate_no").val());	
+			$("#reviewupdate_no").val($("#reviewupdate_no").val());
+			$("#r_number").val($("#r_number").val());*/
+			
+
 			
 			//입력값 체크
 			if (!chkData("#updateTitle","수정할 제목을"))return;
@@ -165,10 +179,12 @@ $(function(){
 	 	 * 후기 삭제하기
 	 	 *****************************************/
 	 	$("#deleteFormBtn222").click(function(){
+			 
 	 		if(confirm("정말 삭제하시겠습니까?")){
 				goUrl = "/reviewDelete";
-				$("#detailForm").attr("action",goUrl);
-				$("#detailForm").submit();
+				console.log("삭제버튼 눌림");
+				$("#dataForm").attr("action",goUrl);
+				$("#dataForm").submit();
 			}
 		});
 		 

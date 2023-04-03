@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="tiles" uri = "http://tiles.apache.org/tags-tiles" %>
 <%@ include file="/WEB-INF/views/client/client_common.jspf" %>
-
+<%-- 은아) 마이페이지 전용 레이아웃 --%>
 	<title>LiClass :: My page</title>
 	
 	<!-- mypage -->
@@ -21,7 +21,7 @@
 	
 		
   	</head>
-  	<body>
+  	<body id="gotop">
   	
 		<header class="header" style="height: 0;">
 			<tiles:insertAttribute name="header" />

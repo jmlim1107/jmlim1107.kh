@@ -65,4 +65,17 @@ public class QnaBoardServiceImpl implements QnaBoardService{
 
         return result;
     }
+
+    @Override
+    public QnaBoardVo qnaBoardAnswerDetail(QnaBoardVo qnaBoard) {
+        QnaBoardVo answerDetail = null;
+
+        answerDetail = qnaBoardDao.qnaBoardAnswerDetail(qnaBoard);
+        if(answerDetail != null){
+            answerDetail.setQna_content(answerDetail.getQna_content().toString().replaceAll("\n", "<br />"));
+        }
+        return answerDetail;
+    }
+
+
 }

@@ -25,4 +25,6 @@ public interface QnaBoardDao {
     public int qnaAnswerStepUpdate(QnaBoardVo qnaBoard);
 
     public int qnaBoardUpdate(QnaBoardVo qnaBoard);
+
+    public QnaBoardVo qnaBoardAnswerDetail(QnaBoardVo qnaBoard);
 }

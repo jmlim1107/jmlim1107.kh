@@ -124,7 +124,7 @@
 	<!-- 게시글 삭제 -->
 	<delete id = "reviewDelete" parameterType="review">
 		DELETE FROM Li_review 
-		where r_no = #{r_no}
+		where review_no = #{review_no}
 	</delete>
 
 

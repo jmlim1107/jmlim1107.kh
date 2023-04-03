@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- 마이페이지 - 5. 나의 문의내역 -->	
+<%-- 은아) 마이페이지 5. 나의 문의내역 --%>	
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/myQna.css" />
 <script>
 	$(function(){
@@ -88,7 +88,7 @@
 			                     </c:when>
 			                     <c:otherwise>
 			                        <tr>
-			                           <td colspan="6" class="tac text-center"><i class="fa-solid fa-circle-question"></i>문의내역이 존재하지 않습니다.</td>
+			                           <td colspan="6" class="tac text-center"><i class="fa-solid fa-circle-question"></i>  문의내역이 존재하지 않습니다.</td>
 			                        </tr>
 			                     </c:otherwise>
 			                  </c:choose>

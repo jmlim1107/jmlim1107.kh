@@ -1,4 +1,4 @@
-/*
+/*은아
 
 TemplateMo 564 Plot Listing
 
@@ -914,10 +914,14 @@ Popular Categories
   border-bottom-left-radius: 7px;
 }
 
+/* 지민 mypage category 수정 */
 .popular-categories .naccs .menu div {
+
+
+  margin-left: -20px;
   color: #555;
   font-size: 15px;
-  background-color: #e2e2e252;
+  background-color: #ddd;
   margin-bottom: 1px;
   height: 126px;
   text-align: left;
@@ -1189,6 +1193,8 @@ Page Heading
 Category Post
 ---------------------------------------
 */
+
+
 
 .category-post {
   overflow: hidden;

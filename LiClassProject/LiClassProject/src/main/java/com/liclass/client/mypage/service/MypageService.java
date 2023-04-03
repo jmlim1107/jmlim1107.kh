@@ -11,7 +11,7 @@ import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
 import com.liclass.client.reserve.vo.ReserveVO;
 import com.liclass.client.review.vo.ReviewVO;
 
-public interface MypageService {
+public interface MypageService { //은아,웅배
 	
 		/* 은아 */
 		//1. 나의 관심클래스 조회
@@ -31,13 +31,6 @@ public interface MypageService {
 		
 		//6. 프로필사진 수정
 		public int updateImg(UserVO vo)throws Exception;		
-		
-		
-		
-		
-		
-		
-		
 		
 		/* 웅배파트 */
 		// 결제내역

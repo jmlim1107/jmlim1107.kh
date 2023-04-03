@@ -73,8 +73,11 @@
                                     </div>
                                     <div class="ps-3">
                                         <%--계정 통계데이터 삽입--%>
-                                        <h6>&nbsp&nbsp&nbsp${userState.ACTIVEUSER} / ${userState.INACTIVEUSER}</h6><canvas id="ActiveUserChart" height="40"></canvas>
+                                        <h6>&nbsp&nbsp&nbsp${userState.ACTIVEUSER} / ${userState.INACTIVEUSER}</h6><%--<canvas id="ActiveUserChart" height="40"></canvas>--%>
                                     </div>
+                                </div>
+                                <div class="progress mt-3">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
 
@@ -107,8 +110,11 @@
                                     </div>
                                     <div class="ps-3">
                                         <%--매출 통계 데이터 삽입--%>
-                                        <h6>&nbsp&nbsp &#8361; ${allSales.ALLSALES}</h6><canvas id="SalesChart" height="40"></canvas>
+                                        <h6>&nbsp&nbsp &#8361; ${allSales.ALLSALES}</h6><%--<canvas id="SalesChart" height="40"></canvas>--%>
                                     </div>
+                                </div>
+                                <div class="progress mt-3">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -140,11 +146,19 @@
                                     </div>
                                     <div class="ps-3">
                                         <%--예약 통계데이터 삽입--%>
-                                        <h6>&nbsp&nbsp ${userReserve.RESERVECHECK} / ${userReserve.RESERVECANCEL}</h6><canvas id="ReserveChart" height="40"></canvas>
+                                        <h6>&nbsp&nbsp ${userReserve.RESERVECHECK} / ${userReserve.RESERVECANCEL}</h6><%--<canvas id="ReserveChart" height="40"></canvas>--%>
                                     </div>
                                 </div>
-
+                                <div class="progress mt-3">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+<%--                                <div class="progress mt-3">
+                                    <div class="progress-bar progress-bar-striped bg-success" style="width: 20%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">Step 1</div>
+                                    <div class="progress-bar progress-bar-striped bg-warning" style="width: 30%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">Step 2</div>
+                                    <div class="progress-bar progress-bar-striped bg-danger" style="width: 50%;" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Step 3</div>
+                                </div>--%>
                             </div>
+
                         </div>
 
                     </div><!-- End Customers Card -->
@@ -257,7 +271,7 @@
         </div>
         <script>
             //활성화 계정 통계 차트
-            var ctx = document.getElementById("ActiveUserChart");
+            /*var ctx = document.getElementById("ActiveUserChart");
             var ActiveUserChart = new Chart(ctx, {
                 type: 'horizontalBar',
                 data: {
@@ -322,11 +336,10 @@
                         }]
                     },
                 }
-            });
+            });*/
 
             //전체 매출 통계 차트
-            var ctx = document.getElementById("SalesChart");
-
+/*            var ctx = document.getElementById("SalesChart");
             var SalesChart = new Chart(ctx, {
                 type: 'horizontalBar',
                 data: {
@@ -391,10 +404,10 @@
                         }]
                     },
                 }
-            });
-            //예약 통계 차트
-            var ctx = document.getElementById("ReserveChart");
+            });*/
 
+            //예약 통계 차트
+            /*var ctx = document.getElementById("ReserveChart");
             var ReserveChart = new Chart(ctx, {
                 type: 'horizontalBar',
                 data: {
@@ -459,7 +472,8 @@
                         }]
                     },
                 }
-            });
+            });*/
+
             //리포트 통계 차트
             var ctx = document.getElementById("ReportChart");
             var ReportChart = new Chart(ctx, {

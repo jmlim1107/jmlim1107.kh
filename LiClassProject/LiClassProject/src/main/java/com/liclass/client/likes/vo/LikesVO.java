@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LikesVO{
+public class LikesVO{ //은아
 	
 		//4개의 필드(컬럼)
 		private int like_no=0;

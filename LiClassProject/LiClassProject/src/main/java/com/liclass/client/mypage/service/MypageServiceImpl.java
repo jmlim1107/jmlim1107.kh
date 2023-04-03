@@ -16,11 +16,9 @@ import com.liclass.client.reserve.vo.ReserveVO;
 import com.liclass.client.review.vo.ReviewVO;
 
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
-public class MypageServiceImpl implements MypageService{
+public class MypageServiceImpl implements MypageService{ //은아,웅배
 	
 		@Setter(onMethod_ = @Autowired)
 		private MypageDAO mypageDao;
@@ -29,7 +27,6 @@ public class MypageServiceImpl implements MypageService{
 		//1. 나의 관심클래스 조회
 		@Override
 		public List<ClientClassVO> myLikesList(UserVO vo) {
-			log.info("myLikesList() 호출");
 			List<ClientClassVO> list = mypageDao.myLikesList(vo);
 			return list;
 		}
@@ -44,7 +41,6 @@ public class MypageServiceImpl implements MypageService{
 		//3. 나의 후기 조회
 		@Override
 		public List<ReviewVO> myReviewList(UserVO vo) {
-			log.info("myReviewList() 호출");
 			List<ReviewVO> list = mypageDao.myReviewList(vo);
 			return list;
 		}
@@ -52,7 +48,6 @@ public class MypageServiceImpl implements MypageService{
 		//4. 나의 문의 조회
 		@Override
 		public List<ClientQnaBoardVO> myQnaList(ClientQnaBoardVO vo) {
-			log.info("myQnaList() 호출");
 			List<ClientQnaBoardVO> list = mypageDao.myQnaList(vo);
 			return list;
 		}
@@ -67,19 +62,11 @@ public class MypageServiceImpl implements MypageService{
 		//5. 프로필 사진 수정
 		@Override
 		public int updateImg(UserVO vo)throws Exception {
-			log.info("updateImg() 호출");
-			
 			int result = mypageDao.updateImg(vo);
 			return result;
 		}
 		
-		
-		
-		
-		
-		
-		
-		
+
 	/* 웅배파트 */
 	// 결제내역 불러오기
 	@Override

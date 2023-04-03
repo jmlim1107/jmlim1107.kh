@@ -1,6 +1,5 @@
 
-	/* 메인화면 floating nav */
-	
+/* 메인화면 floating nav 
 	function isNull(obj){
 		 if(obj == '' || obj == null || obj == undefined || obj == NaN){ 
 		  return true;
@@ -10,19 +9,29 @@
 	}
 	
 	$(function(){
-		
+		/* 로그인 
+		$("#floating-login").click(function(){
+		       $("#login-pop-modal").attr("style", "display:block");
+		       $("#login-pop-modal").attr("style", "display:block");
+		   });
+		  
+		    $("#modal_close_btn").click(function(){
+		       $("#login-pop-modal").attr("style", "display:none");
+		 });
+		    
+		/* 최근 본 클래스 
 		//localStorage.clear();
 		//localStorage.removeItem("classNo");
 		//localStorage.removeItem("activePosition");
-		console.log("activePosition : "+localStorage.getItem("activePosition"));
 		//console.log("localStorage - classNo : "+localStorage.getItem("classNo"));
+		console.log("activePosition : "+localStorage.getItem("activePosition"));
 
-		/* 최근 본 클래스 */
+		/* 최근 본 클래스 
 	 	var imgArr = [];
 		var recetClasses = JSON.parse(localStorage.getItem("classNo") || "[]");
 		if (isNull(recetClasses)) {
-			 $("#recent").append('<span>최근 본 클래스가 없습니다.</span>');
-			 $("#recentDiv").css("display","none");
+			 $("#recentDiv").append('<span style="color:#555;">최근 본 클래스가 없습니다.</span>');
+			 $(".recent-a").css("display","none");
 		 }else{
 			
 			 var recentClasses3 = recetClasses.slice(-3);
@@ -48,9 +57,11 @@
 				            }
 				            ,dataType : 'text',
 				            success: function (c_img_file) {
+								//console.log("c_img_file : "+c_img_file)
+								
 				                imgArr.push(c_img_file);
 				                for(i=0;i<imgArr.length; i++){
-			                	  $(".recent-img:eq("+i+")").css("display","visible");
+			                	 $(".recent-img:eq("+i+")").css("display","grid");
 			                	  $(".recent-img:eq("+i+")").attr("src","/uploadLiClass/class/"+imgArr[i]);
 				                }
 				            },error: function () {
@@ -61,32 +72,23 @@
 		 		}
 		 	}
 		
+		$("#floating-recent").click(function(){
+			let recentCss = $("#recentDiv").css("visibility");
+			console.log(recentCss);
+			if(recentCss == "hidden"){
+				$("#recentDiv").css("visibility","visible");
+			}else{
+				$("#recentDiv").css("visibility","hidden");
+			}
+		});
+		
+		 //최근 본 클래스 삭제
+	    $("#recent-del").click(function(){
+	    	localStorage.removeItem("classNo");
+	    	alert("최근 본 클래스가 삭제되었습니다.");
+	    	location.reload()
+	    });
 		 
-			/* 로그인 */
-			$("#floating-login").click(function(){
-			       $("#login-pop-modal").attr("style", "display:block");
-			       $("#login-pop-modal").attr("style", "display:block");
-			   });
-			  
-			    $("#modal_close_btn").click(function(){
-			       $("#login-pop-modal").attr("style", "display:none");
-			 });
-			    
-		    /* 최근 본 클래스 */
-		    $("#floating-recent").click(function(){
-		    	let recentCss = $("#recent").css("visibility");
-		    	if(recentCss == "hidden"){
-		    		$("#recent").css("visibility","visible");
-		    	}else{
-		    		$("#recent").css("visibility","hidden");
-		    	}
-		    });
-		    
-		    //최근 본 클래스 삭제
-		    $("#recent-del").click(function(){
-		    	localStorage.removeItem("classNo");
-		    	alert("최근 본 클래스가 삭제되었습니다.");
-		    	location.reload()
-		    });
-		    
-    });
+	})
+
+	*/

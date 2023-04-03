@@ -11,12 +11,12 @@
    background-color: #dcdcdc;
    color: #000000	;
    font-weigth: bold;
-   box-shadow: #FDF5DC;
+   /*box-shadow: #FDF5DC;*/
    pointer-events : none;
 }
 .accordion-button:focus {
 	border-color: #FDF5DC;
-    box-shadow: #FDF5DC;
+    /*box-shadow: #FDF5DC;*/
 }
 .moveBtn{
 	margin-top: 20px;
@@ -84,4 +84,7 @@ input[name='sample_cnt']{
 }
 .checkEp {
 	border: 2px solid #DB631F;
+}
+.accordion-item{
+	width: 238px;
 }

@@ -3,66 +3,73 @@
   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-	<!-- 홈화면 -->
+	<!--은아) 홈화면 -->
 	<definition name="home" template="/WEB-INF/views/template/client/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/template/homeBody.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
-	<!-- 기본 -->
+	<!--은아) 지민헤더 -->
 	<definition name="basicTemplate" template="/WEB-INF/views/template/client/clientLayout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
-	<!-- 에러페이지 -->
-	<definition name="common/error/*" extends="basicTemplate">
-		<put-attribute name="body" value="/WEB-INF/views/common/error/{1}.jsp" />
-	</definition>
 	
-	<!-- 팀소개 -->
-	<definition name="team" template="/WEB-INF/views/template/client/clientLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/common/team.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
-	</definition>
-	
-	<!-- 클래스  -->
 	<definition name="class/*" extends="basicTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/client/class/{1}.jsp" />
 	</definition>
-
-	<!-- 마이페이지  -->
-	<definition name="mypageContent" template="/WEB-INF/views/template/client/mypageLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/homeHeader.jsp" />
-		<put-attribute name="nav" value="/WEB-INF/views/template/eunanav.jsp" />
+	
+	
+	<!--은아) 은아헤더 (마이페이지에서 사용) -->
+	<definition name="userContent" template="/WEB-INF/views/template/client/clientLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/template/eunaheader.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/homeFooter.jsp" />
 	</definition>
 	
-	<!-- 은아 -->
-	<definition name="client/*/*" extends="mypageContent">
+	<!--은아) 0330 liuser-> client로 수정 -->
+	<definition name="client/*/*" extends="userContent">
 		<put-attribute name="body" value="/WEB-INF/views/client/{1}/{2}.jsp" />
 	</definition>
 	
-	<!-- 웅배 -->
-	<definition name="courseHistory" extends="mypageContent">
-		<put-attribute name="nav" value="" />
-		<put-attribute name="body" value="/WEB-INF/views/client/mypage/courseHistory.jsp" />
+	<!--은아) 에러페이지 -->
+	<definition name="common/error/*" extends="basicTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/common/error/{1}.jsp" />
 	</definition>
 	
-	<!-- 민섭 -->
-	<definition name="qnaboard/*" extends="basicTemplate">
+
+	<definition name="client/qnaboard/*" extends="userContent">
 		<put-attribute name="title" value="고객센터" />
 		<put-attribute name="body" value="/WEB-INF/views/client/qnaboard/{1}.jsp" />
 	</definition>
 	
+<<<<<<< HEAD
 	<!-- 소영 -->
 	<definition name="studio/*" extends="basicTemplate">
-		<put-attribute name="title" value="스튜디오" /> 
+		<!-- <put-attribute name="title" value="스튜디오" /> -->
  		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
 	</definition>
+=======
+<<<<<<< HEAD
+	<definition name="clienthjgy/studio/*" template="/WEB-INF/views/template/client/studioLayout.jsp">
+		<!-- <put-attribute name="header" value="/WEB-INF/views/template/studioHeader.jsp" /> -->
+ 		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/studioFooter.jsp" />
+	</definition>
+	
+	<definition name="common/*/*" extends="userContent">
+		<put-attribute name="body" value="/WEB-INF/views/common/{1}/{2}.jsp" />
+	</definition>
+
+=======
+	<definition name="client/studio/*" extends="basicTemplate">
+		<put-attribute name="title" value="스튜디오" />
+ 		<put-attribute name="body" value="/WEB-INF/views/client/studio/{1}.jsp" />
+	</definition> 
+>>>>>>> cddd70db3b1711cd9f98db106d7c252fbcd187b6
+>>>>>>> 3cfc9d47250477e57fbbdfbb7e13d9dc26eb73ed
 	
 </tiles-definitions>

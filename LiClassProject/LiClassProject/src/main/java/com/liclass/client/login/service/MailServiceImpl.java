@@ -14,11 +14,9 @@ import org.springframework.stereotype.Service;
 
 import com.liclass.client.login.vo.UserVO;
 
-import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
-public class MailServiceImpl implements MailService {
+public class MailServiceImpl implements MailService { //은아
 	
 	 	@Autowired
 	    JavaMailSender emailSender; 
@@ -44,10 +42,6 @@ public class MailServiceImpl implements MailService {
 	    //회원가입 인증메일 내용
 	    @Override
 	    public MimeMessage creatMessage(String email) throws MessagingException, UnsupportedEncodingException {
-	    	log.info("creatMessage() 호출 ");
-	    	log.info("메일 수신 회원 : " + email);
-	    	log.info("인증번호 : " + authoKey);
-
 	        MimeMessage message = emailSender.createMimeMessage();
 
 	        message.addRecipients(RecipientType.TO, email);
@@ -97,8 +91,6 @@ public class MailServiceImpl implements MailService {
 	    //회원가입 완료메일 내용
 		@Override
 		public MimeMessage welcomeMessage(UserVO vo) throws MessagingException, UnsupportedEncodingException {
-			log.info("welcomeMessage() 호출 ");
-			log.info("신규가입 회원 메일주소 : " + vo.getUser_email());
 
 	        MimeMessage message = emailSender.createMimeMessage();
 
@@ -128,9 +120,6 @@ public class MailServiceImpl implements MailService {
 		//비밀번호 찾기 (임시비밀번호 발급) 이메일 내용
 		@Override
 		public MimeMessage findPwMessage(String temPw,String email) throws MessagingException, UnsupportedEncodingException {
-			log.info("findPwMessage() 호출 ");
-			log.info("수신 메일 주소 : " + email);
-			log.info("임시비밀번호 : " + temPw);
 
 	        MimeMessage message = emailSender.createMimeMessage();
 
@@ -164,6 +153,4 @@ public class MailServiceImpl implements MailService {
 		public void sendEmail(MimeMessage message) {
 			emailSender.send(message);
 		}
-		
-	    
 }
