@@ -23,9 +23,8 @@
 		html, body {
 	    	height: 100%
 		}
-		
 		#wrap {
-		    min-height: calc(100&-120px);
+		    min-height: calc(100%-120px);
 		    position: relative;
 		    padding-bottom: 60px;
 		}
@@ -61,18 +60,8 @@
 			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
 			      </ul>
 			      <p class="text-center text-muted">© 2022 Company, Kh정보교육원</p>
-			</footer>
+		</footer>
 <!-- 하단 script 시작==============================================================================================-->
-
-	<!-- mainTheme --> 
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-	<script src="/resources/client/mainTheme/js/bootstrap.min.js"></script> 
-	<script src="/resources/client/mainTheme/js/jquery.flexslider-min.js"></script> 
-	<script src="/resources/mainTheme/js/retina.min.js"></script> 
-	
-	<script src="/resources/client/mainTheme/js/modernizr.js"></script> 
-	<script src="/resources/client/mainTheme/js/main.js"></script> -->
-	
 	<!-- login --> 
 	<!--===============================================================================================-->
 	<script src="/resources/client/login/vendor/jquery/jquery-3.2.1.min.js"></script>
