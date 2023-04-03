@@ -14,7 +14,24 @@
 %>
 <script type="text/javascript">
     $(function (){
+        var userTotal = ${userState.INACTIVEUSER} + ${userState.ACTIVEUSER}
+        //var salesTotal = ${allSales.ALLSALES}
+        var reserveTotal =${userReserve.RESERVECHECK} + ${userReserve.RESERVECANCEL}
 
+        var userAvg1 = Math.ceil(${userState.ACTIVEUSER} / userTotal * 1000);
+        var userAvg2 = Math.ceil(${userState.INACTIVEUSER} / userTotal * 1000);
+       // var salesAvg1 = Math.ceil(${allSales.ALLSALES} / salesTotal * 1000);
+//        var salesAvg2 = Math.ceil(${allSales.ALLSALES} / userTotal * 1000);
+        var reserveAvg1 = Math.ceil(${userReserve.RESERVECHECK} / reserveTotal * 1000);
+        var reserveAvg2 = Math.ceil(${userReserve.RESERVECANCEL} / reserveTotal * 1000);
+
+
+        $("#userBar1").width(userAvg1);
+        $("#userBar2").width(userAvg2);
+     //   $("#salesBar1").width(salesAvg1);
+//        $("#salesBar2").width(salesAvg2);
+        $("#reserveBar1").width(reserveAvg1);
+        $("#reserveBar2").width(reserveAvg2);
     });
 
     function userStatistics(){
@@ -73,11 +90,16 @@
                                     </div>
                                     <div class="ps-3">
                                         <%--계정 통계데이터 삽입--%>
-                                        <h6>&nbsp&nbsp&nbsp${userState.ACTIVEUSER} / ${userState.INACTIVEUSER}</h6><%--<canvas id="ActiveUserChart" height="40"></canvas>--%>
+                                        <h6>&nbsp;${userState.ACTIVEUSER} / ${userState.INACTIVEUSER}</h6>
+                                            <span class="text-muted small pt-2 ps-1">전일대비</span>
+                                            <span class="text-success small pt-1 fw-bold">8%</span><i class="bi bi-caret-up"></i>
                                     </div>
+
                                 </div>
+
                                 <div class="progress mt-3">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div id="userBar1" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div id="userBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
 
@@ -117,7 +139,8 @@
                                     </div>
                                 </div>
                                 <div class="progress mt-3">
-                                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div id="salesBar1"class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div id="salesBar2"class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -149,17 +172,15 @@
                                     </div>
                                     <div class="ps-3">
                                         <%--예약 통계데이터 삽입--%>
-                                        <h6>&nbsp&nbsp ${userReserve.RESERVECHECK} / ${userReserve.RESERVECANCEL}</h6><%--<canvas id="ReserveChart" height="40"></canvas>--%>
+                                        <h6>&nbsp;${userReserve.RESERVECHECK} / ${userReserve.RESERVECANCEL}</h6>
+                                        <span class="text-muted small pt-2 ps-1">전일대비</span>
+                                        <span class="text-success small pt-1 fw-bold">8%</span><i class="bi bi-caret-up"></i>
                                     </div>
                                 </div>
                                 <div class="progress mt-3">
-                                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div id="reserveBar1" class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div id="reserveBar2" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-<%--                                <div class="progress mt-3">
-                                    <div class="progress-bar progress-bar-striped bg-success" style="width: 20%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">Step 1</div>
-                                    <div class="progress-bar progress-bar-striped bg-warning" style="width: 30%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">Step 2</div>
-                                    <div class="progress-bar progress-bar-striped bg-danger" style="width: 50%;" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Step 3</div>
-                                </div>--%>
                             </div>
 
                         </div>
@@ -273,210 +294,6 @@
             </div><!-- End Left side columns -->
         </div>
         <script>
-            //활성화 계정 통계 차트
-            /*var ctx = document.getElementById("ActiveUserChart");
-            var ActiveUserChart = new Chart(ctx, {
-                type: 'horizontalBar',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: '활성',
-                        data: [200],
-                        backgroundColor: "rgb(153,255,153)",
-                        borderColor: "rgb(153,255,153)",
-                    },
-                        {
-                            label: '탈퇴',
-                            data: [50],
-                            backgroundColor: "rgb(255,204,51)",
-                            borderColor: "rgb(255,204,51)",
-                        }]
-                },
-                options: {
-                    legend:{
-                        display : false
-                    },
-                    responsive: true,
-                    title: {
-                        display: false,
-                        text: 'Report',
-                    },
-                    tooltips: {
-                        enabled: false,
-                        intersect: false,
-                    },
-                    hover: {
-                        mode: 'nearest',
-                        intersect: true
-                    },
-                    scales: {
-                        yAxes: [{
-                            stacked: true,
-                            display: true,
-                            scaleLabel: {
-                                display: false,
-                            },
-                            gridLines :{
-                                display: false,
-                                drawBorder: false,
-                            },
-                        }],
-                        xAxes: [{
-                            stacked: true,
-                            display: true,
-                            ticks: {
-                                display :false,
-                                autoSkip: false
-                            },
-                            gridLines :{
-                                display: false,
-                                drawBorder: false,
-                            },
-                            scaleLabel: {
-                                display: false,
-                            },
-
-                        }]
-                    },
-                }
-            });*/
-
-            //전체 매출 통계 차트
-/*            var ctx = document.getElementById("SalesChart");
-            var SalesChart = new Chart(ctx, {
-                type: 'horizontalBar',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: '활성',
-                        data: [20],
-                        backgroundColor: "rgb(153,255,153)",
-                        borderColor: "rgb(153,255,153)",
-                    },
-                        {
-                            label: '탈퇴',
-                            data: [20],
-                            backgroundColor: "rgb(255,204,51)",
-                            borderColor: "rgb(255,204,51)",
-                        }]
-                },
-                options: {
-                    legend:{
-                        display : false
-                    },
-                    responsive: true,
-                    title: {
-                        display: false,
-                        text: 'Report',
-                    },
-                    tooltips: {
-                        enabled: false,
-                        intersect: false,
-                    },
-                    hover: {
-                        mode: 'nearest',
-                        intersect: true
-                    },
-                    scales: {
-                        yAxes: [{
-                            stacked: true,
-                            display: true,
-                            scaleLabel: {
-                                display: false,
-                            },
-                            gridLines :{
-                                display: false,
-                                drawBorder: false,
-                            },
-                        }],
-                        xAxes: [{
-                            stacked: true,
-                            display: true,
-                            ticks: {
-                                display :false,
-                                autoSkip: false
-                            },
-                            gridLines :{
-                                display: false,
-                                drawBorder: false,
-                            },
-                            scaleLabel: {
-                                display: false,
-                            },
-
-                        }]
-                    },
-                }
-            });*/
-
-            //예약 통계 차트
-            /*var ctx = document.getElementById("ReserveChart");
-            var ReserveChart = new Chart(ctx, {
-                type: 'horizontalBar',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: '예약확정',
-                        data: [80],
-                        backgroundColor: "rgb(153,255,153)",
-                        borderColor: "rgb(153,255,153)",
-                    },
-                        {
-                            label: '예약취소',
-                            data: [50],
-                            backgroundColor: "rgb(255,204,51)",
-                            borderColor: "rgb(255,204,51)",
-                        }]
-                },
-                options: {
-                    legend:{
-                        display : false
-                    },
-                    responsive: true,
-                    title: {
-                        display: false,
-                        text: 'Report',
-                    },
-                    tooltips: {
-                        enabled: false,
-                        intersect: false,
-                    },
-                    hover: {
-                        mode: 'nearest',
-                        intersect: true
-                    },
-                    scales: {
-                        yAxes: [{
-                            stacked: true,
-                            display: true,
-                            scaleLabel: {
-                                display: false,
-                            },
-                            gridLines :{
-                                display: false,
-                                drawBorder: false,
-                            },
-                        }],
-                        xAxes: [{
-                            stacked: true,
-                            display: true,
-                            ticks: {
-                                display :false,
-                                autoSkip: false
-                            },
-                            gridLines :{
-                                display: false,
-                                drawBorder: false,
-                            },
-                            scaleLabel: {
-                                display: false,
-                            },
-
-                        }]
-                    },
-                }
-            });*/
-
             //리포트 통계 차트
             var ctx = document.getElementById("ReportChart");
             var ReportChart = new Chart(ctx, {
