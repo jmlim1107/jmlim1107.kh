@@ -158,6 +158,11 @@
 		where R_NO = #{r_no}
 	</update>
 	
+	<update id="changeReviewStatus2" parameterType="int">
+		update li_reserve set REVIEW_STATUS = 0 
+		where R_NO = #{r_no}
+	</update>
+	
 	
 	
 	 
