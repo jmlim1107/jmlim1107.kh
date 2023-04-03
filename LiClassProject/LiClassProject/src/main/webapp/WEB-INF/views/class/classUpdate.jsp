@@ -141,9 +141,7 @@
 				</tr>
 				<tr>
 					<td colspan="6">
-						<textarea class="form-control" name="c_content" id="c_content" style="height: 400px">
-							${updateData.c_content}
-                    	</textarea>
+						<textarea class="form-control" name="c_content" id="c_content" style="height: 400px">${updateData.c_content}</textarea>
 					</td>
 				</tr>
 				<tr>

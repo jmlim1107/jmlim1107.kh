@@ -35,6 +35,11 @@
 		* License: https://bootstrapmade.com/license/
 		======================================================== -->
 	</head>
+	<style type="text/css">
+		th{
+			text-align: center;
+		}
+	</style>
 	<script type="text/javascript">
 		$(function(){
 			//목록버튼
@@ -156,6 +161,12 @@
 				location.href="/admin/image/imageUpdate?c_no="+${liclass.C_NO};
 			});
 			
+			let content = td.text();
+			if( content=='예약만석' ){
+				td.css('font-color','#B93C3C');
+			}
+			
+				
 		}); //최상위$
 	
 	
@@ -197,7 +208,7 @@
 	            <div class="card-body">
 	            <h5 class="card-title">[ Class ${ liclass.C_NO } ] ${liclass.C_TITLE }</h5>
 	            <div class="text-right">
-	            	<button type="button" id="listBtn2" class="btn btn-dark rounded-pill btn-lg"><i class="bi bi-house-door"></i>&nbsp;목록으로</button>
+	            	<button type="button" id="listBtn2" class="btn btn-dark rounded-pill btn"><i class="bi bi-house-door"></i>&nbsp;목록으로</button>
 	            </div>
 	            <br>
 	           <!-- Bordered Table -->
@@ -239,9 +250,9 @@
 				</tr>
 				<tr>
 					<td colspan="6" class="text-right">
-						<button type="button" class="btn btn-secondary rounded-pill btn-lg" id="listBtn">목록</button>
-	            		<button type="button" class="btn btn-secondary rounded-pill btn-lg" id="delBtn">삭제</button>
-	             		<button type="button" class="btn btn-secondary rounded-pill btn-lg" id="updBtn">수정</button>
+						<button type="button" class="btn btn-secondary rounded-pill btn" id="listBtn">목록</button>
+	            		<button type="button" class="btn btn-secondary rounded-pill btn" id="delBtn">삭제</button>
+	             		<button type="button" class="btn btn-secondary rounded-pill btn" id="updBtn">수정</button>
 					</td>
 				</tr>
               </table>
@@ -254,14 +265,14 @@
 		       <div class="card-body" id="img">	
 		       		<h5 class="card-title">[ Class ${ liclass.C_NO } ] 이미지 조회 </h5>
 		       		<h5><i class="bi bi-check-circle me-1"></i>최대 5개의 이미지를 등록할 수 있으며 첫번째 사진이 썸네일로 사용됩니다.</h5>
-		       		<div class="text-right"><button id="imgUdt" class="btn btn-dark rounded-pill btn-lg"><i class="bi bi-folder me-1"></i>&nbsp;이미지 수정</button></div><br>
+		       		<div class="text-right"><button id="imgUdt" class="btn btn-dark rounded-pill btn"><i class="bi bi-folder me-1"></i>&nbsp;이미지 수정</button></div><br>
 	           	   <table class="table table-borderless">
 	           	   		<tr>
 	           	   		<td>
 	           	   				<c:choose>
 						           	   <c:when test="${ not empty imgList  }">
 						           	   		 <c:forEach var="img" items="${imgList}" varStatus="status">
-						           	   			<img src="/uploadLiClass/class/thumbnail/${img.thumb_file}"/>
+						           	   			<img src="/uploadLiClass/class/thumbnail/${img.thumb_file}" style="height: 133px"/>
 						           	   		</c:forEach>
 						           	   </c:when>
 						           	   <c:otherwise>
@@ -277,7 +288,7 @@
            <div class="card">
 		       <div class="card-body" id="episode">
 		       <h5 class="card-title">[ Class ${ liclass.C_NO } ] 회차정보 조회 </h5>
-		       <div class="text-right"><button id="new_ep" class="btn btn-dark rounded-pill btn-lg"><i class="bi bi-check-circle"></i> 신규회차 등록</button></div><br>
+		       <div class="text-right"><button id="new_ep" class="btn btn-dark rounded-pill"><i class="bi bi-check-circle"></i> 신규회차 등록</button></div><br>
 		        </div>
            </div> <!-- 회차상세 -->
 		

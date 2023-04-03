@@ -205,8 +205,8 @@
         <div class="col-lg-12"> <!-- 여기까지 -->
         
         <div class="text-right">
-	        <button type="button" id="listBtn" class="btn btn-dark rounded-pill btn-lg"><i class="bi bi-house-door"></i>&nbsp;홈으로</button>
-	        <button type="button" id="classBtn" class="btn btn-dark rounded-pill btn-lg"><i class="bi bi-journal-text"></i>&nbsp;이전화면</button>
+	        <button type="button" id="listBtn" class="btn btn-dark rounded-pill"><i class="bi bi-house-door"></i>&nbsp;홈으로</button>
+	        <button type="button" id="classBtn" class="btn btn-dark rounded-pill"><i class="bi bi-journal-text"></i>&nbsp;이전화면</button>
 	    </div>
         
         <c:forEach var="img" items="${imgList}" varStatus="status">
@@ -214,7 +214,7 @@
 		          <div class="card"><!-- Card with an image on top -->
 		          <img src="/uploadLiClass/class/${ img.c_img_file}" class="card-img-top">
 		            <div class="card-body">
-		              <h6 class="card-title">[ class ${param.c_no} ] <c:out value="${status.count}" />번째 이미지</h6>
+		              <h6 class="card-title" style="font-size: 15px">[ class ${param.c_no} ] 이미지<c:out value="${status.count}" /></h6>
 		              <!-- <p class="card-text">파일명 : ${ img.c_img_file}</p> -->
 		              
 		              	<form id="updFrm">
@@ -224,14 +224,12 @@
 		              			<input type="hidden" name="c_img_no" value="${img.c_img_no}"/>
 		              			<!--개별수정 버튼 -->
 							    <div class="row mb-3 text-right" style="display:block">
-							    	<span></span>
-				                    <input class="form-control updImg" type="file" name="file" style="height:25px;width:180px;display:inline">
+				                    <input class="form-control updImg" type="file" name="file" style="height:23px;width:180px;display:inline;font-size: 10px">
+				                   <br><br>
 				                    <span class="badge bg-secondary updBtn" style="font-size:12px;display:inline"><i class="bi bi-pencil-square"></i>&nbsp; update</span>
+				                    <span class="badge bg-secondary delBtn" style="font-size:13px;display:inline"><i class="bi bi-trash-fill"></i>&nbsp; delete</span>
 				                </div>
 				               <!--개별삭제 버튼 -->
-							   <div class="text-right"> 
-							    	<span class="badge bg-secondary delBtn" style="font-size:13px;"><i class="bi bi-trash-fill"></i></span>
-		              			</div>
 		              	</form>
 		             
 		            </div>
@@ -249,9 +247,9 @@
 	          		업로드할 파일 : <span  id="addImgVal"></span>
 	          	</p>
 	          	<!-- 등록버튼 -->
-	          	<h3><span class="badge bg-dark text-light addBtn"><i class="bi bi-hand-index-thumb"></i>&nbsp;add image</span></h3>
+	          	<h1><span class="badge bg-dark text-light addBtn"><i class="bi bi-hand-index-thumb"></i>&nbsp;add image</span></h1>
 	          	
-	          	<input type="file" class="form-control" id="addfile" name="file" style="display:none">
+	          	<input type="file" class="form-control" id="addfile" name="file" style="display:none" accept=".gif, .jpg, .png">
 	         </form>
         </div>
         
