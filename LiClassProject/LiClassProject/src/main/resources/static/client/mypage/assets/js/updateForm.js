@@ -47,7 +47,7 @@ $(function(){
 	var pwcheckAccord = false;
 	var telAccord = false;
 	var nameAccord = false;
-	
+	var phoneNumber ="";
 	//1. (비밀번호)수정하기 버튼
 	$("#pw-edit-btn").click(function(){
 		$("#pw-check-tr").css("display","revert");
@@ -94,7 +94,6 @@ $(function(){
 			$("#user_tel").val(phoneNumber);
 		}
 		console.log("phoneNumber : "+$("#user_tel").val());
-		console.log("4. telAccord : "+telAccord);
 	});
 	
 	//6. 필수요소의 Accord가 함수가 true일 때 submit가능
@@ -112,12 +111,14 @@ $(function(){
 		}else if(nameAccord != true){
 			alert("이름 또는 닉네임을 입력해 주세요.");
 			return false;
-		}else{
-			$("#update-form").attr({
+		}else if($("#user_tel").val(phoneNumber)){
+			if(confirm("전화번호가 올바르지 않습니다. 그래도 입력하시겠습니까?")){
+				$("#update-form").attr({
 				"method":"post",
 				"action":"/mypage/update"
 			});
 			$("#update-form").submit();
+			}
 		}
 	});
 	$("#update-submit2").click(function(){

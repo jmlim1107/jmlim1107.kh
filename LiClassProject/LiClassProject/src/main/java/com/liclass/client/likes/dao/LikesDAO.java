@@ -15,5 +15,4 @@ public interface LikesDAO { //은아
 	
 	//관심클래스 삭제
 	public int delLikes(LikesVO vo);
-		
 }

@@ -34,6 +34,4 @@ public class LikesServiceImpl implements LikesService{ //은아
 		return result;
 	}
 
-	
-
 }

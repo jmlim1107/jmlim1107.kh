@@ -27,7 +27,7 @@
 					         			</c:if>
 					         			<c:if test="${loginUser.user_type eq 0}">
 					         				<div class="hover-content2">
-                                       			<a href="#img-edit" rel="modal:open" "><i class="fa-solid fa-pen-to-square" id="profile-edit"></i></a>
+                                       			<a href="#img-edit" rel="modal:open"><i class="fa-solid fa-pen-to-square" id="profile-edit"></i></a>
                                        		</div>
 							         	</c:if>
 					         			
@@ -49,6 +49,7 @@
 									<!-- profile img edit modal end -->
 				         			
 				         			<hr>
+				         			${updateUser}
 	                               <i class="fa-solid fa-calendar-days"></i>
 	                               <p>${loginUser.user_regdate} ~</p>
 	                               <i class="fa-solid fa-envelope"></i><p>${loginUser.user_email}</p>

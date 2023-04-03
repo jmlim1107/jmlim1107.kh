@@ -4,7 +4,9 @@
 	<!-- 은아,웅배 -->
 	<!--1. 나의 관심클래스 조회 -->
 	<select id="myLikesList" parameterType="User" resultType="c_class">
-         SELECT A.like_no, A.user_no, A.c_no,B.c_img_file ,C.c_title,C.c_area
+       <![CDATA[
+         SELECT like_no,user_no,c_no,c_img_file ,c_title,c_area
+		from (SELECT ROWNUM rnum, A.like_no like_no, A.user_no user_no, A.c_no c_no,B.c_img_file c_img_file ,C.c_title c_title,C.c_area c_area
 			FROM li_likes A left outer join
 	    		(select c_no, 
 	        	MAX(DECODE(RID, 1, c_img_file)) c_img_file
@@ -26,10 +28,23 @@
             		FROM li_class)
 	        	) C
 	    		on A.c_no = C.c_no 
-                where a.user_no =#{user_no}
+                where a.user_no = #{user_no} and
+            ]]>
+               <![CDATA[
+                 ROWNUM <= #{pageNum} * #{amount} 
+                 order by like_regdate desc
+            )
+            where rnum > (#{pageNum} - 1) * #{amount}
+            ]]>
 	</select>
 	
-	<!--2. 나의 후기 조회 -->
+	<!--2. 나의 관심클래스 갯수   -->
+	<select id="myLikesCnt" parameterType="Likes" resultType="int">
+		select count(*) from li_likes
+		where user_no = #{user_no}
+	</select>
+	
+	<!--3. 나의 후기 조회 -->
 	<select id="myReviewList" parameterType="Review" resultType="Review">
 		 <![CDATA[
              select review_no,review_name,review_title,review_content,review_rating,class_img,
@@ -77,13 +92,13 @@
             
 	</select>
 	
-	<!--3. 나의 후기 갯수 -->
+	<!--4. 나의 후기 갯수 -->
 	<select id="myReviewCnt" parameterType="Review" resultType="int">
         select count(*) from li_review
 		where user_no = #{user_no}
 	</select>
 	
-	<!--3. 나의 문의 조회 -->
+	<!--5. 나의 문의 조회 -->
 	<select id="myQnaList" parameterType="ClientQnaBoard" resultType="ClientQnaBoard">
       <![CDATA[
             select qna_no, USER_NO, qna_title, qna_content, 
@@ -114,18 +129,19 @@
     
 	</select>
 	
-	<!--4. 나의 문의 갯수 -->
+	<!--6. 나의 문의 갯수 -->
 	<select id="myQnaCnt" parameterType="User" resultType="int">
         select count(*) from li_qna
 		where user_no = #{user_no}
 	</select>
 	
-	<!--5. 프로필 사진 수정  -->
+	<!--7. 프로필 사진 수정  -->
 	<update id="updateImg" parameterType="User" >
 		update li_user
 		set user_img = #{user_img}
 		where user_no = #{user_no}
 	</update>
+	
 	
 	
 	<!-- 웅배파트 --> 

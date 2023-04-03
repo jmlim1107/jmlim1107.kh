@@ -8,13 +8,16 @@
 		      <div class="col-md-12 col-sm-6">
 		        <div class="services-content" style="margin:10px;">
 		            <h5 style="margin-bottom: 2%; text-align: left">
-			          	<i class="fa-solid fa-store"></i>  
+			          	<c:if test="${clientCenterDetail.ct_hmpg_addr != null}">
+	            			<a href="${clientCenterDetail.ct_hmpg_addr}"><i class="fa-solid fa-house"></i></a>
+	        			</c:if>
+			          	<c:if test="${clientCenterDetail.ct_hmpg_addr == null}">
+			          		<i class="fa-solid fa-store"></i>
+			          	</c:if>  
 			          	${clientCenterDetail.ct_name} 
 		            </h5>
 		         	<p>${clientCenterDetail.ct_intro}</p>
-		         	<c:if test="${clientCenterDetail.ct_hmpg_addr != null}">
-	            		<p><a href="${clientCenterDetail.ct_hmpg_addr}"><i class="fa-solid fa-house"></i></a></p>
-	        		</c:if>
+		         	
 		          </div>
 		   	  </div>
 		    </div>

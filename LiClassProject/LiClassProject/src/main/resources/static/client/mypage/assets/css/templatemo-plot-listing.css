@@ -989,7 +989,7 @@ Popular Categories
 } 
 
 .popular-categories .nacc .thumb img {
-  border-radius: 7px;
+ /* border-radius: 7px;*/
 }
 
 .popular-categories .nacc .thumb .left-text .main-white-button a{

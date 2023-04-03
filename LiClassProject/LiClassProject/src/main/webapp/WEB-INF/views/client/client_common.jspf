@@ -91,7 +91,7 @@
 							},
 							success : function(checkData) {
 								if (checkData == 0) {
-									alert("Check your ID/password");
+									alert("아이디/비밀번호를 확인해 주세요.");
 								} else if (checkData == 1) {
 									$("#login-form").attr({
 										"method":"post",

@@ -22,6 +22,4 @@
 		delete from li_likes
 		where user_no = #{user_no} and c_no = #{c_no}
 	</delete>
-	
-	
 </mapper>
