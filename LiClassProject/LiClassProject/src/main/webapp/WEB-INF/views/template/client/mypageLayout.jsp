@@ -19,26 +19,49 @@
 	<script src="/resources/client/mainTheme/js/floatingNav.js"></script>
 	<link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
 	
+	<style>
+		html, body {
+	    	height: 100%
+		}
 		
+		#wrap {
+		    min-height: calc(100&-120px);
+		    position: relative;
+		    padding-bottom: 60px;
+		}
+		.footer{
+		  bottom: 0;
+		  position: absolute;
+		  height: 60px;
+		  width: 100%;
+		  padding: 0 25px;
+		}
+	</style>
   	</head>
   	<body id="gotop">
-  	
-		<header class="header" style="height: 0;">
-			<tiles:insertAttribute name="header" />
-		</header>
-	
-		<div class="mypageLayout" style="margin-top: 100px;">
-		   		<tiles:insertAttribute name="body" />
-		</div>
+  		<div id="wrap">
+			<header class="header" style="height: 0;">
+				<tiles:insertAttribute name="header" />
+			</header>
 		
-	    <nav class="nav">
-	    	<tiles:insertAttribute name="nav" />
-	    </nav>
-    
-		<footer class="footer">
-			     <tiles:insertAttribute name="footer" />
-		</footer>
-   
+			<div class="mypageLayout" style="margin-top: 100px;">
+			   		<tiles:insertAttribute name="body" />
+			</div>
+			
+		    <nav class="nav">
+		    	<tiles:insertAttribute name="nav" />
+		    </nav>
+   		</div>
+   		<footer class="footer">
+			      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+			        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+			        <li class="nav-item"><a href="/class/classList" class="nav-link px-2 text-muted">Classes</a></li>
+			        <li class="nav-item"><a href="/studio/studioList" class="nav-link px-2 text-muted">Center</a></li>
+			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+			      </ul>
+			      <p class="text-center text-muted">© 2022 Company, Kh정보교육원</p>
+			</footer>
 <!-- 하단 script 시작==============================================================================================-->
 
 	<!-- mainTheme --> 
