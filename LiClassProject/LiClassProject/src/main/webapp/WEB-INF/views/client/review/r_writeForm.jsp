@@ -117,9 +117,7 @@
 								<legend>
 									<span class = "bv-off-screen blocktitle">Review Content* </span>
 									<textarea id= "contentTextarea2" name = "review_content" aria-describedby="bv-review-guidelines-label" class="bv-text bv-focusable custom-cursor-default-hover blockcontent" name="review_content" maxlength="10000" placeholder="Example: I bought this a month ago and am so happy that I did..." cols=30 style= "overflow:visible"></textarea> 
-									<div class = "blockcontent text-left">
-	               						<input type = "file" name = "file" id = "file" />
-	               					</div>
+									
 								</legend>
 				  			</fieldset>
 				  			
@@ -138,9 +136,9 @@
 				  			<!-- 약관 동의 -->
 				  			<fieldset class="bv-fieldset bv-fieldset-agreements bv-fieldset-reviews-termsAndConditions bv-checkbox-field custom-cursor-default-hover"> 
 				  				<legend class="bv-off-screen" style = "border: 1px solid white;">
-				  						<input id="bv-checkbox-reviews-termsAndConditions" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0">  
+				  						<input id="checkbox-3" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0">  
 				  						<label class="bv-fieldset-label-checkbox" for="bv-checkbox-reviews-termsAndConditions"> 
-				  							<span class="bv-fieldset-label-text">I agree to the <a href="#" class="bv-text-link bv-focusable custom-cursor-on-hover" tabindex="0">terms &amp; conditions</a></span> 
+				  							<span class="bv-fieldset-label-text">I agree to the <a href="#" class="bv-text-link bv-focusable custom-cursor-on-hover" tabindex="0"> terms &amp; conditions</a></span> 
 				  						</label> 
 				  				</legend> 
 				  			</fieldset>
