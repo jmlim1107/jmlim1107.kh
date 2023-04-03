@@ -41,6 +41,8 @@ r_WriteForm reviewContent
 r_WriteForm Yes/No
 **************************************************/
 
+.toggleBtn{ margin: -5px 7px 0 0;}
+
 
 .btn {
    border: 3px solid #333;
@@ -58,6 +60,9 @@ input[type="radio"].toggle {
 input[type="radio"].toggle + label {
    cursor: pointer;
    min-width: 60px;
+   background-color: white;
+   color: #333;
+   border: 2px #333 solid;
 }
 
 input[type="radio"].toggle + label:hover {

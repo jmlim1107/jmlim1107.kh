@@ -46,35 +46,31 @@
 	
 	
 	<form id = "r_writeForm">
-<!-- <<<<<<< HEAD -->
-<!-- <<<<<<< HEAD
-			<input type = "hidden" id= "c_no2">
-======= -->
-		<!-- <input type="hidden" name="cno" value="">
-		<input type="hidden" name="rno" value="">
-		<input type="hidden" name="userno" value=""> -->
-<!-- >>>>>>> aad5a7bbe03df700383a72c3161a1279e91984fd -->
-<!-- ======= -->
 		<input type = "hidden" id= "c_no2">
 		<input type="hidden" name="cno" value="">
 		<input type="hidden" name="rno" value="">
 		<input type="hidden" name="userno" value="">
-
-<!-- >>>>>>> e9e903f01e01cbe6c577dfc82c46d1d4f1b0772c -->
-			<div class="modal" id = "writeModal">
-			  	<div class="modal_content" id = "writeContent">
+		
+		<div style="width: 10000px;
+    background-color: rgb(0,0,0,0.4);
+    height: 1000px;
+    position: absolute;
+    top: -100px;">
+			<div id = "writeModal">
+			  	<div class="modal_content" id = "writeContent"  style="margin-top: 20px;">
 			  	
 			  		<!-- side bar start -->
 				  	<div id = "modal_side"  style="background-color: #333" >
 				  		<button type="button" id = "modal_close" name="Cancel" class="bv-mbox-close bv-focusable" tabindex="0" aria-labelledby="bv-mbox-close-label bv-mbox-breadcrumb-item"> 
-				  			<span aria-hidden="true" class="custom-cursor-on-hover">x</span><!-- 수정 : x 아이콘으로 대체 --> 
+				  			<span aria-hidden="true" class="custom-cursor-on-hover" style="    margin-top: 10px;
+    margin-right: 10px;">x</span><!-- 수정 : x 아이콘으로 대체 --> 
 				 		</button>
 				 		<div class="bv-mbox-sidebar bv-sidebar-enabled custom-cursor-default-hover" >
 				 			<div class="bv-submission-sidebar bv-submission-side">
 			 					<div class="bv-subject-info-section">  
 			 						<div class="bv-subject-info custom-cursor-default-hover">
 				 						<img class="bv-subject-image custom-cursor-default-hover" src="https://unicorn.lush.com/media/thumbnails/products/honey_i_washed_my_hair_shampoo_bar_2020_163b7de1_thumbnail_256.png">   
-				 						<span class="bv-subject-name-header">클래스명</span>
+				 						<span class="bv-subject-name-header">${reviewList.c_no}</span>
 			 		 				</div>   
 			 					</div> 
 							</div>
@@ -88,7 +84,7 @@
 				  		<div>
 				  			<h2 class="bv-mbox-breadcrumb custom-cursor-default-hover"> 
 				  			<span data-bv-mbox-layer-index="0" class="bv-mbox-breadcrumb-item custom-cursor-default-hover" id="bv-mbox-breadcrumb-item">
-				  			<span class="custom-cursor-default-hover blocktitle">My Review</span></span></h2>
+				  			<span class="custom-cursor-default-hover blocktitle" style="margin-top: 25px;">My Review</span></span></h2>
 				  			<p class="bv-required-fields-text custom-cursor-default-hover blocktitle">* 는 필수 사항입니다.</p>
 				  			
 				  			<!-- 별점 -->
@@ -132,9 +128,9 @@
 				  				<legend class="bv-off-screen"><span class = "blocktitle">클래스를 다른 사람들에게 추천하나요?</span>
 										<div class = "blockcontent">
 											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
-											<label for="toggle-on" class="btn">Yes</label>
+											<label for="toggle-on" class="btn toggleBtn">Yes</label>
 											<input id="toggle-off" class="toggle toggle-right" name="review_recommend" value="No" type="radio">
-											<label for="toggle-off" class="btn">No</label>
+											<label for="toggle-off" class="btn toggleBtn">No</label>
 										</div>
 				  				</legend>
 				  			</fieldset>	
@@ -157,6 +153,7 @@
 				  	<!-- main end -->
 			  	</div>
 			</div>
+		</div>
 	</form>
 
 <%-- ************************** r_writeForm end *************************************  --%>

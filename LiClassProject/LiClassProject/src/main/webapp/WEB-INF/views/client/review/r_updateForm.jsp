@@ -13,7 +13,12 @@
 	<input type = "hidden" name = "review_no" id="reviewupdate_no" value = "" />
 	<input type = "hidden" name = "r_no" id="r_number" value = "${detail.r_no}" />
 	
-		<div class="modal" id = "updateModal">
+	<div style="width: 10000px;
+    background-color: rgb(0,0,0,0.4);
+    height: 1000px;
+    position: absolute;
+    top: -100px;">
+		<div id = "updateModal">
 		  	<div class="modal_content" id = "update_content">
 		  		
 		  		<!-- side bar start -->
@@ -84,9 +89,9 @@
 			  				<legend class="bv-off-screen"><span class = "blocktitle">클래스를 다른 사람들에게 추천하나요?</span>
 									<div class = "blockcontent">
 										<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
-										<label for="toggle-on" class="btn">Yes</label>
+										<label for="toggle-on" class="btn toggleBtn">Yes</label>
 										<input id="toggle-off" class="toggle toggle-right" name="review_recommend" value="No" type="radio">
-										<label for="toggle-off" class="btn">No</label>
+										<label for="toggle-off" class="btn toggleBtn">No</label>
 									</div>
 			  				</legend>
 			  			</fieldset>	
@@ -108,6 +113,7 @@
 			  	</div>
 			  	<!-- main end -->
 		  	</div>
+		</div>
 		</div>
 	</form>
 <%-- ************************** r_updateForm end *************************************  --%>

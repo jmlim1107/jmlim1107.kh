@@ -28,15 +28,6 @@ $(function(){
 	 	 *****************************************/
 	 	 // 상세보기 버튼 클릭 시
 	  	$(".reviewDetail").click(function(e){
-			// 원하는 요소에 값 집어넣기
-			//$("#review_no").val(r_no);
-			//$('input[name=]').val(r_no); // = review_no
-			// updateForm 에 보내주기 위한 글번호
-			//$("#review_number").val(review_no);
-			//console.log("글번호 : "+review_no); 
-			//$("#review_number").val(r_no); 
-			//console.log("글번호 : "+review_no); 
-			
 			
 			// 상세페이지 이동
 			$.ajax({
@@ -83,15 +74,7 @@ $(function(){
 	  	// 글수정 버튼 클릭시	
 	  	/* 디테일 버튼 클릭시  페이지 이동을 위한 처리 이벤트 */		
 		$("#updateFormBtn2").click(function(){
-			//let review_no =  $(this).parent("#tttest").data("num");	
-			//$("#review_no").val(review_no);
-
-			// console.log("글번호 : "+$("#review_number").val()); 
-
 			console.log("글번호 : "+$("#reviewupdate_no").val()); 
-
-			
-			//console.log("예약번호 : "+$(this).parent("div").data("data-rnum")); 
 			console.log("예약 번호 : "+$("#r_number").val());
 			
 			$.ajax({
@@ -103,6 +86,7 @@ $(function(){
 					// json 값을 모달에 설정
 					$("#updateContent").val(data.review_content);
 					$("#updateTitle").val(data.review_title);
+					$("")
 			
 					
 					$("#test3").hide(); 
@@ -128,14 +112,6 @@ $(function(){
 			
 			console.log("리뷰 번호 : " + $("#reviewupdate_no").val());
 			console.log("예약 번호 : " + $("#r_number").val());
-			
-			//console.log('수정폼 번호'+$("#reviewupdate_no").val());	
-
-			/*console.log('예약번호: '+$("#r_number").val());
-			console.log('리뷰번호: '+$("#reviewupdate_no").val());	
-			$("#reviewupdate_no").val($("#reviewupdate_no").val());
-			$("#r_number").val($("#r_number").val());*/
-			
 
 			
 			//입력값 체크
@@ -171,8 +147,11 @@ $(function(){
 				console.log("삭제버튼 눌림");
 				$("#dataForm").attr("action",goUrl);
 				$("#dataForm").submit();
+				
+				alert("삭제가 완료되었습니다.");
 			}
-			alert("삭제가 완료되었습니다.");
+			else{ return false;}
+			
 		});
 		 
 	 	 /****************************************
