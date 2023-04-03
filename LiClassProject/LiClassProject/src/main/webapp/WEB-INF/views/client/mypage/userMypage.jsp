@@ -120,7 +120,7 @@
 		                       Likes
 		                     </div>
 		                   </div>
-		                   <div class="last-thumb point">
+		                   <div class="point">
 		                     <div class="thumb">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-06.png" alt=""></span>
 		                       Q&A
@@ -136,7 +136,7 @@
 		           <!--은아)마이페이지 좌측 메뉴 nav  -->  
 		            
 	               <!-- 우측 탭메뉴 시작 -->
-	               <div class="col-lg-9 align-self-center" style="top: -320px;">
+	               <div class="col-lg-9 align-self-center" style="top: -360px;">
 	                 <ul class="nacc">
 	                 	   <!-- 1. my profile start -->
 	                   	   <li class="mypageLi active">
