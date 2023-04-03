@@ -7,7 +7,7 @@ function pwRegExp(item) {
 	const regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/;
 	if(!regExp.test($(item).val())){
 		$("#pw-check-result").addClass('red');
-		$("#pw-check-result").text("영문 대문자/소문자/숫자 조합, 8~16자로 입력해 주세요.");
+		$("#pw-check-result").text("영문자,숫자,특수 문자로 조합된 최소 8자의 비밀번호를 입력해 주세요.");
 		return false;
 	}else{
 		$("#pw-check-result").removeClass('red');
