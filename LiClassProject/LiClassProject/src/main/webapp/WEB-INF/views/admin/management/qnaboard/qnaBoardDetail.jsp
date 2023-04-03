@@ -7,13 +7,13 @@
 <script type="text/javascript">
 
     $(function (){
-
-
         $("#qnaAnswerBtn").click(function(){
+            let qna_no = $(this).attr("data-num");
+            $("#qna_no").val(qna_no);
             console.log("dddd")
             $("#f_data").attr({
                "method" : "post",
-               "action" : "/management/qnaboard/qnaAnswerForm/"
+               "action" : "/management/qnaboard/answerUpdateForm/"
             });
             $("#f_data").submit();
         });
@@ -26,7 +26,7 @@
                 $("#f_data").submit();
             }
         });
-        $("#qnaAnswerUpdateBtn").click(function (){
+        $(".qnaAnswerUpdateBtn").click(function (){
             let qna_no = $(this).attr("data-num");
             $("#qna_no").val(qna_no);
             console.log(qna_no);
@@ -58,14 +58,28 @@
 
                     <div class="pull-right">
                         <c:if test="${empty answerDetail}">
-                        <button type="button" class="btn btn-primary" id="qnaAnswerBtn">답변</button>
+                        <button type="button" class="btn btn-primary" id="qnaAnswerBtn" data-num="${detail.qna_no}">수정</button>
                         </c:if>
-                        <button type="button" class="btn btn-danger" id="noticeDeleteBtn">삭제</button>
+                        <button type="button" class="btn btn-danger " id="noticeDeleteBtn">삭제</button>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <p><strong>작성자: </strong>${detail.admin_name}</p>
-                    <p><strong>작성일: </strong>${detail.qna_date}</p>
+                    <c:choose>
+                        <c:when test="${detail.qna_category == '답변'}">
+                            <p><strong>작성자: </strong>${detail.admin_name}</p>
+                        </c:when>
+                        <c:otherwise>
+                            <p><strong>작성자: </strong>${detail.user_name}</p>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                    <c:when test="${not empty detail.qna_date_fix}">
+                        <p><strong>작성일</strong>&nbsp;:&nbsp;${detail.qna_date} (<strong>수정일</strong>&nbsp;:&nbsp;${detail.qna_date_fix})</p>
+                    </c:when>
+                    <c:otherwise>
+                    <p><strong>작성일</strong>&nbsp;:&nbsp;${detail.qna_date}
+                        </c:otherwise>
+                        </c:choose>
                     <hr>
                     <div id="collapse2" class="panel-collapse collapse in">
                         <div class="panel-body">
@@ -84,7 +98,14 @@
                             </div>
                             <div class="panel-body">
                             <p><strong>작성자: </strong>${answerDetail.admin_name}</p>
-                            <p><strong>작성일: </strong>${answerDetail.qna_date}</p>
+                            <c:choose>
+                                <c:when test="${not empty answerDetail.qna_date_fix}">
+                                     <p><strong>작성일</strong>&nbsp;:&nbsp;${answerDetail.qna_date} (<strong>수정일</strong>&nbsp;:&nbsp;${answerDetail.qna_date_fix})</p>
+                                </c:when>
+                                <c:otherwise>
+                                         <p><strong>작성일</strong>&nbsp;:&nbsp;${answerDetail.qna_date}
+                                </c:otherwise>
+                            </c:choose>
                             <hr>
                             <div id="collapse1" class="panel-collapse collapse in">
                                 <div class="panel-body">

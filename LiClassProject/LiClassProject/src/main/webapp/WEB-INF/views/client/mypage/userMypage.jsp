@@ -94,7 +94,6 @@
 		         <div class="naccs">
 		           <div class="grid">
 		             <div class="row">
-		             
 		               <div class="col-lg-3" style="margin-top : -49px;">
 		                 <div class="menu">
 		                   <div class="first-thumb active point">
@@ -121,10 +120,15 @@
 		                       Likes
 		                     </div>
 		                   </div>
-		                   <div class="last-thumb point">
+		                   <div class="point">
 		                     <div class="thumb">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-06.png" alt=""></span>
 		                       Q&A
+		                     </div>
+		                   </div>
+		                   <div class="last-thumb point">
+		                     <div class="thumb">                 
+		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-06.png" alt=""></span>
 		                     </div>
 		                   </div>
 		                 </div>
@@ -132,7 +136,7 @@
 		           <!--은아)마이페이지 좌측 메뉴 nav  -->  
 		            
 	               <!-- 우측 탭메뉴 시작 -->
-	               <div class="col-lg-9 align-self-center" style="top: -280px;">
+	               <div class="col-lg-9 align-self-center" style="top: -360px;">
 	                 <ul class="nacc">
 	                 	   <!-- 1. my profile start -->
 	                   	   <li class="mypageLi active">
@@ -163,6 +167,10 @@
 		                      <%@ include file="/WEB-INF/views/client/mypage/myQnAHistory.jsp" %>
 	                  	  </li>
 	                  	  <!-- 5. my QnA end -->
+	                  	  <!-- 6. my Course start -->
+		                   <li class="mypageLi">
+	                  	  </li>
+	                  	  <!-- 5. my Course end -->
 	         		   </ul>
 	               </div>    
 	               <!-- 우측 탭메뉴 종료 --> 

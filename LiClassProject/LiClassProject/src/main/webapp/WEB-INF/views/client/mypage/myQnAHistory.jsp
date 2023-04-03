@@ -96,27 +96,26 @@
 		               </table>
 		            </form>
 		         </div>
-		      </div>
-		   </div>
-		</div>
-              
-       <!--은아)나의 문의내역 페이징 처리  -->
-       <!-- myqna pagination start  -->
-       	<div class="pagination">
-			<c:if test="${qnaPageMaker.prev}">
-			<a href="${qnaPageMaker.startPage - 1}">&laquo;</a>
-			</c:if>
-			<c:forEach var="num" begin="${qnaPageMaker.startPage}" end="${qnaPageMaker.endPage}">
-			<a class="paginate_button2 ${qnaPageMaker.cvo.pageNum == num ? 'active':''} "  data-num="${num}" >${num}</a>
-			</c:forEach>
-			<c:if test="${qnaPageMaker.next}">
-			<a href="${qnaPageMaker.endPage + 1 }">&raquo;</a>
-			</c:if>
-		</div>
-		          
-          <form id="page-form">
-          	<input type="hidden" id="select-page" name="pageNum" value="">
-          	<input type="hidden" name="amount" value="${qnaPageMaker.cvo.amount }">
-	       </form>
-	      <!-- myqna pagination end  -->
+		          <!--은아)나의 문의내역 페이징 처리  -->
+			       <!-- myqna pagination start  -->
+			       	<div class="pagination">
+						<c:if test="${qnaPageMaker.prev}">
+						<a href="${qnaPageMaker.startPage - 1}">&laquo;</a>
+						</c:if>
+						<c:forEach var="num" begin="${qnaPageMaker.startPage}" end="${qnaPageMaker.endPage}">
+						<a class="paginate_button2 ${qnaPageMaker.cvo.pageNum == num ? 'active':''} "  data-num="${num}" >${num}</a>
+						</c:forEach>
+						<c:if test="${qnaPageMaker.next}">
+						<a href="${qnaPageMaker.endPage + 1 }">&raquo;</a>
+						</c:if>
+					</div>
+					          
+			          <form id="page-form">
+			          	<input type="hidden" id="select-page" name="pageNum" value="">
+			          	<input type="hidden" name="amount" value="${qnaPageMaker.cvo.amount }">
+				       </form>
+				      <!-- myqna pagination end  -->
+	      </div>
+	   </div>
+	</div>
 </div>

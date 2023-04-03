@@ -53,6 +53,18 @@
                 $("#detailForm").submit();
             }
         });
+        $(".listUpdateBtn").click(function (){
+            let qna_no = $(this).parents("tr").attr("data-num");
+            let group_no = $(this).parents("tr").attr("group-num");
+            $("#qna_no").val(qna_no);
+            $("#qna_group").val(group_no);
+            console.log(qna_no);
+            $("#detailForm").attr({
+                "method" : "post",
+                "action" : "/management/qnaboard/answerUpdateForm"
+            });
+            $("#detailForm").submit();
+        });
     });
 
 </script>
@@ -67,87 +79,74 @@
         <hr />
         <div class="row">
             <div class="col-lg-12">
-                <button type="button" class="btn btn-dark rounded-pill btn-lg" id="insertBtn">
-                    <i class="bi bi-cloud-upload"></i>&nbsp;공지사항 등록</button>
-                <!-- 검색영역 -->
-                <!-- 검색 & 페이징을 동시에 처리하기 위한 form = 하나의 cvo저장 -->
-                <form class="form-inline text-right"  id="f_search">
-                    <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}" />
-                    <input type="hidden" name="amount" value="${pageMaker.cvo.amount}" />
-                    <input type="text"  name="keyword"  id="keyword" class="form-control" placeholder="검색내용을 입력해주세요.."/>
-                    <button type="button" class="btn btn-outline-primary btn-lg"  id="searchBtn">Search</button>
+                <form id="detailForm">
+                    <input type="hidden" id="qna_no" name="qna_no"/>
+                    <input type="hidden" id="qna_group" name="qna_group"/>
                 </form>
-
-    <form id="detailForm">
-        <input type="hidden" id="qna_no" name="qna_no"/>
-        <input type="hidden" id="qna_group" name="qna_group"/>
-    </form>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th data-value="b_num" class="order text-center col-sm-1">No.</th>
-                <th class="text-left col-md-4" >제목</th>
-                <th data-value="b_date" class="text-center col-md-1">작성자</th>
-                <th class="text-center col-md-1">등록일</th>
-                <th class="text-center col-md-1">관리</th>
-            </tr>
-        </thead>
-        <tbody id="list" class="table-striped text-left">
-
-        <c:choose>
-            <c:when test="${not empty qnaBoardList}">
-                <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
-                    <c:if test="${qnaBoard.qna_category != '공지'}">
-                    <tr data-num="${qnaBoard.qna_no}" group-num="${qnaBoard.qna_group}">
-                        <%--<td class="text-center">${qnaBoard.qna_no}</td>--%>
-                            <td class="text-center">${count + status.index + 1}</td>
-                        <%--<td class="goDetail text-left">${qnaBoard.qna_title}</td>--%>
-                        <td class="text-left">
-                        <c:if test="${qnaBoard.qna_step>0}">
-                            <c:forEach begin="1" end="${qnaBoard.qna_indent}">
-                                &nbsp;&nbsp;&nbsp;
-                            </c:forEach>
-                        <i class="bi bi-arrow-return-right"></i> &nbsp
-                        </c:if>
-                            <span class="goDetail">[${qnaBoard.qna_category}]&nbsp ${qnaBoard.qna_title}</span>
-                        <%--<td class="goDetail text-left">${qnaBoard.qna_title}</td>--%>
-                        <c:choose>
-                            <c:when test="${qnaBoard.admin_no > 0}">
-                                <td class="text-center">${qnaBoard.admin_name}</td>
-                            </c:when>
-                            <c:otherwise>
-                                 <td class="text-center">${qnaBoard.user_name}</td>
-                            </c:otherwise>
-                        </c:choose>
-                        <td class="text-center">${qnaBoard.qna_date}</td>
-                        <td class="text-center">
-                            <c:choose>
-                            <c:when test="${qnaBoard.qna_group == qnaBoard.qna_no}">
-
-                            </c:when>
-                                <c:when test="${qnaBoard.qna_group == qnaBoard.qna_no}">
-                                    <button class="btn btn-success listAnswerBtn">답변</button>
-                                </c:when>
-                            <c:otherwise>
-                                <button class="btn btn-primary listUpdateBtn">수정</button>
-                            </c:otherwise>
-                            </c:choose>
-                            <button class="btn btn-danger listDeleteBtn">삭제</button>
-                        </td>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th data-value="b_num" class="order text-center col-sm-1">No.</th>
+                        <th class="text-left col-md-4" >제목</th>
+                        <th data-value="b_date" class="text-center col-md-1">작성자</th>
+                        <th class="text-center col-md-1">등록일</th>
+                        <th class="text-center col-md-1">관리</th>
                     </tr>
-                    </c:if>
-                </c:forEach>
-            </c:when>
-            <c:otherwise>
-                <tr>
-                    <td colspan="5" class="tac text-center">등록된 게시글이 존재하지 않습니다.</td>
-                </tr>
-            </c:otherwise>
-        </c:choose>
-        </tbody>
-    </table>
+                    </thead>
+                    <tbody id="list" class="table-striped text-left">
+                    <c:choose>
+                        <c:when test="${not empty qnaBoardList}">
+                            <c:set var="count" value="0"/>
+                            <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
+                                <c:if test="${qnaBoard.qna_category != '공지'}">
+                                <tr data-num="${qnaBoard.qna_no}" group-num="${qnaBoard.qna_group}">
+                                    <%--<td class="text-center">${qnaBoard.qna_no}</td>--%>
+                                        <td class="text-center">${count + 1}</td>
+                                        <c:set var="count" value="${count + 1}"/>
+                                    <%--<td class="goDetail text-left">${qnaBoard.qna_title}</td>--%>
+                                    <td class="text-left">
+                                    <c:if test="${qnaBoard.qna_step>0}">
+                                        <c:forEach begin="1" end="${qnaBoard.qna_indent}">
+                                            &nbsp;&nbsp;&nbsp;
+                                        </c:forEach>
+                                    <i class="bi bi-arrow-return-right"></i> &nbsp
+                                    </c:if>
+                                        <span class="goDetail">[${qnaBoard.qna_category}]&nbsp; ${qnaBoard.qna_title}</span>
+                                    <%--<td class="goDetail text-left">${qnaBoard.qna_title}</td>--%>
+                                    <c:choose>
+                                        <c:when test="${qnaBoard.admin_no > 0}">
+                                            <td class="text-center">${qnaBoard.admin_name}</td>
+                                        </c:when>
+                                        <c:otherwise>
+                                             <td class="text-center">${qnaBoard.user_name}</td>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <td class="text-center">${qnaBoard.qna_date}</td>
+                                    <td class="text-center">
+                                        <c:choose>
+                                        <c:when test="${qnaBoard.qna_group == qnaBoard.qna_no}">
+                                            <button class="btn btn-success listAnswerBtn">답변</button>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <button class="btn btn-primary listUpdateBtn">수정</button>
+                                        </c:otherwise>
+                                        </c:choose>
+                                        <button class="btn btn-danger listDeleteBtn">삭제</button>
+                                    </td>
+                                </tr>
+                                </c:if>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                                <td colspan="5" class="tac text-center">등록된 게시글이 존재하지 않습니다.</td>
+                            </tr>
+                        </c:otherwise>
+                    </c:choose>
+                    </tbody>
+                </table>
+                        </div>
+                    </div>
             </div>
-        </div>
-</div>
-</div>
+            </div>
 

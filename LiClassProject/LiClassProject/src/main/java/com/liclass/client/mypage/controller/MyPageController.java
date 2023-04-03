@@ -53,7 +53,7 @@ public class MyPageController { //은아,웅배
 	 * 요청 url : http://localhost:8080/mypage
 	************************************************/
 	@RequestMapping("/mypage")
-	public String mypage(UserVO vo,Model model,HttpSession session,PaymentVO pvo,ClientQnaBoardVO qvo,ReviewVO rvo) {
+	public String mypage(UserVO vo,Model model,HttpSession session,PaymentVO pvo,ClientQnaBoardVO qvo,ReviewVO rvo,LikesVO lvo) {
 		
 		/* 은아 */
 		//로그인 세션
@@ -63,8 +63,13 @@ public class MyPageController { //은아,웅배
 			return "redirect:/";
 		}
 		
-		//관심클래스 조회
-		List<ClientClassVO> myLikesList = mypageService.myLikesList(loginUser);
+		//관심클래스 조회+페이징처리
+		lvo.setUser_no(loginUser.getUser_no());
+		lvo.setAmount(6);
+		int likesCnt = mypageService.myLikesCnt(lvo);
+		List<LikesVO> myLikesList = mypageService.myLikesList(lvo);
+		PageDTO likesPageDto = new PageDTO(lvo,likesCnt);
+		model.addAttribute("likesPageMaker",likesPageDto);
 		model.addAttribute("myLikesList",myLikesList);
 		
 		//후기 조회+페이징처리
@@ -115,31 +120,10 @@ public class MyPageController { //은아,웅배
         System.out.println(classImg);
         model.addAttribute("classImg", classImg);
         
-        
-
-        
-        
-        // 수강내역
-        /* 테이블 수정중이여서 주석처리
-        List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
-	    model.addAttribute("pvo_courseList", pvo_courseList);
-	      */  
 	      
 		return "client/mypage/userMypage";
 	}
-	
-	/*
-	 * @RequestMapping("/courseHistory") public String courseHistory(Model model,
-	 * PaymentVO pvo,HttpSession session) { // 수강내역 UserVO loginUser =
-	 * (UserVO)session.getAttribute("loginUser");
-	 * pvo.setUser_no(loginUser.getUser_no()); List<Map<String, String>>
-	 * pvo_courseList = mypageService.courseList(pvo);
-	 * //System.out.println("pvo"+pvo_courseList.toString());
-	 * model.addAttribute("pvo_courseList", pvo_courseList);
-	 * 
-	 * return "liuser/mypage/courseHistory"; }
-	 */
-	
+
 	/************************************************
 	 * 2.회원정보 수정화면
 	 * 요청 url : http://localhost:8080/mypage/updateForm
@@ -175,7 +159,7 @@ public class MyPageController { //은아,웅배
 			int result = userService.update(vo);
 			
 			if(result == 1) {
-				message = vo.getUser_name()+"님, 새로운 정보로 수정되었습니다.";
+				message = vo.getUser_name()+"님, 새로운 정보로 수정되었습니다.다시 로그인해 주세요.";
 				model.addAttribute("message", message);
 				model.addAttribute("url", "/mypage");
 			}else {

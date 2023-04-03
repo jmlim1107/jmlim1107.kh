@@ -13,4 +13,6 @@ public interface ClientManagementDao {
 
 	public int clientListCnt(UserVO uservo);
 
+	public void outClient(long user_no);
+
 }

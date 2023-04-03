@@ -72,6 +72,7 @@
                 <%--내용--%>
                 <c:choose>
                     <c:when test="${not empty qnaBoardList}">
+                    <c:set var="count" value="0"/>
                         <c:forEach var="qnaBoard" items="${qnaBoardList}" varStatus="status">
                             <div data-num="${qnaBoard.qna_no}" state-num="${qnaBoard.qna_top_state}" data-user_no="${qnaBoard.user_no}" group-num="${qnaBoard.qna_group}">
                                 <c:choose>
@@ -79,7 +80,7 @@
                                         <div class="num" ><i class="bi bi-megaphone"></i></div>
                                     </c:when>
                                     <c:otherwise>
-                                        <div class="num" >${count + status.index + 1}<%--<i class="bi bi-bell"></i>--%></div>
+                                        <div class="num" >${count + 1} <c:set var="count" value="${count + 1}"/></div>
                                     </c:otherwise>
                                 </c:choose>
 

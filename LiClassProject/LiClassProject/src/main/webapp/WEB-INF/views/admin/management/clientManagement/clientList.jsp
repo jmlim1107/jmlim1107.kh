@@ -89,6 +89,13 @@
 					goPage();
 				});
 				
+				
+				$(".outBtn").click(function(){
+					if(confirm("회원을 탈퇴시키겠습니까?")==true){
+						location.href="/clientmanagement/outClient?user_no="+$(this).parents("tr").attr("data-num");
+					}
+				});
+				
 			}); //최상위$
 				
 			//페이지 전환 함수 :: 검색, 페이징 
@@ -175,7 +182,16 @@
 	                              <td>${uvo.user_name }</td>                     
 	                              <td>${uvo.user_tel }</td>
 	                              <td>${uvo.user_email }</td>
-	                              <td>${uvo.user_status }</td>                           
+	                              
+	                              <c:if test="${uvo.user_status == 0 }">
+	                              	<td><button type="button" class="btn btn-primary btn-xs outBtn">강제 탈퇴</button></td>
+	                              </c:if>
+	                              
+	                              <c:if test="${uvo.user_status == 1 }">
+	                              	<td style="color:red;">탈퇴 회원</td>
+	                              </c:if>
+	                              
+	                                                         
 			                    </tr>
                 			</c:forEach>
                 		</c:when>

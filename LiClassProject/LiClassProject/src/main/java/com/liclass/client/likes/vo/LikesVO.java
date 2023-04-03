@@ -1,13 +1,17 @@
 package com.liclass.client.likes.vo;
 
+import com.liclass.common.vo.CommonVO;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LikesVO{ //은아
+@EqualsAndHashCode(callSuper = false)
+public class LikesVO extends CommonVO{ //은아
 	
 		//4개의 필드(컬럼)
 		private int like_no=0;

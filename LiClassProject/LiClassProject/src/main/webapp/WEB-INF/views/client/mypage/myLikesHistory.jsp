@@ -21,6 +21,26 @@
 			let c_no = $(this).parent(".portfolio-item").data("num");
 			location.href="/mypage/delLikes?c_no="+c_no;
 		});
+		
+		//은아)페이지네이션 번호 클릭 시
+		$(".paginate_button1").click(function(){
+			
+			//현재페이지 localStorage에 activePosition저장
+			var activePosition = 3;
+			localStorage.setItem("activePosition",activePosition);
+			console.log("set activePosition : "+activePosition);
+			
+			var pageNum = $(this).data("num");
+			console.log("이동할 페이지 : "+pageNum);
+			$("#select-page1").val(pageNum); 
+		 	
+			$("#page-form1").attr({
+				"method":"get",
+				"action":"/mypage"
+			});
+			$("#page-form1").submit(); 
+			
+      	});
 	});
 </script>
 					<div id="portfolio2">
@@ -54,7 +74,27 @@
 										        </div>
 							              </c:otherwise>
 							           </c:choose>
-									</div>
+									
+										<!--은아)나의 문의내역 페이징 처리  -->
+								       	<!-- myqna pagination start  -->
+								       	<div class="pagination">
+											<c:if test="${likesPageMaker.prev}">
+											<a href="${likesPageMaker.startPage - 1}">&laquo;</a>
+											</c:if>
+											<c:forEach var="num" begin="${likesPageMaker.startPage}" end="${likesPageMaker.endPage}">
+											<a class="paginate_button1 ${likesPageMaker.cvo.pageNum == num ? 'active':''} "  data-num="${num}" >${num}</a>
+											</c:forEach>
+											<c:if test="${likesPageMaker.next}">
+											<a href="${likesPageMaker.endPage + 1 }">&raquo;</a>
+											</c:if>
+										</div>
+									          
+							          <form id="page-form1">
+							          	<input type="hidden" id="select-page1" name="pageNum" value="">
+							          	<input type="hidden" name="amount" value="${likesPageMaker.cvo.amount }">
+								       </form>
+								      <!-- myqna pagination end  -->
+							      </div>
 								</div>
                              </div>
                            </div>

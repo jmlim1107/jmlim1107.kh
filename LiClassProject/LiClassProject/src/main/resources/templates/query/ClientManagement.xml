@@ -66,4 +66,9 @@
 		select count(*) from li_user
 	</select>
 
+	<update id="outClient" parameterType="long">
+		update li_user set USER_STATUS = 1
+		where user_no = #{user_no}
+	</update>
+
 </mapper>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/common/common.jspf" %>
 <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css">
@@ -31,11 +31,18 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading clearfix">
-                    <h3 class="panel-title pull-left" style="line-height: 2.5;"><strong>[${detail.qna_category}]</strong>&nbsp${detail.qna_title}</h3>
+                    <h3 class="panel-title pull-left" style="line-height: 2.5;"><strong>[${detail.qna_category}]</strong>&nbsp;${detail.qna_title}</h3>
                 </div>
                 <div class="panel-body">
-                    <p><strong>작성자: </strong>${detail.user_name}</p>
-                    <p><strong>작성일: </strong>${detail.qna_date}</p>
+                    <c:choose>
+                        <c:when test="${detail.qna_category == '답변'}">
+                            <p><strong>작성자</strong>&nbsp;:&nbsp;${detail.admin_name}</p>
+                        </c:when>
+                        <c:otherwise>
+                            <p><strong>작성자</strong>&nbsp;:&nbsp;${detail.user_name}</p>
+                        </c:otherwise>
+                    </c:choose>
+                    <p><strong>작성일</strong>&nbsp;:&nbsp;${detail.qna_date}
                     <hr>
                     <div id="collapse2" class="panel-collapse collapse in">
                         <div class="panel-body">

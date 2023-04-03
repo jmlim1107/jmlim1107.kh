@@ -10,4 +10,6 @@ public interface ClientManagementService {
 
 	public int clientListCnt(UserVO uservo);
 
+	public void outClient(long user_no);
+
 }

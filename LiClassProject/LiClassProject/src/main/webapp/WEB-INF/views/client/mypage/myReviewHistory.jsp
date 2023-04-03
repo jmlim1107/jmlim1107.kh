@@ -37,13 +37,13 @@
 			
 			var pageNum = $(this).data("num");
 			console.log("이동할 페이지 : "+pageNum);
-			$("#select-page").val(pageNum); 
+			$("#select-page3").val(pageNum); 
 		 	
-			$("#page-form").attr({
+			$("#page-form3").attr({
 				"method":"get",
 				"action":"/mypage"
 			});
-			$("#page-form").submit(); 
+			$("#page-form3").submit(); 
 			
       	});
 	});
@@ -142,21 +142,21 @@
 						         </div>
 						         
 						            <!--은아)나의 문의내역 페이징 처리  -->
-						       	<!-- myqna pagination start  -->
-						       	<div class="pagination">
-									<c:if test="${reviewPageMaker.prev}">
-									<a href="${reviewPageMaker.startPage - 1}">&laquo;</a>
-									</c:if>
-									<c:forEach var="num" begin="${reviewPageMaker.startPage}" end="${reviewPageMaker.endPage}">
-									<a class="paginate_button3 ${reviewPageMaker.cvo.pageNum == num ? 'active':''} "  data-num="${num}" >${num}</a>
-									</c:forEach>
-									<c:if test="${reviewPageMaker.next}">
-									<a href="${reviewPageMaker.endPage + 1 }">&raquo;</a>
-									</c:if>
-								</div>
+							       	<!-- myqna pagination start  -->
+							       	<div class="pagination">
+										<c:if test="${reviewPageMaker.prev}">
+										<a href="${reviewPageMaker.startPage - 1}">&laquo;</a>
+										</c:if>
+										<c:forEach var="num" begin="${reviewPageMaker.startPage}" end="${reviewPageMaker.endPage}">
+										<a class="paginate_button3 ${reviewPageMaker.cvo.pageNum == num ? 'active':''} "  data-num="${num}" >${num}</a>
+										</c:forEach>
+										<c:if test="${reviewPageMaker.next}">
+										<a href="${reviewPageMaker.endPage + 1 }">&raquo;</a>
+										</c:if>
+									</div>
 								          
-						          <form id="page-form">
-						          	<input type="hidden" id="select-page" name="pageNum" value="">
+						          <form id="page-form3">
+						          	<input type="hidden" id="select-page3" name="pageNum" value="">
 						          	<input type="hidden" name="amount" value="${reviewPageMaker.cvo.amount }">
 							       </form>
 							      <!-- myqna pagination end  -->
