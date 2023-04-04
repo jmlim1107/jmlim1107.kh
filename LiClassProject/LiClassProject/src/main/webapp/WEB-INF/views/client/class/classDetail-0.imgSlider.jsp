@@ -69,7 +69,7 @@
 		</c:if>
       </h6>
       <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${clientClassDetail.c_area}</h6>
-      <h3>${clientClassDetail.c_title}</h3>
+      <h3 style="font-weight: bold;">${clientClassDetail.c_title}</h3>
 	</div>
 
     

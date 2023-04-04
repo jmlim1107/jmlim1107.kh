@@ -36,9 +36,10 @@
 		======================================================== -->
 	</head>
 	<style type="text/css">
-		th{
+		th, td{
 			text-align: center;
 		}
+		
 	</style>
 	<script type="text/javascript">
 		$(function(){
@@ -91,7 +92,7 @@
 				data : "json",
 				success : function(data){
 					//console.log(data);
-					let table = $("<table class='table table-striped text-center'>");
+					let table = $("<table class='table table-striped'>");
 					let tr = $("<tr>").html("<th scope='col'>회차</th> <th scope='col'>회차가격</th> <th scope='col'>회차일정</th> <th scope='col'>회차예약상태</th> <th scope='col'>회차진행상태</th> <th scope='col'>예약인원</th> <th scope='col'>삭제</th>");
 					table.append($("<thead>").append(tr));
 					let tbody = $("<tbody>");
@@ -109,13 +110,26 @@
 							let ep_state2 = this.ep_state2;
 							let ep_cnt = this.ep_cnt;
 							
+							
+							
 							let tr = $("<tr>").attr({"data-no": ep_no, "idx":idx} )
 										.append($("<td id='idx'>").html(idx+"회차")).append($("<td>").html(ep_price+"원"))
-										.append($("<td>").html(ep_date)).append($("<td class='st1'>").html(ep_state1))
-										.append($("<td class='st2'>").html(ep_state2))
-										.append($("<td>").html(ep_cnt))
-										.append($("<td>").html("<button class='epdel btn btn-dark rounded-pill'>회차삭제</button>"));
-							
+										.append($("<td>").html(ep_date));
+							//예약만석일경우
+							if(ep_state1=='인원만석'){
+								tr.append($("<td style='color:#EB3232'>").html(ep_state1));
+							}else{
+								tr.append($("<td>").html(ep_state1));
+							}			
+							//진행종료일경우
+							if(ep_state2=='진행종료'){
+								tr.append($("<td style='color:#d2d2d2'>").html(ep_state2));
+							}else{
+								tr.append($("<td style='color:#288CFF'>").html(ep_state2));
+							}
+									
+							tr.append($("<td>").html(ep_cnt))
+								.append($("<td>").html("<button class='epdel btn btn-dark rounded-pill'>회차삭제</button>"));
 							tbody.append(tr);
 					});
 					
@@ -162,14 +176,6 @@
 				location.href="/admin/image/imageUpdate?c_no="+${liclass.C_NO};
 			});
 			
-			$(".st1").each(function(){
-				if( $(this).text()=='예약만석'){
-					console.log(this);
-				}
-			});
-			
-			
-				
 		}); //최상위$
 	
 	

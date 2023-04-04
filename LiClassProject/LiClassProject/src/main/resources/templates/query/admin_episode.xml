@@ -6,7 +6,7 @@
 	<select id="epList" parameterType="int" resultType="episode">
 		select a.ep_no, a.c_no, a.ep_price, a.ep_cnt,
 		to_char(a.ep_date,'yy/mm/dd hh24:mi') as ep_date ,
-		DECODE( a.ep_cnt, b.c_maxcnt, '예약만석', '예약여유'  ) AS ep_state1,
+		DECODE( a.ep_cnt, b.c_maxcnt, '인원만석', '인원여유'  ) AS ep_state1,
 		CASE WHEN <![CDATA[a.ep_date > sysdate]]> THEN '모집중'
 				   ELSE '진행종료' 
 		END AS ep_state2

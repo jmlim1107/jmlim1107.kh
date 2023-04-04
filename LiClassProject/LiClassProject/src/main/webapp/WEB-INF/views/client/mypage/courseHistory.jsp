@@ -77,7 +77,7 @@
                            <td>${ courseList.ct_addr },<br>${ courseList.ct_detail_addr }</td> 
                            
                            <c:if test="${courseList.count >= 0}">
-                           		<td>수강전</td>
+                           		<td>수강예정</td>
                            </c:if>
                            
                            <c:if test="${courseList.count < 0 }">

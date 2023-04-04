@@ -31,9 +31,9 @@
 	</update>
 	
 	<!-- 5. 아이디 비밀번호 확인 -->
-	<select id="checkIdPw" parameterType="User" resultType="int" >
+	<select id="checkIdPw" parameterType="User" resultType="int" ><!--  and user_status = 0  -->
 		SELECT nvl((select count(*) 
-		from li_user where user_email = #{user_email} and user_pw = #{user_pw} and user_status = 0 ), 0) as result 
+		from li_user where user_email = #{user_email} and user_pw = #{user_pw}), 0) as result 
 		from dual
 	</select>
 	
