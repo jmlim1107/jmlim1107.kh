@@ -58,7 +58,7 @@
 							
 							<tr>
 								<td>센터명</td>
-								<td class="text-left">
+								<td class="text-left" colspan="3">
 									<select id="ct_bizno" name="ct_bizno" class="form-control">	
 										<c:forEach var="centerName" items="${centerNameList}">
 											<option value="${centerName.ct_bizno}">
@@ -78,7 +78,7 @@
 								</td>
 							</tr>
 							<tr class="table-tr-height">
-								<td>내용</td>
+								<td>글내용</td>
 								<td colspan="3" class="text-left">
 									<textarea name="s_content" id="s_content" class="form-control" rows="8">${updateData.s_content}</textarea>
 								</td>
