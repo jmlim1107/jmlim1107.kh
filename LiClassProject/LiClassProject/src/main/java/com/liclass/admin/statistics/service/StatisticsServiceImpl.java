@@ -35,8 +35,8 @@ public class StatisticsServiceImpl implements StatisticsService{
     }
 
     @Override
-    public HashMap<String, Integer> allSales(PaymentVO payment) {
-        HashMap<String, Integer> sales = null;
+    public List<Map<String, Object>> allSales(PaymentVO payment) {
+        List<Map<String, Object>> sales = null;
         sales = statisticsDao.allSales(payment);
         return sales;
     }

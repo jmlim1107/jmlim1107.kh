@@ -110,9 +110,9 @@ public class MyPageController { //은아,웅배
         // 결제내역 이미지 가져오기
         //mypageService.getClassImg(6);
         //System.out.println(mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_paymentList.get(1).get("r_no")))));
-        List<String> classImg = new ArrayList<>();
+        List<Map<String, String>> classImg = new ArrayList<>();
         for(int i = 0; i < pvo_paymentList.size(); i++) {
-        	String doc = mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_paymentList.get(i).get("r_no"))));
+        	Map<String, String> doc = mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_paymentList.get(i).get("r_no"))));
         	classImg.add(doc);
         	//classImg.add(mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_paymentList.get(i).get("r_no")))));
         }
@@ -277,9 +277,9 @@ public class MyPageController { //은아,웅배
         List<Map<String, String>> pvo_courseList = mypageService.courseList(pvo);
 	    model.addAttribute("pvo_courseList", pvo_courseList);
 	    
-	    List<String> classImg = new ArrayList<>();
+	    List<Map<String, String>> classImg = new ArrayList<>();
         for(int i = 0; i < pvo_courseList.size(); i++) {
-        	String doc = mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_courseList.get(i).get("r_no"))));
+        	Map<String, String> doc = mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_courseList.get(i).get("r_no"))));
         	classImg.add(doc);
         }
         System.out.println(classImg);

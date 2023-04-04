@@ -14,7 +14,7 @@ public interface StatisticsService {
 
     public List<Map<String, Object>> quarterStatistics(PaymentVO payment);
 
-    public HashMap<String, Integer> allSales(PaymentVO payment);
+    public List<Map<String, Object>> allSales(PaymentVO payment);
 
     public List<Map<String, Object>> levelStatistics(PaymentVO payment);
 

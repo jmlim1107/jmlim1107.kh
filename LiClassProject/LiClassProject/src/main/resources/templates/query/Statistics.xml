@@ -36,8 +36,14 @@
             quarter
     </select>
 
-    <select id="allSales" parameterType="Payment" resultType="map">
-        SELECT TO_CHAR(sum(NVL(pay_price, 0)), 'FM999,999,999,999') AS allSales FROM li_payment
+    <select id="allSales" parameterType="Payment" resultType="Hashmap">
+        SELECT '전체 매출' as sales_type, SUM(NVL(pay_price, 0)) AS sales_acount
+        FROM li_payment
+        WHERE pay_status = 0
+        UNION ALL
+        SELECT '환불 매출' as sales_type, SUM(NVL(pay_price, 0)) AS sales_acount
+        FROM li_payment
+        WHERE pay_status = 3
     </select>
 
     <select id="levelStatistics" parameterType="Payment" resultType="HashMap">

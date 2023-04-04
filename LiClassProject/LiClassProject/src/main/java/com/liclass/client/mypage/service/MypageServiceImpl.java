@@ -98,8 +98,8 @@ public class MypageServiceImpl implements MypageService{ //은아,웅배
 		}
 		
 		@Override
-		public String getClassImg(int r_no) {
-			String result = mypageDao.getClassImg(r_no);
+		public Map<String, String> getClassImg(int r_no) {
+			Map<String, String> result = mypageDao.getClassImg(r_no);
 			return result;
 		}
 

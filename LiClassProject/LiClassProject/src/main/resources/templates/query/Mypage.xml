@@ -224,16 +224,21 @@
      order by ep_date asc
    </select>
    
-	<select id="getClassImg" parameterType="int" resultType="String">
-		select thumb_file
-		from ( SELECT * 
+   <resultMap type="java.util.HashMap" id="imgdate" >
+      <id column="thumb_file" property="thumb_file" />
+      <id column="r_date" property="r_date" />
+   </resultMap>
+   
+	<select id="getClassImg" parameterType="int" resultMap="imgdate">
+		select thumb_file, to_char((select trunc((select to_date(r_date) from li_reserve where r_no = lr.r_no) - sysdate) from dual)) as r_date
+		from ( SELECT *  
 			   FROM li_class_img
-			   ORDER BY ROWNUM asc)
+			   ORDER BY ROWNUM asc), li_reserve lr
 		where c_no = (select lc.c_no
        					 from li_class lc inner join li_episode le on lc.c_no = le.c_no 
                         				  inner join li_reserve lr on le.ep_no = lr.ep_no
                         				  inner join li_payment lp on lr.r_no = lp.r_no
-       where lp.r_no = #{r_no}) and rownum = 1
+                         where lp.r_no = #{r_no}) and rownum = 1 and lr.r_no = #{r_no}
 	</select>
    
 </mapper>

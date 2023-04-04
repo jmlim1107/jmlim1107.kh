@@ -40,7 +40,7 @@ public class PaymentServiceImpl implements PaymentService{
             //STEP 5      
             String api_key = "6447060136783531";
             String api_secret = "QY3l9fXLrXtnNbu0XGvOZAgu3HitQO6Z73CfOu791LCqFjASsLPv4BsxyfGjAWs55DltXd3nzDjiZmbp";
-                  
+            
             IamportClient ic = new IamportClient(api_key, api_secret);
             IamportResponse<Payment> response = ic.paymentByImpUid(imp_uid); // 두 개의 키로 토큰까지 얻어서 실제 결제금액을 가져와준다.
             
