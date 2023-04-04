@@ -32,17 +32,21 @@
 //        $("#salesBar2").width(salesAvg2);
         $("#reserveBar1").width(reserveAvg1);
         $("#reserveBar2").width(reserveAvg2);
+
+
+        /* 문의사항 제목 클릭 시 상세페이지 이동을 위한 처리 이벤트 */
+        $(".goDetail").click(function(){
+            let qna_no = $(this).parents("tr").attr("data-num");
+            $("#qna_no").val(qna_no);
+            //상세페이지로 이동하기 위해 form 추가 (id : detailForm)
+            $("#detailForm").attr({
+                "method" : "get",
+                "action" : "/management/qnaboard/qnaBoardDetail"
+            });
+            $("#detailForm").submit();
+        });
     });
 
-    function userStatistics(){
-        location.href="/admin/statistics/userstatistics"
-    }
-    function salesStatistics(){
-        location.href="/admin/statistics/salesstatistics"
-    }
-    function reserveStatistics(){
-        location.href="/admin/statistics/reservestatistics"
-    }
 </script>
 
 
@@ -82,7 +86,7 @@
                             </div>
 
                             <div class="card-body" >
-                                <h5 class="card-title" onclick="userStatistics()">활성화 계정<span>| <%=today%>&nbsp 기준</span></h5>
+                                <h5 class="card-title"><a href="/admin/statistics/userstatistics">활성화 계정</a><span>| <%=today%>&nbsp 기준</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -124,7 +128,7 @@
                             </div>
 
                             <div class="card-body" >
-                                <h5 class="card-title" onclick="salesStatistics()">전체 매출 통계 <span>| <%=today%>&nbsp 기준</span></h5>
+                                <h5 class="card-title"><a href="/admin/statistics/salesstatistics">전체 매출 통계</a><span>| <%=today%>&nbsp 기준</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -164,7 +168,7 @@
                             </div>
 
                             <div class="card-body" >
-                                <h5 class="card-title" onclick="reserveStatistics()">전체 예약 통계 <span>| <%=today%>&nbsp 기준</span></h5>
+                                <h5 class="card-title"><a href="/admin/statistics/reservestatistics">전체 예약 통계</a> <span>| <%=today%>&nbsp 기준</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -217,9 +221,12 @@
                         </div>
                     </div><!-- End Reports -->
                     <div class="col-12">
+                        <form id="detailForm">
+                            <input type="hidden" id="qna_no" name="qna_no"/>
+                        </form>
                         <div class="card top-selling overflow-auto">
                             <div class="card-body pb-0">
-                                <h5 class="card-title">최근 공지사항<span>  |  <%=today%></span></h5>
+                                <h5 class="card-title"><a href="/management/noticeboard/noticeBoard">최근 공지사항</a><span>  |  <%=today%></span></h5>
                                 <table class="table table-borderless">
                                     <thead>
                                     <tr>
@@ -233,10 +240,10 @@
                                     <c:choose>
                                         <c:when test="${not empty noticeList}">
                                              <c:forEach var="notice" items="${noticeList}" varStatus="status">
-                                                <tr>
+                                                <tr data-num="${notice.qna_no}">
                                                     <td>${notice.qna_category}</td>
-                                                    <td>${notice.qna_title}</td>
-                                                    <td>관리자</td>
+                                                    <td class="goDetail">${notice.qna_title}</td>
+                                                    <td>${notice.admin_name}</td>
                                                     <td>${notice.qna_date}</td>
                                                 </tr>
                                             </c:forEach>
@@ -255,7 +262,7 @@
                     <div class="col-12">
                         <div class="card top-selling overflow-auto">
                             <div class="card-body pb-0">
-                                <h5 class="card-title">최근 문의사항<span>  |  <%=today%></span></h5>
+                                <h5 class="card-title"><a href="/management/qnaboard/qnaBoard">최근 문의사항</a><span>  |  <%=today%></span></h5>
 
                                 <table class="table table-borderless">
                                     <thead>
@@ -270,10 +277,10 @@
                                     <c:choose>
                                         <c:when test="${not empty qnaList}">
                                             <c:forEach var="qna" items="${qnaList}" varStatus="status">
-                                                <tr>
+                                                <tr data-num="${qna.qna_no}">
                                                     <td>${qna.qna_category}</td>
-                                                    <td>${qna.qna_title}</td>
-                                                    <td>사용자</td>
+                                                    <td class="goDetail">${qna.qna_title}</td>
+                                                    <td>${qna.user_name}</td>
                                                     <td>${qna.qna_date}</td>
                                                 </tr>
                                             </c:forEach>

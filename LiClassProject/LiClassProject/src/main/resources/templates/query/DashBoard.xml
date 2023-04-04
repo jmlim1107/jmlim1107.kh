@@ -4,18 +4,26 @@
 
     <select id="noticeList" parameterType="qnaBoard" resultType="qnaBoard">
     <![CDATA[
-        select qna_no, qna_title, qna_content, qna_category, to_char(qna_date, 'YYYY-MM-DD')as qna_date
-        from li_qna
-        where qna_category = '공지' and rownum <=5
-        order by qna_date desc
+        SELECT qna_no, qna_title, qna_content, qna_category, TO_CHAR(qna_date, 'YYYY-MM-DD') AS qna_date, admin_name
+        FROM (
+                 SELECT a.qna_no, a.qna_title, a.qna_content, a.qna_category, qna_date, b.admin_name,
+                        ROW_NUMBER() OVER (ORDER BY qna_date DESC) AS rnum
+                 FROM li_qna a JOIN li_admin b ON a.admin_no = b.admin_no
+                 WHERE a.qna_category = '공지'
+             )
+        WHERE rnum <= 5
     ]]>
     </select>
     <select id="qnaList" parameterType="qnaBoard" resultType="qnaBoard">
     <![CDATA[
-        select qna_no, qna_title, qna_content, qna_category, to_char(qna_date, 'YYYY-MM-DD')as qna_date
-        from li_qna
-        where qna_category = '문의' and rownum <=5
-        order by qna_date desc
+        SELECT qna_no, qna_title, qna_content, qna_category, TO_CHAR(qna_date, 'YYYY-MM-DD') AS qna_date, user_name
+        FROM (
+                 SELECT a.qna_no, a.qna_title, a.qna_content, a.qna_category, qna_date, b.user_name,
+                        ROW_NUMBER() OVER (ORDER BY qna_date DESC) AS rnum
+                 FROM li_qna a JOIN li_user b ON a.user_no = b.user_no
+                 WHERE a.qna_category = '문의'
+             )
+        WHERE rnum <= 5
         ]]>
     </select>
 
