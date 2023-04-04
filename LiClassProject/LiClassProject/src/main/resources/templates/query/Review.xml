@@ -56,7 +56,7 @@
 				SELECT /*+ INDEX_DESC(Li_review Li_review_pk) */ 
 				 rownum as rnum, lr.review_no, lr.review_title, lr.review_content, lr.review_date, lr.review_recommend, lr.review_rating, lu.user_no, lu.user_name, lr.c_no, lu.user_img
 				 FROM Li_review lr , Li_user lu 
-				 where lr.user_no = lu.user_no and c_no = #{c_no} and
+				 where lr.user_no = lu.user_no and c_no = #{c_no} and review_status = 0 and
 		]]>
 		<trim prefix="(" suffix=") AND " prefixOverrides="AND">
 			<include refid="reviewSearch"></include>

@@ -84,7 +84,7 @@
               <div class="col-lg-4" style="position: static;">
                 <div class="rating-box">
                   <div class="rating-number">${ratingAvg}</div>
-                  <div class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> </div>
+                  <div class="rating" style="display: none;"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> </div>
                   <span id = "ratingTotal" value = "아아">전체 후기 개수</span></div>
               </div>
               <div class="col-lg-8">
@@ -160,9 +160,6 @@
 						<input type = "hidden" id = "review_no" value = "${review.review_no}" />
 						</form>
 		              	
-		              	<%-- ================== 상세버튼 시작 ============= --%>
-		              	<button class = "test3" type = "button">상세보기 버튼</button>
-		              	<%-- ================== 상세버튼 종료 ============= --%>
 		              	
 		              	
 		              	
@@ -232,14 +229,13 @@
 		                    
 		                  </div>
 		                  <div style="margin-bottom: 5px;">
-		                  	<span>${review.review_name}</span>
+		                  	<p>${review.review_name}</p>
 		                  	<span>${review.review_date}</span>
-		                  	<span>${review.user_name}</span>
+		                  	<div style="font-size: 4px;">${review.user_name}</div>
 	
 		                  </div>
 		                  <div id = "review_content" name = "review_content">${review.review_content}</div>
-		                  <span>친구에게 추천하시겠습니까?</span>
-		                  <span>${review.review_recommend}</span>
+		                  <p>친구에게 추천하시겠습니까?아   ${review.review_recommend}</p>
 		                </div>
 		                
 		                <%-- <div>
