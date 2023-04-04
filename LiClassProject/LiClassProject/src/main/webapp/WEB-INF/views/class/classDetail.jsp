@@ -90,7 +90,7 @@
 				type : "get",
 				data : "json",
 				success : function(data){
-					console.log(data);
+					//console.log(data);
 					let table = $("<table class='table table-striped text-center'>");
 					let tr = $("<tr>").html("<th scope='col'>회차</th> <th scope='col'>회차가격</th> <th scope='col'>회차일정</th> <th scope='col'>회차예약상태</th> <th scope='col'>회차진행상태</th> <th scope='col'>예약인원</th> <th scope='col'>삭제</th>");
 					table.append($("<thead>").append(tr));
@@ -111,7 +111,8 @@
 							
 							let tr = $("<tr>").attr({"data-no": ep_no, "idx":idx} )
 										.append($("<td id='idx'>").html(idx+"회차")).append($("<td>").html(ep_price+"원"))
-										.append($("<td>").html(ep_date)).append($("<td>").html(ep_state1)).append($("<td>").html(ep_state2))
+										.append($("<td>").html(ep_date)).append($("<td class='st1'>").html(ep_state1))
+										.append($("<td class='st2'>").html(ep_state2))
 										.append($("<td>").html(ep_cnt))
 										.append($("<td>").html("<button class='epdel btn btn-dark rounded-pill'>회차삭제</button>"));
 							
@@ -161,10 +162,12 @@
 				location.href="/admin/image/imageUpdate?c_no="+${liclass.C_NO};
 			});
 			
-			let content = td.text();
-			if( content=='예약만석' ){
-				td.css('font-color','#B93C3C');
-			}
+			$(".st1").each(function(){
+				if( $(this).text()=='예약만석'){
+					console.log(this);
+				}
+			});
+			
 			
 				
 		}); //최상위$
