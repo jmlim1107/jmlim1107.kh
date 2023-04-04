@@ -47,7 +47,7 @@ public interface MypageDAO { //은아,웅배
        
        public List<Map<String, String>> courseList(PaymentVO pvo);
 
-       public String getClassImg(int r_no);
+       public Map<String, String> getClassImg(int r_no);
 
 
 }

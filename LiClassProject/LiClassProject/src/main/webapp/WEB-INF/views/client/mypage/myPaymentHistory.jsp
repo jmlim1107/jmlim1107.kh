@@ -14,7 +14,7 @@
   justify-content: center;
   align-content: center;
 }
-span{justify-content: center;
+.sp{justify-content: center;
     align-items: center;
     display: flex;}
 
@@ -128,7 +128,7 @@ span{justify-content: center;
 	<div class="thumb">
 	   <div class="row"><!-- 은아)0330 수정 style="height: 632px;" -->
 	      <div class="left-text">
-	         <h4>결제내역</h4>
+	         <h4>결제내역<span style="font-size:12px;"> /  결제일자 기준 7일 이후로는 환불이 불가합니다. 클래스 수업일 하루전부터는 환불이 불가합니다. 참고하여 주시기 바랍니다.</span></h4>
 	
 	         <form id="f_search" name="f_search" class="form-inline">
 	            <input type="hidden" name="pageNum" id="pageNum"  value="${ pageMaker.cvo.pageNum }">
@@ -156,44 +156,65 @@ span{justify-content: center;
 	                        <c:forEach var="payment" items="${ pvo_paymentList }" varStatus="status" >
 	                           <tr class="text-center" data-num="${ payment.merchant_uid }">
 	                              <td style="text-align:left;display:flex; vertical-align: middle;">
-	                                 <img src="/uploadLiClass/class/thumbnail/${classImg[status.index] }" style="width:80px;height:80px;object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
-	                                 <span style="padding-left:30px;">${ payment.pay_name }</span>
+	                                 <img src="/uploadLiClass/class/thumbnail/${classImg[status.index].thumb_file }" style="width:80px;height:80px;object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
+	                                 <span class="sp" style="padding-left:30px;">${ payment.pay_name }</span>
 	                              </td>                     
 	                              <td class="name">${ payment.pay_date }</td>
 	                              <td class="name"><a class="csp" href="#sns-share" rel="modal:open">${ payment.merchant_uid }</a></td>
 	                              <td>${ payment.pay_price }</td>
-	                                   
-	                              <c:choose>
-	                                 <c:when test="${payment.count >=7 and payment.pay_status==0 }">
-	                                    <td>결제완료/
-	                                       <button type="button" class="btn-default btn-xs payCencelBtn" disabled>환불불가</button>
-	                                            </td>
-	                                      </c:when>
-	                                 <c:when test="${payment.count >=7 and payment.pay_status==1 }">
-	                                    <td>결제취소</td>
-	                                      </c:when>
-	                                      <c:when test="${payment.count >=7 and payment.pay_status==2 }">
-	                                    <td>결제실패</td>
-	                                      </c:when>
-	                                      <c:when test="${payment.count >=7 and payment.pay_status==3 }">
-	                                    <td>환불완료</td>
-	                                      </c:when>
-	            
-	                                      <c:when test="${payment.count < 7 and payment.pay_status==0 }">
-	                                    <td>결제완료/
-	                                       <button type="button" class="btn-default btn-xs payCencelBtn">환불하기</button>
-	                                            </td>
-	                                      </c:when>
-	                                      <c:when test="${payment.count < 7 and payment.pay_status==1 }">
-	                                    <td>결제취소</td>
-	                                      </c:when>
-	                                      <c:when test="${payment.count < 7 and payment.pay_status==2 }">
-	                                    <td>결제실패</td>
-	                                      </c:when>
-	                                      <c:when test="${payment.count < 7 and payment.pay_status==3 }">
-	                                    <td>환불완료</td>
-	                                      </c:when>
-	                                   </c:choose>                       
+	                                      
+	                                    <c:if test="${payment.count<7}">
+	                                    	<c:if test="${classImg[status.index].r_date<=1}">
+	                                    		<c:if test="${payment.pay_status==0}">
+													<td>결제완료/
+			                                    		<button type="button" class="btn-default btn-xs payCencelBtn" disabled>환불불가</button>
+			                                    	</td>
+												</c:if>
+												<c:if test="${payment.pay_status==1}">
+													<td>결제취소</td>	
+												</c:if>
+												<c:if test="${payment.pay_status==2}">
+													<td>결제실패</td>
+												</c:if>
+												<c:if test="${payment.pay_status==3}">
+													<td>환불완료</td>
+												</c:if>
+	                                    	</c:if>
+	                                    	<c:if test="${classImg[status.index].r_date>1}">
+	                                    		<c:if test="${payment.pay_status==0}">
+													<td>결제완료/
+			                                    		<button type="button" class="btn-default btn-xs payCencelBtn">환불하기</button>
+			                                    	</td>
+												</c:if>
+												<c:if test="${payment.pay_status==1}">
+													<td>결제취소</td>	
+												</c:if>
+												<c:if test="${payment.pay_status==2}">
+													<td>결제실패</td>
+												</c:if>
+												<c:if test="${payment.pay_status==3}">
+													<td>환불완료</td>
+												</c:if>
+	                                    	</c:if>
+	                                    </c:if>
+	                                    
+	                                    <c:if test="${payment.count>=7}">
+											<c:if test="${payment.pay_status==0}">
+												<td>결제완료/
+		                                    		<button type="button" class="btn-default btn-xs payCencelBtn" disabled>환불불가</button>
+		                                    	</td>
+											</c:if>
+											<c:if test="${payment.pay_status==1}">
+												<td>결제취소</td>	
+											</c:if>
+											<c:if test="${payment.pay_status==2}">
+												<td>결제실패</td>
+											</c:if>
+											<c:if test="${payment.pay_status==3}">
+												<td>환불완료</td>
+											</c:if>
+	                                    </c:if>	                                    							
+                      
 	                                </tr>
 	                        </c:forEach>
 	                     </c:when>

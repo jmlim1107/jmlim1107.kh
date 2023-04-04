@@ -68,7 +68,7 @@
                      <c:forEach var="courseList" items="${ pvo_courseList }" varStatus="status">
                         <tr class="text-center" data-num="${ courseList.r_no }">
                            <td style="text-align:left;display:flex; vertical-align: middle;">
-                              <img src="/uploadLiClass/class/thumbnail/${classImg[status.index]}" style="margin-left:20px;width:100px;height:100px;object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
+                              <img src="/uploadLiClass/class/thumbnail/${classImg[status.index].thumb_file}" style="margin-left:20px;width:100px;height:100px;object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
                               <span style="padding-left:30px;">${ courseList.title }</span>
                            </td>                     
                            <td>${courseList.date }</td>
