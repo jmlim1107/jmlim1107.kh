@@ -143,7 +143,7 @@
 		              	<button class = "test3" type = "button">상세보기 버튼</button> --%>
 		              	<%-- ================== 상세버튼 종료 ============= --%>
 		                <div class="thumbnail"><img src="/uploadLiClass/user/${review.user_img}"></div>
-		                <div class="comment-content">
+		                <div class="comment-content" style="margin-top: 15px;">
 		                  <div class="comment-top" style="display: contents;">
 		                   	<div>
 		                    <h6 class="title" id = "title" style="color: #555; margin-left: -9px;">"&nbsp${review.review_title}&nbsp"</h6>
