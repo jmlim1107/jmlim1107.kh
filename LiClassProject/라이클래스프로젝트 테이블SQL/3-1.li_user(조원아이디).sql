@@ -1,3 +1,5 @@
+--조원 아이디 (update 23.04.04)
+
 --은아
 insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_type)
 values('9205045442','kimeunazip@naver.com','1234','김은아','01012341234','0');
@@ -21,3 +23,29 @@ values('2001110723','jmlim1107@naver.com','1234','임지민','01012341234','0');
 --경민
 insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_type)
 values('2302282828','linda284@naver.com','0000','이경민','01017441744','0');
+
+--23.04.03 기능확인을 위한 추가작업
+ update li_user
+ set user_regdate = '22/09/05', user_update = '22/09/05'
+ where user_no = 9205045442;
+ 
+ update li_user
+ set user_regdate = '22/09/05', user_update = '22/09/05'
+ where user_no = 2302282828;
+ 
+  update li_user
+ set user_regdate = '22/09/05', user_update = '22/09/05'
+ where user_no = 2303290625;
+ 
+  update li_user
+ set user_regdate = '22/09/05', user_update = '22/09/05'
+ where user_no = 2303290612;
+ 
+  update li_user
+ set user_regdate = '22/09/05', user_update = '22/09/05'
+ where user_no = 2303290722;
+ 
+  update li_user
+ set user_regdate = '22/09/05', user_update = '22/09/05'
+ where user_no = 2001110723;
+
