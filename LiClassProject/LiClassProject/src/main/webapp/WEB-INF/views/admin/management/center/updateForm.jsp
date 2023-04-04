@@ -53,22 +53,22 @@
 					<table class="table table-bordered">
 						<tbody>
 							<tr>
-								<td class="col-md-3">사업자등록번호</td> 
+								<td class="col-md-2">사업자등록번호</td> 
 								<td class="text-left col-md-3">${updateData.ct_bizno}</td>						
 								
 								<td>센터명</td>
-								<td colspan="3" class="text-left">
+								<td colspan="2" class="text-left">
 									<input type="text" name="ct_name" id="ct_name" value="${updateData.ct_name}" class="form-control" />
 								</td>
 								
 								<td>센터개업년월</td>
-								<td colspan="3" class="text-left">
+								<td colspan="2" class="text-left">
 									<input type="text" name="ct_opbiz_ym" id="ct_opbiz_ym" value="${updateData.ct_opbiz_ym}" class="form-control" />
 								</td>
 							</tr>
 							<tr>
 								<td>센터 소개</td>
-								<td colspan="3" class="text-left">
+								<td colspan="2" class="text-left">
 									<input type="text" name="ct_intro" id="ct_intro" value="${updateData.ct_intro}" class="form-control" />
 								</td>
 								
@@ -79,21 +79,21 @@
 							</tr>
 							<tr>	
 								<td>센터 우편번호</td>
-								<td colspan="3" class="text-left">
+								<td colspan="2" class="text-left">
 									<input type="text" name="ct_zipno" id="ct_zipno" value="${updateData.ct_zipno}" class="form-control" />
 								</td>
 								<td>센터 주소</td>
-								<td colspan="3" class="text-left">
+								<td colspan="2" class="text-left">
 									<input type="text" name="ct_addr" id="ct_addr" value="${updateData.ct_addr}" class="form-control" />
 								</td>
 								<td>센터 상세주소</td>
-								<td colspan="3" class="text-left">
+								<td colspan="2" class="text-left">
 									<input type="text" name="ct_detail_addr" id="ct_detail_addr" value="${updateData.ct_detail_addr}" class="form-control" />
 								</td>
 							</tr>
 							<tr>			
 								<td>센터 대표전화</td>
-								<td colspan="3" class="text-left">
+								<td colspan="2" class="text-left">
 									<input type="text" name="ct_tel" id="ct_tel" value="${updateData.ct_tel}" class="form-control" />
 								</td>	
 								<td>센터 홈페이지주소</td>
