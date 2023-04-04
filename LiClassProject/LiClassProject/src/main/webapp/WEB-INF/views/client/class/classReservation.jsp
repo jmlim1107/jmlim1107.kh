@@ -263,7 +263,7 @@
 
 		<div class="row" style="width:400px;">
              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
-                 <div class="class-booking-form">
+                 <div class="class-booking-form" >
                      <form>
                          <div class="row">
                          <h1></h1>

@@ -61,7 +61,6 @@
 	              <div class="col-lg-4" style="position: static;">
 	                <div class="rating-box" style="height: 100%; padding-top: 80px;">
 	                  <div class="rating-number">${ratingAvg}</div>
-	                  <div class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> </div>
 	                  <span id = "ratingTotal">전체 후기 개수</span></div>
 	              </div>
 	              <div class="col-lg-8">
@@ -145,14 +144,14 @@
 		              	<%-- ================== 상세버튼 종료 ============= --%>
 		                <div class="thumbnail"><img src="/uploadLiClass/user/${review.user_img}"></div>
 		                <div class="comment-content">
-		                  <div class="comment-top">
-		                    <h6 class="title" id = "title">" ${review.review_title} "</h6>
-		                    
+		                  <div class="comment-top" style="display: contents;">
+		                   	<div>
+		                    <h6 class="title" id = "title" style="color: #555; margin-left: -9px;">"&nbsp${review.review_title}&nbsp"</h6>
+		                    </div>
 		                
 		                    
 			                    <!-- 댓글창 별점 -->
 			                    <c:set var = "rating" value = "${review.review_rating}"/>	 
-			                    
 			                    <c:if test="${rating eq 1}">
 		                    		<div class="rating">
 				                    	<i class="fas fa-star" aria-hidden="true"></i>
@@ -160,6 +159,7 @@
 				                    	<i class="fas fa-star" aria-hidden="true"></i>
 				                    	<i class="fas fa-star" aria-hidden="true"></i> 
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+		
 				                    </div> 	
 		                    	</c:if>
 			                    
@@ -171,6 +171,7 @@
 				                    	<i class="fas fa-star" aria-hidden="true"></i> 
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+				
 				                    </div> 	
 		                    	</c:if>
 		                    	
@@ -182,6 +183,7 @@
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+				  
 				                    </div> 	
 		                    	</c:if>
 
@@ -192,6 +194,7 @@
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
+		
 				                    </div> 	
 		                    	</c:if>
 		                    	
@@ -203,20 +206,22 @@
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i>
 				                    	<i class="fas fa-star" aria-hidden="true" id = "colorStar"></i> 
+				                    
 				                    </div> 	
 		                    	</c:if>
 		                  
 		                    
 		                  </div>
 		                  <div style="margin-bottom: 5px;">
-		                  	<span>${review.review_name}</span>
-		                  	<span>${review.review_date}</span>
-		                  	<span>${review.user_name}</span>
-	
+		                  	<p>${review.review_name}</p>
 		                  </div>
 		                  <div id = "review_content" name = "review_content">${review.review_content}</div>
-		                  <span>친구에게 추천하시겠습니까?</span>
-		                  <span>${review.review_recommend}</span>
+		                  <P></P>
+		                  <p style="font-size: 0px;">친구에게 추천하시겠습니까? &nbsp   ${review.review_recommend}</p>
+		                  <div style="float: right;">
+		                  	<span style="font-size: 13px; color: #999;">${review.user_name}</span>&nbsp
+		                  	<span style="font-size: 10px; color: #9999;">${review.review_date}</span>
+		                  </div>
 		                </div>
 		                
 		                
