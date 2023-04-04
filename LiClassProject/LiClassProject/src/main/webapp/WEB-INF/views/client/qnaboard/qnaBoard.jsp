@@ -119,7 +119,8 @@
                 </c:choose>
             </div>
 
-            <div class="board_page">
+<%--페이징 처리 보류
+<div class="board_page">
                 <a href="#" class="bt first"><<</a>
                 <a href="#" class="bt prev"><</a>
                 <a href="#" class="num on">1</a>
@@ -129,7 +130,7 @@
                 <a href="#" class="num">5</a>
                 <a href="#" class="bt next">></a>
                 <a href="#" class="bt last">>></a>
-            </div>
+            </div>--%>
             <div class="bt_wrap">
                 <button type="button" class="on" id="insertForm">등록</button>
                 <!--<a href="#">수정</a>-->
