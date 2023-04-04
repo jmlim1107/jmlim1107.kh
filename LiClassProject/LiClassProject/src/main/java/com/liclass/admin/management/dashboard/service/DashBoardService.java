@@ -2,7 +2,6 @@ package com.liclass.admin.management.dashboard.service;
 
 import com.liclass.admin.management.dashboard.vo.DashBoardVo;
 import com.liclass.admin.management.qnaboard.vo.QnaBoardVo;
-import org.springframework.data.relational.core.sql.In;
 
 import java.util.HashMap;
 import java.util.List;
