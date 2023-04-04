@@ -33,4 +33,10 @@ public class ClientManagementServiceImpl implements ClientManagementService {
 		clientManagementDao.outClient(user_no);		
 	}
 
+	//은아)탈퇴회원 DB 삭제처리
+	@Override
+	public int deleteDB(long user_no) {
+		int result = clientManagementDao.deleteDB(user_no);
+		return result;
+	}
 }

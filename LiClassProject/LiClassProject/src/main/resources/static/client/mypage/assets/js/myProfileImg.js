@@ -54,5 +54,11 @@ $(function(){
 	    		location.href="/mypage/delImg";
 	    	}
 		});
+		
+		//전화번호
+	  var tel = $(".fa-phone").data("tel");
+	  var result = tel.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/,"$1-$2-$3");
+	  
+	  $("#user_tel").text(result);
 	    
 });

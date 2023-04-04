@@ -96,8 +96,34 @@
 					}
 				});
 				
-			}); //최상위$
 				
+				//은아)0405 - 탈퇴회원 db삭제처리
+				$(".check-unreg").click(function(){
+					var unregdate = $(this).data("unregdate");
+					var user_no = $(this).data("uno");
+					/*var period = today.getDate()- unregdate.getDate();*/
+					if(confirm("탈퇴일자 "+unregdate+"\n DB상에서 삭제하시겠습니까? (Y/N)")){
+						$.ajax({
+						      type : "POST",
+						      url : "/clientmanagement/deleteDB",
+						      data : {
+						         "user_no" : user_no
+						      },
+						      success : function(result){
+						    	 if(result == 1){
+						    		 alert("삭제되었습니다.");
+						    		 location.reload();
+						    	 }else {
+						    		 alert("잠시후 다시 시도해주세요.")
+						    	 }
+						      }
+						   });
+						
+					}
+				});
+				
+			}); //최상위$
+			
 			//페이지 전환 함수 :: 검색, 페이징 
 			function goPage(){
 				//전체조회의 경우 제어
@@ -136,8 +162,10 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">LiClass List</h5>
+              
+			 <!--2023.04.05 은아 주석
 			 <button type="button" class="btn btn-dark rounded-pill btn-lg" id="insertBtn">
-			 <i class="bi bi-cloud-upload"></i>&nbsp;신규등록</button>
+			  <i class="bi bi-cloud-upload"></i>&nbsp;신규등록</button> -->
 			 
 			<!-- 검색영역 --> 
 			<!-- 검색 & 페이징을 동시에 처리하기 위한 form = 하나의 cvo저장 -->
@@ -166,10 +194,12 @@
                   	</td>
                   </tr>
                   <tr>
-                    <th data-value="b_num" class="order text-center col-md-3">회원번호</th>
-			        <th class="text-center col-md-2">회원이름</th>
+                    <th class="order text-center col-md-1">no</th>
+                    <th class="order text-center col-md-1">회원번호</th>
+			        <th class="text-center col-md-1">회원이름</th>
                     <th class="text-center col-md-2">회원연락처</th>
                     <th class="text-center col-md-1">회원이메일</th>
+                    <th class="text-center col-md-2">회원유형</th>
                     <th class="text-center col-md-1">회원계정상태</th>
                   </tr>
                 </thead>
@@ -178,25 +208,41 @@
                 		<c:when test="${ not empty userVO }">
                 			<c:forEach var="uvo"  items="${userVO}"  varStatus="status">
                 				<tr class="text-center" data-num="${uvo.user_no  }">
+	                           	  <td>${status.index+1}</td>
 	                           	  <td>${uvo.user_no }</td>
 	                              <td>${uvo.user_name }</td>                     
 	                              <td>${uvo.user_tel }</td>
 	                              <td>${uvo.user_email }</td>
+	                              
+	                              <c:if test="${uvo.user_type == 0}">
+	                              	<td>이메일인증회원</td>
+	                              </c:if>
+	                              
+	                              <c:if test="${uvo.user_type == 1}">
+	                              	<td>SNS(Kakao)연동회원</td>
+	                              </c:if>
+	                              
+	                               <c:if test="${uvo.user_type == 2}">
+	                              	<td>SNS(Naver)연동회원</td>
+	                              </c:if>
 	                              
 	                              <c:if test="${uvo.user_status == 0 }">
 	                              	<td><button type="button" class="btn btn-primary btn-xs outBtn">강제 탈퇴</button></td>
 	                              </c:if>
 	                              
 	                              <c:if test="${uvo.user_status == 1 }">
-	                              	<td style="color:red;">탈퇴 회원</td>
+	                              	<td>
+	                              		<button type="button" class="btn check-unreg" data-unregdate="${uvo.user_unregdate}" data-uno="${uvo.user_no}" style="color: red;">
+	                              			탈퇴 회원
+	                              		</button>
+	                              	</td>
 	                              </c:if>
 	                              
-	                                                         
 			                    </tr>
                 			</c:forEach>
                 		</c:when>
                 		<c:otherwise>
-                			<td colspan="5">회원내역이 없습니다.</td>
+                			<td colspan="6">회원내역이 없습니다.</td>
                 		</c:otherwise>
                 	</c:choose>
                 </tbody>
@@ -235,7 +281,7 @@
         </div>
       </div>
     </section><!-- End #main -->
- 
+                     
    
    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Vendor JS Files -->
@@ -249,6 +295,5 @@
   <script src="/resources/admin/vendor/php-email-form/validate.js"></script>
   <!-- Template Main JS File -->
   <script src="/resources/admin/js/main.js"></script>
-  
 	</body>
 </html>

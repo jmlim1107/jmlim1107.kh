@@ -53,7 +53,7 @@
 	                               <i class="fa-solid fa-calendar-days"></i>
 	                               <p>${loginUser.user_regdate} ~</p>
 	                               <i class="fa-solid fa-envelope"></i><p>${loginUser.user_email}</p>
-	                               <i class="fa-solid fa-phone"></i><p>${loginUser.user_tel}</p>
+	                               <i class="fa-solid fa-phone" data-tel="${loginUser.user_tel}"></i><p id="user_tel" ></p>
 	                               <div class="main-white-button">
 	                               		<a href="/mypage/updateForm" id="edit-btn" style="width: 50%;"><i class="fa-regular fa-user"></i>수정하기</a>
 	                               	</div>

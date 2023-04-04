@@ -12,4 +12,7 @@ public interface ClientManagementService {
 
 	public void outClient(long user_no);
 
+	//은아)탈퇴회원 DB 삭제처리
+	public int deleteDB(long user_no);
+
 }

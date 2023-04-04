@@ -23,7 +23,7 @@
 	<select id="clientList" parameterType="User" resultType="User">
 		<![CDATA[
 		SELECT
-			user_no, user_email, user_pw, user_name, user_tel, user_img, user_point, user_regdate, user_update, user_unregdate,
+			user_no, user_email, user_pw, user_name, user_tel, user_img, user_point, user_regdate, user_update, to_char(user_unregdate,'YYYY-MM-DD') user_unregdate,
 			user_status, user_type
 		FROM(
 				SELECT /*+ INDEX_DESC(li_user li_user_pk) */
@@ -71,4 +71,9 @@
 		where user_no = #{user_no}
 	</update>
 
+	<delete id="deleteDB" parameterType="long">
+		delete li_user
+		where user_no = #{user_no}
+	</delete>
+	
 </mapper>

@@ -18,7 +18,7 @@ function pwRegExp(item) {
 
 //3. 전화번호 정규식
 function checkPhone(phoneNumber){
-	const regExp =/^(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})$/;
+	const regExp =/^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/;
 	if(!regExp.test(phoneNumber)){
 		$("#tel-check-area").css("display","revert");
 		$("#tel-check-result").addClass('red');
@@ -87,8 +87,8 @@ $(function(){
 		
 	//4. 전화번호 입력
 	$(".phone-number").keyup(function(){
-		phoneNumber = $('.phone-number').eq(0).val() + "-"+
-		$('.phone-number').eq(1).val()+ "-"+
+		phoneNumber = $('.phone-number').eq(0).val() + ""+
+		$('.phone-number').eq(1).val()+ ""+
 		$('.phone-number').eq(2).val();
 		telAccord = checkPhone(phoneNumber);
 		$("#user_tel").val(phoneNumber);
