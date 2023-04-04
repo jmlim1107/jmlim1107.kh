@@ -49,14 +49,13 @@
 
                                 <div class="ps-3">
                                     <%--전체 매출 데이터 삽입--%>
-                                    <h6 style="font-size: 20px;">총 매출 : ${allSaleList[0]-allSaleList[1]} <br />
-                                        환불 금액 : ${allSaleList[1]}
+                                    <h6 style="font-size: 20px;">총 매출 : ${allSaleList[0]-allSaleList[1]} <br /> 환불 금액 : ${allSaleList[1]}
                                     </h6>
                                 </div>
                             </div>
                             <div class="progress mt-4">
-                                <div id="userBar1" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div id="userBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="salesBar1" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="salesBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
 
@@ -90,14 +89,16 @@
                                         <c:forEach items="${salesList}" var="sales" varStatus="quarter">
                                             <input type="hidden" id="${quarter.index+1}_quarter" name="quarter_sales" value="${sales}">
                                         </c:forEach>
-                                    <h6 style="font-size: 20px;">${salesList[0]} / ${salesList[1]} <br/>
-                                        ${salesList[2]} / ${salesList[3]}
+                                    <h6 style="font-size: 20px;">1분기 : ${salesList[0]} / ${salesList[1]} <br/> ${salesList[2]} / ${salesList[3]}
                                     </h6>
                                 </div>
                             </div>
                             <div class="progress mt-4 ">
-                                <div id="userBar1" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div id="userBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="quarterBar1" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="quarterBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="quarterBar3" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="quarterBar4" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+
                             </div>
                         </div>
                     </div>
@@ -136,8 +137,9 @@
                                 </div>
                             </div>
                             <div class="progress mt-1">
-                                <div id="userBar1" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div id="userBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="levelBar1" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="levelBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="levelBar3" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>

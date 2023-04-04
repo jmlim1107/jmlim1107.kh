@@ -143,8 +143,8 @@
                                     </div>
                                 </div>
                                 <div class="progress mt-3">
-                                    <div id="salesBar1"class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    <div id="salesBar2"class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div id="salesBar1"class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 87%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div id="salesBar2"class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 13%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
