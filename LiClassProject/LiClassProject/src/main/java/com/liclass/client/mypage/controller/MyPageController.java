@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.liclass.client.classes.service.ClientClassService;
-import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.likes.service.LikesService;
 import com.liclass.client.likes.vo.LikesVO;
 import com.liclass.client.login.service.UserService;
@@ -282,7 +281,6 @@ public class MyPageController { //은아,웅배
         for(int i = 0; i < pvo_courseList.size(); i++) {
         	String doc = mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_courseList.get(i).get("r_no"))));
         	classImg.add(doc);
-        	//classImg.add(mypageService.getClassImg(Integer.parseInt(String.valueOf(pvo_paymentList.get(i).get("r_no")))));
         }
         System.out.println(classImg);
         model.addAttribute("classImg", classImg);

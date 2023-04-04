@@ -146,25 +146,6 @@
 	
 	<!-- 웅배파트 --> 
    <!-- 결제내역 불러오기 -->
-  <!--  <select id="paymentList" parameterType="payment" resultType="payment">
-      <![CDATA[
-      select merchant_uid, r_no, user_no, pay_pg, pay_method, pay_name, pay_price
-      , pay_buyer_name, pay_buyer_tel, pay_buyer_email, pay_date, pay_status
-       from(
-             select /*+ index_desc(li_payment li_payment_pk) */
-                rownum as rnum, merchant_uid, r_no, user_no, pay_pg, pay_method, pay_name, pay_price
-               , pay_buyer_name, pay_buyer_tel, pay_buyer_email, pay_date, pay_status
-            from li_payment
-         where]]>
-         <![CDATA[ROWNUM <= #{pageNum} * #{amount} and user_no = #{user_no}
-         )paymentList
-      where rnum > (#{pageNum} - 1) * #{amount}]]>
-   </select> -->
-   <!-- <select id="paymentList" parameterType="payment" resultType="payment">
-      select * from li_payment
-      where user_no = #{user_no}
-   </select> -->
-   
    <resultMap type="java.util.HashMap" id="payList">
       <id column="merchant_uid" property="merchant_uid" />
       <id column="r_no" property="r_no" />
@@ -231,7 +212,7 @@
    
    <!-- 수강내역 -->
    <select id="courseList" parameterType="payment" resultMap="courseResult">
-      select lc.c_title c_title, lc.c_no c_no, lp.user_no user_no, lr.REVIEW_STATUS review_status, lc.c_category c_category, lc.c_level c_level, lc.c_area c_area, le.ep_date ep_date,
+      select lc.c_title c_title, lc.c_no c_no, lp.user_no user_no, lr.REVIEW_STATUS review_status, lc.c_category c_category, lc.c_level c_level, lc.c_area c_area, to_char(le.ep_date,'YYYY-MM-DD HH24:MI:SS') ep_date,
              lr.r_no r_no, to_char((select trunc((select ep_date from li_episode where ep_no = le.ep_no) - sysdate) from dual)) as count,
              DBMS_LOB.SUBSTR(lt.ct_addr,4000,1) ct_addr, DBMS_LOB.SUBSTR(lt.ct_detail_addr,4000,1) ct_detail_addr
 	  from li_center lt inner join li_class lc   on lt.ct_bizno = lc.ct_bizno

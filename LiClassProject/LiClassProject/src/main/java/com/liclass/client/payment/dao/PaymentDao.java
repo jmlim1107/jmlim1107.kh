@@ -3,8 +3,6 @@ package com.liclass.client.payment.dao;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.liclass.admin.episode.vo.EpisodeVO;
-import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.payment.vo.RefundVO;

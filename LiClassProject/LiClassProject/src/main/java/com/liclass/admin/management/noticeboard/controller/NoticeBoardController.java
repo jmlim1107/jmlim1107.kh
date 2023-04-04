@@ -1,6 +1,5 @@
 package com.liclass.admin.management.noticeboard.controller;
 
-import com.liclass.admin.login.vo.AdminLoginVo;
 import com.liclass.admin.management.noticeboard.service.NoticeBoardService;
 import com.liclass.admin.management.qnaboard.vo.QnaBoardVo;
 import com.liclass.common.vo.PageDTO;
@@ -24,7 +23,6 @@ public class NoticeBoardController {
 
     @RequestMapping(value = "/noticeBoard", method = RequestMethod.GET)
     public String noticeBoardList(@ModelAttribute QnaBoardVo qnaBoard, Model model){
-        AdminLoginVo adminLogin = null;
         log.info("noticeBoardList() 메소드 호출");
 
 
