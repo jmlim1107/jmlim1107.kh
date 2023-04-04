@@ -8,6 +8,7 @@ import com.liclass.client.reserve.vo.ReserveVO;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -58,7 +59,8 @@ public class StatisticsController {
         List<Map<String, Object>> salesData = statisticsService.quarterStatistics(payment);
         List<Integer> salesList = new ArrayList<>();
 
-        HashMap<String, Integer> allSales = statisticsService.allSales(payment);
+        List<Map<String, Object>> allSales = statisticsService.allSales(payment);
+        List<Integer> allSaleList = new ArrayList<>();
 
         List<Map<String, Object>> levelData = statisticsService.levelStatistics(payment);
         List<Integer> levelList = new ArrayList<>();
@@ -66,6 +68,11 @@ public class StatisticsController {
         for (Map<String, Object> sales : salesData) {
             log.info("QUARTER: {}, SALES: {}", sales.get("QUARTER"), sales.get("SALES"));
             salesList.add(Integer.parseInt(sales.get("SALES").toString()));
+        }
+
+        for (Map<String, Object> sales : allSales) {
+            log.info("SALES_TYPE: {}, SALES_ACOUNT: {}", sales.get("SALES_TYPE"), sales.get("SALES_ACOUNT"));
+            allSaleList.add(Integer.parseInt(sales.get("SALES_ACOUNT").toString()));
         }
 
         for(Map<String, Object> level : levelData){
@@ -76,7 +83,7 @@ public class StatisticsController {
 
 
         model.addAttribute("salesList", salesList);
-        model.addAttribute("allSales", allSales);
+        model.addAttribute("allSaleList", allSaleList);
         model.addAttribute("levelList", levelList);
         return "admin/statistics/salesstatistics";
     }

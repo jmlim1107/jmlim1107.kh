@@ -13,7 +13,7 @@
             console.log("dddd")
             $("#f_data").attr({
                "method" : "post",
-               "action" : "/management/qnaboard/answerUpdateForm/"
+               "action" : "/management/qnaboard/qnaAnswerForm/"
             });
             $("#f_data").submit();
         });
@@ -57,9 +57,14 @@
                     <h3 class="panel-title pull-left" style="line-height: 2.5;"><strong>[${detail.qna_category}]</strong>&nbsp;${detail.qna_title}</h3>
 
                     <div class="pull-right">
-                        <c:if test="${empty answerDetail}">
-                        <button type="button" class="btn btn-primary" id="qnaAnswerBtn" data-num="${detail.qna_no}">수정</button>
-                        </c:if>
+                        <c:choose>
+                        <c:when test="${empty answerDetail && detail.qna_category == '문의'}">
+                            <button type="button" class="btn btn-success" id="qnaAnswerBtn" data-num="${detail.qna_no}">답변</button>
+                        </c:when>
+                        <c:when test="${empty answerDetail && detail.qna_category == '답변'}">
+                            <button type="button" class="btn btn-success qnaAnswerUpdateBtn" id="qnaAnswerBtn" data-num="${detail.qna_no}">수정</button>
+                        </c:when>
+                        </c:choose>
                         <button type="button" class="btn btn-danger " id="noticeDeleteBtn">삭제</button>
                     </div>
                 </div>
