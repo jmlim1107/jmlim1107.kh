@@ -81,9 +81,9 @@
 	<script src="/resources/client/login/js/login.js"></script>
 		
 	<!-- mypage -->
- 	<script src="/resources/client/mypage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
- 	<script src="/resources/client/mypage/assets/js/owl-carousel.js"></script>
+ 	<!-- <script src="/resources/client/mypage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 	<script src="/resources/client/mypage/vendor/jquery/jquery.min.js"></script>
+ 	<script src="/resources/client/mypage/assets/js/owl-carousel.js"></script>
  	<script src="/resources/client/mypage/assets/js/animation.js"></script>
  	<script src="/resources/client/mypage/assets/js/imagesloaded.js"></script>
  	<script src="/resources/client/mypage/assets/js/custom.js"></script>

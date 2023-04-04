@@ -5,14 +5,16 @@
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/updateForm.css" />
 <%-- 은아) 마이페이지 1-2. 내 회원정보 수정 --%>
 <script>
-	/*회원정보수정 완료 후 성공/실패 alert 후 redirect*/
-	if('${message}' != "" || '${url}' !=""){
-		var message = "${message}" ;
-		var url = '${url}';
-		console.log("message : "+message ,"url" +url);
-		alert(message);
-		location.href=url; 
-	}
+	$(function(){
+		/*회원정보수정 완료 후 성공/실패 alert 후 redirect*/
+		if('${message}' != "" || '${url}' !=""){
+			var message = "${message}" ;
+			var url = '${url}';
+			console.log("message : "+message ,"url" +url);
+			alert(message);
+			location.href=url; 
+		}
+	})
 </script>
 <div id="updateFrom" style="padding:100px;">
 	<h4 class="center">회원 정보 수정</h4>
@@ -95,6 +97,9 @@
 						<input type="text" class="phone-number" id="phone2" name="phone2"/>
 						<input type="text" class="phone-number" id="phone3" name="phone3"/>
 						<input type="hidden" id="user_tel" name="user_tel" />
+						<input type="hidden" id="user_update" name="user_update" value="${loginUser.user_update }" />
+						<input type="hidden" id="user_update" name="user_update" value="${loginUser.user_update }" />
+						<input type="hidden" id="user_update" name="user_update" value="${loginUser.user_update }" />
 					</td>
 				</tr>
 				<tr>

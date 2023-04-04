@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.liclass.client.classes.service.ClientClassService;
@@ -35,6 +36,7 @@ import com.liclass.common.vo.PageDTO;
 import lombok.Setter;
 
 @Controller
+@SessionAttributes("loginUser")
 public class MyPageController { //은아,웅배
 	@Setter(onMethod_ = @Autowired)
 	private UserService userService;
@@ -66,9 +68,10 @@ public class MyPageController { //은아,웅배
 		lvo.setUser_no(loginUser.getUser_no());
 		lvo.setAmount(6);
 		int likesCnt = mypageService.myLikesCnt(lvo);
-		List<LikesVO> myLikesList = mypageService.myLikesList(lvo);
 		PageDTO likesPageDto = new PageDTO(lvo,likesCnt);
 		model.addAttribute("likesPageMaker",likesPageDto);
+		
+		List<LikesVO> myLikesList = mypageService.myLikesList(lvo);
 		model.addAttribute("myLikesList",myLikesList);
 		
 		//후기 조회+페이징처리
@@ -152,15 +155,19 @@ public class MyPageController { //은아,웅배
 	************************************************/
 	@PostMapping(value ="/mypage/update")
 	public String update(@ModelAttribute UserVO vo,Model model){
+		UserVO loginUser = (UserVO) model.getAttribute("loginUser");
 		
 		String message ="";
 		if(vo != null) {
-			int result = userService.update(vo);
+			loginUser.setUser_name(vo.getUser_name());
+			loginUser.setUser_pw(vo.getUser_pw());
+			loginUser.setUser_tel(vo.getUser_tel());
+			int result = userService.update(loginUser);
 			
 			if(result == 1) {
-				message = vo.getUser_name()+"님, 새로운 정보로 수정되었습니다.다시 로그인해 주세요.";
+				message = vo.getUser_name()+"님, 새로운 정보로 수정되었습니다.";
+				model.addAttribute("loginUser", loginUser);
 				model.addAttribute("message", message);
-				model.addAttribute("url", "/mypage");
 			}else {
 				message = "죄송합니다. 잠시후 다시 시도해주세요.";
 				model.addAttribute("message", message);
@@ -168,7 +175,7 @@ public class MyPageController { //은아,웅배
 			}
 		}
 		
-		return "client/mypage/updateForm";
+		return "redirect:/mypage";
 	}
 	
 	/************************************************

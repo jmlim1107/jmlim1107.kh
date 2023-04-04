@@ -13,9 +13,10 @@
 <script>
 	$(function(){
 		/* 은아)마이페이지 redirect 시 전달메시지 있을 때 */
-		if('${message}' != ""){
+		if('${message}' != "" || '${url}' !=""){
 			var message = "${message}" ;
-			console.log("message : "+message);
+			var url = '${url}';
+			
 			
 			/* 은아) 비밀번호 만료시 알림 */	
 			if(message == "pwOverExp"){
@@ -26,6 +27,8 @@
 			}else
 				alert(message);
 		
+			location.href=url;
+			
 			// 닫기버튼 클릭 이벤트 
 	        $('.btn_close').click(function () {
 	            $(this).parent('.main_notice_pop').fadeOut();

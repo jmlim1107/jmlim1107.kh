@@ -4,7 +4,7 @@
 
 //2. 비밀번호 정규식
 function pwRegExp(item) {
-	const regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/;
+	const regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 	if(!regExp.test($(item).val())){
 		$("#pw-check-result").addClass('red');
 		$("#pw-check-result").text("영문자,숫자,특수 문자로 조합된 최소 8자의 비밀번호를 입력해 주세요.");
@@ -43,13 +43,14 @@ function nameCheck(){
 	
 /******************$(function(){})********************/
 $(function(){
-	
+	var pwEditCheck = false;
 	var pwcheckAccord = false;
 	var telAccord = false;
 	var nameAccord = false;
 	var phoneNumber ="";
 	//1. (비밀번호)수정하기 버튼
 	$("#pw-edit-btn").click(function(){
+		pwEditCheck = true;
 		$("#pw-check-tr").css("display","revert");
 		$("#pw-edit-btn").css("background-color","dimgray");
 	});
@@ -90,36 +91,65 @@ $(function(){
 		$('.phone-number').eq(1).val()+ "-"+
 		$('.phone-number').eq(2).val();
 		telAccord = checkPhone(phoneNumber);
-		if(telAccord == true){
-			$("#user_tel").val(phoneNumber);
-		}
+		$("#user_tel").val(phoneNumber);
 		console.log("phoneNumber : "+$("#user_tel").val());
 	});
 	
 	//6. 필수요소의 Accord가 함수가 true일 때 submit가능
 	$("#update-submit1").click(function(){
+		$("#user_tel").val(phoneNumber);
+		console.log("phoneNumber : "+$("#user_tel").val());
 		nameAccord = nameCheck();
-		console.log("***************************************");
-		console.log("2. pwcheckAccord : "+pwcheckAccord);
-		console.log("4. telAccord : "+telAccord);
-		console.log("5. nameAccord : "+nameAccord);
-		console.log("***************************************");
 		
+		if(pwEditCheck == false){ //1. 비밀번호 변경없이 이름 및 전화번호만 수정
+			if(nameAccord != true){
+				alert("이름 또는 닉네임을 입력해 주세요.");
+				return false;
+			}else if(!checkPhone(phoneNumber)){
+				if(confirm("전화번호가 올바르지 않습니다. 그래도 입력하시겠습니까?")){
+					$("#update-form").attr({
+						"method":"post",
+						"action":"/mypage/update"
+					});
+					$("#update-form").submit();
+				}else
+					return false;
+			}else{
+				$("#update-form").attr({
+						"method":"post",
+						"action":"/mypage/update"
+					});
+					$("#update-form").submit();
+			}
+		}else{ //2. 비밀번호 수정 포함 수정
+			//수정일자 업데이트
+		 	var now = new Date();
+			$("#user_update").val(now);
+			
 		if(pwcheckAccord != true){
 			alert("비밀번호를 확인해 주세요.");
 			return false;
 		}else if(nameAccord != true){
 			alert("이름 또는 닉네임을 입력해 주세요.");
 			return false;
-		}else if($("#user_tel").val(phoneNumber)){
+		}else if(!checkPhone(phoneNumber)){
 			if(confirm("전화번호가 올바르지 않습니다. 그래도 입력하시겠습니까?")){
 				$("#update-form").attr({
 				"method":"post",
 				"action":"/mypage/update"
+				});
+				$("#update-form").submit();
+			}else
+				return false;
+		}else{
+			$("#update-form").attr({
+				"method":"post",
+				"action":"/mypage/update"
 			});
 			$("#update-form").submit();
-			}
 		}
+	}
+		
 	});
 	$("#update-submit2").click(function(){
 		nameAccord = nameCheck();
