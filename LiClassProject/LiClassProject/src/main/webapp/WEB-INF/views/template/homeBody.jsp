@@ -99,7 +99,7 @@
 			          <div data-bs-toggle="collapse" class="collapsed question" href="#faq1"> 예약 완료 후 수강내역은 어디서 확인 하나요 ?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
 			          <div id="faq1" class="collapse" data-bs-parent=".faq-list" style="visibility: inherit;">
 			            <p>
-			              마이페이지 -> 프로필 -> 수강내역에서 확인하실 수 있습니다.
+			              마이페이지 -> 프로필 -> 수강내역에서 확인하실 수 있습니다.<br>
 			              (리뷰는 수강내역에서 작성하실 수 있습니다.)
 			            </p>
 			          </div>
@@ -109,7 +109,7 @@
 			          <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">환불 절차가 궁금합니다 !<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
 			          <div id="faq2" class="collapse" data-bs-parent=".faq-list" style="visibility: inherit;">
 			            <p>
-			              마이페이지 -> 결제내역에서 원하시는 클래스를 환불하실 수 있습니다.
+			              마이페이지 -> 결제내역에서 원하시는 클래스를 환불하실 수 있습니다.<br>
 			              (결제 후 7일이 지나면 환불이 불가합니다.)
 			            </p>
 			          </div>
