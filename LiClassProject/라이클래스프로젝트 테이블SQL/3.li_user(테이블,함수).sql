@@ -1,10 +1,10 @@
--- 3. li_user
+-- 3. li_user (테이블,함수)
 
 -- 사용자(li_user) 
 -- (update 23.03.16 - 회원번호 랜덤생성함수 추가)  
 -- (update 23.03.22 - 회원프로필사진 default img) 
 -- (update 23.03.29 - 코멘트) 
-
+-- (update 23.04.04 - 테이블 및 함수생성, 테스트용 insert 주석)
 create table li_user (
 	user_no	number NOT NULL,
 	user_email varchar2(100) NOT NULL,
@@ -68,13 +68,13 @@ END user_no_func;
 --비밀번호만료 알림창을 확인하려면 1번샘플 회원으로 로그인해주세요.
 
 --1. 비밀번호 만료회원
-insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_type,user_regdate,user_update)
-values( '2303291111','test1111@gmail.com','1234','testUser1','01012341234','0','2022/03/29','2022/03/29');
+--insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_type,user_regdate,user_update)
+--values( '2303291111','test1111@gmail.com','1234','testUser1','01012341234','0','2022/03/29','2022/03/29');
 
 --2. 일반회원
-insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_type)
-values('2303292222','test2222@gmail.com','1234','testUser2','01012341234','0');
+--insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_type)
+--values('2303292222','test2222@gmail.com','1234','testUser2','01012341234','0');
 
 --3. 탈퇴회원
-insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_type,user_regdate,user_unregdate,user_status)
-values( '2303293333','test3333@gmail.com','1234','testUser3','01012341234','0','2022/03/29','2023/03/28','1');
+--insert into li_user(user_no,user_email,user_pw,user_name,user_tel,user_type,user_regdate,user_unregdate,user_status)
+--values( '2303293333','test3333@gmail.com','1234','testUser3','01012341234','0','2022/03/29','2023/03/28','1');
