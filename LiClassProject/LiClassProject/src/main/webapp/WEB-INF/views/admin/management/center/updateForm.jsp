@@ -73,7 +73,7 @@
 								</td>
 								
 								<td>센터 주요작품</td>
-								<td colspan="3" class="text-left">
+								<td colspan="6" class="text-left">
 									<input type="text" name="ct_mainart" id="ct_mainart" value="${updateData.ct_mainart}" class="form-control" />
 								</td>
 							</tr>
@@ -97,7 +97,7 @@
 									<input type="text" name="ct_tel" id="ct_tel" value="${updateData.ct_tel}" class="form-control" />
 								</td>	
 								<td>센터 홈페이지주소</td>
-								<td colspan="3" class="text-left">
+								<td colspan="6" class="text-left">
 									<input type="text" name="ct_hmpg_addr" id="ct_hmpg_addr" value="${updateData.ct_hmpg_addr}" class="form-control" />
 								</td>
 							</tr>
