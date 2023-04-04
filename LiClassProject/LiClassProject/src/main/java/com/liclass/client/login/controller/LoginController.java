@@ -205,7 +205,14 @@ public class LoginController { //은아
 		UserVO loginUser = userService.login(vo);
 		
 		if(loginUser != null) {
-			model.addAttribute("loginUser", loginUser);
+			
+			if(loginUser.getUser_status() == 0) {
+				model.addAttribute("loginUser", loginUser);				
+			}
+			else if(loginUser.getUser_status() == 1){
+				ras.addFlashAttribute("errorMsg", "탈퇴한 회원입니다.");
+			}
+			
 		}else {
 			ras.addFlashAttribute("errorMsg", "로그인 실패");
 		}
