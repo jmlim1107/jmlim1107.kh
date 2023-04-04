@@ -263,7 +263,7 @@
 
 		<div class="row" style="width:400px;">
              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
-                 <div class="class-booking-form">
+                 <div class="class-booking-form" >
                      <form>
                          <div class="row">
                          <h1></h1>
@@ -448,7 +448,7 @@
 								    	<div class="accordion-body accordion-cnt" style="background-color: #FFE4B5;">
 								      		<div class="text-right">
 								      			<div id="reservtitle" style="font-size: 10px;color:#FF9364">제목</div>
-								      			<div id="reservtime" style="font-size: 10px;color:#A4814;font-weight: bold">날짜, 시간</div>
+								      			<div id="reservtime" style="font-size: 10px;color:#A4814;padding:3px">날짜, 시간</div>
 								      			<div id="reservInfo" style="font-size: 14px;color:#5a5a5a;font-weight: bold">인원, 금액</div>
 								      		</div>
 								      		<br>

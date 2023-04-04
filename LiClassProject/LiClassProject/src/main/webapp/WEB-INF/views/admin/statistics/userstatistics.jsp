@@ -12,6 +12,28 @@
     String year = yearDate.format(date);
     String month = monthDate.format(date);
 %>
+<script type="text/javascript">
+    $(function (){
+        var userTotal = ${userData.ALLUSERS}
+        console.log(userTotal)
+        var userAvg1 = Math.ceil(${userData.ACTIVEUSER} / userTotal * 1000);
+        var userAvg2 = Math.ceil(${userData.INACTIVEUSER} / userTotal * 1000);
+
+        var typeAvg1 = Math.ceil(${userData.EMAILUSER} / userTotal * 1000);
+        var typeAvg2 = Math.ceil(${userData.KAKAOUSER} / userTotal * 1000);
+        var typeAvg3 = Math.ceil(${userData.NAVERUSER} / userTotal * 1000);
+
+
+        $("#userBar1").width(userAvg1);
+        $("#userBar2").width(userAvg2);
+
+        $("#userType1").width(typeAvg1);
+        $("#userType2").width(typeAvg2);
+        $("#userType3").width(typeAvg3);
+
+    });
+
+</script>
 
 <section class="section dashboard col-lg-12">
     <div class="row">
@@ -42,14 +64,14 @@
                             <h5 class="card-title">전체 회원 통계<span>&nbsp | &nbsp<%=today%></span></h5>
 
                             <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-calendar3"></i>
-                                </div>
-                                <div class="ps-3">
+                                <div class="ps-4">
                                     <%--계정 통계데이터 삽입--%>
-                                    <h6>&nbsp&nbsp&nbsp${userData.ALLUSERS}</h6>
-                                    <canvas id="ActiveUserChart" width="250" height="40"></canvas>
+                                    <h6><img src="/resources/admin/UsersAll.png">${userData.ALLUSERS}&nbsp;&nbsp;<img src="/resources/admin/UserActive.png">${userData.ACTIVEUSER}&nbsp;&nbsp;<img src="/resources/admin/UserInActive.png">${userData.INACTIVEUSER}</h6>
                                 </div>
+                            </div>
+                            <div class="progress mt-3">
+                                <div id="userBar1" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="userBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
 
@@ -74,18 +96,22 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">가입자 통계<span>&nbsp | &nbsp <%=today%></span></h5>
+                            <h5 class="card-title">가입자 유형 통계<span>&nbsp | &nbsp <%=today%></span></h5>
 
                             <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-calendar-check"></i>
-                                </div>
-                                <div class="ps-3">
+
+                                <div class="ps-4">
                                     <%--매출 통계 데이터 삽입--%>
-                                    <h6>&nbsp&nbsp ${userData.EMAILUSER}, ${userData.KAKAOUSER}, ${userData.NAVERUSER}</h6><canvas id="SalesChart" width="200" height="40"></canvas>
+                                    <h6><img src="/resources/admin/Email-user.png">${userData.EMAILUSER}&nbsp;&nbsp;<img src="/resources/admin/kakao-user.png"> ${userData.KAKAOUSER}&nbsp;&nbsp;<img src="/resources/admin/naver-user.png"> ${userData.NAVERUSER}</h6>
                                 </div>
                             </div>
+                            <div class="progress mt-3">
+                                <div id="userType1" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="userType2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="userType3" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
+
                     </div>
                 </div><!-- End Revenue Card -->
 
@@ -107,7 +133,7 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">전체 회원 통계 <span>/ <%=today%>></span></h5>
+                            <h5 class="card-title">전체 회원 통계 <span>/ <%=today%></span></h5>
 
                             <!-- Line Chart -->
                             <%--차트 통계데이터 기반으로 삽입--%>
@@ -122,139 +148,7 @@
 </section>
 <script>
     //활성화 계정 통계 차트
-    var ctx = document.getElementById("ActiveUserChart");
-    var ActiveUserChart = new Chart(ctx, {
-        type: 'horizontalBar',
-        data: {
-            labels: [],
-            datasets: [{
-                label: '활성',
-                data: [200],
-                backgroundColor: "rgb(153,255,153)",
-                borderColor: "rgb(153,255,153)",
-            },
-                {
-                    label: '탈퇴',
-                    data: [50],
-                    backgroundColor: "rgb(255,204,51)",
-                    borderColor: "rgb(255,204,51)",
-                }]
-        },
-        options: {
-            legend:{
-                display : false
-            },
-            responsive: false,
-            title: {
-                display: false,
-                text: 'Report',
-            },
-            tooltips: {
-                enabled: false,
-                intersect: false,
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            },
-            scales: {
-                yAxes: [{
-                    stacked: true,
-                    display: true,
-                    scaleLabel: {
-                        display: false,
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                }],
-                xAxes: [{
-                    stacked: true,
-                    display: true,
-                    ticks: {
-                        display :false,
-                        autoSkip: false
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                    scaleLabel: {
-                        display: false,
-                    },
 
-                }]
-            },
-        }
-    });
-    //전체 매출 통계 차트
-    var ctx = document.getElementById("SalesChart");
-    var SalesChart = new Chart(ctx, {
-        type: 'horizontalBar',
-        data: {
-            labels: [],
-            datasets: [{
-                label: '활성',
-                data: [20],
-                backgroundColor: "rgb(153,255,153)",
-                borderColor: "rgb(153,255,153)",
-            },
-                {
-                    label: '탈퇴',
-                    data: [20],
-                    backgroundColor: "rgb(255,204,51)",
-                    borderColor: "rgb(255,204,51)",
-                }]
-        },
-        options: {
-            legend:{
-                display : false
-            },
-            responsive: true,
-            title: {
-                display: false,
-                text: 'Report',
-            },
-            tooltips: {
-                enabled: false,
-                intersect: false,
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            },
-            scales: {
-                yAxes: [{
-                    stacked: true,
-                    display: true,
-                    scaleLabel: {
-                        display: false,
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                }],
-                xAxes: [{
-                    stacked: true,
-                    display: true,
-                    ticks: {
-                        display :false,
-                        autoSkip: false
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                    scaleLabel: {
-                        display: false,
-                    },
-
-                }]
-            },
-        }
-    });
     //예약 통계 차트
 
     var ctx = document.getElementById("doughnut");
@@ -270,8 +164,8 @@
                 label: 'My First Dataset',
                 data: [${userData.ACTIVEUSER}, ${userData.INACTIVEUSER}],
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
+                    'rgb(46,180,12)',
+                    'rgb(239,41,68)',
                     'rgb(255, 205, 86)'
                 ],
                 hoverOffset: 4

@@ -12,7 +12,7 @@
             else if(!chkData("#qna_content", "본문을")) return;
             $("#writeForm").attr({
                 "method" : "post",
-                "action" : "/management/qnaboard/answerUpdate"
+                "action" : "/management/qnaboard/qnaAnswerInsert"
             });
             $("#writeForm").submit();
         })

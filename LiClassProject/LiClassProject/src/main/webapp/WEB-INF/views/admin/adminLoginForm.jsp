@@ -51,9 +51,6 @@
             $("#loginForm").submit();
           }
         });
-        $("#clientBtn").click(function (){
-          location.href="/client/qnaboard/qnaBoard";
-        });
     });
 
   </script>
@@ -71,7 +68,6 @@
     <input type="password" name="admin_pw" id="admin_pw" class="form-control" placeholder="비밀번호를 입력해주세요.">
 
     <button class="btn btn-lg btn-primary btn-block" type="button" id="loginBtn">로그인</button>
-    <button class="btn btn-lg btn-primary btn-block" type="button" id="clientBtn">클라이언트 게시판 확인용</button>
   </form>
 
 </div> <!-- /container -->

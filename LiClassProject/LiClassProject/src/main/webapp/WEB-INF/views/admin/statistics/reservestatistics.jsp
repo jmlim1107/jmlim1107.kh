@@ -47,8 +47,7 @@
                                 </div>
                                 <div class="ps-3">
                                     <%--계정 통계데이터 삽입--%>
-                                    <h6>&nbsp&nbsp&nbsp${reserveData.ALLRESERVE}</h6>
-                                    <canvas id="ActiveUserChart" width="250" height="40"></canvas>
+                                    <h6>&nbsp&nbsp&nbsp${reserveData.ALLRESERVE} 건</h6>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +81,7 @@
                                 </div>
                                 <div class="ps-3">
                                     <%--매출 통계 데이터 삽입--%>
-                                    <h6>&nbsp&nbsp ${reserveData.RESERVECOMP}</h6><canvas id="SalesChart" width="200" height="40"></canvas>
+                                    <h6>&nbsp&nbsp ${reserveData.RESERVECOMP} 건</h6>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +114,7 @@
                                 </div>
                                 <div class="ps-3">
                                     <%--예약 통계데이터 삽입--%>
-                                    <h6>&nbsp&nbsp${reserveData.RESERVECANCEL}</h6><canvas id="ReserveChart" width="250" height="40"></canvas>
+                                    <h6>&nbsp&nbsp${reserveData.RESERVECANCEL} 건</h6>
                                 </div>
                             </div>
 
@@ -156,209 +155,8 @@
     </div>
 </section>
 <script>
-    //활성화 계정 통계 차트
-    var ctx = document.getElementById("ActiveUserChart");
-    var ActiveUserChart = new Chart(ctx, {
-        type: 'horizontalBar',
-        data: {
-            labels: [],
-            datasets: [{
-                label: '활성',
-                data: [200],
-                backgroundColor: "rgb(153,255,153)",
-                borderColor: "rgb(153,255,153)",
-            },
-                {
-                    label: '탈퇴',
-                    data: [50],
-                    backgroundColor: "rgb(255,204,51)",
-                    borderColor: "rgb(255,204,51)",
-                }]
-        },
-        options: {
-            legend:{
-                display : false
-            },
-            responsive: false,
-            title: {
-                display: false,
-                text: 'Report',
-            },
-            tooltips: {
-                enabled: false,
-                intersect: false,
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            },
-            scales: {
-                yAxes: [{
-                    stacked: true,
-                    display: true,
-                    scaleLabel: {
-                        display: false,
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                }],
-                xAxes: [{
-                    stacked: true,
-                    display: true,
-                    ticks: {
-                        display :false,
-                        autoSkip: false
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                    scaleLabel: {
-                        display: false,
-                    },
 
-                }]
-            },
-        }
-    });
-
-    //전체 매출 통계 차트
-    var ctx = document.getElementById("SalesChart");
-    var SalesChart = new Chart(ctx, {
-        type: 'horizontalBar',
-        data: {
-            labels: [],
-            datasets: [{
-                label: '활성',
-                data: [20],
-                backgroundColor: "rgb(153,255,153)",
-                borderColor: "rgb(153,255,153)",
-            },
-                {
-                    label: '탈퇴',
-                    data: [20],
-                    backgroundColor: "rgb(255,204,51)",
-                    borderColor: "rgb(255,204,51)",
-                }]
-        },
-        options: {
-            legend:{
-                display : false
-            },
-            responsive: true,
-            title: {
-                display: false,
-                text: 'Report',
-            },
-            tooltips: {
-                enabled: false,
-                intersect: false,
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            },
-            scales: {
-                yAxes: [{
-                    stacked: true,
-                    display: true,
-                    scaleLabel: {
-                        display: false,
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                }],
-                xAxes: [{
-                    stacked: true,
-                    display: true,
-                    ticks: {
-                        display :false,
-                        autoSkip: false
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                    scaleLabel: {
-                        display: false,
-                    },
-
-                }]
-            },
-        }
-    });
-
-    //예약 통계 차트
-    var ctx = document.getElementById("ReserveChart");
-    var ReserveChart = new Chart(ctx, {
-        type: 'horizontalBar',
-        data: {
-            labels: [],
-            datasets: [{
-                label: '활성',
-                data: [80],
-                backgroundColor: "rgb(153,255,153)",
-                borderColor: "rgb(153,255,153)",
-            },
-                {
-                    label: '탈퇴',
-                    data: [50],
-                    backgroundColor: "rgb(255,204,51)",
-                    borderColor: "rgb(255,204,51)",
-                }]
-        },
-        options: {
-            legend:{
-                display : false
-            },
-            responsive: true,
-            title: {
-                display: false,
-                text: 'Report',
-            },
-            tooltips: {
-                enabled: false,
-                intersect: false,
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            },
-            scales: {
-                yAxes: [{
-                    stacked: true,
-                    display: true,
-                    scaleLabel: {
-                        display: false,
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                }],
-                xAxes: [{
-                    stacked: true,
-                    display: true,
-                    ticks: {
-                        display :false,
-                        autoSkip: false
-                    },
-                    gridLines :{
-                        display: false,
-                        drawBorder: false,
-                    },
-                    scaleLabel: {
-                        display: false,
-                    },
-
-                }]
-            },
-        }
-    });
+    //전체 예약 리포트
     var ctx = document.getElementById("pieChart");
     var pieChart = new Chart(ctx, {
         type: 'pie',
