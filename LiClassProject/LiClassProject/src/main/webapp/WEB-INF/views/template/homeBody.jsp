@@ -99,7 +99,8 @@
 			          <div data-bs-toggle="collapse" class="collapsed question" href="#faq1"> 예약 완료 후 수강내역은 어디서 확인 하나요 ?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
 			          <div id="faq1" class="collapse" data-bs-parent=".faq-list" style="visibility: inherit;">
 			            <p>
-			              Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+			              마이페이지 -> 프로필 -> 수강내역에서 확인하실 수 있습니다.
+			              (리뷰는 수강내역에서 작성하실 수 있습니다.)
 			            </p>
 			          </div>
 			        </li>
@@ -108,16 +109,17 @@
 			          <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">환불 절차가 궁금합니다 !<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
 			          <div id="faq2" class="collapse" data-bs-parent=".faq-list" style="visibility: inherit;">
 			            <p>
-			              Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+			              마이페이지 -> 결제내역에서 원하시는 클래스를 환불하실 수 있습니다.
+			              (결제 후 7일이 지나면 환불이 불가합니다.)
 			            </p>
 			          </div>
 			        </li>
 			
 			        <li>
-			          <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">예약 날짜 및 시간 변경에 대해서 어떻게 확인하나요 ? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+			          <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">비밀번호를 모르면 어떻게 해야하나요 ? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
 			          <div id="faq3" class="collapse" data-bs-parent=".faq-list" style="visibility: inherit;">
 			            <p>
-			              Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+			              이메일 로그인 방법을 가입하셨으면, 로그인 화면에서 재설정 가능합니다.
 			            </p>
 			          </div>
 			        </li>
@@ -127,7 +129,7 @@
 			          <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">클래스 양도 가능한가요 ?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
 			          <div id="faq5" class="collapse" data-bs-parent=".faq-list" style="visibility: inherit;">
 			            <p>
-			              Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+			              클래스 양도는 불가하며 불필요시 절차에 따라 환불하실 수 있습니다.
 			            </p>
 			          </div>
 			        </li>
