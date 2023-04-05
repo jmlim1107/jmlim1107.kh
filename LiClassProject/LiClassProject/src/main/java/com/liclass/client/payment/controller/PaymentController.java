@@ -111,7 +111,7 @@ public class PaymentController {
    @PostMapping("/justCancel")
    public String justCancel(@RequestParam("r_no") int r_no, Model model,RedirectAttributes ras) {
       log.info("justCancel() 호출 성공");
-      int result = paymentSerivce.reserveDelete(r_no);
+      paymentSerivce.reserveDelete(r_no);
       ras.addFlashAttribute("errormsg","결제를 취소하였습니다.");
       
       return "redirect:/"; // 리스트 상세페이지로 다시 이동

@@ -124,7 +124,7 @@
 </div>
 <!-- 모달창  -->
 
-<div id="portfolio2" style="width:140%">
+<div id="portfolio2">
 	<div class="thumb">
 	   <div class="row"><!-- 은아)0330 수정 style="height: 632px;" -->
 	      <div class="left-text">
@@ -139,7 +139,7 @@
 	         <div id="paymentList" class="table-height">
 	            <form id="dataForm">
 	               <input type="hidden" name="user_no" value='${loginUser.user_no }'>
-	               <table summary="결제내역 리스트" class="table table-hover">
+	               <table summary="결제내역 리스트" class="table table-hover" style="width: 110%;max-width: 110%;">
 	                  <thead>
 	                     <tr>
 	                        <th data-value="b_num" class="order text-center col-md-3">상품정보</th>
@@ -167,7 +167,7 @@
 	                                    	<c:if test="${classImg[status.index].r_date<=1}">
 	                                    		<c:if test="${payment.pay_status==0}">
 													<td>결제완료/
-			                                    		<button type="button" class="btn-default btn-xs payCencelBtn" disabled>환불불가</button>
+			                                    		<button type="button" class="btn-default btn-xs payCencelBtn" style="color:red;" disabled>환불불가</button>
 			                                    	</td>
 												</c:if>
 												<c:if test="${payment.pay_status==1}">
@@ -183,7 +183,7 @@
 	                                    	<c:if test="${classImg[status.index].r_date>1}">
 	                                    		<c:if test="${payment.pay_status==0}">
 													<td>결제완료/
-			                                    		<button type="button" class="btn-default btn-xs payCencelBtn">환불하기</button>
+			                                    		<button type="button" class="btn-default btn-xs payCencelBtn" style="color:blue;">환불하기</button>
 			                                    	</td>
 												</c:if>
 												<c:if test="${payment.pay_status==1}">
