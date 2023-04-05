@@ -86,7 +86,7 @@
 	
 	<!--은아)마이페이지 좌측 메뉴 nav  -->
 	<div class="popular-categories">
-	    <div class="container">
+	    <div>
 	      <div class="row">
 		  <div class="popular-categories">
 		       <div class="col-lg-12">
@@ -131,7 +131,8 @@
 		                   </div>
 		                   <div class="last-thumb point">
 		                     <div class="thumb">                 
-		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-06.png" alt=""></span>
+		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-07.png" alt=""></span>
+		                     	Post
 		                     </div>
 		                   </div>
 		                 </div>
@@ -170,10 +171,11 @@
 		                      <%@ include file="/WEB-INF/views/client/mypage/myQnAHistory.jsp" %>
 	                  	  </li>
 	                  	  <!-- 5. my QnA end -->
-	                  	  <!-- 6. my Course start -->
+	                  	  <!-- 6. my Post start -->
 		                   <li class="mypageLi">
+		                   		<%@ include file="/WEB-INF/views/client/mypage/myPost.jsp" %>
 	                  	  </li>
-	                  	  <!-- 5. my Course end -->
+	                  	  <!-- 5. my Post end -->
 	         		   </ul>
 	               </div>    
 	               <!-- 우측 탭메뉴 종료 --> 

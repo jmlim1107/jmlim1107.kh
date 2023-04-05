@@ -30,7 +30,6 @@
                                        			<a href="#img-edit" rel="modal:open"><i class="fa-solid fa-pen-to-square" id="profile-edit"></i></a>
                                        		</div>
 							         	</c:if>
-					         			
 				         			</div>
 				         			<!-- profile img edit modal start -->
 									<div id="img-edit" class="filebox preview-image modal" style="height: 150px; z-index: 2; position: initial; text-align: center;">
