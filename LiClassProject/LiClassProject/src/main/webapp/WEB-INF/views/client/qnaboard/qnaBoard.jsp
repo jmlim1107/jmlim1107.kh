@@ -45,6 +45,36 @@
                 }
             }
         });
+        $(".goAnswerDetail").click(function(){
+            let qna_no = $(this).parents("div").attr("group-num");
+            let qna_top_state = $(this).parents("div").attr("state-num");
+            let user_no = $(this).parents("div").attr("data-user_no");
+            let login_user_no = $("#login_user_no").val();
+            let group_no = $(this).parents("div").attr("group-num");
+
+            $("#qna_no").val(qna_no);
+            $("#qna_top_state").val(qna_top_state);
+            $("#user_no").val(user_no);
+            $("#qna_group").val(group_no);
+            if(qna_top_state == 1){
+                // 로그인한 사용자이거나 qna_top_state 값이 1인 경우 상세페이지로 이동
+                $("#detailForm").attr({
+                    "method" : "get",
+                    "action" : "/client/qnaboard/qnaBoardDetail"
+                });
+                $("#detailForm").submit();
+            } else if(qna_top_state == 0) {
+                if (login_user_no == user_no) {
+                    $("#detailForm").attr({
+                        "method": "get",
+                        "action": "/client/qnaboard/qnaBoardDetail"
+                    });
+                    $("#detailForm").submit();
+                } else {
+                    alert("로그인 하시거나, 자신이 작성한 글만 확인할 수 있습니다.");
+                }
+            }
+        });
     });
 </script>
     <form id="detailForm">
@@ -57,7 +87,7 @@
 
     <div class="board_wrap">
         <div class="board_title">
-            <strong>FAQ</strong>
+            <strong>QNA</strong>
             <p>공지사항을 확인하거나 문의사항을 작성할 수 있습니다.</p>
         </div>
         <div class="board_list_wrap">
@@ -89,7 +119,7 @@
                                         <div class="title goDetail"><span>[${qnaBoard.qna_category}] &nbsp;&nbsp;${qnaBoard.qna_title}</span>
                                     </c:when>
                                     <c:otherwise>
-                                            <div class="title goDetail">
+                                            <div class="title goAnswerDetail">
                                                 <c:if test="${qnaBoard.qna_step>0}">
                                                     <c:forEach begin="1" end="${qnaBoard.qna_indent}">
 

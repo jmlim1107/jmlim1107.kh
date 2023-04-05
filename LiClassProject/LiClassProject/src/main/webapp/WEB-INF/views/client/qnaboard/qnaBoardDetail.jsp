@@ -99,8 +99,24 @@
             </c:when>
         </c:choose>
         <div class="bt_wrap">
-            <button type="button" class="on" id="listBtn">목록</button>
+            <c:choose>
+                <c:when test="${loginUser.user_no == detail.user_no}">
+                    <button type="button" class="on" id="listBtn">목록</button>
+                    <c:if test="${detail.qna_no != answerDetail.qna_group}">
+                        <button type="button" class="on" id="updateBtn">수정</button>
+                        <button type="button" class="on" id="deleteBtn">삭제</button>
+                    </c:if>
+
+                    <%--<button type="button" class="on" id="updateBtn">수정</button>
+                    <button type="button" class="on" id="deleteBtn">삭제</button>--%>
+                </c:when>
+                <c:otherwise>
+                    <button type="button" class="on" id="listBtn">목록</button>
+                </c:otherwise>
+            </c:choose>
+            <%--<button type="button" class="on" id="listBtn">목록</button>
             <button type="button" class="on" id="updateBtn">수정</button>
+            <button type="button" class="on" id="deleteBtn">삭제</button>--%>
         </div>
     </div>
 </div>
