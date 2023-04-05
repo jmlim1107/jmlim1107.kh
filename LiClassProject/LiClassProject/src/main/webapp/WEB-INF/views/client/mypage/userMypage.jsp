@@ -12,40 +12,12 @@
 </style> 
 <script>
 	$(function(){
-		/* 은아)마이페이지 redirect 시 전달메시지 있을 때 */
-		if('${message}' != "" || '${url}' !=""){
-			var message = "${message}" ;
-			var url = '${url}';
-			location.href=url;
-		}
-		
-		//비밀번호 만료알림
-		if('${pwOverExp}' != ""){
-			var pwOverExp = "${pwOverExp}";
-			console.log(pwOverExp);
-			if(pwOverExp == 'Y'){
-				popUpAction('pwOverExp');
-			}
-		}
-	
-		// 닫기버튼 클릭 이벤트 
-        $('.btn_close').click(function () {
-            $(this).parent('.main_notice_pop').fadeOut();
-
-            // 오늘하루 보지않기 체크 확인 
-            if ($("input:checkbox[name=today_close1]").is(":checked") == true) {
-                setCookie00('pwOverExp', "notoday", 1);
-            }
-
-            // name으로 해당 팝업창 닫기 
-            $(this).parent("div[name=" + name + "]").fadeOut();
-        })
-        
-	      //마이페이지 로딩 시 activePosition에 따라 보여질 시작메뉴 지정
+			/*은아)마이페이지 로딩 시 activePosition에 따라 보여질 시작메뉴 지정*/
 			var activePosition = localStorage.getItem("activePosition");
 			console.log("get activePosition : "+activePosition);
 			
 			if(typeof activePosition != "undefined" && activePosition != null && activePosition != ""){
+				
 			      if (!$(this).is("active")) {
 			          $(".naccs .menu div").removeClass("active");
 			          $(".naccs ul .mypageLi").removeClass("active");
@@ -58,20 +30,50 @@
 			            .find(".mypageLi:eq(" + activePosition + ")")
 			            .innerHeight();
 			          $(".naccs ul").height(listItemHeight + "px");
+			        }else{
+			        	 
 			        }
-			}
-	
-	
-		 /* 환불처리 되었을때 */
-		if('${msg}' != ""){
-			var msg = "${msg}";
-			alert(msg);
-		}
-	
+				}	
 		
+			/*은아) 비밀번호 만료시 알림*/ 	
+			var pwOverExp = "${pwOverExp}" ;
+			console.log("pwOverExp : "+pwOverExp);
+			
+			if(pwOverExp == 'Y'){
+					var pwOverExp = getCookie('pwOverExp');
+					console.log("pwOverExp : " +pwOverExp);
+		            if (!pwOverExp) 
+		                popUpAction('pwOverExp');
+			}
+			
+			/*은아)마이페이지 첫화면에서만 */ 
+			$(".go-active").click(function(){
+				$('.main_notice_pop').fadeOut();
+			});
+				
+			// 닫기버튼 클릭 이벤트 
+	        $('.btn_close').click(function () {
+	            $(this).parent('.main_notice_pop').fadeOut();
+
+	            // 오늘하루 보지않기 체크 확인 
+	            if ($("input:checkbox[name=today_close1]").is(":checked") == true) {
+	                setCookie00('pwOverExp', "notoday", 1);
+	            }
+
+	            // name으로 해당 팝업창 닫기 
+	            $(this).parent("div[name=" + name + "]").fadeOut();
+	        });
+			
+		
+			 /* 환불처리 되었을때 */
+			if('${msg}' != ""){
+				var msg = "${msg}";
+				alert(msg);
+			}
 	});
 </script>
 <div id="gotop"></div>
+	
 	<!--은아) 비밀번호 만료알림창  -->
 	<!--password expiration alert modal start  -->
 	<div class="main_notice_pop" name="pwOverExp" style="position:fixed; left:60%; top:25%; display:none; z-index:1;">
@@ -101,37 +103,37 @@
 		               <div class="col-lg-3" style="margin-top : -49px;">
 		                 <div class="menu">
 		                   <div class="first-thumb active point">
-		                  	<div class="thumb">
+		                  	<div class="thumb go-active">
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-01.png" alt=""></span>
 		                       Profile
 		                  	</div>
 		                   </div>
-		                   <div class="point">
-		                     <div class="thumb">                 
+		                   <div class="point after-active">
+		                     <div class="thumb go-active">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-03.png" alt=""></span>
 		                       Payment
 		                     </div>
 		                   </div>
-		                   <div class="point">
-		                     <div class="thumb">                 
+		                   <div class="point after-active">
+		                     <div class="thumb go-active">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-05.png" alt=""></span>
 		                       Review
 		                     </div>
 		                   </div>
-		                  <div class="point">
-		                     <div class="thumb" id="myLikes">                 
+		                  <div class="point after-active">
+		                     <div class="thumb go-active" id="myLikes">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-04.png" alt=""></span>
 		                       Likes
 		                     </div>
 		                   </div>
-		                   <div class="point">
+		                   <div class="point after-active">
 		                     <div class="thumb">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-06.png" alt=""></span>
 		                       Q&A
 		                     </div>
 		                   </div>
-		                   <div class="last-thumb point">
-		                     <div class="thumb">                 
+		                   <div class="last-thumb point after-active">
+		                     <div class="thumb go-active">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-07.png" alt=""></span>
 		                     	Post
 		                     </div>
