@@ -17,7 +17,7 @@
             });
             $("#f_data").submit();
         });
-        $("#noticeDeleteBtn").click(function(){
+        $("#qnaDeleteBtn").click(function(){
             if(confirm("정말 삭제하시겠습니까?")){
                 $("#f_data").attr({
                     "method" : "post",
@@ -26,7 +26,7 @@
                 $("#f_data").submit();
             }
         });
-        $(".qnaAnswerUpdateBtn").click(function (){
+        $("#qnaAnswerUpdateBtn").click(function (){
             let qna_no = $(this).attr("data-num");
             $("#qna_no").val(qna_no);
             console.log(qna_no);
@@ -62,10 +62,10 @@
                             <button type="button" class="btn btn-success" id="qnaAnswerBtn" data-num="${detail.qna_no}">답변</button>
                         </c:when>
                         <c:when test="${empty answerDetail && detail.qna_category == '답변'}">
-                            <button type="button" class="btn btn-success qnaAnswerUpdateBtn" id="qnaAnswerBtn" data-num="${detail.qna_no}">수정</button>
+                            <button type="button" class="btn btn-success" id="qnaAnswerUpdateBtn" data-num="${detail.qna_no}">수정</button>
                         </c:when>
                         </c:choose>
-                        <button type="button" class="btn btn-danger " id="noticeDeleteBtn">삭제</button>
+                        <button type="button" class="btn btn-danger " id="qnaDeleteBtn">삭제</button>
                     </div>
                 </div>
                 <div class="panel-body">

@@ -10,15 +10,15 @@
             });
             $("#f_data").submit();
         });
-/*        $("#noticeDeleteBtn").click(function(){
+        $("#deleteBtn").click(function(){
             if(confirm("정말 삭제하시겠습니까?")){
                 $("#f_data").attr({
                     "method" : "post",
-                    "action" : "/management/qnaboard/qnaBoardDelete"
+                    "action" : "/client/qnaboard/qnaBoardDelete"
                 });
                 $("#f_data").submit();
             }
-        });*/
+        });
         $("#listBtn").click(function (){
             location.href="/client/qnaboard/qnaBoard";
         });
@@ -106,17 +106,11 @@
                         <button type="button" class="on" id="updateBtn">수정</button>
                         <button type="button" class="on" id="deleteBtn">삭제</button>
                     </c:if>
-
-                    <%--<button type="button" class="on" id="updateBtn">수정</button>
-                    <button type="button" class="on" id="deleteBtn">삭제</button>--%>
                 </c:when>
                 <c:otherwise>
                     <button type="button" class="on" id="listBtn">목록</button>
                 </c:otherwise>
             </c:choose>
-            <%--<button type="button" class="on" id="listBtn">목록</button>
-            <button type="button" class="on" id="updateBtn">수정</button>
-            <button type="button" class="on" id="deleteBtn">삭제</button>--%>
         </div>
     </div>
 </div>

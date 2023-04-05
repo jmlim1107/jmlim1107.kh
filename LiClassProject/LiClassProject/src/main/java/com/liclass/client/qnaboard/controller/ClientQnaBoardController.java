@@ -113,29 +113,4 @@ public class ClientQnaBoardController {
 
     }
 
-    @RequestMapping(value = "/noticeBoard", method = RequestMethod.GET)
-    public String noticeBoardList(@ModelAttribute QnaBoardVo qnaBoard, Model model){
-        log.info("noticeBoardList() 메소드 호출");
-
-        //전체 레코드 조회
-        List<QnaBoardVo> qnaBoardList = clientQnaBoardService.noticeBoardList(qnaBoard);
-        model.addAttribute("qnaBoardList", qnaBoardList);
-        //전체 레코드 수 구현
-        int total = clientQnaBoardService.noticeBoardCnt(qnaBoard);
-        model.addAttribute("pageMaker", new PageDTO(qnaBoard, total));
-
-        return "qnaboard/noticeBoard";
-    }
-
-    @RequestMapping(value = "/noticeBoardDetail", method = RequestMethod.GET)
-    public String noticeBoardDetail(@ModelAttribute QnaBoardVo qnaBoard, Model model){
-        log.info("qnaBoardDetail 호출");
-
-        QnaBoardVo detail = clientQnaBoardService.noticeBoardDetail(qnaBoard);
-        model.addAttribute("detail", detail);
-
-        return "qnaboard/noticeBoardDetail";
-
-    }
-
 }
