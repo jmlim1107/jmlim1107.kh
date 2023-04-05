@@ -177,6 +177,7 @@ $(function(){
 			/* 검색 버튼 클릭 시 처리 이벤트 */
 			$("#searchData").click(function(){
 				if(!chkData("#keyword","검색어를")) return;
+				
 				goPage();
 			});
 		 	
@@ -207,10 +208,10 @@ $(function(){
 		if($("#search").val()=="all"){
 			$("#keyword").val("");
 		} 
-
+		console.log("classDetail?c_no=" + $("#cccc").val());
 		$("#review_search").attr({
 			"method":"get",
-			"action":"/reviewList"
+			"action":"/class/classDetail"
 		});
 		$("#review_search").submit();
 		}

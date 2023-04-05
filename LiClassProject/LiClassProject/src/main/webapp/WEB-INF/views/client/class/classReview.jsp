@@ -28,6 +28,19 @@
 <script type="text/javascript">
 
     $(function(){
+    	localStorage.setItem("key", 3);
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	var ratingTotal = ${tongRating.RATING1} + ${tongRating.RATING2} + ${tongRating.RATING3} + ${tongRating.RATING4} + ${tongRating.RATING5}
     	$("#ratingTotal").text("(" + ratingTotal + ")");
     	
@@ -108,16 +121,17 @@
             
             
             <!-- 검색창 -->
+            
              <div class="container-fluid" style="margin-top:30px;">
 			    <form name = "review_search" id = "review_search">
 			    	<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
  					<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
-
+					<input type="hidden" name="c_no" value = "${clientClassDetail.c_no}">
 			    <div id = "searchDiv" style="display: inline-flex;">
 					<select id="search" name="search"  class="form-control col">
 						<option value="all">전체</option>
-						<option value="b_title">제목</option>
-						<option value="b_content">내용</option>
+						<option value="review_title">제목</option>
+						<option value="review_content">내용</option>
 					</select>
 					<input id = "keyword" name = "keyword" class="form-control me-2" type="text" placeholder="Contents Search...." aria-label="Search" style="width: 70%;">
 					<button id = "searchData" class="btn btn-dark col" type="button">Search</button>
