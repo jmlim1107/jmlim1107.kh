@@ -12,7 +12,38 @@
     String year = yearDate.format(date);
     String month = monthDate.format(date);
 %>
+<script type="text/javascript">
+    $(function (){
+        var salesCountTotal = ${salesCount.ALLPAYMENT}
+        var salesCountAvg1 = Math.ceil(${salesCount.PAYMENTCONF} / salesCountTotal * 1000);
+        var salesCountAvg2 = Math.ceil(${salesCount.PAYMENTCANCEL} / salesCountTotal * 1000);
 
+        var quarter1Avg = Math.ceil(${salesCount.Q1} / salesCountTotal * 1000);
+        var quarter2Avg = Math.ceil(${salesCount.Q2} / salesCountTotal * 1000);
+        var quarter3Avg = Math.ceil(${salesCount.Q3} / salesCountTotal * 1000);
+        var quarter4Avg = Math.ceil(${salesCount.Q4} / salesCountTotal * 1000);
+
+        var level1Avg = Math.ceil(${levelCountList[1]} / salesCountTotal * 1000);
+        var level2Avg = Math.ceil(${levelCountList[0]} / salesCountTotal * 1000);
+        var level3Avg = Math.ceil(${levelCountList[2]} / salesCountTotal * 1000);
+
+        $("#salesBar1").width(salesCountAvg1);
+        $("#salesBar2").width(salesCountAvg2);
+
+        $("#quarterBar1").width(quarter1Avg);
+        $("#quarterBar2").width(quarter2Avg);
+        $("#quarterBar3").width(quarter3Avg);
+        $("#quarterBar4").width(quarter4Avg);
+
+        $("#levelBar1").width(level1Avg);
+        $("#levelBar2").width(level2Avg);
+        $("#levelBar3").width(level3Avg);
+
+
+
+
+    });
+</script>
 
 <section class="section dashboard col-lg-12">
     <div class="row">
@@ -41,15 +72,13 @@
 
                         <div class="card-body">
                             <h5 class="card-title">전체 매출<span>&nbsp | &nbsp<%=today%></span></h5>
-                            <c:forEach items="${allSaleList}" var="sales" varStatus="type">
-                                <input type="hidden" id="${type.index+1}_type" name="allSales_sales" value="${sales}">
-                            </c:forEach>
-
                             <div class="d-flex align-items-center">
 
                                 <div class="ps-3">
                                     <%--전체 매출 데이터 삽입--%>
-                                    <h6 style="font-size: 20px;">총 매출 : ${allSaleList[0]-allSaleList[1]} <br /> 환불 금액 : ${allSaleList[1]}
+<%--                                    <h6 style="font-size: 20px;">총 매출 : ${allSaleList[0]-allSaleList[1]} <br /> 환불 금액 : ${allSaleList[1]}
+                                    </h6>--%>
+                                    <h6>&nbsp;&nbsp;<img src="/resources/admin/payment-success.png">&nbsp;${salesCount.PAYMENTCONF}&nbsp;&nbsp;&nbsp; <img src="/resources/admin/payment-cancel.png">&nbsp;${salesCount.PAYMENTCANCEL}
                                     </h6>
                                 </div>
                             </div>
@@ -86,18 +115,15 @@
 
                                 <div class="ps-3">
                                     <%--분기별매출 현황--%>
-                                        <c:forEach items="${salesList}" var="sales" varStatus="quarter">
-                                            <input type="hidden" id="${quarter.index+1}_quarter" name="quarter_sales" value="${sales}">
-                                        </c:forEach>
-                                    <h6 style="font-size: 20px;">1분기 : ${salesList[0]} / ${salesList[1]} <br/> ${salesList[2]} / ${salesList[3]}
-                                    </h6>
+
+                                    <h6><img src="/resources/admin/calendar.png">&nbsp;${salesCount.Q1}&nbsp;&nbsp;/&nbsp;&nbsp;${salesCount.Q2}&nbsp;&nbsp;/&nbsp;&nbsp;${salesCount.Q3}&nbsp;&nbsp;/&nbsp;&nbsp;${salesCount.Q4}</h6>
                                 </div>
                             </div>
                             <div class="progress mt-4 ">
-                                <div id="quarterBar1" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div id="quarterBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div id="quarterBar3" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div id="quarterBar4" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="quarterBar1" class="progress-bar  bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="quarterBar2" class="progress-bar  bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="quarterBar3" class="progress-bar  bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="quarterBar4" class="progress-bar  bg-dark-light progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 
                             </div>
                         </div>
@@ -123,22 +149,15 @@
 
                         <div class="card-body">
                             <h5 class="card-title">난이도별 매출<span>&nbsp | &nbsp <%=today%></span></h5>
-
                             <div class="d-flex align-items-center">
                                 <div class="ps-3">
-                                    <c:forEach items="${levelList}" var="level" varStatus="level_sales">
-                                        <input type="hidden" id="${level_sales.index+1}level" name="quarter_sales" value="${level}">
-                                    </c:forEach>
                                     <%--난이도별 매출 데이터 입력--%>
-                                    <h6 style="font-size: 20px;">상 : ${levelList[1]} <br/>
-                                        중 : ${levelList[0]}<br/>
-                                        하 : ${levelList[2]}
-                                    </h6>
+                                    <h6><img src="/resources/admin/stairs-step.png">&nbsp;${levelCountList[1]}&nbsp;&nbsp;/&nbsp;&nbsp;${levelCountList[0]}&nbsp;&nbsp;/&nbsp;&nbsp;${levelCountList[2]}</h6>
                                 </div>
                             </div>
-                            <div class="progress mt-1">
+                            <div class="progress mt-4">
                                 <div id="levelBar1" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div id="levelBar2" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div id="levelBar2" class="progress-bar  bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                 <div id="levelBar3" class="progress-bar  bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
@@ -181,14 +200,14 @@
 </section>
 <script>
     const allSales_data = ${allSaleList[0]-allSaleList[1]}
-    const allSales_data2 = document.getElementById("2_type").value;
-    const quarter_data_1 = document.getElementById("1_quarter").value;
-    const quarter_data_2 = document.getElementById("2_quarter").value;
-    const quarter_data_3 = document.getElementById("3_quarter").value;
-    const quarter_data_4 = document.getElementById("4_quarter").value;
-    const level_data_1 = document.getElementById("1level").value;
-    const level_data_2 = document.getElementById("2level").value;
-    const level_data_3 = document.getElementById("3level").value;
+    const allSales_data2 = ${allSaleList[1]}
+    const quarter_data_1 = ${salesList[0]}
+    const quarter_data_2 = ${salesList[1]}
+    const quarter_data_3 = ${salesList[2]}
+    const quarter_data_4 = ${salesList[3]}
+    const level_data_1 = ${levelList[1]}
+    const level_data_2 = ${levelList[0]}
+    const level_data_3 = ${levelList[2]}
 
     var ctx = document.getElementById("barChart");
     var barChart = new Chart(ctx, {

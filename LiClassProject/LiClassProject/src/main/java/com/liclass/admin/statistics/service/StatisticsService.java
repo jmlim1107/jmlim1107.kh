@@ -1,5 +1,6 @@
 package com.liclass.admin.statistics.service;
 
+import com.liclass.admin.classes.vo.AdminClassVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.reserve.vo.ReserveVO;
@@ -14,7 +15,11 @@ public interface StatisticsService {
 
     public List<Map<String, Object>> quarterStatistics(PaymentVO payment);
 
+
     public List<Map<String, Object>> allSales(PaymentVO payment);
+
+    public HashMap<String, Integer> salesCount(PaymentVO payment);
+    public List<Map<String, Object>> levelCount(PaymentVO payment);
 
     public List<Map<String, Object>> levelStatistics(PaymentVO payment);
 

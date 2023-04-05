@@ -1,6 +1,7 @@
 package com.liclass.admin.statistics.controller;
 
 
+import com.liclass.admin.classes.vo.AdminClassVO;
 import com.liclass.admin.statistics.service.StatisticsService;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -56,6 +57,14 @@ public class StatisticsController {
 
     @RequestMapping(value = "/salesstatistics", method = RequestMethod.GET)
     public String salesStatistics(@ModelAttribute PaymentVO payment, Model model){
+        HashMap<String, Integer> salesCount = statisticsService.salesCount(payment);
+        for(String i : salesCount.keySet()){
+            log.info("key : "+ i +" / value : "+ salesCount.get(i));
+        }
+
+        List<Map<String, Object>> levelCount = statisticsService.levelCount(payment);
+        List<Integer> levelCountList = new ArrayList<>();
+
         List<Map<String, Object>> salesData = statisticsService.quarterStatistics(payment);
         List<Integer> salesList = new ArrayList<>();
 
@@ -80,11 +89,18 @@ public class StatisticsController {
             levelList.add(Integer.parseInt(level.get("SALES_SUM").toString()));
         }
 
-
+        for(Map<String, Object> level : levelCount){
+            log.info("C_LEVEL: {}, PAYMENT_COUNT: {}", level.get("C_LEVEL"), level.get("PAYMENT_COUNT"));
+            levelCountList.add(Integer.parseInt(level.get("PAYMENT_COUNT").toString()));
+        }
+        model.addAttribute("salesCount", salesCount);
+        model.addAttribute("levelCount", levelCount);
 
         model.addAttribute("salesList", salesList);
         model.addAttribute("allSaleList", allSaleList);
         model.addAttribute("levelList", levelList);
+        model.addAttribute("levelCountList", levelCountList);
+
         return "admin/statistics/salesstatistics";
     }
 }

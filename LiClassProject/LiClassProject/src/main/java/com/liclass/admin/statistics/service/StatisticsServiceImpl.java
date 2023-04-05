@@ -1,5 +1,6 @@
 package com.liclass.admin.statistics.service;
 
+import com.liclass.admin.classes.vo.AdminClassVO;
 import com.liclass.admin.statistics.dao.StatisticsDao;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -39,6 +40,22 @@ public class StatisticsServiceImpl implements StatisticsService{
         List<Map<String, Object>> sales = null;
         sales = statisticsDao.allSales(payment);
         return sales;
+    }
+
+    @Override
+    public HashMap<String, Integer> salesCount(PaymentVO payment){
+        HashMap<String, Integer> salesCount = null;
+        salesCount = statisticsDao.salesCount(payment);
+
+        return salesCount;
+    }
+
+    @Override
+    public List<Map<String, Object>> levelCount(PaymentVO payment){
+        List<Map<String, Object>> levelCount = null;
+        levelCount = statisticsDao.levelCount(payment);
+
+        return levelCount;
     }
 
     @Override

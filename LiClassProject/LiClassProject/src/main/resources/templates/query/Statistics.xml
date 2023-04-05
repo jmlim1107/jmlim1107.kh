@@ -73,5 +73,37 @@
         FROM li_reserve
     </select>
 
+    <select id="salesCount" parameterType="Payment" resultType="map">
+        SELECT
+            COUNT(*) AS allpayment,
+            COUNT(CASE WHEN pay_status = 0 THEN 1 END) AS paymentConf,
+            COUNT(CASE WHEN pay_status = 3 THEN 1 END) AS paymentCancel,
+            COUNT(CASE WHEN TO_CHAR(pay_date, 'Q') = '1' THEN 1 END) AS q1,
+            COUNT(CASE WHEN TO_CHAR(pay_date, 'Q') = '2' THEN 1 END) AS q2,
+            COUNT(CASE WHEN TO_CHAR(pay_date, 'Q') = '3' THEN 1 END) AS q3,
+            COUNT(CASE WHEN TO_CHAR(pay_date, 'Q') = '4' THEN 1 END) AS q4
+        FROM li_payment
+        WHERE pay_status IN (0, 3)
+    </select>
+
+    <select id="levelCount" parameterType="Payment" resultType="HashMap">
+        SELECT
+            COALESCE(li_class.c_level, '상') AS c_level,
+            COUNT(li_payment.r_no) AS payment_count
+        FROM
+            li_class
+                LEFT JOIN li_episode ON li_class.c_no = li_episode.c_no
+                LEFT JOIN li_reserve ON li_episode.ep_no = li_reserve.ep_no
+                LEFT JOIN li_payment ON li_reserve.r_no = li_payment.r_no
+        GROUP BY
+            c_level,
+            CASE
+                WHEN c_level = '상' THEN 1
+                WHEN c_level = '중' THEN 2
+                WHEN c_level = '하' THEN 3
+                END
+
+    </select>
+
 
 </mapper>
