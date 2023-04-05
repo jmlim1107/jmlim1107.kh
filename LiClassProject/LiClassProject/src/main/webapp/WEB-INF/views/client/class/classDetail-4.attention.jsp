@@ -3,7 +3,7 @@
 <%-- 은아) 클래스 상세페이지 탭메뉴4. 안내사항 --%>	
 <section id="services" class="section services" style="margin:0px; width:100%;">
   <div class="container-fluid">
-    <div class="row" style="justify-content: left;">
+    <div class="row" style="justify-content: left;width: 900px;">
       <div class="col-md-12 col-sm-6">
         <div class="services-content">
 	        <h5 style="margin-bottom: 2%;"><i class="fa-solid fa-bullhorn"></i>   

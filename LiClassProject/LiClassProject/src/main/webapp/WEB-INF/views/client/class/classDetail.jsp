@@ -21,7 +21,7 @@
 
 <div id="class-detail-div" style="padding-top: 70px;">
 	<!-- 1. class img slider section start -->
-	<section id="header-slider" class="section" style="margin-top: 40px;">
+	<section id="header-slider" class="section" style="margin-top: 40px; width:64%;">
 		<%@ include file="/WEB-INF/views/client/class/classDetail-0.imgSlider.jsp" %>
 	</section>
 	<!-- 1. class img slider section end -->

@@ -19,7 +19,7 @@
 		appendImg = $('<img>', { 
             'class' : "img-item",
             'src' : firstSrc,
-            'style' :'width:900px;height:500px;'
+            'style' :'width:1000px;height:500px;max-width:1500px;'
          });                        
 		$(appendImg).appendTo('.item');
 		
@@ -32,7 +32,7 @@
 				appendImg = $('<img>', { 
 		            'class' : "img-item",
 		            'src' :  $('.class-img:eq('+i+')').val(),
-		            'style' :'width:900px;height:500px;'
+		            'style' :'width:1200px;height:500px;max-width:1500px;'
 		         });                        
 				$(appendImg).appendTo('.item');
 			}
@@ -73,7 +73,7 @@
 	</div>
 
     
-   <div id="classImgs" class="carousel slide" data-ride="carousel" style="width: 900px; margin: 30px;"> 
+   <div id="classImgs" class="carousel slide" data-ride="carousel" style="width: 98%; margin: 30px;"> 
 	    <!-- Wrapper for slides-->
 	    <div class="carousel-inner" role="listbox">
 	    </div>
