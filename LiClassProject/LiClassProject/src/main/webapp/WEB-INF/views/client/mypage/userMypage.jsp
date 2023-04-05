@@ -8,7 +8,10 @@
 <style type="text/css">
   .mypageLi{display:none;}
   .active{display:block;}
-  .nacc{width:900px;} 
+  .nacc{width:900px;
+        justify-content: center;
+        align-items: center;
+        display: flex;} 
 </style> 
 <script>
 	$(function(){
@@ -102,38 +105,38 @@
 		             <div class="row">
 		               <div class="col-lg-3" style="margin-top : -49px;">
 		                 <div class="menu">
-		                   <div class="first-thumb active point">
-		                  	<div class="thumb go-active">
+		                   <div class="first-thumb active point" style="width:300px;max-width:300px;margin:0px;">
+		                  	<div class="thumb">
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-01.png" alt=""></span>
 		                       Profile
 		                  	</div>
 		                   </div>
-		                   <div class="point after-active">
-		                     <div class="thumb go-active">                 
+		                   <div class="point" style="width:300px;max-width:300px;margin:0px;">
+		                     <div class="thumb">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-03.png" alt=""></span>
 		                       Payment
 		                     </div>
 		                   </div>
-		                   <div class="point after-active">
-		                     <div class="thumb go-active">                 
+		                   <div class="point" style="width:300px;max-width:300px;margin:0px;">
+		                     <div class="thumb">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-05.png" alt=""></span>
 		                       Review
 		                     </div>
 		                   </div>
-		                  <div class="point after-active">
-		                     <div class="thumb go-active" id="myLikes">                 
+		                  <div class="point" style="width:300px;max-width:300px;margin:0px;">
+		                     <div class="thumb" id="myLikes">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-04.png" alt=""></span>
 		                       Likes
 		                     </div>
 		                   </div>
-		                   <div class="point after-active">
+		                   <div class="point" style="width:300px;max-width:300px;margin:0px;">
 		                     <div class="thumb">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-06.png" alt=""></span>
 		                       Q&A
 		                     </div>
 		                   </div>
-		                   <div class="last-thumb point after-active">
-		                     <div class="thumb go-active">                 
+		                   <div class="last-thumb point" style="width:300px;max-width:300px;margin:0px;">
+		                     <div class="thumb">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-07.png" alt=""></span>
 		                     	Post
 		                     </div>
