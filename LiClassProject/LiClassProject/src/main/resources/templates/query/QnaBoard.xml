@@ -27,14 +27,14 @@
 
     <!--문의게시판 상세페이지 조회 쿼리문-->
     <select id="qnaBoardDetail" parameterType="qnaBoard" resultType="qnaBoard">
-        select a.qna_no, a.user_no, a.admin_no, a.qna_title, a.qna_content, a.qna_category, to_char(a.qna_date, 'YYYY-MM-DD')as qna_date, to_char(a.qna_date_fix, 'YYYY-MM-DD')as qna_date_fix, a.qna_top_state, a.qna_top_state, a.qna_group, a.qna_indent, b.user_no, b.user_name, c.admin_no, c.admin_name
+        select a.qna_no, a.user_no, a.admin_no, a.qna_title, a.qna_content, a.qna_category, to_char(a.qna_date, 'YYYY-MM-DD')as qna_date, to_char(a.qna_date_fix, 'YYYY-MM-DD')as qna_date_fix, a.qna_top_state, a.qna_group, a.qna_indent, b.user_no, b.user_name, c.admin_no, c.admin_name
         from li_qna a, li_user b, li_admin c
         where a.user_no = b.user_no(+) and qna_no = #{qna_no}
     </select>
 
     <!--문의게시판 답변 조회 쿼리문-->
     <select id="qnaBoardAnswerDetail" parameterType="qnaBoard" resultType="qnaBoard">
-        select a.qna_no, a.user_no, a.admin_no, a.qna_title, a.qna_content, a.qna_category, to_char(a.qna_date, 'YYYY-MM-DD')as qna_date, to_char(a.qna_date_fix, 'YYYY-MM-DD')as qna_date_fix, a.qna_top_state, a.qna_top_state, a.qna_group, a.qna_indent, b.user_no, b.user_name, c.admin_no, c.admin_name
+        select a.qna_no, a.user_no, a.admin_no, a.qna_title, a.qna_content, a.qna_category, to_char(a.qna_date, 'YYYY-MM-DD')as qna_date, to_char(a.qna_date_fix, 'YYYY-MM-DD')as qna_date_fix, a.qna_top_state, a.qna_group, a.qna_indent, b.user_no, b.user_name, c.admin_no, c.admin_name
         from li_qna a, li_user b, li_admin c
         where a.user_no = b.user_no(+) and qna_group = #{qna_group} and qna_category = '답변'
     </select>
