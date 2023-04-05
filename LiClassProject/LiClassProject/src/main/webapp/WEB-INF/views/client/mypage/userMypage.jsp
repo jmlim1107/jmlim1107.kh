@@ -112,30 +112,30 @@
 		                  	</div>
 		                   </div>
 		                   <div class="point" style="width:300px;max-width:300px;margin:0px;">
-		                     <div class="thumb">                 
+		                     <div class="thumb go-active">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-03.png" alt=""></span>
 		                       Payment
 		                     </div>
 		                   </div>
 		                   <div class="point" style="width:300px;max-width:300px;margin:0px;">
-		                     <div class="thumb">                 
+		                     <div class="thumb go-active">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-05.png" alt=""></span>
 		                       Review
 		                     </div>
 		                   </div>
 		                  <div class="point" style="width:300px;max-width:300px;margin:0px;">
-		                     <div class="thumb" id="myLikes">                 
+		                     <div class="thumb go-active" id="myLikes">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-04.png" alt=""></span>
 		                       Likes
 		                     </div>
 		                   </div>
 		                   <div class="point" style="width:300px;max-width:300px;margin:0px;">
-		                     <div class="thumb">                 
+		                     <div class="thumb go-active">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-06.png" alt=""></span>
 		                       Q&A
 		                     </div>
 		                   </div>
-		                   <div class="last-thumb point" style="width:300px;max-width:300px;margin:0px;">
+		                   <div class="last-thumb point go-active" style="width:300px;max-width:300px;margin:0px;">
 		                     <div class="thumb">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-07.png" alt=""></span>
 		                     	Post
