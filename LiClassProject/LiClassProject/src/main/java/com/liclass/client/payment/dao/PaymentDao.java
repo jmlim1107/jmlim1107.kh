@@ -29,4 +29,8 @@ public interface PaymentDao {
    public int insertRefund(RefundVO refundVO);
 
    public int changePaymentStatus(String merchant_uid);
+   
+   public int reserveDelete(int r_no);
+   
+   
 }

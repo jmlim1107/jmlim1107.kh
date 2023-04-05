@@ -22,13 +22,15 @@ public interface PaymentService {
 
    public UserVO getUserId(String user_email);
 
-   public int changeRerserveStatus(int r_no, int r_state);
+   public int changeRerserveStatus(int r_no,int r_state);
 
    public PaymentVO getPaymentInfo(String merchant_uid);
 
    public int insertRefund(RefundVO refundVO);
 
    public int changePaymentStatus(String merchant_uid);
+
+   public int reserveDelete(int r_no);
 
 
 

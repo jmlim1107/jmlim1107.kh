@@ -54,5 +54,10 @@
       where merchant_uid = #{merchant_uid}
    </update>
 
+   <!-- 결제도중 취소시 예약테이블에 데이터 삭제 -->
+   <delete id="reserveDelete" parameterType="int">
+      delete from li_reserve
+      where r_no = #{r_no}
+   </delete>
 
 </mapper>

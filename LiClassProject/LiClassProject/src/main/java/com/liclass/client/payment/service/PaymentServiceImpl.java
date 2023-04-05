@@ -187,12 +187,18 @@ public class PaymentServiceImpl implements PaymentService{
    
    // 에약상태 수정하기
    @Override
-   public int changeRerserveStatus(int r_no, int r_state) {
-      int result = paymentDao.changeRerserveStatus(r_no, r_state);
+   public int changeRerserveStatus(int r_no,int r_state) {
+      int result = paymentDao.changeRerserveStatus(r_no,r_state);
       return result;
    }
 
+	@Override
+	public int reserveDelete(int r_no) {
+		int result = paymentDao.reserveDelete(r_no);
+		return result;
+	}	
 
+   
    
 
    
