@@ -49,12 +49,6 @@
             $("div[name=" + name + "]").fadeIn();
         }
         
-	 $(document).ready(function () {
-          	
-            
-         
-    });
-
         
 
         

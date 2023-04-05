@@ -16,58 +16,59 @@
 		if('${message}' != "" || '${url}' !=""){
 			var message = "${message}" ;
 			var url = '${url}';
-			
-			
-			/* 은아) 비밀번호 만료시 알림 */	
-			if(message == "pwOverExp"){
-					var pwOverExp = getCookie('pwOverExp');
-					console.log("pwOverExp : " +pwOverExp);
-		            if (!pwOverExp) 
-		                popUpAction('pwOverExp');
-			}else
-				alert(message);
-		
 			location.href=url;
-			
-			// 닫기버튼 클릭 이벤트 
-	        $('.btn_close').click(function () {
-	            $(this).parent('.main_notice_pop').fadeOut();
-
-	            // 오늘하루 보지않기 체크 확인 
-	            if ($("input:checkbox[name=today_close1]").is(":checked") == true) {
-	                setCookie00('pwOverExp', "notoday", 1);
-	            }
-
-	            // name으로 해당 팝업창 닫기 
-	            $(this).parent("div[name=" + name + "]").fadeOut();
-	        })
-	        
 		}
+		
+		//비밀번호 만료알림
+		if('${pwOverExp}' != ""){
+			var pwOverExp = "${pwOverExp}";
+			console.log(pwOverExp);
+			if(pwOverExp == 'Y'){
+				popUpAction('pwOverExp');
+			}
+		}
+	
+		// 닫기버튼 클릭 이벤트 
+        $('.btn_close').click(function () {
+            $(this).parent('.main_notice_pop').fadeOut();
+
+            // 오늘하루 보지않기 체크 확인 
+            if ($("input:checkbox[name=today_close1]").is(":checked") == true) {
+                setCookie00('pwOverExp', "notoday", 1);
+            }
+
+            // name으로 해당 팝업창 닫기 
+            $(this).parent("div[name=" + name + "]").fadeOut();
+        })
+        
+	      //마이페이지 로딩 시 activePosition에 따라 보여질 시작메뉴 지정
+			var activePosition = localStorage.getItem("activePosition");
+			console.log("get activePosition : "+activePosition);
+			
+			if(typeof activePosition != "undefined" && activePosition != null && activePosition != ""){
+			      if (!$(this).is("active")) {
+			          $(".naccs .menu div").removeClass("active");
+			          $(".naccs ul .mypageLi").removeClass("active");
+			
+			          $(this).addClass("active");
+			          $(".naccs ul").find(".mypageLi:eq(" + activePosition + ")").addClass("active");
+			          $(".naccs .menu").find(".point:eq(" + activePosition + ")").addClass("active");
+			
+			          var listItemHeight = $(".naccs ul")
+			            .find(".mypageLi:eq(" + activePosition + ")")
+			            .innerHeight();
+			          $(".naccs ul").height(listItemHeight + "px");
+			        }
+			}
+	
+	
 		 /* 환불처리 되었을때 */
 		if('${msg}' != ""){
 			var msg = "${msg}";
 			alert(msg);
 		}
 	
-		//마이페이지 로딩 시 activePosition에 따라 보여질 시작메뉴 지정
-		var activePosition = localStorage.getItem("activePosition");
-		console.log("get activePosition : "+activePosition);
 		
-		if(typeof activePosition != "undefined" && activePosition != null && activePosition != ""){
-		      if (!$(this).is("active")) {
-		          $(".naccs .menu div").removeClass("active");
-		          $(".naccs ul .mypageLi").removeClass("active");
-		
-		          $(this).addClass("active");
-		          $(".naccs ul").find(".mypageLi:eq(" + activePosition + ")").addClass("active");
-		          $(".naccs .menu").find(".point:eq(" + activePosition + ")").addClass("active");
-		
-		          var listItemHeight = $(".naccs ul")
-		            .find(".mypageLi:eq(" + activePosition + ")")
-		            .innerHeight();
-		          $(".naccs ul").height(listItemHeight + "px");
-		        }
-		}
 	});
 </script>
 <div id="gotop"></div>

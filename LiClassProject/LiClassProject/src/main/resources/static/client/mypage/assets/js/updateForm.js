@@ -122,10 +122,6 @@ $(function(){
 					$("#update-form").submit();
 			}
 		}else{ //2. 비밀번호 수정 포함 수정
-			//수정일자 업데이트
-		 	var now = new Date();
-			$("#user_update").val(now);
-			
 		if(pwcheckAccord != true){
 			alert("비밀번호를 확인해 주세요.");
 			return false;

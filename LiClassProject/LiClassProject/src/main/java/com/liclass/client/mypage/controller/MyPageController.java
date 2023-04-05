@@ -1,6 +1,7 @@
 package com.liclass.client.mypage.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,8 +35,10 @@ import com.liclass.common.file.UserFileUpload;
 import com.liclass.common.vo.PageDTO;
 
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
+@Slf4j
 @SessionAttributes("loginUser")
 public class MyPageController { //은아,웅배
 	@Setter(onMethod_ = @Autowired)
@@ -64,6 +67,11 @@ public class MyPageController { //은아,웅배
 			return "redirect:/";
 		}
 		
+		//비밀번호 만료 알림
+		int result = userService.checkPwExp(loginUser);
+		if(result>90) {
+			model.addAttribute("pwOverExp", "Y");
+		}
 		//관심클래스 조회+페이징처리
 		lvo.setUser_no(loginUser.getUser_no());
 		lvo.setAmount(6);
@@ -93,13 +101,6 @@ public class MyPageController { //은아,웅배
 
 		List<ClientQnaBoardVO> myQnaList = mypageService.myQnaList(qvo);
 		model.addAttribute("myQnaList",myQnaList);
-		
-		//비밀번호 만료 알림
-		int result = userService.checkPwExp(loginUser);
-		if(result>90) {
-			model.addAttribute("message", "pwOverExp");
-		}
-
 		
 		/* 웅배 */
 		pvo.setUser_no(loginUser.getUser_no());
@@ -131,7 +132,7 @@ public class MyPageController { //은아,웅배
 	 * 요청 url : http://localhost:8080/mypage/updateForm
 	************************************************/
 	@GetMapping("/mypage/updateForm")
-	public String updateForm() {
+	public String updateForm(Model model) {
 		return "client/mypage/updateForm";
 	}
 	
@@ -156,14 +157,21 @@ public class MyPageController { //은아,웅배
 	@PostMapping(value ="/mypage/update")
 	public String update(@ModelAttribute UserVO vo,Model model){
 		UserVO loginUser = (UserVO) model.getAttribute("loginUser");
-		
+		LocalDate now = LocalDate.now();
+		String today = now.toString();
+		String originPw = loginUser.getUser_pw();
 		String message ="";
-		if(vo != null) {
+		if(vo != null) { 
+			String newPw = vo.getUser_pw();
 			loginUser.setUser_name(vo.getUser_name());
-			loginUser.setUser_pw(vo.getUser_pw());
+			loginUser.setUser_pw(newPw);
 			loginUser.setUser_tel(vo.getUser_tel());
-			int result = userService.update(loginUser);
 			
+			if(!originPw.equals(newPw)) {//비밀번호만 수정했을때 수정일자변경
+				loginUser.setUser_update(today);
+			}
+			
+			int result = userService.update(loginUser);
 			if(result == 1) {
 				message = vo.getUser_name()+"님, 새로운 정보로 수정되었습니다.";
 				model.addAttribute("loginUser", loginUser);
