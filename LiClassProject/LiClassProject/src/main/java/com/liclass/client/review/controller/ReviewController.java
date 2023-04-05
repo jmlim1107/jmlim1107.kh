@@ -41,6 +41,7 @@ public class ReviewController {
 		List<ReviewVO> reviewList = reviewService.reviewList(vo);
 		model.addAttribute("reviewList" , reviewList);
 		
+		
 		// 전체 레코드 수 구현
 		int total = reviewService.reviewListCnt(vo);
 		// 페이징 처리
@@ -51,7 +52,7 @@ public class ReviewController {
 		
 		model.addAttribute("ratingAvg", ratingAvg);
 		
-		return "review/reviewList";	// /WEB-INF/views/review/reviewList.jsp
+		return "class/classDetail?c_no" + vo.getC_no();
 		
 	}
 	
