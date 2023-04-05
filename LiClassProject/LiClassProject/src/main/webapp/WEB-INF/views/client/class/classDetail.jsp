@@ -69,7 +69,7 @@
 	<!-- 2. information section end -->
 </div>
 <!-- 3. reservation section start -->
-<div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px; z-index: 0;">
+<div id="sticky-nav" style="position: absolute;right: 20px;bottom:50px; z-index: 0; top:160px;">
 	<jsp:include page="/WEB-INF/views/client/class/classReservation.jsp">
 		<jsp:param value="${clientClassDetail.c_no}" name="c_no"/>
 	</jsp:include> 

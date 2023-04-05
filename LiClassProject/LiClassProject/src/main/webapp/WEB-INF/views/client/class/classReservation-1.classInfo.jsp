@@ -6,11 +6,11 @@
 
 	//right nav
 	var quick_menu = $('#sticky-nav');
-	var quick_top = 200;
+	var quick_top = 160;
 	
 	quick_menu.css('top', $(window).height() );
 	$(document).ready(function(){
-	quick_menu.animate( { "top": $(document).scrollTop() + quick_top +"px" }, 200 ); 
+	quick_menu.animate( { "top": $(document).scrollTop() + quick_top +"px" }, 160 ); 
 	$(window).scroll(function(){
 	quick_menu.stop();
 	quick_menu.animate( { "top": $(document).scrollTop() + quick_top + "px" }, 500 );
@@ -85,11 +85,34 @@
 		<input type="hidden" id="class-info" data-num="${clientClassDetail.c_no }" />
 		<input type="hidden" id="user-info" data-num="${loginUser.user_no }" />
 		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-            <h3 class="tour-form-title"> </h3>
+            <h6>
+            	<i class="fa-solid fa-hashtag"></i>
+		      	<c:if test = "${clientClassDetail.c_category eq 0}">
+					공예
+				</c:if>
+		     	<c:if test = "${clientClassDetail.c_category eq 1}">
+					요리
+				</c:if>
+				<c:if test = "${clientClassDetail.c_category eq 2}">
+					미술
+				</c:if>
+				<c:if test = "${clientClassDetail.c_category eq 3}">
+					플라워
+				</c:if>
+				<c:if test = "${clientClassDetail.c_category eq 4}">
+					뷰티
+				</c:if>
+				<c:if test = "${clientClassDetail.c_category eq 5}">
+					체험 및 기타
+				</c:if>
+			</h6>
         </div>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="form-group"></div>
+            <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${clientClassDetail.c_area}</h6>
         </div>
+        <div class="class-content" data-num="${clientClassDetail.c_no}">
+      	<h3 style="font-weight: bold;">${clientClassDetail.c_title}</h3>
+	</div>
         <!-- 1. 난이도  -->
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="form-group">
@@ -135,7 +158,6 @@
                   <label class="control-label required" for="type">최소인원 ${clientClassDetail.c_mincnt} 명</label>
               </div>
           </div>
-         
          <!-- 4. 관심클래스,공유하기 -->
 	      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 		      <c:if test="${loginUser == null}">

@@ -261,7 +261,7 @@
 </div>-->
 <!-- episode Box -->
 
-		<div class="row" style="width:400px;">
+		<div class="row" style="width:430px;">
              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
                  <div class="class-booking-form" >
                      <form>
@@ -271,11 +271,13 @@
 	                          	<%@ include file="/WEB-INF/views/client/class/classReservation-1.classInfo.jsp" %>
 	                        <!--1. class info end --> 
 	                            
-	                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+	                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="display: flex; justify-content: center;">
 	        			 	 <!-- 예약버튼 -->
-	                         <button type="button" class="main-white-button goReserve">
-	                                <a href="#reserve-modal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a>
-	                          </button>
+	        			 	 <a href="#reserve-modal" rel="modal:open" >
+	                         <button type="button" class="button-41">
+	                         		<span>예약하기</span>
+	                               <!--  <a href="#reserve-modal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a> -->
+	                          </button></a>
 						
 							 <%--  reserve modal start   --%>
 							<div class="modal" id="reserve-modal" style="z-index: 2; position: relative; text-align: center; height: 100%; width:800px;
