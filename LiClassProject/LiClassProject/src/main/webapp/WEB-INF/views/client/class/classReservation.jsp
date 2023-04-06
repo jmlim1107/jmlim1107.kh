@@ -295,7 +295,7 @@
 		});//결제버튼 클릭 종료
 		
 		$("#pointok").click(function(){
-			var point = ${uservo.user_point};
+			var point = '${uservo.user_point}';
 			var pricepoint = $("#r_price").val();
 			var insertpoint = $("#insertpoint").val();
 			
