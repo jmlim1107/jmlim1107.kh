@@ -50,64 +50,102 @@
     			    "pluginKey": "4674cd17-2f5e-4a53-bbd2-53cd1c600040"
     		  });
     			  
-    		//은아)관심클래스 추가 삭제
-			 let user_no = $(".login-info").data("num");
- 			 $('.atag-heart').click(function(){
-  				let c_no = $(this).data("num");
-  				console.log("c_no : "+c_no);
-   				  	if(user_no != ""){
-   				  		var $likeBtn = $(this);
-			        	var alt = $likeBtn.find('img').attr("alt");
-			        	  $.ajax({
-			        		  type : "POST",
-		    					url : "/addLikes",
-		    					data : {
-		    						"c_no" : c_no,
-		    						"user_no" : user_no
-		    					},success : function(checkResult){
-		    						console.log(" addLikes checkResult : "+checkResult);
-		    						 if(checkResult == 1){
-		    							 $likeBtn.find('img').attr({
-		    								 'src': '/resources/images/heartred.png',
-		    					                 alt:'찜하기 완료'
-		  					                  });
-		    							alert("관심클래스에 추가되었습니다.");
-		    						}else if(checkResult == 0 && (alt == "찜하기")){
-		    							$likeBtn.find('img').attr({
-		    								'src': '/resources/images/heartred.png',
-		    					                 alt:'찜하기 완료'
-		  					                  });
-		    							alert("앗,이미 관심클래스에 있었어요!");
-		    						}else if(checkResult == 0 && (alt == "찜하기 완료")){
-		    							if(confirm("관심클래스에서 삭제할까요?")){
-			    							  $.ajax({
-			       		    					type : "POST",
-			       		    					url : "/delLikes",
-			       		    					data : {
-			       		    						"c_no" : c_no,
-			       		    						"user_no" : user_no
-			       		    					},success : function(checkResult2){
-			       		    						console.log(" delLikes checkResult2 : "+checkResult2);
-			       		    						if(checkResult2 == 1){
-		       		       		    						$likeBtn.find('i').removeClass('fas').addClass('far')
-			       		 					             	$likeBtn.find('img').attr({
-			       		 					             	 'src': '/resources/images/heartwhite.png',
-			       		 					                	alt:"찜하기"
-			       		 					            	 });
-			       		    								alert("삭제되었습니다.");
-			       		    						}else
-			       		    							alert("죄송합니다. 잠시후 다시 시도해주세요.");
-			    							  		}
-			    								});
-			    							}
-		    						}
-		    					}
-		  					 });
-   		    		  }else{
-   		    			  alert("로그인 후 이용해주세요.");
-   		    		  }
-   			  	});	 
-    		});
+    			  let user_no = $(".login-info").data("num");
+    	 			 $('.atag-heart').click(function(){
+    	  				let c_no = $(this).data("num");
+    	  				console.log("c_no : "+c_no);
+    	  				console.log(user_no);
+    	   				  	if(user_no == ""){ //if(1)
+    	   				  		Swal.fire({
+    	 					      icon: 'warning',
+    	 					      confirmButtonColor: '#EA9A56',
+    	 					      title: '로그인후 이용해주세요'
+    	 						});
+    	   				  		return;
+    	   				  	} else {
+    	   				  		var $likeBtn = $(this);
+    			        		var alt = $likeBtn.find('img').attr("alt");
+    			        	  	$.ajax({ //ajax(1)
+    			        		  	type : "POST",
+    		    					url : "/addLikes",
+    		    					data : {
+    		    						"c_no" : c_no,
+    		    						"user_no" : user_no
+    		    					},
+    		    					success : function(checkResult){
+    		    						console.log(" addLikes checkResult : "+checkResult);
+    		    						if(checkResult == 1){ //if(2)
+    		    							 $likeBtn.find('img').attr({
+    		    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+    		    					                 alt:'찜하기 완료'
+    		  					               });
+    		    							 Swal.fire({
+    			   							      icon: 'success',
+    			   							      confirmButtonColor: '#64CD3C',
+    			   							      title: '관심클래스에 추가되었습니다!'
+    		   								});
+    		    						} else if(checkResult == 0 && (alt == "찜하기")){
+    		    							$likeBtn.find('img').attr({
+    		    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+    		    					                 alt:'찜하기 완료'
+    		  					             });
+    		    							Swal.fire({
+    		  							      icon: 'warning',
+    		  							      confirmButtonColor: '#EA9A56',
+    		  							      title: '앗,이미 관심클래스에 있었어요!'
+    		  								});
+    		    						} else if(checkResult == 0 && (alt == "찜하기 완료")){
+    		    							Swal.fire({
+    		    								   title : "관심클래스에서 삭제하시겠습니까?",
+    		    								   //text: "관심클래스에서 삭제하시겠습니까?",
+    		    								   icon: 'success',
+    		    								   showCancelButton: true, 
+    		    								   confirmButtonColor: '#64CD3C', 
+    		    								   cancelButtonColor: '#8c8c8c', 
+    		    								   confirmButtonText: 'yes', 
+    		    								   cancelButtonText: 'no', 
+    		    								   reverseButtons: false 
+    		    								}).then(result => {
+    		    								   // 만약 Promise리턴을 받으면,
+    		    								   if (result.isConfirmed) { // if(3)
+    		    									   console.log(likeId);
+    		    									   $.ajax({ //ajax(2)
+    					       		    					type : "POST",
+    					       		    					url : "/mypage/delLikes",
+    					       		    					data : {
+    					       		    						"c_no" : c_no,
+    					       		    						"user_no" : user_no
+    					       		    					},
+    					       		    					success : function(checkResult2){
+    					       		    						console.log(" delLikes checkResult2 : "+checkResult2);
+    					       		    						if(checkResult2 == 1){ //if(4)
+    				       		       		    						$likeBtn.find('i').removeClass('fas').addClass('far')
+    					       		 					             	$likeBtn.find('img').attr({
+    					       		 					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+    					       		 					                	alt:"찜하기"
+    					       		 					            	 });
+    				       		       		    					Swal.fire({
+    		    													      icon: 'success',
+    		    													      confirmButtonColor: '#64CD3C',
+    		    													      title: '관심클래스에서  삭제되었습니다!'
+    		    													});
+    					       		    						} else{
+    					       		    							Swal.fire({
+    		    													      icon: 'warning',
+    		    													      confirmButtonColor: '#EA9A56',
+    		    													      title: '잠시후 다시 이용해주세요.'
+    		    													});
+    					       		    						} //if(4)의 종료
+    					       		    					}//sucess 함수 종료
+    		  					 						}); //ajax(2)종료
+    		    								   	}//if(3)의 종료
+    		    								 }); //화살표 함수 종료
+    	   				  				}//if(2)종료
+    		    					}//success함수 종료
+    		    				});//ajax(1)종료
+    			        	  }//if(1)종료
+    	   			  	});//하트클릭 종료
+    			   }); //최상위$ 종료
     </script>
 	
 	<!-- 은아) 로그인 유저 확인용 -->
