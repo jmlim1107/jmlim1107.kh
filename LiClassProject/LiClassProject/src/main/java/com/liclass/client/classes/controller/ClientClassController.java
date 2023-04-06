@@ -106,8 +106,11 @@ public class ClientClassController { //은아,지민,경민
 		log.info("test1 : "+test.getEndPage());
 		log.info("test2 : "+ total);
 		
-		UserVO uservo = paymentService.getUserInfo(loginUser.getUser_no());
-		model.addAttribute("uservo", uservo);
+		//클래스 관심클래스 유무
+		if(loginUser != null) {
+			UserVO uservo = paymentService.getUserInfo(loginUser.getUser_no());
+			model.addAttribute("uservo", uservo);
+		}
 		
 		// vo.c_no 로 변경해주기
 		double ratingAvg = reviewService.setRating(vo.getC_no());
