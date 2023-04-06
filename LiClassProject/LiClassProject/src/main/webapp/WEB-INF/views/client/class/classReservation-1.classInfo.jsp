@@ -5,6 +5,14 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 
 <%-- 은아) 클래스 상세페이지 예약네비1. 클래스정보 --%>	
+<style>
+	#sns-share-div{
+	display:flex;
+	justify-content:center;
+	visibility:hidden; 
+	margin: 10px;
+	}
+</style>
 <script>
 
 	//right nav
@@ -163,7 +171,7 @@
       	</table>
       	
       	<!-- 4. 관심클래스,공유하기 -->
-	      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="text-align: right;">
+	      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="text-align: left;">
 		      <c:if test="${loginUser == null}">
 		      		<button type="button" class="main-white-button like" id="loginLike" style="margin: 0px 5px;">
 						<i class="fa-solid fa-heart-circle-plus" style="margin:0px 5px;"></i>  ${clientClassDetail.c_luv}
@@ -189,7 +197,7 @@
       	
 	
        
-         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="sns-share-div" style="visibility:hidden; margin: 10px;">
+         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="sns-share-div">
               <div class="form-group" style="margin:5px 0px; float: right;">
               	<a id="kakao-link-btn" href="javascript:kakaoShare()" style="margin: 0px 20px;"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
 				<a id="twitter-link-btn" href="javascript:shareTwitter()" style="margin: 0px 20px;"><i class="fa-brands fa-twitter"></i></a>
