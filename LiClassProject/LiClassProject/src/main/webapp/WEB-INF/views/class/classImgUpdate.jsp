@@ -36,11 +36,11 @@
 		======================================================== -->
 	<script type="text/javascript" src="/resources/include/js/common.js"></script>
 	<style type="text/css">
-		#img
+		.badge{ cursor: pointer; }
+		.ri-add-circle-fill{ cursor: pointer; }
 	</style>
 	<script type="text/javascript">
 		$(function(){
-			
 			//목록으로 
 			$("#listBtn").click(function(){
 				location.href="/admin/class/classList";

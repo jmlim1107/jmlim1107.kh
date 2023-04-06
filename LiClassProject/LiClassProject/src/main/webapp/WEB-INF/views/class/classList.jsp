@@ -34,6 +34,11 @@
 		* Author: BootstrapMade.com
 		* License: https://bootstrapmade.com/license/
 		======================================================== -->
+	<style>
+	.goDetail{
+		cursor: pointer;
+	}
+	</style>
 	<script type="text/javascript">
 		$(function() {
 			/**************************상세화면*********************************/ 
