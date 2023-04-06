@@ -75,9 +75,6 @@
 	<!--===============================================================================================-->
 	<script src="/resources/client/login/js/login.js"></script>
 
-	<%-- qna board --%>
-	<link rel="stylesheet" href="/resources/client/qnaBoard/css/css.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
 <!-- 하단 script 끝==============================================================================================-->
 	</body>

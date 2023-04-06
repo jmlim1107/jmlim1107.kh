@@ -157,29 +157,29 @@
                 </div>
             </div>
             <%-- ====================페이징 출력 시작==================== --%>
-            <nav aria-label="Page navigation example" style="text-align:center;">
+<%--            <nav aria-label="Page navigation example" style="text-align:center;">
                 <ul class="pagination">
-                    <%--이전 바로가기 10개 존재 여부를 prev 필드의 값으로 확인.--%>
+                    &lt;%&ndash;이전 바로가기 10개 존재 여부를 prev 필드의 값으로 확인.&ndash;%&gt;
                     <c:if test="${pageMaker.prev}">
                         <li class="page-item">
                             <a class="page-link" href="${pageMaker.startPage - 1}">Previous</a>
                         </li>
                     </c:if>
 
-                    <%--바로가기 번호 출력--%>
+                    &lt;%&ndash;바로가기 번호 출력&ndash;%&gt;
                     <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
                         <li class="page-item ${pageMaker.cvo.pageNum == num ?'active':''}">
                             <a class="page-link" href="${num}">${num}</a>
                         </li>
                     </c:forEach>
 
-                    <%--다음 바로가기 10개 존재 여부를 next 필드의 값으로 확인. --%>
+                    &lt;%&ndash;다음 바로가기 10개 존재 여부를 next 필드의 값으로 확인. &ndash;%&gt;
                     <c:if test="${pageMaker.next}">
                         <li class="page-item next">
                             <a class="page-link" href="${pageMaker.endPage + 1}">Next</a>
                         </li>
                     </c:if>
                 </ul>
-            </nav>
+            </nav>--%>
     <%-- ====================페이징 출력 종료==================== --%>
 </div>

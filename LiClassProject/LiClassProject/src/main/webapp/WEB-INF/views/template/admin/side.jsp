@@ -6,7 +6,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="/management/dashboard">
+            <a class="nav-link" href="/management/dashboard">
                 <i class="bi bi-grid"></i>
                 <span>대시보드</span>
             </a>
@@ -19,7 +19,7 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav" style="visibility: inherit;">
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="/liadmin/adminAccount">
                         <i class="bi bi-circle"></i><span>관리자 계정관리</span>
                     </a>
                 </li>

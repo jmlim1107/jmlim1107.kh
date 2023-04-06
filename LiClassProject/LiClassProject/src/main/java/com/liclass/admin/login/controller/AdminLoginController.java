@@ -69,4 +69,10 @@ public class AdminLoginController {
         sessionStatus.setComplete();
         return "redirect:/liadmin/login";
     }
+
+    @RequestMapping("/adminAccount")
+    public String adminAccount(){
+
+        return "admin/management/adminAccount";
+    }
 }
