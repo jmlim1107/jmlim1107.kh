@@ -3,6 +3,7 @@ package com.liclass.client.payment.dao;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.liclass.admin.management.center.vo.CenterVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.payment.vo.RefundVO;
@@ -31,6 +32,10 @@ public interface PaymentDao {
    public int changePaymentStatus(String merchant_uid);
    
    public int reserveDelete(int r_no);
+   
+   public CenterVO getCenterInfo(int r_no);
+   
+   public void getPoint(@Param("user_no")long user_no,@Param("point")long point);
    
    
 }

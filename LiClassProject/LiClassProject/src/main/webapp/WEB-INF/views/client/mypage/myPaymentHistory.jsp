@@ -77,6 +77,15 @@
                     $("#pay_pg").text(data.pay_pg);
                     $("#pay_method").text(data.pay_method);
                     $("#pay_date").text(data.pay_date);
+                    
+                    $("#ct_name").text(data.ct_name);
+                    $("#ct_tel").text(data.ct_tel);
+                    var addr = data.ct_addr + "\n" + data.ct_detail_addr;
+                    
+                    $("#ct_addr").text(addr);
+                    $("#ct_hmpg_addr").href = data.ct_hmpg_addr;
+                    $("#ct_hmpg_addr").text(data.ct_hmpg_addr);
+                   
                 },
                 error:function(){
                     console.log("모달실패");
@@ -98,7 +107,7 @@
 </script>
 
 <!-- 모달창  --> 
-<div class="modal" id="sns-share" style="z-index: 2; position: initial; text-align: center;">
+<div class="modal" id="sns-share" style="z-index: 2; position: initial; text-align: center;height:400px;">
    <table class="table table-bordered">
       <tr>
          <th>주문번호</th>
@@ -116,9 +125,22 @@
          <th>결제수단</th>
          <td id="pay_method"></td>
       </tr>
+      
       <tr>
-         <th>결제일자</th>
-         <td id="pay_date"></td>
+         <th>센터명</th>
+         <td id="ct_name"></td>
+      </tr>
+      <tr>
+         <th>센터 대표전화번호</th>
+         <td id="ct_tel"></td>
+      </tr>
+      <tr>
+         <th>주소</th>
+         <td id="ct_addr"></td>
+      </tr>
+      <tr>
+         <th>센터 홈페이지</th>
+         <td><a id="ct_hmpg_addr"></a></td>
       </tr>
    </table>
 </div>

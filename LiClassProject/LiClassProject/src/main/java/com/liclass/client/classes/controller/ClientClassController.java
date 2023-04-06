@@ -21,6 +21,7 @@ import com.liclass.client.classes.vo.ClientClassVO;
 import com.liclass.client.likes.service.LikesService;
 import com.liclass.client.likes.vo.LikesVO;
 import com.liclass.client.login.vo.UserVO;
+import com.liclass.client.payment.service.PaymentService;
 import com.liclass.client.review.service.ReviewService;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.vo.PageDTO;
@@ -42,6 +43,8 @@ public class ClientClassController { //은아,지민,경민
 	private LikesService likesService;
 	@Setter(onMethod_ = @Autowired)
 	private ReviewService reviewService;
+	@Setter(onMethod_ = @Autowired)
+	private PaymentService paymentService;
 	
 	/************************************************
 	 * 클래스 전체조회
@@ -102,6 +105,9 @@ public class ClientClassController { //은아,지민,경민
 		model.addAttribute("pageMaker" ,test );
 		log.info("test1 : "+test.getEndPage());
 		log.info("test2 : "+ total);
+		
+		UserVO uservo = paymentService.getUserInfo(loginUser.getUser_no());
+		model.addAttribute("uservo", uservo);
 		
 		// vo.c_no 로 변경해주기
 		double ratingAvg = reviewService.setRating(vo.getC_no());

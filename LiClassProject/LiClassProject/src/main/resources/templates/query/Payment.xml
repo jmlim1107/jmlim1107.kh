@@ -13,6 +13,19 @@
       where r_no = #{r_no}
    </select>   
    
+   <select id="getCenterInfo" parameterType="int" resultType="center">
+   	select lcc.CT_NAME,lcc.CT_TEl,lcc.CT_ADDR,lcc.CT_DETAIL_ADDR,lcc.CT_HMPG_ADDR
+	from li_center lcc inner join li_class lc on lcc.CT_BIZNO = lc.CT_BIZNO
+	                   inner join li_episode le on lc.c_no = le.c_no
+	                   inner join li_reserve lr on le.ep_no = lr.ep_no
+	                   inner join li_payment lp on lr.r_no = lp.r_no
+	where lr.r_no = #{r_no}
+   </select>
+   
+   <update id="getPoint" parameterType="long">
+   	update li_user set user_point = #{point} where user_no = #{user_no}
+   </update>
+   
    <!-- 결제 테이블 저장(insert) -->
    <insert id="inserPayment" parameterType="payment">
       insert into li_payment(merchant_uid, r_no, user_no, pay_pg, pay_method, pay_name

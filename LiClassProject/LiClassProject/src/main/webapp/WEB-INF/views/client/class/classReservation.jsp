@@ -184,8 +184,19 @@
 					$("#c_title").val(data.c_title);					// 3-- 폼에 ep제목입력
 					$("#r_date").val(data.ep_date);				// 4-- 폼에 ep날짜 & 시간입력
 					ep_price = data.ep_price;
-					let r_price = data.ep_price * Number($("#r_cnt").val());
-					$("#r_price").val( r_price );  // 5--폼에 연산된 가격입력(비정상흐름 : 인원선택-> ep변경)
+					
+					let point = $("#insertpoint").val();
+					console.log(point);
+					let r_price = null;
+					if($("#insertpoint").val()!=""){
+						r_price = (data.ep_price - point) * Number($("#r_cnt").val());
+					}else{
+						r_price = data.ep_price * Number($("#r_cnt").val());
+					}
+					
+					console.log("dd");
+					//let r_price = (data.ep_price-point) * Number($("#r_cnt").val());
+					//$("#r_price").val( r_price );  // 5--폼에 연산된 가격입력(비정상흐름 : 인원선택-> ep변경)
 					
 					//###정보출력변환###
 					$("#reservtitle").html(data.c_title); 
@@ -215,7 +226,23 @@
 				$("#reservtitle").html($("#c_title").val()); 
 				$("#reservtime").html($("#r_date").val()); 
 				$("#reservInfo").html($("#r_cnt").val()+"명 ");
-				$("#reservInfo").append( $("#r_price").val().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원" );
+				var price = $("#r_price").val()-$("input[name=insertpoint]").val();
+				
+				if($("#insertpoint").val()!=""){
+					if(price < 0){
+						price = "0";
+						$("#reservInfo").append(price)+"원";
+						$("#r_price").val( price );
+					}else{
+						$("#reservInfo").append(price)+"원";
+						$("#r_price").val( price );
+						console.log($("#r_price").val());
+					}
+					//$("#reservInfo").append(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원";
+				}else{
+					$("#reservInfo").append( $("#r_price").val().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원" );
+					console.log($("#r_price").val());
+				}
 			}
 		});
 		
@@ -266,6 +293,31 @@
 			}
 		});//결제버튼 클릭 종료
 		
+		$("#pointok").click(function(){
+			var point = ${uservo.user_point};
+			var pricepoint = $("#r_price").val();
+			var insertpoint = $("#insertpoint").val();
+			
+			if(point < insertpoint){
+				alert("보유 포인트를 확인하시고 다시 입력해주세요.");
+			}else{
+				alert("적용되었습니다. 페이지를 새로고침하면 초기화됩니다.")
+				$("input[name=insertpoint]").attr("readonly","readonly");
+				
+				var fp = pricepoint - point
+				$("input[name=r_price]").attr("value", fp);
+			}
+		});
+		
+		$("#pointUse").click(function(){
+			//$("input[name=insertpoint]").attr("value",${uservo.user_point});
+			if($("#pointUse").is(":checked") == true){
+				$("input[name=insertpoint]").attr("value",${uservo.user_point});
+			}else{
+				$("input[name=insertpoint]").attr("value","");
+			}
+		});
+		
 		
 	}); //최상위$
 </script>
@@ -281,7 +333,7 @@
 	<input type="hidden" name="c_no" value="${param.c_no }">
 	<input type="hidden" id="ep_date" name="ep_date"/>
 </form>
- <%-- 예약 insert를 위한 폼 --%>
+<%-- 예약 insert를 위한 폼 --%>
 <form id="reservFrm">
 	<input type="hidden" name="r_no" id="r_no"/>
 	<input type="hidden" name="user_no" value="${ loginUser.user_no }"/> 
@@ -501,6 +553,14 @@
 								      		<div class="text-right">
 								      			<div id="reservtitle" style="font-size: 10px;color:#FF9364">제목</div>
 								      			<div id="reservtime" style="font-size: 10px;color:#A4814;padding:3px">날짜, 시간</div>
+								      			<div>
+								      				<span style="font-size:10px;">포인트 사용:  </span>
+								      				<input type="text" name="insertpoint" id="insertpoint" value="" style="width:45px;height:12px;">&nbsp;<button type="button" id="pointok" style="background-color:#F0B469;border-radius:5px;"><span style="font-size:10px;">적용</span></button>
+								      			</div>
+								      			<div>
+													<span style="font-size:10px;">내 포인트:  ${uservo.user_point }</span>	<!-- uservo에서 user_point 가져오기 -->							      				
+								      				<input type="checkbox" style="width:10px;height:10px;" id="pointUse" name="pointUse"/>
+								      			</div>
 								      			<div id="reservInfo" style="font-size: 14px;color:#5a5a5a;font-weight: bold">인원, 금액</div>
 								      		</div>
 								      		<br>

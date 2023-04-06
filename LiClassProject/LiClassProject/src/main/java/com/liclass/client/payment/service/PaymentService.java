@@ -3,6 +3,7 @@ package com.liclass.client.payment.service;
 import com.liclass.client.payment.vo.PaymentVO;
 import com.liclass.client.payment.vo.RefundVO;
 import com.liclass.client.reserve.vo.ReserveVO;
+import com.liclass.admin.management.center.vo.CenterVO;
 import com.liclass.client.login.vo.UserVO;
 
 public interface PaymentService {
@@ -31,6 +32,10 @@ public interface PaymentService {
    public int changePaymentStatus(String merchant_uid);
 
    public int reserveDelete(int r_no);
+
+   public CenterVO getCenterInfo(int r_no);
+
+   public void getPoint(long user_no,long point);
 
 
 
