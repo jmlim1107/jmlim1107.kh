@@ -106,7 +106,6 @@ public class ClientClassController { //은아,지민,경민
 		log.info("test1 : "+test.getEndPage());
 		log.info("test2 : "+ total);
 		
-		//클래스 관심클래스 유무
 		if(loginUser != null) {
 			UserVO uservo = paymentService.getUserInfo(loginUser.getUser_no());
 			model.addAttribute("uservo", uservo);
