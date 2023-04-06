@@ -45,36 +45,61 @@
 					},
 					success : function(result){
 						if(result == 1){
-						 	alert("관심클래스에 추가되었습니다.");
+							Swal.fire({
+ 							      icon: 'success',
+ 							      confirmButtonColor: '#64CD3C',
+ 							      title: '관심클래스에 추가되었습니다!'
+							});
 						}else{
-							alert("잠시후에 다시 시도해주세요.");
+							Swal.fire({
+							      icon: 'warning',
+							      confirmButtonColor: '#EA9A56',
+							      title: '잠시후 다시 이용해주세요.'
+							});
 						} 
 						document.location.reload();
 					}
 				 });
 			}else if(likeId == "delLike"){
-				if(confirm("관심클래스에서 삭제하시겠습니까?")){
-					console.log(likeId);
-					$.ajax({
-						type : "POST",
-						url : "/delLikes",
-				        data: {
-				        	c_no : c_no,
-							user_no : user_no
-						},
-						success : function(result){
-							if(result == 1){
-								alert("관심클래스에서 삭제되었습니다.");
-							}else{
-								alert("잠시후에 다시 시도해주세요.");
-							} 
-							document.location.reload();
-						}
-					 });
-				}
-			}  
-			
-		});
+				Swal.fire({
+					   title : "관심클래스에서 삭제하시겠습니까?",
+					   //text: "관심클래스에서 삭제하시겠습니까?",
+					   icon: 'question',
+					   showCancelButton: true, 
+					   confirmButtonColor: 'skyblue', 
+					   cancelButtonColor: '#8c8c8c', 
+					   confirmButtonText: 'yes', 
+					   cancelButtonText: 'no', 
+					   reverseButtons: false 
+					}).then(result => {
+						console.log(likeId);
+						$.ajax({
+							type : "POST",
+							url : "/delLikes",
+					        data: {
+					        	c_no : c_no,
+								user_no : user_no
+							},
+							success : function(result){
+								if(result == 1){
+									Swal.fire({
+		 							      icon: 'success',
+		 							      confirmButtonColor: '#64CD3C',
+		 							      title: '관심클래스에서 삭제되었습니다!'
+									});
+								}else{
+									Swal.fire({
+									      icon: 'warning',
+									      confirmButtonColor: '#EA9A56',
+									      title: '잠시후 다시 이용해주세요.'
+									});
+								} 
+								document.location.reload();
+							}
+						 }); //ajax종료
+					}); //화살표함수 종료
+				} //if종료
+			});//하트클릭  
 		
 		//공유하기
 		$("#sns-share-btn").click(function(){
@@ -85,7 +110,7 @@
 				$("#sns-share-div").css("visibility","hidden");
 			}
 		});
-	})
+	});
 
 </script>
 		<input type="hidden" id="class-info" data-num="${clientClassDetail.c_no }" />

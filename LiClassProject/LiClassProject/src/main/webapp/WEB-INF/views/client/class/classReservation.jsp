@@ -184,7 +184,7 @@
 					$("#c_title").val(data.c_title);					// 3-- 폼에 ep제목입력
 					$("#r_date").val(data.ep_date);				// 4-- 폼에 ep날짜 & 시간입력
 					ep_price = data.ep_price;
-					
+					/**/
 					let point = $("#insertpoint").val();
 					console.log(point);
 					let r_price = null;
@@ -195,6 +195,7 @@
 					}
 					
 					console.log("dd");
+					
 					//let r_price = (data.ep_price-point) * Number($("#r_cnt").val());
 					//$("#r_price").val( r_price );  // 5--폼에 연산된 가격입력(비정상흐름 : 인원선택-> ep변경)
 					
@@ -226,7 +227,7 @@
 				$("#reservtitle").html($("#c_title").val()); 
 				$("#reservtime").html($("#r_date").val()); 
 				$("#reservInfo").html($("#r_cnt").val()+"명 ");
-				var price = $("#r_price").val()-$("input[name=insertpoint]").val();
+				var price = $("#r_price").val() - $("input[name=insertpoint]").val();
 				
 				if($("#insertpoint").val()!=""){
 					if(price < 0){
