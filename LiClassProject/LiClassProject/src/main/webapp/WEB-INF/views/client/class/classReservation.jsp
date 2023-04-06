@@ -20,6 +20,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/resources/reserve/css/style.css">
 
+
 <link rel="stylesheet" href="/resources/reserve/css/reserve.css">
 <style type="text/css">
 	#collapseOne, #collapseTwo, #collapseThree, #collapseFour{
@@ -263,7 +264,7 @@
 
 		<div class="row" style="width:430px;">
              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
-                 <div class="class-booking-form" >
+                 <div class="class-booking-form" style="    box-shadow: 8px 8px 7px 1px gainsboro;" >
                      <form>
                          <div class="row">
                          <h1></h1>
@@ -273,9 +274,9 @@
 	                            
 	                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="display: flex; justify-content: center;">
 	        			 	 <!-- 예약버튼 -->
-	        			 	 <a href="#reserve-modal" rel="modal:open" >
-	                         <button type="button" class="button-41">
-	                         		<span>예약하기</span>
+	        			 	 <a href="#reserve-modal" rel="modal:open" style="width: -webkit-fill-available;">
+	                         <button type="button" class="button-41" style="width: -webkit-fill-available; background-color: #555;">
+	                         		<span style="font-size: 15px; color: white;">예약하기</span>
 	                               <!--  <a href="#reserve-modal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a> -->
 	                          </button></a>
 						

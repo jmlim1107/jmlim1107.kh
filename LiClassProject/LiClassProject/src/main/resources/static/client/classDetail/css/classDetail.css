@@ -1,9 +1,30 @@
 @charset "UTF-8";
 
+/* table 수정 */
+
+.thth{
+	text-align: center; 
+	/* border-right: 1px solid black; */
+
+	}
+.tdtd{
+	font-weight: 100;
+	
+}
+
+#reserveModalTable{
+	border-radius : 5px;
+	margin:10px;
+	width: -webkit-fill-available;
+    height: 100px;
+    text-align: center;
+}
+
+
 /* 은아,지민  */
 #colorStar{
   		direction: rtl;
-	unicode-bidi: bidi-override;
+		unicode-bidi: bidi-override;
   		color: #555; 
   	}
 .row>*{
@@ -33,10 +54,7 @@
 
 .card { padding: 20px; background:#ffffff00 none repeat scroll 0% 0%; margin-bottom: 30px; }
 
-.class-booking-form{
-	background: #ffffff00;
-	height: 500px;
-}
+
 .card{
 	width:80%;
 }
@@ -114,8 +132,9 @@
   color: #fff;
 }
 .class-booking-form{
-	background: #f2f2f2;
+	background: #ffffff00;
     padding: 20px;
+    border: solid 1px lightgray;
     /* border-radius: 15px; */
 }
 
@@ -186,3 +205,10 @@
     transform: translate3d(0, 0, 0) translateZ(0);
   }
 }
+
+
+
+
+
+
+

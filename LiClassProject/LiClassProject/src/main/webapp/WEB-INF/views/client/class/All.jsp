@@ -4,8 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <style>
 	.bi-star-fill{
-	margin-right:5px;
-	
+	margin : -40px 6px 0 0;
 	}
 </style>
 <script>
@@ -34,12 +33,14 @@
             <div class="card-body p-4">
             	<div class="text-center">
                   <!-- 클래스 명 -->
-                  <h5 class="fw-bolder goClassDetail" data-num="${classes.c_no}">${classes.c_title}</h5>
+                  <span class="fw-bolder goClassDetail" data-num="${classes.c_no}" style="font-size: 14px;">${classes.c_title}</span>
                  
                   <div class = "classContent">${classes.c_content}</div>
               	</div>
+              	
+              	
            </div>
-            <!-- Product reviews-->
+           <!-- Product reviews-->
                   <div class="d-flex justify-content-center small text-warning mb-2" style="font-size: initial;">
                       <span class="bi-star-fill"></span>
                       <span class="bi-star-fill"></span>
@@ -49,6 +50,7 @@
                       
                   </div>
            <!-- 찜하기 하트 -->
+            
                   
    		</div>
 	</div>
