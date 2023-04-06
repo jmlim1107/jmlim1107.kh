@@ -10,6 +10,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 
+<style>
+
+.custom-cursor-default-hover{ margin-top: 15px;}
+
+
+</style>
+
 <script type="text/javascript">
 	$(function(){
 		var msg = ${errormsg};
@@ -19,7 +26,7 @@
 	});
 </script>
 
-<div id="class-detail-div" style="padding-top: 70px;">
+<div id="class-detail-div" style="padding-top: 70px; margin-left: 100px;">
 	<!-- 1. class img slider section start -->
 	<section id="header-slider" class="section" style="margin-top: 40px; width:64%;">
 		<%@ include file="/WEB-INF/views/client/class/classDetail-0.imgSlider.jsp" %>

@@ -22,6 +22,10 @@
 <script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>
 <script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
 
+<style>
+	.custom-cursor-default-hover{ margin-top: 15px;}
+</style>
+
 <form id = "detailForm">
 	<input type = "hidden" name ="review_no" id = "review_no" value = "review_no" />
 </form>
@@ -29,15 +33,6 @@
 
     $(function(){
     	localStorage.setItem("key", 3);
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     	
     	
     	
@@ -65,7 +60,7 @@
 	<!-- 별점 통계 start -->
   	<div class="container">
 	    <div class="row" style="justify-content: left;">
-	      <div class="col-md-13 course-details-content">
+	      <div class="col-md-13 course-details-content" style="margin-left: -15px;">
 	        <div class="course-details-card mt--40">
 	          <div class="course-content">
 	            <h5 class="mb--20">Review</h5>

@@ -69,7 +69,7 @@
 	 
 	 <!-- 전체 레코드 수 조회 -->
 	 <select id="reviewListCnt" parameterType="review" resultType="int">
-	 	SELECT count(*) FROM Li_review
+	 	SELECT count(*) FROM Li_review where c_no = #{c_no}
 	 	<trim prefix=" where(" suffix=")" >
 	 		<include refid="reviewSearch"></include>
 	 	</trim>
