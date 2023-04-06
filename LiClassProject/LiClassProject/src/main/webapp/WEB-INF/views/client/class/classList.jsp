@@ -19,6 +19,14 @@
 		.goClassDetail{
 			cursor: pointer;
 		}
+		a.nav-link.link-dark{ 
+		font-size: initial;}
+		
+		.fs-2{
+		font-weight: 600;
+		margin: 0 0 10px -7px;
+		}
+		   
 		
 		
 	</style>
@@ -167,7 +175,7 @@
 		    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;" id = "sidebar">
 		  		<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 		    		<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-		    		<span class="fs-4">카테고리</span>
+		    		<span class="fs-2">CATEGORY</span>
 		  		</a>
 		  		<hr>
 
@@ -176,43 +184,43 @@
 		    		<li class="nav-item">
 			      		<a href="#" class="nav-link link-dark" aria-current="page" id = "category_All">
 			       		<svg class="bi me-2" width="16" height="16"></svg>
-			        	전체
+			        	All
 			      		</a>
 		    		</li>
 				    <li>
 				      <a href="#" class="nav-link link-dark" id = "category_gong">
 				        <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
-				       	공예
+				       	Craft
 				      </a>
 				    </li>
 				    <li>
 				      <a href="#" class="nav-link link-dark" id = "category_cooking">
 				        <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
-				       	요리
+				       	Cook
 				      </a>
 				    </li>
 				    <li>
 				      <a href="#" class="nav-link link-dark" id = "category_art">
 				        <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
-				        미술
+				        Art
 				      </a>
 				    </li>
 				     <li>
 				      <a href="#" class="nav-link link-dark" id = "category_flower">
 				        <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
-				        플라워
+				        Flower
 				      </a>
 				    </li>
 				     <li>
 				      <a href="#" class="nav-link link-dark" id = "category_beauty">
 				        <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
-				        뷰티
+				        Beauty
 				      </a>
 				    </li>
 				     <li>
 				      <a href="#" class="nav-link link-dark" id = "category_etc">
 				        <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
-				        체험 및 기타
+				        Etc
 				      </a>
 				    </li>
 		  		</ul>

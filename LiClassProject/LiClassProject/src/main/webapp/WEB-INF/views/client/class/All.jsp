@@ -3,7 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <style>
-
+	.bi-star-fill{
+	margin-right:5px;
+	
+	}
 </style>
 <script>
 </script>
@@ -14,7 +17,14 @@
 			<!-- 클래스 이미지 -->
 	        <div >
 	         		<c:if test="${not empty classes.c_img_file}">
-	         			<img class="card-img-top" src="/uploadLiClass/class/${classes.c_img_file}" style="width: 100%; height: 219px;"/>
+	         			<div style="position: absolute; width: -webkit-fill-available;" class="card-footer p-4 pt-0 border-top-0 bg-transparent right_area text-center heart" data-num="${classes.c_no}">
+							 <a href="javascript:;" class="icon heart atag-heart" data-num="${classes.c_no}">
+			   					<img src="https://cdn-icons-png.flaticon.com/512/812/812327.png" alt="찜하기" style="width: 30px; height: 30px;  position: relative; float: right;margin-top: 10px">
+			  				 </a>
+			 			</div>     
+	         			<div >
+	         				<img class="card-img-top" src="/uploadLiClass/class/${classes.c_img_file}" style="width: 100%; height: 219px;"/>
+	         			</div>
 	         		</c:if>
 	         		<c:if test="${empty classes.c_img_file}">
 	         			<img src="/resources/images/notfound.png" style="width: 250px; height: 200px;">
@@ -25,8 +35,12 @@
             	<div class="text-center">
                   <!-- 클래스 명 -->
                   <h5 class="fw-bolder goClassDetail" data-num="${classes.c_no}">${classes.c_title}</h5>
-                  <!-- Product reviews-->
-                  <div class="d-flex justify-content-center small text-warning mb-2">
+                 
+                  <div class = "classContent">${classes.c_content}</div>
+              	</div>
+           </div>
+            <!-- Product reviews-->
+                  <div class="d-flex justify-content-center small text-warning mb-2" style="font-size: initial;">
                       <span class="bi-star-fill"></span>
                       <span class="bi-star-fill"></span>
                       <span class="bi-star-fill"></span>
@@ -34,15 +48,8 @@
                       <span class="bi-star-fill"></span>
                       
                   </div>
-                  <div class = "classContent">${classes.c_content}</div>
-              	</div>
-           </div>
            <!-- 찜하기 하트 -->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent right_area text-center heart" data-num="${classes.c_no}">
-				 <a href="javascript:;" class="icon heart atag-heart" data-num="${classes.c_no}">
-   					<img src="https://cdn-icons-png.flaticon.com/512/812/812327.png" alt="찜하기" style="width: 30px; height: 30px;">
-  				 </a>
-			 </div>         
+                  
    		</div>
 	</div>
  		
