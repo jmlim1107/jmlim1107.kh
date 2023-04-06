@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.liclass.common.vo.CommonVO;
 
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class AdminClassVO extends CommonVO {

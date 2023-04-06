@@ -90,7 +90,7 @@
 										</div>
 									          
 							          <form id="page-form1">
-							          	<input type="hidden" id="select-page1" name="pageNum" value="">
+							          	<input type="hidden" id="select-page1" name="pageNum" value="${likesPageMaker.cvo.pageNum }">
 							          	<input type="hidden" name="amount" value="${likesPageMaker.cvo.amount }">
 								       </form>
 								      <!-- myqna pagination end  -->

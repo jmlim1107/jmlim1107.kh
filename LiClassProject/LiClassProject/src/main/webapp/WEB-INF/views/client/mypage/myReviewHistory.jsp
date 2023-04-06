@@ -156,7 +156,7 @@
 									</div>
 								          
 						          <form id="page-form3">
-						          	<input type="hidden" id="select-page3" name="pageNum" value="">
+						          	<input type="hidden" id="select-page3" name="pageNum" value="${reviewPageMaker.cvo.pageNum }">
 						          	<input type="hidden" name="amount" value="${reviewPageMaker.cvo.amount }">
 							       </form>
 							      <!-- myqna pagination end  -->

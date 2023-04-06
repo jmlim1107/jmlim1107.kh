@@ -1,131 +1,128 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@ include file="/WEB-INF/views/client/client_common.jspf" %> --%>
-		<style>
-			.container{display: flex;
-  					   justify-content: center;
-  					   align-items: center;
- 				      
- 				       }
-			.bordercss{border:2px solid #A9A9A9;
-				       border-radius:15px;
-				       width:900px;
-				       }
-			.table{margin:10px 0;
-				  }
-			.midTable{margin:30px 0;
-			          }
-			th{width:320px;
-			   font-size:30px;}
-			td{font-size:20px;}
-			
-		</style>
-		<script type="text/javascript">
-			function goHome(){
-				$("#goHome").click(function(){
-					location.href="/";
-				});
-			}
-			function goClass(){
-				$("#goClass").click(function(){
-					location.href="/class/classList";
-				});
-			}
-		</script>
-	</head>
-	<body>
-		<div class="all">
-			<h1 style="text-align:center;font-size:50px;padding:20px;">결제 완료</h1><br>
-			<div class="container">
-				<div class="bordercss">
+<link rel="stylesheet" href="/resources/include/css/successpay.css"/>
+
+<script type="text/javascript">
+	function goHome(){
+		$("#goHome").click(function(){
+			location.href="/";
+		});
+	}
+	function goClass(){
+		$("#goClass").click(function(){
+			location.href="/class/classList";
+		});
+	}
+</script>
+</head>
+<body>
+	<div id="succhead"><span id="succ">결제완료</span></div>
+    <!-- 주문완료 -->
+    <div class="orderInfo">
+    	<img src="https://us.123rf.com/450wm/happyroman/happyroman1112/happyroman111202088/11519831-%EB%B2%A1%ED%84%B0-%EA%B8%8D%EC%A0%95%EC%A0%81-%EC%9D%B8-%EC%B2%B4%ED%81%AC-%ED%91%9C%EC%8B%9C.jpg?ver=6" style="width:150px;height:150px;">
+        <div>
+	        <p>
+	            <strong>고객님의 주문이 완료 되었습니다.</strong>
+	            주문내역 및 배송에 관한 안내는 <a href="/mypage">마이페이지</a> 를 통하여 확인 가능합니다.
+	        </p><br>
+	        <ul>
+	            <li>주문번호 : <strong>${pvo.merchant_uid }</strong></li>
+	            <li>주문일자 : <span>${pvo.pay_date }</span></li>
+	        </ul>
+        </div>
+    </div>
+    <br><br>
+	<div class="all">
+		<div class="container">
+			<div class="bordercss">
+				<div>
 					<div>
-						<div>
-							<table class="table">
-								<thead>
-									<tr>
-										<th>주문자 정보</th>
-									</tr>
-								</thead>
-								
-								<tbody>
-									<tr>
-										<td>이름</td>
-										<td>${uvo.user_name }</td>
-									</tr>
-									<tr>
-										<td>연락처</td>
-										<td>${uvo.user_tel }</td>
-									</tr>
-									<tr>
-										<td>이메일</td>
-										<td>${uvo.user_email }</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div>
-							<table class="table midTable">
-								<thead>
-									<tr>
-										<th>예약 정보</th>
-									</tr>
-								</thead>
-								
-								<tbody>
-									<tr>
-										<td>클래스 이름</td>
-										<td>${rvo.c_title }</td>
-									</tr>
-									<tr>
-										<td>예약일</td>
-										<td>${rvo.r_date}</td>
-									</tr>
-									<tr>
-										<td>예약인원</td>
-										<td>${rvo.r_cnt }</td>
-									</tr>	
-									<tr>
-										<td>클래스 가격</td>
-										<td>${rvo.r_price}원</td>
-									</tr>			
-								</tbody>
-							</table>
-						</div>
-						<div>
-							<table class="table">
-								<thead>
-									<tr>
-										<th>최종 결제 정보</th>
-									</tr>
-								</thead>
-								
-								<tbody>
-									<tr>
-										<td>상품 합계</td>
-										<td>${rvo.r_price}원</td>
-									</tr>
-									<tr>
-										<td>결제 수수료</td>
-										<td>0원</td>
-									</tr>
-									<tr>
-										<td>결제 수단</td>		
-										<td>${pvo.pay_method }</td>
-									</tr>		
-									<tr>
-										<td>최종 결제 금액</td>
-										<td style="font-size:30px;text-decoration: underline;">${pvo.pay_price }원</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>주문자 정보</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr>
+									<td>이름</td>
+									<td>${uvo.user_name }</td>
+								</tr>
+								<tr>
+									<td>연락처</td>
+									<td>${uvo.user_tel }</td>
+								</tr>
+								<tr>
+									<td>이메일</td>
+									<td>${uvo.user_email }</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div>
+						<table class="table midTable">
+							<thead>
+								<tr>
+									<th>예약 정보</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr>
+									<td>클래스 이름</td>
+									<td>${rvo.c_title }</td>
+								</tr>
+								<tr>
+									<td>예약일</td>
+									<td>${rvo.r_date}</td>
+								</tr>
+								<tr>
+									<td>예약인원</td>
+									<td>${rvo.r_cnt }</td>
+								</tr>	
+								<tr>
+									<td>클래스 가격</td>
+									<td>${rvo.r_price}원</td>
+								</tr>			
+							</tbody>
+						</table>
+					</div>
+					<div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>최종 결제 정보</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr>
+									<td>상품 합계</td>
+									<td>${rvo.r_price}원</td>
+								</tr>
+								<tr>
+									<td>결제 수수료</td>
+									<td>0원</td>
+								</tr>
+								<tr>
+									<td>결제 수단</td>		
+									<td>${pvo.pay_method }</td>
+								</tr>		
+								<tr>
+									<td>최종 결제 금액</td>
+									<td style="font-size:30px;text-decoration: underline;">${pvo.pay_price }원</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
-			<div style="text-align:center;">
-				<button type="button" class="btn btn-dark" id="goHome" onclick="goHome()">홈으로</button>
-				<button type="button" class="btn btn-dark" id="goClass" onclick="goClass()">클래스 계속보기</button>
-			</div>
 		</div>
-	</body>
+		<div style="text-align:center;">
+			<button type="button" class="btn btn-dark" id="goHome" onclick="goHome()">홈으로</button>
+			<button type="button" class="btn btn-dark" id="goClass" onclick="goClass()">클래스 계속보기</button>
+		</div>
+	</div>
+</body>
 </html>
