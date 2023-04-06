@@ -69,7 +69,7 @@
 				 			<div class="bv-submission-sidebar bv-submission-side">
 			 					<div class="bv-subject-info-section">  
 			 						<div class="bv-subject-info custom-cursor-default-hover">
-				 						<img id = "reviewWriteImg" src="/uploadLiClass/class/thumbnail/${}" style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
+				 						<img id = "reviewWriteImg" style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
 				 						<span class="bv-subject-name-header">${reviewList.c_no}</span>
 			 		 				</div>   
 			 					</div> 
