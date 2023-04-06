@@ -5,6 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 <html>
+<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -90,14 +91,14 @@
                     <label for="admin_pw" class="form-label">AdminID</label>
                     <div class="input-group has-validation">
                       <input type="text" name=admin_id id="admin_id" class="form-control" required>
-                      <div class="invalid-feedback">Please enter your username.</div>
+                      <div class="invalid-feedback">아이디를 입력해주세요.</div>
                     </div>
                   </div>
 
                   <div class="col-12">
                     <label for="admin_pw" class="form-label">Password</label>
                     <input type="password" name="admin_pw" id="admin_pw" class="form-control" required>
-                    <div class="invalid-feedback">Please enter your password!</div>
+                    <div class="invalid-feedback">비밀번호를 입력해주세요.</div>
                   </div>
 
                   <div class="col-12">

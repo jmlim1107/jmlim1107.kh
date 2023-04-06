@@ -3,6 +3,7 @@ package com.liclass.client.review.service;
 import java.util.HashMap;
 import java.util.List;
 
+import com.liclass.client.classes.vo.ClientClassImgVO;
 import com.liclass.client.review.vo.ReviewVO;
 
 public interface ReviewService {
@@ -38,6 +39,10 @@ public interface ReviewService {
 		public ReviewVO updateFormToRno(ReviewVO detail);
 
 		public void changeReviewStatus2(int r_no);
+		
+		public String reviewImg(int r_no);
+		
+		
 		
 		
 }

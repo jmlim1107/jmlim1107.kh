@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.liclass.client.classes.dao.ClientClassImgDAO;
+import com.liclass.client.classes.vo.ClientClassImgVO;
 import com.liclass.client.review.dao.ReviewDAO;
 import com.liclass.client.review.vo.ReviewVO;
 
@@ -15,6 +17,9 @@ import lombok.Setter;
 public class ReviewServiceImpl implements ReviewService {
 	@Setter(onMethod_ = @Autowired)
 	private ReviewDAO reviewDao;
+	@Setter(onMethod_ = @Autowired)
+	private ClientClassImgDAO clientClassImgDAO;
+	
 
 	// 후기글 조회 구현
 	@Override
@@ -130,6 +135,13 @@ public class ReviewServiceImpl implements ReviewService {
 	public void changeReviewStatus2(int r_no) {
 		reviewDao.changeReviewStatus2(r_no);	
 	}
+
+	@Override
+	public String reviewImg(int r_no) {
+		String result =  reviewDao.reviewImg(r_no);
+		return result;
+	}
+
 
 	
 	 

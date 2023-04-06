@@ -63,13 +63,13 @@
 				  	<div id = "modal_side"  style="background-color: #333" >
 				  		<button type="button" id = "modal_close" name="Cancel" class="bv-mbox-close bv-focusable" tabindex="0" aria-labelledby="bv-mbox-close-label bv-mbox-breadcrumb-item"> 
 				  			<span aria-hidden="true" class="custom-cursor-on-hover" style="    margin-top: 10px;
-    margin-right: 10px;">x</span><!-- 수정 : x 아이콘으로 대체 --> 
+    						margin-right: 10px;">x</span><!-- 수정 : x 아이콘으로 대체 --> 
 				 		</button>
 				 		<div class="bv-mbox-sidebar bv-sidebar-enabled custom-cursor-default-hover" >
 				 			<div class="bv-submission-sidebar bv-submission-side">
 			 					<div class="bv-subject-info-section">  
 			 						<div class="bv-subject-info custom-cursor-default-hover">
-				 						<img class="bv-subject-image custom-cursor-default-hover" src="https://unicorn.lush.com/media/thumbnails/products/honey_i_washed_my_hair_shampoo_bar_2020_163b7de1_thumbnail_256.png">   
+				 						<img id = "reviewWriteImg" src="/uploadLiClass/class/thumbnail/${}" style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
 				 						<span class="bv-subject-name-header">${reviewList.c_no}</span>
 			 		 				</div>   
 			 					</div> 
@@ -123,7 +123,7 @@
 				  			
 				  			<!-- 친구한테 추천할거니? -->
 				  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid">
-				  				<legend class="bv-off-screen"><span class = "blocktitle">클래스를 다른 사람들에게 추천하나요?</span>
+				  				<legend class="bv-off-screen"><span class = "blocktitle recommendspan">클래스를 다른 사람들에게 추천하나요?</span>
 										<div class = "blockcontent">
 											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
 											<label for="toggle-on" class="btn toggleBtn">Yes</label>
@@ -136,9 +136,9 @@
 				  			<!-- 약관 동의 -->
 				  			<fieldset class="bv-fieldset bv-fieldset-agreements bv-fieldset-reviews-termsAndConditions bv-checkbox-field custom-cursor-default-hover"> 
 				  				<legend class="bv-off-screen" style = "border: 1px solid white;">
-				  						<input id="checkbox-3" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0">  
+				  						<input id="bv-checkbox-reviews-termsAndConditions" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0" checked="checked" disabled="disabled">  
 				  						<label class="bv-fieldset-label-checkbox" for="bv-checkbox-reviews-termsAndConditions"> 
-				  							<span class="bv-fieldset-label-text">I agree to the <a href="#" class="bv-text-link bv-focusable custom-cursor-on-hover" tabindex="0"> terms &amp; conditions</a></span> 
+				  							<span class="bv-fieldset-label-text">I agree to the <a href="#" class="bv-text-link bv-focusable custom-cursor-on-hover" tabindex="0">&nbsp terms &amp; conditions</a></span> 
 				  						</label> 
 				  				</legend> 
 				  			</fieldset>

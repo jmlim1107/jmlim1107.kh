@@ -30,7 +30,7 @@
 			 			<div data-bv-v="submissionSidebar:12" class="bv-submission-sidebar bv-submission-side">
 		 					<div class="bv-subject-info-section">  
 		 						<div class="bv-subject-info custom-cursor-default-hover">
-			 						<img class="bv-subject-image custom-cursor-default-hover" src="https://unicorn.lush.com/media/thumbnails/products/honey_i_washed_my_hair_shampoo_bar_2020_163b7de1_thumbnail_256.png" alt="Honey I Washed My Hair">   
+			 						<img id = "reviewUpdateImg" src="" style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
 			 						<span class="bv-subject-name-header">${detail.c_no}</span>
 		 						</div>   
 		 					</div> 
@@ -84,7 +84,7 @@
 			  			
 			  			<!-- 친구한테 추천할거니? -->
 				  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid">
-				  				<legend class="bv-off-screen"><span class = "blocktitle">클래스를 다른 사람들에게 추천하나요?</span>
+				  				<legend class="bv-off-screen"><span class = "blocktitle recommendspan">클래스를 다른 사람들에게 추천하나요?</span>
 										<div class = "blockcontent">
 											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
 											<label for="toggle-on" class="btn toggleBtn">Yes</label>
@@ -95,14 +95,14 @@
 				  			</fieldset>	
 			  			
 			  			<!-- 약관 동의 -->
-			  			<fieldset class="bv-fieldset bv-fieldset-agreements bv-fieldset-reviews-termsAndConditions bv-checkbox-field custom-cursor-default-hover"> 
-			  				<legend class="bv-off-screen" style = "border: 1px solid white;">
-			  						<input id="bv-checkbox-reviews-termsAndConditions" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0">  
-			  						<label class="bv-fieldset-label-checkbox" for="bv-checkbox-reviews-termsAndConditions"> 
-			  							<span class="bv-fieldset-label-text">I agree to the <a href="#" class="bv-text-link bv-focusable custom-cursor-on-hover" tabindex="0">terms &amp; conditions</a></span> 
-			  						</label> 
-			  				</legend> 
-			  			</fieldset>
+				  			<fieldset class="bv-fieldset bv-fieldset-agreements bv-fieldset-reviews-termsAndConditions bv-checkbox-field custom-cursor-default-hover"> 
+				  				<legend class="bv-off-screen" style = "border: 1px solid white;">
+				  						<input id="bv-checkbox-reviews-termsAndConditions" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0" checked="checked" disabled="disabled">  
+				  						<label class="bv-fieldset-label-checkbox" for="bv-checkbox-reviews-termsAndConditions"> 
+				  							<span class="bv-fieldset-label-text">I agree to the <a href="#" class="bv-text-link bv-focusable custom-cursor-on-hover" tabindex="0">&nbsp terms &amp; conditions</a></span> 
+				  						</label> 
+				  				</legend> 
+				  			</fieldset>
 			  			
 			  			<div>
 			  				<button aria-label="Post Review"  class="btn-dark" name="bv-submit-button" id = "reviewUpdateBtn" type="button">Update Review</button>

@@ -163,7 +163,13 @@
 		where R_NO = #{r_no}
 	</update>
 	
-	
+	<select id = "reviewImg" parameterType="int" resultType="String">
+		select lci.thumb_file
+		from li_reserve lr inner join li_episode le on lr.ep_no = le.ep_no
+		                   inner join li_class lc on le.c_no = lc.c_no
+		                   right join li_class_img lci on lc.c_no = lci.c_no
+		                   where lr.r_no = #{r_no} and rownum = 1
+	</select>
 	
 	 
 </mapper>

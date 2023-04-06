@@ -112,16 +112,12 @@ public class ClientClassController { //은아,지민,경민
 		// vo.c_no 로 변경해주기
 		double ratingAvg = reviewService.setRating(vo.getC_no());
 		HashMap<String,Integer> tongRating = reviewService.tongRating(vo);
+
 		
 		model.addAttribute("tongRating", tongRating);
 		model.addAttribute("ratingAvg", ratingAvg);
 		
-		
-		for(String i : tongRating.keySet()) {
-			log.info("Key ::::::::::::::::::::::::::::: "+ i);
-			log.info("Value ::::::::::::::::::::::::::::: "+ tongRating.get(i));
-		}
-
+	
 		return "class/classDetail";
 	}
 	
