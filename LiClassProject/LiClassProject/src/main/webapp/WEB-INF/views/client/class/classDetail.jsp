@@ -10,6 +10,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 
+<style>
+
+.custom-cursor-default-hover{ margin-top: 15px;}
+
+
+</style>
+
 <script type="text/javascript">
 	$(function(){
 		var msg = ${errormsg};

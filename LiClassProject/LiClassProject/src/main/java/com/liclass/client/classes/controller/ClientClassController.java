@@ -97,8 +97,11 @@ public class ClientClassController { //은아,지민,경민
 		
 		// 전체 레코드 수 구현
 		int total = reviewService.reviewListCnt(vo);
+		PageDTO test = new PageDTO(vo, total);
 		// 페이징 처리
-		model.addAttribute("pageMaker" , new PageDTO(vo, total));
+		model.addAttribute("pageMaker" ,test );
+		log.info("test1 : "+test.getEndPage());
+		log.info("test2 : "+ total);
 		
 		// vo.c_no 로 변경해주기
 		double ratingAvg = reviewService.setRating(vo.getC_no());

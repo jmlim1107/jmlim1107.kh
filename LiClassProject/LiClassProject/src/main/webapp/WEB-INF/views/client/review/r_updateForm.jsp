@@ -45,7 +45,7 @@
 			  		<div>
 			  			<h2 class="bv-mbox-breadcrumb custom-cursor-default-hover"> 
 			  			<span data-bv-mbox-layer-index="0" class="bv-mbox-breadcrumb-item custom-cursor-default-hover" id="bv-mbox-breadcrumb-item">
-			  			<span class="custom-cursor-default-hover blocktitle">My Review</span></span></h2>
+			  			<span class="custom-cursor-default-hover blocktitle" >My Review</span></span></h2>
 			  			<p class="bv-required-fields-text custom-cursor-default-hover blocktitle">* 는 필수 사항입니다.</p>
 			  			
 			  			<!-- 별점 -->

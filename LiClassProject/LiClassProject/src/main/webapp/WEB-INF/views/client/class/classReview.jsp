@@ -22,6 +22,10 @@
 <script type = "text/javascript" src = "/resources/include/js/jquery-3.6.2.min.js"></script>
 <script type = "text/javascript" src = "/resources/include/dist/js/bootstrap.min.js" /></script>
 
+<style>
+	.custom-cursor-default-hover{ margin-top: 15px;}
+</style>
+
 <form id = "detailForm">
 	<input type = "hidden" name ="review_no" id = "review_no" value = "review_no" />
 </form>
@@ -29,15 +33,6 @@
 
     $(function(){
     	localStorage.setItem("key", 3);
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     	
     	
     	

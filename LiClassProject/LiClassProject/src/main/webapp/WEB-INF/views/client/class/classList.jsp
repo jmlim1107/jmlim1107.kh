@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <!-- 클래스 리스트 관련 설정 -->
 <link rel="stylesheet" href="/resources/class/css/classList.css" />
 <script type = "text/javascript" src = "/resources/class/js/classList.js" /></script>

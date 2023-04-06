@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;500&family=Racing+Sans+One&family=Shrikhand&display=swap" rel="stylesheet">
+
 <style>
 	.bi-star-fill{
 	margin : -40px 6px 0 0;
@@ -30,12 +34,12 @@
 	         		</c:if>
 	        </div> 
             <!-- 클래스 정보 -->
-            <div class="card-body p-4">
+            <div class="card-body p-4" style="margin-top: 5px;">
             	<div class="text-center">
                   <!-- 클래스 명 -->
-                  <span class="fw-bolder goClassDetail" data-num="${classes.c_no}" style="font-size: 14px;">${classes.c_title}</span>
+                  <span class="fw-bolder goClassDetail" data-num="${classes.c_no}" style="font-size: 14px; font-family: 'Noto Serif KR', serif;">${classes.c_title}</span>
                  
-                  <div class = "classContent">${classes.c_content}</div>
+                  <div class = "classContent" style="font-family: 'Noto Serif KR', serif;">${classes.c_content}</div>
               	</div>
               	
               	
