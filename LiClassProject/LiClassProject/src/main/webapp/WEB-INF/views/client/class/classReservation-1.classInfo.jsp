@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+
 <%-- 은아) 클래스 상세페이지 예약네비1. 클래스정보 --%>	
 <script>
 
@@ -26,8 +29,11 @@
 			var likeId = $(this).attr("id");
 			console.log(likeId);
 			if(likeId == "loginLike"){
-				alert("로그인 후 이용해주세요.");
-				return;
+				Swal.fire({
+				      icon: 'warning',
+				      confirmButtonColor: '#EA9A56',
+				      title: '로그인후 이용해주세요'
+				});
 			}else if(likeId == "addLike"){
 				console.log(likeId);
 				$.ajax({
@@ -110,56 +116,29 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <h6><i class="fa-solid fa-map-location-dot" style = "color: cadetblue;"></i> ${clientClassDetail.c_area}</h6>
         </div>
-        <div class="class-content" data-num="${clientClassDetail.c_no}">
+        <div class="class-content" data-num="${clientClassDetail.c_no}" style="margin-bottom: 10px;">
       	<h3 style="font-weight: bold;">${clientClassDetail.c_title}</h3>
-	</div>
-        <!-- 1. 난이도  -->
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="form-group">
-                <label class="control-label required" for="booking_by">난이도 
-		     	<c:if test = "${clientClassDetail.c_level eq '상'}">
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star"></i>
-			</c:if>
-			<c:if test = "${clientClassDetail.c_level eq '중'}">
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star-half-stroke"></i>
-				<i class="fa-regular fa-star"></i>
-				<i class="fa-regular fa-star"></i>
-			</c:if>
-			<c:if test = "${clientClassDetail.c_level eq '하'}">
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-solid fa-star"></i>
-				<i class="fa-regular fa-star"></i>
-				<i class="fa-regular fa-star"></i>
-				<i class="fa-regular fa-star"></i>
-			</c:if>
-		      	</label>
-		    </div>
-		 </div>
-		 <!-- 2. 소요시간  -->
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-              <div class="form-group">
-                  <label class="control-label required" for="booking_by">수업시간 ${clientClassDetail.c_leadtime}시간</label>
-              </div>
-          </div>
-		  <!-- 3. 최소/최대인원  -->
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-              <div class="form-group">
-                  <label class="control-label required" for="type">최대인원 ${clientClassDetail.c_maxcnt} 명</label>
-              </div>
-          </div>
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-              <div class="form-group">
-                  <label class="control-label required" for="type">최소인원 ${clientClassDetail.c_mincnt} 명</label>
-              </div>
-          </div>
-         <!-- 4. 관심클래스,공유하기 -->
-	      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      	</div>
+      	
+      	<table id = "reserveModalTable" style="background-color: #f2f2f2;">
+      		<tr class = "trtr">
+      			<th class = "thth">난이도</th>
+      			<th class = "thth">소요시간</th>
+      			<th class = "thth">최대인원</th>
+      		</tr>
+      		
+      		<tr  class = "trtr">
+      			<th class = "tdtd">${clientClassDetail.c_level}</th>
+      			<th class = "tdtd">${clientClassDetail.c_leadtime} 시간</th>
+      			<th class = "tdtd">${clientClassDetail.c_maxcnt} 명</th>
+      		</tr>
+      		
+      	
+      	
+      	</table>
+      	
+      	<!-- 4. 관심클래스,공유하기 -->
+	      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="text-align: right;">
 		      <c:if test="${loginUser == null}">
 		      		<button type="button" class="main-white-button like" id="loginLike" style="margin: 0px 5px;">
 						<i class="fa-solid fa-heart-circle-plus" style="margin:0px 5px;"></i>  ${clientClassDetail.c_luv}
@@ -181,13 +160,17 @@
               		<label class="control-label required" for="type"><i class="fa-solid fa-share-nodes"></i></label>
               	</a>
 		  </div>
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="sns-share-div" style="visibility:hidden;">
-              <div class="form-group" style="margin:5px 0px; background: #55555514; border-radius: 11em; width: fit-content;">
+      	
+      	
+	
+       
+         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="sns-share-div" style="visibility:hidden; margin: 10px;">
+              <div class="form-group" style="margin:5px 0px; float: right;">
               	<a id="kakao-link-btn" href="javascript:kakaoShare()" style="margin: 0px 20px;"><i class="fa-solid fa-comment" style="color:#FAE64D;"></i></a>
 				<a id="twitter-link-btn" href="javascript:shareTwitter()" style="margin: 0px 20px;"><i class="fa-brands fa-twitter"></i></a>
 				<a id="facebook-link-btn" href="javascript:shareFacebook()" style="margin: 0px 20px;"><i class="fa-brands fa-facebook-f" style="color:#415893;"></i></a>
 				<a id="naver-link-btn" href="javascript:shareNaver()" style="margin: 0px 20px;"><i class="fa-solid fa-n" style="color:#5ECC69;"></i></a>
 				<a id="copy-btn" href="javascript:copy()"><i class="fa-solid fa-link" style="color:#555; margin: 0px 20px;"></i></a>
               </div>
-          </div>
+         </div>
           

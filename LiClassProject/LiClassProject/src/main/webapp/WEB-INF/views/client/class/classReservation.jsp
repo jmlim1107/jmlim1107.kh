@@ -19,8 +19,10 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/resources/reserve/css/style.css">
-
 <link rel="stylesheet" href="/resources/reserve/css/reserve.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+
 <style type="text/css">
 	#collapseOne, #collapseTwo, #collapseThree, #collapseFour{
 		visibility: visible;
@@ -38,18 +40,44 @@
 		$('a[href="#reserve-modal"]').click(function(e) {
 			  //console.log("로그인내역 : " + "${loginUser.user_no }" );
 		      e.preventDefault();
+		  
 			  if( '${loginUser.user_no }' == "" ){
-		    	  alert("로그인 후 이용해주세요.");
-		    	  $(this).attr('rel', 'modal:close');
+				Swal.fire({
+				      icon: 'warning',
+				      confirmButtonColor: '#EA9A56',
+				      title: '로그인후 이용해주세요'
+				});
+		    	 $(this).attr('rel', 'modal:close');
 		      }  else {
 		    	$(this).attr('rel', 'modal:open');
 		      }
-		}); 
+		});
 		
-		// 지민) close 버튼 테스트
 		$("#CloseBtn").click(function(){
-			$(this).attr('rel', 'modal:close');
-			console.log("버튼 클릭완료");
+			Swal.fire({
+				   text: "예약선택 내역이 초기화됩니다. 창을 닫으시겠습니까?",
+				   icon: 'warning',
+				   showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+				   confirmButtonColor: '#EA9A56', // confrim 버튼 색깔 지정
+				   cancelButtonColor: '#8c8c8c', // cancel 버튼 색깔 지정
+				   confirmButtonText: 'yes', // confirm 버튼 텍스트 지정
+				   cancelButtonText: 'no', // cancel 버튼 텍스트 지정
+				   reverseButtons: false // 버튼 순서 거꾸로
+				}).then(result => {
+				   // 만약 Promise리턴을 받으면,
+				   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면
+					 //모달 닫았을때 선택내용 reset
+					$("#reserve-modal").css("display","none");
+					$(".blocker").css("visibility","hidden");
+					$("#reservFrm > *").val("");
+					let user_no = '${ loginUser.user_no }';
+					$("#user_no").val('${ loginUser.user_no }');
+					$(".part1").text("날짜를 선택해주세요.");
+					$("#collapseTwo").removeClass("show");
+					$("#collapseThree").removeClass("show");
+					$("#collapseFour").removeClass("show");
+				   }
+				});
 		});
 		
 		
@@ -102,12 +130,18 @@
 			$("button[data-bs-target='#collapseTwo']").removeClass("accordion-button collapsed").addClass("accordion-button");
 			$("button[data-bs-target='#collapseTwo']").attr("aria-expanded", "true");
 			
+			//선택한 ep의 초기화
+			$("#ep_no").val(""); 
+			$("#reservtitle").html(""); 
+			$("#reservtime").html("시간을 먼저 선택해주세요."); 
+			$("#reservInfo").html("");
+			$("#sample_cnt").val(0);
+			
 		}); //td클릭시
 
 		///------3) 인원수 카운터
 		$(".plusBtn").click(function(){
 			let cnt = $(".checkEp").attr('data-code');
-			//console.log(cnt+"개개개"); cnt를 세는 시점은 plus버튼이 눌러졌을때 !!
 			CalCount('p', this, cnt);
 		});
 		$(".minBtn").click(function(){
@@ -166,55 +200,71 @@
 		}); //episodeBox의 클릭이벤트
 		
 		$(".rcntBtn").click(function(){
-			$("#r_cnt").val( $("#sample_cnt").val() );				// 2--폼에 cnt 입력
-			$("#r_price").val( ep_price * Number($("#r_cnt").val()) );	// 4--폼에 연산된 가격입력(정상흐름 : ep선택-> 인원선택)
+			if($("#ep_no").val()==""){
+				Swal.fire({
+				      icon: 'warning',
+				      confirmButtonColor: '#EA9A56',
+				      title: '시간을 먼저 선택해주세요'
+				});
+				return;
+			} else {
+				$("#r_cnt").val( $("#sample_cnt").val() );				// 2--폼에 cnt 입력
+				$("#r_price").val( ep_price * Number($("#r_cnt").val()) );	// 4--폼에 연산된 가격입력(정상흐름 : ep선택-> 인원선택)
 			
-			//###정보출력변환###
-			$("#reservtitle").html($("#c_title").val()); 
-			$("#reservtime").html($("#r_date").val()); 
-			$("#reservInfo").html($("#r_cnt").val()+"명 ");
-			$("#reservInfo").append( $("#r_price").val().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원" );
+				//###정보출력변환###
+				$("#reservtitle").html($("#c_title").val()); 
+				$("#reservtime").html($("#r_date").val()); 
+				$("#reservInfo").html($("#r_cnt").val()+"명 ");
+				$("#reservInfo").append( $("#r_price").val().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원" );
+			}
 		});
 		
 		$(document).on("click", ".payBtn", function(){
-			if( $("#r_cnt").val()==0 ){
-				alert("인원수를 선택해주세요");
+			if( $("#ep_no").val()=="" ){
+				Swal.fire({
+				      icon: 'warning',
+				      confirmButtonColor: '#EA9A56',
+				      title: '시간을 선택해주세요'
+				});
+				return;
+			} else if( $("#r_cnt").val()==0 ){
+				Swal.fire({
+				      icon: 'warning',
+				      confirmButtonColor: '#EA9A56',
+				      title: '인원수를 선택해주세요'
+				});
 				return;
 			} else {
-			   var today = new Date();
-	           var hours = today.getHours(); // 시
-	           var minutes = today.getMinutes();  // 분
-	           var seconds = today.getSeconds();  // 초
-	           var milliseconds = today.getMilliseconds();
-	           var makeMerchantUid = hours*13 +  minutes + seconds + milliseconds;
-	           console.log(makeMerchantUid);
-	           $("#r_no").val(makeMerchantUid);
-	           
-	           $("#reservFrm").attr({
-	        	   "method":"post",
-	        	   "action":"/client/reserve/makeReserve"
-	           });
-	           $("#reservFrm").submit();
-			} 
+				Swal.fire({
+					   title : '예약내역을 확인해주세요. \n결제를 진행하시겠습니까?',
+					   text: $("#r_date").val()+" "+$("#r_cnt").val()+"명   "+$("#r_price").val()+"원",
+					   icon: 'success',
+					   showCancelButton: true, 
+					   confirmButtonColor: '#64CD3C', 
+					   cancelButtonColor: '#8c8c8c', 
+					   confirmButtonText: 'yes', 
+					   cancelButtonText: 'no', 
+					   reverseButtons: false 
+					}).then(result => {
+					   // 만약 Promise리턴을 받으면,
+					   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면
+						   	 var today = new Date();
+					         var hours = today.getHours(); // 시
+					         var minutes = today.getMinutes();  // 분
+					         var seconds = today.getSeconds();  // 초
+					         var milliseconds = today.getMilliseconds();
+					         var makeMerchantUid = hours*13 +  minutes + seconds + milliseconds;
+					         console.log(makeMerchantUid);
+					         $("#r_no").val(makeMerchantUid);
+					         $("#reservFrm").attr({
+					        	   "method":"post",
+					        	   "action":"/client/reserve/makeReserve"
+					           });
+					           $("#reservFrm").submit();
+					   }
+					});
+			}
 		});//결제버튼 클릭 종료
-		
-		//모달 닫았을때 선택내용 reset
-		$('.btn-close').click(function (){
-			console.log("엑스엑스");
-			$("#epListOfDay").each(function(){
-				this.reset();
-			});
-			$("#reservFrm").each(function(){
-				this.reset();
-			});
-			$(".part1").text("날짜를 선택해주세요.");
-			$("#collapseTwo").removeClass("show");
-			$("#collapseThree").removeClass("show");
-			$("#collapseFour").removeClass("show");
-			
-			
-			//#collapseOne, #collapseTwo, #collapseThree, #collapseFour
-    	});
 		
 		
 	}); //최상위$
@@ -263,7 +313,7 @@
 
 		<div class="row" style="width:430px;">
              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
-                 <div class="class-booking-form" >
+                 <div class="class-booking-form" style="    box-shadow: 8px 8px 7px 1px gainsboro;" >
                      <form>
                          <div class="row">
                          <h1></h1>
@@ -273,9 +323,9 @@
 	                            
 	                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="display: flex; justify-content: center;">
 	        			 	 <!-- 예약버튼 -->
-	        			 	 <a href="#reserve-modal" rel="modal:open" >
-	                         <button type="button" class="button-41">
-	                         		<span>예약하기</span>
+	        			 	 <a href="#reserve-modal" rel="modal:open" style="width: -webkit-fill-available;">
+	                         <button type="button" class="button-41" style="width: -webkit-fill-available; background-color: #555;">
+	                         		<span style="font-size: 15px; color: white;">예약하기</span>
 	                               <!--  <a href="#reserve-modal" rel="modal:open"><i class="fa-regular fa-hand-point-up"></i>예약하기</a> -->
 	                          </button></a>
 						

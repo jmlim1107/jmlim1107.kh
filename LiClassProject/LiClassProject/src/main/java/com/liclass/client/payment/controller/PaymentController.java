@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.http.MediaType;
 
+import com.liclass.admin.episode.service.EpisodeService;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.service.PaymentService;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -30,6 +31,9 @@ public class PaymentController {
 
    @Setter(onMethod_ = @Autowired)
    private PaymentService paymentSerivce;
+  
+   @Setter(onMethod_=@Autowired )
+	private EpisodeService episodeService;
    
    // 결제 서버(db에 저장된 결제금액과 api에서 실제로 빠져나간 결제금액을 비교하여 검증 후 처리)
    @ResponseBody
@@ -76,12 +80,14 @@ public class PaymentController {
       
       int pay_status = 0; // 결제 상태 바꿔주기 위한 변수  0:결제완료  1:결제실패  2:결제취소  3:환불
       int r_state = 1; // 예약 상태 바꿔주기 위한 변수  1:예약중  2:예약완료  3:예약실패취소환불 
+      
       if(result == 0) { // *** 결제가 완료가 되면 결제내역에 merchant_uid을 hidden으로 남기기 ***   결제 완료
          // 결제 테이블 저장
          r_state = 2;
          paymentVO.setPay_status(pay_status);
          paymentSerivce.inserPayment(paymentVO);
          paymentSerivce.changeRerserveStatus(r_no, r_state);
+         episodeService.EpcntUpdat(paymentSerivce.getPriceInfo(r_no)); //회차의 숫자 증가
          System.out.println("결제 성공");
          goUrl = "/payment/paySuccess"; // 결제 완료 페이지로 이동
          paymentData.put("goUrl", goUrl);
@@ -140,6 +146,8 @@ public class PaymentController {
          paymentSerivce.changeRerserveStatus(paymentInfo.getR_no(), r_state);
          paymentSerivce.changePaymentStatus(merchant_uid);
          paymentSerivce.insertRefund(refundVO);
+         ReserveVO rvo = paymentSerivce.getPriceInfo(paymentInfo.getR_no());
+         episodeService.EpcntDel(rvo); //회차의 숫자 감소
          ras.addFlashAttribute("msg","환불이 완료되었습니다.");
          goUrl = "redirect:/mypage"; // 환불 완료 페이지
       }else {
