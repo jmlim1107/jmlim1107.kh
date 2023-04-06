@@ -49,6 +49,7 @@
 			$("#updBtn").click(function(){
 				 if( !chkData("#c_area","클래스지역을") ) return;
 				else if( !chkData("#c_leadtime","소요시간을") ) return;
+				else if( !chkData("#c_level","난이도를") ) return;
 				else if( !chkData("#c_maxcnt","최대인원을") ) return;
 				else if( !chkData("#c_content","클래스 설명을") ) return;
 				else {
@@ -126,8 +127,10 @@
 					<td class="col-md-2 text-center table-light">
 						<input type="number"  id="c_maxcnt"  name="c_maxcnt" value="${updateData.c_maxcnt}" class="form-control" min="0">
 					</td>
-					<td class="col-md-2 text-center table-primary">난이도</td>
-					<td class="col-md-2 text-center table-light">${updateData.c_level}</td>
+					<td class="col-md-2 text-center table-primary">난이도(* 상/중/하 만 입력)</td>
+					<td class="col-md-2 text-center table-light">
+						<input type="text"  id="c_level"  name="c_level" value="${updateData.c_level}" class="form-control">
+					</td>
 					<td class="col-md-2 text-center table-primary">소요시간</td>
 					<td class="col-md-2 text-center table-light">
 						<input type="number"  id="c_leadtime"  name="c_leadtime" value="${updateData.c_leadtime}" class="form-control" min="0">
@@ -152,7 +155,7 @@
 							           	   <c:when test="${ not empty imgList  }">
 							           	   <td>
 							           	   		 <c:forEach var="img" items="${imgList}" varStatus="status">
-							           	   			<img src="/uploadLiClass/class/thumbnail/${img.thumb_file}"/>
+							           	   			<img src="/uploadLiClass/class/thumbnail/${img.thumb_file}" style="height: 133px"/>
 							           	   		</c:forEach>
 							           	   	</td>
 							           	   </c:when>

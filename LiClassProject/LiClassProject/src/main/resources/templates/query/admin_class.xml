@@ -58,7 +58,7 @@
 	<!-- 클래스 수정 -->
 	<update id="classUpdate" parameterType="Adminclass">
 		update li_class set 
-			c_area=#{c_area}, c_maxcnt=#{c_maxcnt}, c_leadtime=#{c_leadtime}, c_content=#{c_content}
+			c_area=#{c_area}, c_maxcnt=#{c_maxcnt}, c_leadtime=#{c_leadtime}, c_content=#{c_content}, c_level = #{c_level}
 		<if test="c_category !='' "> <!-- VO필드에서 c_category의 기본값을 ""로 설정해 두었다... -->
 			, c_category = #{c_category}
 		</if>
