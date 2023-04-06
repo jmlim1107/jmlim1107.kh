@@ -65,7 +65,7 @@
 	<!-- 별점 통계 start -->
   	<div class="container">
 	    <div class="row" style="justify-content: left;">
-	      <div class="col-md-13 course-details-content">
+	      <div class="col-md-13 course-details-content" style="margin-left: -15px;">
 	        <div class="course-details-card mt--40">
 	          <div class="course-content">
 	            <h5 class="mb--20">Review</h5>

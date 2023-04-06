@@ -18,7 +18,7 @@
 	         		<c:if test="${not empty classes.c_img_file}">
 	         			<div style="position: absolute; width: -webkit-fill-available;" class="card-footer p-4 pt-0 border-top-0 bg-transparent right_area text-center heart" data-num="${classes.c_no}">
 							 <a href="javascript:;" class="icon heart atag-heart" data-num="${classes.c_no}">
-			   					<img src="https://cdn-icons-png.flaticon.com/512/812/812327.png" alt="찜하기" style="width: 30px; height: 30px;  position: relative; float: right;margin-top: 10px">
+			   					<img src="/resources/images/heartwhite.png" alt="찜하기" style="width: 20px; height: 20px;  position: relative; float: right;margin-top: 10px; opacity: 0.8;">
 			  				 </a>
 			 			</div>     
 	         			<div >

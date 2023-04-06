@@ -62,13 +62,13 @@
 		    						console.log(" addLikes checkResult : "+checkResult);
 		    						 if(checkResult == 1){
 		    							 $likeBtn.find('img').attr({
-		    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+		    								 'src': '/resources/images/heartred.png',
 		    					                 alt:'찜하기 완료'
 		  					                  });
 		    							alert("관심클래스에 추가되었습니다.");
 		    						}else if(checkResult == 0 && (alt == "찜하기")){
 		    							$likeBtn.find('img').attr({
-		    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+		    								'src': '/resources/images/heartred.png',
 		    					                 alt:'찜하기 완료'
 		  					                  });
 		    							alert("앗,이미 관심클래스에 있었어요!");
@@ -85,7 +85,7 @@
 			       		    						if(checkResult2 == 1){
 		       		       		    						$likeBtn.find('i').removeClass('fas').addClass('far')
 			       		 					             	$likeBtn.find('img').attr({
-			       		 					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+			       		 					             	 'src': '/resources/images/heartwhite.png',
 			       		 					                	alt:"찜하기"
 			       		 					            	 });
 			       		    								alert("삭제되었습니다.");
