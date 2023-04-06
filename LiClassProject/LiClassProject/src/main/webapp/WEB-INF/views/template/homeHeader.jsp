@@ -9,11 +9,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Shrikhand&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
 <style>
 
 		#header{width: 100%;
@@ -44,7 +48,7 @@
 
         	<header id="header" class="fixed-top header-scrolled">
        	 		<div class="container d-flex align-items-center justify-content-between">
-            		<h1 class="logo" ><a href="/" style="font-family: 'Racing Sans One', cursive; font-size: 30px;">LiClass</a></h1>
+            		<h1 class="logo" ><a href="/" style="font-family: 'Fugaz One', cursive; font-size: 30px;">LiClass</a></h1>
 			            <!-- Uncomment below if you prefer to use an image logo -->
 			            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 			            <nav id="navbar" class="navbar">
@@ -52,8 +56,7 @@
 			                <li><a class="nav-link scrollto active header-menu" href="/">Home</a></li>
 			                <li><a class="nav-link scrollto menu header-menu" href="/class/classList">Class</a></li>
 			                <li><a class="nav-link scrollto menu header-menu" href="/studio/studioList">Studio</a></li>
-			                <li><a class="nav-link scrollto menu header-menu" href="/team">Team</a></li>
-			                <li><a class="nav-link scrollto menu header-menu" href="/client/qnaboard/qnaBoard">FAQ</a></li>
+			                <li><a class="nav-link scrollto menu header-menu" href="/client/qnaboard/qnaBoard">QnA</a></li>
 			                <c:if test="${loginUser == null}">
 			                	<li><a href="#gotop" class="nav-link scrollto" id="login-modal" style="color:white;">Login</a></li>
 			                </c:if>
@@ -88,8 +91,8 @@
 			<form class="login100-form validate-form" id="login-form">
 				<span class="login100-form-title p-b-26">
 				</span>
-				<span class="login100-form-title p-b-48">
-					<i id="title">LiClass</i>
+				<span class="login100-form-title p-b-48" style="font-family: 'Lalezar';">
+					<i id="title">LICLASS</i>
 				</span>
 	
 				<div class="wrap-input100 validate-input" data-validate = "Enter ID">
@@ -108,7 +111,7 @@
 					<div class="col-lg-12 text-center">
 					    <div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<a href="#login" class="login100-form-btn" id="login" style="background-color: #555; a:hover:#dbcfd14d;">
+							<a href="#login" class="login100-form-btn" id="login" style=" background-color: #555; a:hover:#dbcfd14d;">
 								Login
 							</a>
 						</div>
