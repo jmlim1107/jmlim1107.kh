@@ -76,8 +76,8 @@ public class EpisodeServiceImpl implements EpisodeService {
 	}
 
 	@Override
-	public int EpcntUpdat(ReserveVO rvo) {
-		int result = episodeDAO.EpcntUpdat(rvo);
+	public int EpcntUpdate(ReserveVO rvo) {
+		int result = episodeDAO.EpcntUpdate(rvo);
 		return result;
 	}
 

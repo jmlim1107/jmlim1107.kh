@@ -87,7 +87,8 @@ public class PaymentController {
          paymentVO.setPay_status(pay_status);
          paymentSerivce.inserPayment(paymentVO);
          paymentSerivce.changeRerserveStatus(r_no, r_state);
-         episodeService.EpcntUpdat(paymentSerivce.getPriceInfo(r_no)); //회차의 숫자 증가
+         episodeService.EpcntUpdate(paymentSerivce.getPriceInfo(r_no));//회차의 숫자 증가
+         System.out.println(paymentSerivce.getPriceInfo(r_no));
          System.out.println("결제 성공");
          goUrl = "/payment/paySuccess"; // 결제 완료 페이지로 이동
          paymentData.put("goUrl", goUrl);

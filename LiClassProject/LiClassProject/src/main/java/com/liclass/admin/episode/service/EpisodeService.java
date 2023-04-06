@@ -16,6 +16,6 @@ public interface EpisodeService {
 	public String[] epDateList(int c_no);
 	public List<EpisodeVO> epInfo(EpisodeVO ep);
 	public EpisodeVO reservInfo(int ep_no);
-	public int EpcntUpdat(ReserveVO rvo);
+	public int EpcntUpdate(ReserveVO rvo);
 	public int EpcntDel(ReserveVO rvo);
 }
