@@ -38,13 +38,22 @@ $(function(){
 				success : function(data){
 					//alert(data.review_content);
 					// json 값을 모달에 설정
-					$("#r_detailContent").val(data.review_content);
+					 var content = data.review_content;
+					 content = content.replaceAll("<br />" , " ");
+		        	 var d ="/uploadLiClass/class/thumbnail/"+ data.img;
+/*		        	 content = content.replace("<br />" , " ");*/
+		        	 console.log("테스트" + d); 
+		        	$("#reviewDetailImg").attr("src",d);
+		     	
+					$("#r_detailContent").val(content);
 					$("#r_detailTitle").val(data.review_title);
 					$('input[name="review_rating"]').val([data.review_rating]);
 					$('input[name="review_recommend"]').val([data.review_recommend]);
 			
 					$('input[name="r_no"]').val([data.r_no]);
 					$('input[name="review_no"]').val([data.review_no]);
+					
+		        	
 					
 					// 모달창 띄우기
 					$("#test3").fadeIn();
@@ -74,8 +83,8 @@ $(function(){
 	  	// 글수정 버튼 클릭시	
 	  	/* 디테일 버튼 클릭시  페이지 이동을 위한 처리 이벤트 */		
 		$("#updateFormBtn2").click(function(){
-			console.log("글번호 : "+$("#reviewupdate_no").val()); 
-			console.log("예약 번호 : "+$("#r_number").val());
+			console.log("수정버튼 눌림");
+			
 			
 			$.ajax({
 				type : "post",
@@ -83,7 +92,9 @@ $(function(){
 				data :  "r_no="+$("#r_number").val(),
 				dataType : "json",
 				success : function(data){
+					var d ="/uploadLiClass/class/thumbnail/"+ data.img;
 					// json 값을 모달에 설정
+					$("#reviewUpdateImg").attr("src",d);
 					$("#updateContent").val(data.review_content);
 					$("#updateTitle").val(data.review_title);
 			

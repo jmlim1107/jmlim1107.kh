@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- ************************** reviewDetail start *************************************  --%>
-
 	<!-- <form>
 		<input type="hidden" name="review_no" id="review_number" />
 	</form> -->
@@ -21,8 +20,9 @@
 				 			<div class="bv-submission-sidebar bv-submission-side">
 			 					<div class="bv-subject-info-section">  
 			 						<div class="bv-subject-info custom-cursor-default-hover">
-				 						<img class="bv-subject-image custom-cursor-default-hover" src="https://unicorn.lush.com/media/thumbnails/products/honey_i_washed_my_hair_shampoo_bar_2020_163b7de1_thumbnail_256.png">   
-				 						<span class="bv-subject-name-header">클래스명</span>
+				 						 <img id = "reviewDetailImg" src="" style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
+				 						 <span style="padding-left:30px;">${courseList.title}</span>
+				 						 
 			 						</div>   
 			 					</div> 
 							</div>
@@ -74,13 +74,23 @@
 								</legend>
 				  			</fieldset>
 				  			
-				  			
+				  			<!-- 친구한테 추천할거니? -->
+				  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid">
+				  				<legend class="bv-off-screen"><span class = "blocktitle recommendspan">클래스를 다른 사람들에게 추천하나요?</span>
+										<div class = "blockcontent">
+											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
+											<label for="toggle-on" class="btn toggleBtn">Yes</label>
+											<input id="toggle-off" class="toggle toggle-right" name="review_recommend" value="No" type="radio">
+											<label for="toggle-off" class="btn toggleBtn">No</label>
+										</div>
+				  				</legend>
+				  			</fieldset>	
 				  			<!-- 약관 동의 -->
 				  			<fieldset class="bv-fieldset bv-fieldset-agreements bv-fieldset-reviews-termsAndConditions bv-checkbox-field custom-cursor-default-hover"> 
 				  				<legend class="bv-off-screen" style = "border: 1px solid white;">
-				  						<input id="bv-checkbox-reviews-termsAndConditions" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0">  
+				  						<input id="bv-checkbox-reviews-termsAndConditions" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0" checked="checked" disabled="disabled">  
 				  						<label class="bv-fieldset-label-checkbox" for="bv-checkbox-reviews-termsAndConditions"> 
-				  							<span class="bv-fieldset-label-text">I agree to the <a href="#" class="bv-text-link bv-focusable custom-cursor-on-hover" tabindex="0">terms &amp; conditions</a></span> 
+				  							<span class="bv-fieldset-label-text">I agree to the <a href="#" class="bv-text-link bv-focusable custom-cursor-on-hover" tabindex="0">&nbsp terms &amp; conditions</a></span> 
 				  						</label> 
 				  				</legend> 
 				  			</fieldset>

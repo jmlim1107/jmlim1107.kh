@@ -1,6 +1,23 @@
 @charset "UTF-8";
 /* ReviewList CSS */
 
+.custom-cursor-default-hover.blocktitle{margin-top:20px;}
+#writeContent > div.modal_main > div > p{ margin-bottom: 10px;}
+
+#r_detailTitle , #updateTitle{
+	background-color : white; 
+	border : 1px solid gainsboro;}
+.recommendspan{ font-size: 18px;}
+
+textarea{ 
+	width: 90%;
+    height: 11em;
+    border: none;
+    resize: none;
+	border: 1px solid gainsboro;
+	background-color: white;
+	}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

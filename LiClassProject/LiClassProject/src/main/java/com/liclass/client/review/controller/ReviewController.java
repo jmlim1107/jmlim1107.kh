@@ -1,6 +1,8 @@
 package com.liclass.client.review.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -105,7 +107,7 @@ public class ReviewController {
 	*******************************************/
 	@ResponseBody
 	@PostMapping(value = "/reviewDetail" , produces=MediaType.APPLICATION_JSON_VALUE)
-	public ReviewVO reviewDetail(@ModelAttribute ReviewVO vo , Model model) throws Exception {
+	public Map<String, Object> reviewDetail(@ModelAttribute ReviewVO vo , Model model) throws Exception {
 		log.info("reviewDetail 호출 성공.................................................");
 		
 		System.out.println("datailvo="+vo);
@@ -113,7 +115,21 @@ public class ReviewController {
 		model.addAttribute("detail" , detail);
 		log.info("detail : " + detail);
 		
-		return detail;
+		String img = reviewService.reviewImg(vo.getR_no());
+		System.out.println(img);
+		model.addAttribute("img",img);
+		Map<String, Object> data = new HashMap<>() ;
+		data.put("review_content", detail.getReview_content());
+		data.put("review_title", detail.getReview_title());
+		data.put("review_rating", detail.getReview_rating());
+		data.put("review_recommend", detail.getReview_recommend());
+		data.put("review_no", detail.getReview_no());
+		data.put("r_no", detail.getR_no());
+		data.put("img", img);
+		
+		
+		
+		return data;
 	}
 	
 	
@@ -123,16 +139,32 @@ public class ReviewController {
 		 *******************************************/	
 	@ResponseBody
 	@PostMapping(value = "/r_updateForm" , produces=MediaType.APPLICATION_JSON_VALUE)
-	public ReviewVO r_updateForm(@ModelAttribute ReviewVO vo, Model model) throws Exception {
+	public Map<String, Object> r_updateForm(@ModelAttribute ReviewVO vo, Model model) throws Exception {
 		log.info("r_updateForm 호출 성공......................................");
-		log.info("review_no = "  + vo.getReview_no());
-		log.info("rvo = "  + vo);
-
+		/*
+		 * String img = reviewService.reviewImg(vo.getR_no()); System.out.println(img);
+		 * model.addAttribute("img",img);
+		 */
 		
 		// ReviewVO updateData = reviewService.r_updateForm(vo);
+		/**/
 		ReviewVO updateData = reviewService.updateFormToRno(vo);
 		model.addAttribute("updateData",updateData);
-		return updateData;	// /WEB-INF/views/review/r_updateForm.jsp 를 의미
+
+		
+		String img = reviewService.reviewImg(vo.getR_no());
+		System.out.println(img);
+		model.addAttribute("img",img);
+		Map<String, Object> data = new HashMap<>() ;
+		data.put("review_content", updateData.getReview_content());
+		data.put("review_title", updateData.getReview_title());
+		data.put("review_rating", updateData.getReview_rating());
+		data.put("review_recommend", updateData.getReview_recommend());
+		data.put("review_no", updateData.getReview_no());
+		data.put("r_no", updateData.getR_no());
+		data.put("img", img);
+		
+		return data;	// /WEB-INF/views/review/r_updateForm.jsp 를 의미
 	}
 
 	

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.liclass.client.classes.vo.ClientClassImgVO;
 import com.liclass.client.review.vo.ReviewVO;
 
 @Mapper
@@ -36,5 +37,7 @@ public interface ReviewDAO {
 			public ReviewVO updateFormToRno(ReviewVO vo);
 
 			public void changeReviewStatus2(int r_no);
+			
+			public String reviewImg(int r_no);
 	
 }
