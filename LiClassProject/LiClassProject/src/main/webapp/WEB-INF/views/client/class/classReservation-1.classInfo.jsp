@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 
 <%-- 은아) 클래스 상세페이지 예약네비1. 클래스정보 --%>	
 <script>
@@ -27,8 +29,11 @@
 			var likeId = $(this).attr("id");
 			console.log(likeId);
 			if(likeId == "loginLike"){
-				alert("로그인 후 이용해주세요.");
-				return;
+				Swal.fire({
+				      icon: 'warning',
+				      confirmButtonColor: '#EA9A56',
+				      title: '로그인후 이용해주세요'
+				});
 			}else if(likeId == "addLike"){
 				console.log(likeId);
 				$.ajax({
