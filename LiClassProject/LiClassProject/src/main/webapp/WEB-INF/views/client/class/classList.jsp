@@ -76,7 +76,7 @@
     		    						console.log(" addLikes checkResult : "+checkResult);
     		    						if(checkResult == 1){ //if(2)
     		    							 $likeBtn.find('img').attr({
-    		    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+    		    					                'src': '/resources/images/pngegg.png',
     		    					                 alt:'찜하기 완료'
     		  					               });
     		    							 Swal.fire({
@@ -86,7 +86,7 @@
     		   								});
     		    						} else if(checkResult == 0 && (alt == "찜하기")){
     		    							$likeBtn.find('img').attr({
-    		    					                'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+    		    					                'src': '/resources/images/pngegg.png',
     		    					                 alt:'찜하기 완료'
     		  					             });
     		    							Swal.fire({
@@ -120,7 +120,7 @@
     					       		    						if(checkResult2 == 1){ //if(4)
    				       		       		    						$likeBtn.find('i').removeClass('fas').addClass('far');
    					       		 					             	$likeBtn.find('img').attr({
-   					       		 					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+   					       		 					                	'src': '/resources/images/heartwhite.png',
    					       		 					                	alt:"찜하기"
    					       		 					            	 });
     				       		       		    					Swal.fire({

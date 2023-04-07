@@ -103,9 +103,8 @@ public class PaymentController {
          pay_status = 1;
          r_state = 3;
          paymentVO.setPay_status(pay_status);
-         //paymentSerivce.inserPayment(paymentVO);
-         //paymentSerivce.changeRerserveStatus(r_no, r_state);
-         paymentSerivce.reserveDelete(r_no);
+         paymentSerivce.inserPayment(paymentVO);
+         paymentSerivce.changeRerserveStatus(r_no, r_state);
          System.out.println("결제 실패"); 
          goUrl = "/"; // 다시 결제페이지로 이동 or 홈으로 이동
          paymentData.put("goUrl", goUrl);
@@ -113,9 +112,8 @@ public class PaymentController {
          pay_status = 2;
          r_state = 3;
          paymentVO.setPay_status(pay_status);
-         paymentSerivce.reserveDelete(r_no);
-         //paymentSerivce.inserPayment(paymentVO);
-         //paymentSerivce.changeRerserveStatus(paymentVO.getR_no(), r_state);
+         paymentSerivce.inserPayment(paymentVO);
+         paymentSerivce.changeRerserveStatus(paymentVO.getR_no(), r_state);
          System.out.println("결제 취소");
          goUrl = "/"; // 다시 결제페이지로 이동 or 홈으로 이동
          paymentData.put("goUrl", goUrl);
@@ -166,7 +164,8 @@ public class PaymentController {
          refundVO.setRefund_status(refund_status);
          paymentSerivce.insertRefund(refundVO);
          System.out.println("환불 실패");
-         goUrl = "/";
+         ras.addFlashAttribute("msg","환불에 실패하였습니다.");
+         goUrl = "redirect:/mypage";
       }
       return goUrl; // 다시 mypage로 가면 데이터가 안나온다..
    }
