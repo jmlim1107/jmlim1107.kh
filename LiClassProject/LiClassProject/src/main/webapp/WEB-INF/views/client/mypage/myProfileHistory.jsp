@@ -26,7 +26,7 @@
 
 <div>
 	<div>
-		<h2>프로필 정보</h2>
+		<h3>프로필 정보</h3>
 		<hr style="border: 1px solid black;  margin: 40px 0;">
 	</div>
 	
@@ -37,17 +37,17 @@
    			<c:choose>
      			<c:when test="${loginUser.user_type eq 0}">
       				<div class="profile-img" style="height:100px;">
-						<img class="icon2" src="/uploadLiClass/user/${loginUser.user_img}" alt="profile" style="border: 1px solid black;">
+						<img class="icon2" src="/uploadLiClass/user/${loginUser.user_img}" alt="profile" style="border: 1px solid #999;">
 					</div>
     			</c:when>
     			
 	    		<c:otherwise>
-	      			<div class="profile-img" style="height:100px;"><img class="icon2" src="${loginUser.user_img}" alt="profile" style="border: 1px solid black;"></div>
+	      			<div class="profile-img" style="height:100px;"><img class="icon2" src="${loginUser.user_img}" alt="profile"  style="border: 1px solid #999;"></div>
 	    		</c:otherwise>
    			</c:choose>
 	  		</c:if>
 			<c:if test="${loginUser.user_img == ''}">
-	 			<div class="profile-img" style="height:100px;"><img class="icon2" src="/uploadLiClass/user/default-profile.png" alt="profile" style="border: 1px solid black;"/></div>
+	 			<div class="profile-img" style="height:100px;"><img class="icon2" src="/uploadLiClass/user/default-profile.png" alt="profile" style="border: 1px solid #999;"/></div>
 			</c:if>
 			<c:if test="${loginUser.user_type eq 0}">
 				<div class="hover-content2">
@@ -55,13 +55,13 @@
            		</div>
   			</c:if>
 		</td>
-		<td style="padding-left : 40px;"><h3>${loginUser.user_name}</h3></td>
+		<td style="padding-left : 40px;"><h5>${loginUser.user_name}</h5></td>
 	</tr>
 	
 	</table>
 
 	<div style="margin-top : 70px;">
-	<h4>로그인 정보</h4>
+	<h6>로그인 정보</h6>
 	<hr style="border: 1px solid black;">
 	</div>
 	

@@ -5,6 +5,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;500&family=Racing+Sans+One&family=Shrikhand&display=swap" rel="stylesheet">
+<link src = "/resources/include/mainLayout/vendor/bootstrap-icons/bootstrap-icons.css">
 
 <style>
 	.bi-star-fill{
@@ -38,21 +39,29 @@
             	<div class="text-center">
                   <!-- 클래스 명 -->
                   <span class="fw-bolder goClassDetail" data-num="${classes.c_no}" style="font-size: 14px; font-family: 'Noto Serif KR', serif;">${classes.c_title}</span>
-                 
                   <div class = "classContent" style="font-family: 'Noto Serif KR', serif;">${classes.c_content}</div>
               	</div>
               	
               	
            </div>
            <!-- Product reviews-->
-                  <div class="d-flex justify-content-center small text-warning mb-2" style="font-size: initial;">
-                      <span class="bi-star-fill"></span>
-                      <span class="bi-star-fill"></span>
-                      <span class="bi-star-fill"></span>
-                      <span class="bi-star-fill"></span>
-                      <span class="bi-star-fill"></span>
-                      
-                  </div>
+           <div class="d-flex justify-content-center small text-warning mb-2" style="font-size: initial;">
+	           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+					<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+	 		   </svg>
+	           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+					<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+	 		   </svg>
+	 		   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+					<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+	 		   </svg>
+	 		   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+					<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+	 		   </svg>
+	 		   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+					<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+	 		   </svg>
+           </div>
            <!-- 찜하기 하트 -->
             
                   
