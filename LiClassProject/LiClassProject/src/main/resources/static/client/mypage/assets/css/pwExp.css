@@ -3,7 +3,7 @@
 /* 비밀번호 만료 알림창 */
 .main_notice_pop .btn_close {
       position: absolute;
-      top: 25px;
+      top: 20px;
       right: 0;
       transform:translate(-50%,-50%);
       z-index: 1;
@@ -12,6 +12,7 @@
   	border:1px solid #55555563;
   	border-radius:15px;
   	width: 400px;
-  	height:200px;
-  	padding: 40px;
+  	height:140px;
+  	padding: 20px;
+  	background : rgb(0 0 0 / 76%);
   }

@@ -21,6 +21,19 @@
 	.col-lg-12{
 		padding-left: 0px;
 	}
+	.nottoday{
+		margin-top: 10px;
+	    font-size: 14px;
+	    font-weight: 500;
+	    color:white;
+	}
+	p{
+		color:white;
+	}
+	input[type=checkbox], input[type=radio]{
+		width:10px;
+		margin-top:2px;
+	}
 </style> 
 <link rel="stylesheet" href=
         "https://www.w3schools.com/w3css/4/w3.css">
@@ -91,13 +104,12 @@
 	<!--은아) 비밀번호 만료알림창  -->
 	<!--password expiration alert modal start  -->
 	<div class="main_notice_pop" name="pwOverExp" style="position:fixed; left:60%; top:25%; display:none; z-index:1;">
-	    <div id="alert-popup" style="">
-	    	<h3><i class="fa-solid fa-bell" style="font-size: 16px;"></i> ${loginUser.user_name}님, </h3>
-	    	<p>비밀번호 변경일로부터 90일이 경과되었습니다.</p> 
+	    <div id="alert-popup" >
+	    	<p><i class="fa-solid fa-bell" style="font-size: 16px;"></i>  비밀번호 변경일로부터 90일이 경과되었습니다.</p> 
 	    	<p>소중한 개인정보를 보호하기 위해 안전한 <br/>비밀번호로 변경해 주세요.</p>
+		    <label class="nottoday"><input type="checkbox" class="nottoday" name="today_close1"/> 오늘만 이 창을 열지 않음</label>
 	    </div>         
-	    <a href="#" class="btn_close"><i class="fa-solid fa-circle-xmark" style="font-size: 20px; color:black;"></i></a> <br> 
-	    <label class="nottoday"><input type="checkbox" class="nottoday" name="today_close1" /> 오늘만 이 창을 열지 않음</label>
+	    <a href="#" class="btn_close"><i class="fa-solid fa-circle-xmark" style="font-size: 20px; color:white;"></i></a> <br> 
 	</div> 
 	<!--password expiration alert modal end  -->  
 	
