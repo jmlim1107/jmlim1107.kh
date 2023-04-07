@@ -113,7 +113,7 @@
                         rownum rnum, USER_NO, qna_no, qna_title, qna_content,
 						qna_group, qna_date, qna_date_fix
                     from li_qna 
-                    where user_no = #{user_no}
+                    where user_no = #{user_no} and admin_no is null
                     order by qna_date desc
                     
                     )
