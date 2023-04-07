@@ -1,5 +1,7 @@
 package com.liclass.client.reserve.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,19 @@ public class ReserveServiceImpl implements ReserveService {
 		ReserveVO reserve = reserveDao.reservSelect(r_no);
 		return reserve;
 	}
-	
-	
+
+	@Override
+	public List<ReserveVO> reservListSelect(int ep_no) {
+		List<ReserveVO> list = null;
+		list = reserveDao.reservListSelect(ep_no);
+		return list;
+	}
+
+	@Override
+	public int reservWithdraw(int r_no) {
+		int result = 0;
+		result = reserveDao.reservWithdraw(r_no);
+		return result;
+	}
+
 }

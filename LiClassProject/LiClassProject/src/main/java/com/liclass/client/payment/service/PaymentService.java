@@ -41,6 +41,6 @@ public interface PaymentService {
 
    public void changePoint2(PaymentVO paymentInfo);
 
-
+   public PaymentVO getWithdrawPay(int r_no);
 
 }

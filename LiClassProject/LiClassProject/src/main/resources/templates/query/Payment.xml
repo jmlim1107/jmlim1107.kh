@@ -84,6 +84,11 @@
       delete from li_reserve
       where r_no = #{r_no}
    </delete>
+   
+   <!-- 경민) 회차삭제로 인한 결제데이터 가져오는거 -->
+   <select id="getWithdrawPay" parameterType="int" resultType="payment">
+		 select * from li_payment where r_no = #{r_no}
+	</select>
 
 
 </mapper>

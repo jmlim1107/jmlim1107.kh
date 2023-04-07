@@ -37,12 +37,20 @@ public class EpisodeServiceImpl implements EpisodeService {
 		return result;
 	}
 
+	/*
 	@Override
 	public int epDelete(int c_no) {
 		int result = episodeDAO.epDelete(c_no);
 		return result;
 	}
-
+	*/
+	
+	@Override
+	public int epDel(int ep_no) {
+		int result = episodeDAO.epDel(ep_no);
+		return result;
+	}
+	
 	@Override
 	public int epCnt(int c_no) {
 		int cnt = episodeDAO.epCnt(c_no);
@@ -86,6 +94,5 @@ public class EpisodeServiceImpl implements EpisodeService {
 		int result = episodeDAO.EpcntDel(rvo);
 		return result;
 	}
-	
-	
+
 }

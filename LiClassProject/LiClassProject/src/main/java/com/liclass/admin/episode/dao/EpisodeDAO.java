@@ -12,7 +12,8 @@ public interface EpisodeDAO {
 	public List<EpisodeVO> epList(int c_no);
 	public int epInsert(EpisodeVO ep);
 	public int chkDate(EpisodeVO ep);
-	public int epDelete(int c_no);
+	//public int epDelete(int ep_no);
+	public int epDel(int ep_no);
 	public int epCnt(int c_no);
 	
 	//****프론트 화면에서 쓸 쿼리****//
