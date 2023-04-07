@@ -99,6 +99,7 @@
 	width:30%;
 	height: 70%;
 	z-index:1;
+	position: absolute;right: 20px;bottom:50px; z-index: 0; top:160px;
 }
 
 .main-white-button a {

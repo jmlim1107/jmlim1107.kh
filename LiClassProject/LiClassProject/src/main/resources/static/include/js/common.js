@@ -93,3 +93,52 @@ function getDateFormat(dateValue){
 
 	return result
 }
+
+/*
+ * <<<유효성 체크 함수>>>
+ * 함수명 : chkSel(유효성 체크대상, 메세지 내용)
+ * 설명 : 선택요소(select, date..) 체크여부를 확인
+ * 예시 : if(chkSel($("#keyword", ""))) return;
+ * update 23.03.17 - 이경민
+ */
+ function chkSel(item, msg){
+	 if( $(item).val()=="" ){
+		 alert(msg+"선택해주세요.");
+		 $(item).focus();
+		 return false;
+	 } else {
+		 return true;
+	 }
+ }
+ 
+ /*
+ * <<<유효성 체크 함수>>>
+ * 함수명 : chkRadio(유효성 체크대상, 메세지 내용)
+ * 설명 : radio요소 체크여부를 확인
+ * 예시 : if(chkRadio($("name", ""))) return;
+ * update 23.03.17 - 이경민
+ */
+function chkRadio(item, msg){ //item == name의 이름
+	if( $("input[name="+item+"]:radio:checked").length == 0 ){
+		alert(msg+"체크해주세요.");
+		return false;
+	} else {
+		return true;
+	}
+}
+
+/*
+ * <<<유효성 체크 함수>>>
+ * 함수명 : chkNum(유효성 체크대상)
+ * 설명 : 숫자값이 맞는지 확인하는 함수
+ * 예시 : if(chkNum($("#keyword", ""))) return;
+ * update 23.03.17 - 이경민*/
+ 
+function chkNum(item, msg){
+	if ( $.isNumeric( $(item).val() ) ) {
+			return true;
+		}else {
+			alert(msg+'숫자만 입력해주세요.');
+			return false;
+		}
+}

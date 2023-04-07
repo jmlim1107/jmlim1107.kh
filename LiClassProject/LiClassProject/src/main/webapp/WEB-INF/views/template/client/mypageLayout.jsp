@@ -19,25 +19,37 @@
     <!-- nav  -->
 	<script src="/resources/client/mainTheme/js/floatingNav.js"></script>
 	<link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
-	
 	<style>
-		html, body {
-	    	height: 100%
+		/*은아) footer-contentLayout과 상이한 부분 맞추기  */
+		.mypage-nav{
+			--bs-nav-link-padding-x: 1rem;
+		    --bs-nav-link-padding-y: 0.5rem;
+		    --bs-nav-link-font-weight: ;
+		    --bs-nav-link-color: var(--bs-link-color);
+		    --bs-nav-link-hover-color: var(--bs-link-hover-color);
+		    --bs-nav-link-disabled-color: #6c757d;
+		    display: flex;
+		    flex-wrap: wrap;
+		    padding-left: 0;
+		    margin-bottom: 0;
+		    list-style: none;
+	        margin-top: 0;
+	        margin: 0px;
+	        height: 50px;
 		}
-		#wrap {
-		    min-height: calc(100%-120px);
+		.nav-item{
+			font-size: 10px;
+		}
+		.mypageLayout{
+			min-height: 100%;
 		    position: relative;
 		    padding-bottom: 60px;
 		}
-		.footer{
-		  height: 60px;
-		  width: 100%;
-		  padding: 0 25px;
-		}
+		/***************************************** */
 	</style>
   	</head>
   	<body id="gotop">
-  		<div id="wrap">
+  		<div>
 			<header class="header" style="height: 0;">
 				<tiles:insertAttribute name="header" />
 			</header>
@@ -52,12 +64,8 @@
    		</div>
 
    		<footer class="footer" style="margin-bottom:30%;">
-			      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-			        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
-			        <li class="nav-item"><a href="/class/classList" class="nav-link px-2 text-muted">Classes</a></li>
-			        <li class="nav-item"><a href="/studio/studioList" class="nav-link px-2 text-muted">Center</a></li>
-			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-			        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+			      <ul class="mypage-nav nav justify-content-center border-bottom pb-3 mb-3">
+			        	<tiles:insertAttribute name="footer" />
 			      </ul>
 			      <p class="text-center text-muted">© 2022 Company, Kh정보교육원</p>
 		</footer>

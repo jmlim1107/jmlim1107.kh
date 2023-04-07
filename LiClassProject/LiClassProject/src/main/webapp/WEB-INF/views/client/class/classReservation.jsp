@@ -184,18 +184,7 @@
 					$("#c_title").val(data.c_title);					// 3-- 폼에 ep제목입력
 					$("#r_date").val(data.ep_date);				// 4-- 폼에 ep날짜 & 시간입력
 					ep_price = data.ep_price;
-					
-					
-					/*let point = $("#insertpoint").val();
-					console.log(point);
-					let r_price = null;
-					if($("#insertpoint").val()!=""){
-						r_price = (data.ep_price - point) * Number($("#r_cnt").val());
-					}else{
-						r_price = data.ep_price * Number($("#r_cnt").val());
-					}*/
-					
-					//console.log("dd");
+
 					let r_price = data.ep_price * Number($("#r_cnt").val());
 					$("#r_price").val( r_price );  // 5--폼에 연산된 가격입력(비정상흐름 : 인원선택-> ep변경)
 					console.log("에피소드박스 눌렀을때 r_price = "+r_price);
@@ -227,8 +216,7 @@
 				//###정보출력변환###
 				$("#reservtitle").html($("#c_title").val()); 
 				$("#reservtime").html($("#r_date").val()); 
-				$("#reservInfo").html($("#r_cnt").val()+"명 ");
-				
+				$("#reservInfo").html($("#r_cnt").val()+"명 ");			
 				
 				/* 웅배 포인트 적립파트 */
 				var price = $("#r_price").val()-$("input[name=insertpoint]").val();
@@ -307,53 +295,53 @@
 		/* 포인트 적용 버튼 이벤트 */
 		$("#pointok").click(function(){
 
-			var point = ${uservo.user_point};
-			var price = $("#r_price").val();
-			var insertpoint = Number($("#insertpoint").val());
-			var pointprice = $("#r_price").val()-$("input[name=insertpoint]").val();
+		var point = ${uservo.user_point};
+		var price = $("#r_price").val();
+		var insertpoint = Number($("#insertpoint").val());
+		var pointprice = $("#r_price").val()-$("input[name=insertpoint]").val();
 
-			if(point < insertpoint){ // 보유포인트가 입력한 포인트보다 적을때
-				alert("보유 포인트를 확인하시고 다시 입력해주세요.");4
-				$("#insertpoint").val("");
-			}else if($("#r_cnt").val()==0){
-				Swal.fire({
-				      icon: 'warning',
-				      confirmButtonColor: '#EA9A56',
-				      title: '인원수를 선택해주세요'
-				});
-			}else if(price < insertpoint){ // 금액이 입력한 포인트보다 적을때
-				alert("입력하신 포인트가 금액보다 높습니다. 다시 입력해주세요.");
-				$("#insertpoint").val("");
-				console.log("dd"+$("#r_price").val());
-			}else{
-				if($("#insertpoint").val()!=""){
-					if(point >= price){
-						var point2 = point - insertpoint;
-						$("input[name=insertpoint]").attr("value",price);
-						$("#pointspan").html(point2);
-						$("input[name=usepoint]").attr("value",price);
-					}else{
-						$("input[name=insertpoint]").attr("value",insertpoint);
-						$("input[name=usepoint]").attr("value",insertpoint);
-					}
-					
-					//$("#reservInfo").html("");
-					$("#reservInfo").html($("#r_cnt").val()+"명 ");
-					$("#reservInfo").append(pointprice+"원");
-					//$("#reservInfo").append(price)+"원";
-					$("#r_price").val( pointprice );
-					
-					alert("적용되었습니다. 페이지를 새로고침하면 초기화됩니다.");
-					$("input[name=insertpoint]").attr("readonly","readonly");
-					$("#pointok").attr("disabled","disabled").css("backgroundColor","#A4A4A4");
-					
-					console.log(insertpoint);
-					if(insertpoint != 0){
-						$("input[name=usepoint]").attr("value",insertpoint);
-					}
-					
+		if(point < insertpoint){ // 보유포인트가 입력한 포인트보다 적을때
+			alert("보유 포인트를 확인하시고 다시 입력해주세요.");4
+			$("#insertpoint").val("");
+		}else if($("#r_cnt").val()==0){
+			Swal.fire({
+				icon: 'warning',
+				confirmButtonColor: '#EA9A56',
+				title: '인원수를 선택해주세요'
+			});
+		}else if(price < insertpoint){ // 금액이 입력한 포인트보다 적을때
+			alert("입력하신 포인트가 금액보다 높습니다. 다시 입력해주세요.");
+			$("#insertpoint").val("");
+			console.log("dd"+$("#r_price").val());
+		}else{
+			if($("#insertpoint").val()!=""){
+				if(point >= price){
+					var point2 = point - insertpoint;
+					$("input[name=insertpoint]").attr("value",price);
+					$("#pointspan").html(point2);
+					$("input[name=usepoint]").attr("value",price);
+				}else{
+					$("input[name=insertpoint]").attr("value",insertpoint);
+					$("input[name=usepoint]").attr("value",insertpoint);
 				}
+				
+				//$("#reservInfo").html("");
+				$("#reservInfo").html($("#r_cnt").val()+"명 ");
+				$("#reservInfo").append(pointprice+"원");
+				//$("#reservInfo").append(price)+"원";
+				$("#r_price").val( pointprice );
+				
+				alert("적용되었습니다. 페이지를 새로고침하면 초기화됩니다.");
+				$("input[name=insertpoint]").attr("readonly","readonly");
+				$("#pointok").attr("disabled","disabled").css("backgroundColor","#A4A4A4");
+				
+				console.log(insertpoint);
+				if(insertpoint != 0){
+					$("input[name=usepoint]").attr("value",insertpoint);
+				}
+				
 			}
+		}
 		});
 		
 		

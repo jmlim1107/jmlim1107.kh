@@ -4,9 +4,7 @@
 	<!-- 은아,웅배 -->
 	<!--1. 나의 관심클래스 조회 -->
 	<select id="myLikesList" parameterType="User" resultType="c_class">
-       <![CDATA[
-         SELECT like_no,user_no,c_no,c_img_file ,c_title,c_area
-		from (SELECT ROWNUM rnum, A.like_no like_no, A.user_no user_no, A.c_no c_no,B.c_img_file c_img_file ,C.c_title c_title,C.c_area c_area
+      SELECT A.like_regdate, A.like_no like_no, A.user_no user_no, A.c_no c_no,B.c_img_file c_img_file ,C.c_title c_title,C.c_area c_area
 			FROM li_likes A left outer join
 	    		(select c_no, 
 	        	MAX(DECODE(RID, 1, c_img_file)) c_img_file
@@ -28,14 +26,8 @@
             		FROM li_class)
 	        	) C
 	    		on A.c_no = C.c_no 
-                where a.user_no = #{user_no} and
-            ]]>
-               <![CDATA[
-                 ROWNUM <= #{pageNum} * #{amount} 
-                 order by like_regdate desc
-            )
-            where rnum > (#{pageNum} - 1) * #{amount}
-            ]]>
+                where a.user_no = #{user_no}
+                order by like_regdate desc
 	</select>
 	
 	<!--2. 나의 관심클래스 갯수   -->
@@ -46,13 +38,8 @@
 	
 	<!--3. 나의 후기 조회 -->
 	<select id="myReviewList" parameterType="Review" resultType="Review">
-		 <![CDATA[
-             select review_no,review_name,review_title,review_content,review_rating,class_img,
-		        to_char(review_date,'YYYY-MM-DD') as review_date,review_update,
-		        review_status,c_no,user_no,user_img,c_title
-		      from
-		            (select rownum rnum,review_no,review_name,review_title,review_content,review_rating,class_img,
-		            review_date,review_update,
+		select review_no,review_name,review_title,review_content,review_rating,class_img,
+		            to_char(review_date,'YYYY-MM-DD') as review_date,review_update,
 		            review_status,c_no,user_no,user_img,c_title
 		                    from
 		                    
@@ -68,27 +55,17 @@
                                             c_img_no
                                             
                                             FROM li_class_img
-                                            where c_no = a.c_no
-                                        ) GROUP BY c_no) as class_img,
+                                            where c_no = a.c_no ) GROUP BY c_no) as class_img,
                                         a.review_date review_date,
                                         a.review_update review_update,
                                         a.review_status review_status,
                                         a.c_no c_no,
                                         a.user_no user_no,
                                         b.user_img user_img,
-                                        c.c_title c_title
-                        from li_review a left join li_user b on a.user_no = b.user_no
+                                        c.c_title c_title from li_review a left join li_user b on a.user_no = b.user_no
                                         left join li_class c on a.c_no = c.c_no
                         where b.user_no = #{user_no}
                         order by review_date desc)
-                        where
-
-              ]]>
-               <![CDATA[
-                  ROWNUM <= #{pageNum} * #{amount}  
-            )
-            where rnum > (#{pageNum} - 1) * #{amount}
-            ]]>
             
 	</select>
 	
@@ -101,30 +78,19 @@
 	<!--5. 나의 문의 조회 -->
 	<select id="myQnaList" parameterType="ClientQnaBoard" resultType="ClientQnaBoard">
       <![CDATA[
-            select qna_no, USER_NO, qna_title, qna_content, 
-            (select count(*) from li_qna where QNA_GROUP = '1' and user_no =#{user_no} ) as qna_status,  
-            to_char(qna_date,'YYYY-MM-DD') as qna_date, to_char(qna_date_fix,'YYYY-MM-DD') as qna_date_fix
-             from(
-                select 
-                     rownum rnum, USER_NO, qna_no, qna_title, qna_content,
-					qna_group, qna_date, qna_date_fix
-                from (
-                    select 
-                        rownum rnum, USER_NO, qna_no, qna_title, qna_content,
-						qna_group, qna_date, qna_date_fix
-                    from li_qna 
-                    where user_no = #{user_no}
-                    order by qna_date desc
-                    
-                    )
-                where
-
+        	select 
+                  USER_NO, qna_no, qna_title, qna_content,
+				  qna_group,(select count(*) from li_qna where QNA_GROUP = '1' and user_no =  #{user_no} ) as qna_status,  
+	              to_char(qna_date,'YYYY-MM-DD') as qna_date, to_char(qna_date_fix,'YYYY-MM-DD') as qna_date_fix
+	        from (
+                  select 
+                      USER_NO, qna_no, qna_title, qna_content,
+				      qna_group, qna_date, qna_date_fix
+                  from li_qna 
+                  where user_no =  #{user_no} and admin_no is null
+                  order by qna_date desc
+               )
               ]]>
-               <![CDATA[
-                  ROWNUM <= #{pageNum} * #{amount}  
-            )
-            where rnum > (#{pageNum} - 1) * #{amount}
-            ]]>
 
     
 	</select>
@@ -132,7 +98,7 @@
 	<!--6. 나의 문의 갯수 -->
 	<select id="myQnaCnt" parameterType="User" resultType="int">
         select count(*) from li_qna
-		where user_no = #{user_no}
+		where user_no = #{user_no} and admin_no is null
 	</select>
 	
 	<!--7. 프로필 사진 수정  -->
@@ -141,7 +107,6 @@
 		set user_img = #{user_img}
 		where user_no = #{user_no}
 	</update>
-	
 	
 	
 	<!-- 웅배파트 --> 

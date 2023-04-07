@@ -5,6 +5,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- 은아) 우측 플로팅 메뉴 --%>
 <link rel="stylesheet" href="/resources/client/mainTheme/css/floatingNav.css" />
+<style>
+	.side-menu{
+		margin:0px;
+		padding:0px;
+	}
+</style>
 <script type="text/javascript">
 	/* 메인화면 floating nav */
 	function isNull(obj){

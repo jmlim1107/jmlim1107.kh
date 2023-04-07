@@ -11,20 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 
 <style>
-
 .custom-cursor-default-hover{ margin-top: 15px;}
-
-
 </style>
-
-<script type="text/javascript">
-	$(function(){
-		var msg = ${errormsg};
-		if(msg != null){
-			alert(msg);
-		}
-	});
-</script>
 
 <div id="class-detail-div" style="padding-top: 70px; margin-left: 100px;">
 	<!-- 1. class img slider section start -->

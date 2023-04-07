@@ -86,13 +86,13 @@
                            <c:if test="${courseList.count < 0 }">
 	                           <c:if test="${courseList.review_status == 0}">
 	                              <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
-	                              	<input type="button" value="리뷰쓰기" name="reviewStatus" class="btn btn-dark insertFormBtn" style="margin:0">
+	                              	<input type="button" value="리뷰작성" name="reviewStatus" class="btn btn-dark insertFormBtn" style="margin:0">
 	                              </td>
 	                           </c:if>
 	                           
 	                           <c:if test="${courseList.review_status == 1 }">
 	                              <td data-cno="${ courseList.c_no }" data-rno="${courseList.r_no }" data-userno="${courseList.user_no }">
-	                                 <input id= "reviewDetailId"type="button" value="리뷰수정" class="btn btn-dark reviewDetail" style="margin:0">
+	                                 <input id= "reviewDetailId"type="button" value="리뷰조회" class="btn btn-dark reviewDetail" style="margin:0">
 	                              </td>
 	                           </c:if>     
 							</c:if>

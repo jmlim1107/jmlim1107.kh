@@ -51,11 +51,11 @@
 		<input type="hidden" name="rno" value="">
 		<input type="hidden" name="userno" value="">
 		
-		<div style="width: 10000px;
-    background-color: rgb(0,0,0,0.4);
-    height: 1000px;
-    position: absolute;
-    top: -100px;">
+		<div style="width: 95%;
+		    background-color: rgb(0,0,0,0.4);
+		    height: 150%;
+		    position: absolute;
+		    top: -100px;">
 			<div id = "writeModal">
 			  	<div class="modal_content" id = "writeContent"  style="margin-top: 20px;">
 			  	
@@ -69,6 +69,8 @@
 				 			<div class="bv-submission-sidebar bv-submission-side">
 			 					<div class="bv-subject-info-section">  
 			 						<div class="bv-subject-info custom-cursor-default-hover">
+				 						<img id = "reviewWriteImg"  style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
+				 						<span class="bv-subject-name-header"></span>
 				 						<img id = "reviewWriteImg" style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
 				 						<span class="bv-subject-name-header">${reviewList.c_no}</span>
 			 		 				</div>   
@@ -136,7 +138,7 @@
 				  			<!-- 약관 동의 -->
 				  			<fieldset class="bv-fieldset bv-fieldset-agreements bv-fieldset-reviews-termsAndConditions bv-checkbox-field custom-cursor-default-hover"> 
 				  				<legend class="bv-off-screen" style = "border: 1px solid white;">
-				  						<input id="bv-checkbox-reviews-termsAndConditions" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0" checked="checked" disabled="disabled">  
+				  						<input id="bv-checkbox-reviews-termsAndConditions" name="agreements_reviews_termsAndConditions" class="bv-checkbox bv-focusable " aria-describedby="termsAndConditions_validation" type="checkbox" value="true" aria-required="true" aria-checked="false" tabindex="0">  
 				  						<label class="bv-fieldset-label-checkbox" for="bv-checkbox-reviews-termsAndConditions"> 
 				  							<span class="bv-fieldset-label-text">I agree to the <a href="#" class="bv-text-link bv-focusable custom-cursor-on-hover" tabindex="0">&nbsp terms &amp; conditions</a></span> 
 				  						</label> 

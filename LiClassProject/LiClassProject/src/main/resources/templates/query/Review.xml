@@ -74,8 +74,6 @@
           <include refid="reviewSearch"></include>
        </trim>
     </select>
-
-    
    <!-- 게시물 등록 -->
    <insert id ="reviewInsert" parameterType="review">
       <selectKey keyProperty="review_no" resultType="int" order="BEFORE">

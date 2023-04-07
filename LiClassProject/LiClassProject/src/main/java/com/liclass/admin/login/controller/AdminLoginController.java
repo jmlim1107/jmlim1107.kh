@@ -71,7 +71,8 @@ public class AdminLoginController {
     }
 
     @RequestMapping("/adminAccount")
-    public String adminAccount(){
+    public String adminAccount() {
+
 
         return "admin/management/adminAccount";
     }
