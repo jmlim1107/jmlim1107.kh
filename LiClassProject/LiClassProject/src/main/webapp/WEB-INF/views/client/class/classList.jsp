@@ -98,20 +98,19 @@
     		    							Swal.fire({
     		    								   title : "관심클래스에서 삭제하시겠습니까?",
     		    								   //text: "관심클래스에서 삭제하시겠습니까?",
-    		    								   icon: 'success',
+    		    								   icon: 'question',
     		    								   showCancelButton: true, 
-    		    								   confirmButtonColor: '#64CD3C', 
+    		    								   confirmButtonColor: 'skyblue', 
     		    								   cancelButtonColor: '#8c8c8c', 
     		    								   confirmButtonText: 'yes', 
     		    								   cancelButtonText: 'no', 
     		    								   reverseButtons: false 
     		    								}).then(result => {
-    		    								   // 만약 Promise리턴을 받으면,
-    		    								   if (result.isConfirmed) { // if(3)
-    		    									   console.log(likeId);
+    		    								   //if (result.isConfirmed) { // if(3)
+    		    									   //console.log(likeId);
     		    									   $.ajax({ //ajax(2)
     					       		    					type : "POST",
-    					       		    					url : "/mypage/delLikes",
+    					       		    					url : "/delLikes",
     					       		    					data : {
     					       		    						"c_no" : c_no,
     					       		    						"user_no" : user_no
@@ -119,11 +118,11 @@
     					       		    					success : function(checkResult2){
     					       		    						console.log(" delLikes checkResult2 : "+checkResult2);
     					       		    						if(checkResult2 == 1){ //if(4)
-    				       		       		    						$likeBtn.find('i').removeClass('fas').addClass('far')
-    					       		 					             	$likeBtn.find('img').attr({
-    					       		 					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
-    					       		 					                	alt:"찜하기"
-    					       		 					            	 });
+   				       		       		    						$likeBtn.find('i').removeClass('fas').addClass('far');
+   					       		 					             	$likeBtn.find('img').attr({
+   					       		 					                	'src': 'https://cdn-icons-png.flaticon.com/512/812/812327.png',
+   					       		 					                	alt:"찜하기"
+   					       		 					            	 });
     				       		       		    					Swal.fire({
     		    													      icon: 'success',
     		    													      confirmButtonColor: '#64CD3C',
@@ -138,7 +137,7 @@
     					       		    						} //if(4)의 종료
     					       		    					}//sucess 함수 종료
     		  					 						}); //ajax(2)종료
-    		    								   	}//if(3)의 종료
+    		    									   //}if(3)의 종료
     		    								 }); //화살표 함수 종료
     	   				  				}//if(2)종료
     		    					}//success함수 종료

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
+import com.liclass.admin.management.center.vo.CenterVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.dao.PaymentDao;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -196,9 +197,20 @@ public class PaymentServiceImpl implements PaymentService{
 	public int reserveDelete(int r_no) {
 		int result = paymentDao.reserveDelete(r_no);
 		return result;
+	}
+
+	@Override
+	public CenterVO getCenterInfo(int r_no) {
+		CenterVO cvo = paymentDao.getCenterInfo(r_no);
+		return cvo;
+	}
+
+	@Override
+	public void getPoint(long user_no,long point) {
+		paymentDao.getPoint(user_no,point);
 	}	
 
-   
+    
    
 
    

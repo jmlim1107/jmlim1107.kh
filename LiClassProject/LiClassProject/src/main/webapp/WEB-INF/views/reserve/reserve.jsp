@@ -218,6 +218,7 @@
 								      			<div id="reservInfo" style="font-size: 14px;color:#5a5a5a;font-weight: bold">인원, 금액</div>
 								      		</div>
 								      		<br>
+								      		<button>포인트사용</button><br>
 								      		<button class="btn btn-lg btn-block payBtn" style="height: 40px">결제하기</button>
 								 		</div>
 								 	</div>

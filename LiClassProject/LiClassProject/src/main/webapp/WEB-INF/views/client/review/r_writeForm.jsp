@@ -69,8 +69,13 @@
 				 			<div class="bv-submission-sidebar bv-submission-side">
 			 					<div class="bv-subject-info-section">  
 			 						<div class="bv-subject-info custom-cursor-default-hover">
+<<<<<<< HEAD
 				 						<img id = "reviewWriteImg"  style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
 				 						<span class="bv-subject-name-header"></span>
+=======
+				 						<img id = "reviewWriteImg" style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
+				 						<span class="bv-subject-name-header">${reviewList.c_no}</span>
+>>>>>>> 2ff863801b06bd4e2cd8546364d29e3665ec0898
 			 		 				</div>   
 			 					</div> 
 							</div>

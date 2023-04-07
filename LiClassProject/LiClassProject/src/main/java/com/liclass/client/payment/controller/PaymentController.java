@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.http.MediaType;
 
 import com.liclass.admin.episode.service.EpisodeService;
+import com.liclass.admin.episode.vo.EpisodeVO;
+import com.liclass.admin.management.center.vo.CenterVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.service.PaymentService;
 import com.liclass.client.payment.vo.PaymentVO;
@@ -83,6 +85,8 @@ public class PaymentController {
       
       if(result == 0) { // *** 결제가 완료가 되면 결제내역에 merchant_uid을 hidden으로 남기기 ***   결제 완료
          // 결제 테이블 저장
+    	 long point = (long) (paymentVO.getPay_price() * 0.03);
+    	 paymentSerivce.getPoint(paymentVO.getUser_no(),point);
          r_state = 2;
          paymentVO.setPay_status(pay_status);
          paymentSerivce.inserPayment(paymentVO);
@@ -96,8 +100,9 @@ public class PaymentController {
          pay_status = 1;
          r_state = 3;
          paymentVO.setPay_status(pay_status);
-         paymentSerivce.inserPayment(paymentVO);
-         paymentSerivce.changeRerserveStatus(r_no, r_state);
+         //paymentSerivce.inserPayment(paymentVO);
+         //paymentSerivce.changeRerserveStatus(r_no, r_state);
+         paymentSerivce.reserveDelete(r_no);
          System.out.println("결제 실패"); 
          goUrl = "/"; // 다시 결제페이지로 이동 or 홈으로 이동
          paymentData.put("goUrl", goUrl);
@@ -105,8 +110,9 @@ public class PaymentController {
          pay_status = 2;
          r_state = 3;
          paymentVO.setPay_status(pay_status);
-         paymentSerivce.inserPayment(paymentVO);
-         paymentSerivce.changeRerserveStatus(paymentVO.getR_no(), r_state);
+         paymentSerivce.reserveDelete(r_no);
+         //paymentSerivce.inserPayment(paymentVO);
+         //paymentSerivce.changeRerserveStatus(paymentVO.getR_no(), r_state);
          System.out.println("결제 취소");
          goUrl = "/"; // 다시 결제페이지로 이동 or 홈으로 이동
          paymentData.put("goUrl", goUrl);
@@ -187,12 +193,21 @@ public class PaymentController {
       System.out.println(merchant_uid);
       
       PaymentVO payvo = paymentSerivce.getPaymentInfo(merchant_uid);
+      CenterVO centervo = paymentSerivce.getCenterInfo(payvo.getR_no());
+      
+      
       Map<String, String> pvo1 = new HashMap<>();
       pvo1.put("merchant_uid", payvo.getMerchant_uid());
       pvo1.put("pay_name", payvo.getPay_name());
       pvo1.put("pay_pg", payvo.getPay_pg());
       pvo1.put("pay_method", payvo.getPay_method());
       pvo1.put("pay_date", payvo.getPay_date());
+      
+      pvo1.put("ct_name", centervo.getCt_name());
+      pvo1.put("ct_tel", centervo.getCt_tel());
+      pvo1.put("ct_addr", centervo.getCt_addr());
+      pvo1.put("ct_detail_addr", centervo.getCt_detail_addr());
+      pvo1.put("ct_hmpg_addr", centervo.getCt_hmpg_addr());
       
       return pvo1;
    }

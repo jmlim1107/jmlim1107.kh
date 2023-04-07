@@ -108,7 +108,7 @@
             <div class="card-body">
               <h5 class="card-title">New Class Episode of ${ episodeVO.c_no }</h5>
               <div class="text-right">
-              	<button type="button" class="btn btn-secondary rounded-pill btn-lg" id="listBtn">이전으로</button>
+              	<button type="button" class="btn btn-secondary rounded-pill" id="listBtn">이전으로</button>
               </div><br>
               <!-- General Form Elements -->
               <form id="frm" >
@@ -136,8 +136,8 @@
                   </div>
                 
                 <div class="text-right">
-                <button type="button" class="btn btn-secondary rounded-pill btn-lg" id="cancel">취소</button>
-				<button type="button" class="btn btn-secondary rounded-pill btn-lg" id="insert">등록하기</button>
+                <button type="button" class="btn btn-secondary rounded-pill" id="cancel">취소</button>
+				<button type="button" class="btn btn-secondary rounded-pill" id="insert">등록하기</button>
 				</div>
 			</form>
             </div><!-- card body -->

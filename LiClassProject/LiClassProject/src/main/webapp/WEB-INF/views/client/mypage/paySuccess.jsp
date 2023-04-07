@@ -108,6 +108,10 @@
 								<tr>
 									<td>결제 수단</td>		
 									<td>${pvo.pay_method }</td>
+								</tr>
+								<tr>
+									<td>포인트 적립</td>		
+									<td>${uvo.user_point }원</td>
 								</tr>		
 								<tr>
 									<td>최종 결제 금액</td>

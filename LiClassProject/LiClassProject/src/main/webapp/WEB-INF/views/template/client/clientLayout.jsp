@@ -49,9 +49,12 @@
 	    	<tiles:insertAttribute name="nav" />
 	    </nav>
 		
-		<footer class="footer">
-		     <tiles:insertAttribute name="footer" />
-		</footer>
+		<footer class="footer py-3 my-4">
+	      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+	      	<tiles:insertAttribute name="footer" />
+	      </ul>
+	      <p class="text-center text-muted">© 2022 Company, Kh정보교육원</p>
+	    </footer>
 		
 
     
