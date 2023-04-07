@@ -24,7 +24,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 
 <style type="text/css">
-	#collapseOne, #collapseTwo, #collapseThree, #collapseFour{
+	#collapseOne, #collapseTwo, #collapseThree, #collapseFour, #collapseFive{
 		visibility: visible;
 	}
 	#header.header-scrolled {
@@ -70,12 +70,14 @@
 					$("#reserve-modal").css("display","none");
 					$(".blocker").css("visibility","hidden");
 					$("#reservFrm > *").val("");
+					$("#insertpoint").val("");
 					let user_no = '${ loginUser.user_no }';
 					$("#user_no").val('${ loginUser.user_no }');
 					$(".part1").text("날짜를 선택해주세요.");
 					$("#collapseTwo").removeClass("show");
 					$("#collapseThree").removeClass("show");
 					$("#collapseFour").removeClass("show");
+					$("#collapseFive").removeClass("show");
 				   }
 				});
 		});
@@ -157,6 +159,7 @@
 			// 인원선택, 결제선택 부분 오픈
 			$("#collapseThree").addClass("show");
 			$("#collapseFour").addClass("show");
+			$("#collapseFive").addClass("show");
 			$("button[data-bs-target='#collapseThree']").removeClass("accordion-button collapsed").addClass("accordion-button");
 			$("button[data-bs-target='#collapseThree']").attr("aria-expanded", "true");
 			$("button[data-bs-target='#collapseFour']").removeClass("accordion-button collapsed").addClass("accordion-button");
@@ -517,6 +520,7 @@
 				      <div class="wrap-header d-flex align-items-center img" style="background:#FAEBCD">
 						     
 						     <div class="accordion" id="accordionPanelsStayOpenExample"><!-- accordion 시작 -->
+						     
 								 <div class="accordion-item"> <!-- accordion-item1  -->
 								    <h5 class="accordion-header" id="panelsStayOpen-headingOne" style="width:238px">
 								      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded=true aria-controls="collapseOne">
@@ -566,7 +570,7 @@
 								      </button>
 								    </h5>
 								    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-								      <div class="accordion-body accordion-cnt" style="height: 60px">
+								      <div class="accordion-body accordion-cnt" style="height: 50px">
 								      	<div class="text-right" >
 								      		<button type="button" class="btn btn-default minBtn rcntBtn" style="margin: 0px">-</button>
 								      		<input type="text" id="sample_cnt" name="sample_cnt" value="0" readonly="readonly" />
@@ -578,26 +582,36 @@
 								 
 								 <div class="accordion-item"><!-- accordion-item4  -->
 								 	<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-								    	<div class="accordion-body accordion-cnt" style="background-color: #FFE4B5;">
+								    	<div class="accordion-body accordion-info" style="background-color: #FFE4B5;">
 								      		<div class="text-right">
 								      			<div id="reservtitle" style="font-size: 10px;color:#FF9364">제목</div>
 								      			<div id="reservtime" style="font-size: 10px;color:#A4814;padding:3px">날짜, 시간</div>
+								      			<div id="reservInfo" style="font-size: 16px;color:#5a5a5a;font-weight: bold">인원, 금액</div>
+								      		</div>
+								 	</div>
+								 </div><!-- accordion-item4  -->
+								 
+								 <div class="accordion-item"><!-- accordion-item5  -->
+								    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+								      <div class="accordion-body accordion-point" style="height: 45px">
+								      	<div class="text-right" >
+								      		<!-- 웅배님 추가영역 -->
 								      			<div>
 								      				<span style="font-size:12px;">포인트 사용:&nbsp;</span>
-								      				<input type="text" name="insertpoint" id="insertpoint" value="" style="width:45px;height:12px;">&nbsp;<button type="button" id="pointok" style="background-color:#F0B469;border-radius:5px;"><span style="font-size:10px;">사용</span></button>
+                                          <input type="text" name="insertpoint" id="insertpoint" value="" style="width:45px;height:12px;">&nbsp;<button type="button" id="pointok" style="background-color:#F0B469;border-radius:5px;"><span style="font-size:10px;">사용</span></button>
+                                       </div>
+                                       <div>
+                                       <span style="font-size:12px;">보유 포인트:&nbsp;&nbsp;&nbsp;<span id="pointspan">${uservo.user_point }</span> P</span><!-- uservo에서 user_point 가져오기 -->                               
 								      			</div>
-								      			<div>
-													<span style="font-size:12px;">보유 포인트:&nbsp;&nbsp;&nbsp;<span id="pointspan">${uservo.user_point }</span> P</span><!-- uservo에서 user_point 가져오기 -->							      				
-								      			</div>
-								      			<div id="reservInfo" style="font-size: 14px;color:#5a5a5a;font-weight: bold">인원, 금액</div>
-								      		</div>
+								      		<!-- 웅배님 추가영역 -->
 								      		<br>
 								      		<button class="btn btn-lg btn-block payBtn" style="height: 40px;margin-top:0px">결제하기</button>
 								 		</div>
-								 	</div>
-								 </div><!-- accordion-item4  -->
-											
-								
+								     	</div>
+								      </div>
+								    </div>
+								 </div><!-- accordion-item5  -->
+								 
 							</div><!-- 전체 accordionPanelsStayOpenExample 종료 -->
 				      </div> <!-- wrap-header d-flex align-items-center img -->
 					</div>

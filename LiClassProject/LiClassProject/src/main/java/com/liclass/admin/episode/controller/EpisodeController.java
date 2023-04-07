@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.liclass.admin.episode.service.EpisodeService;
 import com.liclass.admin.episode.vo.EpisodeVO;
 import com.liclass.client.login.vo.UserVO;
+import com.liclass.client.reserve.service.ReserveService;
+import com.liclass.client.reserve.vo.ReserveVO;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +31,9 @@ public class EpisodeController {
 	
 	@Setter(onMethod_=@Autowired )
 	private EpisodeService episodeService;
+	
+	@Setter(onMethod_=@Autowired )
+	private ReserveService reserveService;
 	
 	@ResponseBody
 	@GetMapping( value="/episode/episodeList", produces = MediaType.APPLICATION_JSON_VALUE /*produces = "application/json;charset=utf-8"*/  )
@@ -65,13 +70,25 @@ public class EpisodeController {
 		}
 	
 	@PostMapping("/episode/deleteEpisode")
-	public String deleteEpisode(@ModelAttribute EpisodeVO vo) {
+	public String deleteEpisode(@ModelAttribute EpisodeVO evo) {
 		log.info("삭제합니다...");
+		/*
 		int result = episodeService.epDelete(vo.getEp_no());
 		if(result==1) {
 			return "redirect:/admin/class/classDetail?c_no="+vo.getC_no();
 		} else {
 			return "redirect:/admin/class/classDetail?c_no="+vo.getC_no();
+		}
+		*/
+		int result = episodeService.epDel(evo.getEp_no());
+		if(result==1) {
+			List<ReserveVO>list = reserveService.reservListSelect(evo.getEp_no());
+			for( ReserveVO rvo : list ) {
+				reserveService.reservWithdraw(rvo.getR_no());
+			}
+			return "redirect:/admin/class/classDetail?c_no="+evo.getC_no();
+		} else {
+			return "redirect:/admin/class/classDetail?c_no="+evo.getC_no();
 		}
 	}
 	
