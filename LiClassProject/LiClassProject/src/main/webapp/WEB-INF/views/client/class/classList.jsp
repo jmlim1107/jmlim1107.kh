@@ -106,7 +106,7 @@
     		    								   cancelButtonText: 'no', 
     		    								   reverseButtons: false 
     		    								}).then(result => {
-    		    								   //if (result.isConfirmed) { // if(3)
+    		    								   if (result.isConfirmed) { // if(3)
     		    									   //console.log(likeId);
     		    									   $.ajax({ //ajax(2)
     					       		    					type : "POST",
@@ -137,7 +137,7 @@
     					       		    						} //if(4)의 종료
     					       		    					}//sucess 함수 종료
     		  					 						}); //ajax(2)종료
-    		    									   //}if(3)의 종료
+    		    									   } //if(3)의 종료
     		    								 }); //화살표 함수 종료
     	   				  				}//if(2)종료
     		    					}//success함수 종료
