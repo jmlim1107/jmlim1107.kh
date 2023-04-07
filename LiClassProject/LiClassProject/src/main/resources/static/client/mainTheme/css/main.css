@@ -61,9 +61,6 @@ h5 {
 /* ------------------------------------------------------------------------------
 	 General Style
 -------------------------------------------------------------------------------*/
-a {
-	color: #e84545;
-}
 a:hover, a:focus {
 	text-decoration: none;
 	-moz-transition: background-color, color, 0.3s;
@@ -96,7 +93,7 @@ ul li {
 /* ------------------------------------------------------------------------------
 	 Header & navigation
 -------------------------------------------------------------------------------*/
-#header {
+/* #header {
 	width: 94%;
 	z-index: 999;
 	margin-left: 3%;
@@ -126,8 +123,8 @@ ul li {
 	padding: 25px 0;
 }
 #header.fixed #menu-nav-toggle {
-	top: 18px;
-}
+	top: 18px; 
+}*/
 .navigation.open {
 	opacity: 0.9;
 	visibility: visible;

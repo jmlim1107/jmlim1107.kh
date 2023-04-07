@@ -1,8 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- 은아) 마이페이지 5. 나의 문의내역 --%>	
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/myQna.css" />
+<style>
+	#portfolio2{
+		width: 80%;
+	    margin: 20px;
+	    padding: 50px;
+	}
+	
+	.headline-h4{
+		color: #555;
+	    font-size: 20px;
+	    font-weight: 700;
+	    line-height: 35px;
+	    margin-bottom: 30px;
+	}
+</style>
 <script>
 	$(function(){
 		
@@ -16,26 +32,6 @@
 				contentTr.css("display","none");
 			} 
 		});
-	
-		//은아)페이지네이션 번호 클릭 시
-		$(".paginate_button2").click(function(){
-			
-			//현재페이지 localStorage에 activePosition저장
-			var activePosition = 4;
-			localStorage.setItem("activePosition",activePosition);
-			console.log("set activePosition : "+activePosition);
-			
-			var pageNum = $(this).data("num");
-			console.log("이동할 페이지 : "+pageNum);
-			$("#select-page").val(pageNum); 
-		 	
-			$("#page-form").attr({
-				"method":"get",
-				"action":"/mypage"
-			});
-			$("#page-form").submit(); 
-			
-      	});
 	});
 	
 </script>	
