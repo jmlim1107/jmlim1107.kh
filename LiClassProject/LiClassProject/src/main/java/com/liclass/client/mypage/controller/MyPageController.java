@@ -69,35 +69,29 @@ public class MyPageController { //은아,웅배
 		
 		//비밀번호 만료 알림
 		int result = userService.checkPwExp(loginUser);
+		log.info("checkPwExp : "+result);
 		if(result>90) {
 			model.addAttribute("pwOverExp", "Y");
 		}
-		//관심클래스 조회+페이징처리
-		lvo.setUser_no(loginUser.getUser_no());
-		lvo.setAmount(6);
-		int likesCnt = mypageService.myLikesCnt(lvo);
-		PageDTO likesPageDto = new PageDTO(lvo,likesCnt);
-		model.addAttribute("likesPageMaker",likesPageDto);
 		
-		List<LikesVO> myLikesList = mypageService.myLikesList(lvo);
-		model.addAttribute("myLikesList",myLikesList);
-		
-		//후기 조회+페이징처리
+		//후기 조회
 		rvo.setUser_no(loginUser.getUser_no());
-		rvo.setAmount(3);
 		int reviewCnt = mypageService.myReviewCnt(rvo);
-		PageDTO reviewPageDto = new PageDTO(rvo,reviewCnt);
-		model.addAttribute("reviewPageMaker",reviewPageDto);
-		
+		model.addAttribute("reviewCnt",reviewCnt);
 		List<ReviewVO> myReviewList = mypageService.myReviewList(rvo);
 		model.addAttribute("myReviewList",myReviewList);
 		
-		//문의 조회+페이징처리
+		//관심클래스 조회
+		lvo.setUser_no(loginUser.getUser_no());
+		int likesCnt = mypageService.myLikesCnt(lvo);
+		model.addAttribute("likesCnt",likesCnt);
+		List<LikesVO> myLikesList = mypageService.myLikesList(lvo);
+		model.addAttribute("myLikesList",myLikesList);
+				
+		//문의 조회
 		qvo.setUser_no(loginUser.getUser_no());
-		qvo.setAmount(10);
 		int qnaCnt = mypageService.myQnaCnt(loginUser); 
-		PageDTO qnaPageDto = new PageDTO(qvo,qnaCnt);
-		model.addAttribute("qnaPageMaker",qnaPageDto);
+		model.addAttribute("qnaCnt",qnaCnt);
 
 		List<ClientQnaBoardVO> myQnaList = mypageService.myQnaList(qvo);
 		model.addAttribute("myQnaList",myQnaList);
@@ -317,6 +311,76 @@ public class MyPageController { //은아,웅배
 		
 		likesService.delLikes(lvo);
 		
-		return "redirect:/mypage";
+		return "redirect:/mypage/myLikesHistory";
+	}
+	
+	/************************************************
+	 * 11.나의 후기
+	 * 요청 url : http://localhost:8080/mypage/myReviewHistory
+	************************************************/
+	@GetMapping("/mypage/myReviewHistory")
+	public String myReviewHistory(ReviewVO rvo,Model model,HttpSession session) {
+			
+			UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+			rvo.setUser_no(loginUser.getUser_no());
+			List<ReviewVO> myReviewList = mypageService.myReviewList(rvo);
+			model.addAttribute("myReviewList",myReviewList);
+		
+		return "client/mypage/myReviewHistory";
+	}
+	
+	/************************************************
+	 * 12.나의 관심클래스
+	 * 요청 url : http://localhost:8080/mypage/myLikesHistory
+	************************************************/
+	@GetMapping("/mypage/myLikesHistory")
+	public String myLikesHistory(LikesVO lvo,Model model,HttpSession session) {
+			
+			UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+			lvo.setUser_no(loginUser.getUser_no());
+			
+			List<LikesVO> myLikesList = mypageService.myLikesList(lvo);
+			model.addAttribute("myLikesList",myLikesList);
+			
+		return "client/mypage/myLikesHistory";
+	}
+	
+	
+	/************************************************
+	 * 13.나의 문의
+	 * 요청 url : http://localhost:8080/mypage/myQnAHistory
+	************************************************/
+	@GetMapping("/mypage/myQnAHistory")
+	public String myQnAHistory(ClientQnaBoardVO qvo,Model model,HttpSession session) {
+			
+			UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+			qvo.setUser_no(loginUser.getUser_no());
+			int qnaCnt = mypageService.myQnaCnt(loginUser); 
+			PageDTO qnaPageDto = new PageDTO(qvo,qnaCnt);
+			model.addAttribute("qnaPageMaker",qnaPageDto);
+
+
+			List<ClientQnaBoardVO> myQnaList = mypageService.myQnaList(qvo);
+			model.addAttribute("myQnaList",myQnaList);
+			
+		return "client/mypage/myQnAHistory";
+	}
+	
+	/************************************************
+	 * 14.나의 클래스일지 (준비중)
+	 * 요청 url : http://localhost:8080/mypage/myPost
+	************************************************/
+	@GetMapping("/mypage/myPost")
+	public String myPost(Model model,HttpSession session) {
+		/*UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+		pvo.setUser_no(loginUser.getUser_no());
+		pvo.setAmount(3);
+		int reviewCnt = mypageService.(pvo);
+		PageDTO reviewPageDto = new PageDTO(pvo,reviewCnt);
+		model.addAttribute("reviewPageMaker",reviewPageDto);
+		
+		List<ReviewVO> myReviewList = mypageService.myReviewList(pvo);
+		model.addAttribute("myReviewList",myReviewList);*/
+		return "client/mypage/myPost";
 	}
 }

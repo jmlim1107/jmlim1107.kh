@@ -24,11 +24,6 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/error/{1}.jsp" />
 	</definition>
 	
-	<!-- 팀소개 -->
-	<definition name="team" extends="basicTemplate">
-		<put-attribute name="body" value="/WEB-INF/views/common/team.jsp" />
-	</definition>
-	
 	<!-- 클래스  -->
 	<definition name="class/*" extends="basicTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/client/class/{1}.jsp" />
@@ -58,6 +53,7 @@
 	<definition name="client/*/*" extends="mypageContent">
 		<put-attribute name="body" value="/WEB-INF/views/client/{1}/{2}.jsp" />
 	</definition>
+	
 	<!-- 웅배 -->
 	<definition name="courseHistory" extends="mypageContent">
 		<put-attribute name="nav" value="" />

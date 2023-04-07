@@ -48,8 +48,8 @@
 		/***************************************** */
 	</style>
   	</head>
-  	<body id="gotop" style="overflow-x: hidden;">
-  		<div id="wrap">
+  	<body id="gotop">
+  		<div>
 			<header class="header" style="height: 0;">
 				<tiles:insertAttribute name="header" />
 			</header>
