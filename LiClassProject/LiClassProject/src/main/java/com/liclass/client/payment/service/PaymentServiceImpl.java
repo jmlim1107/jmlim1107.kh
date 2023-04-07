@@ -50,7 +50,7 @@ public class PaymentServiceImpl implements PaymentService{
             
             //compare db amount and api_amount
             // db에서 가격을 가져왔다고 가정.=100
-            if(pay_price.intValue() == api_amount) { 
+			if (pay_price.intValue() == api_amount) { 
                System.out.println("비교 성공");
                process_result = 0;
             }else {                         // 결제테이블에 저장(insert) - 결제상태는 = 결제실패 1, 예약상태 = 예약실패(update) 1
