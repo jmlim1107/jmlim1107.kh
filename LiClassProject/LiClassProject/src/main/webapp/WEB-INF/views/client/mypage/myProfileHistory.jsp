@@ -51,7 +51,7 @@
 			</c:if>
 			<c:if test="${loginUser.user_type eq 0}">
 				<div class="hover-content2">
-           			<a href="#img-edit" rel="modal:open"><i class="fa-solid fa-pen-to-square" id="profile-edit" style="border: 1px solid black;"></i></a>
+           			<a href="#img-edit" rel="modal:open"><i class="fa-solid fa-pen-to-square" id="profile-edit" style="color: #555;"></i></a>
            		</div>
   			</c:if>
 		</td>
@@ -71,7 +71,7 @@
 	<tr>
 <%-- 		<td>${updateUser}</td> --%>
 		<td><i class="fa-solid fa-calendar-days fa-2x"></i></td>
-		<td><span class = "tdfont">${loginUser.user_regdate} ~</span></td>
+		<td><span class = "tdfont">${loginUser.user_point}</span></td>
 	</tr>
 	
 	<tr>
