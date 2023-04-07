@@ -51,9 +51,9 @@
 		<input type="hidden" name="rno" value="">
 		<input type="hidden" name="userno" value="">
 		
-		<div style="width: 95%;
+		<div style="width: 100%;
 		    background-color: rgb(0,0,0,0.4);
-		    height: 150%;
+		    height: 200%;;
 		    position: absolute;
 		    top: -100px;">
 			<div id = "writeModal">
