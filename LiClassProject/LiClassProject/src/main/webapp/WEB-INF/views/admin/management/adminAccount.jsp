@@ -20,33 +20,32 @@
 
                     <form class="row g-3 needs-validation" novalidate="">
                         <div class="col-12">
-                            <label for="yourName" class="form-label">관리자 아이디</label>
-                            <input type="text" name="name" class="form-control" id="yourName" required="" disabled value="${}">
-                            <div class="invalid-feedback">Please, enter your name!</div>
+                            <label for="admin_name" class="form-label">관리자 아이디</label>
+                            <input type="text" name="admin_id" class="form-control" id="admin_id" required="" disabled value="${adminLogin.admin_id}">
                         </div>
 
                         <div class="col-12">
-                            <label for="yourEmail" class="form-label">비밀번호</label>
-                            <input type="email" name="email" class="form-control" id="yourEmail" required="">
-                            <div class="invalid-feedback">Please enter a valid Email adddress!</div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="yourUsername" class="form-label">관리자 이름</label>
+                            <label for="admin_name" class="form-label">관리자 이름</label>
                             <div class="input-group has-validation">
-                                <input type="text" name="username" class="form-control" id="yourUsername" required="">
-                                <div class="invalid-feedback">Please choose a username.</div>
+                                <input type="text" name="admin_name" class="form-control" id="admin_name" required="" disabled value="${adminLogin.admin_name}">
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="yourPassword" class="form-label">관리자 등급</label>
-                            <input type="password" name="password" class="form-control" id="yourPassword" required="">
-                            <div class="invalid-feedback">Please enter your password!</div>
+                            <label for="admin_pw" class="form-label">비밀번호</label>
+                            <input type="password" name="admin_pw" class="form-control" id="admin_pw" required="">
                         </div>
 
                         <div class="col-12">
-                            <button class="btn btn-primary w-100" type="submit">저장하기</button>
+                            <button type="button" class="btn btn-success">비밀번호 변경</button>
+                        </div>
+                        <div class="col-12">
+                            <label for="admin_level" class="form-label">관리자 등급</label>
+                            <input type="text" name="admin_level" class="form-control" id="admin_level" required="" disabled value="">
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary w-50" type="submit">저장하기</button>
                         </div>
                     </form>
                 </div>
