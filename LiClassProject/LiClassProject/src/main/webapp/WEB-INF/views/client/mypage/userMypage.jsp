@@ -224,7 +224,7 @@
 											                              	<i class="fa-solid fa-star"></i>
 										                              	</c:if>
 																	    <div class="media-body">
-																		    <h3 class="title mb-1"><a href="blog-post.html">${reviewVO.review_title}</a></h3>
+																		    <h3 class="title mb-1"><a href="/class/classDetail?c_no=${reviewVO.c_no}">${reviewVO.review_title}</a></h3>
 																		    <div class="meta mb-1"><span class="date">${reviewVO.review_date}</span></div>
 																		    <div class="intro">
 																			    <c:if test="${fn:length(reviewVO.review_content) > 30}">

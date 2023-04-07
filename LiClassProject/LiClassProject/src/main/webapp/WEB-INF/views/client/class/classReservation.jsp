@@ -294,7 +294,6 @@
 		
 		/* 포인트 적용 버튼 이벤트 */
 		$("#pointok").click(function(){
-
 			var point = ${uservo.user_point};
 			var price = $("#r_price").val();
 			var insertpoint = Number($("#insertpoint").val());
@@ -343,7 +342,6 @@
 					if(insertpoint != 0){
 						$("input[name=usepoint]").attr("value",insertpoint);
 					}
-					
 				}
 			}
 		});
