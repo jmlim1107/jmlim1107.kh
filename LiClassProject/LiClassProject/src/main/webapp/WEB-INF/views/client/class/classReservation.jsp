@@ -70,7 +70,7 @@
 					$("#reserve-modal").css("display","none");
 					$(".blocker").css("visibility","hidden");
 					$("#reservFrm > *").val("");
-					$("#insertpoint").val("");
+					
 					let user_no = '${ loginUser.user_no }';
 					$("#user_no").val('${ loginUser.user_no }');
 					$(".part1").text("날짜를 선택해주세요.");
@@ -297,7 +297,7 @@
 		
 		/* 포인트 적용 버튼 이벤트 */
 		$("#pointok").click(function(){
-			var point = ${uservo.user_point};
+			var point = '${uservo.user_point}';
 			var price = $("#r_price").val();
 			var insertpoint = Number($("#insertpoint").val());
 			var pointspan = $("#pointspan").val();
@@ -593,23 +593,25 @@
 								 
 								 <div class="accordion-item"><!-- accordion-item5  -->
 								    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-								      <div class="accordion-body accordion-point" style="height: 45px">
-								      	<div class="text-right" >
-								      		<!-- 웅배님 추가영역 -->
-								      			<div>
-								      				<span style="font-size:12px;">포인트 사용:&nbsp;</span>
-                                          <input type="text" name="insertpoint" id="insertpoint" value="" style="width:45px;height:12px;">&nbsp;<button type="button" id="pointok" style="background-color:#F0B469;border-radius:5px;"><span style="font-size:10px;">사용</span></button>
-                                       </div>
-                                       <div>
-                                       <span style="font-size:12px;">보유 포인트:&nbsp;&nbsp;&nbsp;<span id="pointspan">${uservo.user_point }</span> P</span><!-- uservo에서 user_point 가져오기 -->                               
-								      			</div>
-								      		<!-- 웅배님 추가영역 -->
-								      		<br>
-								      		<button class="btn btn-lg btn-block payBtn" style="height: 40px;margin-top:0px">결제하기</button>
-								 		</div>
-								     	</div>
+								      <div class="accordion-body accordion-point" style="height: 80px">
+								      	<div>
+								      		<span style="font-size: 13px; float: left; margin-bottom: 5px; font-weight: bolder;">포인트 적용&nbsp;&nbsp;&nbsp;</span>
+								      		
+								      		<span id="pointspan" style="font-size:8px; float: right;  margin-bottom: 5px; color : #CC0000;"> ${uservo.user_point }&nbsp;P</span>
+								      		<span style="font-size:8px; float: right;  margin-bottom: 5px; color : #CC0000">잔여 포인트&nbsp;&nbsp;</span>
+								      		<div style="margin-top: 12px;">
+								      		<input type="text" name="insertpoint" id="insertpoint" value="" style="width: 65%; height: 30%; border-radius: 5px;border: 1px solid gainsboro;">&nbsp;P
+								      			
+								      			<button type="button" id="pointok" style="background-color:#333;border-radius:5px; width: 20%;  margin-left : 15px; color : white;">
+								      				<span style="font-size:10px;">사용</span>
+								      			</button>
+								      		</div>
+								      	
+								      	</div>
 								      </div>
 								    </div>
+								 </div>
+								    <button class="btn btn-lg btn-block payBtn" style="height: 40px;margin-top:0px">결제하기</button>
 								 </div><!-- accordion-item5  -->
 								 
 							</div><!-- 전체 accordionPanelsStayOpenExample 종료 -->
@@ -626,4 +628,6 @@
          		</div>
 			</div>
 </div>
+
+
 
