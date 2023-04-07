@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.liclass.admin.episode.service.EpisodeService;
 import com.liclass.admin.episode.vo.EpisodeVO;
 import com.liclass.client.login.vo.UserVO;
+import com.liclass.client.payment.service.PaymentService;
+import com.liclass.client.payment.vo.PaymentVO;
+import com.liclass.client.payment.vo.RefundVO;
 import com.liclass.client.reserve.service.ReserveService;
 import com.liclass.client.reserve.vo.ReserveVO;
 
@@ -31,9 +34,10 @@ public class EpisodeController {
 	
 	@Setter(onMethod_=@Autowired )
 	private EpisodeService episodeService;
-	
 	@Setter(onMethod_=@Autowired )
 	private ReserveService reserveService;
+	@Setter(onMethod_=@Autowired )
+	private PaymentService paymentService;
 	
 	@ResponseBody
 	@GetMapping( value="/episode/episodeList", produces = MediaType.APPLICATION_JSON_VALUE /*produces = "application/json;charset=utf-8"*/  )
@@ -82,9 +86,33 @@ public class EpisodeController {
 		*/
 		int result = episodeService.epDel(evo.getEp_no());
 		if(result==1) {
+			//if예약내역이 존재한다면
 			List<ReserveVO>list = reserveService.reservListSelect(evo.getEp_no());
-			for( ReserveVO rvo : list ) {
-				reserveService.reservWithdraw(rvo.getR_no());
+			
+			int refund_status = 4; //강제환불상태 값
+			int refundresult = 0;
+			if(list.size()>0) {
+				for( ReserveVO rvo : list ) {
+					reserveService.reservWithdraw(rvo.getR_no()); 														//예약상태바꾸기
+					PaymentVO pvo = paymentService.getWithdrawPay(rvo.getR_no()); 				//예약의 결제데이터가져오기
+					refundresult = paymentService.payCencel( pvo.getMerchant_uid(), pvo.getPay_price() ); //환불처리하기
+					RefundVO refundVO = new RefundVO();
+					refundVO.setMerchant_uid(pvo.getMerchant_uid());
+				    refundVO.setRefund_method(pvo.getPay_method());
+				    refundVO.setRefund_price(pvo.getPay_price());
+				    refundVO.setUser_no(pvo.getUser_no());
+					if(refundresult==1) {
+					    refundVO.setRefund_status(refund_status);
+					    int a = paymentService.insertRefund(refundVO); //성공 환불데이터 입력하기
+					    paymentService.changePoint2(pvo);
+					    System.out.print(a+"개의 성공 환불데이터가 저장됨");
+					} else {
+					    refund_status = 1;
+					    refundVO.setRefund_status(refund_status);
+					    int a = paymentService.insertRefund(refundVO); //실패 환불데이터 입력하기
+					    System.out.print(a+"개의 실패 환불데이터가 저장됨");
+					}
+				}
 			}
 			return "redirect:/admin/class/classDetail?c_no="+evo.getC_no();
 		} else {
