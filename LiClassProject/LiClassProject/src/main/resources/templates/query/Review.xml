@@ -75,6 +75,48 @@
        </trim>
     </select>
 
+<<<<<<< HEAD
+	 
+	<!-- 게시물 등록 -->
+	<insert id ="reviewInsert" parameterType="review">
+		<selectKey keyProperty="review_no" resultType="int" order="BEFORE">
+			select Li_review_seq.nextval from dual
+		</selectKey>
+		INSERT INTO Li_review(review_no, review_title, review_content, review_date, review_status, review_rating, review_recommend, r_no, c_no, user_no)
+		VALUES(#{review_no}  , #{review_title}, #{review_content}, TO_CHAR(SYSDATE ,'YYYY-MM-DD'), 0, #{review_rating}, #{review_recommend} ,#{r_no}, #{c_no}, #{user_no})
+	</insert>
+	
+	<!-- 게시물 상세조회  -->
+	<select id = "reviewDetail" resultType="review" parameterType="review">
+		SELECT
+			review_no, review_title, review_content, Review_rating, review_recommend, r_no,
+			TO_CHAR(review_date, 'YYYY-MM-DD') AS review_date
+		FROM Li_review
+		WHERE r_no = #{r_no}
+	
+	</select>
+	
+	<!-- 게시글 수정조회 -->
+	<select id = "updateFormToRno" resultType="review" parameterType="review">
+		SELECT
+			review_no , review_title, review_content, Review_rating, review_recommend, r_no,
+			TO_CHAR(review_date, 'YYYY-MM-DD') AS review_date
+		FROM Li_review
+		WHERE r_no = #{r_no}
+	</select>
+	
+	
+	<!-- 게시글 수정	 -->
+	<update id = "reviewUpdate" parameterType = "review">
+		UPDATE Li_review
+		SET review_title = #{review_title},
+			review_content = #{review_content},
+			review_update = TO_CHAR(SYSDATE ,'YYYY-MM-DD'),
+			review_rating = #{review_rating},
+			review_recommend = #{review_recommend}
+		where r_no = #{r_no}
+	</update>
+=======
     
    <!-- 게시물 등록 -->
    <insert id ="reviewInsert" parameterType="review">
@@ -119,6 +161,7 @@
 <!-- >>>>>>> 720416294c0152cac3efc862011b8e908654a3d0 -->
       where r_no = #{r_no}
    </update>
+>>>>>>> 2ff863801b06bd4e2cd8546364d29e3665ec0898
 
 
    <!-- 게시글 삭제 -->
