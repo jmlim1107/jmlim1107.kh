@@ -295,53 +295,57 @@
 		/* 포인트 적용 버튼 이벤트 */
 		$("#pointok").click(function(){
 
-		var point = ${uservo.user_point};
-		var price = $("#r_price").val();
-		var insertpoint = Number($("#insertpoint").val());
-		var pointprice = $("#r_price").val()-$("input[name=insertpoint]").val();
-
-		if(point < insertpoint){ // 보유포인트가 입력한 포인트보다 적을때
-			alert("보유 포인트를 확인하시고 다시 입력해주세요.");4
-			$("#insertpoint").val("");
-		}else if($("#r_cnt").val()==0){
-			Swal.fire({
-				icon: 'warning',
-				confirmButtonColor: '#EA9A56',
-				title: '인원수를 선택해주세요'
-			});
-		}else if(price < insertpoint){ // 금액이 입력한 포인트보다 적을때
-			alert("입력하신 포인트가 금액보다 높습니다. 다시 입력해주세요.");
-			$("#insertpoint").val("");
-			console.log("dd"+$("#r_price").val());
-		}else{
-			if($("#insertpoint").val()!=""){
-				if(point >= price){
-					var point2 = point - insertpoint;
-					$("input[name=insertpoint]").attr("value",price);
-					$("#pointspan").html(point2);
-					$("input[name=usepoint]").attr("value",price);
-				}else{
-					$("input[name=insertpoint]").attr("value",insertpoint);
-					$("input[name=usepoint]").attr("value",insertpoint);
+			var point = ${uservo.user_point};
+			var price = $("#r_price").val();
+			var insertpoint = Number($("#insertpoint").val());
+			var pointspan = $("#pointspan").val();
+			var pointprice = $("#r_price").val()-$("input[name=insertpoint]").val();
+	
+			if(point < insertpoint){ // 보유포인트가 입력한 포인트보다 적을때
+				alert("보유 포인트를 확인하시고 다시 입력해주세요.");4
+				$("#insertpoint").val("");
+			}else if($("#r_cnt").val()==0){
+				Swal.fire({
+					icon: 'warning',
+					confirmButtonColor: '#EA9A56',
+					title: '인원수를 선택해주세요'
+				});
+			}else if(price < insertpoint){ // 금액이 입력한 포인트보다 적을때
+				alert("입력하신 포인트가 금액보다 높습니다. 다시 입력해주세요.");
+				$("#insertpoint").val("");
+				console.log("dd"+$("#r_price").val());
+			}else{
+				if($("#insertpoint").val()!=""){
+					if(point >= price){
+						var point2 = point - insertpoint;
+						$("input[name=insertpoint]").attr("value",price);
+						$("#pointspan").html(point2);
+						$("input[name=usepoint]").attr("value",price);
+					}else{
+						var point2 = point - insertpoint;
+						$("input[name=insertpoint]").attr("value",insertpoint);
+						$("#pointspan").html(point2);
+						$("input[name=usepoint]").attr("value",insertpoint);
+					}
+					$("#pointspan").val(point-pointspan);
+					
+					//$("#reservInfo").html("");
+					$("#reservInfo").html($("#r_cnt").val()+"명 ");
+					$("#reservInfo").append(pointprice+"원");
+					//$("#reservInfo").append(price)+"원";
+					$("#r_price").val( pointprice );
+					
+					alert("적용되었습니다. 페이지를 새로고침하면 초기화됩니다.");
+					$("input[name=insertpoint]").attr("readonly","readonly");
+					$("#pointok").attr("disabled","disabled").css("backgroundColor","#A4A4A4");
+					
+					console.log(insertpoint);
+					if(insertpoint != 0){
+						$("input[name=usepoint]").attr("value",insertpoint);
+					}
+					
 				}
-				
-				//$("#reservInfo").html("");
-				$("#reservInfo").html($("#r_cnt").val()+"명 ");
-				$("#reservInfo").append(pointprice+"원");
-				//$("#reservInfo").append(price)+"원";
-				$("#r_price").val( pointprice );
-				
-				alert("적용되었습니다. 페이지를 새로고침하면 초기화됩니다.");
-				$("input[name=insertpoint]").attr("readonly","readonly");
-				$("#pointok").attr("disabled","disabled").css("backgroundColor","#A4A4A4");
-				
-				console.log(insertpoint);
-				if(insertpoint != 0){
-					$("input[name=usepoint]").attr("value",insertpoint);
-				}
-				
 			}
-		}
 		});
 		
 		
