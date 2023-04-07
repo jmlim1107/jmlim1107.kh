@@ -16,7 +16,7 @@
 
 <div id="class-detail-div" style="padding-top: 70px; margin-left: 100px;">
 	<!-- 1. class img slider section start -->
-	<section id="header-slider" class="section" style="margin-top: 40px; width:64%;">
+	<section id="header-slider" class="section" style="    margin-top: 80px; width: 58%; margin-left: 100px;">
 		<%@ include file="/WEB-INF/views/client/class/classDetail-0.imgSlider.jsp" %>
 	</section>
 	<!-- 1. class img slider section end -->
@@ -25,7 +25,7 @@
 	<div class="container-fluid class-info" data-title = "${clientClassDetail.c_title}">
 		<div class="row" style="display:block;">
 		    <div class="col-md-10">
-			      <div class="card" style="display: block; border: none;">
+			      <div class="card" style="display: block; border: none; margin-left: 120px; width: 72%;" >
 				      <!-- Nav tabs start -->
 				      <ul class="nav nav-tabs" role="tablist">
 				          <li role="presentation" class="active"><a href="#class-info" aria-controls="class-info" role="tab" data-toggle="tab">클래스정보</a></li>

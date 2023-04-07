@@ -240,7 +240,7 @@
 	          	</c:when>
 	          	<c:otherwise>
 	          		<!--등록된 글이 없을 경우 -->
-					<div>등록된 게시글이 존재하지 않습니다.</div>
+					<div style="margin-left: 40px;">등록된 게시글이 존재하지 않습니다.</div>
 				</c:otherwise>
 	          </c:choose>
 	          <!-- Comment Box end--->
