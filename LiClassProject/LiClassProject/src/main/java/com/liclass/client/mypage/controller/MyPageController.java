@@ -103,6 +103,8 @@ public class MyPageController { //은아,웅배
         model.addAttribute("pvo_paymentList", pvo_paymentList);
         // 전체 레코드수 구현 (payment)
         int total_payment = mypageService.paymentListCnt(pvo);
+        //은아)0407 추가 - 마이페이지 뱃지 추가
+        model.addAttribute("paymentCnt",total_payment);
         // 페이징 처리
         model.addAttribute("pageMaker", new PageDTO(pvo, total_payment));
         // 결제내역 이미지 가져오기

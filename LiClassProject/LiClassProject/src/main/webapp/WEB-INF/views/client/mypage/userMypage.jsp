@@ -126,6 +126,9 @@
 		                     <div class="thumb go-active">                 
 		                       <span class="icon"><img class="icon-img" src="/resources/client/mypage/assets/images/search-icon-03.png" alt=""></span>
 		                       Payment
+		                       <c:if test="${paymentCnt > 0}" >
+			                       <span class="badge badge-primary badge-labeled">${paymentCnt}</span>
+		                       </c:if>
 		                     </div>
 		                   </div>
 		                   <div class="point" style="width:300px;max-width:300px;margin:0px;">
