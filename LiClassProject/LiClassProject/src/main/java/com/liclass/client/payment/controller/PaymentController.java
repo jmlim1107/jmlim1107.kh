@@ -36,7 +36,7 @@ public class PaymentController {
   
    @Setter(onMethod_=@Autowired )
 	private EpisodeService episodeService;
-   
+  
    // 결제 서버(db에 저장된 결제금액과 api에서 실제로 빠져나간 결제금액을 비교하여 검증 후 처리)
    @ResponseBody
    @RequestMapping(value="/callback_receive", consumes = "application/json", produces=MediaType.APPLICATION_JSON_VALUE)
