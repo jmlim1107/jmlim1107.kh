@@ -111,12 +111,8 @@
 		SET review_title = #{review_title},
 			review_content = #{review_content},
 			review_update = TO_CHAR(SYSDATE ,'YYYY-MM-DD'),
-<!-- <<<<<<< HEAD -->
-			<!-- review_rating = #{review_rating} -->
-<!-- ======= -->
 			review_rating = #{review_rating},
 			review_recommend = #{review_recommend}
-<!-- >>>>>>> 720416294c0152cac3efc862011b8e908654a3d0 -->
 		where r_no = #{r_no}
 	</update>
 
