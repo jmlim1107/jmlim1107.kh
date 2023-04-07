@@ -4,6 +4,40 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
+<script type="text/javascript">
+    $(function(){
+
+        $("#admin_change_btn").click(function (){
+            const admin_pw = "${adminLogin.admin_pw}";
+            const admin_pw_input = $("#admin_pw_conf").val();
+            if(admin_pw_input == admin_pw){
+            $("#basicModal").modal('show');
+            } else{
+                alert("비밀번호가 일치하지 않습니다.");
+            }
+        });
+        $("#change_pwd_btn").click(function (){
+            const admin_pw = $("#admin_pw").val();
+            const admin_change_pwConf = $("#admin_change_pwConf").val();
+
+            if(admin_pw == admin_change_pwConf){
+                if(confirm("비밀번호를 변경하시겠습니까?")){
+                console.log(admin_pw);
+                console.log(admin_change_pwConf);
+                $("#pw_change_form").attr({
+                    "method" : "post",
+                    "action" : "/liadmin/changeAdminPwd"
+                });
+
+                $("#pw_change_form").submit();
+                }
+            }
+        });
+
+    });
+
+</script>
+
 <div class="container">
     <h1>관리자 계정 관리</h1>
     <hr />
@@ -14,11 +48,11 @@
                 <div class="card-body">
 
                     <div class="pt-4 pb-2">
-                        <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
-                        <p class="text-center small">Enter your personal details to create account</p>
+                        <h5 class="card-title text-left pb-0 fs-4">비밀번호 변경</h5>
+                        <p class="text-left small">다른정보는 수정할 수 없습니다.</p>
                     </div>
 
-                    <form class="row g-3 needs-validation" novalidate="">
+                    <form class="row g-3 needs-validation" novalidate="" id="adminAccount">
                         <div class="col-12">
                             <label for="admin_name" class="form-label">관리자 아이디</label>
                             <input type="text" name="admin_id" class="form-control" id="admin_id" required="" disabled value="${adminLogin.admin_id}">
@@ -32,21 +66,43 @@
                         </div>
 
                         <div class="col-12">
-                            <label for="admin_pw" class="form-label">비밀번호</label>
-                            <input type="password" name="admin_pw" class="form-control" id="admin_pw" required="">
+                            <label for="admin_pw_conf" class="form-label">비밀번호</label>
+                            <input type="password" name="admin_pw_conf" class="form-control" id="admin_pw_conf" required="">
                         </div>
 
                         <div class="col-12">
-                            <button type="button" class="btn btn-success">비밀번호 변경</button>
-                        </div>
-                        <div class="col-12">
-                            <label for="admin_level" class="form-label">관리자 등급</label>
-                            <input type="text" name="admin_level" class="form-control" id="admin_level" required="" disabled value="">
-                        </div>
+                            <button type="button" class="btn btn-success" id="admin_change_btn">비밀번호 변경</button>
+                            <form id="pw_change_form" name="pw_change_form" method="post">
+                                <input type="hidden" name="admin_no" id="admin_no">
+                                <input type="hidden" name="admin_pw" id="admin_pw">
+                            </form>
+                            <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">관리자 비밀번호 변경</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <label for="admin_change_pw" class="form-label">비밀번호</label>
+                                                <input type="password" name="admin_change_pw" class="form-control" id="admin_change_pw" required="">
 
-                        <div class="col-12">
-                            <button class="btn btn-primary w-50" type="submit">저장하기</button>
+                                            <label for="admin_name" class="form-label">비밀번호 확인</label>
+                                            <input type="password" name="admin_pw" class="form-control" id="admin_change_pwConf" required="">
+
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-primary" id="change_pwd_btn">변경하기</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+                        <%--모달--%>
+
                     </form>
                 </div>
             </div>

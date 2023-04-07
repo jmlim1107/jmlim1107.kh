@@ -19,7 +19,6 @@
         from li_qna a, li_admin b
         where a.admin_no = b.admin_no(+) and qna_category = '공지'
         order by qna_top_state desc, qna_no desc
-
     </select>
 
     <!--전체 레코드 수 조회-->

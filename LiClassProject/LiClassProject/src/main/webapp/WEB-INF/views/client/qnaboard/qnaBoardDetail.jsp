@@ -55,15 +55,18 @@
                 <h3>[${detail.qna_category}]&nbsp;&nbsp;${detail.qna_title}</h3>
                 <div class="info">
                     <dl>
-                        <dt><strong>작성자</strong></dt>
-                        <dd>${detail.user_name}</dd>
+                        <dt><strong>작성자</strong>&nbsp;:</dt>
+                        <c:choose>
+                            <c:when test="${detail.qna_category== '공지'}"><dd>관리자</dd></c:when>
+                        <c:otherwise><dd>${detail.user_name}</dd></c:otherwise>
+                        </c:choose>
                     </dl>
                     <dl>
-                        <dt><strong>작성날짜</strong>&nbsp;:&nbsp;</dt>
+                        <dt><strong>작성날짜</strong>&nbsp;:</dt>
                         <dd>${detail.qna_date}&nbsp;&nbsp;</dd>
                         <c:if test="${not empty detail.qna_date_fix}">
                         <dd>(</dd>
-                            <dt><strong>수정날짜</strong>&nbsp;:&nbsp;</dt>
+                            <dt><strong>수정날짜</strong>&nbsp;:</dt>
                         <dd>${detail.qna_date_fix})</dd>
                         </c:if>
                     </dl>
@@ -80,16 +83,14 @@
                     <h3>[${answerDetail.qna_category}]&nbsp;&nbsp;${answerDetail.qna_title}</h3>
                     <div class="info">
                         <dl>
-                            <dt><strong>작성자</strong>&nbsp;:&nbsp;</dt>
+                            <dt><strong>작성자</strong>&nbsp;:</dt>
                                 <dd>${answerDetail.admin_name}</dd>
                         </dl>
                         <dl>
-                            <dt>작성날짜 : </dt>
+                            <dt>작성날짜 :</dt>
                             <dd>${answerDetail.qna_date}&nbsp;&nbsp;</dd>
                             <c:if test="${not empty answerDetail.qna_date_fix}">
-                                <dd>(</dd>
-                                <dt><strong>수정날짜</strong>&nbsp;:&nbsp;</dt>
-                                <dd>${answerDetail.qna_date_fix})</dd>
+                                <dt>(<strong>수정날짜</strong>&nbsp;: ${ answerDetail.qna_date_fix})</dt>
                             </c:if>
                         </dl>
                     </div>

@@ -6,4 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface AdminLoginDao {
     public AdminLoginVo loginProcess(AdminLoginVo login);
+
+    public int changeAdminPwd(AdminLoginVo login);
 }

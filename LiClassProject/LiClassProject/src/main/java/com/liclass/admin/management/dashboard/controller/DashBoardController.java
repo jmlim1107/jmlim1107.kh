@@ -22,11 +22,6 @@ public class DashBoardController {
 
     @Setter(onMethod_ = @Autowired)
     private DashBoardService dashBoardService;
-/*    @GetMapping(value = "/dashboard")
-    public String dashBoard(){
-
-        return "admin/management/dashboard";
-    }*/
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String noticeList(@ModelAttribute QnaBoardVo qnaBoard, DashBoardVo dashBoard,Model model) {
         log.info("boardList() 메서드 호출");
@@ -45,10 +40,6 @@ public class DashBoardController {
         model.addAttribute("userReserve", userReserve);
         model.addAttribute("allSales", allSales);
 
-/*        log.info("userState" + userState.values());
-        for(String i : userState.keySet()){
-            log.info("key : "+ i +"value : "+ userState.get(i));
-        }*/
 
         return "admin/management/dashboard";
     }
