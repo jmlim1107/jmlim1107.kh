@@ -295,7 +295,7 @@
 		/* 포인트 적용 버튼 이벤트 */
 		$("#pointok").click(function(){
 
-		var point = ${uservo.user_point};
+		var point = '${uservo.user_point}';
 		var price = $("#r_price").val();
 		var insertpoint = Number($("#insertpoint").val());
 		var pointprice = $("#r_price").val()-$("input[name=insertpoint]").val();
