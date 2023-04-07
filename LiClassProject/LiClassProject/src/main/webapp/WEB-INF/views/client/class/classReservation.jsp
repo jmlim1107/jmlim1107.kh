@@ -428,7 +428,7 @@
 								    padding: 10px;
 								    height: 60px;
     								border-radius: 10px;">
-									<h2  style="font-color:	#646464; display: inline;padding: 50px 30px 0 0;	color: white; font-weight: bold;"></h2>
+									<h2  style="font-color:	#646464; display: inline;padding: 50px 30px 0 0;	color: white; font-weight: bold;text-align: center">LiClass Reservation</h2>
 								    	<a id = "CloseBtn" />
 								    	<button type="button" class="btn-close" aria-label="Close" style="display: inline; float: right;  margin-top: 5px;  margin-right: 5px;"></button>
 								</div>
