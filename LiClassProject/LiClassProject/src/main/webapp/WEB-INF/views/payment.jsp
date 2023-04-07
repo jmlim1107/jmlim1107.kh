@@ -72,7 +72,8 @@
 								"pay_buyer_name" : rsp.buyer_name,
 								"pay_buyer_tel" : rsp.buyer_tel,
 								"pay_buyer_email" : rsp.buyer_email,
-								"pay_price" : ${rvo.r_price}
+								"pay_price" : ${rvo.r_price},
+								"usepoint" : ${usepoint}
 							}),
 							success : function(data){
 								var merchant_uid = data.merchant_uid;

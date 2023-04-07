@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -33,8 +34,9 @@ public class ReserveController {
 	private EpisodeService episodeService;
 	
 	@PostMapping("/reserve/makeReserve")
-	public String makeReserve( @ModelAttribute ReserveVO rvo, RedirectAttributes ras, Model model ) {
+	public String makeReserve( @ModelAttribute ReserveVO rvo,@RequestParam(required = false, defaultValue = "0") int usepoint, RedirectAttributes ras, Model model ) {
 		log.info("예약시작합니다...");
+		log.info("넘어온 포인트 = "+usepoint);
 		int result = reserveService.reservInsert(rvo); 
 		log.info(result+"라네..");
 		if(result==1) {
@@ -43,6 +45,7 @@ public class ReserveController {
 			UserVO uvo = paymentService.getUserInfo(reserve.getUser_no());
 			model.addAttribute("uvo", uvo);
 			model.addAttribute("rvo", reserve);
+			model.addAttribute("usepoint", usepoint);
 			return "payment"; //결제 화면
 		} else {
 			log.info("예약실패");

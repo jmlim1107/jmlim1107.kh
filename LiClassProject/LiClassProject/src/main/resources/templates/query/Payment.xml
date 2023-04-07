@@ -22,16 +22,28 @@
 	where lr.r_no = #{r_no}
    </select>
    
+   <!-- 포인트적립 -->
    <update id="getPoint" parameterType="long">
-   	update li_user set user_point = #{point} where user_no = #{user_no}
+   	update li_user set user_point = user_point+#{point} where user_no = #{user_no}
+   </update>
+   
+   <!-- 포인트 사용(결제) -->
+   <update id="changePoint" parameterType="payment">
+   	update li_user set user_point = user_point-#{pay_point}
+	where user_no = #{user_no}
+   </update>
+   
+   <update id="changePoint2" parameterType="payment">
+   	update li_user set user_point = user_point+#{pay_point}
+	where user_no = #{user_no}
    </update>
    
    <!-- 결제 테이블 저장(insert) -->
    <insert id="inserPayment" parameterType="payment">
       insert into li_payment(merchant_uid, r_no, user_no, pay_pg, pay_method, pay_name
-      , pay_price, pay_buyer_name, pay_buyer_tel, pay_buyer_email, pay_status)
+      , pay_price, pay_buyer_name, pay_buyer_tel, pay_buyer_email, pay_status, pay_point)
       values(#{merchant_uid}, #{r_no}, #{user_no}, #{pay_pg}, #{pay_method}, #{pay_name}, #{pay_price},
-      #{pay_buyer_name}, #{pay_buyer_tel}, #{pay_buyer_email}, #{pay_status})
+      #{pay_buyer_name}, #{pay_buyer_tel}, #{pay_buyer_email}, #{pay_status}, #{pay_point})
    </insert>
    <!-- 이메일로 회원아이디 가져오기 -->
    <select id="getUserId" parameterType="java.lang.String" resultType="User">
@@ -72,5 +84,6 @@
       delete from li_reserve
       where r_no = #{r_no}
    </delete>
+
 
 </mapper>

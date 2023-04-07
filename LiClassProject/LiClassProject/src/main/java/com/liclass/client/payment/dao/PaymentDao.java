@@ -37,5 +37,9 @@ public interface PaymentDao {
    
    public void getPoint(@Param("user_no")long user_no,@Param("point")long point);
    
+   public void changePoint(PaymentVO paymentVO);
+
+   public void changePoint2(PaymentVO paymentInfo);
+   
    
 }

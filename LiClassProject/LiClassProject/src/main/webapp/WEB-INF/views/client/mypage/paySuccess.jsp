@@ -111,11 +111,15 @@
 								</tr>
 								<tr>
 									<td>포인트 적립</td>		
-									<td>${uvo.user_point }원</td>
+									<td style="color:#58ACFA;"><strong>+ ${point}</strong>원</td>
+								</tr>
+								<tr>
+									<td>사용 포인트</td>		
+									<td>${pvo.pay_point } Point</td>
 								</tr>		
 								<tr>
 									<td>최종 결제 금액</td>
-									<td style="font-size:30px;text-decoration: underline;">${pvo.pay_price }원</td>
+									<td><strong>${rvo.r_price + pvo.pay_point}원 - ${pvo.pay_point }P </strong> = <span style="font-size:30px;text-decoration: underline;">${rvo.r_price}원</span></td>
 								</tr>
 							</tbody>
 						</table>

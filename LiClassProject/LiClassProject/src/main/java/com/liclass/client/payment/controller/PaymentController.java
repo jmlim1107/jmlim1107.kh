@@ -58,6 +58,7 @@ public class PaymentController {
       String imp_uid = (String)model.get("imp_uid");
       boolean success = (Boolean)model.get("success");
       String error_msg = (String)model.get("error_msg");
+      Integer usepoint = (Integer)model.get("usepoint");   
       
       // 결제 시스템
       int result = paymentSerivce.callback_receive(success, imp_uid, error_msg, pay_price);
@@ -77,6 +78,7 @@ public class PaymentController {
       paymentVO.setPay_buyer_tel(pay_buyer_tel);
       paymentVO.setUser_no(user_no);
       paymentVO.setR_no(r_no);
+      paymentVO.setPay_point(usepoint);  
       
       paymentData.put("merchant_uid", paymentVO.getMerchant_uid());
       
@@ -90,6 +92,7 @@ public class PaymentController {
          r_state = 2;
          paymentVO.setPay_status(pay_status);
          paymentSerivce.inserPayment(paymentVO);
+         paymentSerivce.changePoint(paymentVO);
          paymentSerivce.changeRerserveStatus(r_no, r_state);
          episodeService.EpcntUpdate(paymentSerivce.getPriceInfo(r_no));//회차의 숫자 증가
          System.out.println(paymentSerivce.getPriceInfo(r_no));
@@ -155,6 +158,7 @@ public class PaymentController {
          paymentSerivce.insertRefund(refundVO);
          ReserveVO rvo = paymentSerivce.getPriceInfo(paymentInfo.getR_no());
          episodeService.EpcntDel(rvo); //회차의 숫자 감소
+         paymentSerivce.changePoint2(paymentInfo);
          ras.addFlashAttribute("msg","환불이 완료되었습니다.");
          goUrl = "redirect:/mypage"; // 환불 완료 페이지
       }else {
@@ -180,6 +184,8 @@ public class PaymentController {
       ReserveVO rvo = paymentSerivce.getPriceInfo(reserveVO.getR_no());
       model.addAttribute("rvo", rvo);
 
+      double point = Math.round(rvo.getR_price() * 0.03); 
+      model.addAttribute("point",point);
       
       PaymentVO pvo = paymentSerivce.getPaymentInfo(paymentVO.getMerchant_uid());
       model.addAttribute("pvo", pvo);

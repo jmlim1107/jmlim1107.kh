@@ -37,6 +37,10 @@ public interface PaymentService {
 
    public void getPoint(long user_no,long point);
 
+   public void changePoint(PaymentVO paymentVO);
+
+   public void changePoint2(PaymentVO paymentInfo);
+
 
 
 }

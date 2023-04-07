@@ -167,7 +167,8 @@
 	                        <th data-value="b_num" class="order text-center col-md-3">상품정보</th>
 	                        <th class="text-center col-md-2">결제일자</th>
 	                        <th class="text-center col-md-2">결제번호</th>
-	                        <th class="text-center col-md-1">주문금액</th>
+	                        <th class="text-center col-md-1">사용포인트</th>
+	                        <th class="text-center col-md-1">최종결제금액</th>
 	                        <th class="text-center col-md-1">주문 상태</th>
 	                     </tr>
 	                  </thead>
@@ -183,6 +184,7 @@
 	                              </td>                     
 	                              <td class="name">${ payment.pay_date }</td>
 	                              <td class="name"><a class="csp" href="#sns-share" rel="modal:open">${ payment.merchant_uid }</a></td>
+	                              <td>${payment.pay_point }</td>
 	                              <td>${ payment.pay_price }</td>
 	                                      
 	                                    <c:if test="${payment.count<7}">

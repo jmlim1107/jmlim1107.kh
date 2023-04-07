@@ -160,6 +160,7 @@
       <id column="pay_date" property="pay_date" />
       <id column="pay_status" property="pay_status" />
       <id column="count" property="count" />
+      <id column="pay_point" property="pay_point"/>
    </resultMap>
    
    <select id="paymentList" parameterType="payment" resultMap="payList">
@@ -167,14 +168,15 @@
             select merchant_uid, r_no, user_no, pay_pg, pay_method, pay_name, pay_price
                , pay_buyer_name, pay_buyer_tel, pay_buyer_email, TO_CHAR(pay_date, 'YYYY-MM-DD HH24:MI:SS') AS pay_date, pay_status
                ,(select trunc(sysdate - (select pay_date from li_payment where merchant_uid = li.merchant_uid)) from dual) count
+               , pay_point
              from(
                 select 
                    rownum as rnum, merchant_uid, r_no, user_no, pay_pg, pay_method, pay_name, pay_price
-                    , pay_buyer_name, pay_buyer_tel, pay_buyer_email, pay_date, pay_status
+                    , pay_buyer_name, pay_buyer_tel, pay_buyer_email, pay_date, pay_status,pay_point
                 from (
                     select 
                         rownum as rnum, merchant_uid, r_no, user_no, pay_pg, pay_method, pay_name, pay_price
-                        , pay_buyer_name, pay_buyer_tel, pay_buyer_email, pay_date, pay_status
+                        , pay_buyer_name, pay_buyer_tel, pay_buyer_email, pay_date, pay_status,pay_point
                     from li_payment li
                     order by pay_date desc
                     )

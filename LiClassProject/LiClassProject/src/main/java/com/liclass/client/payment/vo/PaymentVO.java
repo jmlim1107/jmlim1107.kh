@@ -1,5 +1,6 @@
 package com.liclass.client.payment.vo;
 
+
 import com.liclass.common.vo.CommonVO;
 
 import lombok.AllArgsConstructor;
@@ -24,4 +25,5 @@ public class PaymentVO extends CommonVO{
 	private String pay_buyer_email="";
 	private String pay_date="";
 	private int pay_status=0;
+	private int pay_point=0;
 }

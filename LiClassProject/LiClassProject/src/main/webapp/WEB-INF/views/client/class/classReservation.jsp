@@ -185,18 +185,20 @@
 					$("#r_date").val(data.ep_date);				// 4-- 폼에 ep날짜 & 시간입력
 					ep_price = data.ep_price;
 					
-					let point = $("#insertpoint").val();
+					
+					/*let point = $("#insertpoint").val();
 					console.log(point);
 					let r_price = null;
 					if($("#insertpoint").val()!=""){
 						r_price = (data.ep_price - point) * Number($("#r_cnt").val());
 					}else{
 						r_price = data.ep_price * Number($("#r_cnt").val());
-					}
+					}*/
 					
-					console.log("dd");
-					//let r_price = (data.ep_price-point) * Number($("#r_cnt").val());
-					//$("#r_price").val( r_price );  // 5--폼에 연산된 가격입력(비정상흐름 : 인원선택-> ep변경)
+					//console.log("dd");
+					let r_price = data.ep_price * Number($("#r_cnt").val());
+					$("#r_price").val( r_price );  // 5--폼에 연산된 가격입력(비정상흐름 : 인원선택-> ep변경)
+					console.log("에피소드박스 눌렀을때 r_price = "+r_price);
 					
 					//###정보출력변환###
 					$("#reservtitle").html(data.c_title); 
@@ -215,7 +217,7 @@
 				Swal.fire({
 				      icon: 'warning',
 				      confirmButtonColor: '#EA9A56',
-				      title: '시간을 먼저 선택해주세요'
+				      title: '시간을 먼저i 선택해주세요'
 				});
 				return;
 			} else {
@@ -226,6 +228,9 @@
 				$("#reservtitle").html($("#c_title").val()); 
 				$("#reservtime").html($("#r_date").val()); 
 				$("#reservInfo").html($("#r_cnt").val()+"명 ");
+				
+				
+				/* 웅배 포인트 적립파트 */
 				var price = $("#r_price").val()-$("input[name=insertpoint]").val();
 				
 				if($("#insertpoint").val()!=""){
@@ -236,13 +241,14 @@
 					}else{
 						$("#reservInfo").append(price)+"원";
 						$("#r_price").val( price );
-						console.log($("#r_price").val());
+						//console.log($("#r_price").val());
+						console.log("금액 - 포인트 : "+price);
 					}
-					//$("#reservInfo").append(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원";
 				}else{
 					$("#reservInfo").append( $("#r_price").val().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원" );
-					console.log($("#r_price").val());
+					console.log("포인트 없을때 금액 : "+$("#r_price").val());
 				}
+				
 			}
 		});
 		
@@ -282,6 +288,11 @@
 					         var milliseconds = today.getMilliseconds();
 					         var makeMerchantUid = hours*13 +  minutes + seconds + milliseconds;
 					         console.log(makeMerchantUid);
+					        /* if($("#insertpoint").val()==""){
+									$("#insertpoint").val(0);
+									console.log($("#insertpoint").val());
+									//$("input[name=usepoint]").attr("value",insertpoint);
+								}*/
 					         $("#r_no").val(makeMerchantUid);
 					         $("#reservFrm").attr({
 					        	   "method":"post",
@@ -293,28 +304,55 @@
 			}
 		});//결제버튼 클릭 종료
 		
+		/* 포인트 적용 버튼 이벤트 */
 		$("#pointok").click(function(){
+
 			var point = ${uservo.user_point};
-			var pricepoint = $("#r_price").val();
-			var insertpoint = $("#insertpoint").val();
-			
-			if(point < insertpoint){
-				alert("보유 포인트를 확인하시고 다시 입력해주세요.");
+			var price = $("#r_price").val();
+			var insertpoint = Number($("#insertpoint").val());
+			var pointprice = $("#r_price").val()-$("input[name=insertpoint]").val();
+
+			if(point < insertpoint){ // 보유포인트가 입력한 포인트보다 적을때
+				alert("보유 포인트를 확인하시고 다시 입력해주세요.");4
+				$("#insertpoint").val("");
+			}else if($("#r_cnt").val()==0){
+				Swal.fire({
+				      icon: 'warning',
+				      confirmButtonColor: '#EA9A56',
+				      title: '인원수를 선택해주세요'
+				});
+			}else if(price < insertpoint){ // 금액이 입력한 포인트보다 적을때
+				alert("입력하신 포인트가 금액보다 높습니다. 다시 입력해주세요.");
+				$("#insertpoint").val("");
+				console.log("dd"+$("#r_price").val());
 			}else{
-				alert("적용되었습니다. 페이지를 새로고침하면 초기화됩니다.")
-				$("input[name=insertpoint]").attr("readonly","readonly");
-				
-				var fp = pricepoint - point
-				$("input[name=r_price]").attr("value", fp);
-			}
-		});
-		
-		$("#pointUse").click(function(){
-			//$("input[name=insertpoint]").attr("value",${uservo.user_point});
-			if($("#pointUse").is(":checked") == true){
-				$("input[name=insertpoint]").attr("value",${uservo.user_point});
-			}else{
-				$("input[name=insertpoint]").attr("value","");
+				if($("#insertpoint").val()!=""){
+					if(point >= price){
+						var point2 = point - insertpoint;
+						$("input[name=insertpoint]").attr("value",price);
+						$("#pointspan").html(point2);
+						$("input[name=usepoint]").attr("value",price);
+					}else{
+						$("input[name=insertpoint]").attr("value",insertpoint);
+						$("input[name=usepoint]").attr("value",insertpoint);
+					}
+					
+					//$("#reservInfo").html("");
+					$("#reservInfo").html($("#r_cnt").val()+"명 ");
+					$("#reservInfo").append(pointprice+"원");
+					//$("#reservInfo").append(price)+"원";
+					$("#r_price").val( pointprice );
+					
+					alert("적용되었습니다. 페이지를 새로고침하면 초기화됩니다.");
+					$("input[name=insertpoint]").attr("readonly","readonly");
+					$("#pointok").attr("disabled","disabled").css("backgroundColor","#A4A4A4");
+					
+					console.log(insertpoint);
+					if(insertpoint != 0){
+						$("input[name=usepoint]").attr("value",insertpoint);
+					}
+					
+				}
 			}
 		});
 		
@@ -342,6 +380,7 @@
 	<input type="hidden" name="r_date" id="r_date"/>
 	<input type="hidden" name="r_price" id="r_price"/>
 	<input type="hidden" name="r_cnt" id="r_cnt"/>
+	<input type="hidden" name="usepoint" id="usepoint" value=""/>
 </form>	
 
 <script src="/resources/reserve/js/jquery.min.js"></script>
@@ -554,12 +593,11 @@
 								      			<div id="reservtitle" style="font-size: 10px;color:#FF9364">제목</div>
 								      			<div id="reservtime" style="font-size: 10px;color:#A4814;padding:3px">날짜, 시간</div>
 								      			<div>
-								      				<span style="font-size:10px;">포인트 사용:  </span>
-								      				<input type="text" name="insertpoint" id="insertpoint" value="" style="width:45px;height:12px;">&nbsp;<button type="button" id="pointok" style="background-color:#F0B469;border-radius:5px;"><span style="font-size:10px;">적용</span></button>
+								      				<span style="font-size:12px;">포인트 사용:&nbsp;</span>
+								      				<input type="text" name="insertpoint" id="insertpoint" value="" style="width:45px;height:12px;">&nbsp;<button type="button" id="pointok" style="background-color:#F0B469;border-radius:5px;"><span style="font-size:10px;">사용</span></button>
 								      			</div>
 								      			<div>
-													<span style="font-size:10px;">내 포인트:  ${uservo.user_point }</span>	<!-- uservo에서 user_point 가져오기 -->							      				
-								      				<input type="checkbox" style="width:10px;height:10px;" id="pointUse" name="pointUse"/>
+													<span style="font-size:12px;">보유 포인트:&nbsp;&nbsp;&nbsp;<span id="pointspan">${uservo.user_point }</span> P</span><!-- uservo에서 user_point 가져오기 -->							      				
 								      			</div>
 								      			<div id="reservInfo" style="font-size: 14px;color:#5a5a5a;font-weight: bold">인원, 금액</div>
 								      		</div>

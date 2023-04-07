@@ -208,12 +208,18 @@ public class PaymentServiceImpl implements PaymentService{
 	@Override
 	public void getPoint(long user_no,long point) {
 		paymentDao.getPoint(user_no,point);
+	}
+
+	@Override
+	public void changePoint(PaymentVO paymentVO) {
+		paymentDao.changePoint(paymentVO);
+	}
+
+	@Override
+	public void changePoint2(PaymentVO paymentInfo) {
+		paymentDao.changePoint2(paymentInfo);
 	}	
 
-    
-   
-
-   
 
 
    
