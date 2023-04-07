@@ -72,6 +72,14 @@ public class AdminLoginController {
 
     @RequestMapping("/adminAccount")
     public String adminAccount(@SessionAttribute ("adminLogin")AdminLoginVo adminLoginVo) {
-        return "admin/management/adminAccount";
+        int admin_no = adminLoginVo.getAdmin_no();
+        String admin_id = adminLoginVo.getAdmin_id();
+        String admin_name = adminLoginVo.getAdmin_name();
+        String admin_email = adminLoginVo.getAdmin_email();
+        String admin_pw = adminLoginVo.getAdmin_pw();
+
+        log.info("세션정보 : " + admin_no + " / " + admin_id+ " / " + admin_name + " / " + admin_email + " / " + admin_pw);
+
+        return "";
     }
 }
