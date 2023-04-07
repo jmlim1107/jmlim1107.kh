@@ -98,7 +98,7 @@
 	<!--6. 나의 문의 갯수 -->
 	<select id="myQnaCnt" parameterType="User" resultType="int">
         select count(*) from li_qna
-		where user_no = #{user_no}
+		where user_no = #{user_no} and admin_no is null
 	</select>
 	
 	<!--7. 프로필 사진 수정  -->
