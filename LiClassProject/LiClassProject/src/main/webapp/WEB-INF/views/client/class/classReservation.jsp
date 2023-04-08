@@ -55,31 +55,22 @@
 		
 		$("#CloseBtn").click(function(){
 			Swal.fire({
-				   text: "예약선택 내역이 초기화됩니다. 창을 닫으시겠습니까?",
-				   icon: 'warning',
-				   showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
-				   confirmButtonColor: '#EA9A56', // confrim 버튼 색깔 지정
-				   cancelButtonColor: '#8c8c8c', // cancel 버튼 색깔 지정
-				   confirmButtonText: 'yes', // confirm 버튼 텍스트 지정
-				   cancelButtonText: 'no', // cancel 버튼 텍스트 지정
-				   reverseButtons: false // 버튼 순서 거꾸로
-				}).then(result => {
-				   // 만약 Promise리턴을 받으면,
-				   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면
-					 //모달 닫았을때 선택내용 reset
-					$("#reserve-modal").css("display","none");
-					$(".blocker").css("visibility","hidden");
-					$("#reservFrm > *").val("");
+			      icon: 'info',
+			      confirmButtonColor: '#5ACCFF',
+			      title: '예약진행이 취소되었습니다.',
+			      text: '다시 이용해주세요.'
+			});
 					
-					let user_no = '${ loginUser.user_no }';
-					$("#user_no").val('${ loginUser.user_no }');
-					$(".part1").text("날짜를 선택해주세요.");
-					$("#collapseTwo").removeClass("show");
-					$("#collapseThree").removeClass("show");
-					$("#collapseFour").removeClass("show");
-					$("#collapseFive").removeClass("show");
-				   }
-				});
+			//모달 모두 reset
+			$("#reservFrm > *").val("");
+			let user_no = '${ loginUser.user_no }';
+			$("#user_no").val('${ loginUser.user_no }');
+			$(".part1").text("날짜를 선택해주세요.");
+			$("#collapseTwo").removeClass("show");
+			$("#collapseThree").removeClass("show");
+			$("#collapseFour").removeClass("show");
+			$("#collapseFive").removeClass("show");
+			
 		});
 		
 		
@@ -429,8 +420,9 @@
 								    height: 60px;
     								border-radius: 10px;">
 									<h2  style="font-color:	#646464; display: inline;padding: 50px 30px 0 0;	color: white; font-weight: bold;text-align: center">LiClass Reservation</h2>
-								    	<a id = "CloseBtn" />
+								    	<a id = "CloseBtn" rel="modal:close">
 								    	<button type="button" class="btn-close" aria-label="Close" style="display: inline; float: right;  margin-top: 5px;  margin-right: 5px;"></button>
+								    	</a>
 								</div>
 					
 					
