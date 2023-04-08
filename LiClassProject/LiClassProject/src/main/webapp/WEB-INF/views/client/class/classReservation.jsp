@@ -212,7 +212,7 @@
 				Swal.fire({
 				      icon: 'warning',
 				      confirmButtonColor: '#EA9A56',
-				      title: '시간을 먼저i 선택해주세요'
+				      title: '시간을 먼저 선택해주세요'
 				});
 				return;
 			} else {
@@ -312,14 +312,14 @@
 				Swal.fire({
 				      icon: 'warning',
 				      confirmButtonColor: '#EA9A56',
-				      title: '시간을 선택해주세요'
+				      title: '시간을 먼저 선택해주세요'
 				});
 				return;
 			} else if( $("#r_cnt").val()==0 ){
 				Swal.fire({
 				      icon: 'warning',
 				      confirmButtonColor: '#EA9A56',
-				      title: '인원수를 선택해주세요'
+				      title: '인원수를 먼저 선택해주세요'
 				});
 				return;
 			} else {
