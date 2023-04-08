@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/myProfileImg.css" />
 <script src="/resources/client/mypage/assets/js/myProfileImg.js"></script>
 <%-- 은아) 마이페이지 1. 나의 회원정보--%>	
@@ -70,8 +71,8 @@
 	
 	<tr>
 <%-- 		<td>${updateUser}</td> --%>
-		<td><i class="fa-solid fa-calendar-days fa-2x"></i></td>
-		<td><span class = "tdfont">${loginUser.user_point}</span></td>
+		<td><i class="fa-solid fa-record-vinyl fa-2x"></i></td>
+		<td><span class = "tdfont"> <fmt:formatNumber value="${loginUser.user_point}" pattern="#,###"/>  point</span></td>
 	</tr>
 	
 	<tr>

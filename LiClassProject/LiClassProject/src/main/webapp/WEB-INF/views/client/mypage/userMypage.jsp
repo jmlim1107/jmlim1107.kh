@@ -34,6 +34,28 @@
 		width:10px;
 		margin-top:2px;
 	}
+	
+	.service-item img {
+	width: 100%;
+	overflow: hidden;
+}
+
+.service-item .down-content {
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.service-item .down-content h4 {
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 0.25px;
+	margin-bottom: 15px;
+}
+
+.service-item .down-content p {
+	margin-bottom: 20px;
+}
+
 </style> 
 <link rel="stylesheet" href=
         "https://www.w3schools.com/w3css/4/w3.css">
@@ -202,14 +224,13 @@
 		                            <div class="col-lg-12 align-self-center">
 		                              <div class="left-text">
 		                                <h4>나의 후기</h4>
-										    <section class="blog-list px-3 py-5">
+										   <!--<section class="blog-list px-3 py-5">
 											    <div class="container">
 											    	 <c:choose>
 							                     		<c:when test="${ not empty myReviewList }">
 							                        		<c:forEach var="reviewVO" items="${myReviewList}" begin="0" end="2" >
 															    <div class="item mb-5">
 																    <div class="media">
-																    	
 																	     <c:if test="${reviewVO.review_rating eq 1}">
 											                             	 <i class="fa-solid fa-star" ></i>
 										                              	</c:if>
@@ -258,10 +279,57 @@
 							                   		 	</c:otherwise>
 												    </c:choose>
 											    </div>
-										    </section>
+										    </section>-->
+										     <c:choose>
+							                     <c:when test="${ not empty myReviewList }">
+							                        <c:forEach var="reviewVO" items="${myReviewList}" begin="0" end="2" >
+										    			<div class="col-md-4">
+												            <div class="service-item">
+												              <img src="/uploadLiClass/class/${reviewVO.class_img}" alt="" style="width=270px; height: 200px;">
+												              <div class="down-content" style="height: 250px;">
+												              	 <c:if test="${reviewVO.review_rating eq 1}">
+												                   <i class="fa-solid fa-star" ></i>
+												                </c:if>
+												                <c:if test="${reviewVO.review_rating eq 2}">
+												                 	<i class="fa-solid fa-star"></i>
+												                 	<i class="fa-solid fa-star"></i>
+												                </c:if>
+												                <c:if test="${reviewVO.review_rating eq 3}">
+												                 	<i class="fa-solid fa-star"></i>
+												                 	<i class="fa-solid fa-star"></i>
+												                 	<i class="fa-solid fa-star"></i>
+												                </c:if>
+												                <c:if test="${reviewVO.review_rating eq 4}">
+												                 	<i class="fa-solid fa-star"></i>
+												                 	<i class="fa-solid fa-star"></i>
+												                 	<i class="fa-solid fa-star"></i>
+												                 	<i class="fa-solid fa-star"></i>
+												                </c:if>
+												                <c:if test="${reviewVO.review_rating eq 5}">
+												                 	<i class="fa-solid fa-star" ></i>
+												                 	<i class="fa-solid fa-star" ></i>
+												                 	<i class="fa-solid fa-star"></i>
+												                 	<i class="fa-solid fa-star"></i>
+												                 	<i class="fa-solid fa-star"></i>
+												                </c:if>
+												                <h4 style="font-size: 14px;">${reviewVO.review_title}</h4>
+												                <p>
+											                	   <c:if test="${fn:length(reviewVO.review_content) > 30}">
+																		${fn:substring(reviewVO.review_content, 0, 29)}...
+																	</c:if>
+																	<c:if test="${fn:length(reviewVO.review_content) < 31}">
+																		${reviewVO.review_content}
+																	</c:if>
+												                </p>
+												              </div>
+												            </div>
+												          </div>
+												         </c:forEach>
+												        </c:when>
+												       </c:choose>
 										    <c:if test="${ not empty myReviewList }">
 										         <div class="col-lg-5">
-				                               		 <div class="main-white-button"><a href="/mypage/myReviewHistory"><i class="fa fa-eye"></i>자세히 보기</a></div>
+				                               		 <div class="main-white-button"><a href="/mypage/myReviewHistory"  style="border: 1px solid #999; margin-top: 30px;"><i class="fa fa-eye"></i>자세히 보기</a></div>
 										         </div>
 										    </c:if>
 										     <c:if test="${ empty myReviewList }">
@@ -312,12 +380,12 @@
 										</div>
 										<c:if test="${ not empty myLikesList }">
 									         <div class="col-lg-5">
-			                               		 <div class="main-white-button"><a href="/mypage/myLikesHistory"><i class="fa fa-eye"></i>자세히 보기</a></div>
+			                               		 <div class="main-white-button"><a href="/mypage/myLikesHistory" style="border: 1px solid #999; margin-top: 30px;"><i class="fa fa-eye"></i>자세히 보기</a></div>
 									         </div>
 									    </c:if>
 									    <c:if test="${ empty myLikesList }">
 									         <div class="col-lg-5">
-			                               		 <div class="main-white-button"><a href="/class/classList"><i class="fa-solid fa-person-walking"></i>클래스 구경가기</a></div>
+			                               		 <div class="main-white-button"><a href="/class/classList" style="border: 1px solid #999; margin-top: 30px;"><i class="fa-solid fa-person-walking"></i>클래스 구경가기</a></div>
 									         </div>
 									    </c:if>
 		                             </div>
@@ -338,12 +406,12 @@
 		                                	<section class="blog-list px-3 py-5">
 											    <div class="container">
 											    	 <c:choose>
-							                     		<c:when test="${ not empty myQnaList }">
-							                        		<c:forEach var="qnaVO" items="${myQnaList}" begin="0" end="2" >
-															    <div class="item mb-5">
+							                     		<c:when test="${ not empty myQnaList }" >
+							                        		<c:forEach var="qnaVO" items="${myQnaList}" begin="0" end="2"  varStatus="status">
+															    <div class="item" >
 																    <div class="media">
 																	    <div class="media-body">
-																		    <h4 class="title mb-1"><i class="fa-solid fa-circle-question"></i>  ${qnaVO.qna_title}</h4>
+																		    <h4 class="title mb-1" style=" font-size: 14px;"><i class="fa-solid fa-q"></i>${status.index+1}.  ${qnaVO.qna_title}</h4>
 																		    <span class="date">${qnaVO.qna_date}</span>
 																		    <div class="intro"><c:if test="${fn:length(qnaVO.qna_content) > 30}">
 																				${fn:substring(qnaVO.qna_content, 0, 29)}...
@@ -352,11 +420,12 @@
 																				${qnaVO.qna_content}
 																			</c:if></div>
 																			<c:choose>
+																			
 											                                 <c:when test="${qnaVO.qna_status == 0 }">
-											                                    <p>답변완료<p>
+											                                  <span class="badge badge-primary badge-labeled" style="background-color: #08176aad; padding:6px;">답변완료</span>
 											                                 </c:when>
 											                                 <c:when test="${qnaVO.qna_status == 1 }">
-											                                 	<p style="color: #fa8072a8;">답변대기<p>
+											                                 	<span class="badge badge-primary badge-labeled" style="background-color: #e48c8cf5; padding:6px;">답변대기</span>
 											                                 </c:when>
 											                              	</c:choose>   
 																	    </div><!--//media-body-->
@@ -374,12 +443,12 @@
 										    </section>
 										    <c:if test="${ not empty myReviewList }">
 										         <div class="col-lg-5">
-				                               		 <div class="main-white-button"><a href="/mypage/myQnAHistory"><i class="fa fa-eye"></i>자세히 보기</a></div>
+				                               		 <div class="main-white-button"><a href="/mypage/myQnAHistory" style="border: 1px solid #999; margin-top: 30px;"><i class="fa fa-eye"></i>자세히 보기</a></div>
 										         </div>
 										    </c:if>
 										     <c:if test="${ empty myReviewList }">
 										         <div class="col-lg-5">
-				                               		 <div class="main-white-button"><a href="/client/qnaboard/qnaBoard"><i class="fa-solid fa-money-check"></i>문의 하기</a></div>
+				                               		 <div class="main-white-button"><a href="/client/qnaboard/qnaBoard" style="border: 1px solid #999; margin-top: 30px;"><i class="fa-solid fa-money-check"></i>문의 하기</a></div>
 										         </div>
 										    </c:if>
 		                              </div>
@@ -401,7 +470,7 @@
 							        		   </div>
 		                                	</div>
 										   <div class="col-lg-5">
-		                               		 <div class="main-white-button"><a href="/mypage/myPost"><i class="fa-solid fa-book-medical"></i> 포스팅 하기</a></div>
+		                               		 <div class="main-white-button"><a href="/mypage/myPost" style="border: 1px solid #999; margin-top: 30px;"><i class="fa-solid fa-book-medical"></i> 포스팅 하기</a></div>
 								         </div>
 		                              </div>
 		                            </div>

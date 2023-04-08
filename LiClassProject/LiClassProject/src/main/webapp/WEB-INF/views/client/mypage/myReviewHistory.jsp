@@ -77,6 +77,7 @@
 							                              </td>
 							                              <td style="text-align:left;padding-left:15px; cursor: pointer;" class="review_title">
 							                                 <span style="padding-left:30px;">${reviewVO.review_title}</span>
+							                                 <span style="padding-left:30px;">${reviewClassDetail}</span>
 							                              </td>                     
 							                              <td class="name">${reviewVO.review_date}</td>
 							                              	<c:if test="${reviewVO.review_rating eq 1}">

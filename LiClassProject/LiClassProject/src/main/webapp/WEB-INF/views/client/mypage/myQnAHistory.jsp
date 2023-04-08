@@ -75,7 +75,7 @@
 				                               <span style="padding-left:30px;" class="qna_content">${qnaVO.qna_content}</span>
 			                           		</td>
 			                           		<td>
-			                                	<button type="button" style="margin: 0px auto;" onclick="location.href='client/qnaboard/qnaBoardDetail?qna_no=${qnaVO.qna_no}'">
+			                                	<button type="button" style="margin: 0px auto;" onclick="location.href='/client/qnaboard/qnaBoardDetail?qna_no=${qnaVO.qna_no}'">
 			                                		<i class="fa-regular fa-pen-to-square"></i>수정/삭제
 			                                	</button>
 			                                </td>
