@@ -34,7 +34,8 @@ public class ReserveController {
 	private EpisodeService episodeService;
 	
 	@PostMapping("/reserve/makeReserve")
-	public String makeReserve( @ModelAttribute ReserveVO rvo,@RequestParam(required = false, defaultValue = "0") int usepoint, RedirectAttributes ras, Model model ) {
+	public String makeReserve( @ModelAttribute ReserveVO rvo,@RequestParam(required = false, defaultValue = "0") int usepoint, 
+								RedirectAttributes ras, Model model ) {
 		log.info("예약시작합니다...");
 		log.info("넘어온 포인트 = "+usepoint);
 		int result = reserveService.reservInsert(rvo); 

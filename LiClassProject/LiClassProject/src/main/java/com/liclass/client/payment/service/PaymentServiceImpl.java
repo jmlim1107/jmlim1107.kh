@@ -121,7 +121,7 @@ public class PaymentServiceImpl implements PaymentService{
       // 응답 header 생성
       HttpHeaders responseHeaders = new HttpHeaders();
       responseHeaders.add("Content-Type", "application/json; charset=UTF-8");
-      CancelData cancelData = new CancelData(merchant_uid, false);
+      CancelData cancelData = new CancelData(merchant_uid, true);
       
       try {
          //db select (select amount from order_table where marchant_uid = ?)
@@ -130,15 +130,20 @@ public class PaymentServiceImpl implements PaymentService{
          String api_secret = "QY3l9fXLrXtnNbu0XGvOZAgu3HitQO6Z73CfOu791LCqFjASsLPv4BsxyfGjAWs55DltXd3nzDjiZmbp";
                   
          IamportClient ic = new IamportClient(api_key, api_secret);
-         IamportResponse<Payment> result = ic.cancelPaymentByImpUid(cancelData); 
+         IamportResponse<Payment> paymentStatus = ic.paymentByImpUid(merchant_uid);
+         //IamportResponse<Payment> result = ic.cancelPaymentByImpUid(cancelData); 
          
-         BigDecimal iamport_amount = result.getResponse().getCancelAmount();
+         BigDecimal iamport_amount = paymentStatus.getResponse().getAmount(); 
          int api_amount = iamport_amount.intValue();
+         
+         //BigDecimal iamport_amount1 = result.getResponse().getCancelAmount();
+         //int api_amount = iamport_amount1.intValue();
          
          //compare db amount and api_amount
          // db에서 가격을 가져왔다고 가정.=100
          if(dbPrice == api_amount) {          // 결제테이블에 저장(update) - 결제상태 = 환불 3, 예약상태 = 예약취소(update) 2, 환불테이블에 저장(insert) - 환불상태 = 1
             System.out.println("성공");
+            ic.cancelPaymentByImpUid(cancelData); 
             process_result = 0;   
          }else {                      // 환불테이블에 저장(insert) - 환불상태 = 2
             System.out.println("실패");
