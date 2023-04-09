@@ -34,6 +34,15 @@
 			      title: message
 				});
 		}
+		
+		if('${payerrormsg}' != ""){
+			var message = "${payerrormsg}" ;
+			Swal.fire({
+			      icon: 'warning',
+			      confirmButtonColor: '#EA9A56',
+			      title: message
+				});
+		}
 	})
 </script>
  <body id="page-top" data-spy="scroll" data-target=".side-menu">

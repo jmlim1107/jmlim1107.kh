@@ -36,17 +36,6 @@
 		======================================================== -->
 		<script type="text/javascript">
 			$(function() {
-				/**************************상세화면******************************** 
-				$(".goDetail").click(function(){
-	    			let num = $(this).parents("tr").attr("data-num");
-	    			console.log(num);
-	    			location.href="/admin/class/classDetail?c_no="+num;
-				});*/
-				
-				/*$("#insertBtn").click(function(){
-					location.href="/admin/class/writeForm";
-				});*/
-				/*****************************검색*********************************/ 
 				
 				//1) 검색후처리
 				let word = "<c:out value='${data.keyword}'/>"; 

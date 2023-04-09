@@ -158,6 +158,7 @@
 	          <url>https://jitpack.io</url>
 	      </repository>
 	   </repositories>
+	   
 	<build>
 		<plugins>
 			<plugin>
