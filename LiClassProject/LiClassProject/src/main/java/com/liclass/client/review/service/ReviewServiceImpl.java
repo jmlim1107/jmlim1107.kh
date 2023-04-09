@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.liclass.client.classes.dao.ClientClassImgDAO;
-import com.liclass.client.classes.vo.ClientClassImgVO;
 import com.liclass.client.review.dao.ReviewDAO;
 import com.liclass.client.review.vo.ReviewVO;
 

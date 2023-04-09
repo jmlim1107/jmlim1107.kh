@@ -13,7 +13,6 @@
 <style>
 .custom-cursor-default-hover{ margin-top: 15px;}
 </style>
-
 <div id="class-detail-div" style="padding-top: 70px; margin-left: 100px;">
 	<!-- 1. class img slider section start -->
 	<section id="header-slider" class="section" style="    margin-top: 80px; width: 58%; margin-left: 100px;">
@@ -22,7 +21,7 @@
 	<!-- 1. class img slider section end -->
 	
 	<!-- 2. information section start -->
-	<div class="container-fluid class-info" data-title = "${clientClassDetail.c_title}">
+	<div class="container-fluid class-info" data-title = "${clientClassDetail.c_title}" >
 		<div class="row" style="display:block;">
 		    <div class="col-md-10">
 			      <div class="card" style="display: block; border: none; margin-left: 120px; width: 72%;" >

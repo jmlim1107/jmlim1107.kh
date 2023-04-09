@@ -116,6 +116,7 @@ h6 {
 
 #header .logo a {
   color: #fff;
+  text-decoration: none;
 }
 
 #header .logo img {
@@ -168,6 +169,8 @@ h6 {
   transition: 0.3s;
   letter-spacing: 0.4px;
   position: relative;
+  text-decoration: none;
+  
 }
 
 .navbar a i,
@@ -175,6 +178,7 @@ h6 {
   font-size: 12px;
   line-height: 0;
   margin-left: 5px;
+  text-decoration: none;
 }
 
 .navbar>ul>li>a:before {
@@ -202,6 +206,7 @@ h6 {
 .navbar .active:focus,
 .navbar li:hover>a {
   color: #fff;
+  text-decoration: none;
 }
 
 .navbar .dropdown ul {

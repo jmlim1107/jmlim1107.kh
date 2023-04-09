@@ -8,6 +8,8 @@
 		<typeAlias type="com.liclass.client.review.vo.ReviewVO" alias="Review"/>
 		<typeAlias type="com.liclass.client.qnaboard.vo.ClientQnaBoardVO" alias="ClientQnaBoard"/>
 		<typeAlias type="com.liclass.client.classes.vo.ClientClassImgVO" alias="ClassImg"/>
+		<typeAlias type="com.liclass.client.post.vo.PostVO" alias="Post"/>
+		
 		<!--웅배-->
 		<typeAlias type="com.liclass.client.reserve.vo.ReserveVO" alias="reserve"/>
          <typeAlias type="com.liclass.client.payment.vo.PaymentVO" alias="payment"/>

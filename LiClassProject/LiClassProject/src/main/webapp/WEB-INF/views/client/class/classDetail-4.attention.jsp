@@ -19,6 +19,14 @@
           </div>
           <div class="services-content">	
        	  	 <h5 style="margin-bottom: 2%;"><i class="fa-solid fa-money-check-dollar"></i> 
+				클래스 예약안내
+		     </h5>
+       	 	 <p>클래스 예약은 우측 예약메뉴창에서 정보를 확인하고 예약하기를 클릭하시면 일정과 인원을 선택할 수 있습니다.</p>
+       	 	 <p>예약과 동시에 결제가 완료되면 예약이 확정됩니다.</p>
+       	 	 <p>결제 금액의 3%가 포인트로 적립되며 추후 클래스 수강 시 사용할 수 있습니다.</p>
+     	 </div>
+          <div class="services-content">	
+       	  	 <h5 style="margin-bottom: 2%;"><i class="fa-solid fa-money-check-dollar"></i> 
 				클래스 환불규정
 		     </h5>
        	 	 <p>클래스 예약 내역은 우측 상단 프로필 아이콘을 클릭하시면 My page로 이동합니다.</p>

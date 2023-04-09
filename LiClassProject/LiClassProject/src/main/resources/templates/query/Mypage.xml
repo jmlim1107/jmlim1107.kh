@@ -75,12 +75,11 @@
 		where user_no = #{user_no}
 	</select>
 	
-	<!--5. 나의 문의 조회 -->
+	<!--5-1. 나의 문의 조회 -->
 	<select id="myQnaList" parameterType="ClientQnaBoard" resultType="ClientQnaBoard">
-      <![CDATA[
         	select 
                   USER_NO, qna_no, qna_title, qna_content,
-				  qna_group,(select count(*) from li_qna where QNA_GROUP = '1' and user_no =  #{user_no} ) as qna_status,  
+				  qna_group,(select count(*) from li_qna where QNA_GROUP = myqna.qna_group and user_no =  #{user_no} ) as qna_status,  
 	              to_char(qna_date,'YYYY-MM-DD') as qna_date, to_char(qna_date_fix,'YYYY-MM-DD') as qna_date_fix
 	        from (
                   select 
@@ -89,9 +88,24 @@
                   from li_qna 
                   where user_no =  #{user_no} and admin_no is null
                   order by qna_date desc
-               )
-              ]]>
-
+               )myqna
+    
+	</select>
+	
+	<!--5-2. 나의 문의의 답변 조회 -->
+	<select id="myQnaAnswer" parameterType="ClientQnaBoard" resultType="ClientQnaBoard">
+        	select 
+                  USER_NO, qna_no, qna_title, qna_content,
+				  qna_group,(select count(*) from li_qna where QNA_GROUP = myqna.qna_group and user_no =  #{user_no} ) as qna_status,  
+	              to_char(qna_date,'YYYY-MM-DD') as qna_date, to_char(qna_date_fix,'YYYY-MM-DD') as qna_date_fix
+	        from (
+                  select 
+                      USER_NO, qna_no, qna_title, qna_content,
+				      qna_group, qna_date, qna_date_fix
+                  from li_qna 
+                  where admin_no = 1 and qna_group = #{qna_group}
+                  order by qna_date desc
+               )myqna
     
 	</select>
 	
@@ -100,6 +114,25 @@
         select count(*) from li_qna
 		where user_no = #{user_no} and admin_no is null
 	</select>
+	
+			
+	<!--7. 나의 클래스일지 조회 -->
+	<select id="myPostList" parameterType="User" resultType="Post">
+		select post_no,user_no,post_title,post_content,post_likes,post_img,post_status,
+		to_char(post_regdate, 'YYYY-MM-DD') as post_regdate,
+		to_char(post_update, 'YYYY-MM-DD') as post_update 
+		from li_post
+		where user_no = #{user_no}
+		order by post_regdate desc
+	</select>
+		
+			
+	<!--8. 나의 클래스일지 갯수  -->
+	<select id="myPostCnt" parameterType="User" resultType="int">
+		select count(*) from li_post
+		where user_no = #{user_no}
+	</select>
+		
 	
 	<!--7. 프로필 사진 수정  -->
 	<update id="updateImg" parameterType="User" >

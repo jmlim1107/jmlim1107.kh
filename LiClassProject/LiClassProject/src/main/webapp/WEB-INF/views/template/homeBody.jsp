@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="/resources/client/mainTheme/js/bootstrap.affix.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 <style>
 #header{width: 100%;
     margin: 0px;
@@ -24,9 +26,13 @@
 		}
 		
 		//웅배)메인화면 redirect 시 전달메시지 있을 때
-		if('${errormsg}' != ""){
+		if( '${errormsg}' != ""){
 			var message = "${errormsg}" ;
-			alert(message);
+			Swal.fire({
+			      icon: 'warning',
+			      confirmButtonColor: '#EA9A56',
+			      title: message
+				});
 		}
 	})
 </script>

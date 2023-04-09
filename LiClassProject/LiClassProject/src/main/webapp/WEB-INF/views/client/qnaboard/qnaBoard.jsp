@@ -117,7 +117,7 @@
 
                                 <c:choose>
                                     <c:when test="${qnaBoard.qna_top_state > 0}">
-                                        <div class="title goDetail"><span>[${qnaBoard.qna_category}] &nbsp;&nbsp;${qnaBoard.qna_title}</span>
+                                        <div class="title goDetail"><span style="font-weight: bold">[${qnaBoard.qna_category}] &nbsp;&nbsp;${qnaBoard.qna_title}</span>
                                     </c:when>
                                     <c:otherwise>
                                             <div class="title goAnswerDetail">
@@ -150,18 +150,6 @@
                 </c:choose>
             </div>
 
-<%--페이징 처리 보류
-<div class="board_page">
-                <a href="#" class="bt first"><<</a>
-                <a href="#" class="bt prev"><</a>
-                <a href="#" class="num on">1</a>
-                <a href="#" class="num">2</a>
-                <a href="#" class="num">3</a>
-                <a href="#" class="num">4</a>
-                <a href="#" class="num">5</a>
-                <a href="#" class="bt next">></a>
-                <a href="#" class="bt last">>></a>
-            </div>--%>
             <div class="bt_wrap">
                 <button type="button" class="on" id="insertForm">등록</button>
                 <!--<a href="#">수정</a>-->

@@ -28,6 +28,7 @@ import com.liclass.client.login.service.UserService;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.mypage.service.MypageService;
 import com.liclass.client.payment.vo.PaymentVO;
+import com.liclass.client.post.vo.PostVO;
 import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
 import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.file.UserFileUpload;
@@ -57,7 +58,7 @@ public class MyPageController { //은아,웅배
 	 * 요청 url : http://localhost:8080/mypage
 	************************************************/
 	@RequestMapping("/mypage")
-	public String mypage(UserVO vo,Model model,HttpSession session,PaymentVO pvo,ClientQnaBoardVO qvo,ReviewVO rvo,LikesVO lvo) {
+	public String mypage(UserVO vo,Model model,HttpSession session,PaymentVO pvo,ClientQnaBoardVO qvo,ReviewVO rvo,LikesVO lvo,PostVO postVo) {
 		
 		/* 은아 */
 		//로그인 세션
@@ -90,11 +91,18 @@ public class MyPageController { //은아,웅배
 				
 		//문의 조회
 		qvo.setUser_no(loginUser.getUser_no());
-		int qnaCnt = mypageService.myQnaCnt(loginUser); 
+		int qnaCnt = mypageService.myQnaCnt(qvo); 
 		model.addAttribute("qnaCnt",qnaCnt);
-
 		List<ClientQnaBoardVO> myQnaList = mypageService.myQnaList(qvo);
 		model.addAttribute("myQnaList",myQnaList);
+		
+		//클래스일지 조회
+		postVo.setUser_no(loginUser.getUser_no());
+		int postCnt = mypageService.myPostCnt(postVo); 
+		model.addAttribute("postCnt",postCnt);
+		List<PostVO> myPostList = mypageService.myPostList(postVo);
+		model.addAttribute("myPostList",myPostList);
+		
 		
 		/* 웅배 */
 		pvo.setUser_no(loginUser.getUser_no());
@@ -355,13 +363,8 @@ public class MyPageController { //은아,웅배
 	@GetMapping("/mypage/myQnAHistory")
 	public String myQnAHistory(ClientQnaBoardVO qvo,Model model,HttpSession session) {
 			
-			UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-			qvo.setUser_no(loginUser.getUser_no());
-			int qnaCnt = mypageService.myQnaCnt(loginUser); 
-			PageDTO qnaPageDto = new PageDTO(qvo,qnaCnt);
-			model.addAttribute("qnaPageMaker",qnaPageDto);
-
-
+		    UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+		    qvo.setUser_no(loginUser.getUser_no());
 			List<ClientQnaBoardVO> myQnaList = mypageService.myQnaList(qvo);
 			model.addAttribute("myQnaList",myQnaList);
 			
@@ -369,20 +372,44 @@ public class MyPageController { //은아,웅배
 	}
 	
 	/************************************************
-	 * 14.나의 클래스일지 (준비중)
+	 * 14.나의 문의 답변 조회
+	 * 요청 url : http://localhost:8080/mypage/myQnAHistory
+	************************************************/
+	@ResponseBody
+	@GetMapping("/myQnaAnswer")
+	public int myQnaAnswer(ClientQnaBoardVO qvo,Model model,HttpSession session) {
+			
+			UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+		    qvo.setUser_no(loginUser.getUser_no());
+			ClientQnaBoardVO myQnaAnswer = mypageService.myQnaAnswer(qvo);
+			
+		return myQnaAnswer.getQna_no();
+	}
+	
+	/************************************************
+	 * 14.나의 클래스일지
 	 * 요청 url : http://localhost:8080/mypage/myPost
 	************************************************/
 	@GetMapping("/mypage/myPost")
-	public String myPost(Model model,HttpSession session) {
-		/*UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		pvo.setUser_no(loginUser.getUser_no());
-		pvo.setAmount(3);
-		int reviewCnt = mypageService.(pvo);
-		PageDTO reviewPageDto = new PageDTO(pvo,reviewCnt);
-		model.addAttribute("reviewPageMaker",reviewPageDto);
+	public String myPost(PostVO postVo,Model model,HttpSession session) {
 		
-		List<ReviewVO> myReviewList = mypageService.myReviewList(pvo);
-		model.addAttribute("myReviewList",myReviewList);*/
+		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+		postVo.setUser_no(loginUser.getUser_no());
+		List<PostVO> myPostList = mypageService.myPostList(postVo);
+		model.addAttribute("myPostList",myPostList);
 		return "client/mypage/myPost";
+	}
+	
+	/************************************************
+	 * 15.클래스 일지 입력화면
+	 * 요청 url : http://localhost:8080/mypage/postingForm
+	************************************************/
+	@GetMapping("/mypage/posting")
+	public String postingForm(Model model,HttpSession session) {
+		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+		if(loginUser == null) {
+			return "/";
+		}
+		return "client/mypage/postingForm";
 	}
 }

@@ -3,7 +3,6 @@ package com.liclass.client.review.service;
 import java.util.HashMap;
 import java.util.List;
 
-import com.liclass.client.classes.vo.ClientClassImgVO;
 import com.liclass.client.review.vo.ReviewVO;
 
 public interface ReviewService {

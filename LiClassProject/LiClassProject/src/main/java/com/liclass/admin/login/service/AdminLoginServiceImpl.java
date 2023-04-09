@@ -18,4 +18,12 @@ public class AdminLoginServiceImpl implements AdminLoginService{
         return adminLogin;
     }
 
+    @Override
+    public int changeAdminPwd(AdminLoginVo login) {
+        int result = 0;
+
+        result = adminLoginDao.changeAdminPwd(login);
+        return result;
+    }
+
 }

@@ -73,7 +73,22 @@ public class AdminLoginController {
     @RequestMapping("/adminAccount")
     public String adminAccount() {
 
-
         return "admin/management/adminAccount";
+    }
+
+    @RequestMapping(value = "/changeAdminPwd", method = RequestMethod.POST)
+    public String changeAdminPwd(@ModelAttribute AdminLoginVo login, Model model){
+        log.info("비밀번호 수정 메서드 호출");
+        int result = 0;
+        String url = null;
+
+        result = adminLoginService.changeAdminPwd(login);
+        if(result == 1){
+            url = "/liadmin/login";
+
+        } else{
+            url = "/liadmin/adminAccount";
+        }
+        return "redirect:"+url;
     }
 }

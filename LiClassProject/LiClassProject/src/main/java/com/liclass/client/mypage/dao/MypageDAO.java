@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.liclass.client.likes.vo.LikesVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.vo.PaymentVO;
+import com.liclass.client.post.vo.PostVO;
 import com.liclass.client.qnaboard.vo.ClientQnaBoardVO;
 import com.liclass.client.review.vo.ReviewVO;
 
@@ -34,10 +35,19 @@ public interface MypageDAO { //은아,웅배
 		public List<ClientQnaBoardVO> myQnaList(ClientQnaBoardVO vo); 
 		
 		//7. 나의 문의 갯수 
-		public int myQnaCnt(UserVO vo);
+		public int myQnaCnt(ClientQnaBoardVO vo);
 		
-		//8. 프로필사진 수정
-		public int updateImg(UserVO vo) throws Exception;
+		//8. 나의 문의 답변 조회
+		public ClientQnaBoardVO myQnaAnswer(ClientQnaBoardVO vo);
+		
+		//9. 나의 클래스일지 조회
+		public List<PostVO> myPostList(PostVO qvo);
+		
+		//10. 나의 클래스일지 갯수
+		public int myPostCnt(PostVO vo);
+		
+		//11. 프로필사진 수정
+		public int updateImg(UserVO vo)throws Exception;
 	
 		/* 웅배 */
        // 결제내역 불러오기
