@@ -137,13 +137,13 @@ $(function(){
             </h2>
            	<div class="col col-xs-12">
                 <div class="blog-grids" >
-                <ul class="pager">
-                    <li class="next">
-                        <a href="/mypage/posting" class="button myAnswer">클래스 일지 작성하기</a>
-                    </li>
-                </ul>
              		 <c:choose>
                     	<c:when test="${ not empty myPostList }">
+                    	<ul class="pager">
+		                    <li class="next">
+		                        <a href="/mypage/posting" class="button myAnswer">클래스 일지 작성하기</a>
+		                    </li>
+		                </ul>
                        	<c:forEach var="postVO" items="${myPostList}" varStatus="status">
 		                   <div class="grid" style="padding:0px;">
 		                        <div class="entry-media">
@@ -168,6 +168,16 @@ $(function(){
 		                    </div>
 		                  </c:forEach>
 		                </c:when>
+		                 <c:otherwise>
+					        <div class="services-content">
+					          <h5> <i class="fa-solid fa-circle-question"></i> ${loginUser.user_name}님의 클래스일지를 남겨주세요.</h5>
+					        </div>
+					        <ul class="pager">
+			                    <li class="next">
+			                        <a href="/mypage/posting" class="button myAnswer">클래스 일지 작성하기</a>
+			                    </li>
+			                </ul>
+			             </c:otherwise>
 		             </c:choose>
                 </div>
             </div>

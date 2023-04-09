@@ -8,7 +8,7 @@
 <style>
 	#sns-share-div{
 	display:flex;
-	justify-content:center;
+	justify-content:left;
 	visibility:hidden; 
 	margin: 10px;
 	}

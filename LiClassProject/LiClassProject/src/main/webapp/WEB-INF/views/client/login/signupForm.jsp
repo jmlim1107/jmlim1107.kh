@@ -134,7 +134,7 @@
 			</tr>
 			<tr class="check-area">
 				<th rowspan="2">비밀번호<span class="point">*</span></th>
-				<td><input type="password" class="signup-input" id="signup-pw" name="user_pw" placeholder="영문자,숫자,특수 문자로 조합된 최소 8자의 비밀번호를 입력해 주세요." /></td>
+				<td><input type="password" class="signup-input" id="signup-pw" name="user_pw" placeholder="영문자,숫자,특수 문자로 조합된 최소 8자" /></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -143,7 +143,7 @@
 				</td>
 			</tr>
 			<tr class="check-area">
-				<th rowspan="2">비밀번호 확인<span class="point">*</span></th>
+				<th rowspan="2" >비밀번호 확인<span class="point">*</span></th>
 				<td><input type="password" class="signup-input" id="pw-check" /></td>
 				<td></td>
 			</tr>
