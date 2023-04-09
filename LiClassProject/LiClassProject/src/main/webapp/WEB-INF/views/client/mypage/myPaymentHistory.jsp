@@ -164,7 +164,7 @@
 	               <table summary="결제내역 리스트" class="table table-hover" style="width: 110%;max-width: 110%;">
 	                  <thead>
 	                     <tr>
-	                        <th data-value="b_num" class="order text-center col-md-3">상품정보</th>
+	                        <th data-value="b_num" class="order text-center col-md-3" colspan="2">상품정보</th>
 	                        <th class="text-center col-md-2">결제일자</th>
 	                        <th class="text-center col-md-2">결제번호</th>
 	                        <th class="text-center col-md-1">사용포인트</th>
@@ -179,9 +179,10 @@
 	                        <c:forEach var="payment" items="${ pvo_paymentList }" varStatus="status" >
 	                           <tr class="text-center" data-num="${ payment.merchant_uid }">
 	                              <td style="text-align:left;display:flex; vertical-align: middle;">
-	                                 <img src="/uploadLiClass/class/thumbnail/${classImg[status.index].thumb_file }" style="width:80px;height:80px;object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
-	                                 <span class="sp" style="padding-left:30px;">${ payment.pay_name }</span>
-	                              </td>                     
+	                                 <img src="/uploadLiClass/class/thumbnail/${classImg[status.index].thumb_file }" style="width:80px;height:80px;object-fit:fill;overflow: revert;" alt="..." class="img-rounded">
+	                                 
+	                              </td>
+	                              <td><span class="sp" style="padding-left:30px;">${ payment.pay_name }</span></td>                     
 	                              <td class="name">${ payment.pay_date }</td>
 	                              <td class="name"><a class="csp" href="#sns-share" rel="modal:open">${ payment.merchant_uid }</a></td>
 	                              <td>${payment.pay_point }</td>
