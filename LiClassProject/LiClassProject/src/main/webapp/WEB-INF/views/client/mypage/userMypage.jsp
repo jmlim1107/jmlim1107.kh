@@ -312,7 +312,7 @@
 						                        	 <c:choose>
 							                     		<c:when test="${ not empty myQnaList }" >
 							                        		<c:forEach var="qnaVO" items="${myQnaList}" begin="0" end="2"  varStatus="status">
-										                            <div class="grid" style="height:200px;">
+										                            <div class="grid" style="height:250px;">
 										                                <div class="entry-body">
 										                                    <span class="cat">
 											                                 <c:if  test="${qnaVO.qna_status != 1 }">
