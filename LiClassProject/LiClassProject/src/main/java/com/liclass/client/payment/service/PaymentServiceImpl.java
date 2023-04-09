@@ -65,7 +65,7 @@ public class PaymentServiceImpl implements PaymentService{
       }catch(Exception e) {                      // 결제테이블에 저장(insert) - 결제상태는 = 결제실패, 예약상태 = 예약실패(update)
          e.printStackTrace();
          // "관리자에게 문의해주세요" 넣기
-         process_result = 1;   
+         process_result = 2;   
       }
       return process_result;
    }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.liclass.client.classes.service.ClientClassService;
 
@@ -23,7 +24,8 @@ public class HomeController {
 	 * 요청 url : http://localhost:8080/
 	************************************************/
 	@RequestMapping("/")
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model,@RequestParam(required = false, defaultValue = "") String payerrormsg) {
+		model.addAttribute("payerrormsg",payerrormsg);
 		return "home";
 	}
 	

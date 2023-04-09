@@ -35,7 +35,7 @@
 	        var minutes = today.getMinutes();  // 분
 	        var seconds = today.getSeconds();  // 초
 	        var milliseconds = today.getMilliseconds();
-	        var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+	        var makeMerchantUid = hours *  minutes * seconds - milliseconds;
 	        
 	        //STEP 2
 			function payment(){

@@ -105,7 +105,7 @@ public class PaymentController {
          paymentSerivce.inserPayment(paymentVO);
          paymentSerivce.changeRerserveStatus(r_no, r_state);
          System.out.println("결제 실패"); 
-         goUrl = "/"; // 다시 결제페이지로 이동 or 홈으로 이동
+         goUrl = "/?payerrormsg=시스템 문제로 결제에 실패하였습니다. 관리자에게 문의하기 바랍니다."; // 다시 결제페이지로 이동 or 홈으로 이동
          paymentData.put("goUrl", goUrl);
       }else {               // 결제 취소 1. 결제 시스탬(아임포트)와 연결도중 실패로 인한 취소(결제가 아마 안될거임)
          pay_status = 2;
@@ -114,7 +114,7 @@ public class PaymentController {
          paymentSerivce.inserPayment(paymentVO);
          paymentSerivce.changeRerserveStatus(paymentVO.getR_no(), r_state);
          System.out.println("결제 취소");
-         goUrl = "/"; // 다시 결제페이지로 이동 or 홈으로 이동
+         goUrl = "/?payerrormsg=시스템 문제로 결제에 실패하였습니다. 관리자에게 문의하기 바랍니다."; // 다시 결제페이지로 이동 or 홈으로 이동
          paymentData.put("goUrl", goUrl);
       }
       return paymentData;
@@ -182,6 +182,7 @@ public class PaymentController {
       ReserveVO rvo = paymentSerivce.getPriceInfo(reserveVO.getR_no());
       model.addAttribute("rvo", rvo);
 
+      // 포인트 적립금
       double point = Math.round(rvo.getR_price() * 0.03); 
       model.addAttribute("point",point);
       
@@ -191,6 +192,7 @@ public class PaymentController {
       return "client/mypage/paySuccess";
    }
    
+   /* 모달창에 내보낼 값 전달 */
    @ResponseBody
    @RequestMapping(value="/getPaymentInfo", produces=MediaType.APPLICATION_JSON_VALUE)
    public Map<String, String> getPaymentInfo(@RequestParam("merchant_uid")String merchant_uid, Model model) {
