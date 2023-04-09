@@ -51,11 +51,9 @@
 		<input type="hidden" name="rno" value="">
 		<input type="hidden" name="userno" value="">
 		
-		<div style="width: 100%;
-		    background-color: rgb(0,0,0,0.4);
-		    height: 200%;;
-		    position: absolute;
-		    top: -100px;">
+		<div class = "modal" style="
+		   position: fixed;
+    max-width: 100%;">
 			<div id = "writeModal">
 			  	<div class="modal_content" id = "writeContent"  style="margin-top: 20px;">
 			  	
