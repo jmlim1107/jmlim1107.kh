@@ -56,20 +56,6 @@
                 <!-- Sales Card -->
                 <div class="col-xxl-4 col-md-6">
                     <div class="card info-card sales-card">
-
-                        <div class="filter">
-                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <li class="dropdown-header text-start">
-                                    <h6>Filter</h6>
-                                </li>
-
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
-                            </ul>
-                        </div>
-
                         <div class="card-body">
                             <h5 class="card-title">전체 매출<span>&nbsp | &nbsp<%=today%></span></h5>
                             <div class="d-flex align-items-center">
@@ -94,20 +80,6 @@
                 <!-- Revenue Card -->
                 <div class="col-xxl-4 col-md-6">
                     <div class="card info-card revenue-card">
-
-                        <div class="filter">
-                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <li class="dropdown-header text-start">
-                                    <h6>Filter</h6>
-                                </li>
-
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
-                            </ul>
-                        </div>
-
                         <div class="card-body">
                             <h5 class="card-title">분기별 매출<span>&nbsp | &nbsp <%=today%></span></h5>
 
@@ -116,7 +88,7 @@
                                 <div class="ps-3">
                                     <%--분기별매출 현황--%>
 
-                                    <h6><img src="/resources/admin/calendar.png">&nbsp;${salesCount.Q1}&nbsp;&nbsp;/&nbsp;&nbsp;${salesCount.Q2}&nbsp;&nbsp;/&nbsp;&nbsp;${salesCount.Q3}&nbsp;&nbsp;/&nbsp;&nbsp;${salesCount.Q4}</h6>
+                                    <h6><img src="/resources/admin/calendar.png">${salesCount.Q1}&nbsp;/&nbsp;${salesCount.Q2}&nbsp;/&nbsp;${salesCount.Q3}&nbsp;/&nbsp;${salesCount.Q4}</h6>
                                 </div>
                             </div>
                             <div class="progress mt-4 ">
@@ -133,26 +105,12 @@
                 <div class="col-xxl-4 col-xl-12">
 
                     <div class="card info-card customers-card">
-
-                        <div class="filter">
-                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <li class="dropdown-header text-start">
-                                    <h6>Filter</h6>
-                                </li>
-
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
-                            </ul>
-                        </div>
-
                         <div class="card-body">
                             <h5 class="card-title">난이도별 매출<span>&nbsp | &nbsp <%=today%></span></h5>
                             <div class="d-flex align-items-center">
                                 <div class="ps-3">
                                     <%--난이도별 매출 데이터 입력--%>
-                                    <h6><img src="/resources/admin/stairs-step.png">&nbsp;${levelCountList[1]}&nbsp;&nbsp;/&nbsp;&nbsp;${levelCountList[0]}&nbsp;&nbsp;/&nbsp;&nbsp;${levelCountList[2]}</h6>
+                                    <h6><img src="/resources/admin/stairs-step.png">&nbsp;${levelCountList[1]}&nbsp;/&nbsp;${levelCountList[0]}&nbsp;/&nbsp;${levelCountList[2]}</h6>
                                 </div>
                             </div>
                             <div class="progress mt-4">
@@ -168,20 +126,6 @@
                 <!-- Reports -->
                 <div class="col-12">
                     <div class="card">
-
-                        <div class="filter">
-                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <li class="dropdown-header text-start">
-                                    <h6>Filter</h6>
-                                </li>
-
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
-                            </ul>
-                        </div>
-
                         <div class="card-body">
                             <h5 class="card-title">Reports <span>/ <%=today%>></span></h5>
                             <%--분기별 매출 출력--%>
@@ -190,7 +134,6 @@
                             <%--차트 통계데이터 기반으로 삽입--%>
                             <canvas id="barChart" <%--style="max-height: 400px;"--%> height="150"></canvas>
                             <%--난이도별 매출 출력--%>
-
                         </div>
                     </div>
                 </div><!-- End Reports -->

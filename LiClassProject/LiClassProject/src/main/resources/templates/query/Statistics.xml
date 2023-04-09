@@ -24,7 +24,7 @@
         FROM
             li_payment
         WHERE
-            TO_CHAR(pay_date, 'YYYY') = '2022'
+            TO_CHAR(pay_date, 'YYYY') = '2023'
         GROUP BY
             CASE
                 WHEN TO_CHAR(pay_date, 'Q') = '1' THEN '1분기'

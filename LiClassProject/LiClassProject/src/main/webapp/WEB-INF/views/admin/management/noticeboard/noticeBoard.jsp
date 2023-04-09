@@ -105,7 +105,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="text-right">
-            <button type="button" class="btn btn-success rounded-pill btn-lg " id="insertBtn">공지사항등록</button>
+            <button type="button" class="btn btn-dark rounded-pill btn-lg " id="insertBtn"><i class="bi bi-cloud-upload"></i>&nbsp;공지사항등록</button>
             </div>
             <form id="detailForm">
                 <input type="hidden" id="qna_no" name="qna_no"/>
@@ -117,7 +117,7 @@
                     <th scope="col" class="text-left col-md-4">제목</th>
                     <th scope="col" class="text-center col-md-1">작성일</th>
                     <th scope="col" class="text-center col-md-1">관리</th>
-                    <th scope="col" class="text-center col-md-1">상단고정</th>
+                    <th scope="col" class="text-center col-md-1">게시상태</th>
                 </tr>
                 </thead>
                 <tbody id="list" class="table-striped">
@@ -137,10 +137,10 @@
                                 </td>
                                     <c:choose>
                                         <c:when test="${qnaBoard.qna_top_state>0}">
-                                            <td class="text-center"><button class="btn btn-primary btn-sm notice_top_button" notice-state="${qnaBoard.qna_top_state}">상단 고정중</button></td>
+                                            <td class="text-center"><button class="btn btn-primary btn-sm notice_top_button" notice-state="${qnaBoard.qna_top_state}">게시상태</button></td>
                                         </c:when>
                                         <c:otherwise>
-                                            <td class="text-center"><button class="btn btn-secondary btn-sm notice_top_button" notice-state="${qnaBoard.qna_top_state}">일반 게시중</button></td>
+                                            <td class="text-center"><button class="btn btn-secondary btn-sm notice_top_button" notice-state="${qnaBoard.qna_top_state}">숨김상태</button></td>
                                         </c:otherwise>
                                     </c:choose>
                             </tr>
