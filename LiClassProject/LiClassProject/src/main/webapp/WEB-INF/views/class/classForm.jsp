@@ -206,33 +206,33 @@
                 </div>
                   <label for="inputNumber" class="col-sm-2 col-form-label">사진파일1(썸네일)</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile1" name="fileList" accept=".gif, .jpg, .png">
+                    <input class="form-control" type="file" id="formFile1" name="fileList" accept=".gif, .jpg, .png, .jpeg">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">사진파일2</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile2" name="fileList" accept=".gif, .jpg, .png">
+                    <input class="form-control" type="file" id="formFile2" name="fileList" accept=".gif, .jpg, .png, .jpeg">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">사진파일3</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile3" name="fileList" accept=".gif, .jpg, .png">
+                    <input class="form-control" type="file" id="formFile3" name="fileList" accept=".gif, .jpg, .png, .jpeg">
                   </div>
                 </div>
                  
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">사진파일4</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile4" name="fileList" accept=".gif, .jpg, .png">
+                    <input class="form-control" type="file" id="formFile4" name="fileList" accept=".gif, .jpg, .png, .jpeg">
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">사진파일5</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile5" name="fileList" accept=".gif, .jpg, .png">
+                    <input class="form-control" type="file" id="formFile5" name="fileList" accept=".gif, .jpg, .png, .jpeg">
                   </div>
                 </div>
                 
