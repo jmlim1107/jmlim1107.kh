@@ -48,7 +48,7 @@
 		/***************************************** */
 	</style>
   	</head>
-  	<body id="gotop">
+  	<body>
   		<div>
 			<header class="header" style="height: 0;">
 				<tiles:insertAttribute name="header" />

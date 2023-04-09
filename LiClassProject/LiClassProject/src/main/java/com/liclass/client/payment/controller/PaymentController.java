@@ -15,7 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.http.MediaType;
 
 import com.liclass.admin.episode.service.EpisodeService;
-import com.liclass.admin.episode.vo.EpisodeVO;
 import com.liclass.admin.management.center.vo.CenterVO;
 import com.liclass.client.login.vo.UserVO;
 import com.liclass.client.payment.service.PaymentService;

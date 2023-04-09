@@ -2,15 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%-- 은아) 마이페이지 5. 나의 문의내역 --%>	
-<link rel="stylesheet" href="/resources/client/mypage/assets/css/myQna.css" />
+
 <style>
-	#portfolio2{
-		width: 80%;
-	    margin: 20px;
-	    padding: 50px;
-	}
-	
 	.headline-h4{
 		color: #555;
 	    font-size: 20px;
@@ -18,100 +11,111 @@
 	    line-height: 35px;
 	    margin-bottom: 30px;
 	}
+	.post-title{
+		font-size: 28px;
+	}
+	.pager .next>a:hover {
+		background-color: #191919;
+		border:#191919;
+		color:white;
+	}
+	.post-meta{
+		margin:0px;
+	}
+	.pager{
+		margin:0px;
+	}
+	.button:hover{
+		cursor: pointer;
+	}
 </style>
+<!-- Theme CSS -->
+<link href="/resources/client/mypage/mypost/css/clean-blog.min.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"> </script>
+<!-- Custom Fonts -->
+<link href="/resources/client/mypage/mypost/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Main Content -->
 <script>
 	$(function(){
 		
-		//은아)문의글 제목 클릭 시 상세내용
-		$(".qna_title").click(function(){
-			let contentTr = $(this).parent(".qna-tr").next(".qna-tr");
-			let css = contentTr.css("display");
-			if(css == 'none'){
-				contentTr.css("display","table-row");
-			}else{
-				contentTr.css("display","none");
-			} 
+		//답변글 상세보기
+		$(".myAnswer").click(function(){
+			var qnaNo = $(this).data("num");
+			var group = $(this).data("group");
+			$.ajax({
+			      type : "GET",
+			      url : "/myQnaAnswer",
+			      data : {
+			    	 "qna_no" : qnaNo,
+			    	 "qna_group" : group
+			      },
+			      success : function(answerNO){
+			    	 location.href="/client/qnaboard/qnaBoardDetail?qna_no="+answerNO;
+			      }
+			   });
 		});
 	});
-	
-</script>	
-	
-<div id="portfolio2">
-	<div class="thumb">
-	   <div class="row" >
-	      <div class="left-text">
-	         <h4>나의 문의</h4>
-		         <div id="qnaList" class="table-height">
-		            <form id="qnaListForm">
-		               <input type="hidden" name="user_no" value='${loginUser.user_no }'>
-		               <table class="table table-hover"  style="width: 110%;max-width: 110%;">
-		                  <thead>
-		                     <tr>
-		                        <th class="order text-center col-md-3">제목</th>
-		                        <th class="text-center col-md-2">문의일자</th>
-		                        <th class="text-center col-md-1">답변상태</th>
-		                     </tr>
-		                  </thead>
-		                    <tbody class="table-striped">
-			                  <c:choose>
-			                     <c:when test="${ not empty myQnaList }">
-			                        <c:forEach var="qnaVO" items="${myQnaList}" >
-			                           <tr class="text-center qna-tr" data-num="${qnaVO.qna_no}">
-			                              <td style="text-align:left;padding-left:15px; cursor: pointer;" class="qna_title">
-			                                 <span style="padding-left:30px;">${qnaVO.qna_title}</span>
-			                              </td>                     
-			                              <td class="name">${qnaVO.qna_date}</td>
-				                              <c:choose>
-				                                 <c:when test="${qnaVO.qna_status == 0 }">
-				                                    <td>답변대기</td>
-				                                 </c:when>
-				                                 <c:when test="${qnaVO.qna_status == 1 }">
-				                                    <td>답변완료</td>
-				                                 </c:when>
-				                              </c:choose>                       
-			                           </tr>
-			                           <tr style="text-align: center; display: none;" class="qna-tr">
-			                           		<td colspan="2">
-				                               <span style="padding-left:30px;" class="qna_content">${qnaVO.qna_content}</span>
-			                           		</td>
-			                           		<td>
-			                                	<button type="button" style="margin: 0px auto;" onclick="location.href='/client/qnaboard/qnaBoardDetail?qna_no=${qnaVO.qna_no}'">
-			                                		<i class="fa-regular fa-pen-to-square"></i>수정/삭제
-			                                	</button>
-			                                </td>
-			                           </tr>
-			                        </c:forEach>
-			                     </c:when>
-			                     <c:otherwise>
-			                        <tr>
-			                           <td colspan="6" class="tac text-center"><i class="fa-solid fa-circle-question"></i>  문의내역이 존재하지 않습니다.</td>
-			                        </tr>
-			                     </c:otherwise>
-			                  </c:choose>
-		                  </tbody>
-		               </table>
-		            </form>
-		         </div>
-		          <!--은아)나의 문의내역 페이징 처리  -->
-			       <!-- myqna pagination start  -->
-			       	<div class="pagination">
-						<c:if test="${qnaPageMaker.prev}">
-						<a href="${qnaPageMaker.startPage - 1}">&laquo;</a>
-						</c:if>
-						<c:forEach var="num" begin="${qnaPageMaker.startPage}" end="${qnaPageMaker.endPage}">
-						<a class="paginate_button2 ${qnaPageMaker.cvo.pageNum == num ? 'active':''} "  data-num="${num}" >${num}</a>
-						</c:forEach>
-						<c:if test="${qnaPageMaker.next}">
-						<a href="${qnaPageMaker.endPage + 1 }">&raquo;</a>
-						</c:if>
-					</div>
-					          
-			          <form id="page-form">
-			          	<input type="hidden" id="select-page" name="pageNum" value="${qnaPageMaker.cvo.pageNum }">
-			          	<input type="hidden" name="amount" value="${qnaPageMaker.cvo.amount }">
-				       </form>
-				      <!-- myqna pagination end  -->
-	      </div>
-	   </div>
-	</div>
-</div>
+</script>
+    <div class="container">
+        <div class="row">
+       	 	<h2 class="post-title text-center" style="margin: 50px 0px;">
+               My QnA
+            </h2>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            	 <c:choose>
+                     <c:when test="${ not empty myQnaList }">
+                        <c:forEach var="qnaVO" items="${myQnaList}" varStatus="status">
+			                <div class="post-preview" >
+			                    <a>
+			                        <h2 class="post-title">
+			                           #${status.index+1} ${qnaVO.qna_title}
+			                        </h2>
+			                        <h4 class="post-subtitle">
+			                           <span style="padding-left:30px;" class="review_content">
+		                               		${fn:replace(qnaVO.qna_content, replaceChar, "<br/>")}
+		                               </span>
+			                        </h4>
+			                    </a>
+			                    <p class="post-meta">Posted by <a href="#"></a> ${qnaVO.qna_date}
+				                    <c:if  test="${qnaVO.qna_status != 1 }">
+	                                  <span class="badge badge-primary badge-labeled" style="background-color: #08176aad; padding:6px;">답변완료</span>
+	                                 </c:if>
+	                                 <c:if  test="${qnaVO.qna_status == 1 }">
+	                                 	<span class="badge badge-primary badge-labeled" style="background-color: #e48c8cf5; padding:6px;">답변대기</span>
+	                                 </c:if>
+                                 </p>
+			                </div>
+			                 <ul class="pager">
+			                    <li class="next">
+			                    	<c:if  test="${qnaVO.qna_status != 1 }">
+			                        	<a class="button myAnswer"  data-num="${qnaVO.qna_no}" data-group="${qnaVO.qna_group}">답변글 상세보기</a>
+	                                 </c:if>
+	                                 <c:if  test="${qnaVO.qna_status == 1 }">
+			                        	<a href="/client/qnaboard/qnaBoardDetail?qna_no=${qnaVO.qna_no}" class="button myQuestion">문의글 상세보기</a>
+	                                 </c:if>
+			                    </li>
+			                </ul>
+			                <hr>
+                   		</c:forEach>
+                	 </c:when>
+              </c:choose>
+                <!-- Pager -->
+               
+            </div>
+        </div>
+    </div>
+
+    <hr>
+<!-- jQuery -->
+    <script src="/resources/client/mypage/mypost/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resources/client/mypage/mypost/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="/resources/client/mypage/mypost/js/jqBootstrapValidation.js"></script>
+    <script src="/resources/client/mypage/mypost/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/resources/client/mypage/mypost/js/clean-blog.min.js"></script>

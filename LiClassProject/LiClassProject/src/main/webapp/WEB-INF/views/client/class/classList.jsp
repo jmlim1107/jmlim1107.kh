@@ -149,9 +149,8 @@
 	
 	<!-- 은아) 로그인 유저 확인용 -->
     <input type="hidden" class="login-info" data-num="${loginUser.user_no }" />
-    
     <!-- 지민) 클래스 리스트 시작 -->
-    <div class="container pt-5" style="padding: 150px 0 0 0 ; margin-top : 50px;">
+    <div class="container pt-5" id="gotop" style="padding: 150px 0 0 0 ; margin-top : 50px;">
     	<div class="row">
         	<div class="col-md-8 order-md-2 col-lg-9">
             	<div class="container-fluid">

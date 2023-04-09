@@ -3,10 +3,7 @@ package com.liclass.client.review.dao;
 
 import java.util.HashMap;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
-
-import com.liclass.client.classes.vo.ClientClassImgVO;
 import com.liclass.client.review.vo.ReviewVO;
 
 @Mapper
@@ -16,7 +13,6 @@ public interface ReviewDAO {
 			
 			// 페이징 처리를 위한 레코드 개수
 			public int reviewListCnt(ReviewVO vo);
-			
 			// 게시글 입력처리
 			public int reviewInsert(ReviewVO vo);
 			// 게시글 상세보기

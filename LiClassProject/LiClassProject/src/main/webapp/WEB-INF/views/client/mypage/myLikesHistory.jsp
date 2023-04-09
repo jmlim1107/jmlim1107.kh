@@ -7,6 +7,7 @@
 	.mylikes-img{
 		width:400px;
 		height:250px;
+		border-radius: 10px;
 	}
 	#portfolio2{
 		width: 60%;
@@ -19,17 +20,15 @@
    		text-align: right;
    		margin-top :10px;
 	}
-	.headline-h4{
-		color: #555;
-	    font-size: 20px;
-	    font-weight: 700;
-	    line-height: 35px;
-	    margin-bottom: 30px;
+	.post-title{
+		font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    	font-weight: 800;
+    	margin: 30px 0px; 
+    	font-size: 28px;
 	}
 </style>
 <script>
 	$(function(){
-		
 		//은아)휴지통 클릭 시 관심클래스 삭제
 		$(".delete-likes").click(function(){
 			let c_no = $(this).parent(".portfolio-item").data("num");
@@ -42,7 +41,9 @@
                          <div class="row">
                            <div class="col-lg-13 align-self-center">
                              <div class="left-text">
-                             	 <h4 class="headline-h4">나의 관심클래스</h4>
+                           		<h2 class="post-title text-center" style="">
+					               My Likes
+					            </h2>
                                  <div class="container" style="width: 110%">
 									<div class="row row-bottom-padded-md">
 										<c:choose>

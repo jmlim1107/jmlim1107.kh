@@ -5,11 +5,6 @@
 <link rel="stylesheet" href="/resources/client/mypage/assets/css/myProfileImg.css" />
 <script src="/resources/client/mypage/assets/js/myProfileImg.js"></script>
 <%-- 은아) 마이페이지 1. 나의 회원정보--%>	
-<script type="text/javascript">
-	$(function(){
-		
-	});
-</script>
 <style>
 	.tdfont{ font-size : 20px;}
  
@@ -27,7 +22,7 @@
 
 <div>
 	<div>
-		<h3>프로필 정보</h3>
+		<h4 class="subtitle-head">프로필 정보</h4>
 		<hr style="border: 1px solid black;  margin: 40px 0;">
 	</div>
 	

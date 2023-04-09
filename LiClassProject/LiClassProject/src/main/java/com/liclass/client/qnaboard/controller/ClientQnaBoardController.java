@@ -2,7 +2,6 @@ package com.liclass.client.qnaboard.controller;
 
 import com.liclass.admin.management.qnaboard.vo.QnaBoardVo;
 import com.liclass.client.qnaboard.service.ClientQnaBoardService;
-import com.liclass.common.vo.PageDTO;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
