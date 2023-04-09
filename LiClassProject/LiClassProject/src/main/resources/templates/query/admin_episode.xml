@@ -47,7 +47,7 @@
 	
 	<!-- 해당 클래스의 회차 수 구하기 -->
 	<select id="epCnt" parameterType="int" resultType="int">
-		select count(ep_no) from li_episode where c_no = #{c_no} and ep_no = 0
+		select count(ep_no) from li_episode where c_no = #{c_no} and ep_state = 0
 	</select>
 	
 	<!-- =====================예약화면에서 사용할 쿼리문============================ -->
