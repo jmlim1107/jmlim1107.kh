@@ -201,6 +201,12 @@
 					$("#reservInfo").html($("#r_cnt").val()+"명 ");
 
 					$("#reservInfo").append( r_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원" );
+					
+					$("#insertpoint").val("");
+					$("input[name=insertpoint]").attr("value",0);
+					$("#pointspan").html( '${uservo.user_point}');
+					$("input[name=insertpoint]").attr("readonly",false);
+					$("#pointok").attr("disabled",false).css("backgroundColor","#333333");
 				}
 			}); //ajax의 종료
 			
