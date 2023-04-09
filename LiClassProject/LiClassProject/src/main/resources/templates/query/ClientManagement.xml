@@ -7,12 +7,6 @@
 		<if test="search == 'user_name'">
 			<![CDATA[ user_name LIKE '%' || #{keyword} || '%' ]]>
 		</if>
-		<!-- <if test="search == 'b_content'">
-			<![CDATA[ b_content LIKE '%' || #{keyword} || '%' ]]>
-		</if>
-		<if test="search == 'b_name'">
-			<![CDATA[ b_name LIKE '%' || #[keyword} || '%' ]]>
-		</if> -->
 	</sql>
 	
 	<!-- 게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기
@@ -39,28 +33,6 @@
 		WHERE rnum > (#{pageNum} - 1) * #{amount}
 		]]>
 	</select>
-	
-	<!-- <select id="clientList" parameterType="User" resultType="User">
-		<![CDATA[
-		SELECT
-			user_no, user_email, user_pw, user_name, user_tel, user_img, user_point, user_regdate, user_update, user_unregdate,
-			user_status, user_type
-		FROM(
-				SELECT 
-					ROWNUM AS rnum, user_no, user_email, user_pw, user_name, user_tel, user_img, user_point, user_regdate, user_update, user_unregdate,
-					user_status, user_type
-				FROM li_user
-				WHERE]]>
-			<![CDATA[ROWNUM <= #{pageNum} * #{amount}
-			)li_user
-		WHERE rnum > (#{pageNum} - 1) * #{amount}
-		]]>
-	</select> -->
-	
-	
-	<!-- <select id="clientList" resultType="User">
-		select * from li_user
-	</select> -->
 	
 	<select id="clientListCnt" resultType="int">
 		select count(*) from li_user
