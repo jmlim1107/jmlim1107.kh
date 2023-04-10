@@ -48,12 +48,12 @@
             }
         });
 
-        //상단고정을 위한 버튼 클릭시 동작 이벤트
+        //문의게시판 게시를 위한 버튼 클릭시 동작 이벤트
         $(".notice_top_button").click(function (){
             let qna_no = $(this).parents("tr").attr("data-num");
             let btn_state = $(this).attr("notice-state");
             if(btn_state == 1){
-                if(confirm("상단 고정을 해제하시겠습니까?")){
+                if(confirm("문의게시판에 게시하시겠습니까?")){
                     $("#qna_no").val(qna_no);
                     $.ajax({
                        url : "/management/noticeboard/noticeStateUpdate",
@@ -69,7 +69,7 @@
                     });
                 }
             }else{
-                if(confirm("상단에 고정 하시겠습니까?")){
+                if(confirm("문의게시판에서 숨기시겠습니까?")){
                     $("#qna_no").val(qna_no);
                     $.ajax({
                         url : "/management/noticeboard/noticeStateUpdate",

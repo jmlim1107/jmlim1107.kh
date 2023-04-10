@@ -98,7 +98,7 @@
                             <div class="panel-heading clearfix">
                                 <h4 class="panel-title pull-left" style="line-height: 2.5;"><strong>[${answerDetail.qna_category}]</strong> &nbsp${answerDetail.qna_title}</h4>
                                 <div class="pull-right">
-                                    <button type="button" class="btn btn-success" id="qnaAnswerUpdateBtn" data-num="${answerDetail.qna_no}">수정</button>
+                                    <button type="button" class="btn btn-primary" id="qnaAnswerUpdateBtn" data-num="${answerDetail.qna_no}">수정</button>
                                 </div>
                             </div>
                             <div class="panel-body">

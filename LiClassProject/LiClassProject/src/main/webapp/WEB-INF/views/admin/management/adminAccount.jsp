@@ -17,7 +17,6 @@
             }
         });
         $("#change_pwd_btn").click(function (){
-            console.log("클릭")
             let admin_no = "${adminLogin.admin_no}";
             let admin_change_pw = $("#admin_change_pw").val();
             let admin_change_pwConf = $("#admin_change_pwConf").val();
@@ -27,15 +26,11 @@
                 $("#admin_no").val(admin_no);
                 $("#admin_pw").val(admin_change_pw);
                 if(confirm("비밀번호를 변경하시겠습니까?")){
-                    console.log("일치함 확인");
-                    console.log($("#admin_no").val());
-                    console.log($("#admin_pw").val());
 
                     $("#pw_change_form").attr({
                         "method" : "post",
                         "action" : "/liadmin/changeAdminPwd"
                     });
-                    // form 전송
                     $("#pw_change_form").submit();
                 }
             } else{
@@ -48,7 +43,7 @@
 
 <div class="container">
     <form id="pw_change_form" name="pw_change_form">
-        <input type="hidden" name="admin_no" id="admin_no" value="${adminLogin.admin_no}">
+        <input type="hidden" name="admin_no" id="admin_no">
         <input type="hidden" name="admin_pw" id="admin_pw">
     </form>
     <h1>관리자 계정 관리</h1>
