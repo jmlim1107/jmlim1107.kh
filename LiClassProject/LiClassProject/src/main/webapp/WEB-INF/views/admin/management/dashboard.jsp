@@ -158,7 +158,7 @@
 
                                 <!-- Line Chart -->
                                 <%--차트 통계데이터 기반으로 삽입--%>
-                                <div id="reportsChart"><canvas id="ReportChart" width="60%" height="15"></canvas>${userState.INACTIVEUSER} / ${userState.ACTIVEUSER}</div>
+                                <div id="reportsChart"><canvas id="ReportChart" width="60%" height="15"></canvas></div>
                                 <script>
 
                                 </script>

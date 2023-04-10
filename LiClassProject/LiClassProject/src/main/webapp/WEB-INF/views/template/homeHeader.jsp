@@ -96,7 +96,7 @@
 				</span>
 	
 				<div class="wrap-input100 validate-input" data-validate = "Enter ID">
-					<input class="input100" type="text" id="user_email" name="user_email" placeholder="Enter ID">
+					<input class="input100" type="text" id="user_email" name="user_email" placeholder="이메일을 입력해주세요">
 					<span data-placeholder="Email"></span>
 				</div>
 	
@@ -104,7 +104,7 @@
 					<span class="btn-show-pass">
 						<i class="zmdi zmdi-eye" id="title"></i>
 					</span>
-					<input class="input100" type="password" id="user_pw" name="user_pw" placeholder="Enter password" autocomplete="">
+					<input class="input100" type="password" id="user_pw" name="user_pw" placeholder="영문자,숫자,특수문자포함 최소 8자" autocomplete="">
 					<span data-placeholder="Password"></span>
 				</div>
 				<div class="container-login100-form-btn">
