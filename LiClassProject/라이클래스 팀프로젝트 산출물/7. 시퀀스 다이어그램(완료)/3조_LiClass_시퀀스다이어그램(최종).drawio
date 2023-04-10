@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-05T10:04:37.493Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.62" etag="kWQwtjF3eUSIgcc9B7Ds" version="21.1.4" type="device">
+<mxfile host="app.diagrams.net" modified="2023-04-10T00:46:21.051Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="8mIxXMIKvGmNFmnBUi5L" version="21.1.4" type="device">
   <diagram id="6a731a19-8d31-9384-78a2-239565b7b9f0" name="Page-1">
-    <mxGraphModel dx="2035" dy="1210" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="788" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -296,6 +296,9 @@
         </mxCell>
         <mxCell id="Qnt6TcZh-FuW5jhdGk-x-203" value="&lt;font style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;예약하기&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;fillColor=#23445D;strokeColor=none;strokeWidth=2;fontFamily=Helvetica;html=1;gradientColor=none;fontColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry x="1320.0045578231293" y="465" width="127" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bdJDR1JgVnyC1k3MvacX-145" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Qnt6TcZh-FuW5jhdGk-x-205" target="bdJDR1JgVnyC1k3MvacX-143">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Qnt6TcZh-FuW5jhdGk-x-205" value="&lt;font style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;결제하기&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;fillColor=#23445D;strokeColor=none;strokeWidth=2;fontFamily=Helvetica;html=1;gradientColor=none;fontColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry x="1520.0045578231293" y="465" width="127" height="50" as="geometry" />
@@ -712,6 +715,9 @@
         </mxCell>
         <mxCell id="Qnt6TcZh-FuW5jhdGk-x-435" value="Lane 4.5" style="strokeColor=#BAC8D3;fillColor=#5d7f99;fontSize=19;strokeWidth=2;horizontal=0;fontFamily=Helvetica;html=1;labelBackgroundColor=none;fontColor=#FFFFFF;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="151.17000000000004" y="2940" width="40" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bdJDR1JgVnyC1k3MvacX-143" value="&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;포인트적립&lt;/span&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;fillColor=#23445D;strokeColor=none;strokeWidth=2;fontFamily=Helvetica;html=1;gradientColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1720.0045578231293" y="465" width="127" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
