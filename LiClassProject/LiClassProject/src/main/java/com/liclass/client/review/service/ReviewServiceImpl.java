@@ -20,7 +20,7 @@ public class ReviewServiceImpl implements ReviewService {
 	private ClientClassImgDAO clientClassImgDAO;
 	
 
-	// 후기글 조회 구현
+	// 후기글 조회 
 	@Override
 	public List<ReviewVO> reviewList(ReviewVO vo) {
 		List<ReviewVO> list = null;
@@ -107,8 +107,6 @@ public class ReviewServiceImpl implements ReviewService {
 
 	}
 
-	
-
 	// 별점 그룹화
 	@Override
 	public HashMap<String, Integer> tongRating(ReviewVO vo) {
@@ -119,6 +117,8 @@ public class ReviewServiceImpl implements ReviewService {
 		return ratingTotal;
 	}
 
+	
+	
 	@Override
 	public void changeReviewStatus(int rno) {
 		reviewDao.changeReviewStatus(rno);

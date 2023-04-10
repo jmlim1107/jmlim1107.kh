@@ -56,27 +56,14 @@
     max-width: 100%;">
 			<div id = "writeModal">
 			  	<div class="modal_content" id = "writeContent"  style="margin-top: 20px;">
-			  	
-			  		<!-- side bar start -->
+			  	<!-- side bar start -->
 				  	<div id = "modal_side"  style="background-color: #333" >
 				  		<button type="button" id = "modal_close" name="Cancel" class="bv-mbox-close bv-focusable" tabindex="0" aria-labelledby="bv-mbox-close-label bv-mbox-breadcrumb-item"> 
 				  			<span aria-hidden="true" class="custom-cursor-on-hover" style="    margin-top: 10px;
-    						margin-right: 10px;">x</span><!-- 수정 : x 아이콘으로 대체 --> 
+    						margin-right: 10px;">x</span>
 				 		</button>
-				 		<div class="bv-mbox-sidebar bv-sidebar-enabled custom-cursor-default-hover" >
-				 			<div class="bv-submission-sidebar bv-submission-side">
-			 					<div class="bv-subject-info-section">  
-			 						<div class="bv-subject-info custom-cursor-default-hover">
-				 						<img id = "reviewWriteImg"  style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
-				 						<span class="bv-subject-name-header"></span>
-				 						<img id = "reviewWriteImg" style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
-				 						<span class="bv-subject-name-header">${reviewList.c_no}</span>
-			 		 				</div>   
-			 					</div> 
-							</div>
-						</div>
+				 		
 				  	</div>
-				  	<!-- side bar end -->
 				  	
 				  	
 				  	<!-- main start -->
@@ -105,7 +92,7 @@
 							<!-- 리뷰 제목 -->
 							<fieldset class="bv-fieldset bv-fieldset-title bv-text-field bv-nocount custom-cursor-default-hover"> 
 								<legend>
-									<span class="bv-fieldset-label-text custom-cursor-default-hover blocktitle"> Review Title* </span>  
+									<span class="bv-fieldset-label-text blocktitle"> Review Title* </span>  
 									<div class = "blockcontent">
 										<input id="review_title2" name = "review_title" class="bv-text bv-focusable custom-cursor-default-hover" type="text" maxlength="50" placeholder="Maximum of 50 characters." aria-describedby="title_validation" aria-required="true" tabindex="0" value="">
 									</div>
@@ -122,14 +109,15 @@
 				  			</fieldset>
 				  			
 				  			<!-- 친구한테 추천할거니? -->
-				  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid">
-				  				<legend class="bv-off-screen"><span class = "blocktitle recommendspan">클래스를 다른 사람들에게 추천하나요?</span>
-										<div class = "blockcontent">
-											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
+				  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid" style="    padding: 10px 0;">
+				  				<legend class="bv-off-screen">
+										<!-- <div class = "blockcontent"></div> -->
+											<span class = "blocktitle recommendspan">클래스를 다른 사람들에게 추천하나요?</span>
+											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio">
 											<label for="toggle-on" class="btn toggleBtn">Yes</label>
 											<input id="toggle-off" class="toggle toggle-right" name="review_recommend" value="No" type="radio">
 											<label for="toggle-off" class="btn toggleBtn">No</label>
-										</div>
+										
 				  				</legend>
 				  			</fieldset>	
 				  			

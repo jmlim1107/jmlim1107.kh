@@ -26,16 +26,15 @@ public class ReviewVO extends CommonVO{
 	private int c_no = 0;						// 클래스 번호
 	private long user_no = 0;					// 회원 번호
 
-	private String user_img = "";	// 회원 프로필 사진
+	private String user_img = "";				// 회원 프로필 사진
 	private String user_name = "";
-	//private String review_c_img_file = "";		// 실제 서버에 저장할 리뷰 썸네일 파일명
 
-	private int r_no = 0;
-	//private String user_img = "";	// 회원 프로필 사진
-	//private String user_name = "";
+	private int r_no = 0;						// 회원 예약 번호
 
-	private String review_img;
-	private String class_img; //해당 리뷰의 클래스 이미지
+	private String class_img; 					//해당 리뷰의 클래스 이미지
 
 	
 }
+
+
+

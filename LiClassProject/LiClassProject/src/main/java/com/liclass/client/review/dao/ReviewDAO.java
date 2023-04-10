@@ -8,8 +8,10 @@ import com.liclass.client.review.vo.ReviewVO;
 
 @Mapper
 public interface ReviewDAO {
-	// 게시글 리스트
-			public List<ReviewVO> reviewList(ReviewVO vo); // 검색 포함 리스트
+
+			
+	 		// 검색,페이징처리 리스트 조회
+			public List<ReviewVO> reviewList(ReviewVO vo);
 			
 			// 페이징 처리를 위한 레코드 개수
 			public int reviewListCnt(ReviewVO vo);
@@ -26,14 +28,20 @@ public interface ReviewDAO {
 			// 별점 평균 구하기
 			public Double getRatingAverage(int c_no);
 
+			// 별점 통계
 			public HashMap<String, Integer> tongRating(ReviewVO vo);
-
+			
+			
+			
+			// 리뷰 상태 바꿔주기
 			public void changeReviewStatus(int rno);
 
+			// review Form 사진 띄우기
 			public ReviewVO updateFormToRno(ReviewVO vo);
 
 			public void changeReviewStatus2(int r_no);
 			
+			// 리뷰 이미지
 			public String reviewImg(int r_no);
 	
 }

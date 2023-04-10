@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
+	legend {
+	padding-left: 50px;
+}
+	.bv-subject-info-section{ position: absolute; height: 540px;}
+	.bv-required-fields-text.custom-cursor-default-hover.blocktitle{padding-left: 50px;}
+	#updateFormBtn2 , #deleteFormBtn222{margin:0px;}
+</style>
+
 <%-- ************************** reviewDetail start *************************************  --%>
 	<!-- <form>
 		<input type="hidden" name="review_no" id="review_number" />
@@ -9,7 +18,7 @@
 		<input type="hidden" name="review_no" id="review_number" />
 		
 			<div class="modal" id = "writeModal" style="position:fixed;max-width:100%;">
-			  	<div class="modal_content" id = "writeContent">
+			  	<div class="modal_content" id = "writeContent" style="    width: 760px;     top: 55%;">
 			  	
 			  		<!-- side bar start -->
 				  	<div id = "modal_side"  style="background-color: #333" >
@@ -18,7 +27,7 @@
 				 		</button>
 				 		<div class="bv-mbox-sidebar bv-sidebar-enabled custom-cursor-default-hover" >
 				 			<div class="bv-submission-sidebar bv-submission-side">
-			 					<div class="bv-subject-info-section">  
+			 					<div class="bv-subject-info-section" >  
 			 						<div class="bv-subject-info custom-cursor-default-hover">
 				 						 <img id = "reviewDetailImg" src="" style="height: 200px;padding: 10px; object-fit:cover;overflow: revert;" alt="..." class="img-rounded">
 				 						 <span style="padding-left:30px;">${courseList.title}</span>
@@ -32,7 +41,7 @@
 				  	
 				  	
 				  	<!-- main start -->
-				  	<div class = "modal_main" style="background-color: white;">
+				  	<div class = "modal_main" style="background-color: white; width: 500px;">
 				  		<div>
 				  			<h2 class="bv-mbox-breadcrumb custom-cursor-default-hover"> 
 				  			<span data-bv-mbox-layer-index="0" class="bv-mbox-breadcrumb-item custom-cursor-default-hover" id="bv-mbox-breadcrumb-item">
@@ -77,7 +86,7 @@
 				  			<!-- 친구한테 추천할거니? -->
 				  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid">
 				  				<legend class="bv-off-screen"><span class = "blocktitle recommendspan">클래스를 다른 사람들에게 추천하나요?</span>
-										<div class = "blockcontent">
+										<div class = "blockcontent" style="margin: 15px 50px;">
 											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
 											<label for="toggle-on" class="btn toggleBtn">Yes</label>
 											<input id="toggle-off" class="toggle toggle-right" name="review_recommend" value="No" type="radio">
@@ -97,8 +106,8 @@
 				  			
 				  			<div>
 				  			<div data-rno="${courseList.r_no}">
-				  				<button type = "button" aria-label="Update Review"  class="btn btn-dark" name="bv-submit-button" id = "updateFormBtn2">수정하기</button>
-				  				<button type = "button" aria-label="Update Review"  class="btn btn-dark" name="bv-submit-button" id = "deleteFormBtn222">삭제하기</button>
+				  				<button type = "button" aria-label="Update Review"  class="btn btn-dark" name="bv-submit-button" id = "updateFormBtn2" style="font-size: 10px; margin-top:10px;">수정하기</button>
+				  				<button type = "button" aria-label="Update Review"  class="btn btn-dark" name="bv-submit-button" id = "deleteFormBtn222" style="font-size: 10px; margin-top:10px;">삭제하기</button>
 				  				
 				  			</div>
 				  		</div>

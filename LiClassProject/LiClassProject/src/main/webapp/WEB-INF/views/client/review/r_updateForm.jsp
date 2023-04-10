@@ -1,25 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<style>
+	legend {
+	padding-left: 50px;
+}
+	.bv-subject-info-section{ position: absolute; height: 540px;}
+	.bv-required-fields-text.custom-cursor-default-hover.blocktitle{padding-left: 50px;}
+	#updateFormBtn2 , #deleteFormBtn222{margin:0px;}
+</style>
 <%-- ************************** r_updateForm start *************************************  --%>
-	<!-- <form id = "detailForm"  target="iframe1">
-		<input type = "hidden" id = "review_no" value = "0" />
-		<input type = "hidden" id = "review_no" value = "0" />
-	</form> -->
-
-	
  
 	<form id = "r_updateForm"><!-- 수정 : 폼태그 jquery로 관리 -->
 	<input type = "hidden" name = "review_no" id="reviewupdate_no" value = "" />
 	<input type = "hidden" name = "r_no" id="r_number" value = "${detail.r_no}" />
 	
-	<div style="width: 10000px;
-    background-color: rgb(0,0,0,0.4);
-    height: 1000px;
-    position: absolute;
-    top: -100px;">
+	<div  class = "modal" style="position: fixed;
+max-width: 100%;">>
 		<div id = "updateModal">
-		  	<div class="modal_content" id = "update_content">
+		  	<div class="modal_content" id = "update_content" style="width: 760px; top: 55%;">
 		  		
 		  		<!-- side bar start -->
 			  	<div id = "modal_side"  style="background-color: #333" >
@@ -41,17 +40,17 @@
 			  	
 			  	
 			  	<!-- main start -->
-			  	<div class = "modal_main" style="background-color: white;">
-			  		<div>
+			  	<div class = "modal_main" style="background-color: white; width: 700px;">
+			  		<div style="margin-left: 100px;">
 			  			<h2 class="bv-mbox-breadcrumb custom-cursor-default-hover"> 
 			  			<span data-bv-mbox-layer-index="0" class="bv-mbox-breadcrumb-item custom-cursor-default-hover" id="bv-mbox-breadcrumb-item">
-			  			<span class="custom-cursor-default-hover blocktitle" >My Review</span></span></h2>
-			  			<p class="bv-required-fields-text custom-cursor-default-hover blocktitle">* 는 필수 사항입니다.</p>
+			  			<span class="custom-cursor-default-hover blocktitle" style="margin-left: 100px;" >My Review</span></span></h2>
+			  			<p class="bv-required-fields-text custom-cursor-default-hover blocktitle" style="margin-bottom: 10px;">* 는 필수 사항입니다.</p>
 			  			
 			  			<!-- 별점 -->
 			  			<fieldset class="bv-fieldset bv-fieldset-rating bv-radio-field bv-fieldset-active custom-cursor-default-hover">
 			  				<legend class="bv-off-screen" style="width: 550px;"><span class = "blocktitle">Star Rating* </span> 
-								<div class = "blockcontent" >
+								<div class = "blockcontent">
 									<span class = "rating">
 										  <input id="rating-5" type="radio" name="review_rating" value="5" /><label for="rating-5"><i class="fas fa-2x fa-star"></i></label>
 										  <input id="rating-4" type="radio" name="review_rating" value="4"/><label for="rating-4"><i class="fas fa-2x fa-star"></i></label>
@@ -85,7 +84,7 @@
 			  			<!-- 친구한테 추천할거니? -->
 				  			<fieldset class="bv-fieldset bv-fieldset-isrecommended bv-radio-field bv-nocount custom-cursor-default-hover bv-valid">
 				  				<legend class="bv-off-screen"><span class = "blocktitle recommendspan">클래스를 다른 사람들에게 추천하나요?</span>
-										<div class = "blockcontent">
+										<div class = "blockcontent"  style="margin: 15px 50px;">
 											<input id="toggle-on" class="toggle toggle-left" name="review_recommend" value="Yes" type="radio" checked="checked">
 											<label for="toggle-on" class="btn toggleBtn">Yes</label>
 											<input id="toggle-off" class="toggle toggle-right" name="review_recommend" value="No" type="radio">
@@ -105,7 +104,7 @@
 				  			</fieldset>
 			  			
 			  			<div>
-			  				<button aria-label="Post Review"  class="btn-dark" name="bv-submit-button" id = "reviewUpdateBtn" type="button">Update Review</button>
+			  				<button aria-label="Post Review"  class="btn-dark btn" name="bv-submit-button" id = "reviewUpdateBtn" type="button" style="margin: 10px 10px 10px 100px; font-size: 10px;">Update Review</button>
 			  			</div>
 			  		</div>
 			  	</div>

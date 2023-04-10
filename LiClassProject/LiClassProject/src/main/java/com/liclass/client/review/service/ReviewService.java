@@ -27,11 +27,16 @@ public interface ReviewService {
 		// 게시글 삭제처리
 		public int reviewDelete(ReviewVO vo) throws Exception;
 		
+		
 		// 별점 통계
 		public double setRating(int c_no);
 		
 		// 별점 개수별 점수
 		HashMap<String, Integer> tongRating(ReviewVO vo);
+		
+		
+		
+		
 
 		public void changeReviewStatus(int rno);
 
