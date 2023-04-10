@@ -294,7 +294,7 @@
 					         var minutes = today.getMinutes();  // 분
 					         var seconds = today.getSeconds();  // 초
 					         var milliseconds = today.getMilliseconds();
-					         var makeMerchantUid = hours*13 +  minutes + seconds + milliseconds;
+					         var makeMerchantUid = hours*13 *  minutes - seconds + milliseconds;
 					         console.log(makeMerchantUid);
 					        /* if($("#insertpoint").val()==""){
 									$("#insertpoint").val(0);

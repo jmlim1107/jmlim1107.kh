@@ -159,9 +159,9 @@ public class PaymentController {
          ras.addFlashAttribute("msg","환불이 완료되었습니다.");
          goUrl = "redirect:/mypage"; // 환불 완료 페이지
       }else {
-         refund_status = 1;
-         refundVO.setRefund_status(refund_status);
-         paymentSerivce.insertRefund(refundVO);
+         //refund_status = 1;
+         //refundVO.setRefund_status(refund_status);
+         //paymentSerivce.insertRefund(refundVO);
          System.out.println("환불 실패");
          ras.addFlashAttribute("msg","환불에 실패하였습니다.");
          goUrl = "redirect:/mypage";

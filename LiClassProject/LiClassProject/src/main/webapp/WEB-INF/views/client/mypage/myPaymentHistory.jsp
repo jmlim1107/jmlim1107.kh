@@ -161,7 +161,7 @@
 	         <div id="paymentList" class="table-height">
 	            <form id="dataForm">
 	               <input type="hidden" name="user_no" value='${loginUser.user_no }'>
-	               <table summary="결제내역 리스트" class="table table-hover" style="width: 110%;max-width: 110%;">
+	               <table summary="결제내역 리스트" class="table table-hover" style="width: 120%;max-width: 120%;">
 	                  <thead>
 	                     <tr>
 	                        <th data-value="b_num" class="order text-center col-md-3" colspan="2">상품정보</th>
