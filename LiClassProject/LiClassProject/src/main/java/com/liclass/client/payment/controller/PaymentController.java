@@ -133,7 +133,7 @@ public class PaymentController {
    // 환불처리
    @RequestMapping(value="/payCencel")
    public String payCencel(@RequestParam("merchant_uid") String merchant_uid, @RequestParam("user_no") long user_no
-		   , RedirectAttributes ras) { // 버튼 누른 그 목록의 merchant_uid를 가져와야함. 지금은 테스트라 내가 설정해줌
+		   , RedirectAttributes ras) { 
       log.info("payCencel() 호출 성공");
       String goUrl = null;
       RefundVO refundVO = new RefundVO();
@@ -159,14 +159,11 @@ public class PaymentController {
          ras.addFlashAttribute("msg","환불이 완료되었습니다.");
          goUrl = "redirect:/mypage"; // 환불 완료 페이지
       }else {
-         //refund_status = 1;
-         //refundVO.setRefund_status(refund_status);
-         //paymentSerivce.insertRefund(refundVO);
          System.out.println("환불 실패");
-         ras.addFlashAttribute("msg","환불에 실패하였습니다.");
+         ras.addFlashAttribute("msg","환불에 실패하였습니다. 관리자에게 문의해주세요.");
          goUrl = "redirect:/mypage";
       }
-      return goUrl; // 다시 mypage로 가면 데이터가 안나온다..
+      return goUrl;
    }
    
    // 성공했을 때 페이지
