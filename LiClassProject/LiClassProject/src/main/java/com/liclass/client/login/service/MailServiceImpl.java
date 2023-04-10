@@ -100,7 +100,7 @@ public class MailServiceImpl implements MailService { //은아
 	        msg += "<div style='font-family:'Helvetica Neue',Arial,sans-serif;font-size:32px;font-weight:bold;line-height:1;text-align:center;color:#555;'>";
 	        msg += "<h1 style='text-align:center;'>안녕하세요,LiClass 입니다</h1>";
 	        msg += "<br>";
-	        msg += "<p style='text-align:center;'>"+vo.getUser_name()+"님, LiClass의 회원이 되신걸 환영합니다."+"</p>";
+	        msg += "<p style='text-align:center;'>"+vo.getUser_name()+"님, LiClass의 회원이 되신 걸 환영합니다."+"</p>";
 	        msg += "<br>";
 	        msg += "<br>";
 	        msg += "<div align='center' style='border:none; padding:10px 0px;'>";

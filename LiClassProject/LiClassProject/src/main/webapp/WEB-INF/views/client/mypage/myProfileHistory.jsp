@@ -57,7 +57,7 @@
 	</table>
 
 	<div style="margin-top : 70px;">
-	<h6>로그인 정보</h6>
+	<h6 class="subtitle-head">로그인 정보</h6>
 	<hr style="border: 1px solid black;">
 	</div>
 	

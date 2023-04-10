@@ -52,20 +52,20 @@ public class AdminClassServiceImpl implements AdminClassService {
 	public int classInsert(AdminClassVO liclass) throws Exception {
 		int result1 = 0;
 		int result2 = 0;
-		
+		/*1) 클래스  insert*/
 		result1 = classDao.classInsert(liclass);
-		/**/
-		if(result1==1 ) { 								//클래스 insert 성공하면 번호를 받아 자식인 사진파일도 가능
-			AdminClassImgVO img = new AdminClassImgVO(); 											//하나의 클래스 객체
-			img.setC_no(liclass.getC_no());
-			for( MultipartFile file : liclass.getFileList() ) {									//리스트 요소별 파일주소
-				if(file.getSize() > 0) {  //리스트 영역만 있을뿐 존재하지 않을 수도!! :: file != null																						
+		
+		/*2) 클래스 이미지 insert*/
+		if(result1==1 ) { 																				//클래스데이터의  insert 성공
+			AdminClassImgVO img = new AdminClassImgVO(); 		//하나의 클래스 이미지 객체
+			img.setC_no(liclass.getC_no());											// 1) 공통된 클래스 번호 부여
+			for( MultipartFile file : liclass.getFileList() ) {	
+				if(file.getSize() > 0) { 																					
 					String fileName = ClassFileUpload.fileUpdload(file, "class");
-					img.setC_img_file(fileName); 
+					img.setC_img_file(fileName); 										// 2) 개별 이미지 이름부여
 					String thumName = ClassFileUpload.makeThumbnail(fileName);
-					//String thumName = FileUploadUtil.makeThumbnail(img.getC_img_file());
-					img.setThumb_file(thumName);
-					result2 = imgDao.imgInsert(img);													//등록작업
+					img.setThumb_file(thumName);									// 3) 개별 썸네일 이름 부여
+					result2 = imgDao.imgInsert(img);									// 4) 개별 DB 등록작업
 				}
 			}
 		}
@@ -86,30 +86,20 @@ public class AdminClassServiceImpl implements AdminClassService {
 
 	@Override
 	public int classDelete(AdminClassVO liclass) throws Exception {
-		//int result1 = 0;
+		int result1 = 0;
 		int result2 =0;
-		//System.out.println(liclass.getC_no()+"?");
-		//이미지부터 삭제
+		/* 해당 이미지부터 삭제 */
 		List<AdminClassImgVO> list = imgDao.imgList(liclass.getC_no());
-		if(list.size()>0) {	//클래스가 이미지를 소유한다면..
+		if(list.size()>0) {	
 			for( AdminClassImgVO img : list ) {
-				//1) 물리적 이미지 파일 삭제
-				ClassFileUpload.fileDelete(img.getC_img_file());
+				ClassFileUpload.fileDelete(img.getC_img_file());				//1) 물리적 이미지 파일 삭제
 			}
 		}
-		//2) 이미지 DB삭제
-		//result1 = imgDao.imgDel(liclass.getC_no());
-		imgDao.imgDel(liclass.getC_no());
-		//System.out.println(liclass.getC_no()+"????");
-		//3) 클래스 DB 삭제
-		
-		/* 사진이 삭제되어야 클래스도 삭제가능 --> 사진이 없는 것도 있으니.. 일단은 막아두기..
-		if(result1==1) {
+		result1 = imgDao.imgDel(liclass.getC_no());  								//2) 이미지 DB정보 삭제
+		/*클래스 DB 삭제*/
+		if(result1==1) {	//이미지 삭제 성공시 진행
 			result2 = classDao.classDelete(liclass.getC_no());
 		}
-		*/
-		
-		result2 = classDao.classDelete(liclass.getC_no());
 		return result2;
 	}
 	

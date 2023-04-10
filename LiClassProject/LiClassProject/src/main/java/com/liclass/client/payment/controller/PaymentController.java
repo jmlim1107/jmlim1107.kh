@@ -45,7 +45,7 @@ public class PaymentController {
       // 값 받아오기
       String goUrl = null;
       String pay_method = (String)model.get("pay_method");
-      String merchant_uid = (String)model.get("merchant_uid");
+      //String merchant_uid = (String)model.get("merchant_uid");
       String pay_pg = (String)model.get("pay_pg");
       long user_no = (Long) model.get("user_no"); 
       String pay_name = (String)model.get("pay_name");
@@ -68,7 +68,7 @@ public class PaymentController {
       // 받아온 값 vo에 넣어주기
       PaymentVO paymentVO = new PaymentVO();
       paymentVO.setPay_pg(pay_pg);
-      paymentVO.setMerchant_uid(merchant_uid);
+      paymentVO.setMerchant_uid(imp_uid);
       paymentVO.setPay_method(pay_method);
       paymentVO.setPay_name(pay_name);
       paymentVO.setPay_price(price);

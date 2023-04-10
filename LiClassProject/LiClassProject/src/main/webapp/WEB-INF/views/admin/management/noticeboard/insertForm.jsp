@@ -48,7 +48,7 @@
                 <span class="input-group-text" id="inputGroup-sizing-default">제목</span>
                 <input type="text" id="qna_title" name="qna_title" class="form-control" aria-label="Recipient's username" aria-describedby="inputGroup-sizing-default" aria-describedby="button-addon2">
                 <input type="checkbox" class="btn-check" id="qna_top_state" name="qna_top_state" autocomplete="off" onchange="topStateCheck(this)"value="">
-                <label class="btn btn-outline-primary" for="qna_top_state">상단고정</label>
+                <label class="btn btn-outline-primary" for="qna_top_state">게시여부</label>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="areaGroup-sizing-default">내용</span>

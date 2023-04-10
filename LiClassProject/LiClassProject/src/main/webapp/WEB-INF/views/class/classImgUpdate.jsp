@@ -154,7 +154,7 @@
 							  
 			/*********  <<<수정하기(변경하기) >>> *********/
 			$(".updBtn").click(function(){  /* [ form : updFrm ] c_img_no, c_img_file, thumb_file, c_no, file(Multipartfile) */
-				let file = $(this).prev().val();
+				let file = $('input[name="file"]').val();
 				console.log(file);
 				if( file=="" ){	
 					alert("대체할 이미지 파일을 먼저 선택해주세요");
@@ -249,7 +249,7 @@
 	          	<!-- 등록버튼 -->
 	          	<h1><span class="badge bg-dark text-light addBtn"><i class="bi bi-hand-index-thumb"></i>&nbsp;add image</span></h1>
 	          	
-	          	<input type="file" class="form-control" id="addfile" name="file" style="display:none" accept=".gif, .jpg, .png">
+	          	<input type="file" class="form-control" id="addfile" name="file" style="display:none" accept=".gif, .jpg, .png, .jpeg">
 	         </form>
         </div>
         

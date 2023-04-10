@@ -8,7 +8,7 @@
     </select>
 
     <update id="changeAdminPwd" parameterType="adminLogin">
-        update li_admin set admin_pw = #{admin_pw} where admin_no = {admin_no}
+        update li_admin set admin_pw = #{admin_pw} where admin_no = #{admin_no}
     </update>
 
 </mapper>

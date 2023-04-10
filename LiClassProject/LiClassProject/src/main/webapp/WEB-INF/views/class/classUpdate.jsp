@@ -137,10 +137,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="col-md-2 text-center table-primary">센터</td>
-					<td colspan="2" class="col-md-2 text-center table-light">${updateData.ct_bizno}</td>
-					<td class="col-md-2 text-center table-primary">상세주소</td>
-					<td colspan="2" class="col-md-2 text-center table-light">${updateData.ct_bizno}</td>
+					<td class="col-md-2 text-center table-primary">센터고유 번호</td>
+					<td colspan="5" class="col-md-2 text-center table-light">${updateData.ct_bizno}</td>
 				</tr>
 				<tr>
 					<td colspan="6">
