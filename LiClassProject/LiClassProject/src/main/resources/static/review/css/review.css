@@ -1,17 +1,19 @@
 @charset "UTF-8";
 /* ReviewList CSS */
-
-.custom-cursor-default-hover.blocktitle{margin-top:20px;}
+span.custom-cursor-default-hover.blocktitle{font-size: 24px;}
+.custom-cursor-default-hover.blocktitle{margin-top:10px;     font-size: 10px; }
 #writeContent > div.modal_main > div > p{ margin-bottom: 10px;}
+.blocktitle.recommendspan{font-size: 14px;}
+span.blocktitle{ font-size: 17px;}
 
 #r_detailTitle , #updateTitle{
 	background-color : white; 
 	border : 1px solid gainsboro;}
-.recommendspan{ font-size: 18px;}
+.recommendspan{ font-size: 18px; width: 50%;}
 
 textarea{ 
 	width: 90%;
-    height: 11em;
+    height: 9em;
     border: none;
     resize: none;
 	border: 1px solid gainsboro;

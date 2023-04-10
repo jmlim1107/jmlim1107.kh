@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liclass.client.review.dao.ReviewDAO">
    
-   <!-- 재활용을 위한 소스 -->
    <sql id = "reviewSearch">
       <if test="search=='review_title'">
          <![CDATA[ review_title LIKE '%'|| #{keyword} ||'%' ]]>
@@ -11,50 +10,18 @@
       <if test="search=='review_content'">
          <![CDATA[ review_content LIKE '%'|| #{keyword} ||'%' ]]>
       </if>
-   
    </sql>
-
-
-   
-   <!-- 게시글 리스트 기본 조회   
-   <select id = "reviewList" resultType = "review" parameterType = "review">
-      SELECT review_no, review_name, review_title, review_content, to_char(review_date, 'YYYY-MM-DD') as review_date, review_recommend
-      FROM Li_review
-      ORDER BY review_no desc
-   </select>
-    -->
     
-   
-   <!-- 게시글 리스트 기본 조회(검색어)
-   <select id = "reviewList" resultType = "review" parameterType = "review">
-      SELECT review_no, review_name, review_title, review_content, to_char(review_date, 'YYYY-MM-DD') as review_date, review_recommend
-      FROM Li_review
-      <where>
-         <if test="search=='b_title'">
-            <![CDATA[ review_title LIKE '%'|| #{keyword} ||'%' ]]>               
-         </if>
-         <if test="search=='b_content'">
-            <![CDATA[ review_content LIKE '%'|| #{keyword} ||'%' ]]>               
-         </if>
-      </where>
-      ORDER BY review_no desc
-   </select>
-    -->
-    
-    <!-- 게시판 리스트 조회(페이징 처리와 검색 처리) -->
-   <!--
-   힌트(hint): 개발자가 데이터베이스에 어떤 방식으로 실행해 줘야 하는지를 명시하기
-   때문에 강제성을 부여한다.
-   구문: /*+로 시작하고 */ 로 종료된다. 
-   /*+ INDEX_DESC(테이블명 인덱스명[기본키 설정시 제약조건명으로 인덱스 자동 생성]) */ -->
-   <!--rownum: SQL이 실행된 결과에 넘버링해준다. -->
-   
+    <!-- 후기 게시판 리스트 조회(페이징 처리와 검색 처리) -->
    <select id="reviewList" parameterType="review" resultType = "review" >
       <![CDATA[
-         SELECT review_no, review_title, review_content, to_char(review_date, 'YYYY-MM-DD') as review_date, review_recommend, review_rating, user_no, user_name, c_no, user_img
+         SELECT review_no, review_title, review_content, to_char(review_date, 'YYYY-MM-DD') as review_date, review_recommend, 
+         review_rating, user_no, user_name, c_no, user_img
          FROM (
             SELECT /*+ INDEX_DESC(Li_review Li_review_pk) */ 
-             rownum as rnum, lr.review_no, lr.review_title, lr.review_content, lr.review_date, lr.review_recommend, lr.review_rating, lu.user_no, lu.user_name, lr.c_no, lu.user_img
+             rownum as rnum, lr.review_no, lr.review_title, lr.review_content, lr.review_date, lr.review_recommend, 
+             lr.review_rating, lu.user_no, lu.user_name, lr.c_no, lu.user_img
+             
              FROM Li_review lr , Li_user lu 
              where lr.user_no = lu.user_no and c_no = #{c_no} and review_status = 0 and
       ]]>
@@ -74,13 +41,17 @@
           <include refid="reviewSearch"></include>
        </trim>
     </select>
+    
+    
    <!-- 게시물 등록 -->
    <insert id ="reviewInsert" parameterType="review">
       <selectKey keyProperty="review_no" resultType="int" order="BEFORE">
          select Li_review_seq.nextval from dual
       </selectKey>
-      INSERT INTO Li_review(review_no, review_title, review_content, review_date, review_status, review_rating, review_recommend, r_no, c_no, user_no)
-      VALUES(#{review_no}  , #{review_title}, #{review_content}, TO_CHAR(SYSDATE ,'YYYY-MM-DD'), 0, #{review_rating}, #{review_recommend} ,#{r_no}, #{c_no}, #{user_no})
+      INSERT INTO Li_review(review_no, review_title, review_content, review_date, review_status, 
+      review_rating, review_recommend, r_no, c_no, user_no)
+      VALUES(#{review_no}  , #{review_title}, #{review_content}, TO_CHAR(SYSDATE ,'YYYY-MM-DD'), 0, 
+      #{review_rating}, #{review_recommend} ,#{r_no}, #{c_no}, #{user_no})
    </insert>
    
    <!-- 게시물 상세조회  -->
@@ -108,13 +79,7 @@
       UPDATE Li_review
       SET review_title = #{review_title},
          review_content = #{review_content},
-         review_update = TO_CHAR(SYSDATE ,'YYYY-MM-DD'),
-<!-- <<<<<<< HEAD -->
-         <!-- review_rating = #{review_rating} -->
-<!-- ======= -->
-         review_rating = #{review_rating},
-         review_recommend = #{review_recommend}
-<!-- >>>>>>> 720416294c0152cac3efc862011b8e908654a3d0 -->
+         review_update = TO_CHAR(SYSDATE ,'YYYY-MM-DD')
       where r_no = #{r_no}
    </update>
 

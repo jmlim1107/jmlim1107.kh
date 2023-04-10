@@ -14,13 +14,14 @@
     float: left;
     width: 550px;
     text-align: left;
-    padding: 0 0 10px 30px ; 
+    padding: 0 0 10px 5px ; 
     }
 
 .blockcontent{
+	
 	float: left;
-    margin: 0 0 10px 30px;
-    font-size: 17px;
+    margin: 0 0 10px 5px;
+    font-size: 10px;
     }
 
 fieldset , legend{
@@ -31,7 +32,10 @@ fieldset , legend{
 	
 
 .modal_content{
-  width:800px; height:750px;
+  top: 55%;
+  width: 600px;
+  padding-right: 20px;
+  height: 540px;
   background:#fff; border-radius:5px;
   text-align:center;
   box-sizing:border-box;
@@ -52,10 +56,13 @@ fieldset , legend{
 .modal_main{
 	width: 550px;
     float: right;
-    height: 750px;
+    height: 100%;
     }
 
-.bv-subject-info-section{ width: 250px; height: 750px; background-color: #333; color:white;} 
+.bv-subject-info-section{ 
+	width: 220px;
+    height: 468px; 
+	background-color: #333; color:white;} 
 
 #modal_close, #updatemodal_close, #detailmodal_close{
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);

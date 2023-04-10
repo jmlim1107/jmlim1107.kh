@@ -62,12 +62,12 @@ public class ReviewController {
 	
 	/*******************************************
 	 * 글쓰기 폼 출력하기
-	 *******************************************/
+	 
 	  @RequestMapping(value="/r_writeForm") public String r_writeForm() {
 	  log.info("r_writeForm 호출 성공");
 	  
 	  return "review/r_writeForm"; }
-	 
+	 *******************************************/
 	
 	/*******************************************
 	 * 글쓰기 구현하기
@@ -78,25 +78,19 @@ public class ReviewController {
 	public String reviewInsert(@ModelAttribute ReviewVO vo,@RequestParam int cno,
 			@RequestParam int rno, @RequestParam long userno,
 			Model model) throws Exception {
-		log.info("reviewInsert 호출 성공................................");
-		System.out.println("cno="+cno);
+		
 		vo.setC_no(cno);
 		vo.setR_no(rno);
 		vo.setUser_no(userno);
 		
-		log.info("vo : " + vo.toString());
 		int result = 0;
 		String url = "";
 		
 		result = reviewService.reviewInsert(vo);
 		if(result == 1) {
 			reviewService.changeReviewStatus(rno);
-			log.info("성공");
 			url = "/courseHistory";
-			log.info(vo.getReview_status());
-		} else {
-			log.info("실패");
-		}
+		} 
 		return "redirect:" + url;
 		
 	}
@@ -134,26 +128,18 @@ public class ReviewController {
 	
 	
 	/*******************************************
-	 * 글 수정 폼 출력하기1
+	 * 글 수정 폼 출력하기
 	 * @throws Exception 
 		 *******************************************/	
 	@ResponseBody
 	@PostMapping(value = "/r_updateForm" , produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, Object> r_updateForm(@ModelAttribute ReviewVO vo, Model model) throws Exception {
-		log.info("r_updateForm 호출 성공......................................");
-		/*
-		 * String img = reviewService.reviewImg(vo.getR_no()); System.out.println(img);
-		 * model.addAttribute("img",img);
-		 */
-		
-		// ReviewVO updateData = reviewService.r_updateForm(vo);
-		/**/
 		ReviewVO updateData = reviewService.updateFormToRno(vo);
 		model.addAttribute("updateData",updateData);
 
 		
 		String img = reviewService.reviewImg(vo.getR_no());
-		System.out.println(img);
+		
 		model.addAttribute("img",img);
 		Map<String, Object> data = new HashMap<>() ;
 		data.put("review_content", updateData.getReview_content());
@@ -169,17 +155,6 @@ public class ReviewController {
 
 	
 
-	/*******************************************
-	 * 글 수정 폼 출력하기2
-	
-	  @ResponseBody
-	  @PostMapping(value="/r_updateForm" , produces=MediaType.APPLICATION_JSON_VALUE)
-	  public String r_updateForm(@ModelAttribute ReviewVO vo, Model model) throws Exception {
-	  log.info("r_writeForm 호출 성공");
-	  
-	  return "review/r_writeForm"; }
-
-	 *******************************************/
 	
 	
 	/*******************************************
@@ -247,9 +222,7 @@ public class ReviewController {
 	}
 	
 	
-	/*******************************************
-	 * 나중에 리스트 컨트롤러로 넣어줄 부분!!
-	 *******************************************/
+	
 	
 	
 	

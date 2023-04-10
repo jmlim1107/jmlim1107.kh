@@ -90,8 +90,9 @@
 					$("#addImg").val("");
 					console.log( "file에 담긴값 :"+$("#addImg").val());
 			});
-			//클래스의 사진이 5개가 넘는다면 추가작업 불가
+			
 			let imgCnt = 0;
+			//클래스의 사진이 5개가 넘는다면 추가작업 불가
 			$.ajax({
 				url : "/admin/image/imageCnt?c_no="+${param.c_no},
 				type : "get",
@@ -107,7 +108,6 @@
 			
 			// 추가버튼클릭
 			$(".addBtn").click(function(){ /* [ form : addFrm ] c_no, file(mulipartfile) 2개의 값만 넘어간다.. */
-				
 				if( imgCnt == 5 ){
 					alert("클래스 이미지는 최대 5개까지 등록이 가능합니다.\n 삭제 혹은 수정을 이용해주세요.");
 					return;
@@ -115,9 +115,6 @@
 					if( $("#addfile" ).val()=="" ){	
 						alert("등록할 이미지 파일을 먼저 선택해주세요.");
 						return;
-					 /*}else if( $("#addfile" ).val().length > 1 ){
-						alert("등록할 파일은 하나만 선택해주세요.");
-						return;*/
 					} else {
 						var formData = new FormData( $("#addFrm")[0] ); 
 						$.ajax({

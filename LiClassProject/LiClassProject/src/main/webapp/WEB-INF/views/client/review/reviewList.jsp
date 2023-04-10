@@ -33,7 +33,8 @@
     <script type="text/javascript">
     
     $(function(){
-    	var ratingTotal = ${tongRating.RATING1} + ${tongRating.RATING2} + ${tongRating.RATING3} + ${tongRating.RATING4} + ${tongRating.RATING5}
+    	var ratingTotal = ${tongRating.RATING1} + ${tongRating.RATING2} + ${tongRating.RATING3} + 
+    					  ${tongRating.RATING4} + ${tongRating.RATING5}
     	$("#ratingTotal").text(ratingTotal);
     	
     	var ratingAvg1 = Math.ceil(${tongRating.RATING1} / ratingTotal *1000);
@@ -234,19 +235,10 @@
 		                  	<div style="font-size: 4px;">${review.user_name}</div>
 	
 		                  </div>
-		                  <div id = "review_content" name = "review_content">${review.review_content}</div>
+		                  <!-- name = "review_content" -->
+		                  <div id = "review_content" >${review.review_content}</div>
 		                  <p>친구에게 추천하시겠습니까?아   ${review.review_recommend}</p>
 		                </div>
-		                
-		                <%-- <div>
-		                	<c:if test="${not empty board.b_thumb}">
-								<img src="/uploadLiClass/review/thumbnail/${review.review_thumb_file}" style="width: 100px;"/>
-							</c:if>
-							<c:if test="${empty board.b_thumb}">
-								<img src="/resources/images/notfound.png"  style="width: 100px;" />
-							</c:if>
-		                </div> --%>
-	
 		              </div>
 	              </c:forEach>
 	          	</c:when>
