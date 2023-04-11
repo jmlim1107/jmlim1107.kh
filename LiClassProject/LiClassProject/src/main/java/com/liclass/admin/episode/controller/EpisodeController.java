@@ -88,20 +88,19 @@ public class EpisodeController {
 		if(result==1) { 																			//삭제로 상태값이 변경되면
 			List<ReserveVO>list = reserveService.reservListSelect(evo.getEp_no()); //관련 예약내역을 받아온다.
 			int refund_status = 4; 	//강제환불상태 값
-			int refundresult = 0; 	    //환불성공여부
+			int refundresult; 	    //환불성공여부
 			if(list.size()>0) {				//1개이상의 예약내역이 존재한다면
 				for( ReserveVO rvo : list ) {
 					reserveService.reservWithdraw(rvo.getR_no()); 														//예약상태바꾸기
 					PaymentVO pvo = paymentService.getWithdrawPay(rvo.getR_no()); 				//예약의 결제데이터가져오기
 					refundresult = paymentService.payCencel( pvo.getMerchant_uid(), pvo.getPay_price() ); //환불처리하기
 					paymentService.updWithdrawPay(pvo); //결제상태바꾸기
-					//결제상태 바꾸기
 					RefundVO refundVO = new RefundVO(); //환불데이터의 생성
 					refundVO.setMerchant_uid(pvo.getMerchant_uid());
 				    refundVO.setRefund_method(pvo.getPay_method());
 				    refundVO.setRefund_price(pvo.getPay_price());
 				    refundVO.setUser_no(pvo.getUser_no());
-					if(refundresult==1) {
+					if(refundresult==0) {
 					    refundVO.setRefund_status(refund_status); 
 					    int a = paymentService.insertRefund(refundVO); //성공 환불데이터 입력하기
 					    paymentService.changePoint2(pvo); //환불에 이용한 포인트 반환
