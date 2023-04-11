@@ -363,6 +363,7 @@ public class LoginController { //은아
 					session.invalidate();
 				}else if(user_type == 2){ //네이버
 					session.removeAttribute("snsToken");
+					model.addAttribute("loginUser",null);
 					session.invalidate();
 				}
 			}
