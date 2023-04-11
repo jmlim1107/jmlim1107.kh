@@ -14,26 +14,32 @@
 
     <select id="quarterStatistics" parameterType="Payment" resultType="HashMap">
         SELECT
-            CASE
-                WHEN TO_CHAR(pay_date, 'Q') = '1' THEN '1분기'
-                WHEN TO_CHAR(pay_date, 'Q') = '2' THEN '2분기'
-                WHEN TO_CHAR(pay_date, 'Q') = '3' THEN '3분기'
-                ELSE '4분기'
-                END AS quarter,
-            SUM(pay_price) AS sales
+            quarters.quarter,
+            COALESCE(SUM(pay_price), 0) AS sales
         FROM
-            li_payment
-        WHERE
-            TO_CHAR(pay_date, 'YYYY') = '2023'
+            (
+                SELECT '1분기' AS quarter FROM DUAL
+                UNION ALL SELECT '2분기' AS quarter FROM DUAL
+                UNION ALL SELECT '3분기' AS quarter FROM DUAL
+                UNION ALL SELECT '4분기' AS quarter FROM DUAL
+            ) quarters
+                LEFT JOIN li_payment
+                          ON TO_CHAR(pay_date, 'YYYY') = '2023' AND
+                             quarters.quarter = CASE
+                                                    WHEN TO_CHAR(pay_date, 'Q') = '1' THEN '1분기'
+                                                    WHEN TO_CHAR(pay_date, 'Q') = '2' THEN '2분기'
+                                                    WHEN TO_CHAR(pay_date, 'Q') = '3' THEN '3분기'
+                                                    ELSE '4분기'
+                                 END
         GROUP BY
-            CASE
-                WHEN TO_CHAR(pay_date, 'Q') = '1' THEN '1분기'
-                WHEN TO_CHAR(pay_date, 'Q') = '2' THEN '2분기'
-                WHEN TO_CHAR(pay_date, 'Q') = '3' THEN '3분기'
-                ELSE '4분기'
-                END
+            quarters.quarter
         ORDER BY
-            quarter
+            CASE quarters.quarter
+                WHEN '1분기' THEN 1
+                WHEN '2분기' THEN 2
+                WHEN '3분기' THEN 3
+                ELSE 4
+                END
     </select>
 
     <select id="allSales" parameterType="Payment" resultType="Hashmap">

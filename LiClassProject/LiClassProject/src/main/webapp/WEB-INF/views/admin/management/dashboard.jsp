@@ -81,8 +81,8 @@
                                     <div class="ps-3">
                                         <%--계정 통계데이터 삽입--%>
                                         <h6>&nbsp;${userState.ACTIVEUSER} / ${userState.INACTIVEUSER}</h6>
-                                            <span class="text-muted small pt-2 ps-1">전일대비</span>
-                                            <span class="text-success small pt-1 fw-bold">8%</span><i class="bi bi-caret-up"></i>
+                                            <%--<span class="text-muted small pt-2 ps-1">전일대비</span>--%>
+                                            <%--<span class="text-success small pt-1 fw-bold">8%</span><i class="bi bi-caret-up"></i>--%>
                                     </div>
 
                                 </div>
@@ -109,8 +109,8 @@
                                     <div class="ps-3">
                                         <%--매출 통계 데이터 삽입--%>
                                         <h6>&#8361; ${allSales.ALLSALES}</h6>
-                                            <span class="text-muted small pt-2 ps-1">전일대비</span>
-                                            <span class="text-success small pt-1 fw-bold">8%</span><i class="bi bi-caret-up"></i>
+                                            <%--<span class="text-muted small pt-2 ps-1">전일대비</span>--%>
+                                           <%-- <span class="text-success small pt-1 fw-bold">8%</span><i class="bi bi-caret-up"></i>--%>
                                             <%--<canvas id="SalesChart" height="40"></canvas>--%>
                                     </div>
                                 </div>
@@ -136,8 +136,8 @@
                                     <div class="ps-3">
                                         <%--예약 통계데이터 삽입--%>
                                         <h6>&nbsp;${userReserve.RESERVECHECK} / ${userReserve.RESERVECANCEL}</h6>
-                                        <span class="text-muted small pt-2 ps-1">전일대비</span>
-                                        <span class="text-success small pt-1 fw-bold">8%</span><i class="bi bi-caret-up"></i>
+                                       <%-- <span class="text-muted small pt-2 ps-1">전일대비</span>--%>
+                                        <%--<span class="text-success small pt-1 fw-bold">8%</span><i class="bi bi-caret-up"></i>--%>
                                     </div>
                                 </div>
                                 <div class="progress mt-3">
