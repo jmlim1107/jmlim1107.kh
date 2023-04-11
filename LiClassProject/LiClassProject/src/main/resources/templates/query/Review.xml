@@ -2,16 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liclass.client.review.dao.ReviewDAO">
    
-   <sql id = "reviewSearch">
-      <if test="search=='review_title'">
-         <![CDATA[ review_title LIKE '%'|| #{keyword} ||'%' ]]>
-      </if>
-         
-      <if test="search=='review_content'">
-         <![CDATA[ review_content LIKE '%'|| #{keyword} ||'%' ]]>
-      </if>
-   </sql>
-    
+   <!-- 재활용을 위한 소스 -->
+	<sql id = "reviewSearch">
+		<if test="search=='review_title'">
+			<![CDATA[ review_title LIKE '%'|| #{keyword} ||'%' ]]>
+		</if>
+			
+		<if test="search=='review_content'">
+			<![CDATA[ review_content LIKE '%'|| #{keyword} ||'%' ]]>
+		</if>
+	
+	</sql>
+
     <!-- 후기 게시판 리스트 조회(페이징 처리와 검색 처리) -->
    <select id="reviewList" parameterType="review" resultType = "review" >
       <![CDATA[
@@ -98,11 +100,6 @@
       where c_no = #{c_no}
    </select>
    
-   <update id="updateRating">
-      update Li_review
-      set reviewRating = #{reviewRating}
-      where c_no = #{c_no}
-   </update>
    
    <!-- 별점 통계(각자의 개수) -->
    <select id="tongRating" parameterType="review" resultType="map">
@@ -134,5 +131,9 @@
                          where lr.r_no = #{r_no} and rownum = 1
    </select>
    
+   <!-- 경민) 클래스 기준 리뷰 리스트 조회-->
+   <select id="reviewOfclass" parameterType="int" resultType="review">
+   		select * from li_review where c_no = #{c_no}
+   </select> 
     
 </mapper>

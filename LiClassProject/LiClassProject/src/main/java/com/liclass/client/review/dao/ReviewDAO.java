@@ -43,5 +43,8 @@ public interface ReviewDAO {
 			
 			// 리뷰 이미지
 			public String reviewImg(int r_no);
+			
+			//경민) 클래스 기준 리뷰 조회
+			public List<ReviewVO> reviewOfclass(int c_no);
 	
 }

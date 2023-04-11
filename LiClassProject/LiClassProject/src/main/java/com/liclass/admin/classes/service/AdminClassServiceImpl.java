@@ -11,6 +11,12 @@ import com.liclass.admin.classes.dao.AdminClassDAO;
 import com.liclass.admin.classes.vo.AdminClassVO;
 import com.liclass.admin.img.dao.AdminClassImgDAO;
 import com.liclass.admin.img.vo.AdminClassImgVO;
+import com.liclass.client.likes.dao.LikesDAO;
+import com.liclass.client.likes.vo.LikesVO;
+import com.liclass.client.post.dao.PostDAO;
+import com.liclass.client.post.vo.PostVO;
+import com.liclass.client.review.dao.ReviewDAO;
+import com.liclass.client.review.vo.ReviewVO;
 import com.liclass.common.file.ClassFileUpload;
 
 import lombok.Setter;
@@ -23,6 +29,16 @@ public class AdminClassServiceImpl implements AdminClassService {
 	
 	@Setter(onMethod_= @Autowired)
 	private AdminClassImgDAO imgDao;
+	
+	@Setter(onMethod_= @Autowired)
+	private LikesDAO likesDao;
+	
+	@Setter(onMethod_= @Autowired)
+	private ReviewDAO reviewDao;
+	
+	@Setter(onMethod_= @Autowired)
+	private PostDAO postDao;
+	
 	
 	@Override
 	public List<AdminClassVO> classList(AdminClassVO liclass) {
@@ -86,8 +102,12 @@ public class AdminClassServiceImpl implements AdminClassService {
 
 	@Override
 	public int classDelete(AdminClassVO liclass) throws Exception {
-		int result1 = 0;
-		int result2 =0;
+		int result1 = 0;  //이미지 삭제
+		int result2 =0;  //likes 삭제
+		int result3 = 0; //reivew 삭제
+		int result4 = 0; //post 삭제
+		int result5 =0; //최종 클래스 삭제
+		
 		/* 해당 이미지부터 삭제 */
 		List<AdminClassImgVO> list = imgDao.imgList(liclass.getC_no());
 		if(list.size()>0) {	
@@ -96,12 +116,34 @@ public class AdminClassServiceImpl implements AdminClassService {
 			}
 		}
 		result1 = imgDao.imgDel(liclass.getC_no());  								//2) 이미지 DB정보 삭제
-		/*클래스 DB 삭제*/
-		if(result1==1) {	//이미지 삭제 성공시 진행
-			result2 = classDao.classDelete(liclass.getC_no());
+		
+		List<LikesVO> list2 = likesDao.likesOfClass(liclass.getC_no()); //클래스를 참조하는 likes 삭제
+		if(list2.size()>0) {
+			for( LikesVO likes : list2 ) {
+				result2 = likesDao.delLikes(likes);
+			}
 		}
-		return result2;
+		/**/
+		List<ReviewVO> list3 = reviewDao.reviewOfclass(liclass.getC_no()); //클래스를 참조하는 review 삭제
+		if(list3.size()>0) {
+			for( ReviewVO review : list3 ) {
+				result3 = reviewDao.reviewDelete(review.getReview_no());
+			}
+		}
+		
+		List<PostVO> list4 = postDao.postOfClass(liclass.getC_no()); //클래스를 참조하는 post 삭제
+		if(list4.size()>0) {
+			for(PostVO post : list4) {
+				result4 = postDao.postDelete(post);
+			}
+		}
+		/*클래스 DB 삭제*/
+		if(result1==1 || result2 ==1 || result3 ==1 || result4 ==1) {	//이미지, 좋아요, 리뷰, 포스트 삭제 성공시 진행
+			result5 = classDao.classDelete(liclass.getC_no());
+		}
+		return result5;
 	}
+
 	
 	@Override
 	public Map<String, String> classDetail2(int c_no) {
