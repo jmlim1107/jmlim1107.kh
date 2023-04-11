@@ -94,6 +94,8 @@ public class EpisodeController {
 					reserveService.reservWithdraw(rvo.getR_no()); 														//예약상태바꾸기
 					PaymentVO pvo = paymentService.getWithdrawPay(rvo.getR_no()); 				//예약의 결제데이터가져오기
 					refundresult = paymentService.payCencel( pvo.getMerchant_uid(), pvo.getPay_price() ); //환불처리하기
+					paymentService.updWithdrawPay(pvo); //결제상태바꾸기
+					//결제상태 바꾸기
 					RefundVO refundVO = new RefundVO(); //환불데이터의 생성
 					refundVO.setMerchant_uid(pvo.getMerchant_uid());
 				    refundVO.setRefund_method(pvo.getPay_method());
