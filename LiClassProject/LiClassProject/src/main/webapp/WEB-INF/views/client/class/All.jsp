@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;500&family=Racing+Sans+One&family=Shrikhand&display=swap" rel="stylesheet">
 <link src = "/resources/include/mainLayout/vendor/bootstrap-icons/bootstrap-icons.css">
-
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 <style>
 	.bi-star-fill{
 	margin : -40px 6px 0 0;
@@ -38,7 +38,9 @@
             <div class="card-body p-4" style="margin-top: 5px;">
             	<div class="text-center">
                   <!-- 클래스 명 -->
-                  <span class="fw-bolder goClassDetail" data-num="${classes.c_no}" style="font-size: 14px; font-family: 'Noto Serif KR', serif;">${classes.c_title}</span>
+                  <span class="fw-bolder goClassDetail" data-num="${classes.c_no}" style="font-size: 14px; font-family: 'Noto Serif KR', serif;">
+                  ${fn:replace(classes.c_title, replaceChar, "<br/>")}
+                  </span>
                   <div class = "classContent" style="font-family: 'Noto Serif KR', serif;">${classes.c_content}</div>
               	</div>
               	

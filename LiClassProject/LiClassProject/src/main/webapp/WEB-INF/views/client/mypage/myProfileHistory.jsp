@@ -65,7 +65,6 @@
 	
 	
 	<tr>
-<%-- 		<td>${updateUser}</td> --%>
 		<td><i class="fa-solid fa-record-vinyl fa-2x"></i></td>
 		<td><span class = "tdfont"> <fmt:formatNumber value="${loginUser.user_point}" pattern="#,###"/>  point</span></td>
 	</tr>
@@ -80,31 +79,6 @@
 		<td><span id="user_tel" class = "tdfont" ></span></td>
 	</tr>
 	
-	
-	<%-- <div class="img-box-sm">
-    	<c:if test="${loginUser.user_img != ''}">
-   			<c:choose>
-     			<c:when test="${loginUser.user_type eq 0}">
-      				<div class="profile-img" style="height:100px;">
-						<img class="icon2" src="/uploadLiClass/user/${loginUser.user_img}" alt="profile" style="border: 1px solid black;">
-					</div>
-    			</c:when>
-    			
-	    		<c:otherwise>
-	      			<div class="profile-img" style="height:100px;"><img class="icon2" src="${loginUser.user_img}" alt="profile" style="border: 1px solid black;"></div>
-	    		</c:otherwise>
-   			</c:choose>
-  		</c:if>
-		<c:if test="${loginUser.user_img == ''}">
- 			<div class="profile-img" style="height:100px;"><img class="icon2" src="/uploadLiClass/user/default-profile.png" alt="profile" style="border: 1px solid black;"/></div>
-		</c:if>
-			<c:if test="${loginUser.user_type eq 0}">
-				<div class="hover-content2">
-           			<a href="#img-edit" rel="modal:open"><i class="fa-solid fa-pen-to-square" id="profile-edit" style="border: 1px solid black;"></i></a>
-           		</div>
-  			</c:if>
-  			
-	</div> --%>
 	</table>
 	<div class = "container">
 		<div class = "row" style="width: 80%;">
@@ -119,10 +93,6 @@
 		</div>
 	
 	</div>
-	 <!--  <div class="main-white-button">
-      	<span><a href="/mypage/updateForm" id="edit-btn" style="width: 50%; display: inline;"><i class="fa-regular fa-user"></i>수정하기</a></span>
-      	<span><a href="/courseHistory" style="width: 50%;  display: inline;"><i class="fa-solid fa-money-check"></i>수강내역</a></span>
-      -->
 
 	<!-- profile img edit modal start -->
 	
@@ -140,12 +110,6 @@
         <a class="btn" id="cancel" rel="modal:close"><i class="fa-solid fa-xmark" style="margin:1px;"></i>취소</a>
 </div>
 	<!-- profile img edit modal end -->
-	
-	<div>
-		
-	
-	</div>
-	
 </div>
 
 <div class="col-lg-7 align-self-center" id="pw-check-div" style="display: none" >
