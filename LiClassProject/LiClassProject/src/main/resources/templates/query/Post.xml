@@ -52,4 +52,9 @@
 		where post_no = #{post_no}
 	</delete>
 	
+	<!-- 경민) 클래스 기준 클래스 일지 리스트 조회 -->
+	<select id="postOfClass" parameterType="int" resultType="Post">
+		select * from li_post where c_no = #{c_no}
+	</select>
+	
 </mapper>

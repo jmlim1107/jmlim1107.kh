@@ -18,4 +18,7 @@ public interface PostDAO {
 	public int postUpdate(PostVO vo)throws Exception;
 	//클래스일지 Delete 
 	public int postDelete(PostVO vo)throws Exception;
+	
+	//경민) 클래스 기준 클래스일지 조회
+	public List<PostVO> postOfClass(int c_no);
 }

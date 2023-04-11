@@ -22,4 +22,10 @@
 		delete from li_likes
 		where user_no = #{user_no} and c_no = #{c_no}
 	</delete>
+	
+	<!-- 경민 -->
+	<!-- 클래스에 해당하는 likes개체 리스트 조회 -->
+	<select id="likesOfClass" parameterType="int" resultType="Likes" >
+		select * from li_likes where c_no = #{c_no}
+	</select>
 </mapper>
