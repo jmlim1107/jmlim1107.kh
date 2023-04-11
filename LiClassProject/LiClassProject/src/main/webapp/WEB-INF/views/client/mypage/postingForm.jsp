@@ -92,7 +92,7 @@
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <input type="file" name="file" id="post_img" onchange="readURL(this);" >
+                            <input type="file" name="file" id="post_img" accept="image/png, image/jpg" onchange="readURL(this);" >
 							<br /><br />
 							<img id="preview" />
                         </div>

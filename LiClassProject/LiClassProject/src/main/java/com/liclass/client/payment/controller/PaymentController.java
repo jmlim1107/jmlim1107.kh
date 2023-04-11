@@ -113,7 +113,7 @@ public class PaymentController {
          paymentVO.setPay_status(pay_status);
          paymentSerivce.inserPayment(paymentVO);
          paymentSerivce.changeRerserveStatus(paymentVO.getR_no(), r_state);
-         System.out.println("결제 취소");
+         System.out.println("결제 실패");
          goUrl = "/?payerrormsg=시스템 문제로 결제에 실패하였습니다. 관리자에게 문의하기 바랍니다."; // 다시 결제페이지로 이동 or 홈으로 이동
          paymentData.put("goUrl", goUrl);
       }

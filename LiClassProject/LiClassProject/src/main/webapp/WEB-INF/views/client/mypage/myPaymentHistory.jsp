@@ -204,6 +204,9 @@
 												<c:if test="${payment.pay_status==3}">
 													<td>환불완료</td>
 												</c:if>
+												<c:if test="${payment.pay_status==4}">
+													<td style="color:#FF0040;">강제환불건</td>
+												</c:if>
 	                                    	</c:if>
 	                                    	<c:if test="${classImg[status.index].r_date>1}">
 	                                    		<c:if test="${payment.pay_status==0}">
@@ -219,6 +222,9 @@
 												</c:if>
 												<c:if test="${payment.pay_status==3}">
 													<td>환불완료</td>
+												</c:if>
+												<c:if test="${payment.pay_status==4}">
+													<td style="color:#FF0040;">강제환불건</td>
 												</c:if>
 	                                    	</c:if>
 	                                    </c:if>
@@ -237,6 +243,9 @@
 											</c:if>
 											<c:if test="${payment.pay_status==3}">
 												<td>환불완료</td>
+											</c:if>
+											<c:if test="${payment.pay_status==4}">
+												<td style="color:#FF0040;">강제환불건</td>
 											</c:if>
 	                                    </c:if>	                                    							
                       

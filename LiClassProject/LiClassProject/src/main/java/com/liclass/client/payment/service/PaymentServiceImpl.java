@@ -229,6 +229,12 @@ public class PaymentServiceImpl implements PaymentService{
 	public PaymentVO getWithdrawPay(int r_no) {
 		PaymentVO pvo = paymentDao.getWithdrawPay(r_no);
 		return pvo;
-	}	
+	}
+
+	@Override
+	public int updWithdrawPay(PaymentVO paymentInfo) {
+		int result = paymentDao.updWithdrawPay(paymentInfo);
+		return result;
+	}
    
 }

@@ -244,6 +244,7 @@ public class MyPageController { //은아,웅배
 			UserFileUpload.fileDelete(profile);
 		}
 		loginUser.setUser_img("default-profile.png");
+		mypageService.updateImg(loginUser);
 		
 		return "redirect:/mypage";
 	}

@@ -108,7 +108,7 @@
 	                        <c:if test="${orginPost.post_img != ''}">
 	                        	<img src="/uploadLiClass/post/${originPost.post_img}" style="width:250px; height:250px; margin-bottom:10px;">
 							</c:if>
-                            <input type="file" name="file" id="post_img" onchange="readURL(this);" >
+                            <input type="file" name="file" id="post_img" onchange="readURL(this);" accept="image/png, image/jpg">
 							<br /><br />
 							<img id="preview" />
                         </div>

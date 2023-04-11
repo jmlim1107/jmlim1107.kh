@@ -88,7 +88,13 @@
    <!-- 경민) 회차삭제로 인한 결제데이터 가져오는거 -->
    <select id="getWithdrawPay" parameterType="int" resultType="payment">
 		 select * from li_payment where r_no = #{r_no}
-	</select>
+   </select>
+	
+   <!-- 경민)결제 상태바꾸기 -->
+   <update id="updWithdrawPay" parameterType="payment">
+   		update li_payment set pay_status = 3
+      	where merchant_uid = #{merchant_uid}
+   </update>
 
 
 </mapper>
