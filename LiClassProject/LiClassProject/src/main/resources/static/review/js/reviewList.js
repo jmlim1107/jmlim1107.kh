@@ -7,7 +7,6 @@ $(function(){
 	 	 
 	 	// 글쓰기 버튼 클릭시
 		$(".insertFormBtn").click(function(){
-			console.log($(this).parents("td").attr("data-cno"));
 			var cno = $(this).parents("td").attr("data-cno");
 			var rno = $(this).parents("td").attr("data-rno");
 			var userno = $(this).parents("td").attr("data-userno");
@@ -36,40 +35,29 @@ $(function(){
 				data : "r_no="+$(this).parents("td").attr("data-rno"),
 				dataType : "json",
 				success : function(data){
-					//alert(data.review_content);
-					// json 값을 모달에 설정
 					 var content = data.review_content;
 					 content = content.replaceAll("<br />" , " ");
 		        	 var d ="/uploadLiClass/class/thumbnail/"+ data.img;
-/*		        	 content = content.replace("<br />" , " ");*/
-		        	 console.log("테스트" + d); 
-		        	$("#reviewDetailImg").attr("src",d);
-		     	
-					$("#r_detailContent").val(content);
-					$("#r_detailTitle").val(data.review_title);
-					$('input[name="review_rating"]').val([data.review_rating]);
-					$('input[name="review_recommend"]').val([data.review_recommend]);
+		        	$("#reviewDetailImg").attr("src",d);								// 클래스 사진 가져오기
+					$("#r_detailContent").val(content);									// 클래스 후기 내용 가져오기
+					$("#r_detailTitle").val(data.review_title);							// 클래스 후기 제목 가져오기
+					$('input[name="review_rating"]').val([data.review_rating]);			// 클래스 후기 별점 가져오기
+					$('input[name="review_recommend"]').val([data.review_recommend]);	// 클래스 후기 추천 여부 가져오기
 			
-					$('input[name="r_no"]').val([data.r_no]);
-					$('input[name="review_no"]').val([data.review_no]);
+					$('input[name="r_no"]').val([data.r_no]);							// 예약 번호 가져오기
+					$('input[name="review_no"]').val([data.review_no]);					// 후기 번호 가져오기
 					
-		        	
-					
-					// 모달창 띄우기
-					$("#test3").fadeIn();
+					$("#test3").fadeIn();												// 상세화면 모달창 띄우기
 				},
 				error : function(data){
 					alert("실패했습니다.");
-				
 					return false;
 				}
 				
 			});
 			
 		  });
-		 
-		 /*data : JSON.stringify({ "review_no" : $("#review_no").val() }),*/
-		 /*,contentType : "application/json",*/
+
 	 	// 상세페이지 모달창 닫기
 		$("#detailmodal_close").click(function(){
 			$("#test3").fadeOut();
@@ -83,8 +71,6 @@ $(function(){
 	  	// 글수정 버튼 클릭시	
 	  	/* 디테일 버튼 클릭시  페이지 이동을 위한 처리 이벤트 */		
 		$("#updateFormBtn2").click(function(){
-			console.log("수정버튼 눌림");
-			
 			
 			$.ajax({
 				type : "post",
@@ -98,7 +84,6 @@ $(function(){
 					$("#updateContent").val(data.review_content);
 					$("#updateTitle").val(data.review_title);
 			
-					
 					$("#test3").hide(); 
 					$("#test2").show();
 					
