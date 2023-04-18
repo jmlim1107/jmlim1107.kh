@@ -11,6 +11,7 @@ create table li_payment (            -- 결제 테이블
     pay_buyer_email varchar2(100) not null, -- 주문자 이메일
     pay_date        date default  sysdate,  -- 결제일자
     pay_status      number        not null,  -- 결제상태  0: 성공, 1:취소, 2:실패, 3:환불
+    pay_point	  number        not null,  -- 사용 포인트
     
     constraint li_payment_pk primary key(merchant_uid),
     constraint li_refund_fk foreign key(r_no) references li_reserve(r_no)
