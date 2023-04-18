@@ -191,7 +191,7 @@
 	                                    <c:if test="${payment.count<7}">
 	                                    	<c:if test="${classImg[status.index].r_date<=1}">
 	                                    		<c:if test="${payment.pay_status==0}">
-													<td>결제완료</td>
+													<td>결제확정</td>
 												</c:if>
 												<c:if test="${payment.pay_status==1}">
 													<td>결제취소</td>	
@@ -229,7 +229,7 @@
 	                                    
 	                                    <c:if test="${payment.count>=7}">
 											<c:if test="${payment.pay_status==0}">
-												<td>결제완료</td>
+												<td>결제확정</td>
 											</c:if>
 											<c:if test="${payment.pay_status==1}">
 												<td>결제취소</td>	
